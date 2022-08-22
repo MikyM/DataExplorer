@@ -1,5 +1,6 @@
 ﻿using DataExplorer.EfCore.Specifications.Exceptions;
 using DataExplorer.EfCore.Specifications.Helpers;
+// ReSharper disable PossibleMultipleEnumeration
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
@@ -33,11 +34,11 @@ public class OrderEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
                 }
                 else if (orderExpression.OrderType == OrderTypeEnum.ThenBy)
                 {
-                    orderedQuery = orderedQuery.ThenBy(orderExpression.KeySelector);
+                    orderedQuery = orderedQuery!.ThenBy(orderExpression.KeySelector);
                 }
                 else if (orderExpression.OrderType == OrderTypeEnum.ThenByDescending)
                 {
-                    orderedQuery = orderedQuery.ThenByDescending(orderExpression.KeySelector);
+                    orderedQuery = orderedQuery!.ThenByDescending(orderExpression.KeySelector);
                 }
             }
 
@@ -73,11 +74,11 @@ public class OrderEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
                 }
                 else if (orderExpression.OrderType == OrderTypeEnum.ThenBy)
                 {
-                    orderedQuery = orderedQuery.ThenBy(orderExpression.KeySelectorFunc);
+                    orderedQuery = orderedQuery!.ThenBy(orderExpression.KeySelectorFunc);
                 }
                 else if (orderExpression.OrderType == OrderTypeEnum.ThenByDescending)
                 {
-                    orderedQuery = orderedQuery.ThenByDescending(orderExpression.KeySelectorFunc);
+                    orderedQuery = orderedQuery!.ThenByDescending(orderExpression.KeySelectorFunc);
                 }
             }
 

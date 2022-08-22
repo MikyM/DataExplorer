@@ -27,11 +27,11 @@ public interface IEfCoreDataServiceBase<out TContext> : IDataServiceBase<TContex
     /// <returns>Task with a <see cref="Result"/> representing the async operation.</returns>
     Task<Result> BeginTransactionAsync(CancellationToken cancellationToken = default);
 
-    /// <inheritdoc cref="IDataServiceBase{TContext}.CommitAsync(string)"/>
+    /// <inheritdoc cref="IDataServiceBase{TContext}.CommitAsync(string,CancellationToken)"/>
     /// <returns>Number of affected rows.</returns>
     Task<Result<int>> CommitWithCountAsync(string auditUserId, CancellationToken cancellationToken = default);
 
-    /// <inheritdoc cref="IDataServiceBase{TContext}.CommitAsync()"/>
+    /// <inheritdoc cref="IDataServiceBase{TContext}.CommitAsync(CancellationToken)"/>
     /// <returns>Number of affected rows.</returns>
     Task<Result<int>> CommitWithCountAsync(CancellationToken cancellationToken = default);
 }

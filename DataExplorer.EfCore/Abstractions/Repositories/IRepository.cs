@@ -3,6 +3,7 @@ using DataExplorer.Entities;
 using DataExplorer.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+#pragma warning disable CS1574, CS1584, CS1581, CS1580
 
 namespace DataExplorer.EfCore.Abstractions.Repositories;
 
@@ -149,7 +150,6 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// <remarks>
     ///     See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information.
     /// </remarks>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
     /// <param name="entity">The entity to begin updating.</param>
     /// <param name="shouldSwapAttached">Whether to swapped an already attached entity if found with one that was provided.</param>
     /// <returns>
@@ -190,7 +190,6 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// <remarks>
     ///     See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information.
     /// </remarks>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
     /// <param name="entities">The entity to begin updating.</param>
     /// <param name="shouldSwapAttached">Whether to swapped an already attached entity if found with one that was provided.</param>
     /// <returns>

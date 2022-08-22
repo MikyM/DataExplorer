@@ -179,7 +179,7 @@ internal class CachedReadConcurrentDictionary<TKey, TValue> : IDictionary<TKey, 
     }
 
     /// <inheritdoc />
-    public bool TryGetValue(TKey key, out TValue value) => GetReadDictionary().TryGetValue(key, out value);
+    public bool TryGetValue(TKey key, out TValue value) => GetReadDictionary().TryGetValue(key, out value!);
 
     /// <inheritdoc />
     public TValue this[TKey key]

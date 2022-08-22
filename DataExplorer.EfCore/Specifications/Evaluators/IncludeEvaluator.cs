@@ -89,7 +89,7 @@ public class IncludeEvaluator : IEvaluator, IEvaluatorBase
 
         if (!_cacheEnabled)
         {
-            return (IQueryable<T>)IncludeMethodInfo.MakeGenericMethod(includeInfo.EntityType, includeInfo.PropertyType).Invoke(null, new object[] { query, includeInfo.LambdaExpression, });
+            return ((IQueryable<T>)IncludeMethodInfo.MakeGenericMethod(includeInfo.EntityType, includeInfo.PropertyType).Invoke(null, new object[] { query, includeInfo.LambdaExpression, })!)!;
         }
 
         var include = DelegatesCache.GetOrAdd((includeInfo.EntityType, includeInfo.PropertyType, null), CreateIncludeDelegate).Value;
@@ -104,10 +104,10 @@ public class IncludeEvaluator : IEvaluator, IEvaluatorBase
 
         if (!_cacheEnabled)
         {
-            return (IQueryable<T>)(IsGenericEnumerable(includeInfo.PreviousPropertyType, out var previousPropertyType)
+            return ((IQueryable<T>)(IsGenericEnumerable(includeInfo.PreviousPropertyType, out var previousPropertyType)
                     ? ThenIncludeAfterEnumerableMethodInfo
                     : ThenIncludeAfterReferenceMethodInfo).MakeGenericMethod(includeInfo.EntityType, previousPropertyType, includeInfo.PropertyType)
-                .Invoke(null, new object[] { query, includeInfo.LambdaExpression, });
+                .Invoke(null, new object[] { query, includeInfo.LambdaExpression, })!)!;
         }
 
         var thenInclude = DelegatesCache.GetOrAdd((includeInfo.EntityType, includeInfo.PropertyType, includeInfo.PreviousPropertyType), CreateThenIncludeDelegate).Value;
@@ -158,7 +158,7 @@ public class IncludeEvaluator : IEvaluator, IEvaluatorBase
                 concreteThenInclude,
                 Expression.Convert(
                     sourceParameter,
-                    typeof(IIncludableQueryable<,>).MakeGenericType(cacheKey.EntityType, cacheKey.PreviousPropertyType)), // cacheKey.PreviousPropertyType must be exact type, not generic type argument
+                    typeof(IIncludableQueryable<,>).MakeGenericType(cacheKey.EntityType, cacheKey.PreviousPropertyType!)), // cacheKey.PreviousPropertyType must be exact type, not generic type argument
                 Expression.Convert(selectorParameter, typeof(Expression<>).MakeGenericType(typeof(Func<,>).MakeGenericType(previousPropertyType, cacheKey.PropertyType))));
 
             var lambda = Expression.Lambda<Func<IQueryable, LambdaExpression, IQueryable>>(call, sourceParameter, selectorParameter);

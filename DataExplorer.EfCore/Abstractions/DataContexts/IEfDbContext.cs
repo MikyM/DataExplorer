@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage;
+#pragma warning disable CS1574, CS1584, CS1581, CS1580
 
 namespace DataExplorer.EfCore.Abstractions.DataContexts;
 

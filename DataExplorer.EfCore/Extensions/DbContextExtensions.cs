@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 
 namespace DataExplorer.EfCore.Extensions;
@@ -7,6 +8,7 @@ namespace DataExplorer.EfCore.Extensions;
 /// DbContext extensions.
 /// </summary>
 [PublicAPI]
+[SuppressMessage("Usage", "EF1001:Internal EF Core API usage.")]
 public static class DbContextExtensions
 {
     /// <summary>

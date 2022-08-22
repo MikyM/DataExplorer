@@ -8,6 +8,7 @@ namespace DataExplorer.EfCore;
 /// <summary>
 /// Audit database entry.
 /// </summary>
+[PublicAPI]
 public class AuditEntry
 {
     /// <summary>
@@ -21,30 +22,37 @@ public class AuditEntry
     /// Entity entry.
     /// </summary>
     public EntityEntry Entry { get; }
+
     /// <summary>
     /// User Id.
     /// </summary>
     public string? UserId { get; set; }
+
     /// <summary>
     /// Table name.
     /// </summary>
     public string? TableName { get; set; }
+
     /// <summary>
     /// Key values.
     /// </summary>
     public Dictionary<string, object> KeyValues { get; } = new();
+
     /// <summary>
     /// Old values.
     /// </summary>
     public Dictionary<string, object> OldValues { get; } = new();
+
     /// <summary>
     /// New values.
     /// </summary>
     public Dictionary<string, object> NewValues { get; } = new();
+
     /// <summary>
     /// Type of the audited action.
     /// </summary>
     public AuditType AuditType { get; set; }
+
     /// <summary>
     /// Changed columns.
     /// </summary>
@@ -57,9 +65,9 @@ public class AuditEntry
     public AuditLog ToAudit()
         => new()
         {
-            UserId = UserId,
+            UserId = UserId!,
             Type = AuditType.ToString().ToSnakeCase(),
-            TableName = TableName,
+            TableName = TableName!,
             PrimaryKey = JsonSerializer.Serialize(KeyValues),
             OldValues = OldValues.Count is 0 ? null : JsonSerializer.Serialize(OldValues),
             NewValues = NewValues.Count is 0 ? null : JsonSerializer.Serialize(NewValues),

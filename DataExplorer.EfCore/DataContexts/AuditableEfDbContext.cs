@@ -63,7 +63,7 @@ public abstract class AuditableEfDbContext : EfDbContext, IAuditableEfDbContext
 
 
     /// <inheritdoc/>
-    /// <remarks>Handles audit logs and <see cref="Entity.CreatedAt"/>, <see cref="Entity.UpdatedAt"/> properties.</remarks>
+    /// <remarks>Handles audit logs and date properties.</remarks>
     protected override void OnBeforeSaveChanges(List<EntityEntry>? entries = null)
     {
         if (entries is null)

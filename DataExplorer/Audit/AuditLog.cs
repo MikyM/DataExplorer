@@ -26,17 +26,17 @@ public class AuditLog : SnowflakeEntity
     /// <summary>
     /// Previous values.
     /// </summary>
-    public string OldValues { get; set; } = null!;
+    public string? OldValues { get; set; }
 
     /// <summary>
     /// New values.
     /// </summary>
-    public string NewValues { get; set; } = null!;
+    public string? NewValues { get; set; }
 
     /// <summary>
     /// Affected columns.
     /// </summary>
-    public string AffectedColumns { get; set; } = null!;
+    public string? AffectedColumns { get; set; }
 
     /// <summary>
     /// Primary key.

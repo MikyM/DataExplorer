@@ -43,7 +43,7 @@ public class DataExplorerEfCoreConfiguration
     /// </summary>
 
     /// <summary>
-    /// Actions to execute before each <see cref="IUnitOfWork.CommitAsync(CancellationToken)"/>.
+    /// Actions to execute before each commit.
     /// </summary>
     public Dictionary<string, Func<IUnitOfWork, Task>>? OnBeforeSaveChangesActions
          => _onBeforeSaveChangesActions;

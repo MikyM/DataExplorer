@@ -1,4 +1,5 @@
 ﻿using DataExplorer.Abstractions.Entities;
+// ReSharper disable VirtualMemberCallInConstructor
 
 namespace DataExplorer.Entities;
 
@@ -36,6 +37,7 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<Entity<
     {
         CreatedAt ??= DateTime.UtcNow;
         UpdatedAt ??= CreatedAt;
+        Id = default!;
     }
 
     /// <summary>
@@ -140,11 +142,11 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<Entity<
         const string efCoreProxyPrefix = "Castle.Proxies.";
         const string nHibernateProxyPostfix = "Proxy";
 
-        var type = obj.GetType();
+        var type = obj!.GetType();
         var typeString = type.ToString();
 
         if (typeString.Contains(efCoreProxyPrefix) || typeString.EndsWith(nHibernateProxyPostfix))
-            return type.BaseType;
+            return type.BaseType!;
 
         return type;
     }

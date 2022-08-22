@@ -40,17 +40,17 @@ public static class SearchExtension
         {
             if (string.IsNullOrEmpty(criteria.SearchTerm)) continue;
 
-            var functions = Expression.Property(null, typeof(EF).GetProperty(nameof(EF.Functions)));
+            var functions = Expression.Property(null, typeof(EF).GetProperty(nameof(EF.Functions))!);
             var like = typeof(DbFunctionsExtensions).GetMethod(nameof(DbFunctionsExtensions.Like),
-                new Type[] { functions.Type, typeof(string), typeof(string) });
+                new[] { functions.Type, typeof(string), typeof(string) });
 
             var propertySelector =
                 ParameterReplacerVisitor.Replace(criteria.Selector, criteria.Selector.Parameters[0], parameter);
 
-            var likeExpression = Expression.Call(null, like, functions, (propertySelector as LambdaExpression)?.Body,
+            var likeExpression = Expression.Call(null, like!, functions, (propertySelector as LambdaExpression)?.Body!,
                 Expression.Constant(criteria.SearchTerm));
 
-            expr = expr == null ? (Expression)likeExpression : Expression.OrElse(expr, likeExpression);
+            expr = expr == null ? likeExpression : Expression.OrElse(expr, likeExpression);
         }
 
         return expr == null ? source : source.Where(Expression.Lambda<Func<T, bool>>(expr, parameter));
