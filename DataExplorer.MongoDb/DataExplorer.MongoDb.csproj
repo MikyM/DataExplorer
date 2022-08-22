@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageId>DataExplorer.MongoDb</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Krzysztof Kupisz</Authors>
+        <PackageDescription>Library featuring common patterns in regard to working with MongoDb.</PackageDescription>
+        <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DataExplorer\DataExplorer.csproj" />
+    </ItemGroup>
+
+</Project>

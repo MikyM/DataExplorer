@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer", "DataExplorer\DataExplorer.csproj", "{B16718D8-5683-4BBD-A590-65F9684B1901}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.EfCore", "DataExplorer.EfCore\DataExplorer.EfCore.csproj", "{27378EA9-2C64-43C8-805A-545ED312545A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.MongoDb", "DataExplorer.MongoDb\DataExplorer.MongoDb.csproj", "{AE940C53-A3DD-4246-A647-0F6AE4B536FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B16718D8-5683-4BBD-A590-65F9684B1901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B16718D8-5683-4BBD-A590-65F9684B1901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B16718D8-5683-4BBD-A590-65F9684B1901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B16718D8-5683-4BBD-A590-65F9684B1901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27378EA9-2C64-43C8-805A-545ED312545A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27378EA9-2C64-43C8-805A-545ED312545A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27378EA9-2C64-43C8-805A-545ED312545A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27378EA9-2C64-43C8-805A-545ED312545A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE940C53-A3DD-4246-A647-0F6AE4B536FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE940C53-A3DD-4246-A647-0F6AE4B536FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE940C53-A3DD-4246-A647-0F6AE4B536FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE940C53-A3DD-4246-A647-0F6AE4B536FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
