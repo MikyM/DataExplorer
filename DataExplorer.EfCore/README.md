@@ -68,12 +68,12 @@ You can define a crud data service like so to add some custom logic:
 ```csharp
 public interface ICustomDataService : ICrudDataService<CustomEntity, ICustomDbContext>
 {
-    Task<Result> GetFirstEntityWithCustomFieldTrue();
+    Task<Result> GetFirstEntityWithCustomFieldTrueAndPerformLogicAsync();
 }
 
 public class CustomDataService : CrudDataService<CustomEntity, ICustomDbContext>, ICustomDataService
 {
-    public async Task<Result> GetFirstEntityWithCustomFieldTrueAndPerformLogic()
+    public async Task<Result> GetFirstEntityWithCustomFieldTrueAndPerformLogicAsync()
     {
         var entityRes = await GetSingleBySpecAsync(new CustomSpecification(true));
 
@@ -98,7 +98,7 @@ public class CustomController : ControllerBase
         => _dataService = dataService;
 
     [HttpGet]
-    public async Task<IActionResult> GetAllByCustomField(bool customField)
+    public async Task<IActionResult> GetAllByCustomFieldAsync(bool customField)
     {
         var subRes = await _dataService.GetBySpecAsync(new CustomSpecification(customField)); // or GetBySpecAsync<SomeDto> to automatically map the entity using AutoMapper
         if (!subRes.IsDefined(out var result))
