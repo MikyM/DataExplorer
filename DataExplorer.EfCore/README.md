@@ -109,4 +109,4 @@ public class CustomController : ControllerBase
 }
 ```
 
-All service methods should return a [Result](https://github.com/MikyM/MikyM.Common.Utilities/blob/master/MikyM.Common.Utilities/Results/Result.cs) struct which determines whether the operation succeeded or not and returns additional objects if necessary and shouldn't throw exceptions unless absolutely necessary.
+All service methods should return a [Result](https://github.com/Remora/Remora.Results) struct which determines whether the operation succeeded or not and returns additional objects if necessary and shouldn't throw exceptions unless absolutely necessary.
