@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
 using AutoMapper.Extensions.ExpressionMapping;
+using Microsoft.Extensions.DependencyInjection;
 using MikyM.Autofac.Extensions;
 
 namespace DataExplorer;
@@ -27,6 +28,25 @@ public static class DependencyInjectionExtensions
         builder.RegisterGeneric(typeof(AsyncInterceptorAdapter<>));
 
         return builder;
+    }
+
+    /// <summary>
+    /// Adds Data Explorer to the application.
+    /// </summary>
+    /// <param name="serviceCollection">Current instance of <see cref="IServiceCollection"/>.</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static IServiceCollection AddDataExplorer(this IServiceCollection serviceCollection,
+        Action<DataExplorerConfiguration> options)
+    {
+        var config = new DataExplorerConfiguration(serviceCollection);
+        options.Invoke(config);
+
+        // register automapper
+        serviceCollection.AddAutoMapper(opt => opt.AddExpressionMapping(), AppDomain.CurrentDomain.GetAssemblies());
+        //register async interceptor adapter
+        serviceCollection.AddSingleton(typeof(AsyncInterceptorAdapter<>));
+
+        return serviceCollection;
     }
 
     /// <summary>

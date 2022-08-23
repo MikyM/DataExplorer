@@ -1,10 +1,13 @@
-﻿using Autofac;
+﻿using System.Reflection;
+using Autofac;
 using DataExplorer.EfCore.Abstractions;
 using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.DataContexts;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Validators;
+using Microsoft.Extensions.DependencyInjection;
 using MikyM.Autofac.Extensions;
+using MikyM.Utilities.Extensions;
 
 namespace DataExplorer.EfCore;
 
@@ -22,8 +25,18 @@ public class DataExplorerEfCoreConfiguration
     {
         Builder = builder;
     }
+    
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    /// <param name="serviceCollection"></param>
+    public DataExplorerEfCoreConfiguration(IServiceCollection serviceCollection)
+    {
+        ServiceCollection = serviceCollection;
+    }
 
-    internal readonly ContainerBuilder Builder;
+    internal readonly ContainerBuilder? Builder;
+    internal readonly IServiceCollection? ServiceCollection;
     
     /// <summary>
     /// Disables the insertion of audit log entries.
@@ -86,10 +99,21 @@ public class DataExplorerEfCoreConfiguration
     /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
     public DataExplorerEfCoreConfiguration AddEvaluator<TEvaluator>() where TEvaluator : class, IEvaluator
     {
-        Builder.RegisterType(typeof(TEvaluator))
+        Builder?.RegisterType(typeof(TEvaluator))
             .As<IEvaluator>()
             .FindConstructorsWith(new AllConstructorsFinder())
             .SingleInstance();
+        
+        ServiceCollection?.AddSingleton(typeof(IEvaluator), _ => Activator.CreateInstance(
+            typeof(TEvaluator),
+            BindingFlags.Instance
+            | BindingFlags.Public
+            | BindingFlags.NonPublic,
+            null,
+            Array.Empty<object>(),
+            null
+        )!);
+
 
         return this;
     }
@@ -104,10 +128,20 @@ public class DataExplorerEfCoreConfiguration
         if (evaluator.GetInterface(nameof(IEvaluator)) is null)
             throw new NotSupportedException("Registered evaluator did not implement IEvaluator interface");
 
-        Builder.RegisterType(evaluator)
+        Builder?.RegisterType(evaluator)
             .As<IEvaluator>()
             .FindConstructorsWith(new AllConstructorsFinder())
             .SingleInstance();
+        
+        ServiceCollection?.AddSingleton(typeof(IEvaluator), _ => Activator.CreateInstance(
+            evaluator,
+            BindingFlags.Instance
+            | BindingFlags.Public
+            | BindingFlags.NonPublic,
+            null,
+            Array.Empty<object>(),
+            null
+        )!);
 
         return this;
     }
@@ -118,14 +152,32 @@ public class DataExplorerEfCoreConfiguration
     /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
     public DataExplorerEfCoreConfiguration AddInMemoryEvaluators()
     {
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            Builder.RegisterAssemblyTypes(assembly)
-                .Where(x => x.GetInterface(nameof(IInMemoryEvaluator)) is not null)
-                .As<IInMemoryEvaluator>()
-                .FindConstructorsWith(new AllConstructorsFinder())
-                .SingleInstance();
-        }
+        if (Builder is not null)
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                Builder?.RegisterAssemblyTypes(assembly)
+                    .Where(x => x.GetInterface(nameof(IInMemoryEvaluator)) is not null)
+                    .As<IInMemoryEvaluator>()
+                    .FindConstructorsWith(new AllConstructorsFinder())
+                    .SingleInstance();
+            }
+        
+        if (ServiceCollection is not null)
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IInMemoryEvaluator)) is not null))
+                {
+                    ServiceCollection.AddSingleton(typeof(IInMemoryEvaluator), _ => Activator.CreateInstance(
+                        type,
+                        BindingFlags.Instance
+                        | BindingFlags.Public
+                        | BindingFlags.NonPublic,
+                        null,
+                        Array.Empty<object>(),
+                        null
+                    )!);
+                }
+            }
 
         return this;
     }
@@ -136,14 +188,32 @@ public class DataExplorerEfCoreConfiguration
     /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
     public DataExplorerEfCoreConfiguration AddValidators()
     {
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            Builder.RegisterAssemblyTypes(assembly)
-                .Where(x => x.GetInterface(nameof(IValidator)) is not null)
-                .As<IValidator>()
-                .FindConstructorsWith(new AllConstructorsFinder())
-                .SingleInstance();
-        }
+        if (Builder is not null)
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                Builder?.RegisterAssemblyTypes(assembly)
+                    .Where(x => x.GetInterface(nameof(IValidator)) is not null)
+                    .As<IValidator>()
+                    .FindConstructorsWith(new AllConstructorsFinder())
+                    .SingleInstance();
+            }
+        
+        if (ServiceCollection is not null)
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IValidator)) is not null))
+                {
+                    ServiceCollection.AddSingleton(typeof(IValidator), _ => Activator.CreateInstance(
+                        type,
+                        BindingFlags.Instance
+                        | BindingFlags.Public
+                        | BindingFlags.NonPublic,
+                        null,
+                        Array.Empty<object>(),
+                        null
+                    )!);
+                }
+            }
 
         return this;
     }
@@ -154,17 +224,38 @@ public class DataExplorerEfCoreConfiguration
     /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
     public DataExplorerEfCoreConfiguration AddEvaluators()
     {
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            if (assembly == typeof(IncludeEvaluator).Assembly)
-                continue;
+        if (Builder is not null)
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (assembly == typeof(IncludeEvaluator).Assembly)
+                    continue;
 
-            Builder.RegisterAssemblyTypes(assembly)
-                .Where(x => x.GetInterface(nameof(IEvaluator)) is not null)
-                .As<IEvaluator>()
-                .FindConstructorsWith(new AllConstructorsFinder())
-                .SingleInstance();
-        }
+                Builder?.RegisterAssemblyTypes(assembly)
+                    .Where(x => x.GetInterface(nameof(IEvaluator)) is not null)
+                    .As<IEvaluator>()
+                    .FindConstructorsWith(new AllConstructorsFinder())
+                    .SingleInstance();
+            }
+        
+        if (ServiceCollection is not null)
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (assembly == typeof(IncludeEvaluator).Assembly)
+                    continue;
+                
+                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IEvaluator)) is not null))
+                {
+                    ServiceCollection.AddSingleton(typeof(IEvaluator), _ => Activator.CreateInstance(
+                        type,
+                        BindingFlags.Instance
+                        | BindingFlags.Public
+                        | BindingFlags.NonPublic,
+                        null,
+                        Array.Empty<object>(),
+                        null
+                    )!);
+                }
+            }
 
         return this;
     }
@@ -180,22 +271,26 @@ public class DataExplorerEfCoreConfiguration
         switch (lifetime)
         {
             case Lifetime.SingleInstance:
-                Builder.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
+                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
                     .SingleInstance();
+                ServiceCollection?.AddSingleton<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
             case Lifetime.InstancePerRequest:
-                Builder.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
+                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
                     .InstancePerRequest();
+                ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
             case Lifetime.InstancePerLifetimeScope:
-                Builder.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
+                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
                     .InstancePerLifetimeScope();
+                ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
             case Lifetime.InstancePerMatchingLifetimeScope:
                 throw new NotSupportedException();
             case Lifetime.InstancePerDependency:
-                Builder.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
+                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
                     .InstancePerDependency();
+                ServiceCollection?.AddTransient<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
             case Lifetime.InstancePerOwned:
                 throw new NotSupportedException();
@@ -214,6 +309,9 @@ public class DataExplorerEfCoreConfiguration
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
     public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor(Type interceptor, DataInterceptorConfiguration configuration = DataInterceptorConfiguration.CrudAndReadOnly)
     {
+        if (Builder is null)
+            throw new NotSupportedException("Supported only when used with Autofac");
+        
         DataInterceptors.TryAdd(interceptor ?? throw new ArgumentNullException(nameof(interceptor)), configuration);
         return this;
     }
@@ -224,6 +322,9 @@ public class DataExplorerEfCoreConfiguration
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
     public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor<T>(DataInterceptorConfiguration configuration = DataInterceptorConfiguration.CrudAndReadOnly) where T : notnull
     {
+        if (Builder is null)
+            throw new NotSupportedException("Supported only when used with Autofac");
+        
         DataInterceptors.TryAdd(typeof(T), configuration);
         return this;
     }

@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using DataExplorer.IdGenerator;
+using IdGen.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 
@@ -19,8 +21,18 @@ public class DataExplorerConfiguration
     {
         Builder = builder;
     }
+    
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    /// <param name="serviceCollection"></param>
+    public DataExplorerConfiguration(IServiceCollection serviceCollection)
+    {
+        ServiceCollection = serviceCollection;
+    }
 
-    internal readonly ContainerBuilder Builder;
+    internal readonly ContainerBuilder? Builder;
+    internal readonly IServiceCollection? ServiceCollection;
 
     /// <summary>
     /// Registers a singleton <see cref="IdGenerator"/> with the given <paramref name="generatorId"/>.
@@ -38,7 +50,8 @@ public class DataExplorerConfiguration
     /// <returns>The given <see cref="ContainerBuilder"/> with the registered singleton <see cref="IdGenerator"/> in it.</returns>
     public DataExplorerConfiguration AddIdGen(int generatorId, Func<IdGeneratorOptions> options)
     {
-        Builder.AddIdGen(generatorId, options);
+        Builder?.AddIdGen(generatorId, options);
+        ServiceCollection?.AddIdGen(generatorId, options);
         return this;
     }
 
