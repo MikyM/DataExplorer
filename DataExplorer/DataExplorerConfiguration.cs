@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using DataExplorer.IdGenerator;
 using Microsoft.Extensions.Logging;
-using MikyM.Autofac.Extensions;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 
 namespace DataExplorer;

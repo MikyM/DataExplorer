@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using DataExplorer.Audit;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using MikyM.Common.Utilities.Extensions;
+using MikyM.Utilities.Extensions;
 
 namespace DataExplorer.EfCore;
 

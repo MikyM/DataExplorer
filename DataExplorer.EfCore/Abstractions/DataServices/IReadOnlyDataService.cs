@@ -3,7 +3,7 @@ using DataExplorer.Abstractions.Entities;
 using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.Specifications;
 using Microsoft.EntityFrameworkCore;
-using MikyM.Common.Utilities.Results;
+using Remora.Results;
 
 namespace DataExplorer.EfCore.Abstractions.DataServices;
 

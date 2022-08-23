@@ -2,7 +2,7 @@
 using DataExplorer.EfCore.Abstractions.Repositories;
 using DataExplorer.EfCore.Extensions;
 using DataExplorer.EfCore.Repositories;
-using MikyM.Common.Utilities.Extensions;
+using MikyM.Utilities.Extensions;
 
 namespace DataExplorer.EfCore;
 

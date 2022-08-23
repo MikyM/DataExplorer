@@ -7,8 +7,7 @@ using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.Abstractions.Repositories;
 using DataExplorer.EfCore.Specifications;
 using DataExplorer.Entities;
-using MikyM.Common.Utilities.Results;
-using MikyM.Common.Utilities.Results.Errors;
+using Remora.Results;
 
 namespace DataExplorer.EfCore.DataServices;
 

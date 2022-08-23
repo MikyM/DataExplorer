@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring common patterns in regard to working with data storages.</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -28,8 +28,9 @@
       <PackageReference Include="IdGen" Version="3.0.1" />
       <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
-      <PackageReference Include="MikyM.Autofac.Extensions" Version="1.0.8" />
-      <PackageReference Include="MikyM.Common.Utilities" Version="1.1.1" />
+      <PackageReference Include="MikyM.Autofac.Extensions" Version="1.1.1" />
+      <PackageReference Include="MikyM.Utilities" Version="1.0.2" />
+      <PackageReference Include="Remora.Results" Version="7.2.2" />
     </ItemGroup>
 
     <ItemGroup>
