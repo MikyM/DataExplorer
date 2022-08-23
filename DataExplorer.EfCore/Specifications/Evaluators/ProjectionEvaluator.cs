@@ -6,7 +6,7 @@ public class ProjectionEvaluator : IProjectionEvaluator, IEvaluatorBase
 {
     public static ProjectionEvaluator Instance { get; } = new();
 
-    private ProjectionEvaluator()
+    internal ProjectionEvaluator()
     {
         
     }

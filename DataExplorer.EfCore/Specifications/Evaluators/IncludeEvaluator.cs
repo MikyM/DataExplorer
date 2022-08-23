@@ -42,7 +42,7 @@ public class IncludeEvaluator : IEvaluator, IEvaluatorBase
 
     private readonly bool _cacheEnabled;
 
-    private IncludeEvaluator(bool cacheEnabled)
+    internal IncludeEvaluator(bool cacheEnabled)
     {
         _cacheEnabled = cacheEnabled;
     }

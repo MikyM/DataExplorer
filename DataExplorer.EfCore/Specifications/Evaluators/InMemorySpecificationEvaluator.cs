@@ -9,7 +9,7 @@ public class InMemorySpecificationEvaluator : IInMemorySpecificationEvaluator
 
     private readonly List<IInMemoryEvaluator> _evaluators = new();
 
-    private InMemorySpecificationEvaluator()
+    internal InMemorySpecificationEvaluator()
     {
         _evaluators.AddRange(new IInMemoryEvaluator[]
         {
@@ -20,7 +20,7 @@ public class InMemorySpecificationEvaluator : IInMemorySpecificationEvaluator
         });
     }
 
-    private InMemorySpecificationEvaluator(IEnumerable<IInMemoryEvaluator> evaluators)
+    internal InMemorySpecificationEvaluator(IEnumerable<IInMemoryEvaluator> evaluators)
     {
         _evaluators.AddRange(evaluators);
     }

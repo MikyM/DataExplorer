@@ -20,13 +20,13 @@ public class SpecificationEvaluator : ISpecificationEvaluator
 
     private readonly IProjectionEvaluator _projectionEvaluator;
 
-    private SpecificationEvaluator(IEnumerable<IEvaluator> evaluators, IProjectionEvaluator projectionEvaluator)
+    internal SpecificationEvaluator(IEnumerable<IEvaluator> evaluators, IProjectionEvaluator projectionEvaluator)
     {
         _projectionEvaluator = projectionEvaluator;
         _evaluators.AddRange(evaluators);
     }
 
-    private SpecificationEvaluator(bool cacheEnabled = false)
+    internal SpecificationEvaluator(bool cacheEnabled = false)
     {
         _projectionEvaluator = ProjectionEvaluator.Instance;
         _evaluators.AddRange(new List<IEvaluator>()

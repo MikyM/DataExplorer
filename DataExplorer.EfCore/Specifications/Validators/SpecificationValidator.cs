@@ -7,7 +7,7 @@ public class SpecificationValidator : ISpecificationValidator
 
     private readonly List<IValidator> _validators = new();
 
-    private SpecificationValidator()
+    internal SpecificationValidator()
     {
         _validators.AddRange(new IValidator[]
         {
@@ -15,7 +15,7 @@ public class SpecificationValidator : ISpecificationValidator
             SearchValidator.Instance
         });
     }
-    private SpecificationValidator(IEnumerable<IValidator> validators)
+    internal SpecificationValidator(IEnumerable<IValidator> validators)
     {
         _validators.AddRange(validators);
     }

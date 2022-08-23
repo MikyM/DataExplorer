@@ -11,6 +11,7 @@ using DataExplorer.EfCore.DataServices;
 using DataExplorer.EfCore.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Validators;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MikyM.Autofac.Extensions;
 using MikyM.Autofac.Extensions.Attributes;
@@ -33,134 +34,183 @@ public static class DataExplorerConfigurationExtensions
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
     public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration, Action<DataExplorerEfCoreConfiguration>? options = null)
     {
-        var builder = configuration.Builder;        
-        var config = new DataExplorerEfCoreConfiguration(builder);
+        var builder = configuration.Builder;
+        var serviceCollection = configuration.ServiceCollection;
+        var config = new DataExplorerEfCoreConfiguration(builder, serviceCollection);
         options?.Invoke(config);
 
         var ctorFinder = new AllConstructorsFinder();
 
         var iopt = Options.Create(config);
-        builder.RegisterInstance(iopt).As<IOptions<DataExplorerEfCoreConfiguration>>().SingleInstance();
-        builder.Register(x => x.Resolve<IOptions<DataExplorerEfCoreConfiguration>>().Value).AsSelf().SingleInstance();
+        builder?.RegisterInstance(iopt).As<IOptions<DataExplorerEfCoreConfiguration>>().SingleInstance();
+        builder?.Register(x => x.Resolve<IOptions<DataExplorerEfCoreConfiguration>>().Value).AsSelf().SingleInstance();
+        builder?.RegisterGeneric(typeof(UnitOfWork<>)).As(typeof(IUnitOfWork<>)).InstancePerLifetimeScope();
         
-        builder.RegisterGeneric(typeof(UnitOfWork<>)).As(typeof(IUnitOfWork<>)).InstancePerLifetimeScope();
+        serviceCollection?.AddSingleton(iopt);
+        serviceCollection?.AddSingleton(x => x.GetRequiredService<IOptions<DataExplorerEfCoreConfiguration>>().Value);
+        serviceCollection?.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
         foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
         {
-            builder.RegisterAssemblyTypes(assembly)
+            builder?.RegisterAssemblyTypes(assembly)
                 .Where(x => x.GetInterface(nameof(IEvaluator)) is not null && x != typeof(IncludeEvaluator))
                 .As<IEvaluator>()
                 .FindConstructorsWith(ctorFinder)
                 .SingleInstance();
+            
+            if (serviceCollection is not null)
+                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IEvaluator)) is not null && x != typeof(IncludeEvaluator)))
+                {
+                    serviceCollection.AddSingleton(typeof(IEvaluator), _ => Activator.CreateInstance(
+                        type,
+                        BindingFlags.Instance
+                        | BindingFlags.Public
+                        | BindingFlags.NonPublic,
+                        null,
+                        Array.Empty<object>(),
+                        null
+                    )!);
+                }
         }
 
-        builder.RegisterType<IncludeEvaluator>()
+        builder?.RegisterType<IncludeEvaluator>()
             .As<IEvaluator>()
             .UsingConstructor(typeof(bool))
             .FindConstructorsWith(ctorFinder)
             .WithParameter(new TypedParameter(typeof(bool), config.EnableIncludeCache))
             .SingleInstance();
 
-        builder.RegisterType<ProjectionEvaluator>()
+        serviceCollection?.AddSingleton<IEvaluator>(new IncludeEvaluator(config.EnableIncludeCache));
+
+        builder?.RegisterType<ProjectionEvaluator>()
             .As<IProjectionEvaluator>()
             .FindConstructorsWith(ctorFinder)
             .SingleInstance();
+        
+        serviceCollection?.AddSingleton<IProjectionEvaluator>(new ProjectionEvaluator());
 
-        builder.RegisterType<SpecificationEvaluator>()
+        builder?.RegisterType<SpecificationEvaluator>()
             .As<ISpecificationEvaluator>()
             .UsingConstructor(typeof(IEnumerable<IEvaluator>), typeof(IProjectionEvaluator))
             .FindConstructorsWith(ctorFinder)
             .SingleInstance();
+        
+        serviceCollection?.AddSingleton<ISpecificationEvaluator>(x => new SpecificationEvaluator(x.GetRequiredService<IEnumerable<IEvaluator>>(), x.GetRequiredService<IProjectionEvaluator>()));
 
-        builder.RegisterType<SpecificationValidator>()
+        builder?.RegisterType<SpecificationValidator>()
             .As<ISpecificationValidator>()
             .UsingConstructor(typeof(IEnumerable<IValidator>))
             .FindConstructorsWith(ctorFinder)
             .SingleInstance();
+        
+        serviceCollection?.AddSingleton<ISpecificationValidator>(x => new SpecificationValidator(x.GetRequiredService<IEnumerable<IValidator>>()));
 
-        builder.RegisterType<InMemorySpecificationEvaluator>()
+        builder?.RegisterType<InMemorySpecificationEvaluator>()
             .As<IInMemorySpecificationEvaluator>()
             .UsingConstructor(typeof(IEnumerable<IInMemoryEvaluator>))
             .FindConstructorsWith(ctorFinder)
             .SingleInstance();
+
+        serviceCollection?.AddSingleton<IInMemorySpecificationEvaluator>(x =>
+            new InMemorySpecificationEvaluator(x.GetRequiredService<IEnumerable<IInMemoryEvaluator>>()));
         
         
-        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle> registReadOnlyBuilder;
-        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle> registCrudBuilder;
-        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle> registReadOnlyGenericIdBuilder;
-        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle> registCrudGenericIdBuilder;
+        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registReadOnlyBuilder;
+        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registCrudBuilder;
+        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registReadOnlyGenericIdBuilder;
+        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registCrudGenericIdBuilder;
 
         switch (config.BaseGenericDataServiceLifetime)
         {
             case Lifetime.SingleInstance:
-                registReadOnlyBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,>))
+                registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .SingleInstance();
-                registCrudBuilder = builder.RegisterGeneric(typeof(CrudDataService<,>))
+                registCrudBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,>))
                     .As(typeof(ICrudDataService<,>))
                     .SingleInstance();
-                registReadOnlyGenericIdBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
+                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
                     .As(typeof(IReadOnlyDataService<,,>))
                     .SingleInstance();
-                registCrudGenericIdBuilder = builder.RegisterGeneric(typeof(CrudDataService<,,>))
+                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,,>))
                     .As(typeof(ICrudDataService<,,>))
                     .SingleInstance();
+
+                serviceCollection?.AddSingleton(typeof(IReadOnlyDataService<,>), typeof(ReadOnlyDataService<,>));
+                serviceCollection?.AddSingleton(typeof(IReadOnlyDataService<,,>), typeof(ReadOnlyDataService<,,>));
+                serviceCollection?.AddSingleton(typeof(ICrudDataService<,>), typeof(CrudDataService<,>));
+                serviceCollection?.AddSingleton(typeof(ICrudDataService<,,>), typeof(CrudDataService<,,>));
                 break;
             case Lifetime.InstancePerRequest:
-                registReadOnlyBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,>))
+                registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .InstancePerRequest();
-                registCrudBuilder = builder.RegisterGeneric(typeof(CrudDataService<,>))
+                registCrudBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,>))
                     .As(typeof(ICrudDataService<,>))
                     .InstancePerRequest();
-                registReadOnlyGenericIdBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
+                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
                     .As(typeof(IReadOnlyDataService<,,>))
                     .InstancePerRequest();
-                registCrudGenericIdBuilder = builder.RegisterGeneric(typeof(CrudDataService<,,>))
+                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,,>))
                     .As(typeof(ICrudDataService<,,>))
                     .InstancePerRequest();
+                
+                serviceCollection?.AddScoped(typeof(IReadOnlyDataService<,>), typeof(ReadOnlyDataService<,>));
+                serviceCollection?.AddScoped(typeof(IReadOnlyDataService<,,>), typeof(ReadOnlyDataService<,,>));
+                serviceCollection?.AddScoped(typeof(ICrudDataService<,>), typeof(CrudDataService<,>));
+                serviceCollection?.AddScoped(typeof(ICrudDataService<,,>), typeof(CrudDataService<,,>));
                 break;
             case Lifetime.InstancePerLifetimeScope:
-                registReadOnlyBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,>))
+                registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .InstancePerLifetimeScope();
-                registCrudBuilder = builder.RegisterGeneric(typeof(CrudDataService<,>))
+                registCrudBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,>))
                     .As(typeof(ICrudDataService<,>))
                     .InstancePerLifetimeScope();
-                registReadOnlyGenericIdBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
+                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
                     .As(typeof(IReadOnlyDataService<,,>))
                     .InstancePerLifetimeScope();
-                registCrudGenericIdBuilder = builder.RegisterGeneric(typeof(CrudDataService<,,>))
+                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,,>))
                     .As(typeof(ICrudDataService<,,>))
                     .InstancePerLifetimeScope();
+                
+                serviceCollection?.AddScoped(typeof(IReadOnlyDataService<,>), typeof(ReadOnlyDataService<,>));
+                serviceCollection?.AddScoped(typeof(IReadOnlyDataService<,,>), typeof(ReadOnlyDataService<,,>));
+                serviceCollection?.AddScoped(typeof(ICrudDataService<,>), typeof(CrudDataService<,>));
+                serviceCollection?.AddScoped(typeof(ICrudDataService<,,>), typeof(CrudDataService<,,>));
                 break;
             case Lifetime.InstancePerMatchingLifetimeScope:
-                registReadOnlyBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,>))
+                registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .InstancePerMatchingLifetimeScope();
-                registCrudBuilder = builder.RegisterGeneric(typeof(CrudDataService<,>))
+                registCrudBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,>))
                     .As(typeof(ICrudDataService<,>))
                     .InstancePerMatchingLifetimeScope();
-                registReadOnlyGenericIdBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
+                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
                     .As(typeof(IReadOnlyDataService<,,>))
                     .InstancePerMatchingLifetimeScope();
-                registCrudGenericIdBuilder = builder.RegisterGeneric(typeof(CrudDataService<,,>))
+                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,,>))
                     .As(typeof(ICrudDataService<,,>))
                     .InstancePerMatchingLifetimeScope();
                 break;
             case Lifetime.InstancePerDependency:
-                registReadOnlyBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,>))
+                registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .InstancePerDependency();
-                registCrudBuilder = builder.RegisterGeneric(typeof(CrudDataService<,>))
+                registCrudBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,>))
                     .As(typeof(ICrudDataService<,>))
                     .InstancePerDependency();
-                registReadOnlyGenericIdBuilder = builder.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
+                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,,>))
                     .As(typeof(IReadOnlyDataService<,,>))
                     .InstancePerDependency();
-                registCrudGenericIdBuilder = builder.RegisterGeneric(typeof(CrudDataService<,,>))
+                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(CrudDataService<,,>))
                     .As(typeof(ICrudDataService<,,>))
                     .InstancePerDependency();
+                
+                serviceCollection?.AddTransient(typeof(IReadOnlyDataService<,>), typeof(ReadOnlyDataService<,>));
+                serviceCollection?.AddTransient(typeof(IReadOnlyDataService<,,>), typeof(ReadOnlyDataService<,,>));
+                serviceCollection?.AddTransient(typeof(ICrudDataService<,>), typeof(CrudDataService<,>));
+                serviceCollection?.AddTransient(typeof(ICrudDataService<,,>), typeof(CrudDataService<,,>));
                 break;
             case Lifetime.InstancePerOwned:
                 throw new NotSupportedException();
@@ -172,81 +222,82 @@ public static class DataExplorerConfigurationExtensions
         // base data interceptors
         bool crudEnabled = false;
         bool readEnabled = false;
-        foreach (var (interceptorType, dataConfig) in config.DataInterceptors)
-        {
-            switch (dataConfig)
+        if (builder is not null)
+            foreach (var (interceptorType, dataConfig) in config.DataInterceptors)
             {
-                case DataInterceptorConfiguration.CrudAndReadOnly:
-                    registCrudBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
-                        ? registCrudBuilder.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                        : registCrudBuilder.InterceptedBy(interceptorType);
-                    registReadOnlyBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
-                        ? registReadOnlyBuilder.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                        : registReadOnlyBuilder.InterceptedBy(interceptorType);
-                    registCrudGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
-                        ? registCrudGenericIdBuilder.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                        : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
-                    registReadOnlyGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
-                        ? registReadOnlyGenericIdBuilder.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                        : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
+                switch (dataConfig)
+                {
+                    case DataInterceptorConfiguration.CrudAndReadOnly:
+                        registCrudBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                            ? registCrudBuilder.InterceptedBy(
+                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
+                            : registCrudBuilder.InterceptedBy(interceptorType);
+                        registReadOnlyBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                            ? registReadOnlyBuilder.InterceptedBy(
+                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
+                            : registReadOnlyBuilder.InterceptedBy(interceptorType);
+                        registCrudGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                            ? registCrudGenericIdBuilder.InterceptedBy(
+                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
+                            : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
+                        registReadOnlyGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                            ? registReadOnlyGenericIdBuilder.InterceptedBy(
+                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
+                            : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
 
-                    if (!crudEnabled)
-                    {
-                        registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
-                        registCrudGenericIdBuilder = registCrudGenericIdBuilder.EnableInterfaceInterceptors();
-                        crudEnabled = true;
-                    }
+                        if (!crudEnabled)
+                        {
+                            registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
+                            registCrudGenericIdBuilder = registCrudGenericIdBuilder.EnableInterfaceInterceptors();
+                            crudEnabled = true;
+                        }
 
-                    if (!readEnabled)
-                    {
-                        registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
-                        registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder.EnableInterfaceInterceptors();
-                        readEnabled = true;
-                    }
+                        if (!readEnabled)
+                        {
+                            registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
+                            registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder.EnableInterfaceInterceptors();
+                            readEnabled = true;
+                        }
 
-                    break;
-                case DataInterceptorConfiguration.Crud:
-                    registCrudBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
-                        ? registCrudBuilder.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                        : registCrudBuilder.InterceptedBy(interceptorType);
-                    registCrudGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
-                        ? registCrudGenericIdBuilder.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                        : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
-                    if (!crudEnabled)
-                    {
-                        registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
-                        registCrudGenericIdBuilder = registCrudGenericIdBuilder.EnableInterfaceInterceptors();
-                        crudEnabled = true;
-                    }
+                        break;
+                    case DataInterceptorConfiguration.Crud:
+                        registCrudBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                            ? registCrudBuilder.InterceptedBy(
+                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
+                            : registCrudBuilder.InterceptedBy(interceptorType);
+                        registCrudGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                            ? registCrudGenericIdBuilder.InterceptedBy(
+                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
+                            : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
+                        if (!crudEnabled)
+                        {
+                            registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
+                            registCrudGenericIdBuilder = registCrudGenericIdBuilder.EnableInterfaceInterceptors();
+                            crudEnabled = true;
+                        }
 
-                    break;
-                case DataInterceptorConfiguration.ReadOnly:
-                    registReadOnlyBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
-                        ? registReadOnlyBuilder.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                        : registReadOnlyBuilder.InterceptedBy(interceptorType);
-                    registReadOnlyGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
-                        ? registReadOnlyGenericIdBuilder.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                        : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
-                    if (!readEnabled)
-                    {
-                        registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
-                        registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder.EnableInterfaceInterceptors();
-                        readEnabled = true;
-                    }
+                        break;
+                    case DataInterceptorConfiguration.ReadOnly:
+                        registReadOnlyBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                            ? registReadOnlyBuilder.InterceptedBy(
+                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
+                            : registReadOnlyBuilder.InterceptedBy(interceptorType);
+                        registReadOnlyGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                            ? registReadOnlyGenericIdBuilder.InterceptedBy(
+                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
+                            : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
+                        if (!readEnabled)
+                        {
+                            registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
+                            registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder.EnableInterfaceInterceptors();
+                            readEnabled = true;
+                        }
 
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(dataConfig));
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(dataConfig));
+                }
             }
-        }
 
         var excluded = new[] { typeof(IDataServiceBase<>), typeof(EfCoreDataServiceBase<>), typeof(CrudDataService<,>), typeof(ReadOnlyDataService<,>), typeof(CrudDataService<,,>), typeof(ReadOnlyDataService<,,>) };
 
@@ -296,12 +347,12 @@ public static class DataExplorerConfigurationExtensions
                 {
                     if (intrEnableAttr is not null)
                         registrationGenericBuilder = shouldAsInterfaces
-                            ? builder.RegisterGeneric(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
-                            : builder.RegisterGeneric(dataType).EnableInterfaceInterceptors();
+                            ? builder?.RegisterGeneric(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
+                            : builder?.RegisterGeneric(dataType).EnableInterfaceInterceptors();
                     else
                         registrationGenericBuilder = shouldAsInterfaces
-                            ? builder.RegisterGeneric(dataType).AsImplementedInterfaces()
-                            : builder.RegisterGeneric(dataType);
+                            ? builder?.RegisterGeneric(dataType).AsImplementedInterfaces()
+                            : builder?.RegisterGeneric(dataType);
                 }
                 else
                 {
@@ -310,27 +361,27 @@ public static class DataExplorerConfigurationExtensions
                         registrationBuilder = intrEnableAttr.Intercept switch
                         {
                             Intercept.InterfaceAndClass => shouldAsInterfaces
-                                ? builder.RegisterType(dataType)
+                                ? builder?.RegisterType(dataType)
                                     .AsImplementedInterfaces()
                                     .EnableClassInterceptors()
                                     .EnableInterfaceInterceptors()
-                                : builder.RegisterType(dataType)
+                                : builder?.RegisterType(dataType)
                                     .EnableClassInterceptors()
                                     .EnableInterfaceInterceptors(),
                             Intercept.Interface => shouldAsInterfaces
-                                ? builder.RegisterType(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
-                                : builder.RegisterType(dataType).EnableInterfaceInterceptors(),
+                                ? builder?.RegisterType(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
+                                : builder?.RegisterType(dataType).EnableInterfaceInterceptors(),
                             Intercept.Class => shouldAsInterfaces
-                                ? builder.RegisterType(dataType).AsImplementedInterfaces().EnableClassInterceptors()
-                                : builder.RegisterType(dataType).EnableClassInterceptors(),
+                                ? builder?.RegisterType(dataType).AsImplementedInterfaces().EnableClassInterceptors()
+                                : builder?.RegisterType(dataType).EnableClassInterceptors(),
                             _ => throw new ArgumentOutOfRangeException(nameof(intrEnableAttr.Intercept))
                         };
                     }
                     else
                     {
                         registrationBuilder = shouldAsInterfaces
-                            ? builder.RegisterType(dataType).AsImplementedInterfaces()
-                            : builder.RegisterType(dataType);
+                            ? builder?.RegisterType(dataType).AsImplementedInterfaces()
+                            : builder?.RegisterType(dataType);
                     }
                 }
 

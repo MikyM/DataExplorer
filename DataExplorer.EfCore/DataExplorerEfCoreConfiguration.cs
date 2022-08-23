@@ -25,6 +25,17 @@ public class DataExplorerEfCoreConfiguration
     {
         Builder = builder;
     }
+
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    /// <param name="builder"></param>
+    /// <param name="serviceCollection"></param>
+    public DataExplorerEfCoreConfiguration(ContainerBuilder? builder, IServiceCollection? serviceCollection)
+    {
+        Builder = builder;
+        ServiceCollection = serviceCollection;
+    }
     
     /// <summary>
     /// Creates an instance of the configuration class.
