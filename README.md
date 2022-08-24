@@ -4,7 +4,7 @@
 
 Library featuring a few popular patterns in regard to working with data in .NET offering abstractions and implementations for EF Core and MongoDb.
 
-Utilizes Autofac thus Autofac is required and a functional result approach for failure-prone operations.
+To utilize all features using Autofac is required.
 
 ## Features
 
@@ -20,8 +20,6 @@ Utilizes Autofac thus Autofac is required and a functional result approach for f
 - In-memory query evaluation through specifications
 
 ## Installation
-
-Since the library utilizes Autofac, base Autofac configuration is required - [Autofac's docs](https://autofac.readthedocs.io/en/latest/index.html).
 
 To register the library services with the DI container use the ContainerBuilder extension method provided by the library and register one or both offered sets of services:
 
