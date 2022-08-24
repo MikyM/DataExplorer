@@ -21,7 +21,7 @@ To utilize all features using Autofac is required.
 
 ## Installation
 
-To register the library services with the DI container use the ContainerBuilder extension method provided by the library and register one or both offered sets of services:
+To register the library services with the DI container use extension methods on `ContainerBuilder` or `IServiceCollection` provided by the library and register one or both offered sets of services:
 
 ```csharp
 builder.AddDataExplorer(options => 
