@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using AttributeBasedRegistration;
+using AttributeBasedRegistration.Attributes;
 using Autofac;
 using Autofac.Builder;
 using Autofac.Extras.DynamicProxy;
@@ -12,9 +14,8 @@ using DataExplorer.EfCore.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Validators;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using MikyM.Autofac.Extensions;
-using MikyM.Autofac.Extensions.Attributes;
 
 namespace DataExplorer.EfCore.Extensions;
 
@@ -346,13 +347,17 @@ public static class DataExplorerConfigurationExtensions
                 if (dataType.IsGenericType && dataType.IsGenericTypeDefinition)
                 {
                     if (intrEnableAttr is not null)
+                    {
                         registrationGenericBuilder = shouldAsInterfaces
                             ? builder?.RegisterGeneric(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
                             : builder?.RegisterGeneric(dataType).EnableInterfaceInterceptors();
+                    }
                     else
+                    {
                         registrationGenericBuilder = shouldAsInterfaces
                             ? builder?.RegisterGeneric(dataType).AsImplementedInterfaces()
                             : builder?.RegisterGeneric(dataType);
+                    }
                 }
                 else
                 {
@@ -399,23 +404,65 @@ public static class DataExplorerConfigurationExtensions
                     registrationGenericBuilder = registrationGenericBuilder?.As(asType);
                 }
 
+                var interfaces = dataType.GetInterfaces().ToList();
+                
                 switch (scope)
                 {
                     case Lifetime.SingleInstance:
                         registrationBuilder = registrationBuilder?.SingleInstance();
                         registrationGenericBuilder = registrationGenericBuilder?.SingleInstance();
+
+                        if (serviceCollection is not null)
+                        {
+                            if (shouldAsInterfaces)
+                                interfaces.ForEach(x => serviceCollection.TryAddSingleton(x, dataType));
+                            if (shouldAsSelf)
+                                serviceCollection.TryAddSingleton(dataType);
+                            if (registerAsTypes.Any())
+                                registerAsTypes.ForEach(x => serviceCollection.TryAddSingleton(x, dataType));
+                        }
                         break;
                     case Lifetime.InstancePerRequest:
                         registrationBuilder = registrationBuilder?.InstancePerRequest();
                         registrationGenericBuilder = registrationGenericBuilder?.InstancePerRequest();
+                        
+                        if (serviceCollection is not null)
+                        {
+                            if (shouldAsInterfaces)
+                                interfaces.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
+                            if (shouldAsSelf)
+                                serviceCollection.TryAddScoped(dataType);
+                            if (registerAsTypes.Any())
+                                registerAsTypes.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
+                        }
                         break;
                     case Lifetime.InstancePerLifetimeScope:
                         registrationBuilder = registrationBuilder?.InstancePerLifetimeScope();
                         registrationGenericBuilder = registrationGenericBuilder?.InstancePerLifetimeScope();
+                        
+                        if (serviceCollection is not null)
+                        {
+                            if (shouldAsInterfaces)
+                                interfaces.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
+                            if (shouldAsSelf)
+                                serviceCollection.TryAddScoped(dataType);
+                            if (registerAsTypes.Any())
+                                registerAsTypes.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
+                        }
                         break;
                     case Lifetime.InstancePerDependency:
                         registrationBuilder = registrationBuilder?.InstancePerDependency();
                         registrationGenericBuilder = registrationGenericBuilder?.InstancePerDependency();
+                        
+                        if (serviceCollection is not null)
+                        {
+                            if (shouldAsInterfaces)
+                                interfaces.ForEach(x => serviceCollection.TryAddTransient(x, dataType));
+                            if (shouldAsSelf)
+                                serviceCollection.TryAddTransient(dataType);
+                            if (registerAsTypes.Any())
+                                registerAsTypes.ForEach(x => serviceCollection.TryAddTransient(x, dataType));
+                        }
                         break;
                     case Lifetime.InstancePerMatchingLifetimeScope:
                         registrationBuilder =

@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using AttributeBasedRegistration;
 using Autofac;
 using DataExplorer.EfCore.Abstractions;
 using DataExplorer.EfCore.Abstractions.DataContexts;
@@ -6,8 +7,6 @@ using DataExplorer.EfCore.DataContexts;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Validators;
 using Microsoft.Extensions.DependencyInjection;
-using MikyM.Autofac.Extensions;
-using MikyM.Utilities.Extensions;
 
 namespace DataExplorer.EfCore;
 

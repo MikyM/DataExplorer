@@ -1,8 +1,8 @@
-﻿using Autofac;
+﻿using AttributeBasedRegistration;
+using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
 using AutoMapper.Extensions.ExpressionMapping;
 using Microsoft.Extensions.DependencyInjection;
-using MikyM.Autofac.Extensions;
 
 namespace DataExplorer;
 
