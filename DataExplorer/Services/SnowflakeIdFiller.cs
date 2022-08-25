@@ -8,16 +8,15 @@ public class SnowflakeIdFiller : ISnowflakeIdFiller
 {
     public SnowflakeIdFiller(ISnowflakeIdGenerator<long> idGenerator)
     {
-        IdGenerator = idGenerator;
+        _idGenerator = idGenerator;
     }
 
-    /// <inheritdoc/>
-    public ISnowflakeIdGenerator<long> IdGenerator { get; }
+    private readonly ISnowflakeIdGenerator<long> _idGenerator;
     
     /// <inheritdoc/>
     public void FillId(Entity<long> entity)
     {
-        entity.SetIdInternal(IdGenerator.GenerateId());
+        entity.SetIdInternal(_idGenerator.GenerateId());
     }
 
     /// <inheritdoc/>
@@ -25,7 +24,7 @@ public class SnowflakeIdFiller : ISnowflakeIdFiller
     {
         foreach (var entity in entities)
         {
-            entity.SetIdInternal(IdGenerator.GenerateId());
+            entity.SetIdInternal(_idGenerator.GenerateId());
         }
     }
 }

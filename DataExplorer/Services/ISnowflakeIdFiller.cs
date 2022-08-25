@@ -10,10 +10,6 @@ namespace DataExplorer.Services;
 public interface ISnowflakeIdFiller
 {
     /// <summary>
-    /// The snowflake Id generator.
-    /// </summary>
-    ISnowflakeIdGenerator<long> IdGenerator { get; }
-    /// <summary>
     /// Fills Id for a single entity.
     /// </summary>
     /// <param name="entity">Entity to handle.</param>
