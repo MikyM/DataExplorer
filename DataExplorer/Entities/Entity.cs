@@ -28,7 +28,7 @@ public abstract class Entity : Entity<long>, IEntity
 /// <summary>
 /// Defines a generic base entity.
 /// </summary>
-public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<Entity<TId>> where TId : IComparable, IComparable<TId>, IEquatable<TId>
+public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity<TId>> where TId : IComparable, IComparable<TId>, IEquatable<TId>
 {
     /// <summary>
     /// Base entity constructor.
@@ -73,7 +73,7 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<Entity<
     } 
 
     /// <inheritdoc />
-    public bool Equals(Entity<TId>? other)
+    public bool Equals(IEntity<TId>? other)
     {
         if (other is null)
             return false;

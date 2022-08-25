@@ -4,7 +4,7 @@ using DataExplorer.IdGenerator;
 namespace DataExplorer.Entities;
 
 /// <summary>
-/// A snowflake entity.
+/// A base snowflake entity.
 /// </summary>
 [PublicAPI]
 public abstract class SnowflakeEntity : Entity, ISnowflakeEntity<long>
