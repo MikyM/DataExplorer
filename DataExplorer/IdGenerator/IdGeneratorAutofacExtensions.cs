@@ -35,7 +35,7 @@ public static class IdGenAutofacExtensions
         builder.RegisterInstance(new IdGen.IdGenerator(generatorId, opt)).As<IdGen.IIdGenerator<long>>()
             .SingleInstance();
         builder.Register(c => (IdGen.IdGenerator)c.Resolve<IdGen.IIdGenerator<long>>()).AsSelf().SingleInstance();
-        builder.RegisterType<SnowflakeIdGenerator>().As<ISnowflakeIdGenerator<long>>().SingleInstance()
+        builder.RegisterType<SnowflakeIdGenerator>().As<ISnowflakeIdGenerator>().SingleInstance()
             .PreserveExistingDefaults();
         builder.RegisterType<SnowflakeIdFiller>().As<ISnowflakeIdFiller>().SingleInstance().PreserveExistingDefaults();
 

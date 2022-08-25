@@ -12,8 +12,14 @@ public interface IEntity : IEntity<long>
 /// Defines a generic base entity.
 /// </summary>
 [PublicAPI]
-public interface IEntity<out TId> : IEntityBase where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public interface IEntity<TId> : IEntityBase where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
+    /// <summary>
+    /// Sets the Id of this entity.
+    /// </summary>
+    /// <param name="id"></param>
+    void SetId(TId id);
+
     /// <summary>
     /// The Id of the entity.
     /// </summary>
@@ -36,4 +42,13 @@ public interface IEntity<out TId> : IEntityBase where TId : IComparable, IEquata
 [PublicAPI]
 public interface IEntityBase
 {
+    /// <summary>
+    /// Sets the ID of this entity.
+    /// </summary>
+    void SetId(object id);
+
+    /// <summary>
+    /// Whether the entity has a valid Id.
+    /// </summary>
+    bool HasValidId { get; }
 }

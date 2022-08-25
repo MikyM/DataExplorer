@@ -1,4 +1,5 @@
-﻿using DataExplorer.Abstractions.Entities;
+﻿using System.Diagnostics.CodeAnalysis;
+using DataExplorer.Abstractions.Entities;
 // ReSharper disable VirtualMemberCallInConstructor
 
 namespace DataExplorer.Entities;
@@ -37,7 +38,6 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
     {
         CreatedAt ??= DateTime.UtcNow;
         UpdatedAt ??= CreatedAt;
-        Id = default!;
     }
 
     /// <summary>
@@ -50,7 +50,10 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
         Id = id;
     }
 
-
+    /// <inheritdoc />
+    public sealed override void SetId(object id)
+        => SetId((TId)id);
+    
     /// <inheritdoc />
     public virtual TId Id { get; protected set; }
 
@@ -67,10 +70,13 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
     public override string? ToString()
         => Id.ToString();
     
-    internal void SetIdInternal(TId id)
-    {
-        Id = id;
-    } 
+    /// <inheritdoc />
+    public void SetId(TId id)
+        => Id = id;
+
+    /// <inheritdoc />
+    public sealed override bool HasValidId 
+        => !Id.Equals(default);
 
     /// <inheritdoc />
     public bool Equals(IEntity<TId>? other)
@@ -161,4 +167,9 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
 [PublicAPI]
 public abstract class EntityBase : IEntityBase
 {
+    /// <inheritdoc />
+    public abstract bool HasValidId { get; }
+
+    /// <inheritdoc />
+    public abstract void SetId(object id);
 }

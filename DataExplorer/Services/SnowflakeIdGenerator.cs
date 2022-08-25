@@ -6,7 +6,7 @@ namespace DataExplorer.Services;
 /// Default snowflake ID generator.
 /// </summary>
 [PublicAPI]
-public class SnowflakeIdGenerator : ISnowflakeIdGenerator<long>
+public class SnowflakeIdGenerator : ISnowflakeIdGenerator
 {
     private readonly IIdGenerator<long> _inner;
 
@@ -16,6 +16,6 @@ public class SnowflakeIdGenerator : ISnowflakeIdGenerator<long>
     }
     
     /// <inheritdoc/>
-    public long GenerateId()
+    public object GenerateId()
         => _inner.CreateId();
 }

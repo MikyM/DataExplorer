@@ -1,5 +1,4 @@
 ﻿using DataExplorer.Abstractions.Entities;
-using DataExplorer.IdGenerator;
 
 namespace DataExplorer.Entities;
 

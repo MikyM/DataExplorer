@@ -1,6 +1,4 @@
 ﻿using DataExplorer.Abstractions.Entities;
-using DataExplorer.Entities;
-
 namespace DataExplorer.Services;
 
 /// <summary>
@@ -14,6 +12,7 @@ public interface ISnowflakeIdFiller
     /// </summary>
     /// <param name="entity">Entity to handle.</param>
     void FillId(IEntityBase entity);
+    
     /// <summary>
     /// Fills Ids for a list of entities.
     /// </summary>

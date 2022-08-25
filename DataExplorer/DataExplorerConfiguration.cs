@@ -55,7 +55,7 @@ public class DataExplorerConfiguration
         Builder?.AddIdGen(generatorId, options);
         ServiceCollection?.TryAddSingleton<IdGen.IIdGenerator<long>>(new IdGen.IdGenerator(generatorId, options()));
         ServiceCollection?.TryAddSingleton(c => (IdGen.IdGenerator)c.GetRequiredService<IdGen.IIdGenerator<long>>());
-        ServiceCollection?.TryAddSingleton<ISnowflakeIdGenerator<long>, SnowflakeIdGenerator>();
+        ServiceCollection?.TryAddSingleton<ISnowflakeIdGenerator, SnowflakeIdGenerator>();
         ServiceCollection?.TryAddSingleton<ISnowflakeIdFiller, SnowflakeIdFiller>();
         return this;
     }
@@ -64,9 +64,9 @@ public class DataExplorerConfiguration
     /// Adds a custom snowflake Id generator.
     /// </summary>
     /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
-    public DataExplorerConfiguration AddSnowflakeIdGenerator<TGenerator>() where TGenerator : class, ISnowflakeIdGenerator<long>
+    public DataExplorerConfiguration AddSnowflakeIdGenerator<TGenerator>() where TGenerator : class, ISnowflakeIdGenerator
     {
-        Builder?.RegisterType<TGenerator>().As<ISnowflakeIdGenerator<long>>().SingleInstance();
+        Builder?.RegisterType<TGenerator>().As<ISnowflakeIdGenerator>().SingleInstance();
         ServiceCollection?.AddSingleton<TGenerator>();
         return this;
     }

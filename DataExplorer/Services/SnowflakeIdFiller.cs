@@ -7,26 +7,25 @@ namespace DataExplorer.Services;
 [PublicAPI]
 public class SnowflakeIdFiller : ISnowflakeIdFiller
 {
-    public SnowflakeIdFiller(ISnowflakeIdGenerator<long> idGenerator)
+    public SnowflakeIdFiller(ISnowflakeIdGenerator idGenerator)
     {
         _idGenerator = idGenerator;
     }
 
-    private readonly ISnowflakeIdGenerator<long> _idGenerator;
+    private readonly ISnowflakeIdGenerator _idGenerator;
     
     /// <inheritdoc/>
     public void FillId(IEntityBase entity)
     {
-        if (entity is Entity<long> longEntity)
-            longEntity.SetIdInternal(_idGenerator.GenerateId());
+        entity.SetId(_idGenerator.GenerateId());
     }
 
     /// <inheritdoc/>
     public void FillIds(IEnumerable<IEntityBase> entities)
     {
-        foreach (var entity in entities.OfType<Entity<long>>())
+        foreach (var entity in entities)
         {
-            entity.SetIdInternal(_idGenerator.GenerateId());
+            entity.SetId(_idGenerator.GenerateId());
         }
     }
 }
