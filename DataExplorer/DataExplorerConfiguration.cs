@@ -39,9 +39,9 @@ public class DataExplorerConfiguration
     /// <summary>
     /// Registers required Id generator services with the given <paramref name="generatorId"/>.
     /// </summary>
-    /// <param name="generatorId">The generator-id to use for the singleton <see cref="IdGenerator"/>.</param>
+    /// <param name="generatorId">The generator-id to use for the singleton <see cref="IdGenerator"/> if using provided implementation.</param>
     /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
-    public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId)
+    public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId = 1)
         => AddSnowflakeIdGeneration(generatorId, () => IdGeneratorOptions.Default);
 
     /// <summary>
@@ -59,7 +59,7 @@ public class DataExplorerConfiguration
         ServiceCollection?.TryAddSingleton<ISnowflakeIdFiller, SnowflakeIdFiller>();
         return this;
     }
-    
+
     /// <summary>
     /// Adds a custom snowflake Id generator.
     /// </summary>
