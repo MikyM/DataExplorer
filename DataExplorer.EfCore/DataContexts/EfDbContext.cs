@@ -1,6 +1,7 @@
 ﻿using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.Extensions;
 using DataExplorer.Entities;
+using DataExplorer.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -20,6 +21,8 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     /// </summary>
     protected readonly IOptions<DataExplorerEfCoreConfiguration> Config;
 
+    private readonly ISnowflakeIdFiller? _snowflakeIdFiller;
+
     /// <summary>
     /// Detected changes. This will be null prior to calling SaveChangesAsync.
     /// </summary>
@@ -29,12 +32,14 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     protected EfDbContext(DbContextOptions options) : base(options)
     {
         Config = this.GetService<IOptions<DataExplorerEfCoreConfiguration>>();
+        _snowflakeIdFiller = (ISnowflakeIdFiller?)this.GetInfrastructure().GetService(typeof(ISnowflakeIdFiller));
     }
 
     /// <inheritdoc />
     protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config) : base(options)
     {
         Config = config;
+        _snowflakeIdFiller = (ISnowflakeIdFiller?)this.GetInfrastructure().GetService(typeof(ISnowflakeIdFiller));
     }
 
     /// <inheritdoc/>
@@ -129,6 +134,12 @@ public abstract class EfDbContext : DbContext, IEfDbContext
                         entry.Property("CreatedAt").IsModified = false;  
                         break;
                 }
+
+            if (_snowflakeIdFiller is null) 
+                continue;
+            
+            if (entry.Entity is SnowflakeEntity snowflakeEntity && entry.State is EntityState.Added)
+                _snowflakeIdFiller.FillId(snowflakeEntity);
         }
     }
 }

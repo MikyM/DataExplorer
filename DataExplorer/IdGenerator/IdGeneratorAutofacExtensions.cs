@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using DataExplorer.Services;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 
@@ -34,15 +35,15 @@ public static class IdGenAutofacExtensions
         builder.RegisterInstance(new IdGen.IdGenerator(generatorId, opt)).As<IdGen.IIdGenerator<long>>()
             .SingleInstance();
         builder.Register(c => (IdGen.IdGenerator)c.Resolve<IdGen.IIdGenerator<long>>()).AsSelf().SingleInstance();
+        builder.RegisterType<SnowflakeIdGenerator>().As<ISnowflakeIdGenerator<long>>().SingleInstance()
+            .PreserveExistingDefaults();
+        builder.RegisterType<SnowflakeIdFiller>().As<ISnowflakeIdFiller>().SingleInstance().PreserveExistingDefaults();
 
         var iopt = Options.Create(opt);
         
         builder.RegisterInstance(iopt).As<IOptions<IdGeneratorOptions>>().SingleInstance();
         builder.Register(x => x.Resolve<IOptions<IdGeneratorOptions>>().Value).SingleInstance();
-        
-        builder.RegisterBuildCallback(scope =>
-            IdGeneratorFactory.AddFactoryMethod(scope.Resolve<IdGen.IdGenerator>, generatorId));
-        
+
         return builder;
     }
 }

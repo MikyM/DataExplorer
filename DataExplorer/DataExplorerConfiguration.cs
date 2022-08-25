@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using DataExplorer.IdGenerator;
+using DataExplorer.Services;
 using IdGen.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 
@@ -35,23 +37,48 @@ public class DataExplorerConfiguration
     internal readonly IServiceCollection? ServiceCollection;
 
     /// <summary>
-    /// Registers a singleton <see cref="IdGenerator"/> with the given <paramref name="generatorId"/>.
+    /// Registers required Id generator services with the given <paramref name="generatorId"/>.
     /// </summary>
     /// <param name="generatorId">The generator-id to use for the singleton <see cref="IdGenerator"/>.</param>
-    /// <returns>The given <see cref="ContainerBuilder"/> with the registered singleton in it.</returns>
-    public DataExplorerConfiguration AddIdGen(int generatorId)
-        => AddIdGen(generatorId, () => IdGeneratorOptions.Default);
+    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
+    public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId)
+        => AddSnowflakeIdGeneration(generatorId, () => IdGeneratorOptions.Default);
 
     /// <summary>
-    /// Registers a singleton <see cref="IdGenerator"/> with the given <paramref name="generatorId"/> and <see cref="IdGeneratorOptions"/>.
+    /// Registers required Id generator services with the given <paramref name="generatorId"/>.
     /// </summary>
     /// <param name="generatorId">The generator-id to use for the singleton <see cref="IdGenerator"/>.</param>
     /// <param name="options">The <see cref="IdGeneratorOptions"/> for the singleton <see cref="IdGenerator"/>.</param>
-    /// <returns>The given <see cref="ContainerBuilder"/> with the registered singleton <see cref="IdGenerator"/> in it.</returns>
-    public DataExplorerConfiguration AddIdGen(int generatorId, Func<IdGeneratorOptions> options)
+    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
+    public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId, Func<IdGeneratorOptions> options)
     {
         Builder?.AddIdGen(generatorId, options);
-        ServiceCollection?.AddIdGen(generatorId, options);
+        ServiceCollection?.TryAddSingleton<IdGen.IIdGenerator<long>>(new IdGen.IdGenerator(generatorId, options()));
+        ServiceCollection?.TryAddSingleton(c => (IdGen.IdGenerator)c.GetRequiredService<IdGen.IIdGenerator<long>>());
+        ServiceCollection?.TryAddSingleton<ISnowflakeIdGenerator<long>, SnowflakeIdGenerator>();
+        ServiceCollection?.TryAddSingleton<ISnowflakeIdFiller, SnowflakeIdFiller>();
+        return this;
+    }
+    
+    /// <summary>
+    /// Adds a custom snowflake Id generator.
+    /// </summary>
+    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
+    public DataExplorerConfiguration AddSnowflakeIdGenerator<TGenerator>() where TGenerator : class, ISnowflakeIdGenerator<long>
+    {
+        Builder?.RegisterType<TGenerator>().As<ISnowflakeIdGenerator<long>>().SingleInstance();
+        ServiceCollection?.AddSingleton<TGenerator>();
+        return this;
+    }
+    
+    /// <summary>
+    /// Adds a custom snowflake Id filler.
+    /// </summary>
+    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
+    public DataExplorerConfiguration AddSnowflakeIdFiller<TFiller>() where TFiller : class, ISnowflakeIdFiller
+    {
+        Builder?.RegisterType<TFiller>().As<ISnowflakeIdFiller>().SingleInstance();
+        ServiceCollection?.AddSingleton<TFiller>();
         return this;
     }
 

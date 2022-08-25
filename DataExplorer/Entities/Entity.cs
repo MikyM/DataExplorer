@@ -66,6 +66,11 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<Entity<
     /// <returns>The string representation of the Id of this entity.</returns>
     public override string? ToString()
         => Id.ToString();
+    
+    internal void SetIdInternal(TId id)
+    {
+        Id = id;
+    } 
 
     /// <inheritdoc />
     public bool Equals(Entity<TId>? other)

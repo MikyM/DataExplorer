@@ -7,11 +7,6 @@ namespace DataExplorer.Entities;
 /// A snowflake entity.
 /// </summary>
 [PublicAPI]
-public class SnowflakeEntity : Entity, ISnowflakeEntity<long>
+public abstract class SnowflakeEntity : Entity, ISnowflakeEntity<long>
 {
-    /// <inheritdoc/>
-    public override long Id { get; protected set; } = IdGeneratorFactory.Build().CreateId();
-
-    public long GenerateSnowflakeId()
-        => IdGeneratorFactory.Build().CreateId();
 }
