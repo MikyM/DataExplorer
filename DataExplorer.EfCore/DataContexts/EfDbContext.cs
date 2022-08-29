@@ -21,7 +21,7 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     /// </summary>
     protected readonly IOptions<DataExplorerEfCoreConfiguration> Config;
 
-    private readonly ISnowflakeIdFiller? _snowflakeIdFiller;
+    protected readonly ISnowflakeIdFiller? SnowflakeIdFiller;
 
     /// <summary>
     /// Detected changes. This will be null prior to calling SaveChangesAsync.
@@ -32,14 +32,14 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     protected EfDbContext(DbContextOptions options) : base(options)
     {
         Config = this.GetService<IOptions<DataExplorerEfCoreConfiguration>>();
-        _snowflakeIdFiller = (ISnowflakeIdFiller?)this.GetInfrastructure().GetService(typeof(ISnowflakeIdFiller));
+        SnowflakeIdFiller = (ISnowflakeIdFiller?)this.GetInfrastructure().GetService(typeof(ISnowflakeIdFiller));
     }
 
     /// <inheritdoc />
     protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config) : base(options)
     {
         Config = config;
-        _snowflakeIdFiller = (ISnowflakeIdFiller?)this.GetInfrastructure().GetService(typeof(ISnowflakeIdFiller));
+        SnowflakeIdFiller = (ISnowflakeIdFiller?)this.GetInfrastructure().GetService(typeof(ISnowflakeIdFiller));
     }
 
     /// <inheritdoc/>
@@ -135,11 +135,11 @@ public abstract class EfDbContext : DbContext, IEfDbContext
                         break;
                 }
 
-            if (_snowflakeIdFiller is null) 
+            if (SnowflakeIdFiller is null) 
                 continue;
             
             if (entry.Entity is SnowflakeEntity snowflakeEntity && entry.State is EntityState.Added)
-                _snowflakeIdFiller.FillId(snowflakeEntity);
+                SnowflakeIdFiller.FillId(snowflakeEntity);
         }
     }
 }
