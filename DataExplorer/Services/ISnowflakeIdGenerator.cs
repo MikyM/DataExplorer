@@ -10,5 +10,5 @@ public interface ISnowflakeIdGenerator
     /// Generates a new snowflake Id.
     /// </summary>
     /// <returns>Newly created snowflake Id.</returns>
-    object GenerateId();
+    long GenerateId();
 }

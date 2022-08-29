@@ -16,6 +16,6 @@ public class SnowflakeIdGenerator : ISnowflakeIdGenerator
     }
     
     /// <inheritdoc/>
-    public object GenerateId()
+    public long GenerateId()
         => _inner.CreateId();
 }

@@ -22,8 +22,6 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     /// </summary>
     protected readonly IOptions<DataExplorerEfCoreConfiguration> Config;
 
-    protected readonly ISnowflakeIdFiller? SnowflakeIdFiller;
-
     /// <summary>
     /// Detected changes. This will be null prior to calling SaveChangesAsync.
     /// </summary>
@@ -33,14 +31,12 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     protected EfDbContext(DbContextOptions options) : base(options)
     {
         Config = this.GetService<IOptions<DataExplorerEfCoreConfiguration>>();
-        SnowflakeIdFiller = (ISnowflakeIdFiller?)this.GetInfrastructure().GetService(typeof(ISnowflakeIdFiller));
     }
 
     /// <inheritdoc />
     protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config) : base(options)
     {
         Config = config;
-        SnowflakeIdFiller = (ISnowflakeIdFiller?)this.GetInfrastructure().GetService(typeof(ISnowflakeIdFiller));
     }
 
     /// <inheritdoc/>
@@ -135,12 +131,6 @@ public abstract class EfDbContext : DbContext, IEfDbContext
                         entry.Property("CreatedAt").IsModified = false;  
                         break;
                 }
-
-            if (SnowflakeIdFiller is null) 
-                continue;
-            
-            if (entry.Entity is ISnowflakeEntity { ShouldHaveIdFilled: true } snowflakeEntity && entry.State is EntityState.Added)
-                SnowflakeIdFiller.FillId(snowflakeEntity);
         }
     }
 }

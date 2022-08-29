@@ -5,6 +5,7 @@ using IdGen.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 
 namespace DataExplorer;
@@ -53,10 +54,22 @@ public class DataExplorerConfiguration
     public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId, Func<IdGeneratorOptions> options)
     {
         Builder?.AddIdGen(generatorId, options);
-        ServiceCollection?.TryAddSingleton<IdGen.IIdGenerator<long>>(new IdGen.IdGenerator(generatorId, options()));
-        ServiceCollection?.TryAddSingleton(c => (IdGen.IdGenerator)c.GetRequiredService<IdGen.IIdGenerator<long>>());
-        ServiceCollection?.TryAddSingleton<ISnowflakeIdGenerator, SnowflakeIdGenerator>();
-        ServiceCollection?.TryAddSingleton<ISnowflakeIdFiller, SnowflakeIdFiller>();
+
+        var opt = options();
+        ServiceCollection?.AddSingleton<IdGen.IIdGenerator<long>>(new IdGen.IdGenerator(generatorId, opt));
+
+        Builder?.RegisterType<SnowflakeIdGenerator>().As<ISnowflakeIdGenerator>().SingleInstance();
+
+        Builder?.RegisterBuildCallback(x =>
+            SnowflakeIdFactory.AddFactoryMethod(() => x.Resolve<ISnowflakeIdGenerator>().GenerateId(), 1));
+
+        if (Builder is null)
+        {
+            var iopt = Options.Create(opt);
+            ServiceCollection?.AddSingleton(iopt);
+            ServiceCollection?.AddSingleton(x => x.GetRequiredService<IOptions<IdGeneratorOptions>>().Value);
+        }
+
         return this;
     }
 
