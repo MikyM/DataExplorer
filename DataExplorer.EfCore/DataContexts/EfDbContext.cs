@@ -1,4 +1,5 @@
-﻿using DataExplorer.EfCore.Abstractions.DataContexts;
+﻿using DataExplorer.Abstractions.Entities;
+using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.Extensions;
 using DataExplorer.Entities;
 using DataExplorer.Services;
@@ -138,7 +139,7 @@ public abstract class EfDbContext : DbContext, IEfDbContext
             if (SnowflakeIdFiller is null) 
                 continue;
             
-            if (entry.Entity is SnowflakeEntity snowflakeEntity && entry.State is EntityState.Added)
+            if (entry.Entity is ISnowflakeEntity { ShouldHaveIdFilled: true } snowflakeEntity && entry.State is EntityState.Added)
                 SnowflakeIdFiller.FillId(snowflakeEntity);
         }
     }
