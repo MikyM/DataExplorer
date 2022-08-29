@@ -1,5 +1,4 @@
 ﻿using DataExplorer.Abstractions.Entities;
-using DataExplorer.Entities;
 
 namespace DataExplorer.Services;
 
@@ -15,13 +14,13 @@ public class SnowflakeIdFiller : ISnowflakeIdFiller
     private readonly ISnowflakeIdGenerator _idGenerator;
     
     /// <inheritdoc/>
-    public void FillId(IEntityBase entity)
+    public void FillId(ISnowflakeEntity entity)
     {
         entity.SetId(_idGenerator.GenerateId());
     }
 
     /// <inheritdoc/>
-    public void FillIds(IEnumerable<IEntityBase> entities)
+    public void FillIds(IEnumerable<ISnowflakeEntity> entities)
     {
         foreach (var entity in entities)
         {

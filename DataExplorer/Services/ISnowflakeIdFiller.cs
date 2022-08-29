@@ -11,11 +11,11 @@ public interface ISnowflakeIdFiller
     /// Fills Id for a single entity.
     /// </summary>
     /// <param name="entity">Entity to handle.</param>
-    void FillId(IEntityBase entity);
+    void FillId(ISnowflakeEntity entity);
     
     /// <summary>
     /// Fills Ids for a list of entities.
     /// </summary>
     /// <param name="entities">Entities to handle.</param>
-    void FillIds(IEnumerable<IEntityBase> entities);
+    void FillIds(IEnumerable<ISnowflakeEntity> entities);
 }
