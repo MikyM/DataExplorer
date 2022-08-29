@@ -71,7 +71,7 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
         => Id.ToString();
     
     /// <inheritdoc />
-    public void SetId(TId id)
+    public virtual void SetId(TId id)
         => Id = id;
 
     /// <inheritdoc />
