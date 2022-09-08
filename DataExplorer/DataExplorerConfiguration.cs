@@ -59,6 +59,7 @@ public class DataExplorerConfiguration
         ServiceCollection?.AddSingleton<IdGen.IIdGenerator<long>>(new IdGen.IdGenerator(generatorId, opt));
 
         Builder?.RegisterType<SnowflakeIdGenerator>().As<ISnowflakeIdGenerator>().SingleInstance();
+        ServiceCollection?.AddSingleton<ISnowflakeIdGenerator, SnowflakeIdGenerator>();
 
         Builder?.RegisterBuildCallback(x =>
             SnowflakeIdFactory.AddFactoryMethod(() => x.Resolve<ISnowflakeIdGenerator>().GenerateId(), 1));
