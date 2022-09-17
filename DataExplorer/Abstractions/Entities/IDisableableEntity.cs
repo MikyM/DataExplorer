@@ -7,7 +7,7 @@
 public interface IDisableableEntity
 {
     /// <summary>
-    /// Whether the entity is currently disabled.
+    /// Whether this entity is currently disabled.
     /// </summary>
     bool IsDisabled { get; set; }
 }
