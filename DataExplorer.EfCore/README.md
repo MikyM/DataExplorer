@@ -13,7 +13,7 @@ To register the library services with the DI container use the DataExplorerConfi
 ```csharp
 builder.AddDataExplorer(options => 
 {
-    options.AddEfCore();
+    options.AddEfCore(assembliesToScan);
 });
 ```
 

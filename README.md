@@ -26,7 +26,7 @@ To register the library services with the DI container use extension methods on 
 ```csharp
 builder.AddDataExplorer(options => 
 {
-    options.AddEfCore();
+    options.AddEfCore(assembliesToScan);
     options.AddMongoDb();
 });
 ```
