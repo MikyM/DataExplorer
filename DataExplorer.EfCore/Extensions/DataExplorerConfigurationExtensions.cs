@@ -29,11 +29,25 @@ public static class DataExplorerConfigurationExtensions
     /// Adds Data Access Layer to the application.
     /// </summary>
     /// <remarks>
-    /// Automatically registers all base <see cref="IEvaluator"/> types, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/> with <see cref="ContainerBuilder"/>.
+    /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
     /// </remarks>
     /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesContainingTypesToScan">Assemblies containing types to scan DataExplorer services such as data services, validators, evaluators etc.</param>
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
-    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration, Action<DataExplorerEfCoreConfiguration>? options = null)
+    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration,
+        IEnumerable<Type> assembliesContainingTypesToScan, Action<DataExplorerEfCoreConfiguration>? options = null)
+        => AddEfCore(configuration, assembliesContainingTypesToScan.Select(x => x.Assembly).Distinct(), options);
+        
+    /// <summary>
+    /// Adds Data Access Layer to the application.
+    /// </summary>
+    /// <remarks>
+    /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
+    /// </remarks>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration, IEnumerable<Assembly> assembliesToScan, Action<DataExplorerEfCoreConfiguration>? options = null)
     {
         var builder = configuration.Builder;
         var serviceCollection = configuration.ServiceCollection;
@@ -51,18 +65,24 @@ public static class DataExplorerConfigurationExtensions
         serviceCollection?.AddSingleton(x => x.GetRequiredService<IOptions<DataExplorerEfCoreConfiguration>>().Value);
         serviceCollection?.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            builder?.RegisterAssemblyTypes(assembly)
-                .Where(x => x.GetInterface(nameof(IEvaluator)) is not null && x != typeof(IncludeEvaluator))
-                .As<IEvaluator>()
-                .FindConstructorsWith(ctorFinder)
-                .SingleInstance();
-            
-            if (serviceCollection is not null)
-                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IEvaluator)) is not null && x != typeof(IncludeEvaluator)))
+        var toScan = assembliesToScan.ToList();
+        
+        if (builder is not null)
+            foreach (var assembly in toScan)
+            {
+                builder?.RegisterAssemblyTypes(assembly)
+                    .Where(x => x.GetInterface(nameof(IInMemoryEvaluator)) is not null)
+                    .As<IInMemoryEvaluator>()
+                    .FindConstructorsWith(new AllConstructorsFinder())
+                    .SingleInstance();
+            }
+        
+        if (serviceCollection is not null)
+            foreach (var assembly in toScan)
+            {
+                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IInMemoryEvaluator)) is not null))
                 {
-                    serviceCollection.AddSingleton(typeof(IEvaluator), _ => Activator.CreateInstance(
+                    serviceCollection.AddSingleton(typeof(IInMemoryEvaluator), _ => Activator.CreateInstance(
                         type,
                         BindingFlags.Instance
                         | BindingFlags.Public
@@ -72,7 +92,54 @@ public static class DataExplorerConfigurationExtensions
                         null
                     )!);
                 }
-        }
+            }
+        
+        if (builder is not null)
+            foreach (var assembly in toScan)
+            {
+                builder?.RegisterAssemblyTypes(assembly)
+                    .Where(x => x.GetInterface(nameof(IValidator)) is not null)
+                    .As<IValidator>()
+                    .FindConstructorsWith(new AllConstructorsFinder())
+                    .SingleInstance();
+            }
+        
+        if (serviceCollection is not null)
+            foreach (var assembly in toScan)
+            {
+                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IValidator)) is not null))
+                {
+                    serviceCollection.AddSingleton(typeof(IValidator), _ => Activator.CreateInstance(
+                        type,
+                        BindingFlags.Instance
+                        | BindingFlags.Public
+                        | BindingFlags.NonPublic,
+                        null,
+                        Array.Empty<object>(),
+                        null
+                    )!);
+                }
+            }
+
+        builder?.RegisterAssemblyTypes(typeof(GroupByEvaluator).Assembly)
+            .Where(x => x.GetInterface(nameof(IEvaluator)) is not null && x != typeof(IncludeEvaluator))
+            .As<IEvaluator>()
+            .FindConstructorsWith(ctorFinder)
+            .SingleInstance();
+            
+        if (serviceCollection is not null)
+            foreach (var type in typeof(GroupByEvaluator).Assembly.GetTypes().Where(x => x.GetInterface(nameof(IEvaluator)) is not null && x != typeof(IncludeEvaluator)))
+            {
+                serviceCollection.AddSingleton(typeof(IEvaluator), _ => Activator.CreateInstance(
+                    type,
+                    BindingFlags.Instance
+                    | BindingFlags.Public
+                    | BindingFlags.NonPublic,
+                    null,
+                    Array.Empty<object>(),
+                    null
+                )!);
+            }
 
         builder?.RegisterType<IncludeEvaluator>()
             .As<IEvaluator>()
@@ -302,7 +369,7 @@ public static class DataExplorerConfigurationExtensions
 
         var excluded = new[] { typeof(IDataServiceBase<>), typeof(EfCoreDataServiceBase<>), typeof(CrudDataService<,>), typeof(ReadOnlyDataService<,>), typeof(CrudDataService<,,>), typeof(ReadOnlyDataService<,,>) };
 
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+        foreach (var assembly in toScan)
         {
             var dataSubSet = assembly.GetTypes()
                 .Where(x => x.GetInterfaces()
