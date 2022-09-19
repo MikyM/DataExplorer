@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using AttributeBasedRegistration;
 using AttributeBasedRegistration.Attributes;
+using AttributeBasedRegistration.Extensions;
 using Autofac;
 using Autofac.Builder;
 using Autofac.Extras.DynamicProxy;
@@ -16,6 +17,7 @@ using DataExplorer.EfCore.Specifications.Validators;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
+using MikyM.Utilities.Extensions;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer.EfCore.Extensions;
@@ -389,24 +391,27 @@ public static class DataExplorerConfigurationExtensions
                 
                 var scopeOverrideAttr = dataType.GetCustomAttribute<LifetimeAttribute>(false);
                 var intrAttrs = dataType.GetCustomAttributes<InterceptedByAttribute>(false).ToList();
-                var asAttr = dataType.GetCustomAttributes<RegisterAsAttribute>(false).ToList();
+                var asAttrs = dataType.GetCustomAttributes<RegisterAsAttribute>(false).ToList();
                 var intrEnableAttr = dataType.GetCustomAttribute<EnableInterceptionAttribute>(false);
 
                 var scope = scopeOverrideAttr?.ServiceLifetime ?? config.DataServiceLifetime;
 
-                var registerAsTypes = asAttr.Where(x => x.ServiceTypes is not null)
+                var registerAsTypes = asAttrs.Where(x => x.ServiceTypes is not null)
                     .SelectMany(x => x.ServiceTypes ?? Type.EmptyTypes)
                     .Distinct()
                     .ToList();
-                
-                var interfaceType = dataType.GetInterface($"I{dataType.Name}"); // by naming convention
-                if (interfaceType is not null && !registerAsTypes.Contains(interfaceType))
-                    registerAsTypes.Add(interfaceType);
-                
-                var shouldAsSelf = asAttr.Any(x => x.RegistrationStrategy == RegistrationStrategy.AsSelf) &&
-                                   asAttr.All(x => (x.ServiceTypes ?? Type.EmptyTypes).All(y => y != dataType));
+
+                var shouldAsSelf = asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsSelf) &&
+                                   asAttrs.All(x => (x.ServiceTypes ?? Type.EmptyTypes).All(y => y != dataType));
                 var shouldAsInterfaces =
-                    !asAttr.Any() || asAttr.Any(x => x.RegistrationStrategy == RegistrationStrategy.AsImplementedInterfaces);
+                    !asAttrs.Any() || asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsImplementedInterfaces);
+                var shouldAsDirectAncestors =
+                    asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsDirectAncestorInterfaces);
+                var shouldUsingNamingConvention =
+                    asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsConventionNamedInterface);
+                
+                if (!shouldAsInterfaces && !registerAsTypes.Any() && !shouldUsingNamingConvention && !shouldAsSelf)
+                    shouldAsDirectAncestors = true;
 
                 IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>?
                     registrationGenericBuilder = null;
@@ -464,6 +469,18 @@ public static class DataExplorerConfigurationExtensions
                     registrationBuilder = registrationBuilder?.As(dataType);
                     registrationGenericBuilder = registrationGenericBuilder?.AsSelf();
                 }
+                
+                if (shouldAsDirectAncestors)
+                {
+                    registrationBuilder = registrationBuilder?.AsDirectAncestorInterfaces();
+                    registrationGenericBuilder = registrationGenericBuilder?.AsDirectAncestorInterfaces();
+                }
+                
+                if (shouldUsingNamingConvention)
+                {
+                    registrationBuilder = registrationBuilder?.AsConventionNamedInterface();
+                    registrationGenericBuilder = registrationGenericBuilder?.AsConventionNamedInterface();
+                }
 
                 foreach (var asType in registerAsTypes)
                 {
@@ -473,7 +490,7 @@ public static class DataExplorerConfigurationExtensions
                     registrationGenericBuilder = registrationGenericBuilder?.As(asType);
                 }
 
-                var interfaces = dataType.GetInterfaces().ToList();
+                var interfaces = dataType.GetInterfaces().Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList();
                 
                 switch (scope)
                 {
@@ -484,11 +501,18 @@ public static class DataExplorerConfigurationExtensions
                         if (serviceCollection is not null)
                         {
                             if (shouldAsInterfaces)
-                                interfaces.ForEach(x => serviceCollection.TryAddSingleton(x, dataType));
+                                interfaces.ForEach(x => serviceCollection.AddSingleton(x, dataType));
                             if (shouldAsSelf)
-                                serviceCollection.TryAddSingleton(dataType);
+                                serviceCollection.AddSingleton(dataType);
                             if (registerAsTypes.Any())
-                                registerAsTypes.ForEach(x => serviceCollection.TryAddSingleton(x, dataType));
+                                registerAsTypes.ForEach(x => serviceCollection.AddSingleton(x, dataType));
+                            if (shouldAsDirectAncestors)
+                                dataType.GetDirectInterfaceAncestors()
+                                    .Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList()
+                                    .ForEach(x => serviceCollection.AddSingleton(x, dataType));
+                            if (shouldUsingNamingConvention)
+                                serviceCollection.AddSingleton(dataType.GetInterfaceByNamingConvention() ?? throw new ArgumentException(
+                                    "Couldn't find an implemented interface that follows the naming convention"), dataType);
                         }
                         break;
                     case ServiceLifetime.InstancePerRequest:
@@ -498,11 +522,18 @@ public static class DataExplorerConfigurationExtensions
                         if (serviceCollection is not null)
                         {
                             if (shouldAsInterfaces)
-                                interfaces.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
+                                interfaces.ForEach(x => serviceCollection.AddScoped(x, dataType));
                             if (shouldAsSelf)
-                                serviceCollection.TryAddScoped(dataType);
+                                serviceCollection.AddScoped(dataType);
                             if (registerAsTypes.Any())
-                                registerAsTypes.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
+                                registerAsTypes.ForEach(x => serviceCollection.AddScoped(x, dataType));
+                            if (shouldAsDirectAncestors)
+                                dataType.GetDirectInterfaceAncestors()
+                                    .Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList()
+                                    .ForEach(x => serviceCollection.AddScoped(x, dataType));
+                            if (shouldUsingNamingConvention)
+                                serviceCollection.AddScoped(dataType.GetInterfaceByNamingConvention() ?? throw new ArgumentException(
+                                    "Couldn't find an implemented interface that follows the naming convention"), dataType);
                         }
                         break;
                     case ServiceLifetime.InstancePerLifetimeScope:
@@ -512,11 +543,18 @@ public static class DataExplorerConfigurationExtensions
                         if (serviceCollection is not null)
                         {
                             if (shouldAsInterfaces)
-                                interfaces.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
+                                interfaces.ForEach(x => serviceCollection.AddScoped(x, dataType));
                             if (shouldAsSelf)
-                                serviceCollection.TryAddScoped(dataType);
+                                serviceCollection.AddScoped(dataType);
                             if (registerAsTypes.Any())
-                                registerAsTypes.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
+                                registerAsTypes.ForEach(x => serviceCollection.AddScoped(x, dataType));
+                            if (shouldAsDirectAncestors)
+                                dataType.GetDirectInterfaceAncestors()
+                                    .Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList()
+                                    .ForEach(x => serviceCollection.AddScoped(x, dataType));
+                            if (shouldUsingNamingConvention)
+                                serviceCollection.AddScoped(dataType.GetInterfaceByNamingConvention() ?? throw new ArgumentException(
+                                    "Couldn't find an implemented interface that follows the naming convention"), dataType);
                         }
                         break;
                     case ServiceLifetime.InstancePerDependency:
@@ -526,11 +564,18 @@ public static class DataExplorerConfigurationExtensions
                         if (serviceCollection is not null)
                         {
                             if (shouldAsInterfaces)
-                                interfaces.ForEach(x => serviceCollection.TryAddTransient(x, dataType));
+                                interfaces.ForEach(x => serviceCollection.AddTransient(x, dataType));
                             if (shouldAsSelf)
-                                serviceCollection.TryAddTransient(dataType);
+                                serviceCollection.AddTransient(dataType);
                             if (registerAsTypes.Any())
-                                registerAsTypes.ForEach(x => serviceCollection.TryAddTransient(x, dataType));
+                                registerAsTypes.ForEach(x => serviceCollection.AddTransient(x, dataType));
+                            if (shouldAsDirectAncestors)
+                                dataType.GetDirectInterfaceAncestors()
+                                    .Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList()
+                                    .ForEach(x => serviceCollection.AddTransient(x, dataType));
+                            if (shouldUsingNamingConvention)
+                                serviceCollection.AddTransient(dataType.GetInterfaceByNamingConvention() ?? throw new ArgumentException(
+                                    "Couldn't find an implemented interface that follows the naming convention"), dataType);
                         }
                         break;
                     case ServiceLifetime.InstancePerMatchingLifetimeScope:
@@ -553,7 +598,7 @@ public static class DataExplorerConfigurationExtensions
                         throw new ArgumentOutOfRangeException(nameof(scope));
                 }
 
-                foreach (var interceptor in intrAttrs.SelectMany(x => x.Interceptors))
+                foreach (var interceptor in intrAttrs.SelectMany(x => x.Interceptors).Concat(intrEnableAttr?.Interceptors ?? Type.EmptyTypes).Distinct())
                 {
                     registrationBuilder = IsInterceptorAsync(interceptor)
                         ? registrationBuilder?.InterceptedBy(
