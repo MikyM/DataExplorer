@@ -392,7 +392,7 @@ public static class DataExplorerConfigurationExtensions
                 var asAttr = dataType.GetCustomAttributes<RegisterAsAttribute>(false).ToList();
                 var intrEnableAttr = dataType.GetCustomAttribute<EnableInterceptionAttribute>(false);
 
-                var scope = scopeOverrideAttr?.Scope ?? config.DataServiceLifetime;
+                var scope = scopeOverrideAttr?.ServiceLifetime ?? config.DataServiceLifetime;
 
                 var registerAsTypes = asAttr.Where(x => x.ServiceTypes is not null)
                     .SelectMany(x => x.ServiceTypes ?? Type.EmptyTypes)
@@ -535,11 +535,11 @@ public static class DataExplorerConfigurationExtensions
                         break;
                     case ServiceLifetime.InstancePerMatchingLifetimeScope:
                         registrationBuilder =
-                            registrationBuilder?.InstancePerMatchingLifetimeScope(scopeOverrideAttr?.Tags.ToArray() ??
+                            registrationBuilder?.InstancePerMatchingLifetimeScope(scopeOverrideAttr?.Tags?.ToArray() ??
                                 Array.Empty<object>());
                         registrationGenericBuilder =
                             registrationGenericBuilder?.InstancePerMatchingLifetimeScope(
-                                scopeOverrideAttr?.Tags.ToArray() ?? Array.Empty<object>());
+                                scopeOverrideAttr?.Tags?.ToArray() ?? Array.Empty<object>());
                         break;
                     case ServiceLifetime.InstancePerOwned:
                         if (scopeOverrideAttr?.Owned is null)
