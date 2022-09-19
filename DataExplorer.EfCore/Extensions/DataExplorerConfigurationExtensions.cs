@@ -404,12 +404,16 @@ public static class DataExplorerConfigurationExtensions
                 var shouldAsSelf = asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsSelf) &&
                                    asAttrs.All(x => (x.ServiceTypes ?? Type.EmptyTypes).All(y => y != dataType));
                 var shouldAsInterfaces =
-                    !asAttrs.Any() || asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsImplementedInterfaces);
+                    asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsImplementedInterfaces);
                 var shouldAsDirectAncestors =
                     asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsDirectAncestorInterfaces);
                 var shouldUsingNamingConvention =
                     asAttrs.Any(x => x.RegistrationStrategy is RegistrationStrategy.AsConventionNamedInterface);
-                
+
+                var convention = dataType.GetInterfaceByNamingConvention();
+                if (convention is not null)
+                    registerAsTypes.Add(convention);
+
                 if (!shouldAsInterfaces && !registerAsTypes.Any() && !shouldUsingNamingConvention && !shouldAsSelf)
                     shouldAsDirectAncestors = true;
 
