@@ -3,6 +3,7 @@ using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
 using AutoMapper.Extensions.ExpressionMapping;
 using Microsoft.Extensions.DependencyInjection;
+using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer;
 
@@ -56,16 +57,16 @@ public static class DependencyInjectionExtensions
     /// <param name="factoryMethod">Factory method for the registration.</param>
     /// <param name="interceptorLifetime">Lifetime of the registered interceptor.</param>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/></returns>
-    public static ContainerBuilder AddInterceptor<T>(this ContainerBuilder builder, Func<IComponentContext, T> factoryMethod, Lifetime interceptorLifetime) where T : notnull
+    public static ContainerBuilder AddInterceptor<T>(this ContainerBuilder builder, Func<IComponentContext, T> factoryMethod, ServiceLifetime interceptorLifetime) where T : notnull
     {
         _ = interceptorLifetime switch
         {
-            Lifetime.SingleInstance => builder.Register(factoryMethod).AsSelf().SingleInstance(),
-            Lifetime.InstancePerRequest => builder.Register(factoryMethod).AsSelf().InstancePerRequest(),  
-            Lifetime.InstancePerLifetimeScope => builder.Register(factoryMethod).AsSelf().InstancePerLifetimeScope(),  
-            Lifetime.InstancePerMatchingLifetimeScope => throw new NotSupportedException(),
-            Lifetime.InstancePerDependency => builder.Register(factoryMethod).AsSelf().InstancePerDependency(), 
-            Lifetime.InstancePerOwned => throw new NotSupportedException(),
+            ServiceLifetime.SingleInstance => builder.Register(factoryMethod).AsSelf().SingleInstance(),
+            ServiceLifetime.InstancePerRequest => builder.Register(factoryMethod).AsSelf().InstancePerRequest(),  
+            ServiceLifetime.InstancePerLifetimeScope => builder.Register(factoryMethod).AsSelf().InstancePerLifetimeScope(),  
+            ServiceLifetime.InstancePerMatchingLifetimeScope => throw new NotSupportedException(),
+            ServiceLifetime.InstancePerDependency => builder.Register(factoryMethod).AsSelf().InstancePerDependency(), 
+            ServiceLifetime.InstancePerOwned => throw new NotSupportedException(),
             _ => throw new ArgumentOutOfRangeException(nameof(interceptorLifetime), interceptorLifetime, null)
         }; 
         

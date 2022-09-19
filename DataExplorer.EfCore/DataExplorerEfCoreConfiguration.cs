@@ -7,6 +7,7 @@ using DataExplorer.EfCore.DataContexts;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Validators;
 using Microsoft.Extensions.DependencyInjection;
+using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer.EfCore;
 
@@ -74,11 +75,11 @@ public class DataExplorerEfCoreConfiguration
     /// <summary>
     /// Gets or sets the default lifetime for base generic data services.
     /// </summary>
-    public Lifetime BaseGenericDataServiceLifetime { get; set; } = Lifetime.InstancePerLifetimeScope;
+    public ServiceLifetime BaseGenericDataServiceLifetime { get; set; } = ServiceLifetime.InstancePerLifetimeScope;
     /// <summary>
     /// Gets or sets the default lifetime for custom data services that implement or derive from base data services.
     /// </summary>
-    public Lifetime DataServiceLifetime { get; set; } = Lifetime.InstancePerLifetimeScope;
+    public ServiceLifetime DataServiceLifetime { get; set; } = ServiceLifetime.InstancePerLifetimeScope;
     
     /// <summary>
     /// Gets data interceptor registration delegates.
@@ -106,35 +107,35 @@ public class DataExplorerEfCoreConfiguration
     /// Adds the interface of a database context as a service.
     /// </summary>
     /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
-    public DataExplorerEfCoreConfiguration AddDbContext<TContextInterface, TContextImplementation>(Lifetime lifetime = Lifetime.InstancePerLifetimeScope) where TContextInterface : class, IEfDbContext
+    public DataExplorerEfCoreConfiguration AddDbContext<TContextInterface, TContextImplementation>(ServiceLifetime lifetime = ServiceLifetime.InstancePerLifetimeScope) where TContextInterface : class, IEfDbContext
         where TContextImplementation : EfDbContext, TContextInterface
     {
 
         switch (lifetime)
         {
-            case Lifetime.SingleInstance:
+            case ServiceLifetime.SingleInstance:
                 Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
                     .SingleInstance();
                 ServiceCollection?.AddSingleton<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
-            case Lifetime.InstancePerRequest:
+            case ServiceLifetime.InstancePerRequest:
                 Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
                     .InstancePerRequest();
                 ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
-            case Lifetime.InstancePerLifetimeScope:
+            case ServiceLifetime.InstancePerLifetimeScope:
                 Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
                     .InstancePerLifetimeScope();
                 ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
-            case Lifetime.InstancePerMatchingLifetimeScope:
+            case ServiceLifetime.InstancePerMatchingLifetimeScope:
                 throw new NotSupportedException();
-            case Lifetime.InstancePerDependency:
+            case ServiceLifetime.InstancePerDependency:
                 Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
                     .InstancePerDependency();
                 ServiceCollection?.AddTransient<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
-            case Lifetime.InstancePerOwned:
+            case ServiceLifetime.InstancePerOwned:
                 throw new NotSupportedException();
             default:
                 throw new ArgumentOutOfRangeException(nameof(lifetime), lifetime, null);

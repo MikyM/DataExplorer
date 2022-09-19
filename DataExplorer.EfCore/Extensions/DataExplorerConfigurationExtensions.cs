@@ -16,6 +16,7 @@ using DataExplorer.EfCore.Specifications.Validators;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
+using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer.EfCore.Extensions;
 
@@ -190,7 +191,7 @@ public static class DataExplorerConfigurationExtensions
 
         switch (config.BaseGenericDataServiceLifetime)
         {
-            case Lifetime.SingleInstance:
+            case ServiceLifetime.SingleInstance:
                 registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .SingleInstance();
@@ -209,7 +210,7 @@ public static class DataExplorerConfigurationExtensions
                 serviceCollection?.AddSingleton(typeof(ICrudDataService<,>), typeof(CrudDataService<,>));
                 serviceCollection?.AddSingleton(typeof(ICrudDataService<,,>), typeof(CrudDataService<,,>));
                 break;
-            case Lifetime.InstancePerRequest:
+            case ServiceLifetime.InstancePerRequest:
                 registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .InstancePerRequest();
@@ -228,7 +229,7 @@ public static class DataExplorerConfigurationExtensions
                 serviceCollection?.AddScoped(typeof(ICrudDataService<,>), typeof(CrudDataService<,>));
                 serviceCollection?.AddScoped(typeof(ICrudDataService<,,>), typeof(CrudDataService<,,>));
                 break;
-            case Lifetime.InstancePerLifetimeScope:
+            case ServiceLifetime.InstancePerLifetimeScope:
                 registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .InstancePerLifetimeScope();
@@ -247,7 +248,7 @@ public static class DataExplorerConfigurationExtensions
                 serviceCollection?.AddScoped(typeof(ICrudDataService<,>), typeof(CrudDataService<,>));
                 serviceCollection?.AddScoped(typeof(ICrudDataService<,,>), typeof(CrudDataService<,,>));
                 break;
-            case Lifetime.InstancePerMatchingLifetimeScope:
+            case ServiceLifetime.InstancePerMatchingLifetimeScope:
                 registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .InstancePerMatchingLifetimeScope();
@@ -261,7 +262,7 @@ public static class DataExplorerConfigurationExtensions
                     .As(typeof(ICrudDataService<,,>))
                     .InstancePerMatchingLifetimeScope();
                 break;
-            case Lifetime.InstancePerDependency:
+            case ServiceLifetime.InstancePerDependency:
                 registReadOnlyBuilder = builder?.RegisterGeneric(typeof(ReadOnlyDataService<,>))
                     .As(typeof(IReadOnlyDataService<,>))
                     .InstancePerDependency();
@@ -280,7 +281,7 @@ public static class DataExplorerConfigurationExtensions
                 serviceCollection?.AddTransient(typeof(ICrudDataService<,>), typeof(CrudDataService<,>));
                 serviceCollection?.AddTransient(typeof(ICrudDataService<,,>), typeof(CrudDataService<,,>));
                 break;
-            case Lifetime.InstancePerOwned:
+            case ServiceLifetime.InstancePerOwned:
                 throw new NotSupportedException();
             default:
                 throw new ArgumentOutOfRangeException(nameof(config.BaseGenericDataServiceLifetime),
@@ -393,18 +394,19 @@ public static class DataExplorerConfigurationExtensions
 
                 var scope = scopeOverrideAttr?.Scope ?? config.DataServiceLifetime;
 
-                var registerAsTypes = asAttr.Where(x => x.RegisterAsType is not null)
-                    .Select(x => x.RegisterAsType)
+                var registerAsTypes = asAttr.Where(x => x.ServiceTypes is not null)
+                    .SelectMany(x => x.ServiceTypes ?? Type.EmptyTypes)
                     .Distinct()
                     .ToList();
+                
                 var interfaceType = dataType.GetInterface($"I{dataType.Name}"); // by naming convention
                 if (interfaceType is not null && !registerAsTypes.Contains(interfaceType))
                     registerAsTypes.Add(interfaceType);
                 
-                var shouldAsSelf = asAttr.Any(x => x.RegisterAsOption == RegisterAs.Self) &&
-                                   asAttr.All(x => x.RegisterAsType != dataType);
+                var shouldAsSelf = asAttr.Any(x => x.RegistrationStrategy == RegistrationStrategy.AsSelf) &&
+                                   asAttr.All(x => (x.ServiceTypes ?? Type.EmptyTypes).All(y => y != dataType));
                 var shouldAsInterfaces =
-                    !asAttr.Any() || asAttr.Any(x => x.RegisterAsOption == RegisterAs.ImplementedInterfaces);
+                    !asAttr.Any() || asAttr.Any(x => x.RegistrationStrategy == RegistrationStrategy.AsImplementedInterfaces);
 
                 IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>?
                     registrationGenericBuilder = null;
@@ -430,9 +432,9 @@ public static class DataExplorerConfigurationExtensions
                 {
                     if (intrEnableAttr is not null)
                     {
-                        registrationBuilder = intrEnableAttr.Intercept switch
+                        registrationBuilder = intrEnableAttr.InterceptionStrategy switch
                         {
-                            Intercept.InterfaceAndClass => shouldAsInterfaces
+                            InterceptionStrategy.InterfaceAndClass => shouldAsInterfaces
                                 ? builder?.RegisterType(dataType)
                                     .AsImplementedInterfaces()
                                     .EnableClassInterceptors()
@@ -440,13 +442,13 @@ public static class DataExplorerConfigurationExtensions
                                 : builder?.RegisterType(dataType)
                                     .EnableClassInterceptors()
                                     .EnableInterfaceInterceptors(),
-                            Intercept.Interface => shouldAsInterfaces
+                            InterceptionStrategy.Interface => shouldAsInterfaces
                                 ? builder?.RegisterType(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
                                 : builder?.RegisterType(dataType).EnableInterfaceInterceptors(),
-                            Intercept.Class => shouldAsInterfaces
+                            InterceptionStrategy.Class => shouldAsInterfaces
                                 ? builder?.RegisterType(dataType).AsImplementedInterfaces().EnableClassInterceptors()
                                 : builder?.RegisterType(dataType).EnableClassInterceptors(),
-                            _ => throw new ArgumentOutOfRangeException(nameof(intrEnableAttr.Intercept))
+                            _ => throw new ArgumentOutOfRangeException(nameof(intrEnableAttr.InterceptionStrategy))
                         };
                     }
                     else
@@ -475,7 +477,7 @@ public static class DataExplorerConfigurationExtensions
                 
                 switch (scope)
                 {
-                    case Lifetime.SingleInstance:
+                    case ServiceLifetime.SingleInstance:
                         registrationBuilder = registrationBuilder?.SingleInstance();
                         registrationGenericBuilder = registrationGenericBuilder?.SingleInstance();
 
@@ -489,7 +491,7 @@ public static class DataExplorerConfigurationExtensions
                                 registerAsTypes.ForEach(x => serviceCollection.TryAddSingleton(x, dataType));
                         }
                         break;
-                    case Lifetime.InstancePerRequest:
+                    case ServiceLifetime.InstancePerRequest:
                         registrationBuilder = registrationBuilder?.InstancePerRequest();
                         registrationGenericBuilder = registrationGenericBuilder?.InstancePerRequest();
                         
@@ -503,7 +505,7 @@ public static class DataExplorerConfigurationExtensions
                                 registerAsTypes.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
                         }
                         break;
-                    case Lifetime.InstancePerLifetimeScope:
+                    case ServiceLifetime.InstancePerLifetimeScope:
                         registrationBuilder = registrationBuilder?.InstancePerLifetimeScope();
                         registrationGenericBuilder = registrationGenericBuilder?.InstancePerLifetimeScope();
                         
@@ -517,7 +519,7 @@ public static class DataExplorerConfigurationExtensions
                                 registerAsTypes.ForEach(x => serviceCollection.TryAddScoped(x, dataType));
                         }
                         break;
-                    case Lifetime.InstancePerDependency:
+                    case ServiceLifetime.InstancePerDependency:
                         registrationBuilder = registrationBuilder?.InstancePerDependency();
                         registrationGenericBuilder = registrationGenericBuilder?.InstancePerDependency();
                         
@@ -531,7 +533,7 @@ public static class DataExplorerConfigurationExtensions
                                 registerAsTypes.ForEach(x => serviceCollection.TryAddTransient(x, dataType));
                         }
                         break;
-                    case Lifetime.InstancePerMatchingLifetimeScope:
+                    case ServiceLifetime.InstancePerMatchingLifetimeScope:
                         registrationBuilder =
                             registrationBuilder?.InstancePerMatchingLifetimeScope(scopeOverrideAttr?.Tags.ToArray() ??
                                 Array.Empty<object>());
@@ -539,7 +541,7 @@ public static class DataExplorerConfigurationExtensions
                             registrationGenericBuilder?.InstancePerMatchingLifetimeScope(
                                 scopeOverrideAttr?.Tags.ToArray() ?? Array.Empty<object>());
                         break;
-                    case Lifetime.InstancePerOwned:
+                    case ServiceLifetime.InstancePerOwned:
                         if (scopeOverrideAttr?.Owned is null)
                             throw new InvalidOperationException("Owned type was null");
 
@@ -551,20 +553,25 @@ public static class DataExplorerConfigurationExtensions
                         throw new ArgumentOutOfRangeException(nameof(scope));
                 }
 
-                foreach (var attr in intrAttrs)
+                foreach (var interceptor in intrAttrs.SelectMany(x => x.Interceptors))
                 {
-                    registrationBuilder = attr.IsAsync
+                    registrationBuilder = IsInterceptorAsync(interceptor)
                         ? registrationBuilder?.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(attr.Interceptor))
-                        : registrationBuilder?.InterceptedBy(attr.Interceptor);
-                    registrationGenericBuilder = attr.IsAsync
+                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptor))
+                        : registrationBuilder?.InterceptedBy(interceptor);
+                    registrationGenericBuilder = IsInterceptorAsync(interceptor)
                         ? registrationGenericBuilder?.InterceptedBy(
-                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(attr.Interceptor))
-                        : registrationGenericBuilder?.InterceptedBy(attr.Interceptor);
+                            typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptor))
+                        : registrationGenericBuilder?.InterceptedBy(interceptor);
                 }
             }
         }
         
         return configuration;
     }
+    
+    /// <summary>
+    /// Whether given interceptor is an async interceptor.
+    /// </summary>
+    private static bool IsInterceptorAsync(Type interceptor) => interceptor.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor));
 }
