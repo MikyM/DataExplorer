@@ -55,7 +55,7 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
         => SetId((TId)id);
     
     /// <inheritdoc />
-    public virtual TId Id { get; protected set; }
+    public virtual TId Id { get; protected set; } = default!;
 
     /// <inheritdoc />
     public virtual DateTime? CreatedAt { get; set; }
