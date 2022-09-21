@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 using DataExplorer.Abstractions.Entities;
 // ReSharper disable VirtualMemberCallInConstructor
 
@@ -75,6 +77,7 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
         => Id = id;
 
     /// <inheritdoc />
+    [JsonIgnore][XmlIgnore]
     public sealed override bool HasValidId 
         => !Id.Equals(default);
 
