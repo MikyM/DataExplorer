@@ -124,7 +124,7 @@ public class DataExplorerConfiguration
 /// <summary>
 /// Configuration for base data service interceptors.
 /// </summary>
-public enum DataInterceptorConfiguration
+public enum DataRegistrationStrategy
 {
     /// <summary>
     /// Crud and read-only.

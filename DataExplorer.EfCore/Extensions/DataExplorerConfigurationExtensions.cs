@@ -293,11 +293,11 @@ public static class DataExplorerConfigurationExtensions
         bool crudEnabled = false;
         bool readEnabled = false;
         if (builder is not null)
-            foreach (var (interceptorType, dataConfig) in config.DataInterceptors)
+            foreach (var (interceptorType, registrationData) in config.DataInterceptors.OrderByDescending(x => x.Value.Order))
             {
-                switch (dataConfig)
+                switch (registrationData.Strategy)
                 {
-                    case DataInterceptorConfiguration.CrudAndReadOnly:
+                    case DataRegistrationStrategy.CrudAndReadOnly:
                         registCrudBuilder = interceptorType.IsAsyncInterceptor()
                             ? registCrudBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
@@ -330,7 +330,7 @@ public static class DataExplorerConfigurationExtensions
                         }
 
                         break;
-                    case DataInterceptorConfiguration.Crud:
+                    case DataRegistrationStrategy.Crud:
                         registCrudBuilder = interceptorType.IsAsyncInterceptor()
                             ? registCrudBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
@@ -347,7 +347,7 @@ public static class DataExplorerConfigurationExtensions
                         }
 
                         break;
-                    case DataInterceptorConfiguration.ReadOnly:
+                    case DataRegistrationStrategy.ReadOnly:
                         registReadOnlyBuilder = interceptorType.IsAsyncInterceptor()
                             ? registReadOnlyBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
@@ -365,8 +365,21 @@ public static class DataExplorerConfigurationExtensions
 
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException(nameof(dataConfig));
+                        throw new ArgumentOutOfRangeException(nameof(registrationData.Strategy));
                 }
+            }
+        
+        if (builder is not null)
+            foreach (var (decoratorType, _) in config.DataDecorators.OrderBy(x => x.Value))
+            {
+                if (decoratorType.IsAssignableToWithGenerics(typeof(ICrudDataService<,>)))
+                    builder.RegisterGenericDecorator(decoratorType, typeof(ICrudDataService<,>));
+                if (decoratorType.IsAssignableToWithGenerics(typeof(IReadOnlyDataService<,>)))
+                    builder.RegisterGenericDecorator(decoratorType, typeof(IReadOnlyDataService<,>));
+                if (decoratorType.IsAssignableToWithGenerics(typeof(ICrudDataService<,,>)))
+                    builder.RegisterGenericDecorator(decoratorType, typeof(ICrudDataService<,,>));
+                if (decoratorType.IsAssignableToWithGenerics(typeof(IReadOnlyDataService<,,>)))
+                    builder.RegisterGenericDecorator(decoratorType, typeof(IReadOnlyDataService<,,>));
             }
 
         var excluded = new[] { typeof(IDataServiceBase<>), typeof(EfCoreDataServiceBase<>), typeof(CrudDataService<,>), typeof(ReadOnlyDataService<,>), typeof(CrudDataService<,,>), typeof(ReadOnlyDataService<,,>) };
@@ -592,6 +605,9 @@ public static class DataExplorerConfigurationExtensions
                     default:
                         throw new ArgumentOutOfRangeException(nameof(scope));
                 }
+                
+                if (builder is null)
+                    continue;
 
                 foreach (var interceptor in intrAttrs.OrderByDescending(x => x.RegistrationOrder).Select(x => x.Interceptor).Distinct())
                 {
@@ -604,6 +620,79 @@ public static class DataExplorerConfigurationExtensions
                             typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptor))
                         : registrationGenericBuilder?.InterceptedBy(interceptor);
                 }
+
+                var decoratorAttributes = dataType.GetCustomAttributes<DecoratedByAttribute>(false).ToList();
+                if (!decoratorAttributes.Any())
+                    continue;
+
+                HashSet<Type> serviceTypes = new();
+                if (shouldAsSelf)
+                    serviceTypes.Add(dataType);
+                if (registerAsTypes.Any())
+                    registerAsTypes.ForEach(x => serviceTypes.Add(x));
+                if (shouldAsInterfaces)
+                    dataType.GetInterfaces().Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList()
+                        .ForEach(x => serviceTypes.Add(x));
+                if (shouldAsDirectAncestors)
+                    dataType.GetDirectInterfaceAncestors()
+                        .Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList()
+                        .ForEach(x => serviceTypes.Add(x));
+                if (shouldUsingNamingConvention)
+                    serviceTypes.Add(dataType.GetInterfaceByNamingConvention() ??
+                                     throw new InvalidOperationException("Couldn't find an interface by naming convention"));
+                
+                Dictionary<Type,Dictionary<Type, List<Type>>>? genericDecorationConditions = null;
+                
+                foreach (var attribute in decoratorAttributes.OrderBy(x => x.RegistrationOrder))
+                {
+                    if (attribute.DecoratorType.GetCustomAttribute<SkipDecoratorRegistrationAttribute>() is not null)
+                        continue;
+            
+                    if (attribute.DecoratorType.IsGenericType && attribute.DecoratorType.IsGenericTypeDefinition)
+                    {
+                        foreach (var serviceType in serviceTypes)
+                        {
+                            if (!serviceType.IsGenericType && !serviceType.IsGenericTypeDefinition)
+                                throw new InvalidOperationException(
+                                    "Can't register an open generic type decorator for a non-open generic type service");
+                    
+                            if (serviceType.IsGenericType && !serviceType.IsGenericTypeDefinition)
+                            {
+                                genericDecorationConditions ??= new Dictionary<Type, Dictionary<Type, List<Type>>>();
+                    
+                                var typeDef = serviceType.GetGenericTypeDefinition();
+                                genericDecorationConditions.TryAdd(typeDef, new Dictionary<Type, List<Type>>());
+                                genericDecorationConditions[typeDef].TryAdd(attribute.DecoratorType, new List<Type>());
+                                genericDecorationConditions[typeDef][attribute.DecoratorType].Add(serviceType);
+                            }
+                            else
+                            {
+                                builder?.RegisterGenericDecorator(attribute.DecoratorType, serviceType);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var serviceType in serviceTypes)
+                        {
+                            if (serviceType.IsGenericType && serviceType.IsGenericTypeDefinition)
+                                throw new InvalidOperationException(
+                                    "Can't register an non-open generic type decorator for an open generic type service");
+
+                            builder?.RegisterDecorator(attribute.DecoratorType, serviceType);
+                        }
+                    }
+                }
+                
+                if (genericDecorationConditions is null)
+                    continue;
+
+                foreach (var (openGenericType, decoratorData) in genericDecorationConditions)
+                foreach (var (decorator, servicesTypes) in decoratorData)
+                    builder?.RegisterGenericDecorator(decorator, openGenericType,
+                        x => servicesTypes.Contains(ProxyUtil.IsProxyType(x.ServiceType) && x.ServiceType.IsClass
+                            ? x.ServiceType.BaseType!
+                            : x.ServiceType));
             }
         }
         

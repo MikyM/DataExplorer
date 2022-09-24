@@ -84,7 +84,12 @@ public class DataExplorerEfCoreConfiguration
     /// <summary>
     /// Gets data interceptor registration delegates.
     /// </summary>
-    public Dictionary<Type, DataInterceptorConfiguration> DataInterceptors { get; private set; } = new();
+    public Dictionary<Type, (DataRegistrationStrategy Strategy, int Order)> DataInterceptors { get; private set; } = new();
+    
+    /// <summary>
+    /// Gets data decorator registration delegates.
+    /// </summary>
+    public Dictionary<Type, int> DataDecorators { get; private set; } = new();
 
     /// <summary>
     /// Adds an on before save changes action for a given context.
@@ -143,32 +148,52 @@ public class DataExplorerEfCoreConfiguration
 
         return this;
     }
+
+    /// <summary>
+    /// Marks an interceptor of a given type to be used for intercepting base data services.
+    /// </summary>
+    /// <param name="registrationOrder">Registration order.</param>
+    /// <param name="interceptor">Type of the interceptor.</param>
+    /// <param name="strategy">Interceptor configuration.</param>
+    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
+    public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor(int registrationOrder, Type interceptor, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly)
+    {
+        if (Builder is null)
+            throw new NotSupportedException("Supported only when used with Autofac");
+        
+        DataInterceptors.TryAdd(interceptor ?? throw new ArgumentNullException(nameof(interceptor)), new (strategy, registrationOrder));
+        return this;
+    }
     
     /// <summary>
     /// Marks an interceptor of a given type to be used for intercepting base data services.
     /// </summary>
-    /// <param name="interceptor">Type of the interceptor.</param>
-    /// <param name="configuration">Interceptor configuration.</param>
+    /// <param name="strategy">Interceptor configuration.</param>
+    /// <param name="registrationOrder">Registration order.</param>
+    /// <typeparam name="T">Interceptor type.</typeparam>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor(Type interceptor, DataInterceptorConfiguration configuration = DataInterceptorConfiguration.CrudAndReadOnly)
+    public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor<T>(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly) where T : notnull
     {
         if (Builder is null)
             throw new NotSupportedException("Supported only when used with Autofac");
         
-        DataInterceptors.TryAdd(interceptor ?? throw new ArgumentNullException(nameof(interceptor)), configuration);
+        DataInterceptors.TryAdd(typeof(T), new (strategy, registrationOrder));
         return this;
     }
+    
     /// <summary>
-    /// Marks an interceptor of a given type to be used for intercepting base data services.
+    /// Marks a decorator of a given type to be used for decorating base data services.
     /// </summary>
-    /// <param name="configuration">Interceptor configuration.</param>
+    /// <param name="registrationOrder">Registration order.</param>
+    /// <param name="decorator">Type of the decorator.</param>
+    /// <param name="strategy">Interceptor configuration.</param>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor<T>(DataInterceptorConfiguration configuration = DataInterceptorConfiguration.CrudAndReadOnly) where T : notnull
+    public virtual DataExplorerEfCoreConfiguration AddDataServiceDecorator(int registrationOrder, Type decorator)
     {
         if (Builder is null)
             throw new NotSupportedException("Supported only when used with Autofac");
         
-        DataInterceptors.TryAdd(typeof(T), configuration);
+        DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
         return this;
     }
 }
