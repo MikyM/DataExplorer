@@ -15,7 +15,6 @@ using DataExplorer.EfCore.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Validators;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using MikyM.Utilities.Extensions;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
@@ -299,19 +298,19 @@ public static class DataExplorerConfigurationExtensions
                 switch (dataConfig)
                 {
                     case DataInterceptorConfiguration.CrudAndReadOnly:
-                        registCrudBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                        registCrudBuilder = interceptorType.IsAsyncInterceptor()
                             ? registCrudBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registCrudBuilder.InterceptedBy(interceptorType);
-                        registReadOnlyBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                        registReadOnlyBuilder = interceptorType.IsAsyncInterceptor()
                             ? registReadOnlyBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registReadOnlyBuilder.InterceptedBy(interceptorType);
-                        registCrudGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                        registCrudGenericIdBuilder = interceptorType.IsAsyncInterceptor()
                             ? registCrudGenericIdBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
-                        registReadOnlyGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                        registReadOnlyGenericIdBuilder = interceptorType.IsAsyncInterceptor()
                             ? registReadOnlyGenericIdBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
@@ -332,11 +331,11 @@ public static class DataExplorerConfigurationExtensions
 
                         break;
                     case DataInterceptorConfiguration.Crud:
-                        registCrudBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                        registCrudBuilder = interceptorType.IsAsyncInterceptor()
                             ? registCrudBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registCrudBuilder.InterceptedBy(interceptorType);
-                        registCrudGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                        registCrudGenericIdBuilder = interceptorType.IsAsyncInterceptor()
                             ? registCrudGenericIdBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
@@ -349,11 +348,11 @@ public static class DataExplorerConfigurationExtensions
 
                         break;
                     case DataInterceptorConfiguration.ReadOnly:
-                        registReadOnlyBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                        registReadOnlyBuilder = interceptorType.IsAsyncInterceptor()
                             ? registReadOnlyBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registReadOnlyBuilder.InterceptedBy(interceptorType);
-                        registReadOnlyGenericIdBuilder = interceptorType.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor))
+                        registReadOnlyGenericIdBuilder = interceptorType.IsAsyncInterceptor()
                             ? registReadOnlyGenericIdBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
@@ -443,14 +442,6 @@ public static class DataExplorerConfigurationExtensions
                     {
                         registrationBuilder = intrEnableAttr.InterceptionStrategy switch
                         {
-                            InterceptionStrategy.InterfaceAndClass => shouldAsInterfaces
-                                ? builder?.RegisterType(dataType)
-                                    .AsImplementedInterfaces()
-                                    .EnableClassInterceptors()
-                                    .EnableInterfaceInterceptors()
-                                : builder?.RegisterType(dataType)
-                                    .EnableClassInterceptors()
-                                    .EnableInterfaceInterceptors(),
                             InterceptionStrategy.Interface => shouldAsInterfaces
                                 ? builder?.RegisterType(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
                                 : builder?.RegisterType(dataType).EnableInterfaceInterceptors(),
@@ -602,13 +593,13 @@ public static class DataExplorerConfigurationExtensions
                         throw new ArgumentOutOfRangeException(nameof(scope));
                 }
 
-                foreach (var interceptor in intrAttrs.SelectMany(x => x.Interceptors).Concat(intrEnableAttr?.Interceptors ?? Type.EmptyTypes).Distinct())
+                foreach (var interceptor in intrAttrs.OrderByDescending(x => x.RegistrationOrder).Select(x => x.Interceptor).Distinct())
                 {
-                    registrationBuilder = IsInterceptorAsync(interceptor)
+                    registrationBuilder = interceptor.IsAsyncInterceptor()
                         ? registrationBuilder?.InterceptedBy(
                             typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptor))
                         : registrationBuilder?.InterceptedBy(interceptor);
-                    registrationGenericBuilder = IsInterceptorAsync(interceptor)
+                    registrationGenericBuilder = interceptor.IsAsyncInterceptor()
                         ? registrationGenericBuilder?.InterceptedBy(
                             typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptor))
                         : registrationGenericBuilder?.InterceptedBy(interceptor);
@@ -622,5 +613,5 @@ public static class DataExplorerConfigurationExtensions
     /// <summary>
     /// Whether given interceptor is an async interceptor.
     /// </summary>
-    private static bool IsInterceptorAsync(Type interceptor) => interceptor.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor));
+    private static bool IsAsyncInterceptor(this Type interceptorCandidate) => interceptorCandidate.GetInterfaces().Any(x => x == typeof(IAsyncInterceptor));
 }
