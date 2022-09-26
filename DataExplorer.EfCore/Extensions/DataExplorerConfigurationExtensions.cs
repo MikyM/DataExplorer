@@ -394,7 +394,7 @@ public static class DataExplorerConfigurationExtensions
                 .ToList();
 
             dataSubSet.RemoveAll(x => excluded.Any(y => y == x));
-            
+
             // handle data services
             foreach (var dataType in dataSubSet)
             {
@@ -640,9 +640,7 @@ public static class DataExplorerConfigurationExtensions
                 if (shouldUsingNamingConvention)
                     serviceTypes.Add(dataType.GetInterfaceByNamingConvention() ??
                                      throw new InvalidOperationException("Couldn't find an interface by naming convention"));
-                
-                Dictionary<Type,Dictionary<Type, List<Type>>>? genericDecorationConditions = null;
-                
+
                 foreach (var attribute in decoratorAttributes.OrderBy(x => x.RegistrationOrder))
                 {
                     if (attribute.DecoratorType.GetCustomAttribute<SkipDecoratorRegistrationAttribute>() is not null)
@@ -651,51 +649,17 @@ public static class DataExplorerConfigurationExtensions
                     if (attribute.DecoratorType.IsGenericType && attribute.DecoratorType.IsGenericTypeDefinition)
                     {
                         foreach (var serviceType in serviceTypes)
-                        {
-                            if (!serviceType.IsGenericType && !serviceType.IsGenericTypeDefinition)
-                                throw new InvalidOperationException(
-                                    "Can't register an open generic type decorator for a non-open generic type service");
-                    
-                            if (serviceType.IsGenericType && !serviceType.IsGenericTypeDefinition)
-                            {
-                                genericDecorationConditions ??= new Dictionary<Type, Dictionary<Type, List<Type>>>();
-                    
-                                var typeDef = serviceType.GetGenericTypeDefinition();
-                                genericDecorationConditions.TryAdd(typeDef, new Dictionary<Type, List<Type>>());
-                                genericDecorationConditions[typeDef].TryAdd(attribute.DecoratorType, new List<Type>());
-                                genericDecorationConditions[typeDef][attribute.DecoratorType].Add(serviceType);
-                            }
-                            else
-                            {
-                                builder?.RegisterGenericDecorator(attribute.DecoratorType, serviceType);
-                            }
-                        }
+                            builder?.RegisterGenericDecorator(attribute.DecoratorType, serviceType);
                     }
                     else
                     {
                         foreach (var serviceType in serviceTypes)
-                        {
-                            if (serviceType.IsGenericType && serviceType.IsGenericTypeDefinition)
-                                throw new InvalidOperationException(
-                                    "Can't register an non-open generic type decorator for an open generic type service");
-
                             builder?.RegisterDecorator(attribute.DecoratorType, serviceType);
-                        }
                     }
                 }
-                
-                if (genericDecorationConditions is null)
-                    continue;
-
-                foreach (var (openGenericType, decoratorData) in genericDecorationConditions)
-                foreach (var (decorator, servicesTypes) in decoratorData)
-                    builder?.RegisterGenericDecorator(decorator, openGenericType,
-                        x => servicesTypes.Contains(ProxyUtil.IsProxyType(x.ServiceType) && x.ServiceType.IsClass
-                            ? x.ServiceType.BaseType!
-                            : x.ServiceType));
             }
         }
-        
+
         return configuration;
     }
     
