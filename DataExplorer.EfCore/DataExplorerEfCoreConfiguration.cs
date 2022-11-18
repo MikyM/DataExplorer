@@ -186,7 +186,6 @@ public class DataExplorerEfCoreConfiguration
     /// </summary>
     /// <param name="registrationOrder">Registration order.</param>
     /// <param name="decorator">Type of the decorator.</param>
-    /// <param name="strategy">Interceptor configuration.</param>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
     public virtual DataExplorerEfCoreConfiguration AddDataServiceDecorator(int registrationOrder, Type decorator)
     {

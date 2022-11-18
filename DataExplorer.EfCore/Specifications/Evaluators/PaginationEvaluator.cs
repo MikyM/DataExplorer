@@ -1,14 +1,15 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
+public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase, ISpecialCaseEvaluator
 {
-    private PaginationEvaluator()
+    internal PaginationEvaluator()
     {
     }
 
     public static PaginationEvaluator Instance { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
+    public int ApplicationOrder { get; } = int.MaxValue;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {

@@ -118,6 +118,7 @@ public
 }
 
 /// <inheritdoc cref="ISpecification{T}" />
+[PublicAPI]
 public class Specification<T> : ISpecification<T> where T : class
 {
     protected Specification(PaginationFilter paginationFilter)

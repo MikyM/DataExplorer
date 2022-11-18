@@ -41,15 +41,13 @@ public class InMemorySpecificationEvaluator : IInMemorySpecificationEvaluator
 
     public virtual IEnumerable<T> Evaluate<T>(IEnumerable<T> source, ISpecification<T> specification) where T : class
     {
+        foreach (var evaluator in _evaluators.OrderBy(x => x.ApplicationOrder))
         {
-            foreach (var evaluator in _evaluators)
-            {
-                source = evaluator.Evaluate(source, specification);
-            }
-
-            return specification.PostProcessingAction == null
-                ? source
-                : specification.PostProcessingAction(source);
+            source = evaluator.Evaluate(source, specification);
         }
+
+        return specification.PostProcessingAction == null
+            ? source
+            : specification.PostProcessingAction(source);
     }
 }

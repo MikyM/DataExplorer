@@ -11,6 +11,7 @@ public class CachingEvaluator : IEvaluator, IEvaluatorBase
     public static CachingEvaluator Instance { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
+    public int ApplicationOrder { get; } = 0;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {

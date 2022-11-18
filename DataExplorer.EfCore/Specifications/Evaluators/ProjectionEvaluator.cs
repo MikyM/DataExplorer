@@ -2,7 +2,7 @@
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class ProjectionEvaluator : IProjectionEvaluator, IEvaluatorBase
+public class ProjectionEvaluator : IProjectionEvaluator, IEvaluatorBase, ISpecialCaseEvaluator
 {
     public static ProjectionEvaluator Instance { get; } = new();
 

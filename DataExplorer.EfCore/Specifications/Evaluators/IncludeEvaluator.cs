@@ -57,7 +57,8 @@ public class IncludeEvaluator : IEvaluator, IEvaluatorBase
     /// </summary>
     public static IncludeEvaluator Cached { get; } = new(true);
 
-    public bool IsCriteriaEvaluator => false;
+    public bool IsCriteriaEvaluator { get; } = false;
+    public int ApplicationOrder { get; } = 0;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {

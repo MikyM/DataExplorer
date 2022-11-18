@@ -9,6 +9,7 @@ public class GroupByEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
     public static GroupByEvaluator Instance { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
+    public int ApplicationOrder { get; } = 0;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {

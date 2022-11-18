@@ -8,7 +8,7 @@ public class SearchEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
     public static SearchEvaluator Instance { get; } = new SearchEvaluator();
 
     public bool IsCriteriaEvaluator { get; } = true;
-
+    public int ApplicationOrder { get; } = 0;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {

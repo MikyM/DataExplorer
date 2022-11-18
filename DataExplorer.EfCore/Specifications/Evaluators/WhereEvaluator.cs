@@ -6,6 +6,7 @@ public class WhereEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
     public static WhereEvaluator Instance { get; } = new WhereEvaluator();
 
     public bool IsCriteriaEvaluator { get; } = true;
+    public int ApplicationOrder { get; } = 0;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {

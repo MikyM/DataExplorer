@@ -55,7 +55,8 @@ public class SpecificationEvaluator : ISpecificationEvaluator
     {
         if (specification is null) throw new ArgumentNullException(nameof(specification), "Specification is required");
 
-        return (evaluateCriteriaOnly ? _evaluators.Where(x => x.IsCriteriaEvaluator) : _evaluators).Aggregate(query,
-            (current, evaluator) => evaluator.GetQuery(current, specification));
+        return (evaluateCriteriaOnly ? _evaluators.Where(x => x.IsCriteriaEvaluator) : _evaluators)
+            .OrderBy(x => x.ApplicationOrder).Aggregate(query,
+                (current, evaluator) => evaluator.GetQuery(current, specification));
     }
 }

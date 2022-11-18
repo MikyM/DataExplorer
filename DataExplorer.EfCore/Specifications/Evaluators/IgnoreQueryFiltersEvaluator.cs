@@ -12,6 +12,7 @@ public class IgnoreQueryFiltersEvaluator : IEvaluator, IEvaluatorBase
     public static IgnoreQueryFiltersEvaluator Instance { get; } = new IgnoreQueryFiltersEvaluator();
 
     public bool IsCriteriaEvaluator { get; } = true;
+    public int ApplicationOrder { get; } = 0;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {

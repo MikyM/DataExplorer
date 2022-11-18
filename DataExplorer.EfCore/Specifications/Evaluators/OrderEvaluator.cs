@@ -7,9 +7,10 @@ namespace DataExplorer.EfCore.Specifications.Evaluators;
 public class OrderEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
 {
     private OrderEvaluator() { }
-    public static OrderEvaluator Instance { get; } = new OrderEvaluator();
+    public static OrderEvaluator Instance { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
+    public int ApplicationOrder { get; } = 0;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {
