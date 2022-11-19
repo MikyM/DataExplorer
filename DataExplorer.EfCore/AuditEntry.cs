@@ -59,7 +59,7 @@ public class AuditEntry
     public List<string> ChangedColumns { get; } = new();
 
     /// <summary>
-    /// Creates a new <see cref="AuditLog"/> instance.
+    /// Creates a new <see cref="AuditLog"/> instance based on this entry.
     /// </summary>
     /// <returns>New instance of <see cref="AuditLog"/>.</returns>
     public AuditLog ToAudit()
