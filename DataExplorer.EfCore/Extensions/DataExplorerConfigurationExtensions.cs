@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using AttributeBasedRegistration;
 using AttributeBasedRegistration.Attributes;
+using AttributeBasedRegistration.Attributes.Abstractions;
 using AttributeBasedRegistration.Extensions;
 using Autofac;
 using Autofac.Builder;
@@ -401,10 +402,19 @@ public static class DataExplorerConfigurationExtensions
                 if (dataType.GetCustomAttribute<SkipDataServiceRegistrationAttribute>(false) is not null)
                     continue;
                 
-                var scopeOverrideAttr = dataType.GetCustomAttribute<LifetimeAttribute>(false);
-                var intrAttrs = dataType.GetCustomAttributes<InterceptedByAttribute>(false).ToList();
-                var asAttrs = dataType.GetCustomAttributes<RegisterAsAttribute>(false).ToList();
-                var intrEnableAttr = dataType.GetCustomAttribute<EnableInterceptionAttribute>(false);
+                var scopeOverrideAttrs = dataType.GetRegistrationAttributesOfType<ILifetimeAttribute>().ToArray();
+                if (scopeOverrideAttrs.Length > 1)
+                    throw new InvalidOperationException($"Only a single lifetime attribute is allowed on a type, type: {dataType.Name}");
+                var scopeOverrideAttr = scopeOverrideAttrs.FirstOrDefault();
+                
+                var intrAttrs = dataType.GetRegistrationAttributesOfType<IInterceptedByAttribute>().ToArray();
+                
+                var asAttrs = dataType.GetRegistrationAttributesOfType<IRegisterAsAttribute>().ToArray();
+                
+                var intrEnableAttrs = dataType.GetRegistrationAttributesOfType<IEnableInterceptionAttribute>().ToArray();
+                if (intrEnableAttrs.Length > 1)
+                    throw new InvalidOperationException($"Only a single enable interception attribute is allowed on a type, type: {dataType.Name}");
+                var intrEnableAttr = intrEnableAttrs.FirstOrDefault();
 
                 var scope = scopeOverrideAttr?.ServiceLifetime ?? config.DataServiceLifetime;
 
@@ -608,6 +618,13 @@ public static class DataExplorerConfigurationExtensions
                 
                 if (builder is null)
                     continue;
+                
+                if (intrAttrs.GroupBy(x => x.RegistrationOrder).FirstOrDefault(x => x.Count() > 1) is not null)
+                    throw new InvalidOperationException($"Duplicated interceptor registration order on type {dataType.Name}");
+
+                if (intrAttrs.GroupBy(x => x.Interceptor)
+                        .FirstOrDefault(x => x.Count() > 1) is not null)
+                    throw new InvalidOperationException($"Duplicated interceptor type on type {dataType.Name}");
 
                 foreach (var interceptor in intrAttrs.OrderByDescending(x => x.RegistrationOrder).Select(x => x.Interceptor).Distinct())
                 {
@@ -621,7 +638,7 @@ public static class DataExplorerConfigurationExtensions
                         : registrationGenericBuilder?.InterceptedBy(interceptor);
                 }
 
-                var decoratorAttributes = dataType.GetCustomAttributes<DecoratedByAttribute>(false).ToList();
+                var decoratorAttributes = dataType.GetRegistrationAttributesOfType<IDecoratedByAttribute>().ToArray();
                 if (!decoratorAttributes.Any())
                     continue;
 
@@ -641,20 +658,27 @@ public static class DataExplorerConfigurationExtensions
                     serviceTypes.Add(dataType.GetInterfaceByNamingConvention() ??
                                      throw new InvalidOperationException("Couldn't find an interface by naming convention"));
 
+                if (decoratorAttributes.GroupBy(x => x.RegistrationOrder).FirstOrDefault(x => x.Count() > 1) is not null)
+                    throw new InvalidOperationException($"Duplicated decorator registration order on type {dataType.Name}");
+
+                if (decoratorAttributes.GroupBy(x => x.Decorator)
+                        .FirstOrDefault(x => x.Count() > 1) is not null)
+                    throw new InvalidOperationException($"Duplicated decorator type on type {dataType.Name}");
+                
                 foreach (var attribute in decoratorAttributes.OrderBy(x => x.RegistrationOrder))
                 {
-                    if (attribute.DecoratorType.GetCustomAttribute<SkipDecoratorRegistrationAttribute>() is not null)
+                    if (attribute.Decorator.ShouldSkipRegistration())
                         continue;
             
-                    if (attribute.DecoratorType.IsGenericType && attribute.DecoratorType.IsGenericTypeDefinition)
+                    if (attribute.Decorator.IsGenericType && attribute.Decorator.IsGenericTypeDefinition)
                     {
                         foreach (var serviceType in serviceTypes)
-                            builder?.RegisterGenericDecorator(attribute.DecoratorType, serviceType);
+                            builder?.RegisterGenericDecorator(attribute.Decorator, serviceType);
                     }
                     else
                     {
                         foreach (var serviceType in serviceTypes)
-                            builder?.RegisterDecorator(attribute.DecoratorType, serviceType);
+                            builder?.RegisterDecorator(attribute.Decorator, serviceType);
                     }
                 }
             }
