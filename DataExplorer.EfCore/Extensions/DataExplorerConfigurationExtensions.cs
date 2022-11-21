@@ -399,7 +399,7 @@ public static class DataExplorerConfigurationExtensions
             // handle data services
             foreach (var dataType in dataSubSet)
             {
-                if (dataType.GetCustomAttribute<SkipDataServiceRegistrationAttribute>(false) is not null)
+                if (dataType.ShouldSkipRegistration<ISkipDataServiceRegistrationAttribute>())
                     continue;
                 
                 var scopeOverrideAttrs = dataType.GetRegistrationAttributesOfType<ILifetimeAttribute>().ToArray();
@@ -667,7 +667,7 @@ public static class DataExplorerConfigurationExtensions
                 
                 foreach (var attribute in decoratorAttributes.OrderBy(x => x.RegistrationOrder))
                 {
-                    if (attribute.Decorator.ShouldSkipRegistration())
+                    if (attribute.Decorator.ShouldSkipRegistration<ISkipDecoratorRegistrationAttribute>())
                         continue;
             
                     if (attribute.Decorator.IsGenericType && attribute.Decorator.IsGenericTypeDefinition)
