@@ -4,13 +4,15 @@
         <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageId>DataExplorer.MongoDb</PackageId>
-        <Version>2.2.0</Version>
+        <PackageId>DataExplorer.MongoDb.Unstable</PackageId>
+        <Version>1.0.1</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring common patterns in regard to working with MongoDb.</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <NoWarn>1591</NoWarn>
     </PropertyGroup>

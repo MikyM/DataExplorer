@@ -74,8 +74,8 @@ public class SpecificationEvaluator : ISpecificationEvaluator
             throw new ArgumentNullException(nameof(specification), "Specification is required");
 
         return (evaluateCriteriaOnly ? _evaluators.Where(x => x.IsCriteriaEvaluator) : _evaluators)
-            .OrderBy(x => x.ApplicationOrder).Aggregate(query,
-                (current, evaluator) => evaluator.GetQuery(current, specification));
+            .OrderBy(x => x.ApplicationOrder)
+            .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification));
     }
     
     public virtual IQueryable<T> GetQuery<T>(IQueryable<T> query, IBasicSpecification<T> specification,
@@ -85,8 +85,8 @@ public class SpecificationEvaluator : ISpecificationEvaluator
             throw new ArgumentNullException(nameof(specification), "Specification is required");
 
         return (evaluateCriteriaOnly ? _basicEvaluators.Where(x => x.IsCriteriaEvaluator) : _basicEvaluators)
-            .OrderBy(x => x.ApplicationOrder).Aggregate(query,
-                (current, evaluator) => evaluator.GetQuery(current, specification));
+            .OrderBy(x => x.ApplicationOrder)
+            .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification));
     }
 
     public async Task<int> EvaluateUpdateAsync<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
@@ -96,8 +96,8 @@ public class SpecificationEvaluator : ISpecificationEvaluator
             throw new ArgumentNullException(nameof(specification), "Specification is required");
 
         return await (evaluateCriteriaOnly ? _preUpdateEvaluators.Where(x => x.IsCriteriaEvaluator) : _preUpdateEvaluators)
-            .OrderBy(x => x.ApplicationOrder).Aggregate(query,
-                (current, evaluator) => evaluator.GetQuery(current, specification))
+            .OrderBy(x => x.ApplicationOrder)
+            .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification))
             .ExecuteUpdateAsync(_updateEvaluator.Evaluate(specification), cancellationToken).ConfigureAwait(false);
     }
 }

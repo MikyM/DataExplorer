@@ -19,4 +19,7 @@ public class UpdateEvaluator : IUpdateEvaluator, ISpecialCaseEvaluator
 
         return ExpressionExtensions.Join(specification.UpdateExpressions);
     }
+
+    public bool IsCriteriaEvaluator { get; } = false;
+    public int ApplicationOrder { get; } = int.MaxValue;
 }
