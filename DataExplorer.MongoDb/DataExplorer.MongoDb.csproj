@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer.MongoDb</PackageId>
-        <Version>2.0.5</Version>
+        <Version>2.0.6</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring common patterns in regard to working with MongoDb.</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -13,6 +13,8 @@
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <NoWarn>1591</NoWarn>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
 
     <ItemGroup>
