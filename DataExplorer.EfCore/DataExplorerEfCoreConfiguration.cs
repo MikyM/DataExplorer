@@ -54,7 +54,7 @@ public class DataExplorerEfCoreConfiguration
     
     private Dictionary<string, Func<IUnitOfWork, Task>>? _onBeforeSaveChangesActions;
 
-    public IGridifyMapperProvider MapperProvider { get; private set; } = new GridifyMapperProvider();
+    internal IGridifyMapperProvider? MapperProvider { get; set; }
 
     /// <summary>
     /// Whether to cache include expressions (queries are evaluated faster).
@@ -113,6 +113,8 @@ public class DataExplorerEfCoreConfiguration
     /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
     public DataExplorerEfCoreConfiguration AddGridifyMapper<T>() where T : class, IGridifyMapper<T>, new()
     {
+        MapperProvider ??= new GridifyMapperProvider();
+        
         ((GridifyMapperProvider)MapperProvider).AddMapper(new T());
         return this;
     }
@@ -123,6 +125,8 @@ public class DataExplorerEfCoreConfiguration
     /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
     public DataExplorerEfCoreConfiguration AddGridifyMapper<T>(IGridifyMapper<T> mapper) where T : class
     {
+        MapperProvider ??= new GridifyMapperProvider();
+        
         var addRes = ((GridifyMapperProvider)MapperProvider).AddMapper(mapper);
         if (!addRes)
             throw new InvalidOperationException($"Two gridify mappers were registered for the type: {typeof(T).Name}");

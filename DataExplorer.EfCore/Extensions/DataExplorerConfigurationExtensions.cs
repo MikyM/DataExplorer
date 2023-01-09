@@ -61,8 +61,13 @@ public static class DataExplorerConfigurationExtensions
         
         GridifyGlobalConfiguration.EnableEntityFrameworkCompatibilityLayer();
 
-        builder?.RegisterInstance(config.MapperProvider).As<IGridifyMapperProvider>().SingleInstance();
-        serviceCollection?.AddSingleton(config.MapperProvider);
+        var cache = new DataExplorerTypeCache();
+        builder?.RegisterInstance(cache).As<IDataExplorerTypeCache>().SingleInstance();
+        serviceCollection?.AddSingleton<IDataExplorerTypeCache>(cache);
+
+        var mapperProvider = config.MapperProvider ?? new GridifyMapperProvider();
+        builder?.RegisterInstance(mapperProvider).As<IGridifyMapperProvider>().SingleInstance();
+        serviceCollection?.AddSingleton(mapperProvider);
 
         var ctorFinder = new AllConstructorsFinder();
 

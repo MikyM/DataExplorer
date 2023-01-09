@@ -31,12 +31,12 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     // ReSharper disable once InconsistentNaming
 
     /// <summary>
-    /// Repository cache.
+    /// Repositories.
     /// </summary>
     private ConcurrentDictionary<RepositoryEntryKey, Lazy<RepositoryEntry>>? _repositories;
     
     /// <summary>
-    /// Repository cache.
+    /// Repository cache data.
     /// </summary>
     // ReSharper disable once StaticMemberInGenericType
     private static ConcurrentDictionary<Type, RepoCacheData> _repoCacheData = new();
@@ -57,6 +57,11 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     public IGridifyMapperProvider GridifyMapperProvider { get; }
 
     /// <summary>
+    /// Data cache.
+    /// </summary>
+    private readonly IDataExplorerTypeCache _cache;
+
+    /// <summary>
     /// Creates a new instance of <see cref="UnitOfWork{TContext}"/>.
     /// </summary>
     /// <param name="context"><see cref="DbContext"/> to be used.</param>
@@ -64,14 +69,16 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <param name="mapper">Mapper.</param>
     /// <param name="options">Options.</param>
     /// <param name="gridifyMapperProvider">Gridify mapper provider.</param>
+    /// <param name="dataExplorerTypeCache">Unit of Work cache.</param>
     public UnitOfWork(TContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
-        IOptions<DataExplorerEfCoreConfiguration> options, IGridifyMapperProvider gridifyMapperProvider)
+        IOptions<DataExplorerEfCoreConfiguration> options, IGridifyMapperProvider gridifyMapperProvider, IDataExplorerTypeCache dataExplorerTypeCache)
     {
         Context = context;
         SpecificationEvaluator = specificationEvaluator;
         _options = options;
         GridifyMapperProvider = gridifyMapperProvider;
         Mapper = mapper;
+        _cache = dataExplorerTypeCache;
     }
 
     /// <inheritdoc />
@@ -85,7 +92,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     public IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>
     {
         var entityType = typeof(TEntity);
-        var repositoryType = UoFCache.CachedCrudRepos.GetValueOrDefault(entityType);
+        var repositoryType = _cache.CachedCrudRepos.GetValueOrDefault(entityType);
 
         if (repositoryType is null)
             throw new InvalidOperationException("Couldn't find proper type in cache.");
@@ -106,7 +113,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     public IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : Entity<long>
     {
         var entityType = typeof(TEntity);
-        var repositoryType = UoFCache.CachedReadOnlyRepos.GetValueOrDefault(entityType);
+        var repositoryType = _cache.CachedReadOnlyRepos.GetValueOrDefault(entityType);
 
         if (repositoryType is null)
             throw new InvalidOperationException("Couldn't find proper type in cache.");
@@ -128,7 +135,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
         var entityType = typeof(TEntity);
-        var repositoryType = UoFCache.CachedCrudGenericIdRepos.GetValueOrDefault(entityType);
+        var repositoryType = _cache.CachedCrudGenericIdRepos.GetValueOrDefault(entityType);
 
         if (repositoryType is null)
             throw new InvalidOperationException("Couldn't find proper type in cache.");
@@ -146,7 +153,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
         var entityType = typeof(TEntity);
-        var repositoryType = UoFCache.CachedReadOnlyGenericIdRepos.GetValueOrDefault(entityType);
+        var repositoryType = _cache.CachedReadOnlyGenericIdRepos.GetValueOrDefault(entityType);
 
         if (repositoryType is null)
             throw new InvalidOperationException("Couldn't find proper type in cache.");
@@ -177,7 +184,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
 
         var genericDefinition = repoInterfaceType.GetGenericTypeDefinition();
         
-        if (!UoFCache.AllowedRepoTypes.Contains(genericDefinition))
+        if (!_cache.AllowedRepoTypes.Contains(genericDefinition))
             throw new NotSupportedException(
                 "You can only retrieve types: IRepository<TEntity>, IRepository<TEntity,TId>, IReadOnlyRepository<TEntity> and IReadOnlyRepository<TEntity,TId>.");
         
@@ -186,19 +193,19 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         switch (repoInterfaceType.IsGenericType)
         {
             case true when genericDefinition == typeof(IRepository<,>):
-                repositoryType = UoFCache.CachedCrudGenericIdRepos.GetValueOrDefault(entityType);
+                repositoryType = _cache.CachedCrudGenericIdRepos.GetValueOrDefault(entityType);
                 isCrud = true;
                 break;
             case true when genericDefinition == typeof(IReadOnlyRepository<,>):
-                repositoryType = UoFCache.CachedReadOnlyGenericIdRepos.GetValueOrDefault(entityType);
+                repositoryType = _cache.CachedReadOnlyGenericIdRepos.GetValueOrDefault(entityType);
                 isCrud = false;
                 break;
             case true when genericDefinition == typeof(IRepository<>):
-                repositoryType = UoFCache.CachedCrudRepos.GetValueOrDefault(entityType);
+                repositoryType = _cache.CachedCrudRepos.GetValueOrDefault(entityType);
                 isCrud = true;
                 break;
             case true when genericDefinition == typeof(IReadOnlyRepository<>):
-                repositoryType = UoFCache.CachedReadOnlyRepos.GetValueOrDefault(entityType);
+                repositoryType = _cache.CachedReadOnlyRepos.GetValueOrDefault(entityType);
                 isCrud = false;
                 break;
             default:
@@ -209,7 +216,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         if (repositoryType is null)
             throw new InvalidOperationException("Couldn't find proper type in cache.");
         
-        if (!UoFCache.EntityTypeIdTypeDictionary.TryGetValue(entityType, out var idType))
+        if (!_cache.EntityTypeIdTypeDictionary.TryGetValue(entityType, out var idType))
             throw new InvalidOperationException($"Couldn't find id type for type: {entityType.Name}.");
 
         var repoCacheData = CreateAndCacheRepoData(repositoryType, repoInterfaceType, entityType, idType, isCrud);
