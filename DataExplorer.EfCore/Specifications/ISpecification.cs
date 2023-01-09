@@ -49,30 +49,25 @@ public interface ISpecification<T, TResult> : ISpecification<T> where T : class
 }
 
 /// <summary>
-///     Encapsulates query logic for <typeparamref name="T" />.
+///     Encapsulates extended query logic for <typeparamref name="T" />.
 /// </summary>
 /// <typeparam name="T">The type being queried against.</typeparam>
-public interface ISpecification<T> : ISpecification where T : class
+public interface ISpecification<T> : IBasicSpecification<T> where T : class
 {
     /// <summary>
     ///     Cache timeout if any.
     /// </summary>
-    public TimeSpan? CacheTimeout { get; }
+    TimeSpan? CacheTimeout { get; }
 
     /// <summary>
     ///     Cache expiration mode if any.
     /// </summary>
-    public CacheExpirationMode? CacheExpirationMode { get; }
+    CacheExpirationMode? CacheExpirationMode { get; }
 
     /// <summary>
     ///     Pagination filter to apply.
     /// </summary>
     PaginationFilter? PaginationFilter { get; }
-
-    /// <summary>
-    /// The collection of filters.
-    /// </summary>
-    IEnumerable<WhereExpressionInfo<T>>? WhereExpressions { get; }
 
     /// <summary>
     ///     The collection of predicates to group by.
@@ -95,11 +90,6 @@ public interface ISpecification<T> : ISpecification where T : class
     ///     The collection of navigation properties, as strings, to include in the query.
     /// </summary>
     IEnumerable<string>? IncludeStrings { get; }
-
-    /// <summary>
-    /// The collection of 'SQL LIKE' operations.
-    /// </summary>
-    IEnumerable<SearchExpressionInfo<T>>? SearchCriterias { get; }
 
     /// <summary>
     ///     The number of elements to return.
@@ -133,8 +123,7 @@ public interface ISpecification<T> : ISpecification where T : class
     ///     by the change tracker.
     /// </summary>
     bool IsAsNoTracking { get; }
-
-
+    
     /// <summary>
     ///     Returns whether or not to treat this query as split query.
     ///     by the change tracker.
@@ -146,7 +135,14 @@ public interface ISpecification<T> : ISpecification where T : class
     ///     Returns whether or not the change tracker with track the result of this query identity resolution.
     /// </summary>
     bool IsAsNoTrackingWithIdentityResolution { get; }
+}
 
+/// <summary>
+///     Encapsulates base query logic for <typeparamref name="T" />.
+/// </summary>
+[PublicAPI]
+public interface IBasicSpecification<T> : ISpecification where T : class
+{
     /// <summary>
     /// Returns whether or not the query should ignore the defined global query filters 
     /// </summary>
@@ -168,6 +164,16 @@ public interface ISpecification<T> : ISpecification where T : class
     /// <param name="entities">Entities to evaluate</param>
     /// <returns></returns>
     IEnumerable<T> Evaluate(IEnumerable<T> entities);
+    
+    /// <summary>
+    /// The collection of 'SQL LIKE' operations.
+    /// </summary>
+    IEnumerable<SearchExpressionInfo<T>>? SearchCriterias { get; }
+    
+    /// <summary>
+    /// The collection of filters.
+    /// </summary>
+    IEnumerable<WhereExpressionInfo<T>>? WhereExpressions { get; }
 }
 
 /// <summary>
@@ -175,5 +181,4 @@ public interface ISpecification<T> : ISpecification where T : class
 /// </summary>
 public interface ISpecification
 {
-
 }

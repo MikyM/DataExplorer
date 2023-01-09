@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Abstractions.UnitOfWork;
-using DataExplorer.EfCore.Abstractions.DataContexts;
-using DataExplorer.EfCore.Abstractions.Repositories;
-using DataExplorer.Entities;
-using Microsoft.EntityFrameworkCore;
+using DataExplorer.EfCore.Gridify;
+using DataExplorer.EfCore.Specifications.Evaluators;
 
 namespace DataExplorer.EfCore.Abstractions;
 
@@ -82,6 +80,16 @@ public interface IUnitOfWork : IUnitOfWorkBase
     /// Mapper instance.
     /// </summary>
     IMapper Mapper { get; }
+    
+    /// <summary>
+    /// Specification evaluator instance.
+    /// </summary>
+    ISpecificationEvaluator SpecificationEvaluator { get; }
+    
+    /// <summary>
+    /// Gridify mapper provider instance.
+    /// </summary>
+    IGridifyMapperProvider GridifyMapperProvider { get; }
 }
 
 /// <inheritdoc cref="IUnitOfWork"/>

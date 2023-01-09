@@ -1,6 +1,4 @@
-﻿using DataExplorer.Abstractions.Entities;
-
-namespace DataExplorer.EfCore.Extensions;
+﻿namespace DataExplorer.EfCore.Extensions;
 
 /// <summary>
 /// Type extensions.

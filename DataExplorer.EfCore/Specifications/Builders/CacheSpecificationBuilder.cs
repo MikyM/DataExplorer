@@ -10,4 +10,6 @@ public class CacheSpecificationBuilder<T> : ICacheSpecificationBuilder<T> where 
         Specification = specification;
         IsChainDiscarded = isChainDiscarded;
     }
+
+    BasicSpecification<T> IBasicSpecificationBuilder<T>.Specification => Specification;
 }

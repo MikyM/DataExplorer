@@ -3,7 +3,7 @@
 /// <summary>
 /// Marker interface.
 /// </summary>
-internal interface IEvaluatorBase
+internal interface IEvaluatorMarker
 {
 
 }

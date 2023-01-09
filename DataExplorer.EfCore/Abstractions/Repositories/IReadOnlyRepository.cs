@@ -1,9 +1,9 @@
 ﻿using System.Linq.Expressions;
 using DataExplorer.Abstractions.Repositories;
-using DataExplorer.EfCore.Abstractions.DataContexts;
+using DataExplorer.EfCore.Gridify;
 using DataExplorer.EfCore.Specifications;
-using DataExplorer.Entities;
-using Microsoft.EntityFrameworkCore;
+using DataExplorer.EfCore.Specifications.Evaluators;
+using Gridify;
 
 namespace DataExplorer.EfCore.Abstractions.Repositories;
 
@@ -19,6 +19,16 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// Current <see cref="IEfDbContext"/>.
     /// </summary>
     new IEfDbContext Context { get; }
+    
+    /// <summary>
+    /// Gridify mapper provider.
+    /// </summary>
+    IGridifyMapperProvider GridifyMapperProvider { get; }
+    
+    /// <summary>
+    /// Specification evaluator.
+    /// </summary>
+    ISpecificationEvaluator SpecificationEvaluator { get; }
     
     /// <summary>
     /// Current <see cref="DbSet{TEntity}"/>.
@@ -54,8 +64,8 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <param name="specification">Specification for the query.</param>
     /// <returns>Entity if found, null if not found.</returns>
-    Task<TProjectTo?> GetSingleBySpecAsync<TProjectTo>(ISpecification<TEntity, TProjectTo> specification, CancellationToken cancellationToken = default)
-        where TProjectTo : class;
+    Task<TResult?> GetSingleBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification,
+        CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Gets all entities that satisfy given <see cref="ISpecification{T}"/>.
@@ -71,8 +81,8 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <param name="specification">Specification for the query.</param>
     /// <returns><see cref="IReadOnlyList{T}"/> with found entities.</returns>
-    Task<IReadOnlyList<TProjectTo>> GetBySpecAsync<TProjectTo>(ISpecification<TEntity, TProjectTo> specification, CancellationToken cancellationToken = default)
-        where TProjectTo : class;
+    Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification,
+        CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Gets all entities.
@@ -118,6 +128,50 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>True if any elements in the source sequence satisfy the condition, otherwise false.</returns>
     Task<bool> AnyAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="IGridifyQuery"/>.
+    /// </summary>
+    /// <remarks>
+    /// This method will attempt to pull a <see cref="IGridifyMapper{T}"/> from <see cref="IGridifyMapperProvider"/>.
+    /// </remarks>
+    /// <param name="gridifyQuery">Gridify query query.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
+    Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="IGridifyQuery"/>.
+    /// </summary>
+    /// <param name="gridifyQuery">Gridify query query.</param>
+    /// <param name="gridifyMapper">Gridify mapper</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
+    Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="IGridifyQuery"/> and projects them to another type using AutoMapper's ProjectTo.
+    /// </summary>
+    /// <remarks>
+    /// This method will attempt to pull a <see cref="IGridifyMapper{T}"/> from <see cref="IGridifyMapperProvider"/>.
+    /// </remarks>
+    /// <param name="gridifyQuery">Gridify query query.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
+    Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="IGridifyQuery"/> and projects them to another type using AutoMapper's ProjectTo.
+    /// </summary>
+    /// <param name="gridifyQuery">Gridify query query.</param>
+    /// <param name="gridifyMapper">Gridify mapper</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
+    Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default);
 }
 
 /// <summary>

@@ -1,13 +1,13 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using DataExplorer.Abstractions.DataContexts;
 using DataExplorer.Abstractions.Repositories;
-using DataExplorer.EfCore.Abstractions.DataContexts;
-using DataExplorer.EfCore.Abstractions.Repositories;
+using DataExplorer.EfCore.Gridify;
 using DataExplorer.EfCore.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.Entities;
-using Microsoft.EntityFrameworkCore;
+using Gridify;
+using Gridify.EntityFramework;
 
 namespace DataExplorer.EfCore.Repositories;
 
@@ -29,11 +29,14 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     
     /// <inheritdoc />
     public DbSet<TEntity> Set { get; }
+    
+    /// <inheritdoc />
+    public IGridifyMapperProvider GridifyMapperProvider { get; }
 
     /// <summary>
     /// Specification evaluator.
     /// </summary>
-    protected readonly ISpecificationEvaluator SpecificationEvaluator;
+    public ISpecificationEvaluator SpecificationEvaluator { get; }
 
     /// <summary>
     /// Mapper instance.
@@ -46,13 +49,16 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     /// <param name="context"></param>
     /// <param name="specificationEvaluator"></param>
     /// <param name="mapper">Mapper.</param>
+    /// <param name="gridifyProvider">Gridify provider</param>
     /// <exception cref="ArgumentNullException"></exception>
-    internal ReadOnlyRepository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper)
+    internal ReadOnlyRepository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
+        IGridifyMapperProvider gridifyProvider)
     {
         Context = context ?? throw new ArgumentNullException(nameof(context));
         Set = context.Set<TEntity>();
         SpecificationEvaluator = specificationEvaluator;
         Mapper = mapper;
+        GridifyMapperProvider = gridifyProvider;
     }
 
     /// <inheritdoc />
@@ -69,9 +75,8 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
             .FirstOrDefaultAsync(cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public virtual async Task<TProjectTo?> GetSingleBySpecAsync<TProjectTo>(
-        ISpecification<TEntity, TProjectTo> specification, CancellationToken cancellationToken = default)
-        where TProjectTo : class
+    public virtual async Task<TResult?> GetSingleBySpecAsync<TResult>(
+        ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
     {
         specification.MapperConfigurationProvider ??= Mapper.ConfigurationProvider;
         
@@ -80,8 +85,36 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     }
 
     /// <inheritdoc />
-    public virtual async Task<IReadOnlyList<TProjectTo>> GetBySpecAsync<TProjectTo>(
-        ISpecification<TEntity, TProjectTo> specification, CancellationToken cancellationToken = default) where TProjectTo : class
+    public virtual async Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default)
+        => await Set.GridifyAsync(gridifyQuery, cancellationToken, GridifyMapperProvider.GetMapperFor<TEntity>()).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
+        => await Set.GridifyAsync(gridifyQuery, cancellationToken, gridifyMapper).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default)
+    {
+        var queryable = await Set.GridifyQueryableAsync(gridifyQuery, GridifyMapperProvider.GetMapperFor<TEntity>(), cancellationToken).ConfigureAwait(false);
+        var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken).ConfigureAwait(false);
+        return new Paging<TResult>(queryable.Count, sub);
+    }
+
+    /// <inheritdoc />
+    public virtual async Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
+    {
+        var queryable = await Set.GridifyQueryableAsync(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
+        var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken).ConfigureAwait(false);
+        return new Paging<TResult>(queryable.Count, sub);
+    }
+
+    /// <inheritdoc />
+    public virtual async Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(
+        ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
     {
         specification.MapperConfigurationProvider ??= Mapper.ConfigurationProvider;
         
@@ -151,7 +184,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     /// <param name="specification">The encapsulated query logic.</param>
     /// <returns>The filtered projected entities as an <see cref="IQueryable{T}" />.</returns>
     protected virtual IQueryable<TResult> ApplySpecification<TResult>(
-        ISpecification<TEntity, TResult> specification) where TResult : class
+        ISpecification<TEntity, TResult> specification)
         => SpecificationEvaluator.GetQuery(Set.AsQueryable(), specification);
 }
 
@@ -163,7 +196,9 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
 [PublicAPI]
 public class ReadOnlyRepository<TEntity> : ReadOnlyRepository<TEntity, long>, IReadOnlyRepository<TEntity> where TEntity : Entity<long>
 {
-    internal ReadOnlyRepository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper) : base(context, specificationEvaluator, mapper)
+    internal ReadOnlyRepository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
+        IGridifyMapperProvider gridifyMapperProvider) : base(context, specificationEvaluator, mapper,
+        gridifyMapperProvider)
     {
     }
 }

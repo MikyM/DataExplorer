@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
-
-namespace DataExplorer.EfCore.Specifications.Utilities;
+﻿namespace DataExplorer.EfCore.Specifications.Utilities;
 
 [PublicAPI]
 public class SpecificationComparer<TSpecification, TEntity> : IEqualityComparer<TSpecification> where TSpecification : Specification<TEntity> where TEntity : class

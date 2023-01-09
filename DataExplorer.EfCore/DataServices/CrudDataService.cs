@@ -1,10 +1,7 @@
-﻿using AutoMapper;
-using DataExplorer.Abstractions.Repositories;
+﻿using DataExplorer.Abstractions.Repositories;
 using DataExplorer.EfCore.Abstractions;
-using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.Abstractions.DataServices;
-using DataExplorer.EfCore.Abstractions.Repositories;
-using DataExplorer.Entities;
+using DataExplorer.EfCore.Specifications;
 using Remora.Results;
 
 // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
@@ -25,9 +22,8 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     /// <summary>
     /// Creates a new instance of <see cref="CrudDataService{TEntity,TId,TContext}"/>.
     /// </summary>
-    /// <param name="mapper">Mapper instance.</param>
     /// <param name="uof">Unit of work instance.</param>
-    public CrudDataService(IMapper mapper, IUnitOfWork<TContext> uof) : base(mapper, uof)
+    public CrudDataService(IUnitOfWork<TContext> uof) : base(uof)
     {
     }
 
@@ -43,73 +39,123 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     public virtual async Task<Result<TId?>> AddAsync<TPost>(TPost entry, bool shouldSave = false,
         CancellationToken cancellationToken = default)
         where TPost : class
-        => await AddAsync(entry, shouldSave, null, cancellationToken);
+        => await AddAsync(entry, shouldSave, null, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Result<int>> ExecuteUpdateAsync(IUpdateSpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await Repository.ExecuteUpdateAsync(specification, cancellationToken).ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
+
+    /// <inheritdoc />
+    public virtual async Task<Result<int>> ExecuteDeleteAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await Repository.ExecuteDeleteAsync(cancellationToken).ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
+
+    /// <inheritdoc />
+    public virtual async Task<Result<int>> ExecuteDeleteAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await Repository.ExecuteDeleteAsync(specification, cancellationToken).ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
 
     /// <inheritdoc />
     public virtual async Task<Result<TId?>> AddAsync<TPost>(TPost entry, bool shouldSave, string? userId,
         CancellationToken cancellationToken = default)
         where TPost : class
-        => await ExToResultWrapAsync(async () =>
+    {
+        try
         {
             TEntity entity;
             if (entry is TEntity rootEntity)
             {
                 entity = rootEntity;
-                await Repository.AddAsync(entity, cancellationToken);
+                await Repository.AddAsync(entity, cancellationToken).ConfigureAwait(false);
             }
             else
             {
                 entity = Mapper.Map<TEntity>(entry);
-                await Repository.AddAsync(entity, cancellationToken);
+                await Repository.AddAsync(entity, cancellationToken).ConfigureAwait(false);
             }
 
             if (!shouldSave)
                 return default;
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return entity.Id;
-        });
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TId>>> AddRangeAsync<TPost>(IEnumerable<TPost> entries,
         bool shouldSave = false, CancellationToken cancellationToken = default)
         where TPost : class
-        => await AddRangeAsync(entries, shouldSave, null, cancellationToken);
+        => await AddRangeAsync(entries, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TId>>> AddRangeAsync<TPost>(IEnumerable<TPost> entries,
         bool shouldSave, string? userId, CancellationToken cancellationToken = default)
         where TPost : class
-        => await ExToResultWrapAsync(async () =>
+    {
+        try
         {
             List<TEntity> entities;
 
             if (entries is IEnumerable<TEntity> rootEntities)
             {
                 entities = rootEntities.ToList();
-                await Repository.AddRangeAsync(entities, cancellationToken);
+                await Repository.AddRangeAsync(entities, cancellationToken).ConfigureAwait(false);
             }
             else
             {
                 entities = Mapper.Map<List<TEntity>>(entries);
-                await Repository.AddRangeAsync(entities, cancellationToken);
+                await Repository.AddRangeAsync(entities, cancellationToken).ConfigureAwait(false);
             }
 
             if (!shouldSave)
                 return new List<TId>().AsReadOnly();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
-            return (IReadOnlyList<TId>)entities.Select(e => e.Id).ToList().AsReadOnly();
-        });
-
+            return Result<IReadOnlyList<TId>>.FromSuccess(entities.Select(e => e.Id).ToList().AsReadOnly());
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
 
     /// <inheritdoc />
     public virtual Result BeginUpdate<TPatch>(TPatch entry, bool shouldSwapAttached = false) where TPatch : class
@@ -166,7 +212,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     /// <inheritdoc />
     public virtual async Task<Result> DeleteAsync<TDelete>(TDelete entry, bool shouldSave = false,
         CancellationToken cancellationToken = default) where TDelete : class
-        => await DeleteAsync(entry, shouldSave, null, cancellationToken);
+        => await DeleteAsync(entry, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result> DeleteAsync<TDelete>(TDelete entry, bool shouldSave,
@@ -190,9 +236,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                 return Result.FromSuccess();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return Result.FromSuccess();
         }
@@ -205,7 +251,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     /// <inheritdoc />
     public virtual async Task<Result> DeleteAsync(TId id, bool shouldSave = false,
         CancellationToken cancellationToken = default)
-        => await DeleteAsync(id, shouldSave, null, cancellationToken);
+        => await DeleteAsync(id, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result> DeleteAsync(TId id, bool shouldSave, string? userId,
@@ -219,9 +265,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                 return Result.FromSuccess();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return Result.FromSuccess();
         }
@@ -234,7 +280,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     /// <inheritdoc />
     public virtual async Task<Result> DeleteRangeAsync(IEnumerable<TId> ids, bool shouldSave = false,
         CancellationToken cancellationToken = default)
-        => await DeleteRangeAsync(ids, shouldSave, null, cancellationToken);
+        => await DeleteRangeAsync(ids, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result> DeleteRangeAsync(IEnumerable<TId> ids, bool shouldSave,
@@ -248,9 +294,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                 return Result.FromSuccess();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return Result.FromSuccess();
         }
@@ -264,7 +310,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     public virtual async Task<Result> DeleteRangeAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave = false,
         CancellationToken cancellationToken = default)
         where TDelete : class
-        => await DeleteRangeAsync(entries, shouldSave, null, cancellationToken);
+        => await DeleteRangeAsync(entries, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result> DeleteRangeAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave,
@@ -290,9 +336,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                 return Result.FromSuccess();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return Result.FromSuccess();
         }
@@ -305,7 +351,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     /// <inheritdoc />
     public virtual async Task<Result> DisableAsync(TId id, bool shouldSave = false,
         CancellationToken cancellationToken = default)
-        => await DisableAsync(id, shouldSave, null, cancellationToken);
+        => await DisableAsync(id, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result> DisableAsync(TId id, bool shouldSave, string? userId,
@@ -314,15 +360,15 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
         try
         {
             await Repository
-                .DisableAsync(id, cancellationToken);
+                .DisableAsync(id, cancellationToken).ConfigureAwait(false);
 
             if (!shouldSave)
                 return Result.FromSuccess();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return Result.FromSuccess();
         }
@@ -335,7 +381,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     /// <inheritdoc />
     public virtual async Task<Result> DisableAsync<TDisable>(TDisable entry, bool shouldSave = false,
         CancellationToken cancellationToken = default) where TDisable : class
-        => await DisableAsync(entry, shouldSave, null, cancellationToken);
+        => await DisableAsync(entry, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result> DisableAsync<TDisable>(TDisable entry, bool shouldSave,
@@ -359,9 +405,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                 return Result.FromSuccess();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return Result.FromSuccess();
         }
@@ -374,7 +420,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     /// <inheritdoc />
     public virtual async Task<Result> DisableRangeAsync(IEnumerable<TId> ids, bool shouldSave = false,
         CancellationToken cancellationToken = default)
-        => await DisableRangeAsync(ids, shouldSave, null, cancellationToken);
+        => await DisableRangeAsync(ids, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result> DisableRangeAsync(IEnumerable<TId> ids, bool shouldSave,
@@ -389,9 +435,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                 return Result.FromSuccess();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return Result.FromSuccess();
         }
@@ -430,7 +476,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     public virtual async Task<Result> DisableRangeAsync<TDisable>(IEnumerable<TDisable> entries,
         bool shouldSave = false, CancellationToken cancellationToken = default)
         where TDisable : class
-        => await DisableRangeAsync(entries, shouldSave, null, cancellationToken);
+        => await DisableRangeAsync(entries, shouldSave, null, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result> DisableRangeAsync<TDisable>(IEnumerable<TDisable> entries,
@@ -456,9 +502,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                 return Result.FromSuccess();
 
             if (userId is null)
-                _ = await CommitAsync(cancellationToken);
+                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken);
+                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
             return Result.FromSuccess();
         }
@@ -480,9 +526,8 @@ public class CrudDataService<TEntity, TContext> : CrudDataService<TEntity, long,
     /// <summary>
     /// Creates a new instance of <see cref="CrudDataService{TEntity,TContext}"/>.
     /// </summary>
-    /// <param name="mapper">Mapper instance.</param>
     /// <param name="uof">Unit of work instance.</param>
-    public CrudDataService(IMapper mapper, IUnitOfWork<TContext> uof) : base(mapper, uof)
+    public CrudDataService(IUnitOfWork<TContext> uof) : base(uof)
     {
     }
     

@@ -10,4 +10,6 @@ public class IncludableSpecificationBuilder<T, TProperty> : IIncludableSpecifica
         Specification = specification;
         IsChainDiscarded = isChainDiscarded;
     }
+    
+    BasicSpecification<T> IBasicSpecificationBuilder<T>.Specification => Specification;
 }

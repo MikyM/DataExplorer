@@ -1,12 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace DataExplorer.EfCore.Specifications.Evaluators;
+﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
 /// <summary>
 /// This evaluator applies EF Core's IgnoreQueryFilters feature to a given query
 /// See: https://docs.microsoft.com/en-us/ef/core/querying/filters
 /// </summary>
-public class IgnoreQueryFiltersEvaluator : IEvaluator, IEvaluatorBase
+public class IgnoreQueryFiltersEvaluator : IEvaluator, IEvaluatorMarker
 {
     private IgnoreQueryFiltersEvaluator() { }
     public static IgnoreQueryFiltersEvaluator Instance { get; } = new IgnoreQueryFiltersEvaluator();

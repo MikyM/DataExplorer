@@ -1,9 +1,7 @@
 ﻿using Autofac;
 using DataExplorer.IdGenerator;
 using DataExplorer.Services;
-using IdGen.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;

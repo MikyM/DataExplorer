@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-namespace DataExplorer.EfCore.Specifications.Evaluators;
-
-public class AsSplitQueryEvaluator : IEvaluator, IEvaluatorBase
+public class AsSplitQueryEvaluator : IEvaluator, IEvaluatorMarker
 {
     private AsSplitQueryEvaluator()
     {

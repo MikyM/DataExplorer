@@ -1,6 +1,6 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase, ISpecialCaseEvaluator
+public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker
 {
     internal PaginationEvaluator()
     {

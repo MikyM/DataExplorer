@@ -2,7 +2,7 @@
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class ProjectionEvaluator : IProjectionEvaluator, IEvaluatorBase, ISpecialCaseEvaluator
+public class ProjectionEvaluator : IProjectionEvaluator, ISpecialCaseEvaluator
 {
     public static ProjectionEvaluator Instance { get; } = new();
 
@@ -11,7 +11,7 @@ public class ProjectionEvaluator : IProjectionEvaluator, IEvaluatorBase, ISpecia
         
     }
 
-    public IQueryable<TResult> GetQuery<T, TResult>(IQueryable<T> query, ISpecification<T, TResult> specification) where T : class where TResult : class
+    public IQueryable<TResult> GetQuery<T, TResult>(IQueryable<T> query, ISpecification<T, TResult> specification) where T : class
     {
         if (specification.MapperConfigurationProvider is null)
             throw new InvalidOperationException();
