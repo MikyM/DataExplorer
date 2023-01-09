@@ -1,4 +1,5 @@
 ﻿using AttributeBasedRegistration;
+using AttributeBasedRegistration.Autofac;
 using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
 using AutoMapper.Extensions.ExpressionMapping;
