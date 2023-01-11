@@ -58,6 +58,66 @@ public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable
     /// </summary>
     /// <remarks>
     ///     <para>
+    ///         If the entity is already tracked in the <see cref="EntityState.Added" /> state then the context will
+    ///         stop tracking the entity (rather than marking it as <see cref="EntityState.Deleted" />) since the
+    ///         entity was previously added to the context and does not exist in the database.
+    ///     </para>
+    ///     <para>
+    ///         Any other reachable entities that are not already being tracked will be tracked in the same way that
+    ///         they would be if <see cref="Attach(object)" /> was called before calling this method.
+    ///         This allows any cascading actions to be applied when <see cref="SaveChanges()" /> is called.
+    ///     </para>
+    ///     <para>
+    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="entity">The entity to remove.</param>
+    /// <returns>
+    ///     The <see cref="EntityEntry" /> for the entity. The entry provides
+    ///     access to change tracking information and operations for the entity.
+    /// </returns>
+    EntityEntry Remove(object entity);
+
+    /// <summary>
+    ///     Begins tracking the given entity in the <see cref="EntityState.Deleted" /> state such that it will
+    ///     be removed from the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         If the entity is already tracked in the <see cref="EntityState.Added" /> state then the context will
+    ///         stop tracking the entity (rather than marking it as <see cref="EntityState.Deleted" />) since the
+    ///         entity was previously added to the context and does not exist in the database.
+    ///     </para>
+    ///     <para>
+    ///         Any other reachable entities that are not already being tracked will be tracked in the same way that
+    ///         they would be if <see cref="Attach{TEntity}(TEntity)" /> was called before calling this method.
+    ///         This allows any cascading actions to be applied when <see cref="SaveChanges()" /> is called.
+    ///     </para>
+    ///     <para>
+    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    /// <param name="entity">The entity to remove.</param>
+    /// <returns>
+    ///     The <see cref="EntityEntry{TEntity}" /> for the entity. The entry provides
+    ///     access to change tracking information and operations for the entity.
+    /// </returns>
+    EntityEntry<TEntity> Remove<TEntity>(TEntity entity)
+        where TEntity : class;
+
+    /// <summary>
+    ///     Begins tracking the given entity in the <see cref="EntityState.Deleted" /> state such that it will
+    ///     be removed from the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
     ///         If any of the entities are already tracked in the <see cref="EntityState.Added" /> state then the context will
     ///         stop tracking those entities (rather than marking them as <see cref="EntityState.Deleted" />) since those
     ///         entities were previously added to the context and do not exist in the database.
