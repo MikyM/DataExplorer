@@ -16,6 +16,67 @@ namespace DataExplorer.EfCore.Abstractions.DataContexts;
 public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable
 {
     /// <summary>
+    ///     Begins tracking the given entities and entries reachable from the given entities using
+    ///     the <see cref="EntityState.Modified" /> state by default, but see below for cases
+    ///     when a different state will be used.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         Generally, no database interaction will be performed until <see cref="SaveChanges()" /> is called.
+    ///     </para>
+    ///     <para>
+    ///         A recursive search of the navigation properties will be performed to find reachable entities
+    ///         that are not already being tracked by the context. All entities found will be tracked
+    ///         by the context.
+    ///     </para>
+    ///     <para>
+    ///         For entity types with generated keys if an entity has its primary key value set
+    ///         then it will be tracked in the <see cref="EntityState.Modified" /> state. If the primary key
+    ///         value is not set then it will be tracked in the <see cref="EntityState.Added" /> state.
+    ///         This helps ensure new entities will be inserted, while existing entities will be updated.
+    ///         An entity is considered to have its primary key value set if the primary key property is set
+    ///         to anything other than the CLR default for the property type.
+    ///     </para>
+    ///     <para>
+    ///         For entity types without generated keys, the state set is always <see cref="EntityState.Modified" />.
+    ///     </para>
+    ///     <para>
+    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see>
+    ///         and <see href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="entities">The entities to update.</param>
+    void UpdateRange(params object[] entities);
+
+    /// <summary>
+    ///     Begins tracking the given entity in the <see cref="EntityState.Deleted" /> state such that it will
+    ///     be removed from the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         If any of the entities are already tracked in the <see cref="EntityState.Added" /> state then the context will
+    ///         stop tracking those entities (rather than marking them as <see cref="EntityState.Deleted" />) since those
+    ///         entities were previously added to the context and do not exist in the database.
+    ///     </para>
+    ///     <para>
+    ///         Any other reachable entities that are not already being tracked will be tracked in the same way that
+    ///         they would be if <see cref="AttachRange(object[])" /> was called before calling this method.
+    ///         This allows any cascading actions to be applied when <see cref="SaveChanges()" /> is called.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see>
+    ///         and <see href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="entities">The entities to remove.</param>
+    void RemoveRange(params object[] entities);
+
+    /// <summary>
     ///     <para>
     ///         Creates a LINQ query based on a raw SQL query.
     ///     </para>
@@ -554,4 +615,83 @@ public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable
     /// <typeparam name="TEntity">The entity type to get the table name for.</typeparam>
     /// <returns>The name of the table to which the entity type is mapped.</returns>
     string? GetTableName<TEntity>() where TEntity : class;
+
+    /// <summary>
+    ///     Begins tracking the given entity and entries reachable from the given entity using
+    ///     the <see cref="EntityState.Modified" /> state by default, but see below for cases
+    ///     when a different state will be used.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         Generally, no database interaction will be performed until <see cref="SaveChanges()" /> is called.
+    ///     </para>
+    ///     <para>
+    ///         A recursive search of the navigation properties will be performed to find reachable entities
+    ///         that are not already being tracked by the context. All entities found will be tracked
+    ///         by the context.
+    ///     </para>
+    ///     <para>
+    ///         For entity types with generated keys if an entity has its primary key value set
+    ///         then it will be tracked in the <see cref="EntityState.Modified" /> state. If the primary key
+    ///         value is not set then it will be tracked in the <see cref="EntityState.Added" /> state.
+    ///         This helps ensure new entities will be inserted, while existing entities will be updated.
+    ///         An entity is considered to have its primary key value set if the primary key property is set
+    ///         to anything other than the CLR default for the property type.
+    ///     </para>
+    ///     <para>
+    ///         For entity types without generated keys, the state set is always <see cref="EntityState.Modified" />.
+    ///     </para>
+    ///     <para>
+    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    /// <param name="entity">The entity to update.</param>
+    /// <returns>
+    ///     The <see cref="EntityEntry{TEntity}" /> for the entity. The entry provides
+    ///     access to change tracking information and operations for the entity.
+    /// </returns>
+    EntityEntry<TEntity> Update<TEntity>(TEntity entity) where TEntity : class;
+
+    /// <summary>
+    ///     Begins tracking the given entity and entries reachable from the given entity using
+    ///     the <see cref="EntityState.Modified" /> state by default, but see below for cases
+    ///     when a different state will be used.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         Generally, no database interaction will be performed until <see cref="SaveChanges()" /> is called.
+    ///     </para>
+    ///     <para>
+    ///         A recursive search of the navigation properties will be performed to find reachable entities
+    ///         that are not already being tracked by the context. All entities found will be tracked
+    ///         by the context.
+    ///     </para>
+    ///     <para>
+    ///         For entity types with generated keys if an entity has its primary key value set
+    ///         then it will be tracked in the <see cref="EntityState.Modified" /> state. If the primary key
+    ///         value is not set then it will be tracked in the <see cref="EntityState.Added" /> state.
+    ///         This helps ensure new entities will be inserted, while existing entities will be updated.
+    ///         An entity is considered to have its primary key value set if the primary key property is set
+    ///         to anything other than the CLR default for the property type.
+    ///     </para>
+    ///     <para>
+    ///         For entity types without generated keys, the state set is always <see cref="EntityState.Modified" />.
+    ///     </para>
+    ///     <para>
+    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="entity">The entity to update.</param>
+    /// <returns>
+    ///     The <see cref="EntityEntry" /> for the entity. The entry provides
+    ///     access to change tracking information and operations for the entity.
+    /// </returns>
+    EntityEntry Update(object entity);
 }
