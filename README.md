@@ -37,4 +37,4 @@ Documentation available at https://docs.data-explorer.mikym.me/.
 
 ## Description
 
-Detailed descriptions are provided within EfCore and MongoDb directories (packages).
+Detailed descriptions are provided within EfCore and MongoDb directories (packages) and articles in documentation.
