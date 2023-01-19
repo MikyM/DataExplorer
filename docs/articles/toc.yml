@@ -1,2 +1,6 @@
-- name: Introduction
-  href: intro.md
+- name: Data Explorer
+  href: dt.md
+- name: EF Core
+  href: dt-ef.md
+- name: MongoDb
+  href: dt-mng.md
