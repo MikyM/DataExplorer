@@ -23,6 +23,10 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
+    - name: Install and cache PowerShell modules
+      uses: potatoqualitee/psmodulecache@v5.2
+      with:
+        modules-to-cache: powershell-yaml
     - name: Check out Code 
       uses: actions/checkout@v2
     - name: Restore dependencies
