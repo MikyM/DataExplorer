@@ -5,7 +5,7 @@ using Remora.Results;
 namespace DataExplorer.Abstractions.DataServices;
 
 /// <summary>
-/// Defines a base data service.
+/// Represents a base data service.
 /// </summary>
 [PublicAPI]
 public interface IDataServiceBase<out TContext> : IDisposable where TContext : IDataContextBase

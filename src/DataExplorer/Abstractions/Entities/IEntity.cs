@@ -1,7 +1,7 @@
 ﻿namespace DataExplorer.Abstractions.Entities;
 
 /// <summary>
-/// Defines a base entity with <see cref="long"/> Id.
+/// Represents a base entity with <see cref="long"/> Id.
 /// </summary>
 [PublicAPI]
 public interface IEntity : IEntity<long>
@@ -9,7 +9,7 @@ public interface IEntity : IEntity<long>
 }
 
 /// <summary>
-/// Defines a generic base entity.
+/// Represents a generic base entity.
 /// </summary>
 [PublicAPI]
 public interface IEntity<TId> : IEntityBase where TId : IComparable, IEquatable<TId>, IComparable<TId>
@@ -37,7 +37,7 @@ public interface IEntity<TId> : IEntityBase where TId : IComparable, IEquatable<
 }
 
 /// <summary>
-/// Defines a base marker for entities. <b> Shouldn't be implemented manually.</b>
+/// Represents a base marker for entities. <b> Shouldn't be implemented manually.</b>
 /// </summary>
 [PublicAPI]
 public interface IEntityBase

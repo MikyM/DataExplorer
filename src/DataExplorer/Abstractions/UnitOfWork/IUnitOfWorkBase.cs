@@ -1,11 +1,12 @@
 ﻿using DataExplorer.Abstractions.DataContexts;
+using DataExplorer.Abstractions.Entities;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Entities;
 
 namespace DataExplorer.Abstractions.UnitOfWork;
 
 /// <summary>
-/// Defines a base Unit of Work.
+/// Represents a base Unit of Work.
 /// </summary>
 [PublicAPI]
 public interface IUnitOfWorkBase : IDisposable
@@ -23,7 +24,7 @@ public interface IUnitOfWorkBase : IDisposable
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IRepositoryBase GetRepositoryFor<TEntity>() where TEntity : Entity<long>;
+    IRepositoryBase GetRepositoryFor<TEntity>() where TEntity : Entity<long>, IEntity;
     
     /// <summary>
     /// Gets a repository for an entity of a given type and Id type.

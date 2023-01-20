@@ -25,4 +25,8 @@
       <ProjectReference Include="..\DataExplorer\DataExplorer.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MongoDB.Entities" Version="21.0.1" />
+    </ItemGroup>
+
 </Project>

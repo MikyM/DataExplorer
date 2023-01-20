@@ -1,7 +1,7 @@
 ﻿namespace DataExplorer.Abstractions.Entities;
 
 /// <summary>
-/// Defines a snowflake entity.
+/// Represents a snowflake entity.
 /// </summary>
 [PublicAPI]
 public interface ISnowflakeEntity<TId> : ISnowflakeEntity, IEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
@@ -9,7 +9,7 @@ public interface ISnowflakeEntity<TId> : ISnowflakeEntity, IEntity<TId> where TI
 }
 
 /// <summary>
-/// Defines a base snowflake entity.
+/// Represents a base snowflake entity.
 /// </summary>
 [PublicAPI]
 public interface ISnowflakeEntity : IEntityBase

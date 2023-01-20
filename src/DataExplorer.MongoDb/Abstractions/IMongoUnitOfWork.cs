@@ -1,18 +1,18 @@
 ﻿using AutoMapper;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Abstractions.UnitOfWork;
-using DataExplorer.EfCore.Abstractions.DataContexts;
-using DataExplorer.EfCore.Abstractions.Repositories;
-using DataExplorer.Entities;
-using Microsoft.EntityFrameworkCore;
+using DataExplorer.MongoDb.Abstractions.DataContexts;
+using DataExplorer.MongoDb.DataContexts;
+using MongoDB.Driver;
+using MongoDB.Entities;
 
-namespace DataExplorer.EfCore.Abstractions;
+namespace DataExplorer.MongoDb.Abstractions;
 
 /// <summary>
-/// Represents an EF Unit of Work.
+/// Represents a MongoDB Unit of Work.
 /// </summary>
 [PublicAPI]
-public interface IUnitOfWork : IUnitOfWorkBase
+public interface IMongoUnitOfWork : IUnitOfWorkBase
 {
     /// <summary>
     /// Begins a transaction.
@@ -21,21 +21,10 @@ public interface IUnitOfWork : IUnitOfWorkBase
     /// <param name="cancellationToken">Cancellation token.</param>
     Task UseTransactionAsync(CancellationToken cancellationToken = default);
 
-    /// <inheritdoc cref="IUnitOfWorkBase.CommitAsync(string, CancellationToken)"/>
-    /// <returns>Number of affected rows.</returns>
-    /// <param name="auditUserId">The ID of the user responsible for the changes.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    Task<int> CommitWithCountAsync(string auditUserId, CancellationToken cancellationToken = default);
-
-    /// <inheritdoc cref="IUnitOfWorkBase.CommitAsync(CancellationToken)"/>
-    /// <returns>Number of affected rows.</returns>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    Task<int> CommitWithCountAsync(CancellationToken cancellationToken = default);
-
     /// <summary>
     /// Gets a repository of a given type.
     /// </summary>
-    /// <remarks>You can <b>only</b> retrieve types: <see cref="IRepository{TEntity}"/>, <see cref="IRepository{TEntity,TId}"/>, <see cref="IReadOnlyRepository{TEntity}"/> and <see cref="IReadOnlyRepository{TEntity,TId}"/>.</remarks>
+    /// <remarks>You can <b>only</b> retrieve types: <see cref="IMongoRepository{TEntity}"/>, <see cref="IMongoRepository{TEntity,TId}"/>, <see cref="IMongoReadOnlyRepository{TEntity}"/> and <see cref="IMongoReadOnlyRepository{TEntity,TId}"/>.</remarks>
     /// <typeparam name="TRepository">Type of the repository to get.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
@@ -43,39 +32,39 @@ public interface IUnitOfWork : IUnitOfWorkBase
     new TRepository GetRepository<TRepository>() where TRepository : class, IRepositoryBase;
 
     /// <summary>
-    /// Gets an <see cref="IRepository{TEntity}"/> for an entity of a given type.
+    /// Gets an <see cref="IMongoRepository{TEntity}"/> for an entity of a given type.
     /// </summary>
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    new IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>;
+    new IMongoRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>, IEntity;
     
     /// <summary>
-    /// Gets an <see cref="IReadOnlyRepository{TEntity}"/> for an entity of a given type.
+    /// Gets an <see cref="IMongoReadOnlyRepository{TEntity}"/> for an entity of a given type.
     /// </summary>
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : Entity<long>;
+    IMongoReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : Entity<long>, IEntity;
 
     /// <summary>
-    /// Gets an <see cref="IRepository{TEntity,TId}"/> for an entity of a given type and Id type.
+    /// Gets an <see cref="IMongoRepository{TEntity,TId}"/> for an entity of a given type and Id type.
     /// </summary>
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    new IRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
+    new IMongoRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>, IEntity
         where TId : IComparable, IEquatable<TId>, IComparable<TId>;
     
     /// <summary>
-    /// Gets an <see cref="IReadOnlyRepository{TEntity,TId}"/> for an entity of a given type and Id type.
+    /// Gets an <see cref="IMongoReadOnlyRepository{TEntity,TId}"/> for an entity of a given type and Id type.
     /// </summary>
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
+    IMongoReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>, IEntity
         where TId : IComparable, IEquatable<TId>, IComparable<TId>;
     
     /// <summary>
@@ -84,16 +73,18 @@ public interface IUnitOfWork : IUnitOfWorkBase
     IMapper Mapper { get; }
 }
 
-/// <inheritdoc cref="IUnitOfWork"/>
+/// <inheritdoc cref="IMongoUnitOfWork"/>
 /// <summary>
-/// Represents an EF Unit of Work.
+/// Represents a MongoDB Unit of Work.
 /// </summary>
 /// <typeparam name="TContext">Type of context to be used.</typeparam>
 [PublicAPI]
-public interface IUnitOfWork<out TContext> : IUnitOfWork where TContext : IEfDbContext
+public interface IMongoUnitOfWork<out TContext> : IMongoUnitOfWork where TContext : IMongoDbContext
 {
     /// <summary>
-    /// Current <see cref="DbContext"/>.
+    /// Current <see cref="MongoDbContext"/>.
     /// </summary>
     new TContext Context { get; }
+    
+    IClientSessionHandle? Transaction { get; }
 }

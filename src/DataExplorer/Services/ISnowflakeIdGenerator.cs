@@ -1,7 +1,7 @@
 ﻿namespace DataExplorer.Services;
 
 /// <summary>
-/// Defines a snowflake ID generator.
+/// Represents a snowflake ID generator.
 /// </summary>
 [PublicAPI]
 public interface ISnowflakeIdGenerator

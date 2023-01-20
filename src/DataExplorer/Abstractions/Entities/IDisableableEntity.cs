@@ -1,7 +1,7 @@
 ﻿namespace DataExplorer.Abstractions.Entities;
 
 /// <summary>
-/// Defines an entity that is soft deleted.
+/// Represents an entity that is soft deleted.
 /// </summary>
 [PublicAPI]
 public interface IDisableableEntity

@@ -7,7 +7,7 @@ using DataExplorer.Abstractions.Entities;
 namespace DataExplorer.Entities;
 
 /// <summary>
-/// Defines a base entity with <see cref="long"/> as Id.
+/// Represents a base entity with <see cref="long"/> as Id.
 /// </summary>
 [PublicAPI]
 public abstract class Entity : Entity<long>, IEntity
@@ -29,7 +29,7 @@ public abstract class Entity : Entity<long>, IEntity
 }
 
 /// <summary>
-/// Defines a generic base entity.
+/// Represents a generic base entity.
 /// </summary>
 public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity<TId>> where TId : IComparable, IComparable<TId>, IEquatable<TId>
 {

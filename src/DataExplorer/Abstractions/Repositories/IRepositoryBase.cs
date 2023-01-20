@@ -3,7 +3,7 @@
 namespace DataExplorer.Abstractions.Repositories;
 
 /// <summary>
-/// Defines a base repository.
+/// Represents a base repository.
 /// </summary>
 [PublicAPI]
 public interface IRepositoryBase
