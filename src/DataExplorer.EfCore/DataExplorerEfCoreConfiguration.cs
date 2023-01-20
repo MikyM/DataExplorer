@@ -1,11 +1,8 @@
-﻿using System.Reflection;
-using AttributeBasedRegistration;
-using Autofac;
+﻿using Autofac;
 using DataExplorer.EfCore.Abstractions;
-using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.DataContexts;
-using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.EfCore.Specifications.Validators;
+using DataExplorer.EfCore.Gridify;
+using Gridify;
 using Microsoft.Extensions.DependencyInjection;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
@@ -57,6 +54,8 @@ public class DataExplorerEfCoreConfiguration
     
     private Dictionary<string, Func<IUnitOfWork, Task>>? _onBeforeSaveChangesActions;
 
+    internal IGridifyMapperProvider? MapperProvider { get; set; }
+
     /// <summary>
     /// Whether to cache include expressions (queries are evaluated faster).
     /// </summary>
@@ -98,7 +97,7 @@ public class DataExplorerEfCoreConfiguration
     /// <typeparam name="TContext">Type of the context for the action.</typeparam>
     /// <exception cref="NotSupportedException">Throw when trying to register second action for same context type.</exception>
     public void AddOnBeforeSaveChangesAction<TContext>(Func<IUnitOfWork, Task> action)
-        where TContext : AuditableEfDbContext
+        where TContext : EfDbContext
     {
         _onBeforeSaveChangesActions ??= new Dictionary<string, Func<IUnitOfWork, Task>>();
         
@@ -108,6 +107,53 @@ public class DataExplorerEfCoreConfiguration
         _onBeforeSaveChangesActions.Add(typeof(TContext).Name, action);
     }
 
+    /// <summary>
+    /// Adds a <see cref="IGridifyMapper{T}"/> to the <see cref="IGridifyMapperProvider"/>.
+    /// </summary>
+    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
+    public DataExplorerEfCoreConfiguration AddGridifyMapper<T>() where T : class, IGridifyMapper<T>, new()
+    {
+        MapperProvider ??= new GridifyMapperProvider();
+        
+        ((GridifyMapperProvider)MapperProvider).AddMapper(new T());
+        return this;
+    }
+    
+    /// <summary>
+    /// Adds a <see cref="IGridifyMapper{T}"/> to the <see cref="IGridifyMapperProvider"/>.
+    /// </summary>
+    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
+    public DataExplorerEfCoreConfiguration AddGridifyMapper<T>(IGridifyMapper<T> mapper) where T : class
+    {
+        MapperProvider ??= new GridifyMapperProvider();
+        
+        var addRes = ((GridifyMapperProvider)MapperProvider).AddMapper(mapper);
+        if (!addRes)
+            throw new InvalidOperationException($"Two gridify mappers were registered for the type: {typeof(T).Name}");
+        
+        return this;
+    }
+    
+    /// <summary>
+    /// Registers a customized implementation of <see cref="IGridifyMapperProvider"/>.
+    /// </summary>
+    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
+    public DataExplorerEfCoreConfiguration UseGridifyMapperProvider<TProvider>(TProvider provider) where TProvider : class, IGridifyMapperProvider
+    {
+        MapperProvider = provider;
+        return this;
+    }
+    
+    /// <summary>
+    /// Registers a customized implementation of <see cref="IGridifyMapperProvider"/>.
+    /// </summary>
+    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
+    public DataExplorerEfCoreConfiguration UseGridifyMapperProvider<TProvider>() where TProvider : class, IGridifyMapperProvider, new()
+    {
+        MapperProvider = new TProvider();
+        return this;
+    }
+    
     /// <summary>
     /// Adds the interface of a database context as a service.
     /// </summary>

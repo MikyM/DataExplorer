@@ -7,6 +7,10 @@ using MongoDB.Entities;
 
 namespace DataExplorer.MongoDb.Abstractions.DataContexts;
 
+/// <summary>
+/// Represents a MongoDB database context.
+/// </summary>
+[PublicAPI]
 public interface IMongoDbContext : IDataContextBase
 {
     /// <summary>

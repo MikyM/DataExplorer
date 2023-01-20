@@ -14,7 +14,7 @@ namespace DataExplorer.MongoDb.Abstractions.Repositories;
 /// <typeparam name="TEntity">Entity that derives from <see cref="Entity{TId}"/>.</typeparam>
 /// <typeparam name="TId">Type of the Id in <typeparamref name="TEntity"/>.</typeparam>
 [PublicAPI]
-public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntity : Entity<TId>, IEntity where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntity : MongoEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
     /// Current <see cref="IMongoDbContext"/>.
@@ -197,10 +197,52 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     IMongoQueryable<T> Queryable<T>(AggregateOptions? options = null, bool ignoreGlobalFilters = false) where T : Entity<TId>, IEntity;
 
     /// <summary>
-    /// Starts a replace command for the given entity type
-    /// <para>TIP: Only the first matched entity will be replaced</para>
+    /// Counts the entities.
     /// </summary>
-    Replace<TEntity> Replace();
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Number of entities.</returns>
+    Task<long> LongCountAsync(CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Counts the entities that satisfy the given predicate.
+    /// </summary>
+    /// <param name="predicate">The predicate to filter the entities with.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Number of entities.</returns>
+    Task<long> LongCountAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Asynchronously determines whether any elements satisfy the given condition.
+    /// </summary>
+    /// <param name="predicate">Predicate for the query.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>True if any elements in the source sequence satisfy the condition, otherwise false.</returns>
+    Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities that satisfy the given predicate.
+    /// </summary>
+    /// <param name="predicate">The predicate to filter the entities with.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="IReadOnlyList{T}"/> with filtered entities.</returns>
+    Task<IReadOnlyList<TEntity>> WhereAsync(Expression<Func<TEntity, bool>> predicate,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets the first entity that satisfies the given predicate.
+    /// </summary>
+    /// <param name="predicate">The predicate to filter the entities with.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>If found an instance of the found entity, otherwise null.</returns>
+    Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="IReadOnlyList{T}"/> with all entities.</returns>
+    Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
 }
 
 /// <summary>
@@ -208,6 +250,6 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
 /// </summary>
 /// <typeparam name="TEntity">Entity that derives from <see cref="Entity{TId}"/>.</typeparam>
 [PublicAPI]
-public interface IMongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity,long> where TEntity : Entity<long>, IEntity
+public interface IMongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity,long> where TEntity : MongoEntity<long>
 {
 }

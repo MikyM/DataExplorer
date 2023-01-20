@@ -1,7 +1,5 @@
-﻿using DataExplorer.Abstractions.Entities;
-using DataExplorer.Entities;
+﻿using DataExplorer.EfCore.Specifications;
 using DataExplorer.Exceptions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 #pragma warning disable CS1574, CS1584, CS1581, CS1580
 
@@ -15,6 +13,66 @@ namespace DataExplorer.EfCore.Abstractions.Repositories;
 [PublicAPI]
 public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> where TEntity : Entity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
+    /// <summary>
+    ///     Asynchronously updates database rows for the entity instances which match the LINQ query generated based on the provided specification from the database.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         This operation executes immediately against the database, rather than being deferred until
+    ///         <see cref="DbContext.SaveChanges()" /> is called. It also does not interact with the EF change tracker in any way:
+    ///         entity instances which happen to be tracked when this operation is invoked aren't taken into account, and aren't updated
+    ///         to reflect the changes.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-bulk-operations">Executing bulk operations with EF Core</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="specification">Specification for the query.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>The total number of rows updated in the database.</returns>
+    Task<int> ExecuteUpdateAsync(IUpdateSpecification<TEntity> specification,
+        CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    ///     Asynchronously deletes all database rows for the entity instances.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         This operation executes immediately against the database, rather than being deferred until
+    ///         <see cref="DbContext.SaveChanges()" /> is called. It also does not interact with the EF change tracker in any way:
+    ///         entity instances which happen to be tracked when this operation is invoked aren't taken into account, and aren't updated
+    ///         to reflect the changes.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-bulk-operations">Executing bulk operations with EF Core</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>The total number of rows deleted in the database.</returns>
+    Task<int> ExecuteDeleteAsync(CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    ///     Asynchronously deletes database rows for the entity instances which match the LINQ query generated based on the provided specification from the database.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         This operation executes immediately against the database, rather than being deferred until
+    ///         <see cref="DbContext.SaveChanges()" /> is called. It also does not interact with the EF change tracker in any way:
+    ///         entity instances which happen to be tracked when this operation is invoked aren't taken into account, and aren't updated
+    ///         to reflect the changes.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-bulk-operations">Executing bulk operations with EF Core</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="specification">Specification for the query.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>The total number of rows deleted in the database.</returns>
+    Task<int> ExecuteDeleteAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+    
     /// <summary>
     ///     <para>
     ///         Begins tracking the given entity, and any other reachable entities that are

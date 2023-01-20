@@ -3,6 +3,7 @@ using DataExplorer.EfCore.Specifications.Expressions;
 
 namespace DataExplorer.EfCore.Specifications.Builders;
 
+[PublicAPI]
 public static class IncludableBuilderExtensions
 {
     /// <summary>

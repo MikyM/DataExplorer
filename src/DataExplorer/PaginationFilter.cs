@@ -1,4 +1,4 @@
-﻿namespace DataExplorer.EfCore;
+﻿namespace DataExplorer;
 
 /// <summary>
 /// Pagination filter.

@@ -2,7 +2,7 @@
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class CachingEvaluator : IEvaluator, IEvaluatorBase
+public class CachingEvaluator : IEvaluator, IEvaluatorMarker
 {
     private CachingEvaluator()
     {

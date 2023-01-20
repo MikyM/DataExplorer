@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using AttributeBasedRegistration;
-using AttributeBasedRegistration.Attributes;
 using AttributeBasedRegistration.Attributes.Abstractions;
 using AttributeBasedRegistration.Autofac;
 using AttributeBasedRegistration.Extensions;
@@ -13,13 +12,33 @@ using DataExplorer.Attributes;
 using DataExplorer.EfCore.Abstractions;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.DataServices;
-using DataExplorer.EfCore.Specifications;
+using DataExplorer.EfCore.Gridify;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.EfCore.Specifications.Validators;
+using Gridify;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MikyM.Utilities.Extensions;
+using GroupByEvaluator = DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator;
+using IBasicEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IBasicEvaluator;
+using IBasicInMemoryEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IBasicInMemoryEvaluator;
+using IBasicValidator = DataExplorer.EfCore.Specifications.Validators.IBasicValidator;
+using IEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IEvaluator;
+using IEvaluatorMarker = DataExplorer.EfCore.Specifications.Evaluators.IEvaluatorMarker;
+using IInMemoryEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluator;
+using IInMemoryEvaluatorMarker = DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorMarker;
+using IInMemorySpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator;
+using InMemorySpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.InMemorySpecificationEvaluator;
+using IPreUpdateEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IPreUpdateEvaluator;
+using IProjectionEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IProjectionEvaluator;
+using ISpecialCaseEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecialCaseEvaluator;
+using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
+using ISpecificationValidator = DataExplorer.EfCore.Specifications.Validators.ISpecificationValidator;
+using IValidator = DataExplorer.EfCore.Specifications.Validators.IValidator;
+using IValidatorMarker = DataExplorer.EfCore.Specifications.Validators.IValidatorMarker;
+using ProjectionEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
+using SpecificationEvaluator = DataExplorer.EfCore.Specifications.SpecificationEvaluator;
+using SpecificationValidator = DataExplorer.EfCore.Specifications.Validators.SpecificationValidator;
 
 namespace DataExplorer.EfCore.Extensions;
 
@@ -36,7 +55,7 @@ public static class DataExplorerConfigurationExtensions
     /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
     /// </remarks>
     /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
-    /// <param name="assembliesContainingTypesToScan">Assemblies containing types to scan DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="assembliesContainingTypesToScan">Assemblies containing types to scan DataExplorer services such as data services, validators, evaluators etc. and entities</param>
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
     public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration,
         IEnumerable<Type> assembliesContainingTypesToScan, Action<DataExplorerEfCoreConfiguration>? options = null)
@@ -49,7 +68,7 @@ public static class DataExplorerConfigurationExtensions
     /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
     /// </remarks>
     /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
-    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
     public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration, IEnumerable<Assembly> assembliesToScan, Action<DataExplorerEfCoreConfiguration>? options = null)
     {
@@ -57,6 +76,18 @@ public static class DataExplorerConfigurationExtensions
         var serviceCollection = configuration.ServiceCollection;
         var config = new DataExplorerEfCoreConfiguration(builder, serviceCollection);
         options?.Invoke(config);
+        
+        GridifyGlobalConfiguration.EnableEntityFrameworkCompatibilityLayer();
+
+        var toScan = assembliesToScan.ToArray();
+        
+        var cache = new EfDataExplorerTypeCache();
+        builder?.RegisterInstance(cache).As<IEfDataExplorerTypeCache>().SingleInstance();
+        serviceCollection?.AddSingleton<IEfDataExplorerTypeCache>(cache);
+
+        var mapperProvider = config.MapperProvider ?? new GridifyMapperProvider();
+        builder?.RegisterInstance(mapperProvider).As<IGridifyMapperProvider>().SingleInstance();
+        serviceCollection?.AddSingleton(mapperProvider);
 
         var ctorFinder = new AllConstructorsFinder();
 
@@ -69,24 +100,29 @@ public static class DataExplorerConfigurationExtensions
         serviceCollection?.AddSingleton(x => x.GetRequiredService<IOptions<DataExplorerEfCoreConfiguration>>().Value);
         serviceCollection?.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
-        var toScan = assembliesToScan.ToList();
-        
+        // handle non special
         if (builder is not null)
             foreach (var assembly in toScan)
             {
-                builder?.RegisterAssemblyTypes(assembly)
-                    .Where(x => x.GetInterface(nameof(IInMemoryEvaluator)) is not null)
-                    .As<IInMemoryEvaluator>()
+                builder.RegisterAssemblyTypes(assembly)
+                    .Where(x => x.GetInterface(nameof(IValidatorMarker)) is not null || 
+                                x.GetInterface(nameof(IInMemoryEvaluatorMarker)) is not null ||
+                                x.GetInterface(nameof(IEvaluatorMarker)) is not null 
+                                    && x.GetInterface(nameof(ISpecialCaseEvaluator)) is null)
+                    .AsImplementedInterfaces()
                     .FindConstructorsWith(new AllConstructorsFinder())
                     .SingleInstance();
             }
-        
+
         if (serviceCollection is not null)
             foreach (var assembly in toScan)
             {
-                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IInMemoryEvaluator)) is not null))
+                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IValidatorMarker)) is not null || 
+                                                                    x.GetInterface(nameof(IInMemoryEvaluatorMarker)) is not null ||
+                                                                    x.GetInterface(nameof(IEvaluatorMarker)) is not null 
+                                                                    && x.GetInterface(nameof(ISpecialCaseEvaluator)) is null))
                 {
-                    serviceCollection.AddSingleton(typeof(IInMemoryEvaluator), _ => Activator.CreateInstance(
+                    var instance = Activator.CreateInstance(
                         type,
                         BindingFlags.Instance
                         | BindingFlags.Public
@@ -94,47 +130,35 @@ public static class DataExplorerConfigurationExtensions
                         null,
                         Array.Empty<object>(),
                         null
-                    )!);
-                }
-            }
-        
-        if (builder is not null)
-            foreach (var assembly in toScan)
-            {
-                builder?.RegisterAssemblyTypes(assembly)
-                    .Where(x => x.GetInterface(nameof(IValidator)) is not null)
-                    .As<IValidator>()
-                    .FindConstructorsWith(new AllConstructorsFinder())
-                    .SingleInstance();
-            }
-        
-        if (serviceCollection is not null)
-            foreach (var assembly in toScan)
-            {
-                foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IValidator)) is not null))
-                {
-                    serviceCollection.AddSingleton(typeof(IValidator), _ => Activator.CreateInstance(
-                        type,
-                        BindingFlags.Instance
-                        | BindingFlags.Public
-                        | BindingFlags.NonPublic,
-                        null,
-                        Array.Empty<object>(),
-                        null
-                    )!);
+                    )!;
+                    
+                    var interfaces = type.GetInterfaces();
+                    foreach (var inter in interfaces)
+                    {
+                        
+                        serviceCollection.AddSingleton(inter, instance);
+                    }
                 }
             }
 
+        // handle non special
         builder?.RegisterAssemblyTypes(typeof(GroupByEvaluator).Assembly)
-            .Where(x => x.GetInterface(nameof(IEvaluator)) is not null && x != typeof(IncludeEvaluator))
-            .As<IEvaluator>()
-            .FindConstructorsWith(ctorFinder)
+            .Where(x => x.GetInterface(nameof(IValidatorMarker)) is not null ||
+                        x.GetInterface(nameof(IInMemoryEvaluatorMarker)) is not null ||
+                        x.GetInterface(nameof(IEvaluatorMarker)) is not null
+                        && x.GetInterface(nameof(ISpecialCaseEvaluator)) is null)
+            .AsImplementedInterfaces()
+            .FindConstructorsWith(new AllConstructorsFinder())
             .SingleInstance();
-            
+        
         if (serviceCollection is not null)
-            foreach (var type in typeof(GroupByEvaluator).Assembly.GetTypes().Where(x => x.GetInterface(nameof(IEvaluator)) is not null && x != typeof(IncludeEvaluator)))
+        {
+            foreach (var type in typeof(GroupByEvaluator).Assembly.GetTypes().Where(x => x.GetInterface(nameof(IValidatorMarker)) is not null || 
+                                                                x.GetInterface(nameof(IInMemoryEvaluatorMarker)) is not null ||
+                                                                x.GetInterface(nameof(IEvaluatorMarker)) is not null 
+                                                                && x.GetInterface(nameof(ISpecialCaseEvaluator)) is null))
             {
-                serviceCollection.AddSingleton(typeof(IEvaluator), _ => Activator.CreateInstance(
+                var instance = Activator.CreateInstance(
                     type,
                     BindingFlags.Instance
                     | BindingFlags.Public
@@ -142,8 +166,17 @@ public static class DataExplorerConfigurationExtensions
                     null,
                     Array.Empty<object>(),
                     null
-                )!);
+                )!;
+                    
+                var interfaces = type.GetInterfaces();
+                foreach (var inter in interfaces)
+                {
+                        
+                    serviceCollection.AddSingleton(inter, instance);
+                }
+
             }
+        }
 
         builder?.RegisterType<IncludeEvaluator>()
             .As<IEvaluator>()
@@ -160,31 +193,46 @@ public static class DataExplorerConfigurationExtensions
             .SingleInstance();
         
         serviceCollection?.AddSingleton<IProjectionEvaluator>(new ProjectionEvaluator());
+        
+        builder?.RegisterType<UpdateEvaluator>()
+            .As<IUpdateEvaluator>()
+            .FindConstructorsWith(ctorFinder)
+            .SingleInstance();
+
+        serviceCollection?.AddSingleton<IUpdateEvaluator>(new UpdateEvaluator());
 
         builder?.RegisterType<SpecificationEvaluator>()
             .As<ISpecificationEvaluator>()
-            .UsingConstructor(typeof(IEnumerable<IEvaluator>), typeof(IProjectionEvaluator))
+            .UsingConstructor(typeof(IEnumerable<IEvaluator>), typeof(IEnumerable<IBasicEvaluator>),
+                typeof(IEnumerable<IPreUpdateEvaluator>), typeof(IProjectionEvaluator), typeof(IUpdateEvaluator))
             .FindConstructorsWith(ctorFinder)
             .SingleInstance();
-        
-        serviceCollection?.AddSingleton<ISpecificationEvaluator>(x => new SpecificationEvaluator(x.GetRequiredService<IEnumerable<IEvaluator>>(), x.GetRequiredService<IProjectionEvaluator>()));
+
+        serviceCollection?.AddSingleton<ISpecificationEvaluator>(x =>
+            new SpecificationEvaluator(x.GetRequiredService<IEnumerable<IEvaluator>>(),
+                x.GetRequiredService<IEnumerable<IBasicEvaluator>>(),
+                x.GetRequiredService<IEnumerable<IPreUpdateEvaluator>>(), x.GetRequiredService<IProjectionEvaluator>(),
+                x.GetRequiredService<IUpdateEvaluator>()));
 
         builder?.RegisterType<SpecificationValidator>()
             .As<ISpecificationValidator>()
-            .UsingConstructor(typeof(IEnumerable<IValidator>))
+            .UsingConstructor(typeof(IEnumerable<IValidator>), typeof(IEnumerable<IBasicValidator>))
             .FindConstructorsWith(ctorFinder)
             .SingleInstance();
-        
-        serviceCollection?.AddSingleton<ISpecificationValidator>(x => new SpecificationValidator(x.GetRequiredService<IEnumerable<IValidator>>()));
+
+        serviceCollection?.AddSingleton<ISpecificationValidator>(x =>
+            new SpecificationValidator(x.GetRequiredService<IEnumerable<IValidator>>(),
+                x.GetRequiredService<IEnumerable<IBasicValidator>>()));
 
         builder?.RegisterType<InMemorySpecificationEvaluator>()
             .As<IInMemorySpecificationEvaluator>()
-            .UsingConstructor(typeof(IEnumerable<IInMemoryEvaluator>))
+            .UsingConstructor(typeof(IEnumerable<IInMemoryEvaluator>), typeof(IEnumerable<IBasicInMemoryEvaluator>))
             .FindConstructorsWith(ctorFinder)
             .SingleInstance();
 
         serviceCollection?.AddSingleton<IInMemorySpecificationEvaluator>(x =>
-            new InMemorySpecificationEvaluator(x.GetRequiredService<IEnumerable<IInMemoryEvaluator>>()));
+            new InMemorySpecificationEvaluator(x.GetRequiredService<IEnumerable<IInMemoryEvaluator>>(),
+                x.GetRequiredService<IEnumerable<IBasicInMemoryEvaluator>>()));
         
         
         IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registReadOnlyBuilder;

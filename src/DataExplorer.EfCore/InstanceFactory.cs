@@ -9,28 +9,33 @@ namespace DataExplorer.EfCore;
 /// </summary>
 internal static class InstanceFactory
 {
-  private delegate object? CreateDelegate(Type type, object? arg1, object? arg2, object? arg3);
+  private delegate object? CreateDelegate(Type type, object? arg1, object? arg2, object? arg3, object? arg4);
 
-  private static readonly ConcurrentDictionary<Tuple<Type, Type, Type, Type>, CreateDelegate> CachedFuncs = new();
+  private static readonly ConcurrentDictionary<Tuple<Type, Type, Type, Type, Type>, CreateDelegate> CachedFuncs = new();
 
   internal static object? CreateInstance(Type type)
   {
-    return InstanceFactoryGeneric<TypeToIgnore, TypeToIgnore, TypeToIgnore>.CreateInstance(type, null, null, null);
+    return InstanceFactoryGeneric<TypeToIgnore, TypeToIgnore, TypeToIgnore, TypeToIgnore>.CreateInstance(type, null, null, null, null);
   }
 
   internal static object? CreateInstance<TArg1>(Type type, TArg1 arg1)
   {
-    return InstanceFactoryGeneric<TArg1, TypeToIgnore, TypeToIgnore>.CreateInstance(type, arg1, null, null);
+    return InstanceFactoryGeneric<TArg1, TypeToIgnore, TypeToIgnore, TypeToIgnore>.CreateInstance(type, arg1, null, null, null);
   }
 
   internal static object? CreateInstance<TArg1, TArg2>(Type type, TArg1 arg1, TArg2 arg2)
   {
-    return InstanceFactoryGeneric<TArg1, TArg2, TypeToIgnore>.CreateInstance(type, arg1, arg2, null);
+    return InstanceFactoryGeneric<TArg1, TArg2, TypeToIgnore, TypeToIgnore>.CreateInstance(type, arg1, arg2, null, null);
   }
 
   internal static object? CreateInstance<TArg1, TArg2, TArg3>(Type type, TArg1 arg1, TArg2 arg2, TArg3 arg3)
   {
-    return InstanceFactoryGeneric<TArg1, TArg2, TArg3>.CreateInstance(type, arg1, arg2, arg3);
+    return InstanceFactoryGeneric<TArg1, TArg2, TArg3, TypeToIgnore>.CreateInstance(type, arg1, arg2, arg3, null);
+  }
+  
+  internal static object? CreateInstance<TArg1, TArg2, TArg3, TArg4>(Type type, TArg1 arg1, TArg2 arg2, TArg3 arg3, TArg4 arg4)
+  {
+    return InstanceFactoryGeneric<TArg1, TArg2, TArg3, TArg4>.CreateInstance(type, arg1, arg2, arg3, arg4);
   }
 
   internal static object? CreateInstance(Type type, params object?[]? args)
@@ -38,10 +43,11 @@ internal static class InstanceFactory
     if (args is null)
       return CreateInstance(type);
 
-    if (args.Length > 3 || 
+    if (args.Length > 4 || 
       (args.Length > 0 && args[0] == null) ||
       (args.Length > 1 && args[1] == null) ||
-      (args.Length > 2 && args[2] == null))
+      (args.Length > 2 && args[2] == null) ||
+      (args.Length > 3 && args[3] == null))
     {
         return Activator.CreateInstance(type, args);   
     }
@@ -49,20 +55,21 @@ internal static class InstanceFactory
     var arg0 = args.Length > 0 ? args[0] : null;
     var arg1 = args.Length > 1 ? args[1] : null;
     var arg2 = args.Length > 2 ? args[2] : null;
+    var arg3 = args.Length > 3 ? args[3] : null;
 
     var key = Tuple.Create(
       type,
       arg0?.GetType() ?? typeof(TypeToIgnore),
       arg1?.GetType() ?? typeof(TypeToIgnore),
-      arg2?.GetType() ?? typeof(TypeToIgnore));
+      arg2?.GetType() ?? typeof(TypeToIgnore),
+      arg3?.GetType() ?? typeof(TypeToIgnore));
     
-    if (CachedFuncs.TryGetValue(key, out var func))
-      return func(type, arg0, arg1, arg2);
-    else
-      return CacheFunc(key)(type, arg0, arg1, arg2);
+    return CachedFuncs.TryGetValue(key, out var func) 
+      ? func(type, arg0, arg1, arg2, arg3) 
+      : CacheFunc(key)(type, arg0, arg1, arg2, arg3);
   }
 
-  private static CreateDelegate CacheFunc(Tuple<Type, Type, Type, Type> key)
+  private static CreateDelegate CacheFunc(Tuple<Type, Type, Type, Type, Type> key)
   {
     var types = new[] { key.Item1, key.Item2, key.Item3, key.Item4 };
     var method = typeof(InstanceFactory)
@@ -88,14 +95,14 @@ internal static class InstanceFactory
   }
 }
 
-internal static class InstanceFactoryGeneric<TArg1, TArg2, TArg3>
+internal static class InstanceFactoryGeneric<TArg1, TArg2, TArg3, TArg4>
 {
-  private static readonly ConcurrentDictionary<Type, Func<TArg1?, TArg2?, TArg3?, object>> CachedFuncs = new();
+  private static readonly ConcurrentDictionary<Type, Func<TArg1?, TArg2?, TArg3?, TArg4?, object>> CachedFuncs = new();
 
-  internal static object? CreateInstance(Type type, TArg1? arg1, TArg2? arg2, TArg3? arg3)
-    => CachedFuncs.TryGetValue(type, out var func) ? func(arg1, arg2, arg3) : CacheFunc(type, arg1, arg2, arg3)(arg1, arg2, arg3);
+  internal static object? CreateInstance(Type type, TArg1? arg1, TArg2? arg2, TArg3? arg3, TArg4? arg4)
+    => CachedFuncs.TryGetValue(type, out var func) ? func(arg1, arg2, arg3, arg4) : CacheFunc(type, arg1, arg2, arg3, arg4)(arg1, arg2, arg3, arg4);
 
-  private static Func<TArg1?, TArg2?, TArg3?, object> CacheFunc(Type type, TArg1? arg1, TArg2? arg2, TArg3? arg3)
+  private static Func<TArg1?, TArg2?, TArg3?, TArg4?, object> CacheFunc(Type type, TArg1? arg1, TArg2? arg2, TArg3? arg3, TArg4? arg4)
   {
     var constructorTypes = new List<Type>();
     if (typeof(TArg1) != typeof(TypeToIgnore))
@@ -104,18 +111,21 @@ internal static class InstanceFactoryGeneric<TArg1, TArg2, TArg3>
       constructorTypes.Add(typeof(TArg2));
     if (typeof(TArg3) != typeof(TypeToIgnore))
       constructorTypes.Add(typeof(TArg3));
+    if (typeof(TArg4) != typeof(TypeToIgnore))
+      constructorTypes.Add(typeof(TArg4));
 
     var parameters = new List<ParameterExpression>()
     {
       Expression.Parameter(typeof(TArg1)),
       Expression.Parameter(typeof(TArg2)),
       Expression.Parameter(typeof(TArg3)),
+      Expression.Parameter(typeof(TArg4))
     };
 
     var constructor = type.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, constructorTypes.ToArray());
     var constructorParameters = parameters.Take(constructorTypes.Count).ToList();
     var newExpr = Expression.New(constructor ?? throw new InvalidOperationException(), constructorParameters);
-    var lambdaExpr = Expression.Lambda<Func<TArg1?, TArg2?, TArg3?, object>>(newExpr, parameters);
+    var lambdaExpr = Expression.Lambda<Func<TArg1?, TArg2?, TArg3?, TArg4?, object>>(newExpr, parameters);
     var func = lambdaExpr.Compile();
     CachedFuncs.TryAdd(type, func);
     return func;

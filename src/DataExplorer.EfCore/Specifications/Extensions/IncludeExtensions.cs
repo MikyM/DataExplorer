@@ -1,6 +1,5 @@
 ﻿using System.Linq.Expressions;
 using DataExplorer.EfCore.Specifications.Expressions;
-using Microsoft.EntityFrameworkCore;
 
 namespace DataExplorer.EfCore.Specifications.Extensions;
 

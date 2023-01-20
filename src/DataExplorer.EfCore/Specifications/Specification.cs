@@ -10,9 +10,7 @@ namespace DataExplorer.EfCore.Specifications;
 
 /// <inheritdoc cref="ISpecification{T,TResult}" />
 [PublicAPI]
-public
-    class Specification<T, TResult> : Specification<T>, ISpecification<T, TResult>
-    where T : class where TResult : class
+public class Specification<T, TResult> : Specification<T>, ISpecification<T, TResult> where T : class
 {
     protected internal Specification(IConfigurationProvider? mapperConfigurationProvider = null) : this(InMemorySpecificationEvaluator.Default, mapperConfigurationProvider)
     {
@@ -39,7 +37,7 @@ public
     /// <summary>
     /// Inner <see cref="ISpecificationBuilder{T,TResult}"/>
     /// </summary>
-    protected new virtual ISpecificationBuilder<T, TResult> Query { get; }
+    protected new ISpecificationBuilder<T, TResult> Query { get; }
 
     /// <inheritdoc />
     public new virtual IEnumerable<TResult> Evaluate(IEnumerable<T> entities)
@@ -119,7 +117,7 @@ public
 
 /// <inheritdoc cref="ISpecification{T}" />
 [PublicAPI]
-public class Specification<T> : ISpecification<T> where T : class
+public class Specification<T> : BasicSpecification<T>,  ISpecification<T> where T : class
 {
     protected Specification(PaginationFilter paginationFilter)
         : this(InMemorySpecificationEvaluator.Default, SpecificationValidator.Default, paginationFilter)
@@ -151,48 +149,18 @@ public class Specification<T> : ISpecification<T> where T : class
     {
     }
 
-    protected Specification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, ISpecificationValidator specificationValidator)
+    protected Specification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, ISpecificationValidator specificationValidator): base(
+        inMemorySpecificationEvaluator, specificationValidator)
     {
-        Evaluator = inMemorySpecificationEvaluator;
-        Validator = specificationValidator;
         Query = new SpecificationBuilder<T>(this);
     }
 
-    protected Specification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, ISpecificationValidator specificationValidator, PaginationFilter paginationFilter)
+    protected Specification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator,
+        ISpecificationValidator specificationValidator, PaginationFilter paginationFilter) : base(
+        inMemorySpecificationEvaluator, specificationValidator)
     {
-        Evaluator = inMemorySpecificationEvaluator;
-        Validator = specificationValidator;
-        Query = new SpecificationBuilder<T>(this);
         PaginationFilter = paginationFilter;
-    }
-
-    /// <summary>
-    /// Inner <see cref="InMemorySpecificationEvaluator"/>
-    /// </summary>
-    protected IInMemorySpecificationEvaluator Evaluator { get; }
-    /// <summary>
-    /// Innner <see cref="ISpecificationEvaluator"/>
-    /// </summary>
-    protected ISpecificationValidator Validator { get; }
-    /// <summary>
-    /// Inner <see cref="ISpecificationBuilder{T}"/>
-    /// </summary>
-    protected virtual ISpecificationBuilder<T> Query { get; }
-
-    /// <summary>
-    /// Evaluates given <see cref="IEnumerable{T}"/> using self.
-    /// </summary>
-    /// <param name="entities">Entities to evaluate</param>
-    /// <returns></returns>
-    public virtual IEnumerable<T> Evaluate(IEnumerable<T> entities)
-    {
-        return Evaluator.Evaluate(entities, this);
-    }
-
-    /// <inheritdoc/>
-    public virtual bool IsSatisfiedBy(T entity)
-    {
-        return Validator.IsValid(entity, this);
+        Query = new SpecificationBuilder<T>(this);
     }
 
     /// <inheritdoc />
@@ -200,9 +168,6 @@ public class Specification<T> : ISpecification<T> where T : class
 
     /// <inheritdoc />
     public CacheExpirationMode? CacheExpirationMode { get; internal set; }
-
-    /// <inheritdoc />
-    public IEnumerable<WhereExpressionInfo<T>>? WhereExpressions { get; internal set; }
 
     /// <inheritdoc />
     public IEnumerable<OrderExpressionInfo<T>>? OrderExpressions
@@ -219,16 +184,6 @@ public class Specification<T> : ISpecification<T> where T : class
 
     /// <inheritdoc />
     public IEnumerable<string>? IncludeStrings { get; internal set; }
-
-    /// <inheritdoc />
-    public IEnumerable<SearchExpressionInfo<T>>? SearchCriterias
-    {
-        get;
-        internal set;
-    }
-
-    /// <inheritdoc/>
-    public bool IgnoreQueryFilters { get; internal set; } = false;
 
     /// <inheritdoc />
     public int? Take { get; internal set; }
@@ -285,6 +240,11 @@ public class Specification<T> : ISpecification<T> where T : class
 
     /// <inheritdoc />
     public bool IsAsNoTrackingWithIdentityResolution { get; internal set; }
+    
+    /// <summary>
+    /// Inner <see cref="ISpecificationBuilder{T,TResult}"/>
+    /// </summary>
+    protected new ISpecificationBuilder<T> Query { get; }
 
     /// <summary>
     /// Sets whether to ignore query filters or not, default is
@@ -341,16 +301,6 @@ public class Specification<T> : ISpecification<T> where T : class
     }
 
     /// <summary>
-    /// Specify a predicate that will be applied to the query
-    /// </summary>
-    /// <param name="criteria">Given criteria</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> Where(Expression<Func<T, bool>> criteria)
-    {
-        return Query.Where(criteria);
-    }
-
-    /// <summary>
     /// Specify the query result will be grouped by <paramref name="groupByExpression"/> in a descending order
     /// </summary>
     /// <param name="groupByExpression">Member to use for grouping</param>
@@ -358,18 +308,6 @@ public class Specification<T> : ISpecification<T> where T : class
     protected ISpecificationBuilder<T> GroupBy(Expression<Func<T, object>> groupByExpression)
     {
         return Query.GroupBy(groupByExpression);
-    }
-
-    /// <summary>
-    /// Specify a 'SQL LIKE' operations for search purposes
-    /// </summary>
-    /// <param name="selector">the property to apply the SQL LIKE against</param>
-    /// <param name="searchTerm">the value to use for the SQL LIKE</param>
-    /// <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> Search(Expression<Func<T, string>> selector, string searchTerm, int searchGroup = 1)
-    {
-        return Query.Search(selector, searchTerm, searchGroup);
     }
 
     /// <summary>
@@ -437,5 +375,99 @@ public class Specification<T> : ISpecification<T> where T : class
     protected ISpecificationBuilder<T> AsNoTrackingWithIdentityResolution()
     {
         return Query.AsNoTrackingWithIdentityResolution();
+    }
+}
+
+/// <inheritdoc cref="ISpecification{T}" />
+[PublicAPI]
+public class BasicSpecification<T> : IBasicSpecification<T> where T : class
+{
+    protected BasicSpecification()
+        : this(InMemorySpecificationEvaluator.Default, SpecificationValidator.Default)
+    {
+    }
+
+    protected BasicSpecification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator)
+        : this(inMemorySpecificationEvaluator, SpecificationValidator.Default)
+    {
+    }
+
+    protected BasicSpecification(ISpecificationValidator specificationValidator)
+        : this(InMemorySpecificationEvaluator.Default, specificationValidator)
+    {
+    }
+
+    protected BasicSpecification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, ISpecificationValidator specificationValidator)
+    {
+        Evaluator = inMemorySpecificationEvaluator;
+        Validator = specificationValidator;
+        Query = new BasicSpecificationBuilder<T>(this);
+    }
+
+    /// <inheritdoc/>
+    public bool IgnoreQueryFilters { get; internal set; }
+    
+    /// <summary>
+    /// Inner <see cref="ISpecificationBuilder{T}"/>
+    /// </summary>
+    protected IBasicSpecificationBuilder<T> Query { get; }
+    
+    /// <summary>
+    /// Inner <see cref="InMemorySpecificationEvaluator"/>
+    /// </summary>
+    protected IInMemorySpecificationEvaluator Evaluator { get; }
+    
+    /// <summary>
+    /// Innner <see cref="ISpecificationEvaluator"/>
+    /// </summary>
+    protected ISpecificationValidator Validator { get; }
+
+    /// <inheritdoc/>
+    public virtual bool IsSatisfiedBy(T entity)
+    {
+        return Validator.IsValid(entity, this);
+    }
+
+    /// <summary>
+    /// Evaluates given <see cref="IEnumerable{T}"/> using self.
+    /// </summary>
+    /// <param name="entities">Entities to evaluate</param>
+    /// <returns></returns>
+    public virtual IEnumerable<T> Evaluate(IEnumerable<T> entities)
+    {
+        return Evaluator.Evaluate(entities, this);
+    }
+    
+    /// <inheritdoc />
+    public IEnumerable<SearchExpressionInfo<T>>? SearchCriterias
+    {
+        get;
+        internal set;
+    }
+    
+    /// <inheritdoc />
+    public IEnumerable<WhereExpressionInfo<T>>? WhereExpressions { get; internal set; }
+    
+    /// <summary>
+    /// Specify a predicate that will be applied to the query
+    /// </summary>
+    /// <param name="criteria">Given criteria</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected IBasicSpecificationBuilder<T> Where(Expression<Func<T, bool>> criteria)
+    {
+        return Query.Where(criteria);
+    }
+    
+
+    /// <summary>
+    /// Specify a 'SQL LIKE' operations for search purposes
+    /// </summary>
+    /// <param name="selector">the property to apply the SQL LIKE against</param>
+    /// <param name="searchTerm">the value to use for the SQL LIKE</param>
+    /// <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected IBasicSpecificationBuilder<T> Search(Expression<Func<T, string>> selector, string searchTerm, int searchGroup = 1)
+    {
+        return Query.Search(selector, searchTerm, searchGroup);
     }
 }

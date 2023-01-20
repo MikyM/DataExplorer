@@ -2,5 +2,5 @@
 
 public interface ISpecificationValidator
 {
-    bool IsValid<T>(T entity, ISpecification<T> specification) where T : class;
+    bool IsValid<T>(T entity, IBasicSpecification<T> specification) where T : class;
 }

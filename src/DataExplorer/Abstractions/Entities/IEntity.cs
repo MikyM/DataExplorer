@@ -18,22 +18,22 @@ public interface IEntity<TId> : IEntityBase where TId : IComparable, IEquatable<
     /// Sets the Id of this entity.
     /// </summary>
     /// <param name="id"></param>
-    void SetId(TId id);
+    public void SetId(TId id);
 
     /// <summary>
     /// The Id of the entity.
     /// </summary>
-    TId Id { get; }
+    public TId Id { get; }
 
     /// <summary>
     /// Creation date of the entity.
     /// </summary>
-    DateTime? CreatedAt { get; set; }
+    public DateTime? CreatedAt { get; set; }
 
     /// <summary>
     /// Last update date of the entity.
     /// </summary>
-    DateTime? UpdatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
 }
 
 /// <summary>
@@ -45,10 +45,10 @@ public interface IEntityBase
     /// <summary>
     /// Sets the ID of this entity.
     /// </summary>
-    void SetId(object id);
+    public void SetId(object id);
 
     /// <summary>
     /// Whether the entity has a valid Id.
     /// </summary>
-    bool HasValidId { get; }
+    public bool HasValidId { get; }
 }

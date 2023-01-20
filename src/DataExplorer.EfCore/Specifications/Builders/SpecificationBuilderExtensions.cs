@@ -3,7 +3,6 @@ using AutoMapper;
 using DataExplorer.EfCore.Specifications.Exceptions;
 using DataExplorer.EfCore.Specifications.Expressions;
 using DataExplorer.EfCore.Specifications.Helpers;
-using EFCoreSecondLevelCacheInterceptor;
 
 namespace DataExplorer.EfCore.Specifications.Builders;
 
@@ -13,6 +12,67 @@ namespace DataExplorer.EfCore.Specifications.Builders;
 [PublicAPI]
 public static class SpecificationBuilderExtensions
 {
+    /// <summary>
+    ///         Specify property and value to be set in ExecuteUpdate method with chaining multiple calls for updating
+    ///         multiple columns.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder">The builder.</param>
+    /// <param name="setPropertyCalls">The updates to execute.</param>
+    public static IUpdateSpecificationBuilder<T> Set<T>(this IUpdateSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls) where T : class =>
+        Set(specificationBuilder, setPropertyCalls, true);
+
+    /// <summary>
+    ///         Specify property and value to be set in ExecuteUpdate method with chaining multiple calls for updating
+    ///         multiple columns.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder">The builder.</param>
+    /// <param name="setPropertyCalls">The updates to execute.</param>
+    /// <param name="condition">If false, the criteria won't be added.</param>
+    public static IUpdateSpecificationBuilder<T> Set<T>(this IUpdateSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls, bool condition) where T : class
+    {
+        if (condition)
+        {
+            specificationBuilder.Specification.UpdateExpressions ??= new List<Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>>();
+            ((List<Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>>)specificationBuilder.Specification.UpdateExpressions).Add(setPropertyCalls);
+        }
+
+        return specificationBuilder;
+    }
+    
+    /// <summary>
+    /// Specify a predicate that will be applied to the query
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="criteria"></param>
+    public static IBasicSpecificationBuilder<T> Where<T>(this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, bool>> criteria) where T : class =>
+        Where(specificationBuilder, criteria, true);
+
+    /// <summary>
+    /// Specify a predicate that will be applied to the query
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="criteria"></param>
+    /// <param name="condition">If false, the criteria won't be added.</param>
+    public static IBasicSpecificationBuilder<T> Where<T>(this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, bool>> criteria, bool condition) where T : class
+    {
+        if (condition)
+        {
+            specificationBuilder.Specification.WhereExpressions ??= new List<WhereExpressionInfo<T>>();
+            ((List<WhereExpressionInfo<T>>)specificationBuilder.Specification.WhereExpressions).Add(
+                new WhereExpressionInfo<T>(criteria));
+        }
+
+        return specificationBuilder;
+    }
+    
     /// <summary>
     /// Specify a predicate that will be applied to the query
     /// </summary>
@@ -83,8 +143,7 @@ public static class SpecificationBuilderExtensions
     /// <param name="specificationBuilder"></param>
     /// <param name="orderExpression"></param>
     public static IOrderedSpecificationBuilder<T> OrderByDescending<T>(
-        this ISpecificationBuilder<T> specificationBuilder, Expression<Func<T, object?>> orderExpression)
-        where T : class =>
+        this ISpecificationBuilder<T> specificationBuilder, Expression<Func<T, object?>> orderExpression) where T : class =>
         OrderByDescending(specificationBuilder, orderExpression, true);
 
     /// <summary>
@@ -207,6 +266,46 @@ public static class SpecificationBuilderExtensions
     /// <param name="selector">the property to apply the SQL LIKE against</param>
     /// <param name="searchTerm">the value to use for the SQL LIKE</param>
     /// <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
+    public static IBasicSpecificationBuilder<T> Search<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, string>> selector,
+        string searchTerm,
+        int searchGroup = 1) where T : class
+        => Search(specificationBuilder, selector, searchTerm, true, searchGroup);
+
+    /// <summary>
+    /// Specify a 'SQL LIKE' operations for search purposes
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="selector">the property to apply the SQL LIKE against</param>
+    /// <param name="searchTerm">the value to use for the SQL LIKE</param>
+    /// <param name="condition">If false, the expression won't be added.</param>
+    /// <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
+    public static IBasicSpecificationBuilder<T> Search<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, string>> selector,
+        string searchTerm,
+        bool condition,
+        int searchGroup = 1) where T : class
+    {
+        if (condition)
+        {
+            specificationBuilder.Specification.SearchCriterias ??= new List<SearchExpressionInfo<T>>();
+            ((List<SearchExpressionInfo<T>>)specificationBuilder.Specification.SearchCriterias).Add(new SearchExpressionInfo<T>(selector, searchTerm, searchGroup));
+        }
+
+        return specificationBuilder;
+    }
+    
+    /// <summary>
+    /// Specify a 'SQL LIKE' operations for search purposes
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="selector">the property to apply the SQL LIKE against</param>
+    /// <param name="searchTerm">the value to use for the SQL LIKE</param>
+    /// <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
     public static ISpecificationBuilder<T> Search<T>(
         this ISpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, string>> selector,
@@ -248,8 +347,8 @@ public static class SpecificationBuilderExtensions
     /// <param name="expression">Member to expand</param>
     /// <returns>Current builder instance</returns>
     public static ISpecificationBuilder<T, TResult> Expand<T, TResult>(
-        this ISpecificationBuilder<T, TResult> specificationBuilder, Expression<Func<TResult, object>> expression)
-        where T : class where TResult : class
+        this ISpecificationBuilder<T, TResult> specificationBuilder, Expression<Func<TResult, object>> expression) where T : class
+
     {
         specificationBuilder.Specification.MembersToExpand ??= new List<Expression<Func<TResult, object>>>();
         ((List<Expression<Func<TResult, object>>>)specificationBuilder.Specification.MembersToExpand).Add(expression);
@@ -258,7 +357,7 @@ public static class SpecificationBuilderExtensions
     }
 
     public static ISpecificationBuilder<T, TResult> Expand<T, TResult>(
-        this ISpecificationBuilder<T, TResult> specificationBuilder, string member) where T : class where TResult : class
+        this ISpecificationBuilder<T, TResult> specificationBuilder, string member) where T : class
     {
         specificationBuilder.Specification.StringMembersToExpand ??= new List<string>();
         ((List<string>)specificationBuilder.Specification.StringMembersToExpand).Add(member);
@@ -276,7 +375,7 @@ public static class SpecificationBuilderExtensions
     /// <returns>Current builder instance</returns>
     public static ISpecificationBuilder<T, TResult> WithMapperConfiguration<T, TResult>(
         this ISpecificationBuilder<T, TResult> specificationBuilder,
-        IConfigurationProvider mapperConfiguration) where T : class where TResult : class
+        IConfigurationProvider mapperConfiguration) where T : class
     {
         specificationBuilder.Specification.MapperConfigurationProvider = mapperConfiguration;
 
@@ -386,7 +485,7 @@ public static class SpecificationBuilderExtensions
     /// </summary>
     public static ISpecificationBuilder<T, TResult> WithPostProcessingAction<T, TResult>(
         this ISpecificationBuilder<T, TResult> specificationBuilder,
-        Func<IEnumerable<TResult>, IEnumerable<TResult>> predicate) where TResult : class where T : class
+        Func<IEnumerable<TResult>, IEnumerable<TResult>> predicate) where T : class
     {
         specificationBuilder.Specification.PostProcessingAction = predicate;
 
@@ -450,7 +549,7 @@ public static class SpecificationBuilderExtensions
     /// </summary>
     public static ISpecificationBuilder<T, TResult> Select<T, TResult>(
         this ISpecificationBuilder<T, TResult> specificationBuilder,
-        Expression<Func<T, TResult>> selector) where TResult : class where T : class
+        Expression<Func<T, TResult>> selector) where T : class
     {
         specificationBuilder.Specification.Selector = selector;
 

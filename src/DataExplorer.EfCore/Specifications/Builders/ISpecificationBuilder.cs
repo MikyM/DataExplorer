@@ -1,11 +1,21 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Builders;
 
-public interface ISpecificationBuilder<T, TResult> : ISpecificationBuilder<T> where T : class where TResult : class
+public interface ISpecificationBuilder<T, TResult> : ISpecificationBuilder<T> where T : class
 {
     new Specification<T, TResult> Specification { get; }
 }
 
-public interface ISpecificationBuilder<T> where T : class
+public interface ISpecificationBuilder<T> : IBasicSpecificationBuilder<T> where T : class
 {
-    Specification<T> Specification { get; }
+    new Specification<T> Specification { get; }
+}
+
+public interface IUpdateSpecificationBuilder<T> : IBasicSpecificationBuilder<T> where T : class
+{
+    new UpdateSpecification<T> Specification { get; }
+}
+
+public interface IBasicSpecificationBuilder<T> where T : class
+{
+    BasicSpecification<T> Specification { get; }
 }

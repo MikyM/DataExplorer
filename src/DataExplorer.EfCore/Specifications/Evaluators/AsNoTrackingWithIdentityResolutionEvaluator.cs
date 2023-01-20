@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-namespace DataExplorer.EfCore.Specifications.Evaluators;
-
-public class AsNoTrackingWithIdentityResolutionEvaluator : IEvaluator, IEvaluatorBase
+public class AsNoTrackingWithIdentityResolutionEvaluator : IEvaluator, IEvaluatorMarker
 {
     private AsNoTrackingWithIdentityResolutionEvaluator()
     {

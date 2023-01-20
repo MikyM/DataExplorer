@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-namespace DataExplorer.EfCore.Specifications.Evaluators;
-
-public class AsNoTrackingEvaluator : IEvaluator, IEvaluatorBase
+public class AsNoTrackingEvaluator : IEvaluator, IEvaluatorMarker
 {
     private AsNoTrackingEvaluator()
     {

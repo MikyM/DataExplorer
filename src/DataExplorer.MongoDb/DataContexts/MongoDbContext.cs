@@ -3,6 +3,10 @@ using MongoDB.Entities;
 
 namespace DataExplorer.MongoDb.DataContexts;
 
+/// <inheritdoc cref="IMongoDbContext"/>
+/// <summary>
+/// Represents a MongoDB database context.
+/// </summary>
 [PublicAPI]
 public abstract class MongoDbContext : DBContext, IMongoDbContext
 {

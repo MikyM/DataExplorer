@@ -1,7 +1,4 @@
 ﻿using DataExplorer.Audit;
-using DataExplorer.EfCore.Abstractions.DataContexts;
-using DataExplorer.Entities;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Options;
 

@@ -6,23 +6,44 @@
 public interface ISpecificationEvaluator
 {
     /// <summary>
-    ///     Applies the logic encapsulated by <paramref name="specification" /> to given <paramref name="inputQuery" />,
+    ///     Applies the logic encapsulated by <paramref name="specification" /> to given <paramref name="query" />,
     ///     and projects the result into <typeparamref name="TResult" />.
     /// </summary>
     /// <typeparam name="TResult">The type of the result.</typeparam>
     /// <typeparam name="T"></typeparam>
-    /// <param name="inputQuery">The sequence of <typeparamref name="T" /></param>
+    /// <param name="query">The sequence of <typeparamref name="T" /></param>
     /// <param name="specification">The encapsulated query logic.</param>
     /// <returns>A filtered sequence of <typeparamref name="TResult" /></returns>
-    IQueryable<TResult> GetQuery<T, TResult>(IQueryable<T> inputQuery, ISpecification<T, TResult> specification) where T : class where TResult : class;
+    IQueryable<TResult> GetQuery<T, TResult>(IQueryable<T> query, ISpecification<T, TResult> specification) where T : class;
 
     /// <summary>
-    ///     Applies the logic encapsulated by <paramref name="specification" /> to given <paramref name="inputQuery" />.
+    ///     Applies the logic encapsulated by <paramref name="specification" /> to given <paramref name="query" />.
     /// </summary>
-    /// <param name="inputQuery">The sequence of <typeparamref name="T" /></param>
+    /// <param name="query">The sequence of <typeparamref name="T" /></param>
     /// <param name="specification">The encapsulated query logic.</param>
     /// <param name="evaluateCriteriaOnly">Whether to only evaluate criteria.</param>
     /// <returns>A filtered sequence of <typeparamref name="T" /></returns>
-    IQueryable<T> GetQuery<T>(IQueryable<T> inputQuery, ISpecification<T> specification,
+    IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification,
         bool evaluateCriteriaOnly = false) where T : class;
+    
+    /// <summary>
+    ///     Applies the logic encapsulated by <paramref name="specification" /> to given <paramref name="query" />.
+    /// </summary>
+    /// <param name="query">The sequence of <typeparamref name="T" /></param>
+    /// <param name="specification">The encapsulated query logic.</param>
+    /// <param name="evaluateCriteriaOnly">Whether to only evaluate criteria.</param>
+    /// <returns>A filtered sequence of <typeparamref name="T" /></returns>
+    IQueryable<T> GetQuery<T>(IQueryable<T> query, IBasicSpecification<T> specification,
+        bool evaluateCriteriaOnly = false) where T : class;
+
+    /// <summary>
+    ///     Applies the logic encapsulated by <paramref name="specification" /> to given <paramref name="query" /> and executes the update.
+    /// </summary>
+    /// <param name="query">The sequence of <typeparamref name="T" /></param>
+    /// <param name="specification">The encapsulated query logic.</param>
+    /// <param name="evaluateCriteriaOnly">Whether to only evaluate criteria.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>The number of updated rows.</returns>
+    Task<int> EvaluateUpdateAsync<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
+        bool evaluateCriteriaOnly = false, CancellationToken cancellationToken = default) where T : class;
 }

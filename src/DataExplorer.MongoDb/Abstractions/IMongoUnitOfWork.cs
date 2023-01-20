@@ -37,7 +37,7 @@ public interface IMongoUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    new IMongoRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>, IEntity;
+    new IMongoRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : MongoEntity<long>;
     
     /// <summary>
     /// Gets an <see cref="IMongoReadOnlyRepository{TEntity}"/> for an entity of a given type.
@@ -45,7 +45,7 @@ public interface IMongoUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IMongoReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : Entity<long>, IEntity;
+    IMongoReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : MongoEntity<long>;
 
     /// <summary>
     /// Gets an <see cref="IMongoRepository{TEntity,TId}"/> for an entity of a given type and Id type.
@@ -54,7 +54,7 @@ public interface IMongoUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    new IMongoRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>, IEntity
+    new IMongoRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : MongoEntity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>;
     
     /// <summary>
@@ -64,7 +64,7 @@ public interface IMongoUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IMongoReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>, IEntity
+    IMongoReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : MongoEntity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>;
     
     /// <summary>

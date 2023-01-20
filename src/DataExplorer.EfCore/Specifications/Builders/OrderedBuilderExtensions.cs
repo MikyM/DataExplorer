@@ -4,6 +4,7 @@ using DataExplorer.EfCore.Specifications.Helpers;
 
 namespace DataExplorer.EfCore.Specifications.Builders;
 
+[PublicAPI]
 public static class OrderedBuilderExtensions
 {
     /// <summary>

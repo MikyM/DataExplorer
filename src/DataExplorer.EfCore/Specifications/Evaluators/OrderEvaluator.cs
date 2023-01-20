@@ -1,10 +1,11 @@
 ﻿using DataExplorer.EfCore.Specifications.Exceptions;
 using DataExplorer.EfCore.Specifications.Helpers;
+
 // ReSharper disable PossibleMultipleEnumeration
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class OrderEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
+public class OrderEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker
 {
     private OrderEvaluator() { }
     public static OrderEvaluator Instance { get; } = new();
@@ -88,7 +89,7 @@ public class OrderEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
                 query = orderedQuery;
             }
         }
-
+        
         return query;
     }
 }

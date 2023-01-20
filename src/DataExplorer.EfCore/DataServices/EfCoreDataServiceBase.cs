@@ -2,8 +2,8 @@
 using DataExplorer.Abstractions.DataServices;
 using DataExplorer.Abstractions.UnitOfWork;
 using DataExplorer.EfCore.Abstractions;
-using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.Abstractions.DataServices;
+using DataExplorer.EfCore.Gridify;
 using Remora.Results;
 
 namespace DataExplorer.EfCore.DataServices;
@@ -11,13 +11,13 @@ namespace DataExplorer.EfCore.DataServices;
 /// <inheritdoc cref="IEfCoreDataServiceBase{TContext}"/>
 public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<TContext> where TContext : class, IEfDbContext
 {
-    /// <summary>
-    /// <see cref="IMapper"/> instance.
-    /// </summary>
-    public IMapper Mapper { get; }
-    /// <summary>
-    /// Current Unit of Work.
-    /// </summary>
+    /// <inheritdoc/>
+    public IMapper Mapper => UnitOfWork.Mapper;
+
+    /// <inheritdoc/>
+    public IGridifyMapperProvider GridifyMapperProvider => UnitOfWork.GridifyMapperProvider;
+
+    /// <inheritdoc/>
     public IUnitOfWork<TContext> UnitOfWork { get; }
     
     private bool _disposed;
@@ -25,11 +25,9 @@ public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<T
     /// <summary>
     /// Creates a new instance of <see cref="EfCoreDataServiceBase{TContext}"/>.
     /// </summary>
-    /// <param name="mapper">Instance of <see cref="IMapper"/>.</param>
     /// <param name="uof">Instance of <see cref="IUnitOfWork{TContext}"/>.</param>
-    protected EfCoreDataServiceBase(IMapper mapper, IUnitOfWork<TContext> uof)
+    protected EfCoreDataServiceBase(IUnitOfWork<TContext> uof)
     {
-        Mapper = mapper;
         UnitOfWork = uof;
     }
 

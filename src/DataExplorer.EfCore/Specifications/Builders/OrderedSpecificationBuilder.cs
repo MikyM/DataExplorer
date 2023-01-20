@@ -10,4 +10,6 @@ public class OrderedSpecificationBuilder<T> : IOrderedSpecificationBuilder<T> wh
         Specification = specification;
         IsChainDiscarded = isChainDiscarded;
     }
+    
+    BasicSpecification<T> IBasicSpecificationBuilder<T>.Specification => Specification;
 }

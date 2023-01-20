@@ -1,15 +1,13 @@
 ﻿using AutoMapper;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Abstractions.UnitOfWork;
-using DataExplorer.EfCore.Abstractions.DataContexts;
-using DataExplorer.EfCore.Abstractions.Repositories;
-using DataExplorer.Entities;
-using Microsoft.EntityFrameworkCore;
+using DataExplorer.EfCore.Gridify;
+using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
 
 namespace DataExplorer.EfCore.Abstractions;
 
 /// <summary>
-/// Represents an EF Unit of Work.
+/// Defines an EF Unit of Work.
 /// </summary>
 [PublicAPI]
 public interface IUnitOfWork : IUnitOfWorkBase
@@ -82,11 +80,21 @@ public interface IUnitOfWork : IUnitOfWorkBase
     /// Mapper instance.
     /// </summary>
     IMapper Mapper { get; }
+    
+    /// <summary>
+    /// Specification evaluator instance.
+    /// </summary>
+    ISpecificationEvaluator SpecificationEvaluator { get; }
+    
+    /// <summary>
+    /// Gridify mapper provider instance.
+    /// </summary>
+    IGridifyMapperProvider GridifyMapperProvider { get; }
 }
 
 /// <inheritdoc cref="IUnitOfWork"/>
 /// <summary>
-/// Represents an EF Unit of Work.
+/// Defines an EF Unit of Work.
 /// </summary>
 /// <typeparam name="TContext">Type of context to be used.</typeparam>
 [PublicAPI]

@@ -2,15 +2,14 @@
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class SearchEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
+public class SearchEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IPreUpdateEvaluator
 {
     private SearchEvaluator() { }
     public static SearchEvaluator Instance { get; } = new SearchEvaluator();
 
     public bool IsCriteriaEvaluator { get; } = true;
     public int ApplicationOrder { get; } = 0;
-
-    public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, IBasicSpecification<T> specification) where T : class
     {
         if (specification.SearchCriterias is null) return query;
 
@@ -21,6 +20,9 @@ public class SearchEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
 
         return query;
     }
+
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
+        => GetQuery(query, (IBasicSpecification<T>)specification);
 
     public IEnumerable<T> Evaluate<T>(IEnumerable<T> query, ISpecification<T> specification) where T : class
     {

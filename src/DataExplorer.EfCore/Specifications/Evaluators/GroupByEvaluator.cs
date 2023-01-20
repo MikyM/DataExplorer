@@ -1,6 +1,6 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class GroupByEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase
+public class GroupByEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker
 {
     private GroupByEvaluator()
     {

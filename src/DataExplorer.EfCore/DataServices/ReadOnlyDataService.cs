@@ -1,12 +1,8 @@
 ﻿using System.Linq.Expressions;
-using AutoMapper;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.EfCore.Abstractions;
-using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.Abstractions.DataServices;
-using DataExplorer.EfCore.Abstractions.Repositories;
-using DataExplorer.EfCore.Specifications;
-using DataExplorer.Entities;
+using Gridify;
 using Remora.Results;
 
 namespace DataExplorer.EfCore.DataServices;
@@ -25,9 +21,8 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     /// <summary>
     /// Creates a new instance of <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>.
     /// </summary>
-    /// <param name="mapper">Instance of <see cref="IMapper"/>.</param>
     /// <param name="uof">Instance of <see cref="IUnitOfWork"/>.</param>
-    public ReadOnlyDataService(IMapper mapper, IUnitOfWork<TContext> uof) : base(mapper, uof)
+    public ReadOnlyDataService(IUnitOfWork<TContext> uof) : base(uof)
     {
     }
 
@@ -93,12 +88,12 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<TEntity>> GetSingleBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Result<Paging<TEntity>>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default)
     {
         try
         {
-            var entity = await ReadOnlyRepository.GetSingleBySpecAsync(specification, cancellationToken);
-            return entity is null ? new NotFoundError() : entity;
+           return await ReadOnlyRepository.GetByGridifyQueryAsync(gridifyQuery, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -107,12 +102,30 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<TGetResult>> GetSingleBySpecAsync<TGetResult>(ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
+    public virtual async Task<Result<Paging<TEntity>>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
     {
         try
         {
-            var res = await GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
-            return !res.IsDefined(out var entity) ? Result<TGetResult>.FromError(res) : Mapper.Map<TGetResult>(entity);
+            return await ReadOnlyRepository.GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            return new ExceptionError(ex);
+        }
+    }
+    
+    /// <inheritdoc />
+    public virtual async Task<Result<Paging<TResult>>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation,
+        CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            if (resultTransformation is ResultTransformation.ProjectTo)
+                return await ReadOnlyRepository.GetByGridifyQueryAsync<TResult>(gridifyQuery, cancellationToken).ConfigureAwait(false);
+            
+            var sub = await ReadOnlyRepository.GetByGridifyQueryAsync(gridifyQuery, cancellationToken).ConfigureAwait(false);
+            return new Paging<TResult>(sub.Count, Mapper.Map<IEnumerable<TResult>>(sub.Data));
         }
         catch (Exception ex)
         {
@@ -121,8 +134,25 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<TGetProjectedResult>> GetSingleBySpecAsync<TGetProjectedResult>(
-        ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default) where TGetProjectedResult : class
+    public virtual async Task<Result<Paging<TResult>>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            if (resultTransformation is ResultTransformation.ProjectTo)
+                return await ReadOnlyRepository.GetByGridifyQueryAsync<TResult>(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
+            
+            var sub = await ReadOnlyRepository.GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
+            return new Paging<TResult>(sub.Count, Mapper.Map<IEnumerable<TResult>>(sub.Data));
+        }
+        catch (Exception ex)
+        {
+            return new ExceptionError(ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public virtual async Task<Result<TEntity>> GetSingleBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -136,17 +166,44 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<IReadOnlyList<TEntity>>> GetBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Result<TGetResult>> GetSingleBySpecAsync<TGetResult>(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
+    {
+        try
+        {
+            var res = await GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+            return !res.IsDefined(out var entity) ? Result<TGetResult>.FromError(res) : Mapper.Map<TGetResult>(entity);
+        }
+        catch (Exception ex)
+        {
+            return new ExceptionError(ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public virtual async Task<Result<TGetProjectedResult>> GetSingleBySpecAsync<TGetProjectedResult>(Specifications.ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var entity = await ReadOnlyRepository.GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+            return entity is null ? new NotFoundError() : entity;
+        }
+        catch (Exception ex)
+        {
+            return new ExceptionError(ex);
+        }
+    }
+
+    /// <inheritdoc />
+    public virtual async Task<Result<IReadOnlyList<TEntity>>> GetBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
         => await ExToResultWrapAsync(async () =>
             await ReadOnlyRepository.GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false));
 
     /// <inheritdoc />
-    public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetBySpecAsync<TGetResult>(
-        ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
+    public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetBySpecAsync<TGetResult>(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
     {
         try
         {
-            var res = await GetBySpecAsync(specification, cancellationToken);
+            var res = await GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
             return !res.IsDefined(out var def)
                 ? Result<IReadOnlyList<TGetResult>>.FromError(res)
                 : Result<IReadOnlyList<TGetResult>>.FromSuccess(Mapper.Map<IReadOnlyList<TGetResult>>(def));
@@ -158,8 +215,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<IReadOnlyList<TGetProjectedResult>>> GetBySpecAsync<TGetProjectedResult>(
-        ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default) where TGetProjectedResult : class
+    public virtual async Task<Result<IReadOnlyList<TGetProjectedResult>>> GetBySpecAsync<TGetProjectedResult>(Specifications.ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
         => await ExToResultWrapAsync(async () => await ReadOnlyRepository.GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false));
 
     /// <inheritdoc />
@@ -186,7 +242,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
         => await ExToResultWrapAsync(async () => await ReadOnlyRepository.GetAllAsync(cancellationToken).ConfigureAwait(false));
     
     /// <inheritdoc />
-    public virtual async Task<Result<long>> LongCountAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Result<long>> LongCountAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
         => await ExToResultWrapAsync(async () => await ReadOnlyRepository.LongCountAsync(specification, cancellationToken).ConfigureAwait(false));
     
     /// <inheritdoc />
@@ -198,7 +254,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
         => await ExToResultWrapAsync(async () => await ReadOnlyRepository.AnyAsync(predicate, cancellationToken).ConfigureAwait(false));
 
     /// <inheritdoc />
-    public async Task<Result<bool>> AnyAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public async Task<Result<bool>> AnyAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
         => await ExToResultWrapAsync(async () => await ReadOnlyRepository.AnyAsync(specification, cancellationToken).ConfigureAwait(false));
 }
 
@@ -214,9 +270,8 @@ public class ReadOnlyDataService<TEntity, TContext> : ReadOnlyDataService<TEntit
     /// <summary>
     /// Creates a new instance of <see cref="IReadOnlyDataService{TEntity,TContext}"/>.
     /// </summary>
-    /// <param name="mapper">Instance of <see cref="IMapper"/>.</param>
     /// <param name="uof">Instance of <see cref="IUnitOfWork"/>.</param>
-    public ReadOnlyDataService(IMapper mapper, IUnitOfWork<TContext> uof) : base(mapper, uof)
+    public ReadOnlyDataService(IUnitOfWork<TContext> uof) : base(uof)
     {
     }
     

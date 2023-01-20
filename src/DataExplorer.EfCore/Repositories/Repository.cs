@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
-using DataExplorer.Abstractions.Entities;
-using DataExplorer.EfCore.Abstractions.DataContexts;
-using DataExplorer.EfCore.Abstractions.Repositories;
-using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.Entities;
+using DataExplorer.EfCore.Gridify;
+using DataExplorer.EfCore.Specifications;
 using DataExplorer.Exceptions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
 
 namespace DataExplorer.EfCore.Repositories;
 
@@ -18,15 +15,30 @@ namespace DataExplorer.EfCore.Repositories;
 public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IRepository<TEntity,TId>
     where TEntity : Entity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
-    internal Repository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper) : base(context,
-        specificationEvaluator, mapper)
+    internal Repository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
+        IGridifyMapperProvider gridifyMapperProvider) : base(context,
+        specificationEvaluator, mapper, gridifyMapperProvider)
     {
     }
+
+    /// <inheritdoc />
+    public virtual async Task<int> ExecuteDeleteAsync(Specifications.ISpecification<TEntity> specification,
+        CancellationToken cancellationToken = default)
+        => await ApplySpecification(specification).ExecuteDeleteAsync(cancellationToken).ConfigureAwait(false);
     
+    /// <inheritdoc />
+    public virtual async Task<int> ExecuteDeleteAsync(CancellationToken cancellationToken = default)
+        => await Set.ExecuteDeleteAsync(cancellationToken).ConfigureAwait(false);
+    
+    /// <inheritdoc />
+    public virtual async Task<int> ExecuteUpdateAsync(IUpdateSpecification<TEntity> specification,
+        CancellationToken cancellationToken = default)
+        => await ApplyUpdateSpecificationAsync<TEntity>(specification).ConfigureAwait(false);
+
     /// <inheritdoc />
     public virtual void Add(TEntity entity)
         => Set.Add(entity);
-    
+
     /// <inheritdoc />
     public virtual async Task AddAsync(TEntity entity, CancellationToken cancellationToken = default)
         => await Set.AddAsync(entity, cancellationToken);
@@ -216,6 +228,20 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
             }
         }
     }
+    
+    /// <summary>
+    ///     Filters all entities of <typeparamref name="TEntity" />, that matches the encapsulated query logic of the
+    ///     <paramref name="specification" />, from the database.
+    ///     <para>
+    ///         Projects each entity into a new form, being <typeparamref name="TResult" />.
+    ///     </para>
+    /// </summary>
+    /// <typeparam name="TResult">The type of the value returned by the projection.</typeparam>
+    /// <param name="specification">The encapsulated query logic.</param>
+    /// <returns>The filtered projected entities as an <see cref="IQueryable{T}" />.</returns>
+    protected virtual async Task<int> ApplyUpdateSpecificationAsync<TResult>(
+        IUpdateSpecification<TEntity> specification)
+        => await SpecificationEvaluator.EvaluateUpdateAsync(Set.AsQueryable(), specification).ConfigureAwait(false);
 }
 
 /// <summary>
@@ -225,7 +251,9 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
 [PublicAPI]
 public class Repository<TEntity> : Repository<TEntity, long>, IRepository<TEntity> where TEntity : Entity<long>
 {
-    internal Repository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper) : base(context, specificationEvaluator, mapper)
+    internal Repository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
+        IGridifyMapperProvider gridifyMapperProvider) : base(context, specificationEvaluator, mapper,
+        gridifyMapperProvider)
     {
     }
 }

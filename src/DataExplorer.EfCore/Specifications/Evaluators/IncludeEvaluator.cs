@@ -2,12 +2,10 @@
 using System.Reflection;
 using DataExplorer.EfCore.Specifications.Expressions;
 using DataExplorer.EfCore.Specifications.Helpers;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class IncludeEvaluator : IEvaluator, IEvaluatorBase
+public class IncludeEvaluator : IEvaluator, IEvaluatorMarker, ISpecialCaseEvaluator
 {
     private static readonly MethodInfo IncludeMethodInfo = typeof(EntityFrameworkQueryableExtensions)
         .GetTypeInfo().GetDeclaredMethods(nameof(EntityFrameworkQueryableExtensions.Include))

@@ -1,5 +1,6 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Builders;
 
+[PublicAPI]
 public class IncludableSpecificationBuilder<T, TProperty> : IIncludableSpecificationBuilder<T, TProperty> where T : class
 {
     public Specification<T> Specification { get; }
@@ -10,4 +11,6 @@ public class IncludableSpecificationBuilder<T, TProperty> : IIncludableSpecifica
         Specification = specification;
         IsChainDiscarded = isChainDiscarded;
     }
+    
+    BasicSpecification<T> IBasicSpecificationBuilder<T>.Specification => Specification;
 }
