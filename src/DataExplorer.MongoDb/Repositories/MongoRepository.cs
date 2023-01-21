@@ -15,8 +15,8 @@ namespace DataExplorer.MongoDb.Repositories;
 /// </summary>
 /// <inheritdoc cref="IMongoRepository{TEntity}"/>
 [PublicAPI]
-public class MongoRepository<TEntity,TId> : MongoReadOnlyRepository<TEntity,TId>, IMongoRepository<TEntity,TId>
-    where TEntity : MongoEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongoRepository<TEntity>
+    where TEntity : MongoEntity
 {
     internal MongoRepository(IMongoDbContext context, IMapper mapper) : base(context, mapper)
     {
@@ -143,17 +143,5 @@ public class MongoRepository<TEntity,TId> : MongoReadOnlyRepository<TEntity,TId>
             ((IDisableableEntity)entity).IsDisabled = true;
 
         await SaveAsync(list, cancellationToken);
-    }
-}
-
-/// <summary>
-/// Repository.
-/// </summary>
-/// <inheritdoc cref="IMongoRepository{TEntity}"/>
-[PublicAPI]
-public class MongoRepository<TEntity> : MongoRepository<TEntity, long>, IMongoRepository<TEntity> where TEntity : MongoEntity<long>
-{
-    internal MongoRepository(IMongoDbContext context, IMapper mapper) : base(context, mapper)
-    {
     }
 }

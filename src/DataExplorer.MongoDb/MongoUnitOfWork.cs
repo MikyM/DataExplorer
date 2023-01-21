@@ -75,7 +75,7 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
         => Task.FromResult(Transaction ??= Context.Transaction());
 
     /// <inheritdoc cref="IMongoUnitOfWork.GetRepositoryFor{TRepository}" />
-    public IMongoRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : MongoEntity<long>
+    public IMongoRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : MongoEntity
     {
         var entityType = typeof(TEntity);
         var repositoryType = _cache.CachedCrudRepos.GetValueOrDefault(entityType);
@@ -86,13 +86,13 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
         if (_repoCacheData.TryGetValue(repositoryType, out var cachedData))
             return LazilyGetOrCreateRepository<IMongoRepository<TEntity>>(cachedData);
         
-        var repoCacheData = CreateAndCacheRepoData(repositoryType, typeof(IMongoRepository<TEntity>), entityType, typeof(long), true);
+        var repoCacheData = CreateAndCacheRepoData(repositoryType, typeof(IMongoRepository<TEntity>), entityType, true);
         
         return LazilyGetOrCreateRepository<IMongoRepository<TEntity>>(repoCacheData);
     }
 
     /// <inheritdoc cref="IMongoUnitOfWork.GetReadOnlyRepositoryFor{TRepository}" />
-    public IMongoReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : MongoEntity<long>
+    public IMongoReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : MongoEntity
     {
         var entityType = typeof(TEntity);
         var repositoryType = _cache.CachedReadOnlyRepos.GetValueOrDefault(entityType);
@@ -103,45 +103,9 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
         if (_repoCacheData.TryGetValue(repositoryType, out var cachedData))
             return LazilyGetOrCreateRepository<IMongoReadOnlyRepository<TEntity>>(cachedData);
 
-        var repoCacheData = CreateAndCacheRepoData(repositoryType, typeof(IMongoReadOnlyRepository<TEntity>), entityType, typeof(long), false);
+        var repoCacheData = CreateAndCacheRepoData(repositoryType, typeof(IMongoReadOnlyRepository<TEntity>), entityType, false);
 
         return LazilyGetOrCreateRepository<IMongoRepository<TEntity>>(repoCacheData);
-    }
-
-    /// <inheritdoc cref="IMongoUnitOfWork.GetRepositoryFor{TRepository,TId}" />
-    public IMongoRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : MongoEntity<TId>
-        where TId : IComparable, IEquatable<TId>, IComparable<TId>
-    {
-        var entityType = typeof(TEntity);
-        var repositoryType = _cache.CachedCrudGenericIdRepos.GetValueOrDefault(entityType);
-
-        if (repositoryType is null)
-            throw new InvalidOperationException("Couldn't find proper type in cache.");
-
-        if (_repoCacheData.TryGetValue(repositoryType, out var cachedData))
-            return LazilyGetOrCreateRepository<IMongoRepository<TEntity, TId>>(cachedData);
-
-        var repoCacheData = CreateAndCacheRepoData(repositoryType, typeof(IMongoRepository<TEntity, TId>), entityType, typeof(TId), true);
-
-        return LazilyGetOrCreateRepository<IMongoRepository<TEntity, TId>>(repoCacheData);
-    }
-
-    /// <inheritdoc cref="IMongoUnitOfWork.GetReadOnlyRepositoryFor{TRepository,TId}" />
-    public IMongoReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : MongoEntity<TId>
-        where TId : IComparable, IEquatable<TId>, IComparable<TId>
-    {
-        var entityType = typeof(TEntity);
-        var repositoryType = _cache.CachedReadOnlyGenericIdRepos.GetValueOrDefault(entityType);
-
-        if (repositoryType is null)
-            throw new InvalidOperationException("Couldn't find proper type in cache.");
-        
-        if (_repoCacheData.TryGetValue(repositoryType, out var cachedData))
-            return LazilyGetOrCreateRepository<IMongoReadOnlyRepository<TEntity, TId>>(cachedData);
-
-        var repoCacheData = CreateAndCacheRepoData(repositoryType, typeof(IMongoReadOnlyRepository<TEntity, TId>), entityType, typeof(TId), false);
-        
-        return LazilyGetOrCreateRepository<IMongoReadOnlyRepository<TEntity, TId>>(repoCacheData);
     }
 
     /// <inheritdoc cref="IMongoUnitOfWork.GetRepository{TRepository}" />
@@ -164,20 +128,12 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
         
         if (!_cache.AllowedRepoTypes.Contains(genericDefinition))
             throw new NotSupportedException(
-                "You can only retrieve types: IMongoRepository<TEntity>, IMongoRepository<TEntity,TId>, IMongoReadOnlyRepository<TEntity> and IMongoReadOnlyRepository<TEntity,TId>.");
+                "You can only retrieve types: IMongoRepository<TEntity>, IMongoReadOnlyRepository<TEntity>.");
         
         Type? repositoryType;
         bool isCrud;
         switch (repoInterfaceType.IsGenericType)
         {
-            case true when genericDefinition == typeof(IMongoRepository<,>):
-                repositoryType = _cache.CachedCrudGenericIdRepos.GetValueOrDefault(entityType);
-                isCrud = true;
-                break;
-            case true when genericDefinition == typeof(IMongoReadOnlyRepository<,>):
-                repositoryType = _cache.CachedReadOnlyGenericIdRepos.GetValueOrDefault(entityType);
-                isCrud = false;
-                break;
             case true when genericDefinition == typeof(IMongoRepository<>):
                 repositoryType = _cache.CachedCrudRepos.GetValueOrDefault(entityType);
                 isCrud = true;
@@ -188,24 +144,20 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
                 break;
             default:
                 throw new NotSupportedException(
-                    "You can only retrieve types: IMongoRepository<TEntity>, IMongoRepository<TEntity,TId>, IMongoReadOnlyRepository<TEntity> and IMongoReadOnlyRepository<TEntity,TId>.");
+                    "You can only retrieve types: IMongoRepository<TEntity>, IMongoReadOnlyRepository<TEntity>.");
         }
 
         if (repositoryType is null)
             throw new InvalidOperationException("Couldn't find proper type in cache.");
-        
-        if (!_cache.EntityTypeIdTypeDictionary.TryGetValue(entityType, out var idType))
-            throw new InvalidOperationException($"Couldn't find id type for type: {entityType.Name}.");
 
-        var repoCacheData = CreateAndCacheRepoData(repositoryType, repoInterfaceType, entityType, idType, isCrud);
+        var repoCacheData = CreateAndCacheRepoData(repositoryType, repoInterfaceType, entityType, isCrud);
 
         return LazilyGetOrCreateRepository<TRepository>(repoCacheData);
     }
     
-    private RepoCacheData CreateAndCacheRepoData(Type repoImplementationType, Type repoInterfaceType, Type entityType, Type entityIdType,
-        bool isCrud)
+    private RepoCacheData CreateAndCacheRepoData(Type repoImplementationType, Type repoInterfaceType, Type entityType, bool isCrud)
     {
-        var repoCacheData = new RepoCacheData(entityType, entityIdType, isCrud, repoImplementationType, repoInterfaceType);
+        var repoCacheData = new RepoCacheData(entityType, isCrud, repoImplementationType, repoInterfaceType);
 
         _ = _repoCacheData.TryAdd(repoInterfaceType, repoCacheData);
 
@@ -233,8 +185,7 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
             var lazyRepo = new Lazy<IRepositoryBase>(() =>
             {
                 var instance =
-                    InstanceFactory.CreateInstance(repoCacheData.RepoImplementationType, Context,
-                        /*SpecificationEvaluator,*/ Mapper);
+                    InstanceFactory.CreateInstance(repoCacheData.RepoImplementationType, Context, Mapper);
 
                 if (instance is null)
                     throw new InvalidOperationException($"Couldn't create an instance of {repositoryTypeName}");
@@ -315,15 +266,13 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
 internal record RepoCacheData
 {
     internal Type EntityType { get; }
-    internal Type EntityIdType { get; }
     internal bool IsCrud { get; }
     internal Type RepoImplementationType { get; }
     internal Type RepoInterfaceType { get; }
 
-    public RepoCacheData(Type entityType, Type entityIdType, bool isCrud, Type repoImplementationType, Type repoInterfaceType)
+    public RepoCacheData(Type entityType, bool isCrud, Type repoImplementationType, Type repoInterfaceType)
     {
         EntityType = entityType;
-        EntityIdType = entityIdType;
         IsCrud = isCrud;
         RepoImplementationType = repoImplementationType;
         RepoInterfaceType = repoInterfaceType;

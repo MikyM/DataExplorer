@@ -64,8 +64,6 @@ public static class DataExplorerConfigurationExtensions
 
         IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registReadOnlyBuilder;
         IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registCrudBuilder;
-        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registReadOnlyGenericIdBuilder;
-        IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registCrudGenericIdBuilder;
 
         switch (config.BaseGenericDataServiceLifetime)
         {
@@ -76,17 +74,10 @@ public static class DataExplorerConfigurationExtensions
                 registCrudBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,>))
                     .As(typeof(IMongoCrudDataService<,>))
                     .SingleInstance();
-                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoReadOnlyDataService<,,>))
-                    .As(typeof(IMongoReadOnlyDataService<,,>))
-                    .SingleInstance();
-                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,,>))
-                    .As(typeof(IMongoCrudDataService<,,>))
-                    .SingleInstance();
 
                 serviceCollection?.AddSingleton(typeof(IMongoReadOnlyDataService<,>), typeof(MongoReadOnlyDataService<,>));
-                serviceCollection?.AddSingleton(typeof(IMongoReadOnlyDataService<,,>), typeof(MongoReadOnlyDataService<,,>));
                 serviceCollection?.AddSingleton(typeof(IMongoCrudDataService<,>), typeof(MongoCrudDataService<,>));
-                serviceCollection?.AddSingleton(typeof(IMongoCrudDataService<,,>), typeof(MongoCrudDataService<,,>));
+
                 break;
             case ServiceLifetime.InstancePerRequest:
                 registReadOnlyBuilder = builder?.RegisterGeneric(typeof(MongoReadOnlyDataService<,>))
@@ -95,17 +86,10 @@ public static class DataExplorerConfigurationExtensions
                 registCrudBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,>))
                     .As(typeof(IMongoCrudDataService<,>))
                     .InstancePerRequest();
-                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoReadOnlyDataService<,,>))
-                    .As(typeof(IMongoReadOnlyDataService<,,>))
-                    .InstancePerRequest();
-                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,,>))
-                    .As(typeof(IMongoCrudDataService<,,>))
-                    .InstancePerRequest();
-                
+
                 serviceCollection?.AddScoped(typeof(IMongoReadOnlyDataService<,>), typeof(MongoReadOnlyDataService<,>));
-                serviceCollection?.AddScoped(typeof(IMongoReadOnlyDataService<,,>), typeof(MongoReadOnlyDataService<,,>));
                 serviceCollection?.AddScoped(typeof(IMongoCrudDataService<,>), typeof(MongoCrudDataService<,>));
-                serviceCollection?.AddScoped(typeof(IMongoCrudDataService<,,>), typeof(MongoCrudDataService<,,>));
+
                 break;
             case ServiceLifetime.InstancePerLifetimeScope:
                 registReadOnlyBuilder = builder?.RegisterGeneric(typeof(MongoReadOnlyDataService<,>))
@@ -114,17 +98,9 @@ public static class DataExplorerConfigurationExtensions
                 registCrudBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,>))
                     .As(typeof(IMongoCrudDataService<,>))
                     .InstancePerLifetimeScope();
-                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoReadOnlyDataService<,,>))
-                    .As(typeof(IMongoReadOnlyDataService<,,>))
-                    .InstancePerLifetimeScope();
-                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,,>))
-                    .As(typeof(IMongoCrudDataService<,,>))
-                    .InstancePerLifetimeScope();
-                
+
                 serviceCollection?.AddScoped(typeof(IMongoReadOnlyDataService<,>), typeof(MongoReadOnlyDataService<,>));
-                serviceCollection?.AddScoped(typeof(IMongoReadOnlyDataService<,,>), typeof(MongoReadOnlyDataService<,,>));
                 serviceCollection?.AddScoped(typeof(IMongoCrudDataService<,>), typeof(MongoCrudDataService<,>));
-                serviceCollection?.AddScoped(typeof(IMongoCrudDataService<,,>), typeof(MongoCrudDataService<,,>));
                 break;
             case ServiceLifetime.InstancePerMatchingLifetimeScope:
                 registReadOnlyBuilder = builder?.RegisterGeneric(typeof(MongoReadOnlyDataService<,>))
@@ -132,12 +108,6 @@ public static class DataExplorerConfigurationExtensions
                     .InstancePerMatchingLifetimeScope();
                 registCrudBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,>))
                     .As(typeof(IMongoCrudDataService<,>))
-                    .InstancePerMatchingLifetimeScope();
-                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoReadOnlyDataService<,,>))
-                    .As(typeof(IMongoReadOnlyDataService<,,>))
-                    .InstancePerMatchingLifetimeScope();
-                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,,>))
-                    .As(typeof(IMongoCrudDataService<,,>))
                     .InstancePerMatchingLifetimeScope();
                 break;
             case ServiceLifetime.InstancePerDependency:
@@ -147,17 +117,9 @@ public static class DataExplorerConfigurationExtensions
                 registCrudBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,>))
                     .As(typeof(IMongoCrudDataService<,>))
                     .InstancePerDependency();
-                registReadOnlyGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoReadOnlyDataService<,,>))
-                    .As(typeof(IMongoReadOnlyDataService<,,>))
-                    .InstancePerDependency();
-                registCrudGenericIdBuilder = builder?.RegisterGeneric(typeof(MongoCrudDataService<,,>))
-                    .As(typeof(IMongoCrudDataService<,,>))
-                    .InstancePerDependency();
-                
+
                 serviceCollection?.AddTransient(typeof(IMongoReadOnlyDataService<,>), typeof(MongoReadOnlyDataService<,>));
-                serviceCollection?.AddTransient(typeof(IMongoReadOnlyDataService<,,>), typeof(MongoReadOnlyDataService<,,>));
                 serviceCollection?.AddTransient(typeof(IMongoCrudDataService<,>), typeof(MongoCrudDataService<,>));
-                serviceCollection?.AddTransient(typeof(IMongoCrudDataService<,,>), typeof(MongoCrudDataService<,,>));
                 break;
             case ServiceLifetime.InstancePerOwned:
                 throw new NotSupportedException();
@@ -183,26 +145,16 @@ public static class DataExplorerConfigurationExtensions
                             ? registReadOnlyBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registReadOnlyBuilder.InterceptedBy(interceptorType);
-                        registCrudGenericIdBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registCrudGenericIdBuilder.InterceptedBy(
-                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
-                        registReadOnlyGenericIdBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registReadOnlyGenericIdBuilder.InterceptedBy(
-                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
 
                         if (!crudEnabled)
                         {
                             registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
-                            registCrudGenericIdBuilder = registCrudGenericIdBuilder.EnableInterfaceInterceptors();
                             crudEnabled = true;
                         }
 
                         if (!readEnabled)
                         {
                             registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
-                            registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder.EnableInterfaceInterceptors();
                             readEnabled = true;
                         }
 
@@ -212,14 +164,9 @@ public static class DataExplorerConfigurationExtensions
                             ? registCrudBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registCrudBuilder.InterceptedBy(interceptorType);
-                        registCrudGenericIdBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registCrudGenericIdBuilder.InterceptedBy(
-                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
                         if (!crudEnabled)
                         {
                             registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
-                            registCrudGenericIdBuilder = registCrudGenericIdBuilder.EnableInterfaceInterceptors();
                             crudEnabled = true;
                         }
 
@@ -229,14 +176,9 @@ public static class DataExplorerConfigurationExtensions
                             ? registReadOnlyBuilder.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
                             : registReadOnlyBuilder.InterceptedBy(interceptorType);
-                        registReadOnlyGenericIdBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registReadOnlyGenericIdBuilder.InterceptedBy(
-                                typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
                         if (!readEnabled)
                         {
                             registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
-                            registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder.EnableInterfaceInterceptors();
                             readEnabled = true;
                         }
 
@@ -253,13 +195,9 @@ public static class DataExplorerConfigurationExtensions
                     builder.RegisterGenericDecorator(decoratorType, typeof(IMongoCrudDataService<,>));
                 if (decoratorType.IsAssignableToWithGenerics(typeof(IMongoReadOnlyDataService<,>)))
                     builder.RegisterGenericDecorator(decoratorType, typeof(IMongoReadOnlyDataService<,>));
-                if (decoratorType.IsAssignableToWithGenerics(typeof(IMongoCrudDataService<,,>)))
-                    builder.RegisterGenericDecorator(decoratorType, typeof(IMongoCrudDataService<,,>));
-                if (decoratorType.IsAssignableToWithGenerics(typeof(IMongoReadOnlyDataService<,,>)))
-                    builder.RegisterGenericDecorator(decoratorType, typeof(IMongoReadOnlyDataService<,,>));
             }
 
-        var excluded = new[] { typeof(IDataServiceBase<>), typeof(MongoDataServiceBase<>), typeof(MongoCrudDataService<,>), typeof(MongoReadOnlyDataService<,>), typeof(MongoCrudDataService<,,>), typeof(MongoReadOnlyDataService<,,>) };
+        var excluded = new[] { typeof(IDataServiceBase<>), typeof(MongoDataServiceBase<>), typeof(MongoCrudDataService<,>), typeof(MongoReadOnlyDataService<,>) };
 
         foreach (var assembly in toScan)
         {

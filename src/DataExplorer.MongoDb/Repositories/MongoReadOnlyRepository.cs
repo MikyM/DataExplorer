@@ -15,7 +15,7 @@ namespace DataExplorer.MongoDb.Repositories;
 /// </summary>
 /// <inheritdoc cref="IMongoReadOnlyRepository{TEntity}"/>
 [PublicAPI]
-public class MongoReadOnlyRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntity,TId> where TEntity : MongoEntity<TId>, IEntity where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public class MongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity> where TEntity : MongoEntity
 {
     /// <inheritdoc />
     public Type EntityType => typeof(TEntity);
@@ -133,7 +133,7 @@ public class MongoReadOnlyRepository<TEntity,TId> : IMongoReadOnlyRepository<TEn
 
     /// <inheritdoc />
     public IMongoQueryable<T> Queryable<T>(AggregateOptions? options = null, bool ignoreGlobalFilters = false)
-        where T : Entity<TId>, IEntity
+        where T : MongoEntity
         => Context.Queryable<T>();
 
     /// <inheritdoc />
@@ -161,16 +161,4 @@ public class MongoReadOnlyRepository<TEntity,TId> : IMongoReadOnlyRepository<TEn
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
         => await MongoQueryable.ToListAsync(cancellationToken).ConfigureAwait(false);
-}
-
-/// <summary>
-/// Read-only repository.
-/// </summary>
-/// <inheritdoc cref="IMongoReadOnlyRepository{TEntity}"/>
-[PublicAPI]
-public class MongoReadOnlyRepository<TEntity> : MongoReadOnlyRepository<TEntity, long>, IMongoReadOnlyRepository<TEntity> where TEntity : MongoEntity<long>, IEntity
-{
-    internal MongoReadOnlyRepository(IMongoDbContext context, IMapper mapper) : base(context, mapper)
-    {
-    }
 }

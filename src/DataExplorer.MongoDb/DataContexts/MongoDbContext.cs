@@ -9,11 +9,11 @@ namespace DataExplorer.MongoDb.DataContexts;
 [PublicAPI]
 public abstract class MongoDbContext : DBContext, IMongoDbContext
 {
-    public MongoDbConnectionSettings ConnectionSettings { get; }
-
-    protected MongoDbContext(MongoDbConnectionSettings connectionSettings)
+    public MongoDbContextOptions Options { get; }
+    
+    protected MongoDbContext(MongoDbContextOptions connectionSettings)
     {
-        ConnectionSettings = connectionSettings;
+        Options = connectionSettings;
         
         DB.InitAsync(connectionSettings.Database, connectionSettings.MongoClientSettings)
             .GetAwaiter()

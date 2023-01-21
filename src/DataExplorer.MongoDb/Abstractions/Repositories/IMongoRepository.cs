@@ -1,7 +1,5 @@
 ﻿using System.Linq.Expressions;
 using DataExplorer.Exceptions;
-using MongoDB.Driver;
-using MongoDB.Entities;
 
 #pragma warning disable CS1574, CS1584, CS1581, CS1580
 
@@ -10,10 +8,9 @@ namespace DataExplorer.MongoDb.Abstractions.Repositories;
 /// <summary>
 /// Repository.
 /// </summary>
-/// <typeparam name="TEntity">Entity that derives from <see cref="Entities.Entity"/>.</typeparam>
-/// <typeparam name="TId">Type of the Id in <typeparamref name="TEntity"/>.</typeparam>
+/// <typeparam name="TEntity">Entity that derives from <see cref="MongoEntity"/>.</typeparam>
 [PublicAPI]
-public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntity,TId> where TEntity : MongoEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public interface IMongoRepository<TEntity> : IMongoReadOnlyRepository<TEntity> where TEntity : MongoEntity
 {
     /// <summary>
     /// Creates a collection for an Entity type explicitly using the given options
@@ -287,13 +284,4 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <exception cref="NotFoundException">Thrown when entity with given Id is not found.</exception>
     /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="DataExplorer.Abstractions.Entities.IDisableableEntity"/>.</exception>
     Task DisableAsync(TEntity entity, CancellationToken cancellationToken = default);
-}
-
-/// <summary>
-/// Repository.
-/// </summary>
-/// <typeparam name="TEntity">Entity that derives from <see cref="Entities.Entity"/>.</typeparam>
-[PublicAPI]
-public interface IMongoRepository<TEntity> : IMongoRepository<TEntity,long>, IMongoReadOnlyRepository<TEntity> where TEntity : MongoEntity<long>
-{
 }

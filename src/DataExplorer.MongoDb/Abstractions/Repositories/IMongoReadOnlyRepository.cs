@@ -1,20 +1,15 @@
 ﻿using System.Linq.Expressions;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.MongoDb.Abstractions.DataContexts;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq;
-using MongoDB.Entities;
 
 namespace DataExplorer.MongoDb.Abstractions.Repositories;
 
 /// <summary>
 /// Read-only repository.
 /// </summary>
-/// <typeparam name="TEntity">Entity that derives from <see cref="Entity{TId}"/>.</typeparam>
-/// <typeparam name="TId">Type of the Id in <typeparamref name="TEntity"/>.</typeparam>
+/// <typeparam name="TEntity">Entity that derives from <see cref="MongoEntity"/>.</typeparam>
 [PublicAPI]
-public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntity : MongoEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public interface IMongoReadOnlyRepository<TEntity> : IRepositoryBase where TEntity : MongoEntity
 {
     /// <summary>
     /// Current <see cref="IMongoDbContext"/>.
@@ -192,7 +187,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// </summary>
     /// <param name="options">The aggregate options</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    IMongoQueryable<T> Queryable<T>(AggregateOptions? options = null, bool ignoreGlobalFilters = false) where T : Entity<TId>, IEntity;
+    IMongoQueryable<T> Queryable<T>(AggregateOptions? options = null, bool ignoreGlobalFilters = false) where T : MongoEntity;
 
     /// <summary>
     /// Counts the entities.
@@ -241,13 +236,4 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns><see cref="IReadOnlyList{T}"/> with all entities.</returns>
     Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
-}
-
-/// <summary>
-/// Read-only repository.
-/// </summary>
-/// <typeparam name="TEntity">Entity that derives from <see cref="Entity{TId}"/>.</typeparam>
-[PublicAPI]
-public interface IMongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity,long> where TEntity : MongoEntity<long>
-{
 }

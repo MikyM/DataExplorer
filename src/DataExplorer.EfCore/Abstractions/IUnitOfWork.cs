@@ -46,7 +46,7 @@ public interface IUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : EfEntity<long>;
+    IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>;
     
     /// <summary>
     /// Gets an <see cref="IReadOnlyRepository{TEntity}"/> for an entity of a given type.
@@ -54,7 +54,7 @@ public interface IUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : EfEntity<long>;
+    IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : Entity<long>;
 
     /// <summary>
     /// Gets an <see cref="IRepository{TEntity,TId}"/> for an entity of a given type and Id type.
@@ -63,7 +63,7 @@ public interface IUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : EfEntity<TId>
+    IRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>;
     
     /// <summary>
@@ -73,7 +73,7 @@ public interface IUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : EfEntity<TId>
+    IReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>;
     
     /// <summary>

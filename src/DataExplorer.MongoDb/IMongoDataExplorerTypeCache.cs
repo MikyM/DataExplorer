@@ -9,27 +9,17 @@ public interface IMongoDataExplorerTypeCache
     /// <summary>
     /// Entity type to Id type map.
     /// </summary>
-    IReadOnlyDictionary<Type, Type> EntityTypeIdTypeDictionary { get; }
+    IReadOnlyList<Type> EntityTypes { get; }
     
     /// <summary>
     /// Entity type to read-only repo implementation type with long as Id type map.
     /// </summary>
-    IReadOnlyDictionary<Type, Type> CachedReadOnlyRepos { get; }
+    IReadOnlyDictionary<Type,Type> CachedReadOnlyRepos { get; }
     
     /// <summary>
     /// Entity type to crud repo implementation type with long as Id type map.
     /// </summary>
-    IReadOnlyDictionary<Type, Type> CachedCrudRepos { get; }
-    
-    /// <summary>
-    /// Entity type to read-only repo implementation type with generic Id type argument map.
-    /// </summary>
-    IReadOnlyDictionary<Type, Type> CachedReadOnlyGenericIdRepos { get; }
-    
-    /// <summary>
-    /// Entity type to crud repo implementation type with generic Id type argument map.
-    /// </summary>
-    IReadOnlyDictionary<Type, Type> CachedCrudGenericIdRepos { get; }
+    IReadOnlyDictionary<Type,Type> CachedCrudRepos { get; }
     
     /// <summary>
     /// Allowed repository types.

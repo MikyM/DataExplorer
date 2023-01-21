@@ -89,7 +89,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         => _transaction ??= await Context.Database.BeginTransactionAsync(cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc cref="IUnitOfWork.GetRepositoryFor{TRepository}" />
-    public IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : EfEntity<long>
+    public IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>
     {
         var entityType = typeof(TEntity);
         var repositoryType = _cache.CachedCrudRepos.GetValueOrDefault(entityType);
@@ -106,7 +106,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     }
 
     /// <inheritdoc cref="IUnitOfWork.GetReadOnlyRepositoryFor{TRepository}" />
-    public IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : EfEntity<long>
+    public IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : Entity<long>
     {
         var entityType = typeof(TEntity);
         var repositoryType = _cache.CachedReadOnlyRepos.GetValueOrDefault(entityType);
@@ -123,7 +123,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     }
 
     /// <inheritdoc cref="IUnitOfWork.GetRepositoryFor{TRepository,TId}" />
-    public IRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : EfEntity<TId>
+    public IRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
         var entityType = typeof(TEntity);
@@ -141,7 +141,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     }
 
     /// <inheritdoc cref="IUnitOfWork.GetReadOnlyRepositoryFor{TRepository,TId}" />
-    public IReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : EfEntity<TId>
+    public IReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
         var entityType = typeof(TEntity);

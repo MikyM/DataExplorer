@@ -13,14 +13,13 @@ namespace DataExplorer.MongoDb.DataServices;
 /// </summary>
 /// <inheritdoc cref="IMongoCrudDataService{TEntity,TContext}"/>
 [PublicAPI]
-public class MongoCrudDataService<TEntity, TId, TContext> : MongoReadOnlyDataService<TEntity, TId, TContext>,
-    IMongoCrudDataService<TEntity, TId, TContext>
-    where TEntity : MongoEntity<TId>
+public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<TEntity,TContext>,
+    IMongoCrudDataService<TEntity, TContext>
+    where TEntity : MongoEntity
     where TContext : class, IMongoDbContext
-    where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
-    /// Creates a new instance of <see cref="MongoCrudDataService{TEntity,TId,TContext}"/>.
+    /// Creates a new instance of <see cref="MongoCrudDataService{TEntity,TContext}"/>.
     /// </summary>
     /// <param name="uof">Unit of work instance.</param>
     public MongoCrudDataService(IMongoUnitOfWork<TContext> uof) : base(uof)
@@ -28,12 +27,12 @@ public class MongoCrudDataService<TEntity, TId, TContext> : MongoReadOnlyDataSer
     }
 
     /// <inheritdoc />
-    internal override IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IMongoRepository<TEntity, TId>>();
+    internal override IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IMongoRepository<TEntity>>();
 
     /// <summary>
     /// Gets the CRUD version of the <see cref="MongoReadOnlyDataService{TEntity,TId,TContext}.BaseRepository"/> (essentially casts it for you).
     /// </summary>
-    protected IMongoRepository<TEntity, TId> Repository => (IMongoRepository<TEntity, TId>)BaseRepository;
+    protected IMongoRepository<TEntity> Repository => (IMongoRepository<TEntity>)BaseRepository;
 
     /// <inheritdoc />
     public async Task<Result> CreateCollectionAsync(Action<CreateCollectionOptions<TEntity>> options, CancellationToken cancellation = default)
@@ -345,34 +344,4 @@ public class MongoCrudDataService<TEntity, TId, TContext> : MongoReadOnlyDataSer
             return ex;
         }
     }
-}
-
-/// <summary>
-/// CRUD data service.
-/// </summary>
-/// <inheritdoc cref="IMongoCrudDataService{TEntity,TContext}"/>
-[PublicAPI]
-public class MongoCrudDataService<TEntity, TContext> : MongoCrudDataService<TEntity, long, TContext>, IMongoCrudDataService<TEntity, TContext>
-    where TEntity : MongoEntity<long> where TContext : class, IMongoDbContext
-{
-    /// <summary>
-    /// Creates a new instance of <see cref="MongoCrudDataService{TEntity,TContext}"/>.
-    /// </summary>
-    /// <param name="uof">Unit of work instance.</param>
-    public MongoCrudDataService(IMongoUnitOfWork<TContext> uof) : base(uof)
-    {
-    }
-    
-    /// <inheritdoc />
-    internal override IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IMongoRepository<TEntity>>();
-    
-    /// <summary>
-    /// Gets the CRUD version of the <see cref="MongoReadOnlyDataService{TEntity,TId,TContext}.BaseRepository"/> (essentially casts it for you).
-    /// </summary>
-    protected new IMongoRepository<TEntity> Repository => (IMongoRepository<TEntity>)BaseRepository;
-    
-    /// <summary>
-    /// Gets the read-only version of the <see cref="MongoReadOnlyDataService{TEntity,TId,TContext}.BaseRepository"/> (essentially casts it for you).
-    /// </summary>
-    protected new IMongoReadOnlyRepository<TEntity> ReadOnlyRepository => (IMongoReadOnlyRepository<TEntity>)BaseRepository;
 }

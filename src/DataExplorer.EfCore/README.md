@@ -22,7 +22,7 @@ builder.AddDataExplorer(options =>
 Library provides definition of a base entity (with generic Id and with long Id) which should be inherited by any entity defined within application's domain.
 
 ```csharp
-public class CustomEntity : EfEntity<long>
+public class CustomEntity : Entity<long>
 {
     public bool CustomField { get; set; }
 }

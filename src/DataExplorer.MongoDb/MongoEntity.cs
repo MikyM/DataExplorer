@@ -1,34 +1,37 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Entities;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace DataExplorer.MongoDb;
 
 /// <summary>
 /// Represents a MongoDB entity.
 /// </summary>
-/// <typeparam name="TId">Type of the Id of the entity.</typeparam>
 [PublicAPI]
-public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId>, IEquatable<IMongoEntity<TId>> where TId : IComparable, IComparable<TId>, IEquatable<TId>
+public abstract class MongoEntity : IMongoEntity, IEquatable<IMongoEntity>, IEquatable<MongoEntity>
 {
     public virtual string GenerateNewID()
         => ObjectId.GenerateNewId().ToString();
-    
-    [BsonElement("entityId")]
-    public override TId Id { get; protected set; } = default!;
-
-    [BsonElement("createdAt")]
-    public override DateTime? CreatedAt { get; set; }
-
-    [BsonElement("updatedAt")]
-    public override DateTime? UpdatedAt { get; set; }
 
     [ObjectId] 
     [BsonId]
     public virtual string? ID { get; set; }
     
     /// <inheritdoc />
-    public bool Equals(IMongoEntity<TId>? other)
+    public bool Equals(IMongoEntity? other)
+    {
+        if (other is null || ID is null || other.ID is null)
+            return false;
+        
+        if (ReferenceEquals(this, other))
+            return true;
+
+        if (ID.Equals(default) || other.ID.Equals(default))
+            return false;
+
+        return ID.Equals(other.ID);
+    }
+    
+    /// <inheritdoc />
+    public bool Equals(MongoEntity? other)
     {
         if (other is null || ID is null || other.ID is null)
             return false;
@@ -45,16 +48,10 @@ public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId>, IEquata
     /// <inheritdoc />
     public override bool Equals(object? obj)
     {
-        if (obj is not MongoEntity<TId> other || ID is null || other.ID is null)
-            return false;
-
-        if (ReferenceEquals(this, other))
-            return true;
-
-        if (ID.Equals(default) || other.ID.Equals(default))
-            return false;
-
-        return ID.Equals(other.ID);
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != GetType()) return false;
+        return Equals((MongoEntity)obj);
     }
 
     /// <summary>
@@ -63,7 +60,7 @@ public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId>, IEquata
     /// <param name="a"></param>
     /// <param name="b"></param>
     /// <returns></returns>
-    public static bool operator ==(MongoEntity<TId>? a, MongoEntity<TId>? b)
+    public static bool operator ==(MongoEntity? a, MongoEntity? b)
     {
         if (a  is null && b  is null)
             return true;
@@ -80,7 +77,7 @@ public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId>, IEquata
     /// <param name="a"></param>
     /// <param name="b"></param>
     /// <returns></returns>
-    public static bool operator !=(MongoEntity<TId> a, MongoEntity<TId> b)
+    public static bool operator !=(MongoEntity a, MongoEntity b)
     {
         return !(a == b);
     }
@@ -88,13 +85,7 @@ public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId>, IEquata
     /// <inheritdoc />
     public override int GetHashCode()
         // ReSharper disable once NonReadonlyMemberInGetHashCode
-        => (GetType() + ID).GetHashCode();
-}
-
-/// <summary>
-/// Represents a MongoDB entity.
-/// </summary>
-[PublicAPI]
-public abstract class MongoEntity : MongoEntity<long>
-{
+    {
+        return (ID != null ? ID.GetHashCode() : 0);
+    }
 }

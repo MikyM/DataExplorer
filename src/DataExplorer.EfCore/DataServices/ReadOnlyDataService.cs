@@ -14,7 +14,7 @@ namespace DataExplorer.EfCore.DataServices;
 [PublicAPI]
 public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase<TContext>,
     IReadOnlyDataService<TEntity, TId, TContext>
-    where TEntity : EfEntity<TId>
+    where TEntity : Entity<TId>
     where TContext : class, IEfDbContext
     where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
@@ -317,7 +317,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
 /// <inheritdoc cref="IReadOnlyDataService{TEntity,TContext}"/>
 [PublicAPI]
 public class ReadOnlyDataService<TEntity, TContext> : ReadOnlyDataService<TEntity, long, TContext>, IReadOnlyDataService<TEntity, TContext>
-    where TEntity : EfEntity<long>
+    where TEntity : Entity<long>
     where TContext : class, IEfDbContext
 {
     /// <summary>

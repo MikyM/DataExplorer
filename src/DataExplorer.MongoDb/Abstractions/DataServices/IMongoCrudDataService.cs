@@ -8,10 +8,9 @@ namespace DataExplorer.MongoDb.Abstractions.DataServices;
 /// CRUD data service.
 /// </summary>
 [PublicAPI]
-public interface IMongoCrudDataService<TEntity, TId, out TContext> : IMongoReadOnlyDataService<TEntity, TId, TContext>
-    where TEntity : class, IMongoEntity<TId>
+public interface IMongoCrudDataService<TEntity, out TContext> : IMongoReadOnlyDataService<TEntity, TContext>
+    where TEntity : class, IMongoEntity
     where TContext : class, IMongoDbContext
-    where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
     /// Creates a collection for an Entity type explicitly using the given options
@@ -282,13 +281,4 @@ public interface IMongoCrudDataService<TEntity, TId, out TContext> : IMongoReadO
     /// <exception cref="NotFoundException">Thrown when entity with given Id is not found.</exception>
     /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="DataExplorer.Abstractions.Entities.IDisableableEntity"/>.</exception>
     Task<Result> DisableAsync(TEntity entity, CancellationToken cancellationToken = default);
-}
-
-/// <summary>
-/// CRUD data service.
-/// </summary>
-[PublicAPI]
-public interface IMongoCrudDataService<TEntity, out TContext> : IMongoCrudDataService<TEntity, long, TContext>, IMongoReadOnlyDataService<TEntity, TContext>
-    where TEntity : class, IMongoEntity<long> where TContext : class, IMongoDbContext
-{
 }

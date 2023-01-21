@@ -10,9 +10,9 @@ namespace DataExplorer.MongoDb.Abstractions.DataContexts;
 public interface IMongoDbContext : IDataContextBase
 {
     /// <summary>
-    /// The connection settings.
+    /// The options.
     /// </summary>
-    MongoDbConnectionSettings ConnectionSettings { get; }
+    MongoDbContextOptions Options { get; }
     
     /// <summary>
     /// The value of this property will be automatically set on entities when saving/updating if the entity has a ModifiedBy property.

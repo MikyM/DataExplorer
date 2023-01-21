@@ -24,7 +24,7 @@ public interface IMongoUnitOfWork : IUnitOfWorkBase
     /// <summary>
     /// Gets a repository of a given type.
     /// </summary>
-    /// <remarks>You can <b>only</b> retrieve types: <see cref="IMongoRepository{TEntity}"/>, <see cref="IMongoRepository{TEntity,TId}"/>, <see cref="IMongoReadOnlyRepository{TEntity}"/> and <see cref="IMongoReadOnlyRepository{TEntity,TId}"/>.</remarks>
+    /// <remarks>You can <b>only</b> retrieve types: <see cref="IMongoRepository{TEntity}"/>, <see cref="IMongoRepository{TEntity}"/>, <see cref="IMongoReadOnlyRepository{TEntity}"/> and <see cref="IMongoReadOnlyRepository{TEntity}"/>.</remarks>
     /// <typeparam name="TRepository">Type of the repository to get.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
@@ -37,7 +37,7 @@ public interface IMongoUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IMongoRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : MongoEntity<long>;
+    IMongoRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : MongoEntity;
     
     /// <summary>
     /// Gets an <see cref="IMongoReadOnlyRepository{TEntity}"/> for an entity of a given type.
@@ -45,28 +45,8 @@ public interface IMongoUnitOfWork : IUnitOfWorkBase
     /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
     /// <returns>The searched for repository.</returns>
     /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IMongoReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : MongoEntity<long>;
+    IMongoReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : MongoEntity;
 
-    /// <summary>
-    /// Gets an <see cref="IMongoRepository{TEntity,TId}"/> for an entity of a given type and Id type.
-    /// </summary>
-    /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
-    /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
-    /// <returns>The searched for repository.</returns>
-    /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IMongoRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : MongoEntity<TId>
-        where TId : IComparable, IEquatable<TId>, IComparable<TId>;
-    
-    /// <summary>
-    /// Gets an <see cref="IMongoReadOnlyRepository{TEntity,TId}"/> for an entity of a given type and Id type.
-    /// </summary>
-    /// <typeparam name="TEntity">Type of the entity for which the repository should be retrieved.</typeparam>
-    /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
-    /// <returns>The searched for repository.</returns>
-    /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    IMongoReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : MongoEntity<TId>
-        where TId : IComparable, IEquatable<TId>, IComparable<TId>;
-    
     /// <summary>
     /// Mapper instance.
     /// </summary>

@@ -8,12 +8,10 @@ namespace DataExplorer.MongoDb.Abstractions.DataServices;
 /// </summary>
 /// <typeparam name="TEntity">Type of the entity to create the service for, must derive from <see cref="IMongoEntity"/>.</typeparam>
 /// <typeparam name="TContext">Type of the <see cref="MongoDbContext"/> to use.</typeparam>
-/// <typeparam name="TId">Type of the Id of the entity.</typeparam>
 [PublicAPI]
-public interface IMongoReadOnlyDataService<TEntity, TId, out TContext> : IMongoDataServiceBase<TContext>
-    where TEntity : class, IMongoEntity<TId>
+public interface IMongoReadOnlyDataService<TEntity, out TContext> : IMongoDataServiceBase<TContext>
+    where TEntity : class, IMongoEntity
     where TContext : class, IMongoDbContext
-    where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
     /// Gets a fast estimation of how many documents are in the collection using metadata.
@@ -181,7 +179,7 @@ public interface IMongoReadOnlyDataService<TEntity, TId, out TContext> : IMongoD
     /// </summary>
     /// <param name="options">The aggregate options</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    IMongoQueryable<T> Queryable<T>(AggregateOptions? options = null, bool ignoreGlobalFilters = false) where T : Entity<TId>, IEntity;
+    IMongoQueryable<T> Queryable<T>(AggregateOptions? options = null, bool ignoreGlobalFilters = false) where T : MongoEntity;
 
     /// <summary>
     /// Counts the entities.
@@ -238,15 +236,4 @@ public interface IMongoReadOnlyDataService<TEntity, TId, out TContext> : IMongoD
     /// <returns><see cref="IReadOnlyList{T}"/> with all entities.</returns>
     Task<Result<IReadOnlyList<TGetResult>>> GetAllAsync<TGetResult>(CancellationToken cancellationToken = default)
         where TGetResult : class;
-}
-
-/// <summary>
-/// Read-only data service.
-/// </summary>
-/// <typeparam name="TEntity">Type of the entity to create the service for, must derive from <see cref="IMongoEntity{TId}"/>.</typeparam>
-/// <typeparam name="TContext">Type of the <see cref="MongoDbContext"/> to use.</typeparam>
-[PublicAPI]
-public interface IMongoReadOnlyDataService<TEntity, out TContext> : IMongoReadOnlyDataService<TEntity, long, TContext>
-    where TEntity : class, IMongoEntity<long> where TContext : class, IMongoDbContext
-{
 }

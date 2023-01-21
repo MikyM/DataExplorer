@@ -8,7 +8,7 @@ namespace DataExplorer.EfCore.Abstractions.DataServices;
 /// </summary>
 [PublicAPI]
 public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataService<TEntity, TId, TContext>
-    where TEntity : class, IEfEntity<TId>
+    where TEntity : class, IEntity<TId>
     where TContext : class, IEfDbContext
     where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
@@ -316,6 +316,6 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
 /// </summary>
 [PublicAPI]
 public interface ICrudDataService<TEntity, out TContext> : ICrudDataService<TEntity, long, TContext>, IReadOnlyDataService<TEntity, TContext>
-    where TEntity : class, IEfEntity<long> where TContext : class, IEfDbContext
+    where TEntity : class, IEntity<long> where TContext : class, IEfDbContext
 {
 }

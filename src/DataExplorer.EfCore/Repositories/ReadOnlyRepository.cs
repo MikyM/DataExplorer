@@ -15,7 +15,7 @@ namespace DataExplorer.EfCore.Repositories;
 /// </summary>
 /// <inheritdoc cref="IReadOnlyRepository{TEntity}"/>
 [PublicAPI]
-public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> where TEntity : EfEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> where TEntity : Entity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <inheritdoc />
     public Type EntityType => typeof(TEntity);
@@ -190,7 +190,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
 /// </summary>
 /// <inheritdoc cref="IReadOnlyRepository{TEntity}"/>
 [PublicAPI]
-public class ReadOnlyRepository<TEntity> : ReadOnlyRepository<TEntity, long>, IReadOnlyRepository<TEntity> where TEntity : EfEntity<long>
+public class ReadOnlyRepository<TEntity> : ReadOnlyRepository<TEntity, long>, IReadOnlyRepository<TEntity> where TEntity : Entity<long>
 {
     internal ReadOnlyRepository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
         IGridifyMapperProvider gridifyMapperProvider) : base(context, specificationEvaluator, mapper,

@@ -43,7 +43,13 @@ public class DataExplorerMongoDbConfiguration
 
     internal readonly ContainerBuilder? Builder;
     internal readonly IServiceCollection? ServiceCollection;
-    
+
+    private Dictionary<Type,MongoDbContextOptions> _contextOptions = new();
+    /// <summary>
+    /// Connection settings where the key is the type of the <see cref="MongoDbContext"/> the settings were registered for.
+    /// </summary>
+    public IReadOnlyDictionary<Type,MongoDbContextOptions> ContextOptions => _contextOptions;
+
     /// <summary>
     /// Disables the insertion of audit log entries.
     /// </summary>
@@ -55,12 +61,8 @@ public class DataExplorerMongoDbConfiguration
     /// <summary>
     /// Whether to cache include expressions (queries are evaluated faster).
     /// </summary>
-    public bool EnableIncludeCache { get; set; } = false;
-
-    /// <summary>
-    /// Disables the insertion of audit log entries.
-    /// </summary>
-
+    public bool EnableIncludeCache { get; set; }
+    
     /// <summary>
     /// Actions to execute before each commit.
     /// </summary>
@@ -71,6 +73,7 @@ public class DataExplorerMongoDbConfiguration
     /// Gets or sets the default lifetime for base generic data services.
     /// </summary>
     public ServiceLifetime BaseGenericDataServiceLifetime { get; set; } = ServiceLifetime.InstancePerLifetimeScope;
+    
     /// <summary>
     /// Gets or sets the default lifetime for custom data services that implement or derive from base data services.
     /// </summary>
@@ -107,32 +110,78 @@ public class DataExplorerMongoDbConfiguration
     /// Adds the interface of a database context as a service.
     /// </summary>
     /// <returns>Current <see cref="DataExplorerMongoDbConfiguration"/> instance.</returns>
-    public DataExplorerMongoDbConfiguration AddDbContext<TContextInterface, TContextImplementation>(ServiceLifetime lifetime = ServiceLifetime.InstancePerLifetimeScope) where TContextInterface : class, IMongoDbContext
+    public DataExplorerMongoDbConfiguration AddDbContext<TContextInterface, TContextImplementation>(Action<MongoDbContextOptions<TContextImplementation>> contextOptions, ServiceLifetime lifetime = ServiceLifetime.InstancePerLifetimeScope) where TContextInterface : class, IMongoDbContext
         where TContextImplementation : MongoDbContext, TContextInterface
     {
+        var opt = new MongoDbContextOptions<TContextImplementation>();
+        contextOptions(opt);
 
+        opt.ContextType = typeof(TContextImplementation);
+
+        if (!_contextOptions.TryAdd(typeof(TContextImplementation), opt))
+            throw new InvalidOperationException("You tried to register same db context twice");
+        
+        Builder?.RegisterInstance(opt).As<MongoDbContextOptions<TContextImplementation>>();
+        ServiceCollection?.AddSingleton(opt);
+        
         switch (lifetime)
         {
             case ServiceLifetime.SingleInstance:
-                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
+                Builder?.RegisterType<TContextImplementation>()
+                    .As<TContextInterface>()
+                    .AsSelf()
+                    .WithParameter(
+                        (x, y) => x.ParameterType == typeof(MongoDbContextOptions) ||
+                                  x.ParameterType == typeof(MongoDbContextOptions<TContextImplementation>),
+                        (x, y) => y.Resolve<MongoDbContextOptions<TContextImplementation>>())
                     .SingleInstance();
+                ServiceCollection?.AddSingleton<TContextImplementation>(x =>
+                    ActivatorUtilities.CreateInstance<TContextImplementation>(x,
+                        x.GetRequiredService<MongoDbContextOptions<TContextImplementation>>()));
                 ServiceCollection?.AddSingleton<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
             case ServiceLifetime.InstancePerRequest:
-                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
+                Builder?.RegisterType<TContextImplementation>()
+                    .As<TContextInterface>()
+                    .AsSelf()
+                    .WithParameter(
+                        (x, y) => x.ParameterType == typeof(MongoDbContextOptions) ||
+                                  x.ParameterType == typeof(MongoDbContextOptions<TContextImplementation>),
+                        (x, y) => y.Resolve<MongoDbContextOptions<TContextImplementation>>())
                     .InstancePerRequest();
+                ServiceCollection?.AddScoped<TContextImplementation>(x =>
+                    ActivatorUtilities.CreateInstance<TContextImplementation>(x,
+                        x.GetRequiredService<MongoDbContextOptions<TContextImplementation>>()));
                 ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
             case ServiceLifetime.InstancePerLifetimeScope:
-                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
+                Builder?.RegisterType<TContextImplementation>()
+                    .As<TContextInterface>()
+                    .AsSelf()
+                    .WithParameter(
+                        (x, y) => x.ParameterType == typeof(MongoDbContextOptions) ||
+                                  x.ParameterType == typeof(MongoDbContextOptions<TContextImplementation>),
+                        (x, y) => y.Resolve<MongoDbContextOptions<TContextImplementation>>())
                     .InstancePerLifetimeScope();
+                ServiceCollection?.AddScoped<TContextImplementation>(x =>
+                    ActivatorUtilities.CreateInstance<TContextImplementation>(x,
+                        x.GetRequiredService<MongoDbContextOptions<TContextImplementation>>()));
                 ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
             case ServiceLifetime.InstancePerMatchingLifetimeScope:
                 throw new NotSupportedException();
             case ServiceLifetime.InstancePerDependency:
-                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
+                Builder?.RegisterType<TContextImplementation>()
+                    .As<TContextInterface>()
+                    .AsSelf()
+                    .WithParameter(
+                        (x, y) => x.ParameterType == typeof(MongoDbContextOptions) ||
+                                  x.ParameterType == typeof(MongoDbContextOptions<TContextImplementation>),
+                        (x, y) => y.Resolve<MongoDbContextOptions<TContextImplementation>>())
                     .InstancePerDependency();
+                ServiceCollection?.AddTransient<TContextImplementation>(x =>
+                    ActivatorUtilities.CreateInstance<TContextImplementation>(x,
+                        x.GetRequiredService<MongoDbContextOptions<TContextImplementation>>()));
                 ServiceCollection?.AddTransient<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
                 break;
             case ServiceLifetime.InstancePerOwned:

@@ -12,14 +12,13 @@ namespace DataExplorer.MongoDb.DataServices;
 /// </summary>
 /// <inheritdoc cref="IMongoReadOnlyDataService{TEntity,TContext}"/>
 [PublicAPI]
-public class MongoReadOnlyDataService<TEntity, TId, TContext> : MongoDataServiceBase<TContext>,
-    IMongoReadOnlyDataService<TEntity, TId, TContext>
-    where TEntity : MongoEntity<TId>
+public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<TContext>,
+    IMongoReadOnlyDataService<TEntity, TContext>
+    where TEntity : MongoEntity
     where TContext : class, IMongoDbContext
-    where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
-    /// Creates a new instance of <see cref="IMongoReadOnlyDataService{TEntity,TId,TContext}"/>.
+    /// Creates a new instance of <see cref="IMongoReadOnlyDataService{TEntity,TContext}"/>.
     /// </summary>
     /// <param name="uof">Instance of <see cref="IMongoUnitOfWork"/>.</param>
     public MongoReadOnlyDataService(IMongoUnitOfWork<TContext> uof) : base(uof)
@@ -29,7 +28,7 @@ public class MongoReadOnlyDataService<TEntity, TId, TContext> : MongoDataService
     /// <summary>
     /// Gets the base repository for this data service.
     /// </summary>
-    internal virtual IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IMongoReadOnlyRepository<TEntity,TId>>();
+    internal virtual IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IMongoReadOnlyRepository<TEntity>>();
     
     /// <summary>
     /// Gets the base repository for this data service.
@@ -39,8 +38,8 @@ public class MongoReadOnlyDataService<TEntity, TId, TContext> : MongoDataService
     /// <summary>
     /// Gets the read-only version of the <see cref="BaseRepository"/> (essentially casts it for you).
     /// </summary>
-    protected IMongoReadOnlyRepository<TEntity,TId> ReadOnlyRepository =>
-        (IMongoReadOnlyRepository<TEntity,TId>)BaseRepository;
+    protected IMongoReadOnlyRepository<TEntity> ReadOnlyRepository =>
+        (IMongoReadOnlyRepository<TEntity>)BaseRepository;
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetAllAsync<TGetResult>(CancellationToken cancellationToken = default)
@@ -242,7 +241,7 @@ public class MongoReadOnlyDataService<TEntity, TId, TContext> : MongoDataService
 
     /// <inheritdoc />
     public IMongoQueryable<T> Queryable<T>(AggregateOptions? options = null, bool ignoreGlobalFilters = false)
-        where T : Entity<TId>, IEntity
+        where T : MongoEntity
         => ReadOnlyRepository.Queryable<T>();
 
     /// <inheritdoc />
@@ -296,31 +295,4 @@ public class MongoReadOnlyDataService<TEntity, TId, TContext> : MongoDataService
             return ex;
         }
     }
-}
-
-/// <summary>
-/// Read-only data service.
-/// </summary>
-/// <inheritdoc cref="IMongoReadOnlyDataService{TEntity,TContext}"/>
-[PublicAPI]
-public class MongoReadOnlyDataService<TEntity, TContext> : MongoReadOnlyDataService<TEntity, long, TContext>, IMongoReadOnlyDataService<TEntity, TContext>
-    where TEntity : MongoEntity<long>
-    where TContext : class, IMongoDbContext
-{
-    /// <summary>
-    /// Creates a new instance of <see cref="IMongoReadOnlyDataService{TEntity,TContext}"/>.
-    /// </summary>
-    /// <param name="uof">Instance of <see cref="IMongoUnitOfWork"/>.</param>
-    public MongoReadOnlyDataService(IMongoUnitOfWork<TContext> uof) : base(uof)
-    {
-    }
-    
-    /// <inheritdoc />
-    internal override IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IMongoReadOnlyRepository<TEntity>>();
-    
-    /// <summary>
-    /// Gets the read-only version of the <see cref="MongoReadOnlyDataService{TEntity,TId,TContext}.BaseRepository"/> (essentially casts it for you).
-    /// </summary>
-    protected new IMongoReadOnlyRepository<TEntity> ReadOnlyRepository =>
-        (IMongoReadOnlyRepository<TEntity>)BaseRepository;
 }

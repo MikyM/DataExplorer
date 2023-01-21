@@ -40,7 +40,7 @@ public interface IEntity<TId> : IEntityBase where TId : IComparable, IEquatable<
 /// Represents a base marker for entities. <b> Shouldn't be implemented manually.</b>
 /// </summary>
 [PublicAPI]
-public interface IEntityBase
+public interface IEntityBase : IDataExplorerEntity
 {
     /// <summary>
     /// Sets the ID of this entity.
@@ -51,4 +51,12 @@ public interface IEntityBase
     /// Whether the entity has a valid Id.
     /// </summary>
     public bool HasValidId { get; }
+}
+
+/// <summary>
+/// Represents a base marker for entities. <b> Shouldn't be implemented manually.</b>
+/// </summary>
+[PublicAPI]
+public interface IDataExplorerEntity
+{
 }
