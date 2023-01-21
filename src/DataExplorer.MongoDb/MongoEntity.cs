@@ -9,9 +9,9 @@ namespace DataExplorer.MongoDb;
 /// </summary>
 /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
 [PublicAPI]
-public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId> where TId : IComparable, IComparable<TId>, IEquatable<TId>
+public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId>, IEquatable<IMongoEntity<TId>> where TId : IComparable, IComparable<TId>, IEquatable<TId>
 {
-    public string GenerateNewID()
+    public virtual string GenerateNewID()
         => ObjectId.GenerateNewId().ToString();
     
     [BsonElement("entityId")]
@@ -25,7 +25,70 @@ public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId> where TI
 
     [ObjectId] 
     [BsonId]
-    public string? ID { get; set; }
+    public virtual string? ID { get; set; }
+    
+    /// <inheritdoc />
+    public bool Equals(IMongoEntity<TId>? other)
+    {
+        if (other is null || ID is null || other.ID is null)
+            return false;
+        
+        if (ReferenceEquals(this, other))
+            return true;
+
+        if (ID.Equals(default) || other.ID.Equals(default))
+            return false;
+
+        return ID.Equals(other.ID);
+    }
+
+    /// <inheritdoc />
+    public override bool Equals(object? obj)
+    {
+        if (obj is not MongoEntity<TId> other || ID is null || other.ID is null)
+            return false;
+
+        if (ReferenceEquals(this, other))
+            return true;
+
+        if (ID.Equals(default) || other.ID.Equals(default))
+            return false;
+
+        return ID.Equals(other.ID);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public static bool operator ==(MongoEntity<TId>? a, MongoEntity<TId>? b)
+    {
+        if (a  is null && b  is null)
+            return true;
+
+        if (a  is null || b  is null)
+            return false;
+
+        return a.Equals(b);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public static bool operator !=(MongoEntity<TId> a, MongoEntity<TId> b)
+    {
+        return !(a == b);
+    }
+
+    /// <inheritdoc />
+    public override int GetHashCode()
+        // ReSharper disable once NonReadonlyMemberInGetHashCode
+        => (GetType() + ID).GetHashCode();
 }
 
 /// <summary>
