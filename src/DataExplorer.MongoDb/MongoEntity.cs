@@ -25,11 +25,7 @@ public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId> where TI
 
     [ObjectId] 
     [BsonId]
-    public string? ID 
-    {
-        get => Id.ToString();
-        set => throw new NotSupportedException();
-    }
+    public string? ID { get; set; }
 }
 
 /// <summary>
