@@ -89,7 +89,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         => _transaction ??= await Context.Database.BeginTransactionAsync(cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc cref="IUnitOfWork.GetRepositoryFor{TRepository}" />
-    public IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>
+    public IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : EfEntity<long>
     {
         var entityType = typeof(TEntity);
         var repositoryType = _cache.CachedCrudRepos.GetValueOrDefault(entityType);
@@ -105,12 +105,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         return LazilyGetOrCreateRepository<IRepository<TEntity>>(repoCacheData);
     }
 
-    /// <inheritdoc />
-    IRepositoryBase IUnitOfWorkBase.GetRepositoryFor<TEntity, TId>()
-        => GetRepositoryFor<TEntity, TId>();
-
     /// <inheritdoc cref="IUnitOfWork.GetReadOnlyRepositoryFor{TRepository}" />
-    public IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : Entity<long>
+    public IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : EfEntity<long>
     {
         var entityType = typeof(TEntity);
         var repositoryType = _cache.CachedReadOnlyRepos.GetValueOrDefault(entityType);
@@ -126,12 +122,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         return LazilyGetOrCreateRepository<IRepository<TEntity>>(repoCacheData);
     }
 
-    /// <inheritdoc />
-    IRepositoryBase IUnitOfWorkBase.GetRepositoryFor<TEntity>()
-        => GetRepositoryFor<TEntity>();
-
     /// <inheritdoc cref="IUnitOfWork.GetRepositoryFor{TRepository,TId}" />
-    public IRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
+    public IRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : EfEntity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
         var entityType = typeof(TEntity);
@@ -149,7 +141,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     }
 
     /// <inheritdoc cref="IUnitOfWork.GetReadOnlyRepositoryFor{TRepository,TId}" />
-    public IReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
+    public IReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : EfEntity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
         var entityType = typeof(TEntity);

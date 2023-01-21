@@ -11,7 +11,7 @@ namespace DataExplorer.EfCore.Abstractions.Repositories;
 /// <typeparam name="TEntity">Entity that derives from <see cref="Entity"/>.</typeparam>
 /// <typeparam name="TId">Type of the Id in <typeparamref name="TEntity"/>.</typeparam>
 [PublicAPI]
-public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> where TEntity : Entity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> where TEntity : EfEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
     ///     Asynchronously updates database rows for the entity instances which match the LINQ query generated based on the provided specification from the database.
@@ -422,6 +422,6 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
 /// </summary>
 /// <typeparam name="TEntity">Entity that derives from <see cref="Entity"/>.</typeparam>
 [PublicAPI]
-public interface IRepository<TEntity> : IRepository<TEntity,long>, IReadOnlyRepository<TEntity> where TEntity : Entity<long>
+public interface IRepository<TEntity> : IRepository<TEntity,long>, IReadOnlyRepository<TEntity> where TEntity : EfEntity<long>
 {
 }

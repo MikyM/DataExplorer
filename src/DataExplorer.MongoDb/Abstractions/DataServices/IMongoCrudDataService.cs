@@ -1,44 +1,39 @@
 ﻿using System.Linq.Expressions;
 using DataExplorer.Exceptions;
-using MongoDB.Driver;
-using MongoDB.Entities;
+using DataExplorer.MongoDb.Abstractions.DataContexts;
 
-#pragma warning disable CS1574, CS1584, CS1581, CS1580
-
-namespace DataExplorer.MongoDb.Abstractions.Repositories;
+namespace DataExplorer.MongoDb.Abstractions.DataServices;
 
 /// <summary>
-/// Repository.
+/// CRUD data service.
 /// </summary>
-/// <typeparam name="TEntity">Entity that derives from <see cref="Entities.Entity"/>.</typeparam>
-/// <typeparam name="TId">Type of the Id in <typeparamref name="TEntity"/>.</typeparam>
 [PublicAPI]
-public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntity,TId> where TEntity : MongoEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public interface IMongoCrudDataService<TEntity, TId, out TContext> : IMongoReadOnlyDataService<TEntity, TId, TContext>
+    where TEntity : class, IMongoEntity<TId>
+    where TContext : class, IMongoDbContext
+    where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
     /// Creates a collection for an Entity type explicitly using the given options
     /// </summary>
-
     /// <param name="options">The options to use for collection creation</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task CreateCollectionAsync(Action<CreateCollectionOptions<TEntity>> options, CancellationToken cancellation = default);
+    Task<Result> CreateCollectionAsync(Action<CreateCollectionOptions<TEntity>> options, CancellationToken cancellation = default);
 
     /// <summary>
     /// Deletes the collection of a given entity type as well as the join collections for that entity.
     /// <para>TIP: When deleting a collection, all relationships associated with that entity type is also deleted.</para>
     /// </summary>
-
-    Task DropCollectionAsync();
+    Task<Result> DropCollectionAsync();
     
     /// <summary>
     /// Deletes a single entity from MongoDB
     /// <para>HINT: If this entity is referenced by one-to-many/many-to-many relationships, those references are also deleted.</para>
     /// </summary>
-
     /// <param name="id">The Id of the entity to delete</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<DeleteResult> DeleteAsync(string id, CancellationToken cancellation = default,
+    Task<Result<DeleteResult>> DeleteAsync(string id, CancellationToken cancellation = default,
         bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -50,7 +45,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="ids">An IEnumerable of entity IDs</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<DeleteResult> DeleteAsync(IEnumerable<string> ids, CancellationToken cancellation = default,
+    Task<Result<DeleteResult>> DeleteAsync(IEnumerable<string> ids, CancellationToken cancellation = default,
         bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -63,7 +58,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="collation">An optional collation object</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<DeleteResult> DeleteAsync(Expression<Func<TEntity, bool>> expression,
+    Task<Result<DeleteResult>> DeleteAsync(Expression<Func<TEntity, bool>> expression,
         CancellationToken cancellation = default, Collation? collation = null, bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -76,7 +71,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="collation">An optional collation object</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<DeleteResult> DeleteAsync(Func<FilterDefinitionBuilder<TEntity>, FilterDefinition<TEntity>> filter,
+    Task<Result<DeleteResult>> DeleteAsync(Func<FilterDefinitionBuilder<TEntity>, FilterDefinition<TEntity>> filter,
         CancellationToken cancellation = default, Collation? collation = null, bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -89,7 +84,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="collation">An optional collation object</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<DeleteResult> DeleteAsync(FilterDefinition<TEntity> filter, CancellationToken cancellation = default,
+    Task<Result<DeleteResult>> DeleteAsync(FilterDefinition<TEntity> filter, CancellationToken cancellation = default,
         Collation? collation = null, bool ignoreGlobalFilters = false);
     
     /// <summary>
@@ -99,7 +94,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
 
     /// <param name="entity">The instance to persist</param>
     /// <param name="cancellation">And optional cancellation token</param>
-    Task InsertAsync(TEntity entity, CancellationToken cancellation = default);
+    Task<Result> InsertAsync(TEntity entity, CancellationToken cancellation = default);
 
     /// <summary>
     /// Saves a batch of complete entities replacing an existing entities or creating a new ones if they do not exist. 
@@ -108,7 +103,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
 
     /// <param name="entities">The entities to persist</param>
     /// <param name="cancellation">And optional cancellation token</param>
-    Task<BulkWriteResult<TEntity>> InsertAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default);
+    Task<Result<BulkWriteResult<TEntity>>> InsertAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default);
     
     /// <summary>
     /// Starts a replace command for the given entity type
@@ -124,7 +119,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
 
     /// <param name="entity">The instance to persist</param>
     /// <param name="cancellation">And optional cancellation token</param>
-    Task SaveAsync(TEntity entity, CancellationToken cancellation = default);
+    Task<Result> SaveAsync(TEntity entity, CancellationToken cancellation = default);
     
     /// <summary>
     /// Saves a batch of complete entities replacing an existing entities or creating a new ones if they do not exist. 
@@ -133,7 +128,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
 
     /// <param name="entities">The entities to persist</param>
     /// <param name="cancellation">And optional cancellation token</param>
-    Task<BulkWriteResult<TEntity>> SaveAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default);
+    Task<Result<BulkWriteResult<TEntity>>> SaveAsync(IEnumerable<TEntity> entities, CancellationToken cancellation = default);
 
     /// <summary>
     /// Saves an entity partially with only the specified subset of properties. 
@@ -145,7 +140,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entity">The entity to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<UpdateResult> SaveOnlyAsync(TEntity entity, Expression<Func<TEntity, object>> members,
+    Task<Result<UpdateResult>> SaveOnlyAsync(TEntity entity, Expression<Func<TEntity, object>> members,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -158,7 +153,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entity">The entity to save</param>
     /// <param name="propNames">new List { "PropOne", "PropTwo" }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<UpdateResult> SaveOnlyAsync(TEntity entity, IEnumerable<string> propNames,
+    Task<Result<UpdateResult>> SaveOnlyAsync(TEntity entity, IEnumerable<string> propNames,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -171,7 +166,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entities">The batch of entities to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<BulkWriteResult<TEntity>> SaveOnlyAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members,
+    Task<Result<BulkWriteResult<TEntity>>> SaveOnlyAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -184,7 +179,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entities">The batch of entities to save</param>
     /// <param name="propNames">new List { "PropOne", "PropTwo" }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<BulkWriteResult<TEntity>> SaveOnlyAsync(IEnumerable<TEntity> entities, IEnumerable<string> propNames,
+    Task<Result<BulkWriteResult<TEntity>>> SaveOnlyAsync(IEnumerable<TEntity> entities, IEnumerable<string> propNames,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -197,7 +192,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entity">The entity to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<UpdateResult> SaveExceptAsync(TEntity entity, Expression<Func<TEntity, object>> members,
+    Task<Result<UpdateResult>> SaveExceptAsync(TEntity entity, Expression<Func<TEntity, object>> members,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -210,7 +205,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entity">The entity to save</param>
     /// <param name="propNames">new List { "PropOne", "PropTwo" }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<UpdateResult> SaveExceptAsync(TEntity entity, IEnumerable<string> propNames,
+    Task<Result<UpdateResult>> SaveExceptAsync(TEntity entity, IEnumerable<string> propNames,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -223,7 +218,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entities">The batch of entities to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<BulkWriteResult<TEntity>> SaveExceptAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members,
+    Task<Result<BulkWriteResult<TEntity>>> SaveExceptAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -236,7 +231,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entities">The batch of entities to save</param>
     /// <param name="propNames">new List { "PropOne", "PropTwo" }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<BulkWriteResult<TEntity>> SaveExceptAsync(IEnumerable<TEntity> entities, IEnumerable<string> propNames,
+    Task<Result<BulkWriteResult<TEntity>>> SaveExceptAsync(IEnumerable<TEntity> entities, IEnumerable<string> propNames,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -246,7 +241,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
 
     /// <param name="entity">The entity to save</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<UpdateResult> SavePreservingAsync(TEntity entity, CancellationToken cancellation = default);
+    Task<Result<UpdateResult>> SavePreservingAsync(TEntity entity, CancellationToken cancellation = default);
 
     /// <summary>
     /// Starts an update command for the given entity type
@@ -275,7 +270,7 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="entities">Entities to disable.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="DataExplorer.Abstractions.Entities.IDisableableEntity"/>.</exception>
-    Task DisableRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
+    Task<Result> DisableRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
     
     /// <summary>
     ///     <para>
@@ -286,14 +281,14 @@ public interface IMongoRepository<TEntity,TId> : IMongoReadOnlyRepository<TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <exception cref="NotFoundException">Thrown when entity with given Id is not found.</exception>
     /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="DataExplorer.Abstractions.Entities.IDisableableEntity"/>.</exception>
-    Task DisableAsync(TEntity entity, CancellationToken cancellationToken = default);
+    Task<Result> DisableAsync(TEntity entity, CancellationToken cancellationToken = default);
 }
 
 /// <summary>
-/// Repository.
+/// CRUD data service.
 /// </summary>
-/// <typeparam name="TEntity">Entity that derives from <see cref="Entities.Entity"/>.</typeparam>
 [PublicAPI]
-public interface IMongoRepository<TEntity> : IMongoRepository<TEntity,long>, IMongoReadOnlyRepository<TEntity> where TEntity : MongoEntity<long>
+public interface IMongoCrudDataService<TEntity, out TContext> : IMongoCrudDataService<TEntity, long, TContext>, IMongoReadOnlyDataService<TEntity, TContext>
+    where TEntity : class, IMongoEntity<long> where TContext : class, IMongoDbContext
 {
 }

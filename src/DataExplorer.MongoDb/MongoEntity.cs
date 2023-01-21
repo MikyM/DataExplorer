@@ -31,3 +31,11 @@ public abstract class MongoEntity<TId> : Entity<TId>, IMongoEntity<TId> where TI
         set => throw new NotSupportedException();
     }
 }
+
+/// <summary>
+/// Represents a MongoDB entity.
+/// </summary>
+[PublicAPI]
+public abstract class MongoEntity : MongoEntity<long>
+{
+}

@@ -13,9 +13,10 @@ public sealed class EfDataExplorerTypeCache : IEfDataExplorerTypeCache
     internal EfDataExplorerTypeCache()
     {
         EntityTypeIdTypeDictionary ??= AppDomain.CurrentDomain.GetAssemblies().SelectMany(x =>
-                x.GetTypes().Where(y => y.IsClass && !y.IsAbstract && y.IsAssignableToWithGenerics(typeof(IEntity<>))))
+                x.GetTypes().Where(y =>
+                    y.IsClass && !y.IsAbstract && y.IsAssignableToWithGenerics(typeof(IEfEntity<>))))
             .ToDictionary(x => x, x => x.GetIdType());
-        
+
         var cachedCrudRepos = new Dictionary<Type, Type>();
         var cachedReadOnlyRepos = new Dictionary<Type, Type>();
         var cachedCrudGenericIdRepos = new Dictionary<Type, Type>();

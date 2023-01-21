@@ -3,6 +3,7 @@ using AutoMapper;
 using DataExplorer.EfCore.Specifications.Exceptions;
 using DataExplorer.EfCore.Specifications.Expressions;
 using DataExplorer.EfCore.Specifications.Helpers;
+using EFCoreSecondLevelCacheInterceptor;
 
 namespace DataExplorer.EfCore.Specifications.Builders;
 

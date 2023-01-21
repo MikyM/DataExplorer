@@ -1,37 +1,26 @@
 ﻿using System.Linq.Expressions;
-using DataExplorer.Abstractions.Repositories;
 using DataExplorer.MongoDb.Abstractions.DataContexts;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq;
-using MongoDB.Entities;
 
-namespace DataExplorer.MongoDb.Abstractions.Repositories;
+namespace DataExplorer.MongoDb.Abstractions.DataServices;
 
 /// <summary>
-/// Read-only repository.
+/// Read-only data service.
 /// </summary>
-/// <typeparam name="TEntity">Entity that derives from <see cref="Entity{TId}"/>.</typeparam>
-/// <typeparam name="TId">Type of the Id in <typeparamref name="TEntity"/>.</typeparam>
+/// <typeparam name="TEntity">Type of the entity to create the service for, must derive from <see cref="IMongoEntity"/>.</typeparam>
+/// <typeparam name="TContext">Type of the <see cref="MongoDbContext"/> to use.</typeparam>
+/// <typeparam name="TId">Type of the Id of the entity.</typeparam>
 [PublicAPI]
-public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntity : MongoEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public interface IMongoReadOnlyDataService<TEntity, TId, out TContext> : IMongoDataServiceBase<TContext>
+    where TEntity : class, IMongoEntity<TId>
+    where TContext : class, IMongoDbContext
+    where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
-    /// <summary>
-    /// Current <see cref="IMongoDbContext"/>.
-    /// </summary>
-    new IMongoDbContext Context { get; }
-        
-    /// <summary>
-    /// Queryable.
-    /// </summary>
-    IMongoQueryable<TEntity> MongoQueryable { get; }
-
     /// <summary>
     /// Gets a fast estimation of how many documents are in the collection using metadata.
     /// <para>HINT: The estimation may not be exactly accurate.</para>
     /// </summary>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<long> CountEstimatedAsync(CancellationToken cancellation = default);
+    Task<Result<long>> CountEstimatedAsync(CancellationToken cancellation = default);
 
     /// <summary>
     /// Gets an accurate count of how many entities are matched for a given expression/filter
@@ -40,14 +29,14 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="options">An optional CountOptions object</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<long> CountAsync(Expression<Func<TEntity, bool>> expression, CancellationToken cancellation = default,
+    Task<Result<long>> CountAsync(Expression<Func<TEntity, bool>> expression, CancellationToken cancellation = default,
         CountOptions? options = null, bool ignoreGlobalFilters = false);
 
     /// <summary>
     /// Gets an accurate count of how many total entities are in the collection for a given entity type
     /// </summary>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<long> CountAsync(CancellationToken cancellation = default);
+    Task<Result<long>> CountAsync(CancellationToken cancellation = default);
 
     /// <summary>
     /// Gets an accurate count of how many total entities are in the collection for a given entity type
@@ -56,7 +45,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="options">An optional CountOptions object</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<long> CountAsync(FilterDefinition<TEntity> filter, CancellationToken cancellation = default,
+    Task<Result<long>> CountAsync(FilterDefinition<TEntity> filter, CancellationToken cancellation = default,
         CountOptions? options = null, bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -66,7 +55,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="options">An optional CountOptions object</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<long> CountAsync(Func<FilterDefinitionBuilder<TEntity>, FilterDefinition<TEntity>> filter,
+    Task<Result<long>> CountAsync(Func<FilterDefinitionBuilder<TEntity>, FilterDefinition<TEntity>> filter,
         CancellationToken cancellation = default, CountOptions? options = null, bool ignoreGlobalFilters = false);
     
     /// <summary>
@@ -148,7 +137,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<IAsyncCursor<TResult>> PipelineCursorAsync<TResult>(Template<TEntity, TResult> template,
+    Task<Result<IAsyncCursor<TResult>>> PipelineCursorAsync<TResult>(Template<TEntity, TResult> template,
         AggregateOptions? options = null, CancellationToken cancellation = default, bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -160,7 +149,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<List<TResult>> PipelineAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    Task<Result<IReadOnlyList<TResult>>> PipelineAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -172,7 +161,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<TResult> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    Task<Result<TResult>> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -184,7 +173,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<TResult> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    Task<Result<TResult>> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -199,7 +188,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// </summary>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>Number of entities.</returns>
-    Task<long> LongCountAsync(CancellationToken cancellationToken = default);
+    Task<Result<long>> LongCountAsync(CancellationToken cancellationToken = default);
     
     /// <summary>
     /// Counts the entities that satisfy the given predicate.
@@ -207,7 +196,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="predicate">The predicate to filter the entities with.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>Number of entities.</returns>
-    Task<long> LongCountAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
+    Task<Result<long>> LongCountAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Asynchronously determines whether any elements satisfy the given condition.
@@ -215,7 +204,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="predicate">Predicate for the query.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>True if any elements in the source sequence satisfy the condition, otherwise false.</returns>
-    Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
+    Task<Result<bool>> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Gets all entities that satisfy the given predicate.
@@ -223,7 +212,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="predicate">The predicate to filter the entities with.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns><see cref="IReadOnlyList{T}"/> with filtered entities.</returns>
-    Task<IReadOnlyList<TEntity>> WhereAsync(Expression<Func<TEntity, bool>> predicate,
+    Task<Result<IReadOnlyList<TEntity>>> WhereAsync(Expression<Func<TEntity, bool>> predicate,
         CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -232,7 +221,7 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// <param name="predicate">The predicate to filter the entities with.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>If found an instance of the found entity, otherwise null.</returns>
-    Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate,
+    Task<Result<TEntity?>> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate,
         CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -240,14 +229,24 @@ public interface IMongoReadOnlyRepository<TEntity,TId> : IRepositoryBase where T
     /// </summary>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns><see cref="IReadOnlyList{T}"/> with all entities.</returns>
-    Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<Result<IReadOnlyList<TEntity>>> GetAllAsync(CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities and maps them to the destination type.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="IReadOnlyList{T}"/> with all entities.</returns>
+    Task<Result<IReadOnlyList<TGetResult>>> GetAllAsync<TGetResult>(CancellationToken cancellationToken = default)
+        where TGetResult : class;
 }
 
 /// <summary>
-/// Read-only repository.
+/// Read-only data service.
 /// </summary>
-/// <typeparam name="TEntity">Entity that derives from <see cref="Entity{TId}"/>.</typeparam>
+/// <typeparam name="TEntity">Type of the entity to create the service for, must derive from <see cref="IMongoEntity{TId}"/>.</typeparam>
+/// <typeparam name="TContext">Type of the <see cref="MongoDbContext"/> to use.</typeparam>
 [PublicAPI]
-public interface IMongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity,long> where TEntity : MongoEntity<long>
+public interface IMongoReadOnlyDataService<TEntity, out TContext> : IMongoReadOnlyDataService<TEntity, long, TContext>
+    where TEntity : class, IMongoEntity<long> where TContext : class, IMongoDbContext
 {
 }

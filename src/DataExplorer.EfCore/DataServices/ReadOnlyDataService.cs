@@ -14,7 +14,7 @@ namespace DataExplorer.EfCore.DataServices;
 [PublicAPI]
 public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase<TContext>,
     IReadOnlyDataService<TEntity, TId, TContext>
-    where TEntity : Entity<TId>
+    where TEntity : EfEntity<TId>
     where TContext : class, IEfDbContext
     where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
@@ -195,8 +195,16 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TEntity>>> GetBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
-        => await ExToResultWrapAsync(async () =>
-            await ReadOnlyRepository.GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false));
+    {
+        try
+        {
+            return Result<IReadOnlyList<TEntity>>.FromSuccess(await ReadOnlyRepository.GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false));
+        }
+        catch (Exception ex)
+        {
+            return new ExceptionError(ex);
+        }
+    }
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetBySpecAsync<TGetResult>(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
@@ -216,7 +224,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TGetProjectedResult>>> GetBySpecAsync<TGetProjectedResult>(Specifications.ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
-        => await ExToResultWrapAsync(async () => await ReadOnlyRepository.GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false));
+        => await WrapAsync(async () => await ReadOnlyRepository.GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false));
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetAllAsync<TGetResult>(bool shouldProject = false,
@@ -239,23 +247,68 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TEntity>>> GetAllAsync(CancellationToken cancellationToken = default)
-        => await ExToResultWrapAsync(async () => await ReadOnlyRepository.GetAllAsync(cancellationToken).ConfigureAwait(false));
-    
+    {
+        try
+        {
+            return Result<IReadOnlyList<TEntity>>.FromSuccess(await ReadOnlyRepository.GetAllAsync(cancellationToken).ConfigureAwait(false));
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
+
     /// <inheritdoc />
     public virtual async Task<Result<long>> LongCountAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
-        => await ExToResultWrapAsync(async () => await ReadOnlyRepository.LongCountAsync(specification, cancellationToken).ConfigureAwait(false));
-    
+    {
+        try
+        {
+            return Result<long>.FromSuccess(await ReadOnlyRepository.LongCountAsync(specification, cancellationToken).ConfigureAwait(false));
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
+
     /// <inheritdoc />
     public virtual async Task<Result<long>> LongCountAsync(CancellationToken cancellationToken = default)
-        => await ExToResultWrapAsync(async () => await ReadOnlyRepository.LongCountAsync(cancellationToken).ConfigureAwait(false));
+    {
+        try
+        {
+            return Result<long>.FromSuccess(await ReadOnlyRepository.LongCountAsync(cancellationToken).ConfigureAwait(false));
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
 
     /// <inheritdoc />
     public async Task<Result<bool>> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
-        => await ExToResultWrapAsync(async () => await ReadOnlyRepository.AnyAsync(predicate, cancellationToken).ConfigureAwait(false));
+    {
+        try
+        {
+            return Result<bool>.FromSuccess(await ReadOnlyRepository.AnyAsync(predicate, cancellationToken).ConfigureAwait(false));
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
 
     /// <inheritdoc />
     public async Task<Result<bool>> AnyAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
-        => await ExToResultWrapAsync(async () => await ReadOnlyRepository.AnyAsync(specification, cancellationToken).ConfigureAwait(false));
+    {
+        try
+        {
+            return Result<bool>.FromSuccess(await ReadOnlyRepository.AnyAsync(specification, cancellationToken).ConfigureAwait(false));
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
 }
 
 /// <summary>
@@ -264,7 +317,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
 /// <inheritdoc cref="IReadOnlyDataService{TEntity,TContext}"/>
 [PublicAPI]
 public class ReadOnlyDataService<TEntity, TContext> : ReadOnlyDataService<TEntity, long, TContext>, IReadOnlyDataService<TEntity, TContext>
-    where TEntity : Entity<long>
+    where TEntity : EfEntity<long>
     where TContext : class, IEfDbContext
 {
     /// <summary>

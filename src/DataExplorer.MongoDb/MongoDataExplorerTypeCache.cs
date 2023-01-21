@@ -14,7 +14,7 @@ public sealed class MongoDataExplorerTypeCache : IMongoDataExplorerTypeCache
     internal MongoDataExplorerTypeCache()
     {
         EntityTypeIdTypeDictionary ??= AppDomain.CurrentDomain.GetAssemblies().SelectMany(x =>
-                x.GetTypes().Where(y => y.IsClass && !y.IsAbstract && y.IsAssignableToWithGenerics(typeof(IEntity<>))))
+                x.GetTypes().Where(y => y.IsClass && !y.IsAbstract && y.IsAssignableToWithGenerics(typeof(IMongoEntity<>))))
             .ToDictionary(x => x, x => x.GetIdType());
         
         var cachedCrudRepos = new Dictionary<Type, Type>();

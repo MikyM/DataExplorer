@@ -1,6 +1,4 @@
 ﻿using DataExplorer.MongoDb.Abstractions.DataContexts;
-using MongoDB.Driver;
-using MongoDB.Entities;
 
 namespace DataExplorer.MongoDb;
 

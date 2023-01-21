@@ -15,7 +15,7 @@ namespace DataExplorer.EfCore.DataServices;
 [PublicAPI]
 public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEntity, TId, TContext>,
     ICrudDataService<TEntity, TId, TContext>
-    where TEntity : Entity<TId>
+    where TEntity : EfEntity<TId>
     where TContext : class, IEfDbContext
     where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
@@ -517,7 +517,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
 /// <inheritdoc cref="ICrudDataService{TEntity,TContext}"/>
 [PublicAPI]
 public class CrudDataService<TEntity, TContext> : CrudDataService<TEntity, long, TContext>, ICrudDataService<TEntity, TContext>
-    where TEntity : Entity<long> where TContext : class, IEfDbContext
+    where TEntity : EfEntity<long> where TContext : class, IEfDbContext
 {
     /// <summary>
     /// Creates a new instance of <see cref="CrudDataService{TEntity,TContext}"/>.

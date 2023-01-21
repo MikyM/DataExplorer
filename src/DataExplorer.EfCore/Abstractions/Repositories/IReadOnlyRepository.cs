@@ -12,7 +12,7 @@ namespace DataExplorer.EfCore.Abstractions.Repositories;
 /// <typeparam name="TEntity">Entity that derives from <see cref="Entity{TId}"/>.</typeparam>
 /// <typeparam name="TId">Type of the Id in <typeparamref name="TEntity"/>.</typeparam>
 [PublicAPI]
-public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntity : Entity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntity : EfEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
     /// Current <see cref="IEfDbContext"/>.
@@ -178,6 +178,6 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
 /// </summary>
 /// <typeparam name="TEntity">Entity that derives from <see cref="Entity{TId}"/>.</typeparam>
 [PublicAPI]
-public interface IReadOnlyRepository<TEntity> : IReadOnlyRepository<TEntity,long> where TEntity : Entity<long>
+public interface IReadOnlyRepository<TEntity> : IReadOnlyRepository<TEntity,long> where TEntity : EfEntity<long>
 {
 }

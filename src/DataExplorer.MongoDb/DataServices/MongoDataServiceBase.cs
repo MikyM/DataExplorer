@@ -1,32 +1,28 @@
 ﻿using AutoMapper;
 using DataExplorer.Abstractions.DataServices;
 using DataExplorer.Abstractions.UnitOfWork;
-using DataExplorer.EfCore.Abstractions;
-using DataExplorer.EfCore.Abstractions.DataServices;
-using DataExplorer.EfCore.Gridify;
-using Remora.Results;
+using DataExplorer.MongoDb.Abstractions;
+using DataExplorer.MongoDb.Abstractions.DataContexts;
+using DataExplorer.MongoDb.Abstractions.DataServices;
 
-namespace DataExplorer.EfCore.DataServices;
+namespace DataExplorer.MongoDb.DataServices;
 
-/// <inheritdoc cref="IEfCoreDataServiceBase{TContext}"/>
-public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<TContext> where TContext : class, IEfDbContext
+/// <inheritdoc cref="IMongoDataServiceBase{TContext}"/>
+public abstract class MongoDataServiceBase<TContext> : IMongoDataServiceBase<TContext> where TContext : class, IMongoDbContext
 {
     /// <inheritdoc/>
     public IMapper Mapper => UnitOfWork.Mapper;
-
+    
     /// <inheritdoc/>
-    public IGridifyMapperProvider GridifyMapperProvider => UnitOfWork.GridifyMapperProvider;
-
-    /// <inheritdoc/>
-    public IUnitOfWork<TContext> UnitOfWork { get; }
+    public IMongoUnitOfWork<TContext> UnitOfWork { get; }
     
     private bool _disposed;
 
     /// <summary>
-    /// Creates a new instance of <see cref="EfCoreDataServiceBase{TContext}"/>.
+    /// Creates a new instance of <see cref="MongoDataServiceBase{TContext}"/>.
     /// </summary>
-    /// <param name="uof">Instance of <see cref="IUnitOfWork{TContext}"/>.</param>
-    protected EfCoreDataServiceBase(IUnitOfWork<TContext> uof)
+    /// <param name="uof">Instance of <see cref="IMongoUnitOfWork{TContext}"/>.</param>
+    protected MongoDataServiceBase(IMongoUnitOfWork<TContext> uof)
     {
         UnitOfWork = uof;
     }
@@ -52,32 +48,6 @@ public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<T
         {
             await UnitOfWork.CommitAsync(cancellationToken).ConfigureAwait(false);
             return Result.FromSuccess();
-        }
-        catch (Exception ex)
-        {
-            return ex;
-        }
-    }
-
-    /// <inheritdoc />
-    public virtual async Task<Result<int>> CommitWithCountAsync(string auditUserId, CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            return await UnitOfWork.CommitWithCountAsync(auditUserId, cancellationToken).ConfigureAwait(false);
-        }
-        catch (Exception ex)
-        {
-            return ex;
-        }
-    }
-
-    /// <inheritdoc />
-    public virtual async Task<Result<int>> CommitWithCountAsync(CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            return await UnitOfWork.CommitWithCountAsync(cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {

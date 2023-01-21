@@ -122,48 +122,27 @@ public class MongoRepository<TEntity,TId> : MongoReadOnlyRepository<TEntity,TId>
     public UpdateAndGet<TEntity,TEntity> UpdateAndGet()
         => Context.UpdateAndGet<TEntity, TEntity>();
 
-    /// <inheritdoc />
-    public virtual async Task DisableAsync(TId id, CancellationToken cancellationToken = default)
-    {
-        /*var entity = await GetAsync(new object[] { id }, cancellationToken).ConfigureAwait(false);
-        
-        if (entity is not IDisableableEntity)
-            throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
-        
-        BeginUpdate(entity ?? throw new NotFoundException());
-        ((IDisableableEntity)entity).IsDisabled = true;*/
-    }
-
     public virtual async Task DisableAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        if (entity is not IDisableableEntity disableableEntity)
+            throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
+
+        disableableEntity.IsDisabled = true;
+        await entity.SaveAsync(cancellation: cancellationToken);
     }
 
     /// <inheritdoc />
     public virtual async Task DisableRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
-        /*var list = entities.ToList();
+        var list = entities.ToList();
         
         if (list.FirstOrDefault() is not IDisableableEntity)
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
         
-        BeginUpdateRange(list);
         foreach (var entity in list) 
-            ((IDisableableEntity)entity).IsDisabled = true;*/
-    }
+            ((IDisableableEntity)entity).IsDisabled = true;
 
-    /// <inheritdoc />
-    public virtual async Task DisableRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default)
-    {
-        /*var entities = await Set
-            .Join(ids, ent => ent.Id, id => id, (ent, id) => ent)
-            .ToListAsync(cancellationToken).ConfigureAwait(false);
-        
-        if (entities.FirstOrDefault() is not IDisableableEntity)
-            throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
-
-        BeginUpdateRange(entities);
-        entities.ForEach(x => ((IDisableableEntity)x).IsDisabled = true);*/
+        await SaveAsync(list, cancellationToken);
     }
 }
 

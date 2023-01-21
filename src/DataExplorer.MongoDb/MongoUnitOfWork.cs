@@ -91,11 +91,6 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
         return LazilyGetOrCreateRepository<IMongoRepository<TEntity>>(repoCacheData);
     }
 
-    /// <inheritdoc />
-    IRepositoryBase IUnitOfWorkBase.GetRepositoryFor<TEntity, TId>()
-        => throw new NotSupportedException(
-            "MongoDb unit of work does not support GetRepositoryFor methods called from IUnitOfWorkBase interface");
-
     /// <inheritdoc cref="IMongoUnitOfWork.GetReadOnlyRepositoryFor{TRepository}" />
     public IMongoReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : MongoEntity<long>
     {
@@ -112,11 +107,6 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
 
         return LazilyGetOrCreateRepository<IMongoRepository<TEntity>>(repoCacheData);
     }
-
-    /// <inheritdoc />
-    IRepositoryBase IUnitOfWorkBase.GetRepositoryFor<TEntity>()
-        => throw new NotSupportedException(
-            "MongoDb unit of work does not support GetRepositoryFor methods called from IUnitOfWorkBase interface");
 
     /// <inheritdoc cref="IMongoUnitOfWork.GetRepositoryFor{TRepository,TId}" />
     public IMongoRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : MongoEntity<TId>
