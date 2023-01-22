@@ -322,7 +322,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            await Repository.DisableRangeAsync(entities, cancellationToken);
+            await Repository.DisableRangeAsync(entities, cancellationToken).ConfigureAwait(false);
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -336,7 +336,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            await Repository.DisableAsync(entity, cancellationToken);
+            await Repository.DisableAsync(entity, cancellationToken).ConfigureAwait(false);
             return Result.FromSuccess();
         }
         catch (Exception ex)

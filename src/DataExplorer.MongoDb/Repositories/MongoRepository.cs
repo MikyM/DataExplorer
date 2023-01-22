@@ -128,7 +128,7 @@ public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongo
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
 
         disableableEntity.IsDisabled = true;
-        await entity.SaveAsync(cancellation: cancellationToken);
+        await entity.SaveAsync(cancellation: cancellationToken).ConfigureAwait(false);;
     }
 
     /// <inheritdoc />
@@ -142,6 +142,6 @@ public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongo
         foreach (var entity in list) 
             ((IDisableableEntity)entity).IsDisabled = true;
 
-        await SaveAsync(list, cancellationToken);
+        await SaveAsync(list, cancellationToken).ConfigureAwait(false);;
     }
 }
