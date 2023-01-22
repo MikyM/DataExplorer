@@ -17,7 +17,7 @@ public interface IMongoDbContext : IDataContextBase
     /// <summary>
     /// The value of this property will be automatically set on entities when saving/updating if the entity has a ModifiedBy property.
     /// </summary>
-    ModifiedBy ModifiedBy { get; set; }
+    ModifiedBy? ModifiedBy { get; set; }
     
     /// <summary>
     /// Returns the session object used for transactions.

@@ -49,6 +49,10 @@ public static class DataExplorerConfigurationExtensions
         options?.Invoke(config);
 
         /*var ctorFinder = new AllConstructorsFinder();*/
+        
+        var cache = new MongoDataExplorerTypeCache();
+        builder?.RegisterInstance(cache).As<IMongoDataExplorerTypeCache>().SingleInstance();
+        serviceCollection?.AddSingleton<IMongoDataExplorerTypeCache>(cache);
 
         var iopt = Options.Create(config);
         builder?.RegisterInstance(iopt).As<IOptions<DataExplorerMongoDbConfiguration>>().SingleInstance();

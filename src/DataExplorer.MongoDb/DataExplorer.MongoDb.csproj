@@ -5,9 +5,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer.MongoDb</PackageId>
-        <Version>2.0.8</Version>
+        <Version>2.1.0</Version>
         <Authors>Krzysztof Kupisz</Authors>
-        <PackageDescription>Library featuring common patterns in regard to working with MongoDb.</PackageDescription>
+        <PackageDescription>Library featuring common patterns in regard to working with MongoDb based on MongoDB.Entities.</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>

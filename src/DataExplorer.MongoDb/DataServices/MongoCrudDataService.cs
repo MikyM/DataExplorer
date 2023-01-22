@@ -30,7 +30,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     internal override IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IMongoRepository<TEntity>>();
 
     /// <summary>
-    /// Gets the CRUD version of the <see cref="MongoReadOnlyDataService{TEntity,TId,TContext}.BaseRepository"/> (essentially casts it for you).
+    /// Gets the CRUD version of the <see cref="MongoReadOnlyDataService{TEntity,TContext}.BaseRepository"/> (essentially casts it for you).
     /// </summary>
     protected IMongoRepository<TEntity> Repository => (IMongoRepository<TEntity>)BaseRepository;
 
