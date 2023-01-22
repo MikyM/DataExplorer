@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer.EfCore</PackageId>
-        <Version>2.1.0</Version>
+        <Version>2.1.1</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring common patterns (Unit of Work, Repository, Specification, Services) in regard to working with EF Core.</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -30,7 +30,7 @@
       <PackageReference Include="Gridify.EntityFramework" Version="2.8.2" />
       <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="7.0.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.2" />
     </ItemGroup>
 
     <ItemGroup>

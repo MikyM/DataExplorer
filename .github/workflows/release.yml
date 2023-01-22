@@ -45,7 +45,7 @@ jobs:
       run: dotnet nuget push ./src/DataExplorer.EfCore/out/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
     - name: Build solution and generate Mongo NuGet package
       run: | 
-        cd /src/DataExplorer.MongoDb
+        cd src/DataExplorer.MongoDb
         dotnet pack -c Release -o out 
     - name: Push generated Mongo package to NuGet registry
       run: dotnet nuget push ./src/DataExplorer.MongoDb/out/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
