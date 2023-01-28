@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer.MongoDb</PackageId>
-        <Version>2.1.1</Version>
+        <Version>2.1.2</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring common patterns in regard to working with MongoDb based on MongoDB.Entities.</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -26,6 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="MongoDB.Driver.Linq.AsyncEnumerable" Version="2.15.4" />
       <PackageReference Include="MongoDB.Entities" Version="21.0.1" />
     </ItemGroup>
 
