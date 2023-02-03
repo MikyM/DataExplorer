@@ -502,4 +502,17 @@ public interface IMongoDbContext : IDataContextBase
     /// <typeparam name="T">The type of entity</typeparam>
     /// <typeparam name="TProjection">The type of the end result</typeparam>
     UpdateAndGet<T, TProjection> UpdateAndGet<T, TProjection>() where T : IEntity;
+
+    /// <summary>
+    /// Returns a new instance of the supplied IMongoEntity type
+    /// </summary>
+    /// <typeparam name="T">Any class that implements IMongoEntity</typeparam>
+    T Entity<T>() where T : IMongoEntity, new();
+
+    /// <summary>
+    /// Returns a new instance of the supplied IMongoEntity type with the ID set to the supplied value
+    /// </summary>
+    /// <typeparam name="T">Any class that implements IMongoEntity</typeparam>
+    /// <param name="id">The ID to set on the returned instance</param>
+    T Entity<T>(string id) where T : IMongoEntity, new();
 }
