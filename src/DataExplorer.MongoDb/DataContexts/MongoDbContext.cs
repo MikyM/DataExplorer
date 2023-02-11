@@ -21,4 +21,19 @@ public abstract class MongoDbContext : DBContext, IMongoDbContext
 
         ModifiedBy = connectionSettings.ModifiedBy;
     }
+
+    /// <summary>
+    /// Returns a new instance of the supplied IMongoEntity type
+    /// </summary>
+    /// <typeparam name="T">Any class that implements IMongoEntity</typeparam>
+    public T Entity<T>() where T : IMongoEntity, new()
+        => new();
+
+    /// <summary>
+    /// Returns a new instance of the supplied IMongoEntity type with the ID set to the supplied value
+    /// </summary>
+    /// <typeparam name="T">Any class that implements IMongoEntity</typeparam>
+    /// <param name="id">The ID to set on the returned instance</param>
+    public T Entity<T>(string id) where T : IMongoEntity, new()
+        => DB.Entity<T>(id);
 }
