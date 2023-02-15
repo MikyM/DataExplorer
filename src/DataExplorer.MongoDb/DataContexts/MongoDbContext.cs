@@ -9,7 +9,12 @@ namespace DataExplorer.MongoDb.DataContexts;
 [PublicAPI]
 public abstract class MongoDbContext : DBContext, IMongoDbContext
 {
+    /// <inheritdoc/>
     public MongoDbContextOptions Options { get; }
+    /// <inheritdoc/>
+    public IMongoDatabase MongoDatabase => DB.Database(Options.Database);
+    /// <inheritdoc/>
+    public IMongoDatabase GetDatabaseFor<TEntity>() where TEntity : IEntity => DB.Database<TEntity>();
     
     protected MongoDbContext(MongoDbContextOptions connectionSettings)
     {
@@ -18,7 +23,7 @@ public abstract class MongoDbContext : DBContext, IMongoDbContext
         DB.InitAsync(connectionSettings.Database, connectionSettings.MongoClientSettings)
             .GetAwaiter()
             .GetResult();
-
+        
         ModifiedBy = connectionSettings.ModifiedBy;
     }
 

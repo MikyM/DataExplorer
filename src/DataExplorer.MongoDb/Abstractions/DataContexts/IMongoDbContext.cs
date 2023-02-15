@@ -25,6 +25,11 @@ public interface IMongoDbContext : IDataContextBase
     IClientSessionHandle Session { get; }
 
     /// <summary>
+    /// The MongoDB database.
+    /// </summary>
+    IMongoDatabase MongoDatabase { get; }
+
+    /// <summary>
     /// Creates a collection for an Entity type explicitly using the given options
     /// </summary>
     /// <typeparam name="T">The type of entity that will be stored in the created collection</typeparam>
@@ -515,4 +520,11 @@ public interface IMongoDbContext : IDataContextBase
     /// <typeparam name="T">Any class that implements IMongoEntity</typeparam>
     /// <param name="id">The ID to set on the returned instance</param>
     T Entity<T>(string id) where T : IMongoEntity, new();
+
+    /// <summary>
+    /// Gets the MongoDB database for the given entity.
+    /// </summary>
+    /// <typeparam name="TEntity">The entity to get the database for.</typeparam>
+    /// <returns>MongoDB database.</returns>
+    IMongoDatabase GetDatabaseFor<TEntity>() where TEntity : IEntity;
 }
