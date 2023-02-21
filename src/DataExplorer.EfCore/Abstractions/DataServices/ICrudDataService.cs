@@ -70,7 +70,7 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <param name="specification">Specification for the query.</param>
     /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
     /// <returns>The total number of rows deleted in the database.</returns>
-    Task<Result<int>> ExecuteDeleteAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+    Task<Result<int>> ExecuteDeleteAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
     
     /// <summary>
     /// Adds an entry.
@@ -104,6 +104,29 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <param name="userId">Optional Id of the user that is responsible for the changes</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns><see cref="Result"/> with <see cref="IEnumerable{T}"/> containing Ids of the newly created entities</returns>
+    Task<Result<IReadOnlyList<TId>>> AddAsync<TPost>(IEnumerable<TPost> entries, bool shouldSave,
+        string? userId, CancellationToken cancellationToken = default) where TPost : class;
+    
+    /// <summary>
+    /// Adds a range of entries.
+    /// </summary>
+    /// <typeparam name="TPost">Type of the entries</typeparam>
+    /// <param name="entries">Entries to add</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> with <see cref="IEnumerable{T}"/> containing Ids of the newly created entities</returns>
+    Task<Result<IReadOnlyList<TId>>> AddAsync<TPost>(IEnumerable<TPost> entries, bool shouldSave = false,
+        CancellationToken cancellationToken = default) where TPost : class;
+    
+    /// <summary>
+    /// Adds a range of entries.
+    /// </summary>
+    /// <typeparam name="TPost">Type of the entries</typeparam>
+    /// <param name="entries">Entries to add</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="userId">Optional Id of the user that is responsible for the changes</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> with <see cref="IEnumerable{T}"/> containing Ids of the newly created entities</returns>
     Task<Result<IReadOnlyList<TId>>> AddRangeAsync<TPost>(IEnumerable<TPost> entries, bool shouldSave,
         string? userId, CancellationToken cancellationToken = default) where TPost : class;
     
@@ -127,6 +150,15 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <returns><see cref="Result"/> of the operation</returns>
     Result BeginUpdate<TPatch>(TPatch entry, bool shouldSwapAttached = false) where TPatch : class;
 
+    /// <summary>
+    /// Begins updating a range of entries.
+    /// </summary>
+    /// <typeparam name="TPatch">Type of the entries</typeparam>
+    /// <param name="entries">Entries to attach</param>
+    /// <param name="shouldSwapAttached">Whether to swap existing entities with same primary keys attached to current <see cref="DbContext"/> with new ones </param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Result BeginUpdate<TPatch>(IEnumerable<TPatch> entries, bool shouldSwapAttached = false) where TPatch : class;
+    
     /// <summary>
     /// Begins updating a range of entries.
     /// </summary>
@@ -178,6 +210,46 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <returns><see cref="Result"/> of the operation</returns>
     Task<Result> DeleteAsync(TId id, bool shouldSave = false, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Deletes a range of entities.
+    /// </summary>
+    /// <param name="entries">Entries to delete</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DeleteAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave, CancellationToken cancellationToken = default)
+        where TDelete : class;
+    
+    /// <summary>
+    /// Deletes a range of entities.
+    /// </summary>
+    /// <param name="ids">Ids of the entities to delete</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DeleteAsync(IEnumerable<TId> ids, bool shouldSave, CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Deletes a range of entities.
+    /// </summary>
+    /// <param name="entries">Entries to delete</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="userId">Optional Id of the user that is responsible for the changes</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DeleteAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave, string? userId, CancellationToken cancellationToken = default)
+        where TDelete : class;
+    
+    /// <summary>
+    /// Deletes a range of entities.
+    /// </summary>
+    /// <param name="ids">Ids of the entities to delete</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="userId">Optional Id of the user that is responsible for the changes</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DeleteAsync(IEnumerable<TId> ids, bool shouldSave, string? userId, CancellationToken cancellationToken = default);
+    
     /// <summary>
     /// Deletes a range of entities.
     /// </summary>
@@ -260,6 +332,48 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <returns><see cref="Result"/> of the operation</returns>
     Task<Result> DisableAsync(TId id, bool shouldSave = false, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Disables a range of entities.
+    /// </summary>
+    /// <typeparam name="TDisable">Type of the entry</typeparam>
+    /// <param name="entries">Entries to disable</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="userId">Optional Id of the user that is responsible for the changes</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DisableAsync<TDisable>(IEnumerable<TDisable> entries, bool shouldSave,
+        string? userId, CancellationToken cancellationToken = default) where TDisable : class;
+    
+    /// <summary>
+    /// Disables a range of entities.
+    /// </summary>
+    /// <typeparam name="TDisable">Type of the entry</typeparam>
+    /// <param name="entries">Entries to disable</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DisableAsync<TDisable>(IEnumerable<TDisable> entries, bool shouldSave = false,
+        CancellationToken cancellationToken = default) where TDisable : class;
+    
+    /// <summary>
+    /// Disables a range of entities.
+    /// </summary>
+    /// <param name="ids">Ids of the entities to disable</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="userId">Optional Id of the user that is responsible for the changes</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DisableAsync(IEnumerable<TId> ids, bool shouldSave, string? userId, CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Disables a range of entities.
+    /// </summary>
+    /// <param name="ids">Ids of the entities to disable</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DisableAsync(IEnumerable<TId> ids, bool shouldSave = false, CancellationToken cancellationToken = default);
+    
     /// <summary>
     /// Disables a range of entities.
     /// </summary>
