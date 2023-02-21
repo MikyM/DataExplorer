@@ -111,12 +111,13 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return default;
 
+            Result commitResult;
             if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
+                commitResult = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return entity.Id;
+                commitResult = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
+            
+            return !commitResult.IsSuccess ? Result<TId?>.FromError(commitResult) : entity.Id;
         }
         catch (Exception ex)
         {
@@ -153,12 +154,15 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return new List<TId>().AsReadOnly();
 
+            Result commitResult;
             if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
+                commitResult = await CommitAsync(cancellationToken).ConfigureAwait(false);
             else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
+                commitResult = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
 
-            return Result<IReadOnlyList<TId>>.FromSuccess(entities.Select(e => e.Id).ToList().AsReadOnly());
+            return !commitResult.IsSuccess 
+                ? Result<IReadOnlyList<TId>>.FromError(commitResult) 
+                : Result<IReadOnlyList<TId>>.FromSuccess(entities.Select(e => e.Id).ToList().AsReadOnly());
         }
         catch (Exception ex)
         {
@@ -209,8 +213,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                     Repository.BeginUpdateRange(rootEntities, shouldSwapAttached);
                     break;
                 default:
-                    Repository
-                        .BeginUpdateRange(Mapper.Map<IEnumerable<TEntity>>(entries), shouldSwapAttached);
+                    Repository.BeginUpdateRange(Mapper.Map<IEnumerable<TEntity>>(entries), shouldSwapAttached);
                     break;
             }
 
@@ -248,12 +251,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return Result.FromSuccess();
 
-            if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
-            else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return Result.FromSuccess();
+            return userId is null 
+                ? await CommitAsync(cancellationToken).ConfigureAwait(false)
+                : await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -294,12 +294,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return Result.FromSuccess();
 
-            if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
-            else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return Result.FromSuccess();
+            return userId is null 
+                ? await CommitAsync(cancellationToken).ConfigureAwait(false)
+                : await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -323,12 +320,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return Result.FromSuccess();
 
-            if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
-            else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return Result.FromSuccess();
+            return userId is null 
+                ? await CommitAsync(cancellationToken).ConfigureAwait(false)
+                : await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -364,12 +358,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return Result.FromSuccess();
 
-            if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
-            else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return Result.FromSuccess();
+            return userId is null 
+                ? await CommitAsync(cancellationToken).ConfigureAwait(false)
+                : await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -411,12 +402,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return Result.FromSuccess();
 
-            if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
-            else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return Result.FromSuccess();
+            return userId is null 
+                ? await CommitAsync(cancellationToken).ConfigureAwait(false)
+                : await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -450,12 +438,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return Result.FromSuccess();
 
-            if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
-            else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return Result.FromSuccess();
+            return userId is null 
+                ? await CommitAsync(cancellationToken).ConfigureAwait(false)
+                : await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -479,12 +464,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return Result.FromSuccess();
 
-            if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
-            else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return Result.FromSuccess();
+            return userId is null 
+                ? await CommitAsync(cancellationToken).ConfigureAwait(false)
+                : await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -545,12 +527,9 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             if (!shouldSave)
                 return Result.FromSuccess();
 
-            if (userId is null)
-                _ = await CommitAsync(cancellationToken).ConfigureAwait(false);
-            else
-                _ = await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
-
-            return Result.FromSuccess();
+            return userId is null 
+                ? await CommitAsync(cancellationToken).ConfigureAwait(false)
+                : await CommitAsync(userId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
