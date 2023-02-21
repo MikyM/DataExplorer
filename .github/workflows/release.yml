@@ -36,19 +36,19 @@ jobs:
         cd src/DataExplorer
         dotnet pack -c Release -o out 
     - name: Push generated base package to NuGet registry
-      run: dotnet nuget push ./src/DataExplorer/out/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./src/DataExplorer/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
     - name: Build solution and generate Ef NuGet package
       run: | 
         cd src/DataExplorer.EfCore
         dotnet pack -c Release -o out 
     - name: Push generated Ef package to NuGet registry
-      run: dotnet nuget push ./src/DataExplorer.EfCore/out/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./src/DataExplorer.EfCore/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
     - name: Build solution and generate Mongo NuGet package
       run: | 
         cd src/DataExplorer.MongoDb
         dotnet pack -c Release -o out 
     - name: Push generated Mongo package to NuGet registry
-      run: dotnet nuget push ./src/DataExplorer.MongoDb/out/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./src/DataExplorer.MongoDb/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
     - name: Build Docs
       run: dotnet tool restore && cd ./docs && dotnet docfx metadata
     - name: Build Docs
