@@ -38,8 +38,6 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
     /// </summary>
     protected Entity()
     {
-        CreatedAt ??= DateTime.UtcNow;
-        UpdatedAt ??= CreatedAt;
     }
 
     /// <summary>
@@ -47,8 +45,6 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
     /// </summary>
     protected Entity(TId id)
     {
-        CreatedAt ??= DateTime.UtcNow;
-        UpdatedAt ??= CreatedAt;
         Id = id;
     }
 
@@ -58,12 +54,6 @@ public abstract class Entity<TId> : EntityBase, IEntity<TId>, IEquatable<IEntity
     
     /// <inheritdoc />
     public virtual TId Id { get; protected set; } = default!;
-
-    /// <inheritdoc />
-    public virtual DateTime? CreatedAt { get; set; }
-
-    /// <inheritdoc />
-    public virtual DateTime? UpdatedAt { get; set; }
 
     /// <summary>
     /// Returns the string representation of the Id of this entity.

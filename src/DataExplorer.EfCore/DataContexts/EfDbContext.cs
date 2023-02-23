@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Options;
+// ReSharper disable SuspiciousTypeConversion.Global
 
 namespace DataExplorer.EfCore.DataContexts;
 
@@ -104,6 +105,13 @@ public abstract class EfDbContext : DbContext, IEfDbContext
             ChangeTracker.DetectChanges();
             entries = ChangeTracker.Entries().ToList();
         }
+
+        var now = Config.Value.DateTimeStrategy switch
+        {
+            DateTimeStrategy.UtcNow => DateTime.UtcNow,
+            DateTimeStrategy.Now => DateTime.Now,
+            _ => throw new ArgumentOutOfRangeException()
+        };
         
         foreach (var entry in entries)
         {
@@ -111,19 +119,24 @@ public abstract class EfDbContext : DbContext, IEfDbContext
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        if (entity.CreatedAt is null)
+                        if (entity is ICreatedAt { CreatedAt: null } createdAt)
                         {
-                            entity.CreatedAt = DateTime.UtcNow;
-                            entry.Property("CreatedAt").IsModified = true;
+                            createdAt.CreatedAt = now;
+                            entry.Property(nameof(ICreatedAt.CreatedAt)).IsModified = true;
+
+                            if (entity is IUpdatedAt { UpdatedAt: null } addedUpdatedAt)
+                            {
+                                addedUpdatedAt.UpdatedAt = now;
+                                entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified = true;
+                            }
                         }
                         break;
                     case EntityState.Modified:
-                        if (!entry.Property("UpdatedAt").IsModified)
+                        if (entity is IUpdatedAt updatedAt && !entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified)
                         {
-                            entity.UpdatedAt = DateTime.UtcNow;
-                            entry.Property("UpdatedAt").IsModified = true;
+                            updatedAt.UpdatedAt = now;
+                            entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified = true;
                         }
-                        entry.Property("CreatedAt").IsModified = false;  
                         break;
                 }
         }

@@ -24,16 +24,6 @@ public interface IEntity<TId> : IEntityBase where TId : IComparable, IEquatable<
     /// The Id of the entity.
     /// </summary>
     public TId Id { get; }
-
-    /// <summary>
-    /// Creation date of the entity.
-    /// </summary>
-    public DateTime? CreatedAt { get; set; }
-
-    /// <summary>
-    /// Last update date of the entity.
-    /// </summary>
-    public DateTime? UpdatedAt { get; set; }
 }
 
 /// <summary>

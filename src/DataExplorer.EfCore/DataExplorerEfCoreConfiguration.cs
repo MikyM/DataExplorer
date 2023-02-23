@@ -62,6 +62,11 @@ public class DataExplorerEfCoreConfiguration
     public bool EnableIncludeCache { get; set; } = false;
 
     /// <summary>
+    /// Whether to use <see cref="DateTime.Now"/> or <see cref="DateTime.UtcNow"/> for <see cref="IUpdatedAt"/> and <see cref="ICreatedAt"/> entities. Defaults to UtcNow.
+    /// </summary>
+    public DateTimeStrategy DateTimeStrategy { get; set; } = DateTimeStrategy.UtcNow;
+
+    /// <summary>
     /// Disables the insertion of audit log entries.
     /// </summary>
 
