@@ -23,9 +23,9 @@ public class UpdateSpecification<T> : BasicSpecification<T>, IUpdateSpecificatio
     ///         multiple columns.
     /// </summary>
     /// <param name="setPropertyCalls">The updates to execute.</param>
-    public UpdateSpecification<T> Set(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls)
+    public UpdateSpecification<T> Modify(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls)
     {
-        Query.Set(setPropertyCalls);
+        Query.Modify(setPropertyCalls);
         return this;
     }
 
@@ -35,9 +35,9 @@ public class UpdateSpecification<T> : BasicSpecification<T>, IUpdateSpecificatio
     /// </summary>
     /// <param name="setPropertyCalls">The updates to execute.</param>
     /// <param name="condition">If false, the criteria won't be added.</param>
-    public UpdateSpecification<T> Set(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls, bool condition)
+    public UpdateSpecification<T> Modify(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls, bool condition)
     {
-        Query.Set(setPropertyCalls, condition);
+        Query.Modify(setPropertyCalls, condition);
         return this;
     }
 }

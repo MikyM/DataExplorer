@@ -20,9 +20,9 @@ public static class SpecificationBuilderExtensions
     /// <typeparam name="T"></typeparam>
     /// <param name="specificationBuilder">The builder.</param>
     /// <param name="setPropertyCalls">The updates to execute.</param>
-    public static IUpdateSpecificationBuilder<T> Set<T>(this IUpdateSpecificationBuilder<T> specificationBuilder,
+    public static IUpdateSpecificationBuilder<T> Modify<T>(this IUpdateSpecificationBuilder<T> specificationBuilder,
         Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls) where T : class =>
-        Set(specificationBuilder, setPropertyCalls, true);
+        Modify(specificationBuilder, setPropertyCalls, true);
 
     /// <summary>
     ///         Specify property and value to be set in ExecuteUpdate method with chaining multiple calls for updating
@@ -32,7 +32,7 @@ public static class SpecificationBuilderExtensions
     /// <param name="specificationBuilder">The builder.</param>
     /// <param name="setPropertyCalls">The updates to execute.</param>
     /// <param name="condition">If false, the criteria won't be added.</param>
-    public static IUpdateSpecificationBuilder<T> Set<T>(this IUpdateSpecificationBuilder<T> specificationBuilder,
+    public static IUpdateSpecificationBuilder<T> Modify<T>(this IUpdateSpecificationBuilder<T> specificationBuilder,
         Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls, bool condition) where T : class
     {
         if (condition)
