@@ -1,4 +1,5 @@
-﻿using DataExplorer.MongoDb.Repositories;
+﻿using System.Reflection;
+using DataExplorer.MongoDb.Repositories;
 using MikyM.Utilities.Extensions;
 
 namespace DataExplorer.MongoDb;
@@ -9,9 +10,9 @@ namespace DataExplorer.MongoDb;
 [PublicAPI]
 public sealed class MongoDataExplorerTypeCache : IMongoDataExplorerTypeCache
 {
-    internal MongoDataExplorerTypeCache()
+    internal MongoDataExplorerTypeCache(IEnumerable<Assembly> assembliesWithEntities)
     {
-        EntityTypes ??= AppDomain.CurrentDomain.GetAssemblies().SelectMany(x =>
+        EntityTypes ??= assembliesWithEntities.SelectMany(x =>
             x.GetTypes().Where(y => y.IsClass && !y.IsAbstract && y.IsAssignableToWithGenerics(typeof(IMongoEntity)))).ToList().AsReadOnly();
 
         var cachedCrudRepos = new Dictionary<Type, Type>();

@@ -55,12 +55,35 @@ public static class DataExplorerConfigurationExtensions
     /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
     /// </remarks>
     /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
-    /// <param name="assembliesContainingTypesToScan">Assemblies containing types to scan DataExplorer services such as data services, validators, evaluators etc. and entities</param>
+    /// <param name="assembliesToScanForServices">Assemblies containing types to scan DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="assembliesToScanForEntities">Assemblies containing entity types.</param>
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
     public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration,
-        IEnumerable<Type> assembliesContainingTypesToScan, Action<DataExplorerEfCoreConfiguration>? options = null)
-        => AddEfCore(configuration, assembliesContainingTypesToScan.Select(x => x.Assembly).Distinct(), options);
-        
+        IEnumerable<Type> assembliesToScanForServices,
+        IEnumerable<Type> assembliesToScanForEntities,
+        Action<DataExplorerEfCoreConfiguration>? options = null)
+        => AddEfCore(configuration, 
+            assembliesToScanForServices.Select(x => x.Assembly).Distinct(), 
+            assembliesToScanForEntities.Select(x => x.Assembly).Distinct(),
+            options);
+
+        /// <summary>
+    /// Adds Data Access Layer to the application.
+    /// </summary>
+    /// <remarks>
+    /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
+    /// </remarks>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration,
+        IEnumerable<Assembly> assembliesToScan,
+        Action<DataExplorerEfCoreConfiguration>? options = null)
+    {
+        var arr = assembliesToScan.ToArray();
+        return AddEfCore(configuration, arr.Distinct(), arr.Distinct(), options);
+    }
+    
     /// <summary>
     /// Adds Data Access Layer to the application.
     /// </summary>
@@ -70,7 +93,62 @@ public static class DataExplorerConfigurationExtensions
     /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
     /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
-    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration, IEnumerable<Assembly> assembliesToScan, Action<DataExplorerEfCoreConfiguration>? options = null)
+    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration,
+        Action<DataExplorerEfCoreConfiguration> options,
+        params Type[] assembliesToScan)
+    {
+        var arr = assembliesToScan.Select(x => x.Assembly).ToArray();
+        return AddEfCore(configuration, arr.Distinct(), arr.Distinct(), options);
+    }
+    
+    /// <summary>
+    /// Adds Data Access Layer to the application.
+    /// </summary>
+    /// <remarks>
+    /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
+    /// </remarks>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration,
+        Action<DataExplorerEfCoreConfiguration> options,
+        params Assembly[] assembliesToScan)
+    {
+        var arr = assembliesToScan.ToArray();
+        return AddEfCore(configuration, arr.Distinct(), arr.Distinct(), options);
+    }
+    
+    /// <summary>
+    /// Adds Data Access Layer to the application.
+    /// </summary>
+    /// <remarks>
+    /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
+    /// </remarks>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration,
+        IEnumerable<Type> assembliesToScan,
+        Action<DataExplorerEfCoreConfiguration>? options = null)
+    {
+        var arr = assembliesToScan.Select(x => x.Assembly).ToArray();
+        return AddEfCore(configuration, arr.Distinct(), arr.Distinct(), options);
+    }
+
+    /// <summary>
+    /// Adds Data Access Layer to the application.
+    /// </summary>
+    /// <remarks>
+    /// Automatically registers all base <see cref="IValidator"/> types, <see cref="IInMemoryEvaluator"/> types, <see cref="IEvaluator"/> types, <see cref="IProjectionEvaluator"/>, <see cref="ISpecificationValidator"/>, <see cref="IInMemorySpecificationEvaluator"/>, <see cref="ISpecificationEvaluator"/>, <see cref="IUnitOfWork"/>, <see cref="ICrudDataService{TEntity,TId,TContext}"/>, <see cref="ICrudDataService{TEntity,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TId,TContext}"/>, <see cref="IReadOnlyDataService{TEntity,TContext}"/>, <see cref="IDataServiceBase{TContext}"/> with the DI container.
+    /// </remarks>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScanForServices">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="assembliesToScanForEntities">Assemblies to scan for entities.</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddEfCore(this DataExplorerConfiguration configuration, 
+        IEnumerable<Assembly> assembliesToScanForServices, 
+        IEnumerable<Assembly> assembliesToScanForEntities,
+        Action<DataExplorerEfCoreConfiguration>? options = null)
     {
         var builder = configuration.Builder;
         var serviceCollection = configuration.ServiceCollection;
@@ -79,9 +157,9 @@ public static class DataExplorerConfigurationExtensions
         
         GridifyGlobalConfiguration.EnableEntityFrameworkCompatibilityLayer();
 
-        var toScan = assembliesToScan.ToArray();
+        var toScan = assembliesToScanForServices.ToArray();
         
-        var cache = new EfDataExplorerTypeCache();
+        var cache = new EfDataExplorerTypeCache(assembliesToScanForEntities);
         builder?.RegisterInstance(cache).As<IEfDataExplorerTypeCache>().SingleInstance();
         serviceCollection?.AddSingleton<IEfDataExplorerTypeCache>(cache);
 

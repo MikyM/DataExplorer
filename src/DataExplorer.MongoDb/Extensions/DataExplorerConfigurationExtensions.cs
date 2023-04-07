@@ -29,19 +29,82 @@ public static class DataExplorerConfigurationExtensions
     /// Adds MongoDB DAL to the application.
     /// </summary>
     /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
-    /// <param name="assembliesContainingTypesToScan">Assemblies containing types to scan DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="assembliesToScanForServices">Assemblies containing types to scan DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="assembliesToScanForEntities">Assemblies containing entity types.</param>
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
     public static DataExplorerConfiguration AddMongoDb(this DataExplorerConfiguration configuration,
-        IEnumerable<Type> assembliesContainingTypesToScan, Action<DataExplorerMongoDbConfiguration>? options = null)
-        => AddMongoDb(configuration, assembliesContainingTypesToScan.Select(x => x.Assembly).Distinct(), options);
-        
+        IEnumerable<Type> assembliesToScanForServices,
+        IEnumerable<Type> assembliesToScanForEntities,
+        Action<DataExplorerMongoDbConfiguration>? options = null)
+        => AddMongoDb(configuration, 
+            assembliesToScanForServices.Select(x => x.Assembly).Distinct(), 
+            assembliesToScanForEntities.Select(x => x.Assembly).Distinct(),
+            options);
+
     /// <summary>
     /// Adds MongoDB DAL to the application.
     /// </summary>
     /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
-    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
-    public static DataExplorerConfiguration AddMongoDb(this DataExplorerConfiguration configuration, IEnumerable<Assembly> assembliesToScan, Action<DataExplorerMongoDbConfiguration>? options = null)
+    public static DataExplorerConfiguration AddMongoDb(this DataExplorerConfiguration configuration,
+        IEnumerable<Assembly> assembliesToScan,
+        Action<DataExplorerMongoDbConfiguration>? options = null)
+    {
+        var arr = assembliesToScan.ToArray();
+        return AddMongoDb(configuration, arr.Distinct(), arr.Distinct(), options);
+    }
+    
+    /// <summary>
+    /// Adds MongoDB DAL to the application.
+    /// </summary>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddMongoDb(this DataExplorerConfiguration configuration,
+        Action<DataExplorerMongoDbConfiguration> options,
+        params Type[] assembliesToScan)
+    {
+        var arr = assembliesToScan.Select(x => x.Assembly).ToArray();
+        return AddMongoDb(configuration, arr.Distinct(), arr.Distinct(), options);
+    }
+    
+    /// <summary>
+    /// Adds MongoDB DAL to the application.
+    /// </summary>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddMongoDb(this DataExplorerConfiguration configuration,
+        Action<DataExplorerMongoDbConfiguration> options,
+        params Assembly[] assembliesToScan)
+    {
+        var arr = assembliesToScan.ToArray();
+        return AddMongoDb(configuration, arr.Distinct(), arr.Distinct(), options);
+    }
+    
+    /// <summary>
+    /// Adds MongoDB DAL to the application.
+    /// </summary>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScan">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc. and entities</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddMongoDb(this DataExplorerConfiguration configuration,
+        IEnumerable<Type> assembliesToScan,
+        Action<DataExplorerMongoDbConfiguration>? options = null)
+    {
+        var arr = assembliesToScan.Select(x => x.Assembly).ToArray();
+        return AddMongoDb(configuration, arr.Distinct(), arr.Distinct(), options);
+    }
+    
+    /// <summary>
+    /// Adds MongoDB DAL to the application.
+    /// </summary>
+    /// <param name="configuration">Current instance of <see cref="DataExplorerConfiguration"/></param>
+    /// <param name="assembliesToScanForServices">Assemblies to scan for DataExplorer services such as data services, validators, evaluators etc.</param>
+    /// <param name="assembliesToScanForEntities">Assemblies to scan for DataExplorer entities.</param>
+    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
+    public static DataExplorerConfiguration AddMongoDb(this DataExplorerConfiguration configuration, IEnumerable<Assembly> assembliesToScanForServices, IEnumerable<Assembly> assembliesToScanForEntities, Action<DataExplorerMongoDbConfiguration>? options = null)
     {
         var builder = configuration.Builder;
         var serviceCollection = configuration.ServiceCollection;
@@ -50,7 +113,7 @@ public static class DataExplorerConfigurationExtensions
 
         /*var ctorFinder = new AllConstructorsFinder();*/
         
-        var cache = new MongoDataExplorerTypeCache();
+        var cache = new MongoDataExplorerTypeCache(assembliesToScanForEntities);
         builder?.RegisterInstance(cache).As<IMongoDataExplorerTypeCache>().SingleInstance();
         serviceCollection?.AddSingleton<IMongoDataExplorerTypeCache>(cache);
 
@@ -63,7 +126,7 @@ public static class DataExplorerConfigurationExtensions
         serviceCollection?.AddSingleton(x => x.GetRequiredService<IOptions<DataExplorerMongoDbConfiguration>>().Value);
         serviceCollection?.AddScoped(typeof(IMongoUnitOfWork<>), typeof(MongoUnitOfWork<>));
 
-        var toScan = assembliesToScan.ToList();
+        var toScan = assembliesToScanForServices.ToList();
 
 
         IRegistrationBuilder<object, ReflectionActivatorData, DynamicRegistrationStyle>? registReadOnlyBuilder;

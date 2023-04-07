@@ -1,4 +1,5 @@
-﻿using DataExplorer.EfCore.Extensions;
+﻿using System.Reflection;
+using DataExplorer.EfCore.Extensions;
 using DataExplorer.EfCore.Repositories;
 using MikyM.Utilities.Extensions;
 
@@ -10,9 +11,9 @@ namespace DataExplorer.EfCore;
 [PublicAPI]
 public sealed class EfDataExplorerTypeCache : IEfDataExplorerTypeCache
 {
-    internal EfDataExplorerTypeCache()
+    internal EfDataExplorerTypeCache(IEnumerable<Assembly> assembliesWithEntityTypes)
     {
-        EntityTypeIdTypeDictionary ??= AppDomain.CurrentDomain.GetAssemblies().SelectMany(x =>
+        EntityTypeIdTypeDictionary ??= assembliesWithEntityTypes.SelectMany(x =>
                 x.GetTypes().Where(y =>
                     y.IsClass && !y.IsAbstract && y.IsAssignableToWithGenerics(typeof(IEntity<>))))
             .ToDictionary(x => x, x => x.GetIdType());
