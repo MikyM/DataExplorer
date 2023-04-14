@@ -2,6 +2,7 @@
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.EfCore.Abstractions;
 using DataExplorer.EfCore.Abstractions.DataServices;
+using DataExplorer.EfCore.Specifications;
 using Gridify;
 using Remora.Results;
 
@@ -88,6 +89,19 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
+    public Result<IAsyncEnumerable<TEntity>> AsAsyncEnumerable(ISpecification<TEntity> specification)
+    {
+        try
+        {
+            return Result<IAsyncEnumerable<TEntity>>.FromSuccess(ReadOnlyRepository.AsAsyncEnumerable(specification));
+        }
+        catch (Exception ex)
+        {
+            return new ExceptionError(ex);
+        }
+    }
+
+    /// <inheritdoc />
     public virtual async Task<Result<Paging<TEntity>>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
         CancellationToken cancellationToken = default)
     {
@@ -150,9 +164,31 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
             return new ExceptionError(ex);
         }
     }
+    
+    /// <inheritdoc />
+    public virtual async Task<Result<Paging<TEntity>>> GetAsync(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default)
+        => await GetByGridifyQueryAsync(gridifyQuery, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public virtual async Task<Result<TEntity>> GetSingleBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Result<Paging<TEntity>>> GetAsync(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
+        => await GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
+    
+    /// <inheritdoc />
+    public virtual async Task<Result<Paging<TResult>>> GetAsync<TResult>(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation,
+        CancellationToken cancellationToken = default)
+        => await GetByGridifyQueryAsync<TResult>(gridifyQuery, resultTransformation, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Result<Paging<TResult>>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
+        ResultTransformation resultTransformation,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
+        => await GetByGridifyQueryAsync<TResult>(gridifyQuery, resultTransformation, gridifyMapper, cancellationToken)
+            .ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Result<TEntity>> GetSingleBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -166,7 +202,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<TGetResult>> GetSingleBySpecAsync<TGetResult>(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
+    public virtual async Task<Result<TGetResult>> GetSingleBySpecAsync<TGetResult>(ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
     {
         try
         {
@@ -180,7 +216,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<TGetProjectedResult>> GetSingleBySpecAsync<TGetProjectedResult>(Specifications.ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Result<TGetProjectedResult>> GetSingleBySpecAsync<TGetProjectedResult>(ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -192,9 +228,22 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
             return new ExceptionError(ex);
         }
     }
+    
+    /// <inheritdoc />
+    public virtual async Task<Result<TEntity>> GetSingleAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+        => await GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public virtual async Task<Result<IReadOnlyList<TEntity>>> GetBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Result<TGetResult>> GetSingleAsync<TGetResult>(ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
+        => await GetSingleBySpecAsync<TGetResult>(specification, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Result<TGetProjectedResult>> GetSingleAsync<TGetProjectedResult>(
+        ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
+        => await GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Result<IReadOnlyList<TEntity>>> GetBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -207,7 +256,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetBySpecAsync<TGetResult>(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
+    public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetBySpecAsync<TGetResult>(ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
     {
         try
         {
@@ -223,8 +272,23 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<IReadOnlyList<TGetProjectedResult>>> GetBySpecAsync<TGetProjectedResult>(Specifications.ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Result<IReadOnlyList<TGetProjectedResult>>> GetBySpecAsync<TGetProjectedResult>(ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
         => await WrapAsync(async () => await ReadOnlyRepository.GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false));
+
+    /// <inheritdoc />
+    public virtual async Task<Result<IReadOnlyList<TEntity>>> GetAsync(ISpecification<TEntity> specification,
+        CancellationToken cancellationToken = default)
+        => await GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetAsync<TGetResult>(ISpecification<TEntity> specification, CancellationToken cancellationToken = default) where TGetResult : class
+        => await GetBySpecAsync<TGetResult>(specification, cancellationToken).ConfigureAwait(false);
+
+
+    /// <inheritdoc />
+    public virtual async Task<Result<IReadOnlyList<TGetProjectedResult>>> GetAsync<TGetProjectedResult>(
+        ISpecification<TEntity, TGetProjectedResult> specification, CancellationToken cancellationToken = default)
+        => await GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
     public virtual async Task<Result<IReadOnlyList<TGetResult>>> GetAllAsync<TGetResult>(bool shouldProject = false,
@@ -259,7 +323,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result<long>> LongCountAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Result<long>> LongCountAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -298,7 +362,7 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     }
 
     /// <inheritdoc />
-    public async Task<Result<bool>> AnyAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public async Task<Result<bool>> AnyAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
     {
         try
         {

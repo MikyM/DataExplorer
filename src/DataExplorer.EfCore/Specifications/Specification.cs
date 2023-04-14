@@ -47,6 +47,9 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
 
     /// <inheritdoc/>
     public Expression<Func<T, TResult>>? Selector { get; internal set; }
+    
+    /// <inheritdoc/>
+    public Expression<Func<T, IEnumerable<TResult>>>? SelectorMany { get; internal set; }
 
     /// <inheritdoc />
     public IConfigurationProvider? MapperConfigurationProvider { get; set; }

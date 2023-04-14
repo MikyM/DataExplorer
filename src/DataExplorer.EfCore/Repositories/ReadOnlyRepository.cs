@@ -4,6 +4,7 @@ using AutoMapper.QueryableExtensions;
 using DataExplorer.Abstractions.DataContexts;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.EfCore.Gridify;
+using DataExplorer.EfCore.Specifications;
 using Gridify;
 using Gridify.EntityFramework;
 using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
@@ -69,18 +70,31 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
         => await Set.FindAsync(keyValues, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public virtual async Task<TEntity?> GetSingleBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<TEntity?> GetSingleBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
         => await ApplySpecification(specification)
             .FirstOrDefaultAsync(cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public virtual async Task<TResult?> GetSingleBySpecAsync<TResult>(Specifications.ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<TResult?> GetSingleBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
     {
         specification.MapperConfigurationProvider ??= Mapper.ConfigurationProvider;
         
         return await ApplySpecification(specification)
             .FirstOrDefaultAsync(cancellationToken).ConfigureAwait(false);
     }
+
+    /// <inheritdoc />
+    public virtual async Task<TEntity?> GetSingleAsync(ISpecification<TEntity> specification,
+        CancellationToken cancellationToken = default)
+        => await GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<TResult?> GetSingleAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
+        => await GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public IAsyncEnumerable<TEntity> AsAsyncEnumerable(ISpecification<TEntity> specification)
+        => ApplySpecification(specification, true).AsAsyncEnumerable();
 
     /// <inheritdoc />
     public virtual async Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
@@ -109,9 +123,28 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
         var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken).ConfigureAwait(false);
         return new Paging<TResult>(queryable.Count, sub);
     }
+    
+    /// <inheritdoc />
+    public virtual async Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default)
+        => await GetByGridifyQueryAsync(gridifyQuery, cancellationToken).ConfigureAwait(false);
+    /// <inheritdoc />
+    public virtual async Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
+        => await GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public virtual async Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(Specifications.ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default)
+        => await GetByGridifyQueryAsync<TResult>(gridifyQuery, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
+        => await GetByGridifyQueryAsync<TResult>(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
     {
         specification.MapperConfigurationProvider ??= Mapper.ConfigurationProvider;
         
@@ -122,7 +155,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     }
 
     /// <inheritdoc />
-    public virtual async Task<IReadOnlyList<TEntity>> GetBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<IReadOnlyList<TEntity>> GetBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
     {
         var result = await ApplySpecification(specification)
             .ToListAsync(cancellationToken).ConfigureAwait(false);
@@ -131,9 +164,18 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
             ? result
             : specification.PostProcessingAction(result).ToList();
     }
+    
+    /// <inheritdoc />
+    public virtual async Task<IReadOnlyList<TResult>> GetAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
+        => await GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public virtual async Task<long> LongCountAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public virtual async Task<IReadOnlyList<TEntity>> GetAsync(ISpecification<TEntity> specification,
+        CancellationToken cancellationToken = default)
+        => await GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+
+    /// <inheritdoc />
+    public virtual async Task<long> LongCountAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
         => await ApplySpecification(specification)
             .LongCountAsync(cancellationToken).ConfigureAwait(false);
     
@@ -146,7 +188,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
         => await Set.AnyAsync(predicate, cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public async Task<bool> AnyAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+    public async Task<bool> AnyAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
         => await ApplySpecification(specification).AnyAsync(cancellationToken).ConfigureAwait(false);
 
     /// <inheritdoc />
@@ -155,7 +197,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
 
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TProjectTo>> GetAllAsync<TProjectTo>(CancellationToken cancellationToken = default) where TProjectTo : class
-        => await ApplySpecification(new Specifications.Specification<TEntity, TProjectTo>(Mapper.ConfigurationProvider))
+        => await ApplySpecification(new Specification<TEntity, TProjectTo>(Mapper.ConfigurationProvider))
             .ToListAsync(cancellationToken).ConfigureAwait(false);
 
     /// <summary>
@@ -165,7 +207,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     /// <param name="specification">The encapsulated query logic.</param>
     /// <param name="evaluateCriteriaOnly">Whether to only evaluate criteria.</param>
     /// <returns>The filtered entities as an <see cref="IQueryable{T}" />.</returns>
-    protected virtual IQueryable<TEntity> ApplySpecification(Specifications.ISpecification<TEntity> specification,
+    protected virtual IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> specification,
         bool evaluateCriteriaOnly = false)
         => SpecificationEvaluator.GetQuery(Set.AsQueryable(), specification,
             evaluateCriteriaOnly);
@@ -180,7 +222,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     /// <typeparam name="TResult">The type of the value returned by the projection.</typeparam>
     /// <param name="specification">The encapsulated query logic.</param>
     /// <returns>The filtered projected entities as an <see cref="IQueryable{T}" />.</returns>
-    protected virtual IQueryable<TResult> ApplySpecification<TResult>(Specifications.ISpecification<TEntity, TResult> specification)
+    protected virtual IQueryable<TResult> ApplySpecification<TResult>(ISpecification<TEntity, TResult> specification)
         => SpecificationEvaluator.GetQuery(Set.AsQueryable(), specification);
 }
 

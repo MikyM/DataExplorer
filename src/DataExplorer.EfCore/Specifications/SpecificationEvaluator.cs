@@ -1,4 +1,5 @@
 ﻿using DataExplorer.EfCore.Specifications.Evaluators;
+using DataExplorer.EfCore.Specifications.Exceptions;
 
 namespace DataExplorer.EfCore.Specifications;
 
@@ -57,14 +58,17 @@ public class SpecificationEvaluator : ISpecificationEvaluator
     public virtual IQueryable<TResult> GetQuery<T, TResult>(IQueryable<T> query,
         ISpecification<T, TResult> specification) where T : class
     {
-        if (specification is null) 
-            throw new ArgumentNullException(nameof(specification), "Specification is required");
+        if (specification.Selector is not null && specification.SelectorMany is not null) 
+            throw new ConcurrentSelectorsException();
 
         query = GetQuery(query, (ISpecification<T>)specification);
 
-        return specification.Selector is not null
-            ? query.Select(specification.Selector)
-            : _projectionEvaluator.GetQuery(query, specification);
+        if (specification.Selector is null && specification.SelectorMany is null)
+            return _projectionEvaluator.GetQuery(query, specification);
+        
+        return specification.SelectorMany is not null 
+            ? query.SelectMany(specification.SelectorMany) 
+            : query.Select(specification.Selector!);
     }
 
     public virtual IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification,

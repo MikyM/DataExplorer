@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.EfCore.Gridify;
+using DataExplorer.EfCore.Specifications;
 using Gridify;
 using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
 
@@ -55,7 +56,7 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <param name="specification">Specification for the query.</param>
     /// <returns>Entity if found, null if not found.</returns>
-    Task<TEntity?> GetSingleBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+    Task<TEntity?> GetSingleBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Gets a single (top 1) entity that satisfies <see cref="Specifications.ISpecification{T,TProjectTo}"/> and projects it to another entity.
@@ -63,7 +64,24 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <param name="specification">Specification for the query.</param>
     /// <returns>Entity if found, null if not found.</returns>
-    Task<TResult?> GetSingleBySpecAsync<TResult>(Specifications.ISpecification<TEntity, TResult> specification,
+    Task<TResult?> GetSingleBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification,
+        CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Gets a single (top 1) entity that satisfies given <see cref="Specifications.ISpecification"/>.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <param name="specification">Specification for the query.</param>
+    /// <returns>Entity if found, null if not found.</returns>
+    Task<TEntity?> GetSingleAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets a single (top 1) entity that satisfies <see cref="Specifications.ISpecification{T,TProjectTo}"/> and projects it to another entity.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <param name="specification">Specification for the query.</param>
+    /// <returns>Entity if found, null if not found.</returns>
+    Task<TResult?> GetSingleAsync<TResult>(ISpecification<TEntity, TResult> specification,
         CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -72,7 +90,7 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <param name="specification">Specification for the query.</param>
     /// <returns><see cref="IReadOnlyList{T}"/> with found entities.</returns>
-    Task<IReadOnlyList<TEntity>> GetBySpecAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+    Task<IReadOnlyList<TEntity>> GetBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Gets all entities that satisfy <see cref="Specifications.ISpecification{T,TProjectTo}"/> and projects them to another entities.
@@ -80,7 +98,24 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <param name="specification">Specification for the query.</param>
     /// <returns><see cref="IReadOnlyList{T}"/> with found entities.</returns>
-    Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(Specifications.ISpecification<TEntity, TResult> specification,
+    Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification,
+        CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="Specifications.ISpecification{T}"/>.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <param name="specification">Specification for the query.</param>
+    /// <returns><see cref="IReadOnlyList{T}"/> with found entities.</returns>
+    Task<IReadOnlyList<TEntity>> GetAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities that satisfy <see cref="Specifications.ISpecification{T,TProjectTo}"/> and projects them to another entities.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <param name="specification">Specification for the query.</param>
+    /// <returns><see cref="IReadOnlyList{T}"/> with found entities.</returns>
+    Task<IReadOnlyList<TResult>> GetAsync<TResult>(ISpecification<TEntity, TResult> specification,
         CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -103,7 +138,7 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="specification">Specification for the query.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>Number of entities that satisfy given <see cref="Specifications.ISpecification{T}"/>.</returns>
-    Task<long> LongCountAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+    Task<long> LongCountAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
     
     /// <summary>
     /// Counts the entities, optionally using a provided <see cref="Specifications.ISpecification{T}"/>.
@@ -126,8 +161,18 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="specification">Specification for the query.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>True if any elements in the source sequence satisfy the condition, otherwise false.</returns>
-    Task<bool> AnyAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+    Task<bool> AnyAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Finds all entities of <typeparamref name="TEntity"/>, that matches the encapsulated query logic of the
+    /// <paramref name="specification"/>, from the database.
+    /// </summary>
+    /// <param name="specification">The encapsulated query logic.</param>
+    /// <returns>
+    ///  Returns an IAsyncEnumerable which can be enumerated asynchronously.
+    /// </returns>
+    IAsyncEnumerable<TEntity> AsAsyncEnumerable(ISpecification<TEntity> specification);
+    
     /// <summary>
     /// Gets all entities that satisfy given <see cref="IGridifyQuery"/>.
     /// </summary>
@@ -170,6 +215,50 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
     Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="IGridifyQuery"/>.
+    /// </summary>
+    /// <remarks>
+    /// This method will attempt to pull a <see cref="IGridifyMapper{T}"/> from <see cref="IGridifyMapperProvider"/>.
+    /// </remarks>
+    /// <param name="gridifyQuery">Gridify query query.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
+    Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="IGridifyQuery"/>.
+    /// </summary>
+    /// <param name="gridifyQuery">Gridify query query.</param>
+    /// <param name="gridifyMapper">Gridify mapper</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
+    Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
+        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="IGridifyQuery"/> and projects them to another type using AutoMapper's ProjectTo.
+    /// </summary>
+    /// <remarks>
+    /// This method will attempt to pull a <see cref="IGridifyMapper{T}"/> from <see cref="IGridifyMapperProvider"/>.
+    /// </remarks>
+    /// <param name="gridifyQuery">Gridify query query.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
+    Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets all entities that satisfy given <see cref="IGridifyQuery"/> and projects them to another type using AutoMapper's ProjectTo.
+    /// </summary>
+    /// <param name="gridifyQuery">Gridify query query.</param>
+    /// <param name="gridifyMapper">Gridify mapper</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Paging{T}"/> with found entities and count.</returns>
+    Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
         IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default);
 }
 

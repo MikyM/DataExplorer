@@ -46,6 +46,11 @@ public interface ISpecification<T, TResult> : ISpecification<T> where T : class
     /// The transform function to apply to the <typeparamref name="T"/> element.
     /// </summary>
     Expression<Func<T, TResult>>? Selector { get; }
+    
+    /// <summary>
+    /// The SelectMany transform function to apply to the <typeparamref name="T"/> element.
+    /// </summary>
+    Expression<Func<T, IEnumerable<TResult>>>? SelectorMany { get; }
 }
 
 /// <summary>

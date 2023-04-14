@@ -13,6 +13,19 @@ namespace DataExplorer.EfCore.Specifications.Builders;
 [PublicAPI]
 public static class SpecificationBuilderExtensions
 {
+
+    /// <summary>
+    /// Specify a transform function to apply to the <typeparamref name="T"/> element 
+    /// to produce a flattened sequence of <typeparamref name="TResult"/> elements.
+    /// </summary>
+    public static ISpecificationBuilder<T, TResult> SelectMany<T, TResult>(
+        this ISpecificationBuilder<T, TResult> specificationBuilder,
+        Expression<Func<T, IEnumerable<TResult>>> selector) where T : class
+    {
+        specificationBuilder.Specification.SelectorMany = selector;
+
+        return specificationBuilder;
+    }
     /// <summary>
     ///         Specify property and value to be set in ExecuteUpdate method with chaining multiple calls for updating
     ///         multiple columns.
