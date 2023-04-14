@@ -5,9 +5,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer.EfCore</PackageId>
-        <Version>2.2.3</Version>
+        <Version>2.2.4</Version>
         <Authors>Krzysztof Kupisz</Authors>
-        <PackageDescription>Library featuring common patterns (Unit of Work, Repository, Specification, Services) in regard to working with EF Core.</PackageDescription>
+        <PackageDescription>Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages based on EF Core.</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>

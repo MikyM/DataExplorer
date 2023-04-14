@@ -5,9 +5,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer</PackageId>
-        <Version>2.2.2</Version>
+        <Version>2.2.3</Version>
         <Authors>Krzysztof Kupisz</Authors>
-        <PackageDescription>Library featuring common patterns in regard to working with data storages.</PackageDescription>
+        <PackageDescription>Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core) and MongoDb (MongoDb.Entities).</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
