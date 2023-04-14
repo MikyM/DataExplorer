@@ -1,6 +1,4 @@
-﻿using DataExplorer.Services;
-
-namespace DataExplorer.IdGenerator;
+﻿namespace DataExplorer.IdGenerator;
 
 /// <summary>
 /// Factory used to generate snowflake Ids using <see cref="IdGenerator"/>.

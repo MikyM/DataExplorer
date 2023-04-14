@@ -13,7 +13,6 @@ namespace DataExplorer.EfCore.Specifications.Builders;
 [PublicAPI]
 public static class SpecificationBuilderExtensions
 {
-
     /// <summary>
     /// Specify a transform function to apply to the <typeparamref name="T"/> element 
     /// to produce a flattened sequence of <typeparamref name="TResult"/> elements.
@@ -26,6 +25,7 @@ public static class SpecificationBuilderExtensions
 
         return specificationBuilder;
     }
+    
     /// <summary>
     ///         Specify property and value to be set in ExecuteUpdate method with chaining multiple calls for updating
     ///         multiple columns.

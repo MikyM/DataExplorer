@@ -1,11 +1,8 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
 using DataExplorer.Abstractions.Entities;
-using DataExplorer.Exceptions;
 using DataExplorer.MongoDb.Abstractions.DataContexts;
-using MongoDB.Driver;
-using MongoDB.Entities;
-using IEntity = MongoDB.Entities.IEntity;
+
 // ReSharper disable SuspiciousTypeConversion.Global
 
 namespace DataExplorer.MongoDb.Repositories;

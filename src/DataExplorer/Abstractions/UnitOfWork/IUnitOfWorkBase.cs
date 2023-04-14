@@ -1,7 +1,5 @@
 ﻿using DataExplorer.Abstractions.DataContexts;
-using DataExplorer.Abstractions.Entities;
 using DataExplorer.Abstractions.Repositories;
-using DataExplorer.Entities;
 
 namespace DataExplorer.Abstractions.UnitOfWork;
 

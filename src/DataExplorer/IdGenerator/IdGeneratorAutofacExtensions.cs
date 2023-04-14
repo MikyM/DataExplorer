@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using DataExplorer.Services;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 

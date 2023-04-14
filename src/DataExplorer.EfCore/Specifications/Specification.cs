@@ -94,6 +94,16 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
         Query.Select(selector);
         return this;
     }
+    
+    /// <summary>
+    /// Specify a transform function to apply to the <typeparamref name="T"/> element 
+    /// to produce a flattened sequence of <typeparamref name="TResult"/> elements.
+    /// </summary>
+    protected Specification<T> SelectMany(Expression<Func<T, IEnumerable<TResult>>> selector)
+    {
+        Query.SelectMany(selector);
+        return this;
+    }
 
     /// <summary>
     /// Expands given member.

@@ -2,9 +2,6 @@
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Abstractions.UnitOfWork;
 using DataExplorer.MongoDb.Abstractions.DataContexts;
-using DataExplorer.MongoDb.DataContexts;
-using MongoDB.Driver;
-using MongoDB.Entities;
 
 namespace DataExplorer.MongoDb.Abstractions;
 

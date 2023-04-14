@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using AutoMapper;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.MongoDb.Abstractions;
 using DataExplorer.MongoDb.Abstractions.DataContexts;

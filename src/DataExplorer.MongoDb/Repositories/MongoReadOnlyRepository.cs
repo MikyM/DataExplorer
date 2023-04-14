@@ -3,10 +3,6 @@ using AutoMapper;
 using DataExplorer.Abstractions.DataContexts;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.MongoDb.Abstractions.DataContexts;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq;
-using MongoDB.Entities;
 
 namespace DataExplorer.MongoDb.Repositories;
 
