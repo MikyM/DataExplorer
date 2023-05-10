@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer</PackageId>
-        <Version>2.2.3</Version>
+        <Version>2.2.4</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core) and MongoDb (MongoDb.Entities).</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -23,8 +23,8 @@
 
     <ItemGroup>
       <PackageReference Include="AttributeBasedRegistration" Version="2.1.1" />
-      <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.1.1" />
-      <PackageReference Include="Autofac" Version="7.0.0" />
+      <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.1.2" />
+      <PackageReference Include="Autofac" Version="7.0.1" />
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
       <PackageReference Include="AutoMapper" Version="12.0.1" />
       <PackageReference Include="AutoMapper.Contrib.Autofac.DependencyInjection" Version="7.1.0" />
