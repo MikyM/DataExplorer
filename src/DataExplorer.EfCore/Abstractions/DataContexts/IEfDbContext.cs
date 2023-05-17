@@ -15,6 +15,208 @@ namespace DataExplorer.EfCore.Abstractions.DataContexts;
 public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable
 {
     /// <summary>
+    ///     Begins tracking the given entity, and any other reachable entities that are
+    ///     not already being tracked, in the <see cref="EntityState.Added" /> state such that
+    ///     they will be inserted into the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    /// <param name="entity">The entity to add.</param>
+    /// <returns>
+    ///     The <see cref="EntityEntry{TEntity}" /> for the entity. The entry provides
+    ///     access to change tracking information and operations for the entity.
+    /// </returns>
+    EntityEntry<TEntity> Add<TEntity>(TEntity entity) where TEntity : class;
+
+    /// <summary>
+    ///     Begins tracking the given entity, and any other reachable entities that are
+    ///     not already being tracked, in the <see cref="EntityState.Added" /> state such that they will
+    ///     be inserted into the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="entity">The entity to add.</param>
+    /// <returns>
+    ///     The <see cref="EntityEntry" /> for the entity. The entry provides
+    ///     access to change tracking information and operations for the entity.
+    /// </returns>
+    EntityEntry Add(object entity);
+    
+    /// <summary>
+    ///     Begins tracking the given entity, and any other reachable entities that are
+    ///     not already being tracked, in the <see cref="EntityState.Added" /> state such that they will
+    ///     be inserted into the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         This method is async only to allow special value generators, such as the one used by
+    ///         'Microsoft.EntityFrameworkCore.Metadata.SqlServerValueGenerationStrategy.SequenceHiLo',
+    ///         to access the database asynchronously. For all other cases the non async method should be used.
+    ///     </para>
+    ///     <para>
+    ///         Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
+    ///         includes both parallel execution of async queries and any explicit concurrent use from multiple threads.
+    ///         Therefore, always await async calls immediately, or use separate DbContext instances for operations that execute
+    ///         in parallel. See <see href="https://aka.ms/efcore-docs-threading">Avoiding DbContext threading issues</see>
+    ///         for more information and examples.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    /// <param name="entity">The entity to add.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>
+    ///     A task that represents the asynchronous Add operation. The task result contains the
+    ///     <see cref="EntityEntry{TEntity}" /> for the entity. The entry provides access to change tracking
+    ///     information and operations for the entity.
+    /// </returns>
+    /// <exception cref="OperationCanceledException">If the <see cref="CancellationToken" /> is canceled.</exception>
+    ValueTask<EntityEntry<TEntity>> AddAsync<TEntity>(
+        TEntity entity,
+        CancellationToken cancellationToken = default)
+        where TEntity : class;
+
+    /// <summary>
+    ///     Begins tracking the given entity, and any other reachable entities that are
+    ///     not already being tracked, in the <see cref="EntityState.Added" /> state such that they will
+    ///     be inserted into the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
+    ///     </para>
+    ///     <para>
+    ///         This method is async only to allow special value generators, such as the one used by
+    ///         'Microsoft.EntityFrameworkCore.Metadata.SqlServerValueGenerationStrategy.SequenceHiLo',
+    ///         to access the database asynchronously. For all other cases the non async method should be used.
+    ///     </para>
+    ///     <para>
+    ///         Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
+    ///         includes both parallel execution of async queries and any explicit concurrent use from multiple threads.
+    ///         Therefore, always await async calls immediately, or use separate DbContext instances for operations that execute
+    ///         in parallel. See <see href="https://aka.ms/efcore-docs-threading">Avoiding DbContext threading issues</see>
+    ///         for more information and examples.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="entity">The entity to add.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>
+    ///     A task that represents the asynchronous Add operation. The task result contains the
+    ///     <see cref="EntityEntry" /> for the entity. The entry provides access to change tracking
+    ///     information and operations for the entity.
+    /// </returns>
+    /// <exception cref="OperationCanceledException">If the <see cref="CancellationToken" /> is canceled.</exception>
+    ValueTask<EntityEntry> AddAsync(
+        object entity,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    ///     Begins tracking the given entities, and any other reachable entities that are
+    ///     not already being tracked, in the <see cref="EntityState.Added" /> state such that they will
+    ///     be inserted into the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see>
+    ///     and <see href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</see>
+    ///     for more information and examples.
+    /// </remarks>
+    /// <param name="entities">The entities to add.</param>
+    void AddRange(params object[] entities);
+
+    /// <summary>
+    ///     Begins tracking the given entity, and any other reachable entities that are
+    ///     not already being tracked, in the <see cref="EntityState.Added" /> state such that they will
+    ///     be inserted into the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         This method is async only to allow special value generators, such as the one used by
+    ///         'Microsoft.EntityFrameworkCore.Metadata.SqlServerValueGenerationStrategy.SequenceHiLo',
+    ///         to access the database asynchronously. For all other cases the non async method should be used.
+    ///     </para>
+    ///     <para>
+    ///         Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
+    ///         includes both parallel execution of async queries and any explicit concurrent use from multiple threads.
+    ///         Therefore, always await async calls immediately, or use separate DbContext instances for operations that execute
+    ///         in parallel. See <see href="https://aka.ms/efcore-docs-threading">Avoiding DbContext threading issues</see>
+    ///         for more information and examples.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see>
+    ///         and <see href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="entities">The entities to add.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    Task AddRangeAsync(params object[] entities);
+
+    /// <summary>
+    ///     Begins tracking the given entities, and any other reachable entities that are
+    ///     not already being tracked, in the <see cref="EntityState.Added" /> state such that they will
+    ///     be inserted into the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see>
+    ///     and <see href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</see>
+    ///     for more information and examples.
+    /// </remarks>
+    /// <param name="entities">The entities to add.</param>
+    void AddRange(IEnumerable<object> entities);
+
+    /// <summary>
+    ///     Begins tracking the given entity, and any other reachable entities that are
+    ///     not already being tracked, in the <see cref="EntityState.Added" /> state such that they will
+    ///     be inserted into the database when <see cref="SaveChanges()" /> is called.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         This method is async only to allow special value generators, such as the one used by
+    ///         'Microsoft.EntityFrameworkCore.Metadata.SqlServerValueGenerationStrategy.SequenceHiLo',
+    ///         to access the database asynchronously. For all other cases the non async method should be used.
+    ///     </para>
+    ///     <para>
+    ///         Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
+    ///         includes both parallel execution of async queries and any explicit concurrent use from multiple threads.
+    ///         Therefore, always await async calls immediately, or use separate DbContext instances for operations that execute
+    ///         in parallel. See <see href="https://aka.ms/efcore-docs-threading">Avoiding DbContext threading issues</see>
+    ///         for more information and examples.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see>
+    ///         and <see href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="entities">The entities to add.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>
+    ///     A task that represents the asynchronous operation.
+    /// </returns>
+    /// <exception cref="OperationCanceledException">If the <see cref="CancellationToken" /> is canceled.</exception>
+    Task AddRangeAsync(
+        IEnumerable<object> entities,
+        CancellationToken cancellationToken = default);
+    
+    /// <summary>
     ///     Begins tracking the given entities and entries reachable from the given entities using
     ///     the <see cref="EntityState.Modified" /> state by default, but see below for cases
     ///     when a different state will be used.
