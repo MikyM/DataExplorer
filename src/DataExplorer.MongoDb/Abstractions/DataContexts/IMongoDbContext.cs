@@ -22,7 +22,7 @@ public interface IMongoDbContext : IDataContextBase
     /// <summary>
     /// Returns the session object used for transactions.
     /// </summary>
-    IClientSessionHandle Session { get; }
+    IClientSessionHandle? Session { get; }
 
     /// <summary>
     /// The MongoDB database.
@@ -131,10 +131,10 @@ public interface IMongoDbContext : IDataContextBase
     /// <para>HINT: If this entity is referenced by one-to-many/many-to-many relationships, those references are also deleted.</para>
     /// </summary>
     /// <typeparam name="T">The type of entity</typeparam>
-    /// <param name="ID">The Id of the entity to delete</param>
+    /// <param name="id">The Id of the entity to delete</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<DeleteResult> DeleteAsync<T>(string ID, CancellationToken cancellation = default,
+    Task<DeleteResult> DeleteAsync<T>(string id, CancellationToken cancellation = default,
         bool ignoreGlobalFilters = false) where T : IEntity;
 
     /// <summary>
@@ -143,10 +143,10 @@ public interface IMongoDbContext : IDataContextBase
     /// <para>TIP: Try to keep the number of entities to delete under 100 in a single call</para>
     /// </summary>
     /// <typeparam name="T">The type of entity</typeparam>
-    /// <param name="IDs">An IEnumerable of entity IDs</param>
+    /// <param name="ds">An IEnumerable of entity IDs</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<DeleteResult> DeleteAsync<T>(IEnumerable<string> IDs, CancellationToken cancellation = default,
+    Task<DeleteResult> DeleteAsync<T>(IEnumerable<string> ds, CancellationToken cancellation = default,
         bool ignoreGlobalFilters = false) where T : IEntity;
 
     /// <summary>
@@ -249,9 +249,10 @@ public interface IMongoDbContext : IDataContextBase
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <typeparam name="T">The type of entity</typeparam>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    IAggregateFluent<T> GeoNear<T>(Coordinates2D nearCoordinates, Expression<Func<T, object>> distanceField,
-        bool spherical = true, int? maxDistance = null, int? minDistance = null, int? limit = null,
-        BsonDocument? query = null, int? distanceMultiplier = null, Expression<Func<T, object>>? includeLocations = null,
+    IAggregateFluent<T> GeoNear<T>(Coordinates2D nearCoordinates, Expression<Func<T, object?>> distanceField,
+        bool spherical = true,
+        int? maxDistance = null, int? minDistance = null, int? limit = null, BsonDocument? query = null,
+        int? distanceMultiplier = null, Expression<Func<T, object?>>? includeLocations = null,
         string? indexKey = null, AggregateOptions? options = null, bool ignoreGlobalFilters = false)
         where T : IEntity;
 
@@ -324,7 +325,7 @@ public interface IMongoDbContext : IDataContextBase
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<TResult> PipelineSingleAsync<T, TResult>(Template<T, TResult> template, AggregateOptions? options = null,
+    Task<TResult?> PipelineSingleAsync<T, TResult>(Template<T, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false) where T : IEntity;
 
     /// <summary>
@@ -337,7 +338,7 @@ public interface IMongoDbContext : IDataContextBase
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<TResult> PipelineFirstAsync<T, TResult>(Template<T, TResult> template, AggregateOptions? options = null,
+    Task<TResult?> PipelineFirstAsync<T, TResult>(Template<T, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false) where T : IEntity;
 
     /// <summary>
@@ -385,7 +386,7 @@ public interface IMongoDbContext : IDataContextBase
     /// <param name="entity">The entity to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<UpdateResult> SaveOnlyAsync<T>(T entity, Expression<Func<T, object>> members,
+    Task<UpdateResult> SaveOnlyAsync<T>(T entity, Expression<Func<T, object?>> members,
         CancellationToken cancellation = default) where T : IEntity;
 
     /// <summary>
@@ -411,7 +412,7 @@ public interface IMongoDbContext : IDataContextBase
     /// <param name="entities">The batch of entities to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<BulkWriteResult<T>> SaveOnlyAsync<T>(IEnumerable<T> entities, Expression<Func<T, object>> members,
+    Task<BulkWriteResult<T>> SaveOnlyAsync<T>(IEnumerable<T> entities, Expression<Func<T, object?>> members,
         CancellationToken cancellation = default) where T : IEntity;
 
     /// <summary>
@@ -437,7 +438,7 @@ public interface IMongoDbContext : IDataContextBase
     /// <param name="entity">The entity to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<UpdateResult> SaveExceptAsync<T>(T entity, Expression<Func<T, object>> members,
+    Task<UpdateResult> SaveExceptAsync<T>(T entity, Expression<Func<T, object?>> members,
         CancellationToken cancellation = default) where T : IEntity;
 
     /// <summary>
@@ -463,7 +464,7 @@ public interface IMongoDbContext : IDataContextBase
     /// <param name="entities">The batch of entities to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<BulkWriteResult<T>> SaveExceptAsync<T>(IEnumerable<T> entities, Expression<Func<T, object>> members,
+    Task<BulkWriteResult<T>> SaveExceptAsync<T>(IEnumerable<T> entities, Expression<Func<T, object?>> members,
         CancellationToken cancellation = default) where T : IEntity;
 
     /// <summary>

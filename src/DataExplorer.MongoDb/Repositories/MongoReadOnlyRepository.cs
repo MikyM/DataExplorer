@@ -93,9 +93,9 @@ public class MongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity
         => Context.FluentTextSearch<TEntity>(searchType, searchTerm, caseSensitive, diacriticSensitive, language, options, ignoreGlobalFilters);
 
     /// <inheritdoc />
-    public IAggregateFluent<TEntity> GeoNear(Coordinates2D nearCoordinates, Expression<Func<TEntity, object>> distanceField, bool spherical = true,
+    public IAggregateFluent<TEntity> GeoNear(Coordinates2D nearCoordinates, Expression<Func<TEntity, object?>> distanceField, bool spherical = true,
         int? maxDistance = null, int? minDistance = null, int? limit = null, BsonDocument? query = null,
-        int? distanceMultiplier = null, Expression<Func<TEntity, object>>? includeLocations = null, string? indexKey = null,
+        int? distanceMultiplier = null, Expression<Func<TEntity, object?>>? includeLocations = null, string? indexKey = null,
         AggregateOptions? options = null, bool ignoreGlobalFilters = false)
         => Context.GeoNear<TEntity>(nearCoordinates, distanceField, spherical, maxDistance, minDistance, limit, query, distanceMultiplier, includeLocations, indexKey, options, ignoreGlobalFilters);
 
@@ -118,12 +118,12 @@ public class MongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity
         => await Context.PipelineAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public async Task<TResult> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    public async Task<TResult?> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false)
         => await Context.PipelineSingleAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
 
     /// <inheritdoc />
-    public async Task<TResult> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    public async Task<TResult?> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false)
         => await Context.PipelineFirstAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
 

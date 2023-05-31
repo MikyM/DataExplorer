@@ -72,7 +72,7 @@ public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongo
         => await Context.SaveAsync(entities, cancellation).ConfigureAwait(false);
 
     /// <inheritdoc/>
-    public async Task<UpdateResult> SaveOnlyAsync(TEntity entity, Expression<Func<TEntity, object>> members, CancellationToken cancellation = default)
+    public async Task<UpdateResult> SaveOnlyAsync(TEntity entity, Expression<Func<TEntity, object?>> members, CancellationToken cancellation = default)
         => await Context.SaveOnlyAsync(entity, members, cancellation).ConfigureAwait(false);
 
     /// <inheritdoc/>
@@ -80,7 +80,7 @@ public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongo
         => await Context.SaveOnlyAsync(entity, propNames, cancellation).ConfigureAwait(false);
 
     /// <inheritdoc/>
-    public async Task<BulkWriteResult<TEntity>> SaveOnlyAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members, CancellationToken cancellation = default)
+    public async Task<BulkWriteResult<TEntity>> SaveOnlyAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object?>> members, CancellationToken cancellation = default)
         => await Context.SaveOnlyAsync(entities, members, cancellation).ConfigureAwait(false);
 
     /// <inheritdoc/>
@@ -88,7 +88,7 @@ public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongo
         => await Context.SaveOnlyAsync(entities, propNames, cancellation).ConfigureAwait(false);
 
     /// <inheritdoc/>
-    public async Task<UpdateResult> SaveExceptAsync(TEntity entity, Expression<Func<TEntity, object>> members, CancellationToken cancellation = default)
+    public async Task<UpdateResult> SaveExceptAsync(TEntity entity, Expression<Func<TEntity, object?>> members, CancellationToken cancellation = default)
         => await Context.SaveExceptAsync(entity, members, cancellation).ConfigureAwait(false);
 
     /// <inheritdoc/>
@@ -96,7 +96,7 @@ public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongo
         => await Context.SaveExceptAsync(entity, propNames, cancellation).ConfigureAwait(false);
 
     /// <inheritdoc/>
-    public async Task<BulkWriteResult<TEntity>> SaveExceptAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members, CancellationToken cancellation = default)
+    public async Task<BulkWriteResult<TEntity>> SaveExceptAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object?>> members, CancellationToken cancellation = default)
         => await Context.SaveExceptAsync(entities, members, cancellation).ConfigureAwait(false);
 
     /// <inheritdoc/>

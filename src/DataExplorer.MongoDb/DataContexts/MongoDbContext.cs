@@ -1,4 +1,5 @@
-﻿using DataExplorer.MongoDb.Abstractions.DataContexts;
+﻿using System.Collections.Concurrent;
+using DataExplorer.MongoDb.Abstractions.DataContexts;
 
 namespace DataExplorer.MongoDb.DataContexts;
 
@@ -9,22 +10,32 @@ namespace DataExplorer.MongoDb.DataContexts;
 [PublicAPI]
 public abstract class MongoDbContext : DBContext, IMongoDbContext
 {
+    private static ConcurrentDictionary<string, bool> _connections = new();
+
     /// <inheritdoc/>
     public MongoDbContextOptions Options { get; }
     /// <inheritdoc/>
     public IMongoDatabase MongoDatabase => DB.Database(Options.Database);
     /// <inheritdoc/>
     public IMongoDatabase GetDatabaseFor<TEntity>() where TEntity : IEntity => DB.Database<TEntity>();
-    
-    protected MongoDbContext(MongoDbContextOptions connectionSettings)
+
+    private static void Initialize(MongoDbContextOptions connectionSettings)
     {
-        Options = connectionSettings;
+        if (!_connections.TryAdd(connectionSettings.Database, true))
+            return;
         
         DB.InitAsync(connectionSettings.Database, connectionSettings.MongoClientSettings)
             .GetAwaiter()
             .GetResult();
+    }
+    
+    protected MongoDbContext(MongoDbContextOptions connectionSettings)
+    {
+        Initialize(connectionSettings);
         
+        Options = connectionSettings;
         ModifiedBy = connectionSettings.ModifiedBy;
+
     }
 
     /// <summary>

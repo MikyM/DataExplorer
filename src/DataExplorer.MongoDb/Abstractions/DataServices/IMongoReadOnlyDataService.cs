@@ -110,9 +110,9 @@ public interface IMongoReadOnlyDataService<TEntity, out TContext> : IMongoDataSe
     /// <param name="indexKey"></param>
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    IAggregateFluent<TEntity> GeoNear(Coordinates2D nearCoordinates, Expression<Func<TEntity, object>> distanceField,
+    IAggregateFluent<TEntity> GeoNear(Coordinates2D nearCoordinates, Expression<Func<TEntity, object?>> distanceField,
         bool spherical = true, int? maxDistance = null, int? minDistance = null, int? limit = null,
-        BsonDocument? query = null, int? distanceMultiplier = null, Expression<Func<TEntity, object>>? includeLocations = null,
+        BsonDocument? query = null, int? distanceMultiplier = null, Expression<Func<TEntity, object?>>? includeLocations = null,
         string? indexKey = null, AggregateOptions? options = null, bool ignoreGlobalFilters = false);
     
     /// <summary>
@@ -159,7 +159,7 @@ public interface IMongoReadOnlyDataService<TEntity, out TContext> : IMongoDataSe
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<Result<TResult>> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    Task<Result<TResult?>> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false);
 
     /// <summary>
@@ -171,7 +171,7 @@ public interface IMongoReadOnlyDataService<TEntity, out TContext> : IMongoDataSe
     /// <param name="options">The options for the aggregation. This is not required.</param>
     /// <param name="cancellation">An optional cancellation token</param>
     /// <param name="ignoreGlobalFilters">Set to true if you'd like to ignore any global filters for this operation</param>
-    Task<Result<TResult>> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    Task<Result<TResult?>> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false);
 
     /// <summary>

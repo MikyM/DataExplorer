@@ -189,7 +189,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     }
 
     /// <inheritdoc />
-    public async Task<Result<UpdateResult>> SaveOnlyAsync(TEntity entity, Expression<Func<TEntity, object>> members, CancellationToken cancellation = default)
+    public async Task<Result<UpdateResult>> SaveOnlyAsync(TEntity entity, Expression<Func<TEntity, object?>> members, CancellationToken cancellation = default)
     {
         try
         {
@@ -215,7 +215,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     }
 
     /// <inheritdoc />
-    public async Task<Result<BulkWriteResult<TEntity>>> SaveOnlyAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members, CancellationToken cancellation = default)
+    public async Task<Result<BulkWriteResult<TEntity>>> SaveOnlyAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object?>> members, CancellationToken cancellation = default)
     {
         try
         {
@@ -241,7 +241,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     }
 
     /// <inheritdoc />
-    public async Task<Result<UpdateResult>> SaveExceptAsync(TEntity entity, Expression<Func<TEntity, object>> members, CancellationToken cancellation = default)
+    public async Task<Result<UpdateResult>> SaveExceptAsync(TEntity entity, Expression<Func<TEntity, object?>> members, CancellationToken cancellation = default)
     {
         try
         {
@@ -267,7 +267,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     }
 
     /// <inheritdoc />
-    public async Task<Result<BulkWriteResult<TEntity>>> SaveExceptAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members, CancellationToken cancellation = default)
+    public async Task<Result<BulkWriteResult<TEntity>>> SaveExceptAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object?>> members, CancellationToken cancellation = default)
     {
         try
         {

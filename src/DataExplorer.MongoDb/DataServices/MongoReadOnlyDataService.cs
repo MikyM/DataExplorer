@@ -159,9 +159,9 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
         => ReadOnlyRepository.FluentTextSearch(searchType, searchTerm, caseSensitive, diacriticSensitive, language, options, ignoreGlobalFilters);
 
     /// <inheritdoc />
-    public IAggregateFluent<TEntity> GeoNear(Coordinates2D nearCoordinates, Expression<Func<TEntity, object>> distanceField, bool spherical = true,
+    public IAggregateFluent<TEntity> GeoNear(Coordinates2D nearCoordinates, Expression<Func<TEntity, object?>> distanceField, bool spherical = true,
         int? maxDistance = null, int? minDistance = null, int? limit = null, BsonDocument? query = null,
-        int? distanceMultiplier = null, Expression<Func<TEntity, object>>? includeLocations = null,
+        int? distanceMultiplier = null, Expression<Func<TEntity, object?>>? includeLocations = null,
         string? indexKey = null,
         AggregateOptions? options = null, bool ignoreGlobalFilters = false)
         => ReadOnlyRepository.GeoNear(nearCoordinates, distanceField, spherical, maxDistance, minDistance, limit, query,
@@ -205,12 +205,12 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     }
 
     /// <inheritdoc />
-    public async Task<Result<TResult>> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    public async Task<Result<TResult?>> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false)
     {
         try
         {
-            return Result<TResult>.FromSuccess(await ReadOnlyRepository.PipelineSingleAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false));
+            return Result<TResult?>.FromSuccess(await ReadOnlyRepository.PipelineSingleAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false));
         }
         catch (Exception ex)
         {
@@ -219,12 +219,12 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     }
 
     /// <inheritdoc />
-    public async Task<Result<TResult>> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    public async Task<Result<TResult?>> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false)
     {
         try
         {
-            return Result<TResult>.FromSuccess(await ReadOnlyRepository.PipelineFirstAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false));
+            return Result<TResult?>.FromSuccess(await ReadOnlyRepository.PipelineFirstAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false));
         }
         catch (Exception ex)
         {

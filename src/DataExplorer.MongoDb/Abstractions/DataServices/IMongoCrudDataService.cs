@@ -139,7 +139,7 @@ public interface IMongoCrudDataService<TEntity, out TContext> : IMongoReadOnlyDa
     /// <param name="entity">The entity to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<Result<UpdateResult>> SaveOnlyAsync(TEntity entity, Expression<Func<TEntity, object>> members,
+    Task<Result<UpdateResult>> SaveOnlyAsync(TEntity entity, Expression<Func<TEntity, object?>> members,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -165,7 +165,7 @@ public interface IMongoCrudDataService<TEntity, out TContext> : IMongoReadOnlyDa
     /// <param name="entities">The batch of entities to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<Result<BulkWriteResult<TEntity>>> SaveOnlyAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members,
+    Task<Result<BulkWriteResult<TEntity>>> SaveOnlyAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object?>> members,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -191,7 +191,7 @@ public interface IMongoCrudDataService<TEntity, out TContext> : IMongoReadOnlyDa
     /// <param name="entity">The entity to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<Result<UpdateResult>> SaveExceptAsync(TEntity entity, Expression<Func<TEntity, object>> members,
+    Task<Result<UpdateResult>> SaveExceptAsync(TEntity entity, Expression<Func<TEntity, object?>> members,
         CancellationToken cancellation = default);
 
     /// <summary>
@@ -217,7 +217,7 @@ public interface IMongoCrudDataService<TEntity, out TContext> : IMongoReadOnlyDa
     /// <param name="entities">The batch of entities to save</param>
     /// <param name="members">x => new { x.PropOne, x.PropTwo }</param>
     /// <param name="cancellation">An optional cancellation token</param>
-    Task<Result<BulkWriteResult<TEntity>>> SaveExceptAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object>> members,
+    Task<Result<BulkWriteResult<TEntity>>> SaveExceptAsync(IEnumerable<TEntity> entities, Expression<Func<TEntity, object?>> members,
         CancellationToken cancellation = default);
 
     /// <summary>
