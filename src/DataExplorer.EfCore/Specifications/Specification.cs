@@ -183,27 +183,116 @@ public class Specification<T> : BasicSpecification<T>,  ISpecification<T> where 
     public CacheExpirationMode? CacheExpirationMode { get; internal set; }
 
     /// <inheritdoc />
-    public IEnumerable<OrderExpressionInfo<T>>? OrderExpressions
+    public Func<IEnumerable<T>, IEnumerable<T>>? PostProcessingAction { get; internal set; }
+
+    /// <inheritdoc />
+    public bool? IsCacheEnabled { get; internal set; }
+    
+    /// <inheritdoc />
+    public bool IsAsNoTracking { get; internal set; } = true;
+
+    /// <inheritdoc />
+    public bool IsAsSplitQuery { get; internal set; }
+
+    /// <inheritdoc />
+    public bool IsAsNoTrackingWithIdentityResolution { get; internal set; }
+    
+    /// <summary>
+    /// Inner <see cref="ISpecificationBuilder{T,TResult}"/>
+    /// </summary>
+    protected new ISpecificationBuilder<T> Query { get; }
+
+    /// <summary>
+    /// Sets whether to ignore query filters or not, default is
+    /// </summary>
+    /// <param name="ignore">Whether to ignore query filters</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T,TResult}"/> instance</returns>
+    protected Specification<T> WithIgnoreQueryFilters(bool ignore = true)
     {
-        get;
-        internal set;
+        Query.IgnoreQueryFilters(ignore);
+        return this;
     }
 
-    /// <inheritdoc />
-    public IEnumerable<IncludeExpressionInfo>? IncludeExpressions { get; internal set; }
+    /// <summary>
+    /// Specify a transform function to apply to the result of the query 
+    /// and returns the same <typeparamref name="T"/> type
+    /// </summary>
+    /// <param name="postProcessingAction">Action to use for post processing</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected Specification<T> WithPostProcessingAction(Func<IEnumerable<T>, IEnumerable<T>> postProcessingAction)
+    {
+        Query.WithPostProcessingAction(postProcessingAction);
+        return this;
+    }
 
-    /// <inheritdoc />
-    public Expression<Func<T, object>>? GroupByExpression { get; internal set; }
+    /// <summary>
+    /// Specify whether results should be cached using <see cref="SecondLevelCacheInterceptor"/>.
+    /// </summary>
+    /// <param name="withCaching">Whether to cache results</param>
+    /// <returns><see cref="ICacheSpecificationBuilder{T}"/> instance</returns>
+    protected Specification<T> WithCaching(bool withCaching = true)
+    {
+        Query.WithCaching(withCaching); 
+        return this;
+    }
 
-    /// <inheritdoc />
-    public IEnumerable<string>? IncludeStrings { get; internal set; }
+    /// <summary>
+    /// Specify whether to use tracking for this query (default setting is AsNoTracking)
+    /// </summary>
+    /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected Specification<T> AsTracking()
+    {
+        Query.AsTracking();
+        return this;
+    }
 
-    /// <inheritdoc />
-    public int? Take { get; internal set; }
+    /// <summary>
+    /// Specify whether to use tracking use split query
+    /// </summary>
+    /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected Specification<T> AsSplitQuery()
+    {
+        Query.AsSplitQuery();
+        return this;
+    }
 
-    /// <inheritdoc />
-    public int? Skip { get; internal set; }
+    /// <summary>
+    /// Specify whether to use AsNoTrackingWithIdentityResolution
+    /// </summary>
+    /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected Specification<T> AsNoTrackingWithIdentityResolution()
+    {
+        Query.AsNoTrackingWithIdentityResolution();
+        return this;
+    }
+}
 
+/// <inheritdoc cref="ISpecification{T}" />
+[PublicAPI]
+public class BasicSpecification<T> : IBasicSpecification<T> where T : class
+{
+    protected BasicSpecification()
+        : this(InMemorySpecificationEvaluator.Default, SpecificationValidator.Default)
+    {
+    }
+
+    protected BasicSpecification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator)
+        : this(inMemorySpecificationEvaluator, SpecificationValidator.Default)
+    {
+    }
+
+    protected BasicSpecification(ISpecificationValidator specificationValidator)
+        : this(InMemorySpecificationEvaluator.Default, specificationValidator)
+    {
+    }
+
+    protected BasicSpecification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, ISpecificationValidator specificationValidator)
+    {
+        Evaluator = inMemorySpecificationEvaluator;
+        Validator = specificationValidator;
+        Query = new BasicSpecificationBuilder<T>(this);
+    }
+    
     private PaginationFilter? _paginationFilter;
 
     /// <inheritdoc />
@@ -235,187 +324,32 @@ public class Specification<T> : BasicSpecification<T>,  ISpecification<T> where 
             IsPagingEnabled = true;
         }
     }
-
-    /// <inheritdoc />
-    public Func<IEnumerable<T>, IEnumerable<T>>? PostProcessingAction { get; internal set; }
-
-    /// <inheritdoc />
-    public bool? IsCacheEnabled { get; internal set; }
-
+    
     /// <inheritdoc />
     public bool IsPagingEnabled { get; internal set; }
 
-    /// <inheritdoc />
-    public bool IsAsNoTracking { get; internal set; } = true;
-
-    /// <inheritdoc />
-    public bool IsAsSplitQuery { get; internal set; }
-
-    /// <inheritdoc />
-    public bool IsAsNoTrackingWithIdentityResolution { get; internal set; }
     
-    /// <summary>
-    /// Inner <see cref="ISpecificationBuilder{T,TResult}"/>
-    /// </summary>
-    protected new ISpecificationBuilder<T> Query { get; }
-
-    /// <summary>
-    /// Sets whether to ignore query filters or not, default is
-    /// </summary>
-    /// <param name="ignore">Whether to ignore query filters</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T,TResult}"/> instance</returns>
-    protected ISpecificationBuilder<T> WithIgnoreQueryFilters(bool ignore = true)
+    /// <inheritdoc />
+    public IEnumerable<OrderExpressionInfo<T>>? OrderExpressions
     {
-        return Query.IgnoreQueryFilters(ignore);
+        get;
+        internal set;
     }
 
-    /// <summary>
-    /// Specify a transform function to apply to the result of the query 
-    /// and returns the same <typeparamref name="T"/> type
-    /// </summary>
-    /// <param name="postProcessingAction">Action to use for post processing</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> WithPostProcessingAction(Func<IEnumerable<T>, IEnumerable<T>> postProcessingAction)
-    {
-        return Query.WithPostProcessingAction(postProcessingAction);
-    }
+    /// <inheritdoc />
+    public IEnumerable<IncludeExpressionInfo>? IncludeExpressions { get; internal set; }
 
-    /// <summary>
-    /// Specify an include expression.
-    /// This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
-    /// to include related entities (via navigation properties) in the query result.
-    /// </summary>
-    /// <param name="includeExpression">Member to include</param>
-    /// <returns><see cref="IIncludableSpecificationBuilder{T,TProperty}"/> instance</returns>
-    protected IIncludableSpecificationBuilder<T, TProperty?> Include<TProperty>(
-        Expression<Func<T, TProperty?>> includeExpression)
-    {
-        return Query.Include(includeExpression);
-    }
+    /// <inheritdoc />
+    public Expression<Func<T, object>>? GroupByExpression { get; internal set; }
 
-    /// <summary>
-    /// Specify the query result will be ordered by <paramref name="orderByExpression"/> in an ascending order
-    /// </summary>
-    /// <param name="orderByExpression">Member to use for ordering</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> OrderBy(Expression<Func<T, object?>> orderByExpression)
-    {
-        return Query.OrderBy(orderByExpression);
-    }
+    /// <inheritdoc />
+    public IEnumerable<string>? IncludeStrings { get; internal set; }
 
-    /// <summary>
-    /// Specify the query result will be ordered by <paramref name="orderByDescendingExpression"/> in a descending order
-    /// </summary>
-    /// <param name="orderByDescendingExpression">Member to use for ordering</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> OrderByDescending(Expression<Func<T, object?>> orderByDescendingExpression)
-    {
-        return Query.OrderByDescending(orderByDescendingExpression);
-    }
+    /// <inheritdoc />
+    public int? Take { get; internal set; }
 
-    /// <summary>
-    /// Specify the query result will be grouped by <paramref name="groupByExpression"/> in a descending order
-    /// </summary>
-    /// <param name="groupByExpression">Member to use for grouping</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> GroupBy(Expression<Func<T, object>> groupByExpression)
-    {
-        return Query.GroupBy(groupByExpression);
-    }
-
-    /// <summary>
-    /// Specify a <see cref="PaginationFilter"/> to use
-    /// </summary>
-    /// <param name="paginationFilter"><see cref="PaginationFilter"/> to use</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> WithPaginationFilter(PaginationFilter paginationFilter)
-    {
-        return Query.WithPaginationFilter(paginationFilter);
-    }
-
-    /// <summary>
-    /// Specify the number of elements to return.
-    /// </summary>
-    /// <param name="take">number of elements to take</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> ApplyTake(int take)
-    {
-        return Query.Take(take);
-    }
-
-    /// <summary>
-    /// Specify the number of elements to skip before returning the remaining elements.
-    /// </summary>
-    /// <param name="skip">number of elements to skip</param>
-    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> ApplySkip(int skip)
-    {
-        return Query.Skip(skip);
-    }
-
-    /// <summary>
-    /// Specify whether results should be cached using <see cref="SecondLevelCacheInterceptor"/>.
-    /// </summary>
-    /// <param name="withCaching">Whether to cache results</param>
-    /// <returns><see cref="ICacheSpecificationBuilder{T}"/> instance</returns>
-    protected ICacheSpecificationBuilder<T> WithCaching(bool withCaching = true)
-    {
-        return Query.WithCaching(withCaching); 
-    }
-
-    /// <summary>
-    /// Specify whether to use tracking for this query (default setting is AsNoTracking)
-    /// </summary>
-    /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> AsTracking()
-    {
-        return Query.AsTracking();
-    }
-
-    /// <summary>
-    /// Specify whether to use tracking use split query
-    /// </summary>
-    /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> AsSplitQuery()
-    {
-        return Query.AsSplitQuery();
-    }
-
-    /// <summary>
-    /// Specify whether to use AsNoTrackingWithIdentityResolution
-    /// </summary>
-    /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected ISpecificationBuilder<T> AsNoTrackingWithIdentityResolution()
-    {
-        return Query.AsNoTrackingWithIdentityResolution();
-    }
-}
-
-/// <inheritdoc cref="ISpecification{T}" />
-[PublicAPI]
-public class BasicSpecification<T> : IBasicSpecification<T> where T : class
-{
-    protected BasicSpecification()
-        : this(InMemorySpecificationEvaluator.Default, SpecificationValidator.Default)
-    {
-    }
-
-    protected BasicSpecification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator)
-        : this(inMemorySpecificationEvaluator, SpecificationValidator.Default)
-    {
-    }
-
-    protected BasicSpecification(ISpecificationValidator specificationValidator)
-        : this(InMemorySpecificationEvaluator.Default, specificationValidator)
-    {
-    }
-
-    protected BasicSpecification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, ISpecificationValidator specificationValidator)
-    {
-        Evaluator = inMemorySpecificationEvaluator;
-        Validator = specificationValidator;
-        Query = new BasicSpecificationBuilder<T>(this);
-    }
+    /// <inheritdoc />
+    public int? Skip { get; internal set; }
 
     /// <inheritdoc/>
     public bool IgnoreQueryFilters { get; internal set; }
@@ -466,11 +400,11 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="criteria">Given criteria</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected IBasicSpecificationBuilder<T> Where(Expression<Func<T, bool>> criteria)
+    protected BasicSpecification<T> Where(Expression<Func<T, bool>> criteria)
     {
-        return Query.Where(criteria);
+        Query.Where(criteria);
+        return this;
     }
-    
 
     /// <summary>
     /// Specify a 'SQL LIKE' operations for search purposes
@@ -479,8 +413,89 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// <param name="searchTerm">the value to use for the SQL LIKE</param>
     /// <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected IBasicSpecificationBuilder<T> Search(Expression<Func<T, string>> selector, string searchTerm, int searchGroup = 1)
+    protected BasicSpecification<T> Search(Expression<Func<T, string>> selector, string searchTerm, int searchGroup = 1)
     {
-        return Query.Search(selector, searchTerm, searchGroup);
+        Query.Search(selector, searchTerm, searchGroup);
+        return this;
+    }
+    
+        /// <summary>
+    /// Specify an include expression.
+    /// This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
+    /// to include related entities (via navigation properties) in the query result.
+    /// </summary>
+    /// <param name="includeExpression">Member to include</param>
+    /// <returns><see cref="IIncludableSpecificationBuilder{T,TProperty}"/> instance</returns>
+    protected BasicSpecification<T> Include<TProperty>(
+        Expression<Func<T, TProperty?>> includeExpression)
+    {
+        Query.Include(includeExpression);
+        return this;
+    }
+
+    /// <summary>
+    /// Specify the query result will be ordered by <paramref name="orderByExpression"/> in an ascending order
+    /// </summary>
+    /// <param name="orderByExpression">Member to use for ordering</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected BasicSpecification<T> OrderBy(Expression<Func<T, object?>> orderByExpression)
+    {
+        Query.OrderBy(orderByExpression);
+        return this;
+    }
+
+    /// <summary>
+    /// Specify the query result will be ordered by <paramref name="orderByDescendingExpression"/> in a descending order
+    /// </summary>
+    /// <param name="orderByDescendingExpression">Member to use for ordering</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected BasicSpecification<T> OrderByDescending(Expression<Func<T, object?>> orderByDescendingExpression)
+    {
+        Query.OrderByDescending(orderByDescendingExpression);
+        return this;
+    }
+
+    /// <summary>
+    /// Specify the query result will be grouped by <paramref name="groupByExpression"/> in a descending order
+    /// </summary>
+    /// <param name="groupByExpression">Member to use for grouping</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected BasicSpecification<T> GroupBy(Expression<Func<T, object>> groupByExpression)
+    {
+        Query.GroupBy(groupByExpression);
+        return this;
+    }
+
+    /// <summary>
+    /// Specify a <see cref="PaginationFilter"/> to use
+    /// </summary>
+    /// <param name="paginationFilter"><see cref="PaginationFilter"/> to use</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected BasicSpecification<T> WithPaginationFilter(PaginationFilter paginationFilter)
+    {
+        Query.WithPaginationFilter(paginationFilter);
+        return this;
+    }
+
+    /// <summary>
+    /// Specify the number of elements to return.
+    /// </summary>
+    /// <param name="take">number of elements to take</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected BasicSpecification<T> ApplyTake(int take)
+    {
+        Query.Take(take);
+        return this;
+    }
+
+    /// <summary>
+    /// Specify the number of elements to skip before returning the remaining elements.
+    /// </summary>
+    /// <param name="skip">number of elements to skip</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
+    protected BasicSpecification<T> ApplySkip(int skip)
+    {
+        Query.Skip(skip);
+        return this;
     }
 }

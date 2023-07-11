@@ -68,44 +68,7 @@ public interface ISpecification<T> : IBasicSpecification<T> where T : class
     ///     Cache expiration mode if any.
     /// </summary>
     CacheExpirationMode? CacheExpirationMode { get; }
-
-    /// <summary>
-    ///     Pagination filter to apply.
-    /// </summary>
-    PaginationFilter? PaginationFilter { get; }
-
-    /// <summary>
-    ///     The collection of predicates to group by.
-    /// </summary>
-    Expression<Func<T, object>>? GroupByExpression { get; }
-
-    /// <summary>
-    /// The collections of functions used to determine the sorting (and subsequent sorting),
-    /// to apply to the result of the query encapsulated by the <see cref="ISpecification{T}"/>.
-    /// </summary>
-    IEnumerable<OrderExpressionInfo<T>>? OrderExpressions { get; }
-
-    /// <summary>
-    /// The collection of <see cref="IncludeExpressionInfo"/>s describing each include expression.
-    /// This information is utilized to build Include/ThenInclude functions in the query.
-    /// </summary>
-    IEnumerable<IncludeExpressionInfo>? IncludeExpressions { get; }
-
-    /// <summary>
-    ///     The collection of navigation properties, as strings, to include in the query.
-    /// </summary>
-    IEnumerable<string>? IncludeStrings { get; }
-
-    /// <summary>
-    ///     The number of elements to return.
-    /// </summary>
-    int? Take { get; }
-
-    /// <summary>
-    ///     The number of elements to skip before returning the remaining elements.
-    /// </summary>
-    int? Skip { get; }
-
+    
     /// <summary>
     ///     The transform function to apply to the result of the query encapsulated by the <see cref="ISpecification{T}" />.
     /// </summary>
@@ -116,11 +79,6 @@ public interface ISpecification<T> : IBasicSpecification<T> where T : class
     ///     Defaults to null - no override.
     /// </summary>
     bool? IsCacheEnabled { get; }
-
-    /// <summary>
-    /// Whether pagination is enabled
-    /// </summary>
-    bool IsPagingEnabled { get; }
 
     /// <summary>
     ///     Returns whether or not the change tracker will track any of the entities
@@ -148,6 +106,48 @@ public interface ISpecification<T> : IBasicSpecification<T> where T : class
 [PublicAPI]
 public interface IBasicSpecification<T> : ISpecification where T : class
 {
+    /// <summary>
+    ///     Pagination filter to apply.
+    /// </summary>
+    PaginationFilter? PaginationFilter { get; }
+
+    /// <summary>
+    /// Whether pagination is enabled
+    /// </summary>
+    bool IsPagingEnabled { get; }
+    
+    /// <summary>
+    ///     The number of elements to return.
+    /// </summary>
+    int? Take { get; }
+
+    /// <summary>
+    ///     The number of elements to skip before returning the remaining elements.
+    /// </summary>
+    int? Skip { get; }
+    
+    /// <summary>
+    ///     The collection of predicates to group by.
+    /// </summary>
+    Expression<Func<T, object>>? GroupByExpression { get; }
+
+    /// <summary>
+    /// The collections of functions used to determine the sorting (and subsequent sorting),
+    /// to apply to the result of the query encapsulated by the <see cref="ISpecification{T}"/>.
+    /// </summary>
+    IEnumerable<OrderExpressionInfo<T>>? OrderExpressions { get; }
+
+    /// <summary>
+    /// The collection of <see cref="IncludeExpressionInfo"/>s describing each include expression.
+    /// This information is utilized to build Include/ThenInclude functions in the query.
+    /// </summary>
+    IEnumerable<IncludeExpressionInfo>? IncludeExpressions { get; }
+
+    /// <summary>
+    ///     The collection of navigation properties, as strings, to include in the query.
+    /// </summary>
+    IEnumerable<string>? IncludeStrings { get; }
+    
     /// <summary>
     /// Returns whether or not the query should ignore the defined global query filters 
     /// </summary>

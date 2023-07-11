@@ -190,13 +190,15 @@ public static class SpecificationBuilderExtensions
     /// <typeparam name="T"></typeparam>
     /// <param name="specificationBuilder"></param>
     /// <param name="groupByExpression"></param>
-    public static ISpecificationBuilder<T> GroupBy<T>(
+    public static IGroupedSpecificationBuilder<T> GroupBy<T>(
         this ISpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, object>> groupByExpression) where T : class
     {
         specificationBuilder.Specification.GroupByExpression = groupByExpression;
+        
+        var includeBuilder = new GroupedSpecificationBuilder<T>(specificationBuilder.Specification);
 
-        return specificationBuilder;
+        return includeBuilder;
     }
     
     /// <summary>
@@ -260,6 +262,163 @@ public static class SpecificationBuilderExtensions
     /// <param name="condition">If false, the include expression won't be added.</param>
     public static ISpecificationBuilder<T> Include<T>(
         this ISpecificationBuilder<T> specificationBuilder,
+        string includeString,
+        bool condition) where T : class
+    {
+        if (condition)
+        {
+            specificationBuilder.Specification.IncludeStrings ??= new List<string>();
+            ((List<string>)specificationBuilder.Specification.IncludeStrings).Add(includeString);
+        }
+
+        return specificationBuilder;
+    }
+    
+    /// <summary>
+    /// Specify the query result will be ordered by <paramref name="orderExpression"/> in an ascending order
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="orderExpression"></param>
+    public static IOrderedSpecificationBuilder<T> OrderBy<T>(this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, object?>> orderExpression) where T : class =>
+        OrderBy(specificationBuilder, orderExpression, true);
+
+    /// <summary>
+    /// Specify the query result will be ordered by <paramref name="orderExpression"/> in an ascending order
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="orderExpression"></param>
+    /// <param name="condition">If false, the expression won't be added. The whole Order chain will be discarded.</param>
+    public static IOrderedSpecificationBuilder<T> OrderBy<T>(this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, object?>> orderExpression, bool condition) where T : class
+    {
+        if (condition)
+        {
+            specificationBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
+            ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions).Add(
+                new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.OrderBy));
+        }
+
+        var orderedSpecificationBuilder =
+            new OrderedSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
+
+        return orderedSpecificationBuilder;
+    }
+
+    /// <summary>
+    /// Specify the query result will be ordered by <paramref name="orderExpression"/> in a descending order
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="orderExpression"></param>
+    public static IOrderedSpecificationBuilder<T> OrderByDescending<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder, Expression<Func<T, object?>> orderExpression) where T : class =>
+        OrderByDescending(specificationBuilder, orderExpression, true);
+
+    /// <summary>
+    /// Specify the query result will be ordered by <paramref name="orderExpression"/> in a descending order
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="orderExpression"></param>
+    /// <param name="condition">If false, the expression won't be added. The whole Order chain will be discarded.</param>
+    public static IOrderedSpecificationBuilder<T> OrderByDescending<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder, Expression<Func<T, object?>> orderExpression,
+        bool condition) where T : class
+    {
+        if (condition)
+        {
+            specificationBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
+            ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions).Add(
+                new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.OrderByDescending));
+        }
+
+        var orderedSpecificationBuilder =
+            new OrderedSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
+
+        return orderedSpecificationBuilder;
+    }
+
+    /// <summary>
+    /// Specify the query result will be grouped by <paramref name="groupByExpression"/> in a descending order
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="groupByExpression"></param>
+    public static IGroupedSpecificationBuilder<T> GroupBy<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, object>> groupByExpression) where T : class
+    {
+        specificationBuilder.Specification.GroupByExpression = groupByExpression;
+        
+        var groupedBuilder = new GroupedSpecificationBuilder<T>(specificationBuilder.Specification);
+
+        return groupedBuilder;
+    }
+    
+    /// <summary>
+    /// Specify an include expression.
+    /// This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
+    /// to include related entities (via navigation properties) in the query result.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TProperty"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="includeExpression"></param>
+    public static IIncludableSpecificationBuilder<T, TProperty?> Include<T, TProperty>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, TProperty?>> includeExpression) where T : class
+        => Include(specificationBuilder, includeExpression, true);
+
+    /// <summary>
+    /// Specify an include expression.
+    /// This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
+    /// to include related entities (via navigation properties) in the query result.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TProperty"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="includeExpression"></param>
+    /// <param name="condition">If false, the expression won't be added. The whole Include chain will be discarded.</param>
+    public static IIncludableSpecificationBuilder<T, TProperty?> Include<T, TProperty>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        Expression<Func<T, TProperty?>> includeExpression,
+        bool condition) where T : class
+    {
+        if (condition)
+        {
+            var info = new IncludeExpressionInfo(includeExpression, typeof(T), typeof(TProperty));
+            specificationBuilder.Specification.IncludeExpressions ??= new List<IncludeExpressionInfo>();
+            ((List<IncludeExpressionInfo>)specificationBuilder.Specification.IncludeExpressions).Add(info);
+        }
+
+        var includeBuilder = new IncludableSpecificationBuilder<T, TProperty?>(specificationBuilder.Specification, !condition);
+
+        return includeBuilder;
+    }
+
+    /// <summary>
+    /// Specify a collection of navigation properties, as strings, to include in the query.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="includeString"></param>
+    public static IBasicSpecificationBuilder<T> Include<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        string includeString) where T : class
+        => Include(specificationBuilder, includeString, true);
+
+    /// <summary>
+    /// Specify a collection of navigation properties, as strings, to include in the query.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="includeString"></param>
+    /// <param name="condition">If false, the include expression won't be added.</param>
+    public static IBasicSpecificationBuilder<T> Include<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
         string includeString,
         bool condition) where T : class
     {
@@ -468,6 +627,90 @@ public static class SpecificationBuilderExtensions
     /// <returns>Current <see cref="ISpecificationBuilder{T,TResult}"/> instance</returns>
     public static ISpecificationBuilder<T> WithPaginationFilter<T>(
         this ISpecificationBuilder<T> specificationBuilder,
+        PaginationFilter paginationFilter) where T : class
+    {
+        if (specificationBuilder.Specification.Skip is not null) throw new DuplicateSkipException();
+        if (specificationBuilder.Specification.Take is not null) throw new DuplicateTakeException();
+        if (specificationBuilder.Specification.PaginationFilter is not null) throw new DuplicatePaginationException();
+        if (paginationFilter is null) throw new ArgumentNullException(nameof(paginationFilter));
+
+        specificationBuilder.Specification.PaginationFilter = paginationFilter;
+
+        return specificationBuilder;
+    }
+    
+    /// <summary>
+    /// Specify the number of elements to return.
+    /// </summary>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="take">number of elements to take</param>
+    public static IBasicSpecificationBuilder<T> Take<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        int take) where T : class => Take(specificationBuilder, take, true);
+
+    /// <summary>
+    /// Specify the number of elements to return.
+    /// </summary>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="take">number of elements to take</param>
+    /// <param name="condition">If false, the value will be discarded.</param>
+    public static IBasicSpecificationBuilder<T> Take<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        int take,
+        bool condition) where T : class
+    {
+        if (condition)
+        {
+            if (specificationBuilder.Specification.Take != null) throw new DuplicateTakeException();
+
+            specificationBuilder.Specification.Take = take;
+            specificationBuilder.Specification.IsPagingEnabled = true;
+        }
+
+        return specificationBuilder;
+    }
+
+    /// <summary>
+    /// Specify the number of elements to skip before returning the remaining elements.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="skip">number of elements to skip</param>
+    public static IBasicSpecificationBuilder<T> Skip<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        int skip) where T : class => Skip(specificationBuilder, skip, true);
+
+    /// <summary>
+    /// Specify the number of elements to skip before returning the remaining elements.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="skip">number of elements to skip</param>
+    /// <param name="condition">If false, the value will be discarded.</param>
+    public static IBasicSpecificationBuilder<T> Skip<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
+        int skip,
+        bool condition) where T : class
+    {
+        if (condition)
+        {
+            if (specificationBuilder.Specification.Skip != null) throw new DuplicateSkipException();
+
+            specificationBuilder.Specification.Skip = skip;
+            specificationBuilder.Specification.IsPagingEnabled = true;
+        }
+
+        return specificationBuilder;
+    }
+
+    /// <summary>
+    /// Specify a <see cref="PaginationFilter"/> to use
+    /// </summary>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="paginationFilter"><see cref="PaginationFilter"/> to use</param>
+    /// <returns>Current <see cref="ISpecificationBuilder{T,TResult}"/> instance</returns>
+    public static IBasicSpecificationBuilder<T> WithPaginationFilter<T>(
+        this IBasicSpecificationBuilder<T> specificationBuilder,
         PaginationFilter paginationFilter) where T : class
     {
         if (specificationBuilder.Specification.Skip is not null) throw new DuplicateSkipException();
