@@ -67,10 +67,9 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
     /// Specify a transform function to apply to the result of the query.
     /// and returns another <typeparamref name="TResult"/> type
     /// </summary>
-    protected Specification<T> WithPostProcessingAction(Func<IEnumerable<TResult>, IEnumerable<TResult>> postProcessingAction)
+    protected ISpecificationBuilder<T,TResult> WithPostProcessingAction(Func<IEnumerable<TResult>, IEnumerable<TResult>> postProcessingAction)
     {
-        Query.WithPostProcessingAction(postProcessingAction);
-        return this;
+        return Query.WithPostProcessingAction(postProcessingAction);
     }
 
     /// <summary>
@@ -78,10 +77,9 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
     /// </summary>
     /// <param name="mapperConfiguration"><see cref="MapperConfiguration"/> instance</param>
     /// <returns>Current specification instance</returns>
-    protected Specification<T> WithMapperConfiguration(MapperConfiguration mapperConfiguration)
+    protected ISpecificationBuilder<T,TResult> WithMapperConfiguration(MapperConfiguration mapperConfiguration)
     {
-        Query.WithMapperConfiguration(mapperConfiguration);
-        return this;
+        return Query.WithMapperConfiguration(mapperConfiguration);
     }
     
     /// <summary>
@@ -89,20 +87,18 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
     /// </summary>
     /// <param name="selector">Selector</param>
     /// <returns>Current specification instance</returns>
-    protected Specification<T> Select(Expression<Func<T, TResult>> selector)
+    protected ISpecificationBuilder<T,TResult> Select(Expression<Func<T, TResult>> selector)
     {
-        Query.Select(selector);
-        return this;
+        return Query.Select(selector);
     }
     
     /// <summary>
     /// Specify a transform function to apply to the <typeparamref name="T"/> element 
     /// to produce a flattened sequence of <typeparamref name="TResult"/> elements.
     /// </summary>
-    protected Specification<T> SelectMany(Expression<Func<T, IEnumerable<TResult>>> selector)
+    protected ISpecificationBuilder<T,TResult> SelectMany(Expression<Func<T, IEnumerable<TResult>>> selector)
     {
-        Query.SelectMany(selector);
-        return this;
+        return Query.SelectMany(selector);
     }
 
     /// <summary>
@@ -110,10 +106,9 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
     /// </summary>
     /// <param name="expression">Member to expand</param>
     /// <returns>Current specification instance</returns>
-    protected Specification<T> Expand(Expression<Func<TResult, object>> expression)
+    protected ISpecificationBuilder<T,TResult> Expand(Expression<Func<TResult, object>> expression)
     {
-        Query.Expand(expression);
-        return this;
+        return Query.Expand(expression);
     }
 
     /// <summary>
@@ -121,10 +116,9 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
     /// </summary>
     /// <param name="member">Member to expand</param>
     /// <returns>Current specification instance</returns>
-    protected Specification<T> Expand(string member)
+    protected ISpecificationBuilder<T,TResult> Expand(string member)
     {
-        Query.Expand(member);
-        return this;
+        return Query.Expand(member);
     }
 }
 
@@ -207,10 +201,9 @@ public class Specification<T> : BasicSpecification<T>,  ISpecification<T> where 
     /// </summary>
     /// <param name="ignore">Whether to ignore query filters</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T,TResult}"/> instance</returns>
-    protected Specification<T> WithIgnoreQueryFilters(bool ignore = true)
+    protected ISpecificationBuilder<T> WithIgnoreQueryFilters(bool ignore = true)
     {
-        Query.IgnoreQueryFilters(ignore);
-        return this;
+        return Query.IgnoreQueryFilters(ignore);
     }
 
     /// <summary>
@@ -219,10 +212,9 @@ public class Specification<T> : BasicSpecification<T>,  ISpecification<T> where 
     /// </summary>
     /// <param name="postProcessingAction">Action to use for post processing</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected Specification<T> WithPostProcessingAction(Func<IEnumerable<T>, IEnumerable<T>> postProcessingAction)
+    protected ISpecificationBuilder<T> WithPostProcessingAction(Func<IEnumerable<T>, IEnumerable<T>> postProcessingAction)
     {
-        Query.WithPostProcessingAction(postProcessingAction);
-        return this;
+        return Query.WithPostProcessingAction(postProcessingAction);
     }
 
     /// <summary>
@@ -230,40 +222,36 @@ public class Specification<T> : BasicSpecification<T>,  ISpecification<T> where 
     /// </summary>
     /// <param name="withCaching">Whether to cache results</param>
     /// <returns><see cref="ICacheSpecificationBuilder{T}"/> instance</returns>
-    protected Specification<T> WithCaching(bool withCaching = true)
+    protected ISpecificationBuilder<T> WithCaching(bool withCaching = true)
     {
-        Query.WithCaching(withCaching); 
-        return this;
+        return Query.WithCaching(withCaching);
     }
 
     /// <summary>
     /// Specify whether to use tracking for this query (default setting is AsNoTracking)
     /// </summary>
     /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected Specification<T> AsTracking()
+    protected ISpecificationBuilder<T> AsTracking()
     {
-        Query.AsTracking();
-        return this;
+        return Query.AsTracking();
     }
 
     /// <summary>
     /// Specify whether to use tracking use split query
     /// </summary>
     /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected Specification<T> AsSplitQuery()
+    protected ISpecificationBuilder<T> AsSplitQuery()
     {
-        Query.AsSplitQuery();
-        return this;
+        return Query.AsSplitQuery();
     }
 
     /// <summary>
     /// Specify whether to use AsNoTrackingWithIdentityResolution
     /// </summary>
     /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected Specification<T> AsNoTrackingWithIdentityResolution()
+    protected ISpecificationBuilder<T> AsNoTrackingWithIdentityResolution()
     {
-        Query.AsNoTrackingWithIdentityResolution();
-        return this;
+        return Query.AsNoTrackingWithIdentityResolution();
     }
 }
 
@@ -400,10 +388,9 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="criteria">Given criteria</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected BasicSpecification<T> Where(Expression<Func<T, bool>> criteria)
+    protected IBasicSpecificationBuilder<T> Where(Expression<Func<T, bool>> criteria)
     {
-        Query.Where(criteria);
-        return this;
+        return Query.Where(criteria);
     }
 
     /// <summary>
@@ -413,10 +400,9 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// <param name="searchTerm">the value to use for the SQL LIKE</param>
     /// <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected BasicSpecification<T> Search(Expression<Func<T, string>> selector, string searchTerm, int searchGroup = 1)
+    protected IBasicSpecificationBuilder<T> Search(Expression<Func<T, string>> selector, string searchTerm, int searchGroup = 1)
     {
-        Query.Search(selector, searchTerm, searchGroup);
-        return this;
+        return Query.Search(selector, searchTerm, searchGroup);
     }
     
         /// <summary>
@@ -426,11 +412,10 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="includeExpression">Member to include</param>
     /// <returns><see cref="IIncludableSpecificationBuilder{T,TProperty}"/> instance</returns>
-    protected BasicSpecification<T> Include<TProperty>(
+    protected IIncludableSpecificationBuilder<T, TProperty?> Include<TProperty>(
         Expression<Func<T, TProperty?>> includeExpression)
     {
-        Query.Include(includeExpression);
-        return this;
+        return Query.Include(includeExpression);
     }
 
     /// <summary>
@@ -438,10 +423,9 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="orderByExpression">Member to use for ordering</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected BasicSpecification<T> OrderBy(Expression<Func<T, object?>> orderByExpression)
+    protected IOrderedSpecificationBuilder<T> OrderBy(Expression<Func<T, object?>> orderByExpression)
     {
-        Query.OrderBy(orderByExpression);
-        return this;
+        return Query.OrderBy(orderByExpression);
     }
 
     /// <summary>
@@ -449,10 +433,9 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="orderByDescendingExpression">Member to use for ordering</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected BasicSpecification<T> OrderByDescending(Expression<Func<T, object?>> orderByDescendingExpression)
+    protected IOrderedSpecificationBuilder<T> OrderByDescending(Expression<Func<T, object?>> orderByDescendingExpression)
     {
-        Query.OrderByDescending(orderByDescendingExpression);
-        return this;
+        return Query.OrderByDescending(orderByDescendingExpression);
     }
 
     /// <summary>
@@ -460,10 +443,9 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="groupByExpression">Member to use for grouping</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected BasicSpecification<T> GroupBy(Expression<Func<T, object>> groupByExpression)
+    protected IGroupedSpecificationBuilder<T> GroupBy(Expression<Func<T, object>> groupByExpression)
     {
-        Query.GroupBy(groupByExpression);
-        return this;
+        return Query.GroupBy(groupByExpression);
     }
 
     /// <summary>
@@ -471,10 +453,9 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="paginationFilter"><see cref="PaginationFilter"/> to use</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected BasicSpecification<T> WithPaginationFilter(PaginationFilter paginationFilter)
+    protected IBasicSpecificationBuilder<T> WithPaginationFilter(PaginationFilter paginationFilter)
     {
-        Query.WithPaginationFilter(paginationFilter);
-        return this;
+        return Query.WithPaginationFilter(paginationFilter);
     }
 
     /// <summary>
@@ -482,10 +463,9 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="take">number of elements to take</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected BasicSpecification<T> ApplyTake(int take)
+    protected IBasicSpecificationBuilder<T> ApplyTake(int take)
     {
-        Query.Take(take);
-        return this;
+        return Query.Take(take);
     }
 
     /// <summary>
@@ -493,9 +473,8 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     /// </summary>
     /// <param name="skip">number of elements to skip</param>
     /// <returns>Current <see cref="ISpecificationBuilder{T}"/> instance</returns>
-    protected BasicSpecification<T> ApplySkip(int skip)
+    protected IBasicSpecificationBuilder<T> ApplySkip(int skip)
     {
-        Query.Skip(skip);
-        return this;
+        return Query.Skip(skip);
     }
 }
