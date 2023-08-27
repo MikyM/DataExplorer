@@ -25,8 +25,8 @@ jobs:
         modules-to-cache: powershell-yaml
     - name: Add custom certs
       run: |
-        sudo printf ${{ secrets.ROOT_CA }} >> root.crt
-        sudo printf ${{ secrets.WILD_CA }} >> wild.crt
+        sudo printf "${{ secrets.ROOT_CA }}" >> root.crt
+        sudo printf "${{ secrets.WILD_CA }}" >> wild.crt
         sudo cp $GITHUB_WORKSPACE/root.crt $GITHUB_WORKSPACE/wild.crt /usr/local/share/ca-certificates/
         sudo update-ca-certificates
     - name: Check out Code 
