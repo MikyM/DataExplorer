@@ -80,7 +80,7 @@ jobs:
     - name: Fix Docker MTU
       run: |
         sudo cat /etc/docker/daemon.json
-        sudo echo "{"mtu":1450}" >> /etc/docker/daemon.json
+        sudo sed -i 's/}/,"mtu": 1300}/' /etc/docker/daemon.json
         sudo cat /etc/docker/daemon.json
         sudo systemctl restart docker
     - name: Activate WireGuard Tunnel
