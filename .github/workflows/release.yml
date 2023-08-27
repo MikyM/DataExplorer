@@ -67,7 +67,7 @@ jobs:
         sed -i -e "s@{{CTX_WIREGUARD_PERSISTENT_KEEPALIVE}}@${{ secrets.VPN_KEEPALIVE }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
         sed -i -e "s@{{CTX_WIREGUARD_DNS}}@${{ secrets.VPN_DNS }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
         sed -i -e "s@{{CTX_WIREGUARD_MTU}}@${{ secrets.VPN_MTU }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ADDRESS}}@${{ secrets.IPS }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_ADDRESS}}@${{ secrets.VPN_IPS }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
         sed -i -e "s@{{CTX_WIREGUARD_ALLOWED_IPS}}@${{ secrets.VPN_ALLOWED_IPS }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
 
         sudo cp $GITHUB_WORKSPACE/docs/tunnel.conf /etc/wireguard/
