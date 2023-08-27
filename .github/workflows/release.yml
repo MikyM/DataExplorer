@@ -25,10 +25,9 @@ jobs:
         modules-to-cache: powershell-yaml
     - name: Add custom certs
       run: |
-        echo $GITHUB_WORKSPACE
         sudo printf "${{ secrets.ROOT_CA }}" >> root.crt
         sudo printf "${{ secrets.WILD_CA }}" >> wild.crt
-        sudo cp $GITHUB_WORKSPACE/root.crt $GITHUB_WORKSPACE/wild.crt /usr/local/share/ca-certificates/
+        sudo cp root.crt wild.crt /usr/local/share/ca-certificates/
         sudo update-ca-certificates
     - name: Check out Code 
       uses: actions/checkout@v3
@@ -67,17 +66,17 @@ jobs:
       run: sudo apt-get install wireguard resolvconf
     - name: Create WireGuard tunnel configuration
       run: |
-        sed -i -e "s@{{CTX_WIREGUARD_PRIVATE_KEY}}@${{ secrets.VPN_PRIVATE_KEY }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PUBLIC_KEY}}@${{ secrets.VPN_ENDPOINT_PUBLIC_KEY }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PRESHARED_KEY}}@${{ secrets.VPN_PRESHARED_KEY }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ENDPOINT}}@${{ secrets.VPN_ENDPOINT }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PERSISTENT_KEEPALIVE}}@${{ secrets.VPN_KEEPALIVE }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_DNS}}@${{ secrets.VPN_DNS }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_MTU}}@${{ secrets.VPN_MTU }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ADDRESS}}@${{ secrets.VPN_IPS }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ALLOWED_IPS}}@${{ secrets.VPN_ALLOWED_IPS }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_PRIVATE_KEY}}@${{ secrets.VPN_PRIVATE_KEY }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_PUBLIC_KEY}}@${{ secrets.VPN_ENDPOINT_PUBLIC_KEY }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_PRESHARED_KEY}}@${{ secrets.VPN_PRESHARED_KEY }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_ENDPOINT}}@${{ secrets.VPN_ENDPOINT }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_PERSISTENT_KEEPALIVE}}@${{ secrets.VPN_KEEPALIVE }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_DNS}}@${{ secrets.VPN_DNS }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_MTU}}@${{ secrets.VPN_MTU }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_ADDRESS}}@${{ secrets.VPN_IPS }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_ALLOWED_IPS}}@${{ secrets.VPN_ALLOWED_IPS }}@" docs/tunnel.conf
 
-        sudo cp $GITHUB_WORKSPACE/docs/tunnel.conf /etc/wireguard/
+        sudo cp docs/tunnel.conf /etc/wireguard/
     - name: Activate WireGuard Tunnel
       run: wg-quick up tunnel
     - name: Login to private registry
