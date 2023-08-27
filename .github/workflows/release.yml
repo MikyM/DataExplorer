@@ -25,12 +25,13 @@ jobs:
         modules-to-cache: powershell-yaml
     - name: Add custom certs
       run: |
+        echo $GITHUB_WORKSPACE
         sudo printf "${{ secrets.ROOT_CA }}" >> root.crt
         sudo printf "${{ secrets.WILD_CA }}" >> wild.crt
         sudo cp $GITHUB_WORKSPACE/root.crt $GITHUB_WORKSPACE/wild.crt /usr/local/share/ca-certificates/
         sudo update-ca-certificates
     - name: Check out Code 
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Restore dependencies
       run: cd src && dotnet restore
     - name: Build solution and generate base NuGet package
