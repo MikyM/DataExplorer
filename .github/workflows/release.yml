@@ -31,6 +31,8 @@ jobs:
         sudo update-ca-certificates
     - name: Install WireGuard and resolvconf
       run: sudo apt-get install wireguard resolvconf
+    - name: Check out Code 
+      uses: actions/checkout@v3
     - name: Create WireGuard tunnel configuration
       run: |
         sed -i -e "s@{{CTX_WIREGUARD_PRIVATE_KEY}}@${{ secrets.VPN_PRIVATE_KEY }}@" docs/tunnel.conf
@@ -50,8 +52,6 @@ jobs:
       run: curl -s https://api.ipify.org
     - name: Deactivate WireGuard Tunnel
       run: wg-quick down tunnel
-    - name: Check out Code 
-      uses: actions/checkout@v3
     - name: Restore dependencies
       run: cd src && dotnet restore
     - name: Build solution and generate base NuGet package
