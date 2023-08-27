@@ -57,7 +57,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
     - name: Install WireGuard
-      run: sudo apt-get install wireguard
+      run: sudo apt-get install wireguard resolvconf
     - name: Create WireGuard tunnel configuration
       run: |
         sed -i -e "s@{{CTX_WIREGUARD_PRIVATE_KEY}}@${{ secrets.VPN_PRIVATE_KEY }}@" $GITHUB_WORKSPACE/docs/tunnel.conf
