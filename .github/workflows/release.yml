@@ -25,19 +25,6 @@ jobs:
         modules-to-cache: powershell-yaml
     - name: Check out Code 
       uses: actions/checkout@v3
-    - name: Create WireGuard tunnel configuration
-      run: |
-        sed -i -e "s@{{CTX_WIREGUARD_PRIVATE_KEY}}@${{ secrets.VPN_PRIVATE_KEY }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PUBLIC_KEY}}@${{ secrets.VPN_ENDPOINT_PUBLIC_KEY }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PRESHARED_KEY}}@${{ secrets.VPN_PRESHARED_KEY }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ENDPOINT}}@${{ secrets.VPN_ENDPOINT }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PERSISTENT_KEEPALIVE}}@${{ secrets.VPN_KEEPALIVE }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_DNS}}@${{ secrets.VPN_DNS }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_MTU}}@${{ secrets.VPN_MTU }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ADDRESS}}@${{ secrets.VPN_IPS }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ALLOWED_IPS}}@${{ secrets.VPN_ALLOWED_IPS }}@" docs/tunnel.conf
-
-        sudo cp docs/tunnel.conf /etc/wireguard/
     - name: Restore dependencies
       run: cd src && dotnet restore
     - name: Build solution and generate base NuGet package
