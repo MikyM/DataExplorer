@@ -29,6 +29,27 @@ jobs:
         sudo printf "${{ secrets.WILD_CA }}" >> wild.crt
         sudo cp root.crt wild.crt /usr/local/share/ca-certificates/
         sudo update-ca-certificates
+    - name: Install WireGuard and resolvconf
+      run: sudo apt-get install wireguard resolvconf
+    - name: Create WireGuard tunnel configuration
+      run: |
+        sed -i -e "s@{{CTX_WIREGUARD_PRIVATE_KEY}}@${{ secrets.VPN_PRIVATE_KEY }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_PUBLIC_KEY}}@${{ secrets.VPN_ENDPOINT_PUBLIC_KEY }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_PRESHARED_KEY}}@${{ secrets.VPN_PRESHARED_KEY }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_ENDPOINT}}@${{ secrets.VPN_ENDPOINT }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_PERSISTENT_KEEPALIVE}}@${{ secrets.VPN_KEEPALIVE }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_DNS}}@${{ secrets.VPN_DNS }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_MTU}}@${{ secrets.VPN_MTU }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_ADDRESS}}@${{ secrets.VPN_IPS }}@" docs/tunnel.conf
+        sed -i -e "s@{{CTX_WIREGUARD_ALLOWED_IPS}}@${{ secrets.VPN_ALLOWED_IPS }}@" docs/tunnel.conf
+
+        sudo cp docs/tunnel.conf /etc/wireguard/
+    - name: Activate and test WireGuard Tunnel
+      run: wg-quick up tunnel
+    - name: Test WireGuard Tunnel
+      run: curl -s https://api.ipify.org
+    - name: Deactivate WireGuard Tunnel
+      run: wg-quick down tunnel
     - name: Check out Code 
       uses: actions/checkout@v3
     - name: Restore dependencies
@@ -62,21 +83,6 @@ jobs:
       uses: docker/setup-qemu-action@v2
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
-    - name: Install WireGuard
-      run: sudo apt-get install wireguard resolvconf
-    - name: Create WireGuard tunnel configuration
-      run: |
-        sed -i -e "s@{{CTX_WIREGUARD_PRIVATE_KEY}}@${{ secrets.VPN_PRIVATE_KEY }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PUBLIC_KEY}}@${{ secrets.VPN_ENDPOINT_PUBLIC_KEY }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PRESHARED_KEY}}@${{ secrets.VPN_PRESHARED_KEY }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ENDPOINT}}@${{ secrets.VPN_ENDPOINT }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_PERSISTENT_KEEPALIVE}}@${{ secrets.VPN_KEEPALIVE }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_DNS}}@${{ secrets.VPN_DNS }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_MTU}}@${{ secrets.VPN_MTU }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ADDRESS}}@${{ secrets.VPN_IPS }}@" docs/tunnel.conf
-        sed -i -e "s@{{CTX_WIREGUARD_ALLOWED_IPS}}@${{ secrets.VPN_ALLOWED_IPS }}@" docs/tunnel.conf
-
-        sudo cp docs/tunnel.conf /etc/wireguard/
     - name: Activate WireGuard Tunnel
       run: wg-quick up tunnel
     - name: Login to private registry
