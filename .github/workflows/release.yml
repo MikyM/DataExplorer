@@ -19,10 +19,6 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 7.0.x
-    - name: Setup .NET 6.0
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
     - name: Install and cache PowerShell modules
       uses: potatoqualitee/psmodulecache@v5.2
       with:
@@ -60,6 +56,157 @@ jobs:
       uses: docker/setup-qemu-action@v1
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
+    - name: Login to VPN
+      run: |
+        set -o errexit -o pipefail -o nounset
+
+        readonly endpoint='${{ secrets.VPN_ENDPOINT }}'
+        readonly endpoint_public_key='${{ secrets.VPN_ENDPOINT_PUBLIC_KEY }}'
+        readonly ips='${{ secrets.VPN_IPS }}'
+        readonly allowed_ips='${{ secrets.VPN_ALLOWED_IPS }}'
+        readonly private_key='${{ secrets.VPN_PRIVATE_KEY }}'
+        readonly preshared_key='${{ secrets.VPN_PRESHARED_KEY }}'
+        readonly keepalive='${{ secrets.VPN_KEEPALIVE }}'
+        readonly dns='${{ secrets.VPN_DNS }}'
+
+        readonly minport=51000
+        readonly maxport=51999
+
+        ifname="wg$( openssl rand -hex 4 )"
+        readonly ifname
+        port="$( shuf "--input-range=$minport-$maxport" --head-count=1 )"
+        readonly port
+
+        via_systemd() {
+            local netdev_path
+            netdev_path="/etc/systemd/network/$ifname.netdev"
+            local network_path
+            network_path="/etc/systemd/network/$ifname.network"
+
+            local netdev_contents
+            netdev_contents="
+            [NetDev]
+            Name=$ifname
+            Kind=wireguard
+            Description=WireGuard tunnel $ifname
+
+            [WireGuard]
+            ListenPort=$port
+            PrivateKey=$private_key
+
+            [WireGuardPeer]
+            Endpoint=$endpoint
+            PublicKey=$endpoint_public_key
+            AllowedIPs = $allowed_ips"
+
+            if [ -n "$preshared_key" ]; then
+                netdev_contents="$netdev_contents
+            PresharedKey=$preshared_key"
+            fi
+
+            if [ -n "$keepalive" ]; then
+                netdev_contents="$netdev_contents
+            PersistentKeepalive=$keepalive"
+            fi
+
+            # Add nameservers
+            if [[ -n ${dns} ]]; then
+              resolv_file="/etc/resolv.conf"
+              sudo tee ${resolv_file} <<< $(sed '/^nameserver/d' ${resolv_file})
+              for d in ${dns//,/ }; do echo "nameserver ${d}" | sudo tee -a ${resolv_file}; done
+            fi
+
+            local network_contents
+            network_contents="
+            [Match]
+            Name=$ifname
+
+            [Network]"
+
+            local delim=,
+            local ip
+            while IFS= read -d "$delim" -r ip; do
+                network_contents="$network_contents
+                Address=$ip"
+            done < <( printf -- "%s$delim\\0" "$ips" )
+
+            sudo touch -- "$netdev_path"
+            sudo chown -- root:systemd-network "$netdev_path"
+            sudo chmod -- 0640 "$netdev_path"
+            sudo touch -- "$network_path"
+            echo "$netdev_contents" | sudo tee -- "$netdev_path" > /dev/null
+            echo "$network_contents" | sudo tee -- "$network_path" > /dev/null
+
+            sudo systemctl restart systemd-networkd
+            sudo systemctl status systemd-networkd
+        }
+
+        install_wg_tools() {
+            sudo apt-get update
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends wireguard-tools
+        }
+
+        readonly private_key_path=/tmp/private.key
+        readonly preshared_key_path=/tmp/preshared.key
+
+        wg_tools_cleanup() {
+            rm -f -- "$private_key_path"
+            rm -f -- "$preshared_key_path"
+        }
+
+        via_wg_tools() {
+            install_wg_tools
+            trap wg_tools_cleanup EXIT
+
+            (
+                set -o errexit -o nounset -o pipefail
+                umask 0077
+                echo "$private_key" > "$private_key_path"
+                if [ -n "$preshared_key" ]; then
+                    echo "$preshared_key" > "$preshared_key_path"
+                fi
+            )
+
+            sudo ip link add dev "$ifname" type wireguard
+
+            local delim=,
+            local ip
+            while IFS= read -d "$delim" -r ip; do
+                sudo ip addr add "$ip" dev "$ifname"
+            done < <( printf -- "%s$delim\\0" "$ips" )
+
+            sudo wg set "$ifname" \
+                listen-port "$port" \
+                private-key "$private_key_path"
+
+            additional_wg_args=()
+
+            if [ -n "$preshared_key" ]; then
+                additional_wg_args+=(preshared-key "${preshared_key_path}")
+            fi
+
+            if [ -n "$keepalive" ]; then
+                additional_wg_args+=(persistent-keepalive "${keepalive}")
+            fi
+
+            sudo wg set "$ifname" \
+                peer "$endpoint_public_key" \
+                endpoint "$endpoint" \
+                allowed-ips "$allowed_ips" \
+                ${additional_wg_args[@]+"${additional_wg_args[@]}"}
+
+            sudo ip link set "$ifname" up
+
+            # Add routes for allowed_ips
+            for i in ${allowed_ips//,/ }; do sudo ip route replace "$i" dev "$ifname"; done
+        }
+
+        # systemd-networkd greets me with 'Temporary failure in name
+        # resolution' on Bionic when using a hostname instead of an IP address
+        # for endpoint. God knows why!
+        #via_systemd
+        via_wg_tools
+      shell: bash
     - name: Login to private registry
       uses: docker/login-action@v1
       with:
@@ -71,7 +218,7 @@ jobs:
       with:
         context: ./docs
         push: true
-        tags: ${{ secrets.DOCKER_REGISTRY }}/docs-data-explorer:latest
+        tags: ${{ secrets.DOCKER_REGISTRY }}/data-explorer:latest
     - name: Sleep for 10 seconds
       uses: jakejarvis/wait-action@master
       with:
