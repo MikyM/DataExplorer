@@ -23,6 +23,12 @@ jobs:
       uses: potatoqualitee/psmodulecache@v5.2
       with:
         modules-to-cache: powershell-yaml
+    - name: Add custom certs
+      run: |
+        sudo echo ${{ secrets.ROOT_CA }} >> root.crt
+        sudo echo ${{ secrets.WILD_CA }} >> wild.crt
+        sudo cp $GITHUB_WORKSPACE/root.crt $GITHUB_WORKSPACE/wild.crt /usr/local/share/ca-certificates/
+        sudo update-ca-certificates
     - name: Check out Code 
       uses: actions/checkout@v2
     - name: Restore dependencies
