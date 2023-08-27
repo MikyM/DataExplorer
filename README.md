@@ -33,7 +33,7 @@ builder.AddDataExplorer(options =>
 
 ## Documentation
 
-Documentation available at https://docs.data-explorer.mikym.me/.
+Documentation available at https://data-explorer.mikym.me/.
 
 ## Description
 
