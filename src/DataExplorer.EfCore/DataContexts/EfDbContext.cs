@@ -115,7 +115,7 @@ public abstract class EfDbContext : DbContext, IEfDbContext
         
         foreach (var entry in entries)
         {
-            if (entry.Entity is Entity entity)
+            if (entry.Entity is IEntity entity)
                 switch (entry.State)
                 {
                     case EntityState.Added:
@@ -123,12 +123,11 @@ public abstract class EfDbContext : DbContext, IEfDbContext
                         {
                             createdAt.CreatedAt = now;
                             entry.Property(nameof(ICreatedAt.CreatedAt)).IsModified = true;
-
-                            if (entity is IUpdatedAt { UpdatedAt: null } addedUpdatedAt)
-                            {
-                                addedUpdatedAt.UpdatedAt = now;
-                                entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified = true;
-                            }
+                        }
+                        if (entity is IUpdatedAt { UpdatedAt: null } addedUpdatedAt)
+                        {
+                            addedUpdatedAt.UpdatedAt = now;
+                            entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified = true;
                         }
                         break;
                     case EntityState.Modified:
