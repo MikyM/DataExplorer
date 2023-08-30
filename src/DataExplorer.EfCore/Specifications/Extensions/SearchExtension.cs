@@ -66,14 +66,14 @@ public static class SearchExtension
             isCharSetOn = false,
             isNotCharSetOn = false,
             endOfPattern = false;
-        int lastWildCard = -1;
-        int patternIndex = 0;
+        var lastWildCard = -1;
+        var patternIndex = 0;
         List<char> set = new();
-        char p = '\0';
+        var p = '\0';
 
-        for (int i = 0; i < str.Length; i++)
+        for (var i = 0; i < str.Length; i++)
         {
-            char c = str[i];
+            var c = str[i];
             endOfPattern = (patternIndex >= pattern.Length);
             if (!endOfPattern)
             {
@@ -108,12 +108,12 @@ public static class SearchExtension
                     set.Clear();
                     if (pattern[patternIndex + 1] == '-' && pattern[patternIndex + 3] == ']')
                     {
-                        char start = char.ToUpper(pattern[patternIndex]);
+                        var start = char.ToUpper(pattern[patternIndex]);
                         patternIndex += 2;
-                        char end = char.ToUpper(pattern[patternIndex]);
+                        var end = char.ToUpper(pattern[patternIndex]);
                         if (start <= end)
                         {
-                            for (char ci = start; ci <= end; ci++)
+                            for (var ci = start; ci <= end; ci++)
                             {
                                 set.Add(ci);
                             }
@@ -145,7 +145,7 @@ public static class SearchExtension
             }
             else if (isCharSetOn || isNotCharSetOn)
             {
-                bool charMatch = (set.Contains(char.ToUpper(c)));
+                var charMatch = (set.Contains(char.ToUpper(c)));
                 if ((isNotCharSetOn && charMatch) || (isCharSetOn && !charMatch))
                 {
                     if (lastWildCard >= 0) patternIndex = lastWildCard;
@@ -178,8 +178,8 @@ public static class SearchExtension
 
         if (isMatch && !endOfPattern)
         {
-            bool isOnlyWildCards = true;
-            for (int i = patternIndex; i < pattern.Length; i++)
+            var isOnlyWildCards = true;
+            for (var i = patternIndex; i < pattern.Length; i++)
             {
                 if (pattern[i] != '%')
                 {

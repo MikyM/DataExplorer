@@ -418,8 +418,8 @@ public static class DataExplorerConfigurationExtensions
         }
 
         // base data interceptors
-        bool crudEnabled = false;
-        bool readEnabled = false;
+        var crudEnabled = false;
+        var readEnabled = false;
         if (builder is not null)
             foreach (var (interceptorType, registrationData) in config.DataInterceptors.OrderByDescending(x => x.Value.Order))
             {
@@ -427,67 +427,67 @@ public static class DataExplorerConfigurationExtensions
                 {
                     case DataRegistrationStrategy.CrudAndReadOnly:
                         registCrudBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registCrudBuilder.InterceptedBy(
+                            ? registCrudBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registCrudBuilder.InterceptedBy(interceptorType);
+                            : registCrudBuilder?.InterceptedBy(interceptorType);
                         registReadOnlyBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registReadOnlyBuilder.InterceptedBy(
+                            ? registReadOnlyBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registReadOnlyBuilder.InterceptedBy(interceptorType);
+                            : registReadOnlyBuilder?.InterceptedBy(interceptorType);
                         registCrudGenericIdBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registCrudGenericIdBuilder.InterceptedBy(
+                            ? registCrudGenericIdBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
+                            : registCrudGenericIdBuilder?.InterceptedBy(interceptorType);
                         registReadOnlyGenericIdBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registReadOnlyGenericIdBuilder.InterceptedBy(
+                            ? registReadOnlyGenericIdBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
+                            : registReadOnlyGenericIdBuilder?.InterceptedBy(interceptorType);
 
                         if (!crudEnabled)
                         {
-                            registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
-                            registCrudGenericIdBuilder = registCrudGenericIdBuilder.EnableInterfaceInterceptors();
+                            registCrudBuilder = registCrudBuilder?.EnableInterfaceInterceptors();
+                            registCrudGenericIdBuilder = registCrudGenericIdBuilder?.EnableInterfaceInterceptors();
                             crudEnabled = true;
                         }
 
                         if (!readEnabled)
                         {
-                            registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
-                            registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder.EnableInterfaceInterceptors();
+                            registReadOnlyBuilder = registReadOnlyBuilder?.EnableInterfaceInterceptors();
+                            registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder?.EnableInterfaceInterceptors();
                             readEnabled = true;
                         }
 
                         break;
                     case DataRegistrationStrategy.Crud:
                         registCrudBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registCrudBuilder.InterceptedBy(
+                            ? registCrudBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registCrudBuilder.InterceptedBy(interceptorType);
+                            : registCrudBuilder?.InterceptedBy(interceptorType);
                         registCrudGenericIdBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registCrudGenericIdBuilder.InterceptedBy(
+                            ? registCrudGenericIdBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registCrudGenericIdBuilder.InterceptedBy(interceptorType);
+                            : registCrudGenericIdBuilder?.InterceptedBy(interceptorType);
                         if (!crudEnabled)
                         {
-                            registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
-                            registCrudGenericIdBuilder = registCrudGenericIdBuilder.EnableInterfaceInterceptors();
+                            registCrudBuilder = registCrudBuilder?.EnableInterfaceInterceptors();
+                            registCrudGenericIdBuilder = registCrudGenericIdBuilder?.EnableInterfaceInterceptors();
                             crudEnabled = true;
                         }
 
                         break;
                     case DataRegistrationStrategy.ReadOnly:
                         registReadOnlyBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registReadOnlyBuilder.InterceptedBy(
+                            ? registReadOnlyBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registReadOnlyBuilder.InterceptedBy(interceptorType);
+                            : registReadOnlyBuilder?.InterceptedBy(interceptorType);
                         registReadOnlyGenericIdBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registReadOnlyGenericIdBuilder.InterceptedBy(
+                            ? registReadOnlyGenericIdBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registReadOnlyGenericIdBuilder.InterceptedBy(interceptorType);
+                            : registReadOnlyGenericIdBuilder?.InterceptedBy(interceptorType);
                         if (!readEnabled)
                         {
-                            registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
-                            registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder.EnableInterfaceInterceptors();
+                            registReadOnlyBuilder = registReadOnlyBuilder?.EnableInterfaceInterceptors();
+                            registReadOnlyGenericIdBuilder = registReadOnlyGenericIdBuilder?.EnableInterfaceInterceptors();
                             readEnabled = true;
                         }
 

@@ -1,6 +1,6 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class GroupByEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker
+public class GroupByEvaluator : IEvaluator, IBasicEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker
 {
     private GroupByEvaluator()
     {
@@ -10,18 +10,16 @@ public class GroupByEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker
 
     public bool IsCriteriaEvaluator { get; } = false;
     public int ApplicationOrder { get; } = 0;
-
-    public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
-    {
-        return specification.GroupByExpression is null
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, IBasicSpecification<T> specification) where T : class 
+        => specification.GroupByExpression is null
             ? query
             : query.GroupBy(specification.GroupByExpression).SelectMany(x => x);
-    }
 
-    public IEnumerable<T> Evaluate<T>(IEnumerable<T> query, ISpecification<T> specification) where T : class
-    {
-        return specification.GroupByExpression is null
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
+        => GetQuery(query, (IBasicSpecification<T>)specification);
+
+    public IEnumerable<T> Evaluate<T>(IEnumerable<T> query, ISpecification<T> specification) where T : class 
+        => specification.GroupByExpression is null
             ? query
             : query.GroupBy(specification.GroupByExpression.Compile()).SelectMany(x => x);
-    }
 }

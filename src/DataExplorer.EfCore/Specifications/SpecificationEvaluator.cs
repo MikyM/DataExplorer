@@ -41,7 +41,7 @@ public class SpecificationEvaluator : ISpecificationEvaluator
         _evaluators.AddRange(new List<IEvaluator>()
         {
             WhereEvaluator.Instance, SearchEvaluator.Instance, cacheEnabled ? IncludeEvaluator.Cached : IncludeEvaluator.Default,
-            OrderEvaluator.Instance, PaginationEvaluator.Instance, AsNoTrackingEvaluator.Instance,
+            OrderEvaluator.Instance, PaginationEvaluator.Instance, AsNoTrackingEvaluator.Instance, AsTrackingEvaluator.Instance,
             AsSplitQueryEvaluator.Instance, AsNoTrackingWithIdentityResolutionEvaluator.Instance,
             GroupByEvaluator.Instance, CachingEvaluator.Instance
         });

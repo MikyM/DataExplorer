@@ -72,12 +72,12 @@ internal static class InstanceFactory
 
     var paramExpr = new List<ParameterExpression>();
     paramExpr.Add(Expression.Parameter(typeof(Type)));
-    for (int i = 0; i < 3; i++)
+    for (var i = 0; i < 3; i++)
       paramExpr.Add(Expression.Parameter(typeof(object)));
 
     var callParamExpr = new List<Expression>();
     callParamExpr.Add(paramExpr[0]);
-    for (int i = 1; i < 4; i++)
+    for (var i = 1; i < 4; i++)
       callParamExpr.Add(Expression.Convert(paramExpr[i], types[i]));
     
     var callExpr = Expression.Call(generic, callParamExpr);

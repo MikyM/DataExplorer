@@ -196,8 +196,8 @@ public static class DataExplorerConfigurationExtensions
         }
 
         // base data interceptors
-        bool crudEnabled = false;
-        bool readEnabled = false;
+        var crudEnabled = false;
+        var readEnabled = false;
         if (builder is not null)
             foreach (var (interceptorType, registrationData) in config.DataInterceptors.OrderByDescending(x => x.Value.Order))
             {
@@ -205,47 +205,47 @@ public static class DataExplorerConfigurationExtensions
                 {
                     case DataRegistrationStrategy.CrudAndReadOnly:
                         registCrudBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registCrudBuilder.InterceptedBy(
+                            ? registCrudBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registCrudBuilder.InterceptedBy(interceptorType);
+                            : registCrudBuilder?.InterceptedBy(interceptorType);
                         registReadOnlyBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registReadOnlyBuilder.InterceptedBy(
+                            ? registReadOnlyBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registReadOnlyBuilder.InterceptedBy(interceptorType);
+                            : registReadOnlyBuilder?.InterceptedBy(interceptorType);
 
                         if (!crudEnabled)
                         {
-                            registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
+                            registCrudBuilder = registCrudBuilder?.EnableInterfaceInterceptors();
                             crudEnabled = true;
                         }
 
                         if (!readEnabled)
                         {
-                            registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
+                            registReadOnlyBuilder = registReadOnlyBuilder?.EnableInterfaceInterceptors();
                             readEnabled = true;
                         }
 
                         break;
                     case DataRegistrationStrategy.Crud:
                         registCrudBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registCrudBuilder.InterceptedBy(
+                            ? registCrudBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registCrudBuilder.InterceptedBy(interceptorType);
+                            : registCrudBuilder?.InterceptedBy(interceptorType);
                         if (!crudEnabled)
                         {
-                            registCrudBuilder = registCrudBuilder.EnableInterfaceInterceptors();
+                            registCrudBuilder = registCrudBuilder?.EnableInterfaceInterceptors();
                             crudEnabled = true;
                         }
 
                         break;
                     case DataRegistrationStrategy.ReadOnly:
                         registReadOnlyBuilder = interceptorType.IsAsyncInterceptor()
-                            ? registReadOnlyBuilder.InterceptedBy(
+                            ? registReadOnlyBuilder?.InterceptedBy(
                                 typeof(AsyncInterceptorAdapter<>).MakeGenericType(interceptorType))
-                            : registReadOnlyBuilder.InterceptedBy(interceptorType);
+                            : registReadOnlyBuilder?.InterceptedBy(interceptorType);
                         if (!readEnabled)
                         {
-                            registReadOnlyBuilder = registReadOnlyBuilder.EnableInterfaceInterceptors();
+                            registReadOnlyBuilder = registReadOnlyBuilder?.EnableInterfaceInterceptors();
                             readEnabled = true;
                         }
 

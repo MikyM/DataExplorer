@@ -81,7 +81,7 @@ public abstract class AuditableEfDbContext : EfDbContext, IAuditableEfDbContext
 
             foreach (var property in entry.Properties)
             {
-                string propertyName = property.Metadata.Name;
+                var propertyName = property.Metadata.Name;
                 if (property.Metadata.IsPrimaryKey())
                 {
                     auditEntry.KeyValues[propertyName] = property.CurrentValue!;

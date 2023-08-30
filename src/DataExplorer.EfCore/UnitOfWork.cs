@@ -308,7 +308,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
             _options.Value.OnBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out var action))
             await action.Invoke(this);
 
-        int result = await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+        var result = await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         if (_transaction is not null) 
             await _transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
         return result;

@@ -692,13 +692,98 @@ public static class SpecificationBuilderExtensions
     }
 
     /// <summary>
-    /// Specify whether to use tracking for this query (default setting is AsNoTracking)/>
+    /// If the entity instances are modified, this will be detected
+    /// by the change tracker.
     /// </summary>
-    /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
+    /// <param name="specificationBuilder"></param>
     public static ISpecificationBuilder<T> AsTracking<T>(
         this ISpecificationBuilder<T> specificationBuilder) where T : class
+        => AsTracking(specificationBuilder, true);
+
+    /// <summary>
+    /// If the entity instances are modified, this will be detected
+    /// by the change tracker.
+    /// </summary>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="condition">If false, the setting will be discarded.</param>
+    public static ISpecificationBuilder<T> AsTracking<T>(
+        this ISpecificationBuilder<T> specificationBuilder,
+        bool condition) where T : class
     {
-        specificationBuilder.Specification.IsAsNoTracking = false;
+        if (condition)
+        {
+            specificationBuilder.Specification.IsAsNoTracking = false;
+            specificationBuilder.Specification.IsAsNoTrackingWithIdentityResolution = false;
+            specificationBuilder.Specification.IsAsTracking = true;
+        }
+
+        return specificationBuilder;
+    }
+    
+    /// <summary>
+    /// If the entity instances are modified, this will not be detected
+    /// by the change tracker.
+    /// </summary>
+    /// <param name="specificationBuilder"></param>
+    public static ISpecificationBuilder<T> AsNoTracking<T>(
+        this ISpecificationBuilder<T> specificationBuilder) where T : class
+        => AsNoTracking(specificationBuilder, true);
+
+    /// <summary>
+    /// If the entity instances are modified, this will not be detected
+    /// by the change tracker.
+    /// </summary>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="condition">If false, the setting will be discarded.</param>
+    public static ISpecificationBuilder<T> AsNoTracking<T>(
+        this ISpecificationBuilder<T> specificationBuilder,
+        bool condition) where T : class
+    {
+        if (condition)
+        {
+            specificationBuilder.Specification.IsAsTracking = false;
+            specificationBuilder.Specification.IsAsNoTrackingWithIdentityResolution = false;
+            specificationBuilder.Specification.IsAsNoTracking = true;
+        }
+
+        return specificationBuilder;
+    }
+    
+    /// <summary>
+    /// The query will then keep track of returned instances 
+    /// (without tracking them in the normal way) 
+    /// and ensure no duplicates are created in the query results
+    /// </summary>
+    /// <remarks>
+    /// for more info: https://docs.microsoft.com/en-us/ef/core/change-tracking/identity-resolution#identity-resolution-and-queries
+    /// </remarks>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    public static ISpecificationBuilder<T> AsNoTrackingWithIdentityResolution<T>(
+        this ISpecificationBuilder<T> specificationBuilder) where T : class
+        => AsNoTrackingWithIdentityResolution(specificationBuilder, true);
+
+    /// <summary>
+    /// The query will then keep track of returned instances 
+    /// (without tracking them in the normal way) 
+    /// and ensure no duplicates are created in the query results
+    /// </summary>
+    /// <remarks>
+    /// for more info: https://docs.microsoft.com/en-us/ef/core/change-tracking/identity-resolution#identity-resolution-and-queries
+    /// </remarks>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="specificationBuilder"></param>
+    /// <param name="condition">If false, the setting will be discarded.</param>
+    public static ISpecificationBuilder<T> AsNoTrackingWithIdentityResolution<T>(
+        this ISpecificationBuilder<T> specificationBuilder,
+        bool condition) where T : class
+    {
+        if (condition)
+        {
+            specificationBuilder.Specification.IsAsTracking = false;
+            specificationBuilder.Specification.IsAsNoTracking = false;
+            specificationBuilder.Specification.IsAsNoTrackingWithIdentityResolution = true;
+        }
 
         return specificationBuilder;
     }
@@ -711,18 +796,6 @@ public static class SpecificationBuilderExtensions
         this ISpecificationBuilder<T> specificationBuilder) where T : class
     {
         specificationBuilder.Specification.IsAsSplitQuery = true;
-
-        return specificationBuilder;
-    }
-
-    /// <summary>
-    /// Specify whether to use AsNoTrackingWithIdentityResolution
-    /// </summary>
-    /// <returns><see cref="ISpecificationBuilder{T}"/> instance</returns>
-    public static ISpecificationBuilder<T> AsNoTrackingWithIdentityResolution<T>(
-        this ISpecificationBuilder<T> specificationBuilder) where T : class
-    {
-        specificationBuilder.Specification.IsAsNoTrackingWithIdentityResolution = true;
 
         return specificationBuilder;
     }

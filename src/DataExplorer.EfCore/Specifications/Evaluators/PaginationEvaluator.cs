@@ -1,6 +1,6 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker
+public class PaginationEvaluator : IEvaluator, IBasicEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker
 {
     internal PaginationEvaluator()
     {
@@ -10,8 +10,7 @@ public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMar
 
     public bool IsCriteriaEvaluator { get; } = false;
     public int ApplicationOrder { get; } = int.MaxValue;
-
-    public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, IBasicSpecification<T> specification) where T : class
     {
         if (!specification.IsPagingEnabled) return query;
 
@@ -22,6 +21,9 @@ public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMar
 
         return query;
     }
+    
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
+        => GetQuery(query, (IBasicSpecification<T>)specification);
 
     public IEnumerable<T> Evaluate<T>(IEnumerable<T> query, ISpecification<T> specification) where T : class
     {

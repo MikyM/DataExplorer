@@ -5,20 +5,19 @@ using DataExplorer.EfCore.Specifications.Helpers;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class OrderEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker
+public class OrderEvaluator : IEvaluator, IBasicEvaluator, IInMemoryEvaluator, IEvaluatorMarker
 {
     private OrderEvaluator() { }
     public static OrderEvaluator Instance { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
     public int ApplicationOrder { get; } = 0;
-
-    public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, IBasicSpecification<T> specification) where T : class
     {
         if (specification.OrderExpressions != null)
         {
             if (specification.OrderExpressions.Count(x => x.OrderType == OrderTypeEnum.OrderBy
-                    || x.OrderType == OrderTypeEnum.OrderByDescending) > 1)
+                                                          || x.OrderType == OrderTypeEnum.OrderByDescending) > 1)
             {
                 throw new DuplicateOrderChainException();
             }
@@ -52,6 +51,9 @@ public class OrderEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker
 
         return query;
     }
+
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
+        => GetQuery(query, (IBasicSpecification<T>)specification);
 
     public IEnumerable<T> Evaluate<T>(IEnumerable<T> query, ISpecification<T> specification) where T : class
     {

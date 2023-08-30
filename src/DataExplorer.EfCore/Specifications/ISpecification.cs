@@ -99,6 +99,12 @@ public interface ISpecification<T> : IBasicSpecification<T> where T : class
     bool IsAsNoTracking { get; }
     
     /// <summary>
+    ///     Returns whether or not the change tracker will track any of the entities
+    ///     that are returned.
+    /// </summary>
+    bool IsAsTracking { get; }
+    
+    /// <summary>
     ///     Returns whether or not to treat this query as split query.
     ///     by the change tracker.
     /// </summary>

@@ -143,7 +143,7 @@ public class IncludeEvaluator : IEvaluator, IEvaluatorMarker, ISpecialCaseEvalua
     private static Lazy<Func<IQueryable, LambdaExpression, IQueryable>> CreateThenIncludeDelegate((Type EntityType, Type PropertyType, Type? PreviousPropertyType) cacheKey)
         => new(() =>
         {
-            MethodInfo thenIncludeInfo = ThenIncludeAfterReferenceMethodInfo;
+            var thenIncludeInfo = ThenIncludeAfterReferenceMethodInfo;
             if (IsGenericEnumerable(cacheKey.PreviousPropertyType!, out var previousPropertyType))
             {
                 thenIncludeInfo = ThenIncludeAfterEnumerableMethodInfo;

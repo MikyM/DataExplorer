@@ -4,21 +4,18 @@
 /// This evaluator applies EF Core's IgnoreQueryFilters feature to a given query
 /// See: https://docs.microsoft.com/en-us/ef/core/querying/filters
 /// </summary>
-public class IgnoreQueryFiltersEvaluator : IEvaluator, IEvaluatorMarker
+public class IgnoreQueryFiltersEvaluator : IEvaluator, IBasicEvaluator, IEvaluatorMarker
 {
     private IgnoreQueryFiltersEvaluator() { }
     public static IgnoreQueryFiltersEvaluator Instance { get; } = new IgnoreQueryFiltersEvaluator();
 
     public bool IsCriteriaEvaluator { get; } = true;
     public int ApplicationOrder { get; } = 0;
+    public IQueryable<T> GetQuery<T>(IQueryable<T> query, IBasicSpecification<T> specification) where T : class
+        => specification.IgnoreQueryFilters 
+            ? query.IgnoreQueryFilters() 
+            : query;
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
-    {
-        if (specification.IgnoreQueryFilters)
-        {
-            query = query.IgnoreQueryFilters();
-        }
-
-        return query;
-    }
+        => GetQuery(query, (IBasicSpecification<T>)specification);
 }
