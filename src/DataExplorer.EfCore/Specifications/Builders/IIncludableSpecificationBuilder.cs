@@ -1,5 +1,5 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Builders;
 
-public interface IIncludableSpecificationBuilder<T, out TProperty> : IChainControlledSpecification, IBasicSpecificationBuilder<T> where T : class
+public interface IIncludableSpecificationBuilder<T, out TProperty> : IChainControlledSpecification, ISpecificationBuilder<T> where T : class
 {
 }

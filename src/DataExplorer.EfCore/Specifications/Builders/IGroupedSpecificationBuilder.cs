@@ -1,5 +1,5 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Builders;
 
-public interface IGroupedSpecificationBuilder<T> : IChainControlledSpecification, IBasicSpecificationBuilder<T> where T : class
+public interface IGroupedSpecificationBuilder<T> : IGroupedBasicSpecificationBuilder<T>, ISpecificationBuilder<T> where T : class
 {
 }

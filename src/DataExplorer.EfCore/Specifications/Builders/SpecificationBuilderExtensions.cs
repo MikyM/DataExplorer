@@ -280,7 +280,7 @@ public static class SpecificationBuilderExtensions
     /// <typeparam name="T"></typeparam>
     /// <param name="specificationBuilder"></param>
     /// <param name="orderExpression"></param>
-    public static IOrderedSpecificationBuilder<T> OrderBy<T>(this IBasicSpecificationBuilder<T> specificationBuilder,
+    public static IOrderedBasicSpecificationBuilder<T> OrderBy<T>(this IBasicSpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, object?>> orderExpression) where T : class =>
         OrderBy(specificationBuilder, orderExpression, true);
 
@@ -291,7 +291,7 @@ public static class SpecificationBuilderExtensions
     /// <param name="specificationBuilder"></param>
     /// <param name="orderExpression"></param>
     /// <param name="condition">If false, the expression won't be added. The whole Order chain will be discarded.</param>
-    public static IOrderedSpecificationBuilder<T> OrderBy<T>(this IBasicSpecificationBuilder<T> specificationBuilder,
+    public static IOrderedBasicSpecificationBuilder<T> OrderBy<T>(this IBasicSpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, object?>> orderExpression, bool condition) where T : class
     {
         if (condition)
@@ -302,7 +302,7 @@ public static class SpecificationBuilderExtensions
         }
 
         var orderedSpecificationBuilder =
-            new OrderedSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
+            new OrderedBasicSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
 
         return orderedSpecificationBuilder;
     }
@@ -313,7 +313,7 @@ public static class SpecificationBuilderExtensions
     /// <typeparam name="T"></typeparam>
     /// <param name="specificationBuilder"></param>
     /// <param name="orderExpression"></param>
-    public static IOrderedSpecificationBuilder<T> OrderByDescending<T>(
+    public static IOrderedBasicSpecificationBuilder<T> OrderByDescending<T>(
         this IBasicSpecificationBuilder<T> specificationBuilder, Expression<Func<T, object?>> orderExpression) where T : class =>
         OrderByDescending(specificationBuilder, orderExpression, true);
 
@@ -324,7 +324,7 @@ public static class SpecificationBuilderExtensions
     /// <param name="specificationBuilder"></param>
     /// <param name="orderExpression"></param>
     /// <param name="condition">If false, the expression won't be added. The whole Order chain will be discarded.</param>
-    public static IOrderedSpecificationBuilder<T> OrderByDescending<T>(
+    public static IOrderedBasicSpecificationBuilder<T> OrderByDescending<T>(
         this IBasicSpecificationBuilder<T> specificationBuilder, Expression<Func<T, object?>> orderExpression,
         bool condition) where T : class
     {
@@ -336,7 +336,7 @@ public static class SpecificationBuilderExtensions
         }
 
         var orderedSpecificationBuilder =
-            new OrderedSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
+            new OrderedBasicSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
 
         return orderedSpecificationBuilder;
     }
@@ -347,88 +347,15 @@ public static class SpecificationBuilderExtensions
     /// <typeparam name="T"></typeparam>
     /// <param name="specificationBuilder"></param>
     /// <param name="groupByExpression"></param>
-    public static IGroupedSpecificationBuilder<T> GroupBy<T>(
+    public static IGroupedBasicSpecificationBuilder<T> GroupBy<T>(
         this IBasicSpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, object>> groupByExpression) where T : class
     {
         specificationBuilder.Specification.GroupByExpression = groupByExpression;
         
-        var groupedBuilder = new GroupedSpecificationBuilder<T>(specificationBuilder.Specification);
+        var groupedBuilder = new GroupedBasicSpecificationBuilder<T>(specificationBuilder.Specification);
 
         return groupedBuilder;
-    }
-    
-    /// <summary>
-    /// Specify an include expression.
-    /// This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
-    /// to include related entities (via navigation properties) in the query result.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TProperty"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="includeExpression"></param>
-    public static IIncludableSpecificationBuilder<T, TProperty?> Include<T, TProperty>(
-        this IBasicSpecificationBuilder<T> specificationBuilder,
-        Expression<Func<T, TProperty?>> includeExpression) where T : class
-        => Include(specificationBuilder, includeExpression, true);
-
-    /// <summary>
-    /// Specify an include expression.
-    /// This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
-    /// to include related entities (via navigation properties) in the query result.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TProperty"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="includeExpression"></param>
-    /// <param name="condition">If false, the expression won't be added. The whole Include chain will be discarded.</param>
-    public static IIncludableSpecificationBuilder<T, TProperty?> Include<T, TProperty>(
-        this IBasicSpecificationBuilder<T> specificationBuilder,
-        Expression<Func<T, TProperty?>> includeExpression,
-        bool condition) where T : class
-    {
-        if (condition)
-        {
-            var info = new IncludeExpressionInfo(includeExpression, typeof(T), typeof(TProperty));
-            specificationBuilder.Specification.IncludeExpressions ??= new List<IncludeExpressionInfo>();
-            ((List<IncludeExpressionInfo>)specificationBuilder.Specification.IncludeExpressions).Add(info);
-        }
-
-        var includeBuilder = new IncludableSpecificationBuilder<T, TProperty?>(specificationBuilder.Specification, !condition);
-
-        return includeBuilder;
-    }
-
-    /// <summary>
-    /// Specify a collection of navigation properties, as strings, to include in the query.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="includeString"></param>
-    public static IBasicSpecificationBuilder<T> Include<T>(
-        this IBasicSpecificationBuilder<T> specificationBuilder,
-        string includeString) where T : class
-        => Include(specificationBuilder, includeString, true);
-
-    /// <summary>
-    /// Specify a collection of navigation properties, as strings, to include in the query.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="includeString"></param>
-    /// <param name="condition">If false, the include expression won't be added.</param>
-    public static IBasicSpecificationBuilder<T> Include<T>(
-        this IBasicSpecificationBuilder<T> specificationBuilder,
-        string includeString,
-        bool condition) where T : class
-    {
-        if (condition)
-        {
-            specificationBuilder.Specification.IncludeStrings ??= new List<string>();
-            ((List<string>)specificationBuilder.Specification.IncludeStrings).Add(includeString);
-        }
-
-        return specificationBuilder;
     }
 
     /// <summary>

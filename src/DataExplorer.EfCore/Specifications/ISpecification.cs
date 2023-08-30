@@ -60,6 +60,17 @@ public interface ISpecification<T, TResult> : ISpecification<T> where T : class
 public interface ISpecification<T> : IBasicSpecification<T> where T : class
 {
     /// <summary>
+    /// The collection of <see cref="IncludeExpressionInfo"/>s describing each include expression.
+    /// This information is utilized to build Include/ThenInclude functions in the query.
+    /// </summary>
+    IEnumerable<IncludeExpressionInfo>? IncludeExpressions { get; }
+
+    /// <summary>
+    ///     The collection of navigation properties, as strings, to include in the query.
+    /// </summary>
+    IEnumerable<string>? IncludeStrings { get; }
+    
+    /// <summary>
     ///     Cache timeout if any.
     /// </summary>
     TimeSpan? CacheTimeout { get; }
@@ -136,17 +147,6 @@ public interface IBasicSpecification<T> : ISpecification where T : class
     /// to apply to the result of the query encapsulated by the <see cref="ISpecification{T}"/>.
     /// </summary>
     IEnumerable<OrderExpressionInfo<T>>? OrderExpressions { get; }
-
-    /// <summary>
-    /// The collection of <see cref="IncludeExpressionInfo"/>s describing each include expression.
-    /// This information is utilized to build Include/ThenInclude functions in the query.
-    /// </summary>
-    IEnumerable<IncludeExpressionInfo>? IncludeExpressions { get; }
-
-    /// <summary>
-    ///     The collection of navigation properties, as strings, to include in the query.
-    /// </summary>
-    IEnumerable<string>? IncludeStrings { get; }
     
     /// <summary>
     /// Returns whether or not the query should ignore the defined global query filters 

@@ -2,10 +2,10 @@
 
 public class GroupedSpecificationBuilder<T> : IGroupedSpecificationBuilder<T> where T : class
 {
-    public BasicSpecification<T> Specification { get; }
+    public Specification<T> Specification { get; }
     public bool IsChainDiscarded { get; set; }
 
-    public GroupedSpecificationBuilder(BasicSpecification<T> specification, bool isChainDiscarded = false)
+    public GroupedSpecificationBuilder(Specification<T> specification, bool isChainDiscarded = false)
     {
         Specification = specification;
         IsChainDiscarded = isChainDiscarded;

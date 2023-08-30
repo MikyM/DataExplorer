@@ -1,5 +1,5 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Builders;
 
-public interface IOrderedSpecificationBuilder<T> : IChainControlledSpecification, IBasicSpecificationBuilder<T> where T : class
+public interface IOrderedSpecificationBuilder<T> : IOrderedBasicSpecificationBuilder<T>, ISpecificationBuilder<T> where T : class
 {
 }

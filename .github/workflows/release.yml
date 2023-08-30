@@ -67,7 +67,7 @@ jobs:
       with:
         context: ./docs
         push: true
-        tags: ${{ secrets.DOCKER_REGISTRY }}/data-explorer:latest
+        tags: ${{ secrets.DOCKER_REGISTRY }}/data-explorer:latest, ${{ secrets.DOCKER_REGISTRY }}/data-explorer:1.0.${{ github.run_number  }}
     - name: Sleep for 10 seconds
       uses: jakejarvis/wait-action@master
       with:
