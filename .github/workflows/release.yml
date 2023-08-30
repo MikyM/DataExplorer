@@ -73,6 +73,7 @@ jobs:
       with:
         time: '10s'
     - name: Trigger watchtower
+      continue-on-error: true
       uses: wei/curl@v1
       with:
         args: |
