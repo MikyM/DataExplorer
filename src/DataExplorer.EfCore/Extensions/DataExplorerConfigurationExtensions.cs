@@ -150,10 +150,11 @@ public static class DataExplorerConfigurationExtensions
         IEnumerable<Assembly> assembliesToScanForEntities,
         Action<DataExplorerEfCoreConfiguration>? options = null)
     {
-        var builder = configuration.Builder;
-        var serviceCollection = configuration.ServiceCollection;
-        var config = new DataExplorerEfCoreConfiguration(builder, serviceCollection);
+        var config = new DataExplorerEfCoreConfiguration(configuration);
         options?.Invoke(config);
+        
+        var builder = config.GetContainerBuilder();
+        var serviceCollection = config.GetServiceCollection();
         
         GridifyGlobalConfiguration.EnableEntityFrameworkCompatibilityLayer();
 

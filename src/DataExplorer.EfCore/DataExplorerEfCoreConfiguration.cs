@@ -12,39 +12,26 @@ namespace DataExplorer.EfCore;
 /// Configuration for EFCore Data Explorer.
 /// </summary>
 [PublicAPI]
-public class DataExplorerEfCoreConfiguration
+public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
 {
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    /// <param name="builder"></param>
-    public DataExplorerEfCoreConfiguration(ContainerBuilder builder)
+    internal DataExplorerEfCoreConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
     {
-        Builder = builder;
-    }
-
-    /// <summary>
-    /// Creates an instance of the configuration class.
-    /// </summary>
-    /// <param name="builder"></param>
-    /// <param name="serviceCollection"></param>
-    public DataExplorerEfCoreConfiguration(ContainerBuilder? builder, IServiceCollection? serviceCollection)
-    {
-        Builder = builder;
-        ServiceCollection = serviceCollection;
     }
     
     /// <summary>
-    /// Creates an instance of the configuration class.
+    /// Gets the container builder.
     /// </summary>
-    /// <param name="serviceCollection"></param>
-    public DataExplorerEfCoreConfiguration(IServiceCollection serviceCollection)
-    {
-        ServiceCollection = serviceCollection;
-    }
-
-    internal readonly ContainerBuilder? Builder;
-    internal readonly IServiceCollection? ServiceCollection;
+    internal ContainerBuilder? GetContainerBuilder()
+        => Builder;
+    
+    /// <summary>
+    /// Gets the service collection.
+    /// </summary>
+    internal IServiceCollection? GetServiceCollection()
+        => ServiceCollection;
     
     /// <summary>
     /// Disables the insertion of audit log entries.
@@ -163,6 +150,7 @@ public class DataExplorerEfCoreConfiguration
     /// Adds the interface of a database context as a service.
     /// </summary>
     /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
+    [Obsolete("Use proper AddDbContext/AddDbContextPool overload instead, will be removed in next release")]
     public DataExplorerEfCoreConfiguration AddDbContext<TContextInterface, TContextImplementation>(ServiceLifetime lifetime = ServiceLifetime.InstancePerLifetimeScope) where TContextInterface : class, IEfDbContext
         where TContextImplementation : EfDbContext, TContextInterface
     {

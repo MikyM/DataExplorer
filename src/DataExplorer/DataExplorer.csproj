@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer</PackageId>
-        <Version>2.2.8</Version>
+        <Version>2.2.9</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core) and MongoDb (MongoDb.Entities).</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -34,15 +34,6 @@
       <PackageReference Include="IdGen.DependencyInjection" Version="3.0.0" />
       <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
       <PackageReference Include="Remora.Results" Version="7.3.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-            <_Parameter1>DataExplorer.EfCore</_Parameter1>
-        </AssemblyAttribute>
-        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-            <_Parameter1>DataExplorer.MongoDb</_Parameter1>
-        </AssemblyAttribute>
     </ItemGroup>
 
 </Project>

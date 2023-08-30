@@ -12,6 +12,11 @@ public static class SnowflakeIdFactory
     private static Dictionary<int, Func<long>> _factories = new();
 
     /// <summary>
+    /// Default factory Id.
+    /// </summary>
+    public static int DefaultFactoryId => 1;
+
+    /// <summary>
     /// Adds a specified creation factory.
     /// </summary>
     /// <param name="creationFactory">The creation factory.</param>
@@ -34,7 +39,7 @@ public static class SnowflakeIdFactory
     {
         if (_factories.Count == 0) 
             throw new InvalidOperationException("You can not create an instance without first adding a factory.");
-        return _factories.First().Value();
+        return _factories[DefaultFactoryId]();
     }
     
     /// <summary>

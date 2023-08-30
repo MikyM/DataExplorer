@@ -16,7 +16,22 @@ public class SnowflakeIdFiller : ISnowflakeIdFiller
     /// <inheritdoc/>
     public void FillId(ISnowflakeEntity entity)
     {
-        entity.SetId(_idGenerator.GenerateId());
+        if (entity.ShouldHaveIdFilled)
+            entity.SetId(_idGenerator.GenerateId());
+    }
+    
+    /// <inheritdoc/>
+    public void FillId<TId>(ISnowflakeEntity<TId> entity) where TId : IComparable, IEquatable<TId>, IComparable<TId>
+    {
+        if (entity.ShouldHaveIdFilled)
+            entity.SetId(_idGenerator.GenerateId());
+    }
+    
+    /// <inheritdoc/>
+    public void FillId(ISnowflakeEntity<long> entity)
+    {
+        if (entity.ShouldHaveIdFilled)
+            entity.SetId(_idGenerator.GenerateId());
     }
 
     /// <inheritdoc/>
@@ -24,7 +39,26 @@ public class SnowflakeIdFiller : ISnowflakeIdFiller
     {
         foreach (var entity in entities)
         {
-            entity.SetId(_idGenerator.GenerateId());
+            FillId(entity);
+        }
+    }
+    
+    /// <inheritdoc/>
+    public void FillIds<TId>(IEnumerable<ISnowflakeEntity<TId>> entities)
+        where TId : IComparable, IEquatable<TId>, IComparable<TId>
+    {
+        foreach (var entity in entities)
+        {
+            FillId(entity);
+        }
+    }
+    
+    /// <inheritdoc/>
+    public void FillIds(IEnumerable<ISnowflakeEntity<long>> entities)
+    {
+        foreach (var entity in entities)
+        {
+            FillId(entity);
         }
     }
 }

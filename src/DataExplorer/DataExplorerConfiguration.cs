@@ -12,29 +12,41 @@ namespace DataExplorer;
 /// Configuration of the data explorer.
 /// </summary>
 [PublicAPI]
-public class DataExplorerConfiguration
+public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
 {
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    /// <param name="builder"></param>
-    public DataExplorerConfiguration(ContainerBuilder builder)
+    internal DataExplorerConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
     {
-        Builder = builder;
     }
     
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    /// <param name="serviceCollection"></param>
-    public DataExplorerConfiguration(IServiceCollection serviceCollection)
+    internal DataExplorerConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
     {
-        ServiceCollection = serviceCollection;
+    }
+    
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    internal DataExplorerConfiguration(ContainerBuilder builder) : base(builder)
+    {
     }
 
-    internal readonly ContainerBuilder? Builder;
-    internal readonly IServiceCollection? ServiceCollection;
-
+    /// <summary>
+    /// Gets the container builder.
+    /// </summary>
+    internal ContainerBuilder? GetContainerBuilder()
+        => Builder;
+    
+    /// <summary>
+    /// Gets the service collection.
+    /// </summary>
+    internal IServiceCollection? GetServiceCollection()
+        => ServiceCollection;
+    
     /// <summary>
     /// Registers required Id generator services with the given <paramref name="generatorId"/>.
     /// </summary>
@@ -60,7 +72,7 @@ public class DataExplorerConfiguration
         ServiceCollection?.AddSingleton<ISnowflakeIdGenerator, SnowflakeIdGenerator>();
 
         Builder?.RegisterBuildCallback(x =>
-            SnowflakeIdFactory.AddFactoryMethod(() => x.Resolve<ISnowflakeIdGenerator>().GenerateId(), 1));
+            SnowflakeIdFactory.AddFactoryMethod(() => x.Resolve<ISnowflakeIdGenerator>().GenerateId(), SnowflakeIdFactory.DefaultFactoryId));
 
         if (Builder is null)
         {
@@ -117,6 +129,7 @@ public class DataExplorerConfiguration
 
         return this;
     }
+    
 }
 
 /// <summary>

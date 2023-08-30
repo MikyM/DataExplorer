@@ -47,6 +47,8 @@ public static class DependencyInjectionExtensions
         //register async interceptor adapter
         serviceCollection.AddSingleton(typeof(AsyncInterceptorAdapter<>));
 
+        config.ReleaseRefs();
+
         return serviceCollection;
     }
 

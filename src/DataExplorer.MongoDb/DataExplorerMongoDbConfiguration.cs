@@ -10,41 +10,29 @@ namespace DataExplorer.MongoDb;
 /// Configuration for EFCore Data Explorer.
 /// </summary>
 [PublicAPI]
-public class DataExplorerMongoDbConfiguration
+public class DataExplorerMongoDbConfiguration : DataExplorerConfigurationBase
 {
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    /// <param name="builder"></param>
-    public DataExplorerMongoDbConfiguration(ContainerBuilder builder)
+    internal DataExplorerMongoDbConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
     {
-        Builder = builder;
-    }
-
-    /// <summary>
-    /// Creates an instance of the configuration class.
-    /// </summary>
-    /// <param name="builder"></param>
-    /// <param name="serviceCollection"></param>
-    public DataExplorerMongoDbConfiguration(ContainerBuilder? builder, IServiceCollection? serviceCollection)
-    {
-        Builder = builder;
-        ServiceCollection = serviceCollection;
     }
     
     /// <summary>
-    /// Creates an instance of the configuration class.
+    /// Gets the container builder.
     /// </summary>
-    /// <param name="serviceCollection"></param>
-    public DataExplorerMongoDbConfiguration(IServiceCollection serviceCollection)
-    {
-        ServiceCollection = serviceCollection;
-    }
-
-    internal readonly ContainerBuilder? Builder;
-    internal readonly IServiceCollection? ServiceCollection;
+    internal ContainerBuilder? GetContainerBuilder()
+        => Builder;
+    
+    /// <summary>
+    /// Gets the service collection.
+    /// </summary>
+    internal IServiceCollection? GetServiceCollection()
+        => ServiceCollection;
 
     private Dictionary<Type,MongoDbContextOptions> _contextOptions = new();
+    
     /// <summary>
     /// Connection settings where the key is the type of the <see cref="MongoDbContext"/> the settings were registered for.
     /// </summary>
@@ -110,6 +98,7 @@ public class DataExplorerMongoDbConfiguration
     /// Adds the interface of a database context as a service.
     /// </summary>
     /// <returns>Current <see cref="DataExplorerMongoDbConfiguration"/> instance.</returns>
+    [Obsolete("Use proper AddDbContext/AddDbContextPool overload instead, will be removed in next release")]
     public DataExplorerMongoDbConfiguration AddDbContext<TContextInterface, TContextImplementation>(Action<MongoDbContextOptions<TContextImplementation>> contextOptions, ServiceLifetime lifetime = ServiceLifetime.InstancePerLifetimeScope) where TContextInterface : class, IMongoDbContext
         where TContextImplementation : MongoDbContext, TContextInterface
     {

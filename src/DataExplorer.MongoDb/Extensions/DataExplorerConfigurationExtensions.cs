@@ -106,10 +106,11 @@ public static class DataExplorerConfigurationExtensions
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
     public static DataExplorerConfiguration AddMongoDb(this DataExplorerConfiguration configuration, IEnumerable<Assembly> assembliesToScanForServices, IEnumerable<Assembly> assembliesToScanForEntities, Action<DataExplorerMongoDbConfiguration>? options = null)
     {
-        var builder = configuration.Builder;
-        var serviceCollection = configuration.ServiceCollection;
-        var config = new DataExplorerMongoDbConfiguration(builder, serviceCollection);
+        var config = new DataExplorerMongoDbConfiguration(configuration);
         options?.Invoke(config);
+        
+        var builder = config.GetContainerBuilder();
+        var serviceCollection = config.GetServiceCollection();
 
         /*var ctorFinder = new AllConstructorsFinder();*/
         
