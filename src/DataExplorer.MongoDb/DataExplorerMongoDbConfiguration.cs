@@ -20,6 +20,20 @@ public class DataExplorerMongoDbConfiguration : DataExplorerConfigurationBase
     }
     
     /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    public DataExplorerMongoDbConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
+    {
+    }
+    
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    public DataExplorerMongoDbConfiguration(ContainerBuilder builder) : base(builder)
+    {
+    }
+    
+    /// <summary>
     /// Gets the container builder.
     /// </summary>
     internal ContainerBuilder? GetContainerBuilder()

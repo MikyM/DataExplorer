@@ -27,6 +27,13 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
     public DataExplorerConfiguration(ContainerBuilder builder) : base(builder)
     {
     }
+    
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    public DataExplorerConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
+    {
+    }
 
     /// <summary>
     /// Gets the container builder.

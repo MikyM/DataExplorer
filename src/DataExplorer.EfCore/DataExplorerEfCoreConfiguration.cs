@@ -22,6 +22,20 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
     }
     
     /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    public DataExplorerEfCoreConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
+    {
+    }
+    
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    public DataExplorerEfCoreConfiguration(ContainerBuilder builder) : base(builder)
+    {
+    }
+    
+    /// <summary>
     /// Gets the container builder.
     /// </summary>
     internal ContainerBuilder? GetContainerBuilder()

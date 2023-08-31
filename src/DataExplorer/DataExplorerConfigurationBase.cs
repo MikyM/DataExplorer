@@ -21,7 +21,7 @@ public abstract class DataExplorerConfigurationBase
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    internal DataExplorerConfigurationBase(ContainerBuilder builder)
+    protected DataExplorerConfigurationBase(ContainerBuilder builder)
     {
         Builder = builder;
     }
@@ -29,7 +29,7 @@ public abstract class DataExplorerConfigurationBase
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    internal DataExplorerConfigurationBase(IServiceCollection serviceCollection)
+    protected DataExplorerConfigurationBase(IServiceCollection serviceCollection)
     {
         ServiceCollection = serviceCollection;
     }
