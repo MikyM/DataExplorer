@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DataExplorer.Abstractions.DataServices;
 using DataExplorer.EfCore.Gridify;
+using Microsoft.EntityFrameworkCore.Storage;
 using Remora.Results;
 
 namespace DataExplorer.EfCore.Abstractions.DataServices;
@@ -25,10 +26,10 @@ public interface IEfCoreDataServiceBase<out TContext> : IDataServiceBase<TContex
     /// </summary>
     new IUnitOfWork<TContext> UnitOfWork { get; }
     /// <summary>
-    /// Begins a transaction.
+    /// Begins a transaction or returns an ongoing transaction.
     /// </summary>
     /// <returns>Task with a <see cref="Result"/> representing the async operation.</returns>
-    Task<Result> BeginTransactionAsync(CancellationToken cancellationToken = default);
+    Task<Result<IDbContextTransaction>> UseExplicitTransactionAsync(CancellationToken cancellationToken = default);
 
     /// <inheritdoc cref="IDataServiceBase{TContext}.CommitAsync(string,CancellationToken)"/>
     /// <returns>Number of affected rows.</returns>

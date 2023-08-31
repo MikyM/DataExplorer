@@ -16,7 +16,20 @@ public interface IMongoUnitOfWork : IUnitOfWorkBase
     /// </summary>
     /// <returns>Task representing the asynchronous operation.</returns>
     /// <param name="cancellationToken">Cancellation token.</param>
-    Task UseTransactionAsync(CancellationToken cancellationToken = default);
+    Task<IClientSessionHandle> UseExplicitTransactionAsync(CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Begins using a provided transaction.
+    /// </summary>
+    /// <returns>Task representing the asynchronous operation.</returns>
+    /// <param name="transaction">Transaction to use.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    Task<IClientSessionHandle> UseExplicitTransactionAsync(IClientSessionHandle transaction, CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Transaction.
+    /// </summary> 
+    IClientSessionHandle? Transaction { get; }
 
     /// <summary>
     /// Gets a repository of a given type.
@@ -62,6 +75,4 @@ public interface IMongoUnitOfWork<out TContext> : IMongoUnitOfWork where TContex
     /// Current <see cref="MongoDbContext"/>.
     /// </summary>
     new TContext Context { get; }
-    
-    IClientSessionHandle? Transaction { get; }
 }

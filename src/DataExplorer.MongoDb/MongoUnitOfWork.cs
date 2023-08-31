@@ -68,8 +68,23 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
     public TContext Context { get; }
 
     /// <inheritdoc />
-    public Task UseTransactionAsync(CancellationToken cancellationToken = default)
-        => Task.FromResult(Transaction ??= Context.Transaction());
+    public Task<IClientSessionHandle> UseExplicitTransactionAsync(CancellationToken cancellationToken = default)
+    {
+        if (Transaction is not null)
+            return Task.FromResult(Transaction);
+
+        Transaction = Context.Transaction();
+
+        return Task.FromResult(Transaction);
+    }
+
+    /// <inheritdoc />
+    public Task<IClientSessionHandle> UseExplicitTransactionAsync(IClientSessionHandle transaction,
+        CancellationToken cancellationToken = default)
+    {
+        Transaction = transaction;
+        return Task.FromResult(Transaction);
+    }
 
     /// <inheritdoc cref="IMongoUnitOfWork.GetRepositoryFor{TRepository}" />
     public IMongoRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : MongoEntity
@@ -209,27 +224,27 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
     /// <inheritdoc />
     public async Task CommitAsync(CancellationToken cancellationToken = default)
     {
-        if (_options.Value.OnBeforeSaveChangesActions is not null &&
-            _options.Value.OnBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out var action))
-            await action.Invoke(this);
-        
-        await Context.CommitAsync(cancellationToken).ConfigureAwait(false);
-        
-        if (Transaction is not null) 
-            await Transaction.CommitTransactionAsync(cancellationToken).ConfigureAwait(false);
+        if (Transaction is null)
+        {
+            await Context.CommitAsync(cancellationToken).ConfigureAwait(false);
+            return;
+        }
+
+        await Transaction.CommitTransactionAsync(cancellationToken).ConfigureAwait(false);
+        Transaction = null;
     }
 
     /// <inheritdoc />
     public async Task CommitAsync(string userId, CancellationToken cancellationToken = default)
     {
-        if (_options.Value.OnBeforeSaveChangesActions is not null &&
-            _options.Value.OnBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out var action))
-            await action.Invoke(this);
+        if (Transaction is null)
+        {
+            await Context.CommitAsync(cancellationToken).ConfigureAwait(false);
+            return;
+        }
         
-        await Context.CommitAsync(cancellationToken).ConfigureAwait(false);
-        
-        if (Transaction is not null) 
-            await Transaction.CommitTransactionAsync(cancellationToken).ConfigureAwait(false);
+        await Transaction.CommitTransactionAsync(cancellationToken).ConfigureAwait(false);
+        Transaction = null;
     }
 
 

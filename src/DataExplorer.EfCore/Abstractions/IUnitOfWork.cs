@@ -2,6 +2,7 @@
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Abstractions.UnitOfWork;
 using DataExplorer.EfCore.Gridify;
+using Microsoft.EntityFrameworkCore.Storage;
 using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
 
 namespace DataExplorer.EfCore.Abstractions;
@@ -13,11 +14,24 @@ namespace DataExplorer.EfCore.Abstractions;
 public interface IUnitOfWork : IUnitOfWorkBase
 {
     /// <summary>
-    /// Begins a transaction.
+    /// Begins a transaction or returns an ongoing transaction.
     /// </summary>
     /// <returns>Task representing the asynchronous operation.</returns>
     /// <param name="cancellationToken">Cancellation token.</param>
-    Task UseTransactionAsync(CancellationToken cancellationToken = default);
+    Task<IDbContextTransaction> UseExplicitTransactionAsync(CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Inner <see cref="IDbContextTransaction"/>.
+    /// </summary>
+    IDbContextTransaction? Transaction { get; }
+
+    /// <summary>
+    /// Begins using a provided transaction.
+    /// </summary>
+    /// <returns>Task representing the asynchronous operation.</returns>
+    /// <param name="transaction">Transaction to use.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    Task<IDbContextTransaction> UseExplicitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default);
 
     /// <inheritdoc cref="IUnitOfWorkBase.CommitAsync(string, CancellationToken)"/>
     /// <returns>Number of affected rows.</returns>

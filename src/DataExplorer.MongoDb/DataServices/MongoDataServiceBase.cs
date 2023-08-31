@@ -74,7 +74,7 @@ public abstract class MongoDataServiceBase<TContext> : IMongoDataServiceBase<TCo
     {
         try
         {
-            await UnitOfWork.UseTransactionAsync(cancellationToken).ConfigureAwait(false);
+            await UnitOfWork.UseExplicitTransactionAsync(cancellationToken).ConfigureAwait(false);
             return Result.FromSuccess();
         }
         catch (Exception ex)

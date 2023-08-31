@@ -43,19 +43,11 @@ public class DataExplorerMongoDbConfiguration : DataExplorerConfigurationBase
     /// </summary>
     /// 
     public bool DisableOnBeforeSaveChanges { get; set; }
-    
-    private Dictionary<string, Func<IMongoUnitOfWork, Task>>? _onBeforeSaveChangesActions;
 
     /// <summary>
-    /// Whether to cache include expressions (queries are evaluated faster).
+    /// Whether to cache include expressions (queries are evaluated faster), defaults to true.
     /// </summary>
-    public bool EnableIncludeCache { get; set; }
-    
-    /// <summary>
-    /// Actions to execute before each commit.
-    /// </summary>
-    public Dictionary<string, Func<IMongoUnitOfWork, Task>>? OnBeforeSaveChangesActions
-         => _onBeforeSaveChangesActions;
+    public bool EnableIncludeCache { get; set; } = true;
     
     /// <summary>
     /// Gets or sets the default lifetime for base generic data services.
@@ -78,111 +70,6 @@ public class DataExplorerMongoDbConfiguration : DataExplorerConfigurationBase
     public Dictionary<Type, int> DataDecorators { get; private set; } = new();
 
     /// <summary>
-    /// Adds an on before save changes action for a given context.
-    /// </summary>
-    /// <param name="action">Action to perform</param>
-    /// <typeparam name="TContext">Type of the context for the action.</typeparam>
-    /// <exception cref="NotSupportedException">Throw when trying to register second action for same context type.</exception>
-    public void AddOnBeforeSaveChangesAction<TContext>(Func<IMongoUnitOfWork, Task> action)
-        where TContext : IMongoDbContext
-    {
-        _onBeforeSaveChangesActions ??= new Dictionary<string, Func<IMongoUnitOfWork, Task>>();
-        
-        if (_onBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out _))
-            throw new NotSupportedException("Multiple actions for same context aren't supported");
-        
-        _onBeforeSaveChangesActions.Add(typeof(TContext).Name, action);
-    }
-
-    /// <summary>
-    /// Adds the interface of a database context as a service.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerMongoDbConfiguration"/> instance.</returns>
-    [Obsolete("Use proper AddDbContext/AddDbContextPool overload instead, will be removed in next release")]
-    public DataExplorerMongoDbConfiguration AddDbContext<TContextInterface, TContextImplementation>(Action<MongoDbContextOptions<TContextImplementation>> contextOptions, ServiceLifetime lifetime = ServiceLifetime.InstancePerLifetimeScope) where TContextInterface : class, IMongoDbContext
-        where TContextImplementation : MongoDbContext, TContextInterface
-    {
-        var opt = new MongoDbContextOptions<TContextImplementation>();
-        contextOptions(opt);
-
-        opt.ContextType = typeof(TContextImplementation);
-
-        if (!_contextOptions.TryAdd(typeof(TContextImplementation), opt))
-            throw new InvalidOperationException("You tried to register same db context twice");
-        
-        Builder?.RegisterInstance(opt).As<MongoDbContextOptions<TContextImplementation>>();
-        ServiceCollection?.AddSingleton(opt);
-        
-        switch (lifetime)
-        {
-            case ServiceLifetime.SingleInstance:
-                Builder?.RegisterType<TContextImplementation>()
-                    .As<TContextInterface>()
-                    .AsSelf()
-                    .WithParameter(
-                        (x, y) => x.ParameterType == typeof(MongoDbContextOptions) ||
-                                  x.ParameterType == typeof(MongoDbContextOptions<TContextImplementation>),
-                        (x, y) => y.Resolve<MongoDbContextOptions<TContextImplementation>>())
-                    .SingleInstance();
-                ServiceCollection?.AddSingleton<TContextImplementation>(x =>
-                    ActivatorUtilities.CreateInstance<TContextImplementation>(x,
-                        x.GetRequiredService<MongoDbContextOptions<TContextImplementation>>()));
-                ServiceCollection?.AddSingleton<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
-                break;
-            case ServiceLifetime.InstancePerRequest:
-                Builder?.RegisterType<TContextImplementation>()
-                    .As<TContextInterface>()
-                    .AsSelf()
-                    .WithParameter(
-                        (x, y) => x.ParameterType == typeof(MongoDbContextOptions) ||
-                                  x.ParameterType == typeof(MongoDbContextOptions<TContextImplementation>),
-                        (x, y) => y.Resolve<MongoDbContextOptions<TContextImplementation>>())
-                    .InstancePerRequest();
-                ServiceCollection?.AddScoped<TContextImplementation>(x =>
-                    ActivatorUtilities.CreateInstance<TContextImplementation>(x,
-                        x.GetRequiredService<MongoDbContextOptions<TContextImplementation>>()));
-                ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
-                break;
-            case ServiceLifetime.InstancePerLifetimeScope:
-                Builder?.RegisterType<TContextImplementation>()
-                    .As<TContextInterface>()
-                    .AsSelf()
-                    .WithParameter(
-                        (x, y) => x.ParameterType == typeof(MongoDbContextOptions) ||
-                                  x.ParameterType == typeof(MongoDbContextOptions<TContextImplementation>),
-                        (x, y) => y.Resolve<MongoDbContextOptions<TContextImplementation>>())
-                    .InstancePerLifetimeScope();
-                ServiceCollection?.AddScoped<TContextImplementation>(x =>
-                    ActivatorUtilities.CreateInstance<TContextImplementation>(x,
-                        x.GetRequiredService<MongoDbContextOptions<TContextImplementation>>()));
-                ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
-                break;
-            case ServiceLifetime.InstancePerMatchingLifetimeScope:
-                throw new NotSupportedException();
-            case ServiceLifetime.InstancePerDependency:
-                Builder?.RegisterType<TContextImplementation>()
-                    .As<TContextInterface>()
-                    .AsSelf()
-                    .WithParameter(
-                        (x, y) => x.ParameterType == typeof(MongoDbContextOptions) ||
-                                  x.ParameterType == typeof(MongoDbContextOptions<TContextImplementation>),
-                        (x, y) => y.Resolve<MongoDbContextOptions<TContextImplementation>>())
-                    .InstancePerDependency();
-                ServiceCollection?.AddTransient<TContextImplementation>(x =>
-                    ActivatorUtilities.CreateInstance<TContextImplementation>(x,
-                        x.GetRequiredService<MongoDbContextOptions<TContextImplementation>>()));
-                ServiceCollection?.AddTransient<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
-                break;
-            case ServiceLifetime.InstancePerOwned:
-                throw new NotSupportedException();
-            default:
-                throw new ArgumentOutOfRangeException(nameof(lifetime), lifetime, null);
-        }
-
-        return this;
-    }
-
-    /// <summary>
     /// Marks an interceptor of a given type to be used for intercepting base data services.
     /// </summary>
     /// <param name="registrationOrder">Registration order.</param>
@@ -203,14 +90,14 @@ public class DataExplorerMongoDbConfiguration : DataExplorerConfigurationBase
     /// </summary>
     /// <param name="strategy">Interceptor configuration.</param>
     /// <param name="registrationOrder">Registration order.</param>
-    /// <typeparam name="T">Interceptor type.</typeparam>
+    /// <typeparam name="TInterceptor">Interceptor type.</typeparam>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerMongoDbConfiguration AddDataServiceInterceptor<T>(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly) where T : notnull
+    public virtual DataExplorerMongoDbConfiguration AddDataServiceInterceptor<TInterceptor>(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly) where TInterceptor : notnull
     {
         if (Builder is null)
             throw new NotSupportedException("Supported only when used with Autofac");
         
-        DataInterceptors.TryAdd(typeof(T), new (strategy, registrationOrder));
+        DataInterceptors.TryAdd(typeof(TInterceptor), new (strategy, registrationOrder));
         return this;
     }
     
@@ -225,7 +112,29 @@ public class DataExplorerMongoDbConfiguration : DataExplorerConfigurationBase
         if (Builder is null)
             throw new NotSupportedException("Supported only when used with Autofac");
         
+        if (decorator is { IsGenericType: false, IsGenericTypeDefinition: false })
+            throw new ArgumentException("Decorator must be a generic type definition", nameof(decorator));
+        
         DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
+        return this;
+    }
+    
+    /// <summary>
+    /// Marks a decorator of a given type to be used for decorating base data services.
+    /// </summary>
+    /// <param name="registrationOrder">Registration order.</param>
+    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
+    public virtual DataExplorerMongoDbConfiguration AddDataServiceDecorator<TDecorator>(int registrationOrder)
+    {
+        if (Builder is null)
+            throw new NotSupportedException("Supported only when used with Autofac");
+
+        var decorator = typeof(TDecorator);
+        
+        if (decorator is { IsGenericType: false, IsGenericTypeDefinition: false })
+            throw new ArgumentException("Decorator must be a generic type definition", nameof(TDecorator));
+        
+        DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(TDecorator)), registrationOrder);
         return this;
     }
 }

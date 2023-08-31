@@ -44,7 +44,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <summary>
     /// Inner <see cref="IDbContextTransaction"/>.
     /// </summary>
-    private IDbContextTransaction? _transaction;
+    public IDbContextTransaction? Transaction { get; private set; }
 
     /// <summary>
     /// Mapper instance.
@@ -70,8 +70,9 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <param name="options">Options.</param>
     /// <param name="gridifyMapperProvider">Gridify mapper provider.</param>
     /// <param name="efDataExplorerTypeCache">Unit of Work cache.</param>
-    public UnitOfWork(TContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
-        IOptions<DataExplorerEfCoreConfiguration> options, IGridifyMapperProvider gridifyMapperProvider, IEfDataExplorerTypeCache efDataExplorerTypeCache)
+    public UnitOfWork(TContext context, ISpecificationEvaluator specificationEvaluator, 
+        IMapper mapper, IOptions<DataExplorerEfCoreConfiguration> options, 
+        IGridifyMapperProvider gridifyMapperProvider, IEfDataExplorerTypeCache efDataExplorerTypeCache)
     {
         Context = context;
         SpecificationEvaluator = specificationEvaluator;
@@ -85,8 +86,23 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     public TContext Context { get; }
 
     /// <inheritdoc />
-    public async Task UseTransactionAsync(CancellationToken cancellationToken = default)
-        => _transaction ??= await Context.Database.BeginTransactionAsync(cancellationToken).ConfigureAwait(false);
+    public async Task<IDbContextTransaction> UseExplicitTransactionAsync(CancellationToken cancellationToken = default)
+    {
+        if (Transaction is not null)
+            return Transaction;
+        
+        Transaction ??= await Context.Database.BeginTransactionAsync(cancellationToken).ConfigureAwait(false);
+
+        return Transaction;
+    }
+    
+    /// <inheritdoc />
+    public Task<IDbContextTransaction> UseExplicitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default)
+    {
+        Transaction = transaction;
+
+        return Task.FromResult(Transaction);
+    }
 
     /// <inheritdoc cref="IUnitOfWork.GetRepositoryFor{TRepository}" />
     public IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>
@@ -265,72 +281,76 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <inheritdoc />
     public async Task RollbackAsync(CancellationToken cancellationToken = default)
     {
-        if (_transaction is not null) 
-            await _transaction.RollbackAsync(cancellationToken).ConfigureAwait(false);
+        if (Transaction is not null) 
+            await Transaction.RollbackAsync(cancellationToken).ConfigureAwait(false);
     }
 
     /// <inheritdoc />
     IDataContextBase IUnitOfWorkBase.Context => Context;
-
+    
+    
     /// <inheritdoc />
     public async Task CommitAsync(CancellationToken cancellationToken = default)
     {
-        if (_options.Value.OnBeforeSaveChangesActions is not null &&
-            _options.Value.OnBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out var action))
-            await action.Invoke(this);
+        if (Transaction is null)
+        {
+            _ = await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+            return;
+        }
         
-        _ = await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-        
-        if (_transaction is not null) 
-            await _transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
+
+        await Transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
+
+        Transaction = null;
     }
 
     /// <inheritdoc />
     public async Task CommitAsync(string userId, CancellationToken cancellationToken = default)
     {
-        if (_options.Value.OnBeforeSaveChangesActions is not null &&
-            _options.Value.OnBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out var action))
-            await action.Invoke(this);
+        if (Transaction is null)
+        {
+            if (Context is AuditableEfDbContext auditableDbContext)
+                _ = await auditableDbContext.SaveChangesAsync(userId, cancellationToken).ConfigureAwait(false);
+            else
+                _ = await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 
-        if (Context is AuditableEfDbContext auditableDbContext)
-            _ = await auditableDbContext.SaveChangesAsync(userId, cancellationToken).ConfigureAwait(false);
-        else
-            _ = await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+            return;
+        }
         
-        if (_transaction is not null) 
-            await _transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
+        await Transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
+        
+        Transaction = null;
     }
     
     /// <inheritdoc />
     public async Task<int> CommitWithCountAsync(CancellationToken cancellationToken = default)
     {
-        if (_options.Value.OnBeforeSaveChangesActions is not null &&
-            _options.Value.OnBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out var action))
-            await action.Invoke(this);
-
-        var result = await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-        if (_transaction is not null) 
-            await _transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
-        return result;
+        if (Transaction is null)
+            return await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+        
+        await Transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
+        
+        Transaction = null;
+        
+        return 0;
     }
 
     /// <inheritdoc />
     public async Task<int> CommitWithCountAsync(string userId, CancellationToken cancellationToken = default)
     {
-        if (_options.Value.OnBeforeSaveChangesActions is not null &&
-            _options.Value.OnBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out var action))
-            await action.Invoke(this);
+        if (Transaction is null)
+        {
+            if (Context is AuditableEfDbContext auditableDbContext)
+                return await auditableDbContext.SaveChangesAsync(userId, cancellationToken).ConfigureAwait(false);
+            
+            return await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+        }
 
-        int result;
-        if (Context is AuditableEfDbContext auditableDbContext)
-            result = await auditableDbContext.SaveChangesAsync(userId, cancellationToken).ConfigureAwait(false);
-        else
-            result = await Context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-
-        if (_transaction is not null) 
-            await _transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
+        await Transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
         
-        return result;
+        Transaction = null;
+        
+        return 0;
     }
 
     // Public implementation of Dispose pattern callable by consumers.
@@ -349,7 +369,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         if (disposing)
         {
             Context.Dispose();
-            _transaction?.Dispose();
+            Transaction?.Dispose();
         }
 
         _repositories = null;

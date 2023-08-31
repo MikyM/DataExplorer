@@ -4,6 +4,7 @@ using DataExplorer.Abstractions.UnitOfWork;
 using DataExplorer.EfCore.Abstractions;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.Gridify;
+using Microsoft.EntityFrameworkCore.Storage;
 using Remora.Results;
 
 namespace DataExplorer.EfCore.DataServices;
@@ -100,12 +101,11 @@ public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<T
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result> BeginTransactionAsync(CancellationToken cancellationToken = default)
+    public virtual async Task<Result<IDbContextTransaction>> UseExplicitTransactionAsync(CancellationToken cancellationToken = default)
     {
         try
         {
-            await UnitOfWork.UseTransactionAsync(cancellationToken).ConfigureAwait(false);
-            return Result.FromSuccess();
+            return Result<IDbContextTransaction>.FromSuccess(await UnitOfWork.UseExplicitTransactionAsync(cancellationToken).ConfigureAwait(false));
         }
         catch (Exception ex)
         {

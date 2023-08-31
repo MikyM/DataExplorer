@@ -38,31 +38,19 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
     /// </summary>
     /// 
     public bool DisableOnBeforeSaveChanges { get; set; }
-    
-    private Dictionary<string, Func<IUnitOfWork, Task>>? _onBeforeSaveChangesActions;
 
     internal IGridifyMapperProvider? MapperProvider { get; set; }
 
     /// <summary>
-    /// Whether to cache include expressions (queries are evaluated faster).
+    /// Whether to cache include expressions (queries are evaluated faster), defaults to true.
     /// </summary>
-    public bool EnableIncludeCache { get; set; } = false;
+    public bool EnableIncludeCache { get; set; } = true;
 
     /// <summary>
     /// Whether to use <see cref="DateTime.Now"/> or <see cref="DateTime.UtcNow"/> for <see cref="IUpdatedAt"/> and <see cref="ICreatedAt"/> entities. Defaults to UtcNow.
     /// </summary>
     public DateTimeStrategy DateTimeStrategy { get; set; } = DateTimeStrategy.UtcNow;
 
-    /// <summary>
-    /// Disables the insertion of audit log entries.
-    /// </summary>
-
-    /// <summary>
-    /// Actions to execute before each commit.
-    /// </summary>
-    public Dictionary<string, Func<IUnitOfWork, Task>>? OnBeforeSaveChangesActions
-         => _onBeforeSaveChangesActions;
-    
     /// <summary>
     /// Gets or sets the default lifetime for base generic data services.
     /// </summary>
@@ -73,31 +61,14 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
     public ServiceLifetime DataServiceLifetime { get; set; } = ServiceLifetime.InstancePerLifetimeScope;
     
     /// <summary>
-    /// Gets data interceptor registration delegates.
+    /// Gets registered data service interceptors.
     /// </summary>
     public Dictionary<Type, (DataRegistrationStrategy Strategy, int Order)> DataInterceptors { get; private set; } = new();
     
     /// <summary>
-    /// Gets data decorator registration delegates.
+    /// Gets registered data service decorators.
     /// </summary>
     public Dictionary<Type, int> DataDecorators { get; private set; } = new();
-
-    /// <summary>
-    /// Adds an on before save changes action for a given context.
-    /// </summary>
-    /// <param name="action">Action to perform</param>
-    /// <typeparam name="TContext">Type of the context for the action.</typeparam>
-    /// <exception cref="NotSupportedException">Throw when trying to register second action for same context type.</exception>
-    public void AddOnBeforeSaveChangesAction<TContext>(Func<IUnitOfWork, Task> action)
-        where TContext : EfDbContext
-    {
-        _onBeforeSaveChangesActions ??= new Dictionary<string, Func<IUnitOfWork, Task>>();
-        
-        if (_onBeforeSaveChangesActions.TryGetValue(typeof(TContext).Name, out _))
-            throw new NotSupportedException("Multiple actions for same context aren't supported");
-        
-        _onBeforeSaveChangesActions.Add(typeof(TContext).Name, action);
-    }
 
     /// <summary>
     /// Adds a <see cref="IGridifyMapper{T}"/> to the <see cref="IGridifyMapperProvider"/>.
@@ -145,48 +116,6 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
         MapperProvider = new TProvider();
         return this;
     }
-    
-    /// <summary>
-    /// Adds the interface of a database context as a service.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
-    [Obsolete("Use proper AddDbContext/AddDbContextPool overload instead, will be removed in next release")]
-    public DataExplorerEfCoreConfiguration AddDbContext<TContextInterface, TContextImplementation>(ServiceLifetime lifetime = ServiceLifetime.InstancePerLifetimeScope) where TContextInterface : class, IEfDbContext
-        where TContextImplementation : EfDbContext, TContextInterface
-    {
-
-        switch (lifetime)
-        {
-            case ServiceLifetime.SingleInstance:
-                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
-                    .SingleInstance();
-                ServiceCollection?.AddSingleton<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
-                break;
-            case ServiceLifetime.InstancePerRequest:
-                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
-                    .InstancePerRequest();
-                ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
-                break;
-            case ServiceLifetime.InstancePerLifetimeScope:
-                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
-                    .InstancePerLifetimeScope();
-                ServiceCollection?.AddScoped<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
-                break;
-            case ServiceLifetime.InstancePerMatchingLifetimeScope:
-                throw new NotSupportedException();
-            case ServiceLifetime.InstancePerDependency:
-                Builder?.Register(x => x.Resolve<TContextImplementation>()).As<TContextInterface>()
-                    .InstancePerDependency();
-                ServiceCollection?.AddTransient<TContextInterface>(x => x.GetRequiredService<TContextImplementation>());
-                break;
-            case ServiceLifetime.InstancePerOwned:
-                throw new NotSupportedException();
-            default:
-                throw new ArgumentOutOfRangeException(nameof(lifetime), lifetime, null);
-        }
-
-        return this;
-    }
 
     /// <summary>
     /// Marks an interceptor of a given type to be used for intercepting base data services.
@@ -209,14 +138,14 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
     /// </summary>
     /// <param name="strategy">Interceptor configuration.</param>
     /// <param name="registrationOrder">Registration order.</param>
-    /// <typeparam name="T">Interceptor type.</typeparam>
+    /// <typeparam name="TInterceptor">Interceptor type.</typeparam>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor<T>(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly) where T : notnull
+    public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor<TInterceptor>(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly) where TInterceptor : notnull
     {
         if (Builder is null)
             throw new NotSupportedException("Supported only when used with Autofac");
         
-        DataInterceptors.TryAdd(typeof(T), new (strategy, registrationOrder));
+        DataInterceptors.TryAdd(typeof(TInterceptor), new (strategy, registrationOrder));
         return this;
     }
     
@@ -232,6 +161,20 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
             throw new NotSupportedException("Supported only when used with Autofac");
         
         DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
+        return this;
+    }
+    
+    /// <summary>
+    /// Marks a decorator of a given type to be used for decorating base data services.
+    /// </summary>
+    /// <param name="registrationOrder">Registration order.</param>
+    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
+    public virtual DataExplorerEfCoreConfiguration AddDataServiceDecorator<TDecorator>(int registrationOrder)
+    {
+        if (Builder is null)
+            throw new NotSupportedException("Supported only when used with Autofac");
+        
+        DataDecorators.TryAdd(typeof(TDecorator) ?? throw new ArgumentNullException(nameof(TDecorator)), registrationOrder);
         return this;
     }
 }
