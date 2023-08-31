@@ -17,7 +17,7 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    internal DataExplorerEfCoreConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
+    public DataExplorerEfCoreConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
     {
     }
     
@@ -161,20 +161,6 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
             throw new NotSupportedException("Supported only when used with Autofac");
         
         DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
-        return this;
-    }
-    
-    /// <summary>
-    /// Marks a decorator of a given type to be used for decorating base data services.
-    /// </summary>
-    /// <param name="registrationOrder">Registration order.</param>
-    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerEfCoreConfiguration AddDataServiceDecorator<TDecorator>(int registrationOrder)
-    {
-        if (Builder is null)
-            throw new NotSupportedException("Supported only when used with Autofac");
-        
-        DataDecorators.TryAdd(typeof(TDecorator) ?? throw new ArgumentNullException(nameof(TDecorator)), registrationOrder);
         return this;
     }
 }

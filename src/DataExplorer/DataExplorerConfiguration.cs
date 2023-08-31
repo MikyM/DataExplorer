@@ -17,21 +17,14 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    internal DataExplorerConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
+    public DataExplorerConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
     {
     }
     
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    internal DataExplorerConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
-    {
-    }
-    
-    /// <summary>
-    /// Creates an instance of the configuration class.
-    /// </summary>
-    internal DataExplorerConfiguration(ContainerBuilder builder) : base(builder)
+    public DataExplorerConfiguration(ContainerBuilder builder) : base(builder)
     {
     }
 

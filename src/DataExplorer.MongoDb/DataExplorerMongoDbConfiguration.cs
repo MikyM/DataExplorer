@@ -15,7 +15,7 @@ public class DataExplorerMongoDbConfiguration : DataExplorerConfigurationBase
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    internal DataExplorerMongoDbConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
+    public DataExplorerMongoDbConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
     {
     }
     
@@ -116,25 +116,6 @@ public class DataExplorerMongoDbConfiguration : DataExplorerConfigurationBase
             throw new ArgumentException("Decorator must be a generic type definition", nameof(decorator));
         
         DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
-        return this;
-    }
-    
-    /// <summary>
-    /// Marks a decorator of a given type to be used for decorating base data services.
-    /// </summary>
-    /// <param name="registrationOrder">Registration order.</param>
-    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerMongoDbConfiguration AddDataServiceDecorator<TDecorator>(int registrationOrder)
-    {
-        if (Builder is null)
-            throw new NotSupportedException("Supported only when used with Autofac");
-
-        var decorator = typeof(TDecorator);
-        
-        if (decorator is { IsGenericType: false, IsGenericTypeDefinition: false })
-            throw new ArgumentException("Decorator must be a generic type definition", nameof(TDecorator));
-        
-        DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(TDecorator)), registrationOrder);
         return this;
     }
 }
