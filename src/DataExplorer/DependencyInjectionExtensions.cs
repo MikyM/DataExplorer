@@ -2,6 +2,7 @@
 using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
 using AutoMapper.Extensions.ExpressionMapping;
+using DataExplorer.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
@@ -27,6 +28,8 @@ public static class DependencyInjectionExtensions
         builder.RegisterAutoMapper(opt => opt.AddExpressionMapping(), false, AppDomain.CurrentDomain.GetAssemblies());
         //register async interceptor adapter
         builder.RegisterGeneric(typeof(AsyncInterceptorAdapter<>));
+        // register instance factory
+        builder.RegisterType<CachedInstanceFactory>().As<ICachedInstanceFactory>().SingleInstance();
 
         return builder;
     }
@@ -44,8 +47,10 @@ public static class DependencyInjectionExtensions
 
         // register automapper
         serviceCollection.AddAutoMapper(opt => opt.AddExpressionMapping(), AppDomain.CurrentDomain.GetAssemblies());
-        //register async interceptor adapter
+        // register async interceptor adapter
         serviceCollection.AddSingleton(typeof(AsyncInterceptorAdapter<>));
+        // register instance factory
+        serviceCollection.AddSingleton<ICachedInstanceFactory,CachedInstanceFactory>();
 
         config.ReleaseRefs();
 

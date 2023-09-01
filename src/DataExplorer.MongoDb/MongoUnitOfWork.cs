@@ -5,6 +5,7 @@ using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Abstractions.UnitOfWork;
 using DataExplorer.MongoDb.Abstractions;
 using DataExplorer.MongoDb.Abstractions.DataContexts;
+using DataExplorer.Utilities;
 using Microsoft.Extensions.Options;
 
 namespace DataExplorer.MongoDb;
@@ -49,19 +50,27 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
     private readonly IMongoDataExplorerTypeCache _cache;
 
     /// <summary>
+    /// Instance factory.
+    /// </summary>
+    private readonly ICachedInstanceFactory _instanceFactory;
+
+    /// <summary>
     /// Creates a new instance of <see cref="MongoUnitOfWork{TContext}"/>.
     /// </summary>
     /// <param name="context"><see cref="MongoDbContext"/> to be used.</param>
     /// <param name="mapper">Mapper.</param>
     /// <param name="options">Options.</param>
     /// <param name="mongoDataExplorerTypeCache">Unit of Work cache.</param>
+    /// <param name="instanceFactory">Instance factory.</param>
     public MongoUnitOfWork(TContext context, IMapper mapper,
-        IOptions<DataExplorerMongoDbConfiguration> options, IMongoDataExplorerTypeCache mongoDataExplorerTypeCache)
+        IOptions<DataExplorerMongoDbConfiguration> options, IMongoDataExplorerTypeCache mongoDataExplorerTypeCache,
+        ICachedInstanceFactory instanceFactory)
     {
         Context = context;
         _options = options;
         Mapper = mapper;
         _cache = mongoDataExplorerTypeCache;
+        _instanceFactory = instanceFactory;
     }
 
     /// <inheritdoc />
@@ -196,8 +205,7 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
         {
             var lazyRepo = new Lazy<IRepositoryBase>(() =>
             {
-                var instance =
-                    InstanceFactory.CreateInstance(repoCacheData.RepoImplementationType, Context, Mapper);
+                var instance = _instanceFactory.CreateInstance(repoCacheData.RepoImplementationType, Context, Mapper);
 
                 if (instance is null)
                     throw new InvalidOperationException($"Couldn't create an instance of {repositoryTypeName}");

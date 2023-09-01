@@ -6,6 +6,7 @@ using DataExplorer.Abstractions.UnitOfWork;
 using DataExplorer.EfCore.Abstractions;
 using DataExplorer.EfCore.DataContexts;
 using DataExplorer.EfCore.Gridify;
+using DataExplorer.Utilities;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Options;
 using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
@@ -62,6 +63,11 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     private readonly IEfDataExplorerTypeCache _cache;
 
     /// <summary>
+    /// Instance factory.
+    /// </summary>
+    private readonly ICachedInstanceFactory _instanceFactory;
+
+    /// <summary>
     /// Creates a new instance of <see cref="UnitOfWork{TContext}"/>.
     /// </summary>
     /// <param name="context"><see cref="DbContext"/> to be used.</param>
@@ -70,9 +76,10 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <param name="options">Options.</param>
     /// <param name="gridifyMapperProvider">Gridify mapper provider.</param>
     /// <param name="efDataExplorerTypeCache">Unit of Work cache.</param>
+    /// <param name="instanceFactory">Instance factory.</param>
     public UnitOfWork(TContext context, ISpecificationEvaluator specificationEvaluator, 
         IMapper mapper, IOptions<DataExplorerEfCoreConfiguration> options, 
-        IGridifyMapperProvider gridifyMapperProvider, IEfDataExplorerTypeCache efDataExplorerTypeCache)
+        IGridifyMapperProvider gridifyMapperProvider, IEfDataExplorerTypeCache efDataExplorerTypeCache, ICachedInstanceFactory instanceFactory)
     {
         Context = context;
         SpecificationEvaluator = specificationEvaluator;
@@ -80,6 +87,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         GridifyMapperProvider = gridifyMapperProvider;
         Mapper = mapper;
         _cache = efDataExplorerTypeCache;
+        _instanceFactory = instanceFactory;
     }
 
     /// <inheritdoc />
@@ -262,8 +270,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         {
             var lazyRepo = new Lazy<IRepositoryBase>(() =>
             {
-                var instance =
-                    InstanceFactory.CreateInstance(repoCacheData.RepoImplementationType, Context,
+                var instance = _instanceFactory.CreateInstance(repoCacheData.RepoImplementationType, Context,
                         SpecificationEvaluator, Mapper, GridifyMapperProvider);
 
                 if (instance is null)

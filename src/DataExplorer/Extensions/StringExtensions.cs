@@ -13,6 +13,7 @@ public static class StringExtensions
     /// <param name="toCheck">Sequence to look for</param>
     /// <param name="comparison"><see cref="StringComparison"/> settings</param>
     /// <returns></returns>
+    [System.Diagnostics.Contracts.Pure]
     public static bool Contains(this string? source, string toCheck, StringComparison comparison)
         => source?.IndexOf(toCheck, comparison) >= 0;
 }

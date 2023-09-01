@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer</PackageId>
-        <Version>2.2.10</Version>
+        <Version>2.2.11</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core) and MongoDb (MongoDb.Entities).</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -35,5 +35,6 @@
       <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
       <PackageReference Include="Remora.Results" Version="7.3.0" />
     </ItemGroup>
+
 
 </Project>

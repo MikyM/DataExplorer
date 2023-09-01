@@ -94,42 +94,6 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
         ServiceCollection?.AddSingleton<TGenerator>();
         return this;
     }
-    
-    /// <summary>
-    /// Adds a custom snowflake Id filler.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
-    public DataExplorerConfiguration AddSnowflakeIdFiller<TFiller>() where TFiller : class, ISnowflakeIdFiller
-    {
-        Builder?.RegisterType<TFiller>().As<ISnowflakeIdFiller>().SingleInstance();
-        ServiceCollection?.AddSingleton<TFiller>();
-        return this;
-    }
-
-    /// <summary>
-    /// Registers  <see cref="ContainerBuilder"/>.
-    /// </summary>
-    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/></returns>
-    public DataExplorerConfiguration AddErrorHandlingSyncInterceptor(LogLevel diagnosticLogLevel = LogLevel.Trace,
-        LogLevel errorLogLevel = LogLevel.Error, bool reThrowExceptions = false)
-    {
-        //todo
-
-        return this;
-    }
-    
-    /// <summary>
-    /// Registers  <see cref="ContainerBuilder"/>.
-    /// </summary>
-    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/></returns>
-    public DataExplorerConfiguration AddErrorHandlingAsyncInterceptor(LogLevel diagnosticLogLevel = LogLevel.Trace,
-        LogLevel errorLogLevel = LogLevel.Error, bool reThrowExceptions = false)
-    {
-        //todo
-
-        return this;
-    }
-    
 }
 
 /// <summary>
