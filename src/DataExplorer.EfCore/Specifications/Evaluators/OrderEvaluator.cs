@@ -8,7 +8,7 @@ namespace DataExplorer.EfCore.Specifications.Evaluators;
 public class OrderEvaluator : IEvaluator, IBasicEvaluator, IInMemoryEvaluator, IEvaluatorMarker
 {
     private OrderEvaluator() { }
-    public static OrderEvaluator Instance { get; } = new();
+    public static OrderEvaluator Default { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
     public int ApplicationOrder { get; } = 0;

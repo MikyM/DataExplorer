@@ -34,7 +34,7 @@ public interface IUnitOfWork : IUnitOfWorkBase
     Task<IDbContextTransaction> UseExplicitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default);
     
     /// <inheritdoc cref="IUnitOfWorkBase.CommitAsync(CancellationToken)"/>
-    /// <returns>Number of affected rows.</returns>
+    /// <returns>Number of affected rows. If a transaction was involved 0 will be returned.</returns>
     /// <param name="cancellationToken">Cancellation token.</param>
     Task<int> CommitWithCountAsync(CancellationToken cancellationToken = default);
 

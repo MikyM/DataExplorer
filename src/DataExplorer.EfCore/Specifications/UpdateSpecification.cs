@@ -11,6 +11,7 @@ public class UpdateSpecification<T> : BasicSpecification<T>, IUpdateSpecificatio
     {
         Query = new UpdateSpecificationBuilder<T>(this);
     }
+    
     public IEnumerable<Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>>? UpdateExpressions { get; internal set; }
     
     /// <summary>

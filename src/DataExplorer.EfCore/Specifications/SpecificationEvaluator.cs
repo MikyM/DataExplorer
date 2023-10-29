@@ -1,9 +1,11 @@
-﻿using DataExplorer.EfCore.Specifications.Evaluators;
+﻿using System.Linq.Expressions;
+using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Exceptions;
 
 namespace DataExplorer.EfCore.Specifications;
 
 /// <inheritdoc cref="ISpecificationEvaluator" />
+[PublicAPI]
 public class SpecificationEvaluator : ISpecificationEvaluator
 {
     // Will use singleton for default configuration. Yet, it can be instantiated if necessary, with default or provided evaluators.
@@ -40,18 +42,18 @@ public class SpecificationEvaluator : ISpecificationEvaluator
         _updateEvaluator = UpdateEvaluator.Instance;
         _evaluators.AddRange(new List<IEvaluator>()
         {
-            WhereEvaluator.Instance, SearchEvaluator.Instance, cacheEnabled ? IncludeEvaluator.Cached : IncludeEvaluator.Default,
-            OrderEvaluator.Instance, PaginationEvaluator.Instance, AsNoTrackingEvaluator.Instance, AsTrackingEvaluator.Instance,
-            AsSplitQueryEvaluator.Instance, AsNoTrackingWithIdentityResolutionEvaluator.Instance,
-            GroupByEvaluator.Instance, CachingEvaluator.Instance
+            WhereEvaluator.Default, SearchEvaluator.Default, cacheEnabled ? IncludeEvaluator.Cached : IncludeEvaluator.Default,
+            OrderEvaluator.Default, PaginationEvaluator.Default, AsNoTrackingEvaluator.Default, AsTrackingEvaluator.Default,
+            AsSplitQueryEvaluator.Default, AsNoTrackingWithIdentityResolutionEvaluator.Default,
+            GroupByEvaluator.Default, CachingEvaluator.Default
         });
         _basicEvaluators.AddRange(new List<IBasicEvaluator>()
         {
-            WhereEvaluator.Instance, SearchEvaluator.Instance
+            WhereEvaluator.Default, SearchEvaluator.Default
         });
         _preUpdateEvaluators.AddRange(new List<IPreUpdateEvaluator>()
         {
-            WhereEvaluator.Instance, SearchEvaluator.Instance
+            WhereEvaluator.Default, SearchEvaluator.Default, PaginationEvaluator.Default
         });
     }
 
@@ -93,15 +95,18 @@ public class SpecificationEvaluator : ISpecificationEvaluator
             .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification));
     }
 
-    public Task<int> EvaluateUpdateAsync<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
-        bool evaluateCriteriaOnly = false, CancellationToken cancellationToken = default) where T : class
+    public (IQueryable<T> Query, Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> EvaluatedCalls) GetQuery<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
+        bool evaluateCriteriaOnly = false) where T : class
     {
         if (specification is null) 
             throw new ArgumentNullException(nameof(specification), "Specification is required");
 
-        return (evaluateCriteriaOnly ? _preUpdateEvaluators.Where(x => x.IsCriteriaEvaluator) : _preUpdateEvaluators)
+        var resultQuery = (evaluateCriteriaOnly
+                ? _preUpdateEvaluators.Where(x => x.IsCriteriaEvaluator)
+                : _preUpdateEvaluators)
             .OrderBy(x => x.ApplicationOrder)
-            .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification))
-            .ExecuteUpdateAsync(_updateEvaluator.Evaluate(specification), cancellationToken);
+            .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification));
+        
+        return new ValueTuple<IQueryable<T>, Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>>(resultQuery, _updateEvaluator.Evaluate(specification));
     }
 }

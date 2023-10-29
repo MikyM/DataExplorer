@@ -1,4 +1,7 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using AutoMapper;
 using DataExplorer.EfCore.Gridify;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -104,12 +107,12 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     {
         var entityType = typeof(TEntity);
         if (!_cache.TryGetEntityInfo(entityType, out var info))
-            throw new InvalidOperationException("Couldn't find proper type in entity cache.");
+            ThrowUnknownEntity(entityType.Name);
         
         if (info.CrudLongIdRepoInfo is null)
-            throw new InvalidOperationException("Can't create IRepository{TEntity} for the given type.");
+            ThrowIncompatibleEntityId($"IRepository<{entityType.Name}>");
         
-        return LazilyGetOrCreateRepository<IRepository<TEntity>>(info.CrudLongIdRepoInfo);
+        return LazilyGetOrCreateRepository<IRepository<TEntity>>(info.CrudLongIdRepoInfo!);
     }
 
     /// <inheritdoc cref="IUnitOfWork.GetReadOnlyRepositoryFor{TRepository}" />
@@ -117,12 +120,12 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     {
         var entityType = typeof(TEntity);
         if (!_cache.TryGetEntityInfo(entityType, out var info))
-            throw new InvalidOperationException("Couldn't find proper type in entity cache.");
-        
-        if (info.ReadOnlyLongIdRepoInfo is null)
-            throw new InvalidOperationException("Can't create IReadOnlyRepository{TEntity} for the given type.");
+            ThrowUnknownEntity(entityType.Name);
 
-        return LazilyGetOrCreateRepository<IRepository<TEntity>>(info.ReadOnlyLongIdRepoInfo);
+        if (info.ReadOnlyLongIdRepoInfo is null)
+            ThrowIncompatibleEntityId($"IReadOnlyRepository<{entityType.Name}>");
+
+        return LazilyGetOrCreateRepository<IRepository<TEntity>>(info.ReadOnlyLongIdRepoInfo!);
     }
 
     /// <inheritdoc cref="IUnitOfWork.GetRepositoryFor{TRepository,TId}" />
@@ -131,7 +134,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     {
         var entityType = typeof(TEntity);
         if (!_cache.TryGetEntityInfo(entityType, out var info))
-            throw new InvalidOperationException("Couldn't find proper type in entity cache.");
+            ThrowUnknownEntity(entityType.Name);
         
         return LazilyGetOrCreateRepository<IRepository<TEntity, TId>>(info.CrudGenericIdRepoInfo);
     }
@@ -142,21 +145,35 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     {
         var entityType = typeof(TEntity);
         if (!_cache.TryGetEntityInfo(entityType, out var info))
-            throw new InvalidOperationException("Couldn't find proper type in entity cache.");
+            ThrowUnknownEntity(entityType.Name);
         
         return LazilyGetOrCreateRepository<IReadOnlyRepository<TEntity, TId>>(info.ReadOnlyGenericIdRepoInfo);
+    }
+
+    [DoesNotReturn]
+    [DebuggerStepThrough]
+    private static void ThrowUnknownEntity(string entity)
+    {
+        throw new InvalidOperationException($"Unknown entity type {entity}, couldn't find the type in entity cache. Make sure you passed the correct assemblies to scan for entity types during registration.");
+    }
+    
+    [DoesNotReturn]
+    [DebuggerStepThrough]
+    private static void ThrowIncompatibleEntityId(string type)
+    {
+        throw new InvalidOperationException($"Can't create {type} repository for the given type as it's ID is incompatible - this type only supports long Ids.");
     }
 
     /// <inheritdoc cref="IUnitOfWork.GetRepository{TRepository}" />
     public TRepository GetRepository<TRepository>() where TRepository : class, IRepositoryBase
     {
         var repoInterfaceType = typeof(TRepository);
+        
         if (!repoInterfaceType.IsInterface || !repoInterfaceType.IsGenericType)
-            throw new NotSupportedException(
-                "You can only retrieve types: IRepository<TEntity>, IRepository<TEntity,TId>, IReadOnlyRepository<TEntity> and IReadOnlyRepository<TEntity,TId>.");
-
+            throw new InvalidOperationException("You can only retrieve types: IRepository<TEntity>, IRepository<TEntity,TId>, IReadOnlyRepository<TEntity> and IReadOnlyRepository<TEntity,TId>.");
+        
         if (!_cache.TryGetRepoInfo(repoInterfaceType, out var repoInfo))
-            throw new InvalidOperationException("Couldn't find proper type in repo cache.");
+            throw new InvalidOperationException($"Unknown repository type {repoInterfaceType.Name}, couldn't find the type in repository cache. Make sure you passed the correct assemblies to scan for entity types during registration.");
         
         return LazilyGetOrCreateRepository<TRepository>(repoInfo);
     }
@@ -168,6 +185,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <typeparam name="TRepository">Type of the wanted repository</typeparam>
     /// <returns>Created repo instance.</returns>
     /// <exception cref="InvalidOperationException"></exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private TRepository LazilyGetOrCreateRepository<TRepository>(DataExplorerRepoInfo repoCacheData) where TRepository : IRepositoryBase
     {
         _repositories ??= new ConcurrentDictionary<RepositoryEntryKey, RepositoryEntry>();
@@ -204,7 +222,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
                 SpecificationEvaluator, Mapper, GridifyMapperProvider);
 
             if (instance is null)
-                throw new InvalidOperationException($"Couldn't create an instance of {repositoryTypeName}");
+                throw new InvalidOperationException($"Couldn't create an instance of {repositoryTypeName} repository - please file an issue on GitHub.");
 
             // ReSharper disable once HeapView.PossibleBoxingAllocation
             return (TRepository)instance;
@@ -213,11 +231,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     
     /// <inheritdoc />
     public Task RollbackAsync(CancellationToken cancellationToken = default)
-    {
-        if (Transaction is not null) 
-            return Transaction.RollbackAsync(cancellationToken);
-        return Task.CompletedTask;
-    }
+        => Transaction is not null ? Transaction.RollbackAsync(cancellationToken) : Task.CompletedTask;
 
     /// <inheritdoc />
     // ReSharper disable once HeapView.PossibleBoxingAllocation

@@ -262,12 +262,16 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
         CancellationToken cancellationToken = default) where TDisable : class;
     
     /// <summary>
-    /// Detaches an entry and all other reachable entries.
+    ///     <para>
+    ///         Detaches the given entry from the current context, such that changes applied to it will not be reflected in the database when <see cref="DbContext.SaveChanges()"/> is called.
+    ///     </para>
     /// </summary>
+    /// <remarks>If using a recursive call - the recursive path will break when it stumbles upon an already detached entry resulting in a not-fully detached entry tree.</remarks>
+    /// <param name="recursive">Whether to recursively detach ALL navigation properties.</param>
     /// <typeparam name="TDetach">Type of the entry</typeparam>
     /// <param name="entry">Entry to detach</param>
     /// <returns><see cref="Result"/> of the operation</returns>
-    Result Detach<TDetach>(TDetach entry) where TDetach : class;
+    Result Detach<TDetach>(TDetach entry, bool recursive = false) where TDetach : class;
 }
 
 /// <summary>

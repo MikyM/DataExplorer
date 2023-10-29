@@ -1,12 +1,12 @@
 ﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class PaginationEvaluator : IEvaluator, IBasicEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker
+public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker, IPreUpdateEvaluator
 {
     internal PaginationEvaluator()
     {
     }
 
-    public static PaginationEvaluator Instance { get; } = new();
+    public static PaginationEvaluator Default { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
     public int ApplicationOrder { get; } = int.MaxValue;

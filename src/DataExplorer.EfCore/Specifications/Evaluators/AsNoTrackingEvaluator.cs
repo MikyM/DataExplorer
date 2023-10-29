@@ -6,7 +6,7 @@ public class AsNoTrackingEvaluator : IEvaluator, IEvaluatorMarker
     {
     }
 
-    public static AsNoTrackingEvaluator Instance { get; } = new();
+    public static AsNoTrackingEvaluator Default { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = true;
     public int ApplicationOrder { get; } = 0;

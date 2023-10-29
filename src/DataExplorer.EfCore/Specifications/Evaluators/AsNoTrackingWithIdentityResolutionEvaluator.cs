@@ -6,7 +6,7 @@ public class AsNoTrackingWithIdentityResolutionEvaluator : IEvaluator, IEvaluato
     {
     }
 
-    public static AsNoTrackingWithIdentityResolutionEvaluator Instance { get; } = new();
+    public static AsNoTrackingWithIdentityResolutionEvaluator Default { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = true;
     public int ApplicationOrder { get; } = 0;

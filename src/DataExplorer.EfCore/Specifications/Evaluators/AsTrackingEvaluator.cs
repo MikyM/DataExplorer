@@ -4,7 +4,7 @@ public class AsTrackingEvaluator : IEvaluator, IEvaluatorMarker
 {
     private AsTrackingEvaluator() { }
     
-    public static AsTrackingEvaluator Instance { get; } = new();
+    public static AsTrackingEvaluator Default { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = true;
     public int ApplicationOrder { get; } = 0;

@@ -6,7 +6,7 @@ public class AsSplitQueryEvaluator : IEvaluator, IEvaluatorMarker
     {
     }
 
-    public static AsSplitQueryEvaluator Instance { get; } = new();
+    public static AsSplitQueryEvaluator Default { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = true;
     public int ApplicationOrder { get; } = 0;

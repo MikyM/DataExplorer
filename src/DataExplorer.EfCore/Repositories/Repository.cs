@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq.Expressions;
+using AutoMapper;
 using DataExplorer.EfCore.Gridify;
 using DataExplorer.EfCore.Specifications;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -34,11 +35,14 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     /// <inheritdoc />
     public virtual Task<int> ExecuteDeleteAsync(CancellationToken cancellationToken = default)
         => Set.ExecuteDeleteAsync(cancellationToken);
-    
+
     /// <inheritdoc />
     public virtual Task<int> ExecuteUpdateAsync(IUpdateSpecification<TEntity> specification,
         CancellationToken cancellationToken = default)
-        => ApplyUpdateSpecificationAsync<TEntity>(specification);
+    {
+        var (query, evaluatedCalls) = ApplySpecification(specification);
+        return query.ExecuteUpdateAsync(evaluatedCalls, cancellationToken);
+    }
 
     /// <inheritdoc />
     public virtual void Add(TEntity entity)
@@ -154,12 +158,13 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     }
 
     /// <inheritdoc />
-    public virtual void Detach(TEntity entity)
+    public virtual void Detach(TEntity entity, bool recursive = false)
     {
         var entry = Context.Entry(entity);
         entry.State = EntityState.Detached;
-        
-        RecursivelyDetachEntryNavs(entry);
+
+        if (recursive)
+            RecursivelyDetachEntryNavs(entry);
     }
 
     /// <summary>
@@ -177,14 +182,13 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
             {
                 case IEnumerable<IEntityBase> navs:
                 {
-                    var list = navs.ToList();
-
-                    if (list.All(x => Context.Entry(x).State is EntityState.Detached))
-                        break;
-
-                    foreach (var nav in list.Where(x => Context.Entry(x).State is not EntityState.Detached))
+                    foreach (var nav in navs)
                     {
                         var enumerableEntry = Context.Entry(nav);
+                        
+                        if (enumerableEntry.State is EntityState.Detached)
+                            continue;
+                        
                         enumerableEntry.State = EntityState.Detached;
                         
                         RecursivelyDetachEntryNavs(enumerableEntry);
@@ -195,30 +199,28 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
                 case IEntityBase nav:
                 {
                     var singularEntry = Context.Entry(nav);
+                    
                     if (singularEntry.State is EntityState.Detached)
                         break;
+                    
                     singularEntry.State = EntityState.Detached;
                     
                     RecursivelyDetachEntryNavs(singularEntry);
+                    
                     break;
                 }
             }
         }
     }
-    
+
     /// <summary>
-    ///     Filters all entities of <typeparamref name="TEntity" />, that matches the encapsulated query logic of the
-    ///     <paramref name="specification" />, from the database.
-    ///     <para>
-    ///         Projects each entity into a new form, being <typeparamref name="TResult" />.
-    ///     </para>
+    ///     Applies the encapsulated logic by the update specification to the underlying query and returns the evaluated property calls.
     /// </summary>
-    /// <typeparam name="TResult">The type of the value returned by the projection.</typeparam>
     /// <param name="specification">The encapsulated query logic.</param>
-    /// <returns>The filtered projected entities as an <see cref="IQueryable{T}" />.</returns>
-    protected virtual Task<int> ApplyUpdateSpecificationAsync<TResult>(
-        IUpdateSpecification<TEntity> specification)
-        => SpecificationEvaluator.EvaluateUpdateAsync(Set.AsQueryable(), specification);
+    /// <returns>The filtered query after applying the specification and evaluated property calls.</returns>
+    protected virtual (IQueryable<TEntity> Query, Expression<Func<SetPropertyCalls<TEntity>, SetPropertyCalls<TEntity>>>
+        EvaluatedCalls) ApplySpecification(IUpdateSpecification<TEntity> specification)
+        => SpecificationEvaluator.GetQuery(Set.AsQueryable(), specification);
 }
 
 /// <summary>

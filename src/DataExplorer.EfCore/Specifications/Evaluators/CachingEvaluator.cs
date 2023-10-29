@@ -8,7 +8,7 @@ public class CachingEvaluator : IEvaluator, IEvaluatorMarker
     {
     }
 
-    public static CachingEvaluator Instance { get; } = new();
+    public static CachingEvaluator Default { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
     public int ApplicationOrder { get; } = 0;

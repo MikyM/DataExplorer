@@ -6,7 +6,7 @@ public class GroupByEvaluator : IEvaluator, IBasicEvaluator, IInMemoryEvaluator,
     {
     }
 
-    public static GroupByEvaluator Instance { get; } = new();
+    public static GroupByEvaluator Default { get; } = new();
 
     public bool IsCriteriaEvaluator { get; } = false;
     public int ApplicationOrder { get; } = 0;

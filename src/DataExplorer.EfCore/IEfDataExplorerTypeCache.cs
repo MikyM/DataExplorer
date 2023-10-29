@@ -26,16 +26,23 @@ public interface IEfDataExplorerTypeCache
     /// <summary>
     /// Tries to get entity type info.
     /// </summary>
-    /// <param name="entityType">The type.</param>
+    /// <param name="entityImplementationType">The type.</param>
     /// <param name="info">The info.</param>
     /// <returns>True if info was found, otherwise false.</returns>
-    bool TryGetEntityInfo(Type entityType, [NotNullWhen(true)] out DataExplorerEntityInfo? info);
+    bool TryGetEntityInfo(Type entityImplementationType, [NotNullWhen(true)] out DataExplorerEntityInfo? info);
     
     /// <summary>
     /// Tries to get repo type info.
     /// </summary>
-    /// <param name="repoType">The type.</param>
+    /// <param name="repoInterfaceType">The type.</param>
     /// <param name="info">The info.</param>
     /// <returns>True if info was found, otherwise false.</returns>
-    bool TryGetRepoInfo(Type repoType, [NotNullWhen(true)] out DataExplorerRepoInfo? info);
+    bool TryGetRepoInfo(Type repoInterfaceType, [NotNullWhen(true)] out DataExplorerRepoInfo? info);
+    
+    /// <summary>
+    /// Determines whether the given type is an allowed repo type.
+    /// </summary>
+    /// <param name="type">The type.</param>
+    /// <returns>True if it's a supported type, otherwise false.</returns>
+    bool IsAllowedRepoType(Type type);
 }

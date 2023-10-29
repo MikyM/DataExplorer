@@ -356,7 +356,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     }
 
     /// <inheritdoc />
-    public virtual Result Detach<TDetach>(TDetach entry) where TDetach : class
+    public virtual Result Detach<TDetach>(TDetach entry, bool recursive = false) where TDetach : class
     {
         try
         {
@@ -365,10 +365,10 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
                 case null:
                     throw new ArgumentNullException(nameof(entry));
                 case TEntity rootEntity:
-                    Repository.Detach(rootEntity);
+                    Repository.Detach(rootEntity, recursive);
                     break;
                 default:
-                    Repository.Detach(Mapper.Map<TEntity>(entry));
+                    Repository.Detach(Mapper.Map<TEntity>(entry), recursive);
                     break;
             }
 

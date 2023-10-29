@@ -387,15 +387,16 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// <param name="entities">Entities to disable.</param>
     /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="IDisableableEntity"/>.</exception>
     void DisableRange(IEnumerable<TEntity> entities);
-    
+
     /// <summary>
     ///     <para>
-    ///         Detaches the given entity from the current context, and any other reachable entities that are
-    ///         being tracked, such that changes applied to them will not be reflected in the database when <see cref="DbContext.SaveChanges()" /> is called.
+    ///         Detaches the given entity from the current context, such that changes applied to it will not be reflected in the database when <see cref="DbContext.SaveChanges()" /> is called.
     ///     </para>
     /// </summary>
+    /// <remarks>If using a recursive call - the recursive path will break when it stumbles upon an already detached entry resulting in a not-fully detached entry tree.</remarks>
     /// <param name="entity">Entity to detach.</param>
-    void Detach(TEntity entity);
+    /// <param name="recursive">Whether to recursively detach ALL navigation properties.</param>
+    void Detach(TEntity entity, bool recursive = false);
 }
 
 /// <summary>

@@ -1,8 +1,11 @@
-﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
+﻿using System.Linq.Expressions;
+
+namespace DataExplorer.EfCore.Specifications.Evaluators;
 
 /// <summary>
 ///     Evaluates the logic encapsulated by an <see cref="ISpecification{T}" />.
 /// </summary>
+[PublicAPI]
 public interface ISpecificationEvaluator
 {
     /// <summary>
@@ -42,8 +45,7 @@ public interface ISpecificationEvaluator
     /// <param name="query">The sequence of <typeparamref name="T" /></param>
     /// <param name="specification">The encapsulated query logic.</param>
     /// <param name="evaluateCriteriaOnly">Whether to only evaluate criteria.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>The number of updated rows.</returns>
-    Task<int> EvaluateUpdateAsync<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
-        bool evaluateCriteriaOnly = false, CancellationToken cancellationToken = default) where T : class;
+    (IQueryable<T> Query, Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> EvaluatedCalls) GetQuery<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
+        bool evaluateCriteriaOnly = false) where T : class;
 }

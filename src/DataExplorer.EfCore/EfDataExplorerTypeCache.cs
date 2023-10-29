@@ -69,15 +69,15 @@ public sealed class EfDataExplorerTypeCache : IEfDataExplorerTypeCache
             roLongIdRepoInfo?.SetEntityInfo(info);
 
             entities.Add(entityType, info);
-            repos.Add(crudGenericIdRepo, crudGenericIdRepoInfo);
-            repos.Add(roGenericIdRepo, roGenericIdRepoInfo);
-            if (crudLongIdRepoInfo is not null && crudLongIdRepo is not null)
+            repos.Add(crudGenericIdRepoInt, crudGenericIdRepoInfo);
+            repos.Add(roGenericIdRepoInt, roGenericIdRepoInfo);
+            if (crudLongIdRepoInfo is not null && crudLongIdRepoInt is not null)
             {
-                repos.Add(crudLongIdRepo, crudLongIdRepoInfo);
+                repos.Add(crudLongIdRepoInt, crudLongIdRepoInfo);
             }
-            if (roLongIdRepoInfo is not null && roLongIdRepo is not null)
+            if (roLongIdRepoInfo is not null && roLongIdRepoInt is not null)
             {
-                repos.Add(roLongIdRepo, roLongIdRepoInfo);
+                repos.Add(roLongIdRepoInt, roLongIdRepoInfo);
             }
         }
 
@@ -94,12 +94,16 @@ public sealed class EfDataExplorerTypeCache : IEfDataExplorerTypeCache
     public IEnumerable<Type> AllowedRepoTypes { get; }
 
     /// <inheritdoc/>
-    public bool TryGetEntityInfo(Type entityType, [NotNullWhen(true)] out DataExplorerEntityInfo? info)
-        => EntityInfo.TryGetValue(entityType, out info);
+    public bool TryGetEntityInfo(Type entityImplementationType, [NotNullWhen(true)] out DataExplorerEntityInfo? info)
+        => EntityInfo.TryGetValue(entityImplementationType, out info);
 
     /// <inheritdoc/>
-    public bool TryGetRepoInfo(Type repoType, [NotNullWhen(true)] out DataExplorerRepoInfo? info)
-        => RepoInfo.TryGetValue(repoType, out info);
+    public bool TryGetRepoInfo(Type repoInterfaceType, [NotNullWhen(true)] out DataExplorerRepoInfo? info)
+        => RepoInfo.TryGetValue(repoInterfaceType, out info);
+
+    /// <inheritdoc/>
+    public bool IsAllowedRepoType(Type type)
+        => AllowedRepoTypes.FirstOrDefault(x => x == type) is not null;
 
     /// <inheritdoc/>
     public IReadOnlyDictionary<Type, DataExplorerEntityInfo> EntityInfo { get; }

@@ -14,7 +14,7 @@ internal class CachedReadConcurrentDictionary<TKey, TValue> : IDictionary<TKey, 
     /// <summary>
     /// The number of cache misses which are tolerated before the cache is regenerated.
     /// </summary>
-    private const int CacheMissesBeforeCaching = 10;
+    private const int _cacheMissesBeforeCaching = 10;
     private readonly ConcurrentDictionary<TKey, TValue> _dictionary;
     private readonly IEqualityComparer<TKey>? _comparer;
 
@@ -174,7 +174,8 @@ internal class CachedReadConcurrentDictionary<TKey, TValue> : IDictionary<TKey, 
     public bool Remove(TKey key)
     {
         var result = ((IDictionary<TKey, TValue>)_dictionary).Remove(key);
-        if (result) InvalidateCache();
+        if (result) 
+            InvalidateCache();
         return result;
     }
 
@@ -204,7 +205,7 @@ internal class CachedReadConcurrentDictionary<TKey, TValue> : IDictionary<TKey, 
     private IDictionary<TKey, TValue> GetWithoutCache()
     {
         // If the dictionary was recently modified or the cache is being recomputed, return the dictionary directly.
-        if (Interlocked.Increment(ref _cacheMissReads) < CacheMissesBeforeCaching)
+        if (Interlocked.Increment(ref _cacheMissReads) < _cacheMissesBeforeCaching)
         {
             return _dictionary;
         }

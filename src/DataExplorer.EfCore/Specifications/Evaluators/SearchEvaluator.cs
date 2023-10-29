@@ -5,7 +5,7 @@ namespace DataExplorer.EfCore.Specifications.Evaluators;
 public class SearchEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IPreUpdateEvaluator
 {
     private SearchEvaluator() { }
-    public static SearchEvaluator Instance { get; } = new SearchEvaluator();
+    public static SearchEvaluator Default { get; } = new SearchEvaluator();
 
     public bool IsCriteriaEvaluator { get; } = true;
     public int ApplicationOrder { get; } = 0;

@@ -14,10 +14,10 @@ public class InMemorySpecificationEvaluator : IInMemorySpecificationEvaluator
     {
         _evaluators.AddRange(new IInMemoryEvaluator[]
         {
-            WhereEvaluator.Instance,
-            SearchEvaluator.Instance,
-            OrderEvaluator.Instance,
-            PaginationEvaluator.Instance
+            WhereEvaluator.Default,
+            SearchEvaluator.Default,
+            OrderEvaluator.Default,
+            PaginationEvaluator.Default
         });
     }
 
