@@ -1,38 +1,41 @@
-﻿namespace DataExplorer.EfCore;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace DataExplorer.EfCore;
 
 /// <summary>
-/// Represents a util type cache.
+/// Provides access to cached info about types used by <see cref="DataExplorer"/>.
 /// </summary>
 [PublicAPI]
 public interface IEfDataExplorerTypeCache
 {
     /// <summary>
-    /// Entity type to Id type map.
+    /// Entity info.
     /// </summary>
-    IReadOnlyDictionary<Type, Type> EntityTypeIdTypeDictionary { get; }
+    IReadOnlyDictionary<Type, DataExplorerEntityInfo> EntityInfo { get; }
     
     /// <summary>
-    /// Entity type to read-only repo implementation type with long as Id type map.
+    /// Repo info.
     /// </summary>
-    IReadOnlyDictionary<Type, Type> CachedReadOnlyRepos { get; }
-    
-    /// <summary>
-    /// Entity type to crud repo implementation type with long as Id type map.
-    /// </summary>
-    IReadOnlyDictionary<Type, Type> CachedCrudRepos { get; }
-    
-    /// <summary>
-    /// Entity type to read-only repo implementation type with generic Id type argument map.
-    /// </summary>
-    IReadOnlyDictionary<Type, Type> CachedReadOnlyGenericIdRepos { get; }
-    
-    /// <summary>
-    /// Entity type to crud repo implementation type with generic Id type argument map.
-    /// </summary>
-    IReadOnlyDictionary<Type, Type> CachedCrudGenericIdRepos { get; }
+    IReadOnlyDictionary<Type, DataExplorerRepoInfo> RepoInfo { get; }
     
     /// <summary>
     /// Allowed repository types.
     /// </summary>
     IEnumerable<Type> AllowedRepoTypes { get; }
+    
+    /// <summary>
+    /// Tries to get entity type info.
+    /// </summary>
+    /// <param name="entityType">The type.</param>
+    /// <param name="info">The info.</param>
+    /// <returns>True if info was found, otherwise false.</returns>
+    bool TryGetEntityInfo(Type entityType, [NotNullWhen(true)] out DataExplorerEntityInfo? info);
+    
+    /// <summary>
+    /// Tries to get repo type info.
+    /// </summary>
+    /// <param name="repoType">The type.</param>
+    /// <param name="info">The info.</param>
+    /// <returns>True if info was found, otherwise false.</returns>
+    bool TryGetRepoInfo(Type repoType, [NotNullWhen(true)] out DataExplorerRepoInfo? info);
 }

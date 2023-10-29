@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using DataExplorer.Abstractions.Repositories;
-using DataExplorer.Abstractions.UnitOfWork;
 using DataExplorer.EfCore.Gridify;
 using Microsoft.EntityFrameworkCore.Storage;
 using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
@@ -8,8 +6,10 @@ using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IS
 namespace DataExplorer.EfCore.Abstractions;
 
 /// <summary>
-/// Defines an EF Unit of Work.
+/// Represents an EF Unit of Work.
 /// </summary>
+/// <remarks>This also works as a factory for <see cref="IReadOnlyRepository{TEntity,TId}"/>, <see cref="IReadOnlyRepository{TEntity}"/>,
+/// , <see cref="IRepository{TEntity,TId}"/> and <see cref="IRepository{TEntity}"/></remarks>
 [PublicAPI]
 public interface IUnitOfWork : IUnitOfWorkBase
 {
@@ -32,27 +32,11 @@ public interface IUnitOfWork : IUnitOfWorkBase
     /// <param name="transaction">Transaction to use.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     Task<IDbContextTransaction> UseExplicitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default);
-
-    /// <inheritdoc cref="IUnitOfWorkBase.CommitAsync(string, CancellationToken)"/>
-    /// <returns>Number of affected rows.</returns>
-    /// <param name="auditUserId">The ID of the user responsible for the changes.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    Task<int> CommitWithCountAsync(string auditUserId, CancellationToken cancellationToken = default);
-
+    
     /// <inheritdoc cref="IUnitOfWorkBase.CommitAsync(CancellationToken)"/>
     /// <returns>Number of affected rows.</returns>
     /// <param name="cancellationToken">Cancellation token.</param>
     Task<int> CommitWithCountAsync(CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Gets a repository of a given type.
-    /// </summary>
-    /// <remarks>You can <b>only</b> retrieve types: <see cref="IRepository{TEntity}"/>, <see cref="IRepository{TEntity,TId}"/>, <see cref="IReadOnlyRepository{TEntity}"/> and <see cref="IReadOnlyRepository{TEntity,TId}"/>.</remarks>
-    /// <typeparam name="TRepository">Type of the repository to get.</typeparam>
-    /// <returns>The searched for repository.</returns>
-    /// <exception cref="InvalidOperationException">Thrown when couldn't find proper type or name in cache.</exception>
-    /// <exception cref="NotSupportedException">Thrown when passed type isn't equal to any of the types listed in remarks, isn't a generic type or isn't an interface.</exception>
-    new TRepository GetRepository<TRepository>() where TRepository : class, IRepositoryBase;
 
     /// <summary>
     /// Gets an <see cref="IRepository{TEntity}"/> for an entity of a given type.
@@ -108,8 +92,10 @@ public interface IUnitOfWork : IUnitOfWorkBase
 
 /// <inheritdoc cref="IUnitOfWork"/>
 /// <summary>
-/// Defines an EF Unit of Work.
+/// Represents an EF Unit of Work with a given context.
 /// </summary>
+/// <remarks>This also works as a factory for <see cref="IReadOnlyRepository{TEntity,TId}"/>, <see cref="IReadOnlyRepository{TEntity}"/>,
+/// , <see cref="IRepository{TEntity,TId}"/> and <see cref="IRepository{TEntity}"/></remarks>
 /// <typeparam name="TContext">Type of context to be used.</typeparam>
 [PublicAPI]
 public interface IUnitOfWork<out TContext> : IUnitOfWork where TContext : IEfDbContext

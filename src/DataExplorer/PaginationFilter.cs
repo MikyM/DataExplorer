@@ -4,15 +4,13 @@
 /// Pagination filter.
 /// </summary>
 [PublicAPI]
-public class PaginationFilter
+public sealed record PaginationFilter
 {
     /// <summary>
     /// Base constructor.
     /// </summary>
     public PaginationFilter()
     {
-        PageNumber = 1;
-        PageSize = 10;
     }
 
     /// <summary>
@@ -29,9 +27,9 @@ public class PaginationFilter
     /// <summary>
     /// Page number.
     /// </summary>
-    public int PageNumber { get; set; }
+    public int PageNumber { get; init; }
     /// <summary>
     /// Page size.
     /// </summary>
-    public int PageSize { get; set; }
+    public int PageSize { get; init; }
 }

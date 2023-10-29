@@ -38,6 +38,7 @@ public abstract class DataExplorerConfigurationBase
     /// Autofac's container builder.
     /// </summary>
     protected ContainerBuilder? Builder { get; private set; }
+    
     /// <summary>
     /// Microsoft's service collection.
     /// </summary>

@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using DataExplorer.Abstractions.DataServices;
-using DataExplorer.Abstractions.UnitOfWork;
-using DataExplorer.EfCore.Abstractions;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.Gridify;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -33,39 +31,12 @@ public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<T
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result> CommitAsync(string auditUserId, CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            await UnitOfWork.CommitAsync(auditUserId, cancellationToken).ConfigureAwait(false);
-            return Result.FromSuccess();
-        }
-        catch (Exception ex)
-        {
-            return ex;
-        }
-    }
-
-    /// <inheritdoc />
     public virtual async Task<Result> CommitAsync(CancellationToken cancellationToken = default)
     {
         try
         {
-            await UnitOfWork.CommitAsync(cancellationToken).ConfigureAwait(false);
+            await UnitOfWork.CommitAsync(cancellationToken);
             return Result.FromSuccess();
-        }
-        catch (Exception ex)
-        {
-            return ex;
-        }
-    }
-
-    /// <inheritdoc />
-    public virtual async Task<Result<int>> CommitWithCountAsync(string auditUserId, CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            return await UnitOfWork.CommitWithCountAsync(auditUserId, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -78,7 +49,7 @@ public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<T
     {
         try
         {
-            return await UnitOfWork.CommitWithCountAsync(cancellationToken).ConfigureAwait(false);
+            return await UnitOfWork.CommitWithCountAsync(cancellationToken);
         }
         catch (Exception ex)
         {
@@ -91,7 +62,7 @@ public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<T
     {
         try
         {
-            await UnitOfWork.RollbackAsync(cancellationToken).ConfigureAwait(false);
+            await UnitOfWork.RollbackAsync(cancellationToken);
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -105,7 +76,7 @@ public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<T
     {
         try
         {
-            return Result<IDbContextTransaction>.FromSuccess(await UnitOfWork.UseExplicitTransactionAsync(cancellationToken).ConfigureAwait(false));
+            return Result<IDbContextTransaction>.FromSuccess(await UnitOfWork.UseExplicitTransactionAsync(cancellationToken));
         }
         catch (Exception ex)
         {

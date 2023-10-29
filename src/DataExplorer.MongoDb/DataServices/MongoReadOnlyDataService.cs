@@ -47,7 +47,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
         try
         {
             return Result<IReadOnlyList<TGetResult>>.FromSuccess(Mapper.Map<IReadOnlyList<TGetResult>>(
-                await ReadOnlyRepository.GetAllAsync(cancellationToken).ConfigureAwait(false)));
+                await ReadOnlyRepository.GetAllAsync(cancellationToken)));
         }
         catch (Exception ex)
         {
@@ -60,7 +60,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<IReadOnlyList<TEntity>>.FromSuccess(await ReadOnlyRepository.GetAllAsync(cancellationToken).ConfigureAwait(false));
+            return Result<IReadOnlyList<TEntity>>.FromSuccess(await ReadOnlyRepository.GetAllAsync(cancellationToken));
         }
         catch (Exception ex)
         {
@@ -73,7 +73,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return await ReadOnlyRepository.CountEstimatedAsync(cancellation).ConfigureAwait(false);
+            return await ReadOnlyRepository.CountEstimatedAsync(cancellation);
         }
         catch (Exception ex)
         {
@@ -87,7 +87,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return await ReadOnlyRepository.CountAsync(expression, cancellation, options, ignoreGlobalFilters).ConfigureAwait(false);
+            return await ReadOnlyRepository.CountAsync(expression, cancellation, options, ignoreGlobalFilters);
         }
         catch (Exception ex)
         {
@@ -100,7 +100,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return await ReadOnlyRepository.CountAsync(cancellation).ConfigureAwait(false);
+            return await ReadOnlyRepository.CountAsync(cancellation);
         }
         catch (Exception ex)
         {
@@ -114,7 +114,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return await ReadOnlyRepository.CountAsync(filter, cancellation, options, ignoreGlobalFilters).ConfigureAwait(false);
+            return await ReadOnlyRepository.CountAsync(filter, cancellation, options, ignoreGlobalFilters);
         }
         catch (Exception ex)
         {
@@ -128,7 +128,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return await ReadOnlyRepository.CountAsync(filter, cancellation, options, ignoreGlobalFilters).ConfigureAwait(false);
+            return await ReadOnlyRepository.CountAsync(filter, cancellation, options, ignoreGlobalFilters);
         }
         catch (Exception ex)
         {
@@ -182,7 +182,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<IAsyncCursor<TResult>>.FromSuccess(await ReadOnlyRepository.PipelineCursorAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false));
+            return Result<IAsyncCursor<TResult>>.FromSuccess(await ReadOnlyRepository.PipelineCursorAsync(template, options, cancellation, ignoreGlobalFilters));
         }
         catch (Exception ex)
         {
@@ -196,7 +196,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<IReadOnlyList<TResult>>.FromSuccess(await ReadOnlyRepository.PipelineAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false));
+            return Result<IReadOnlyList<TResult>>.FromSuccess(await ReadOnlyRepository.PipelineAsync(template, options, cancellation, ignoreGlobalFilters));
         }
         catch (Exception ex)
         {
@@ -210,7 +210,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<TResult?>.FromSuccess(await ReadOnlyRepository.PipelineSingleAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false));
+            return Result<TResult?>.FromSuccess(await ReadOnlyRepository.PipelineSingleAsync(template, options, cancellation, ignoreGlobalFilters));
         }
         catch (Exception ex)
         {
@@ -224,7 +224,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<TResult?>.FromSuccess(await ReadOnlyRepository.PipelineFirstAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false));
+            return Result<TResult?>.FromSuccess(await ReadOnlyRepository.PipelineFirstAsync(template, options, cancellation, ignoreGlobalFilters));
         }
         catch (Exception ex)
         {
@@ -242,7 +242,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<long>.FromSuccess(await ReadOnlyRepository.LongCountAsync(cancellationToken).ConfigureAwait(false));
+            return Result<long>.FromSuccess(await ReadOnlyRepository.LongCountAsync(cancellationToken));
         }
         catch (Exception ex)
         {
@@ -255,7 +255,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<long>.FromSuccess(await ReadOnlyRepository.LongCountAsync(predicate, cancellationToken).ConfigureAwait(false));
+            return Result<long>.FromSuccess(await ReadOnlyRepository.LongCountAsync(predicate, cancellationToken));
         }
         catch (Exception ex)
         {
@@ -268,7 +268,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<bool>.FromSuccess(await ReadOnlyRepository.AnyAsync(predicate, cancellationToken).ConfigureAwait(false));
+            return Result<bool>.FromSuccess(await ReadOnlyRepository.AnyAsync(predicate, cancellationToken));
         }
         catch (Exception ex)
         {
@@ -281,7 +281,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            return Result<IReadOnlyList<TEntity>>.FromSuccess(await ReadOnlyRepository.WhereAsync(predicate, cancellationToken).ConfigureAwait(false));
+            return Result<IReadOnlyList<TEntity>>.FromSuccess(await ReadOnlyRepository.WhereAsync(predicate, cancellationToken));
         }
         catch (Exception ex)
         {
@@ -294,7 +294,7 @@ public class MongoReadOnlyDataService<TEntity, TContext> : MongoDataServiceBase<
     {
         try
         {
-            var res = await ReadOnlyRepository.FirstOrDefaultAsync(predicate, cancellationToken).ConfigureAwait(false);
+            var res = await ReadOnlyRepository.FirstOrDefaultAsync(predicate, cancellationToken);
             if (res is null)
                 return new NotFoundError();
 

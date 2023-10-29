@@ -3,6 +3,7 @@
 /// <summary>
 /// Factory that utilizes delegate caching for creating instances.
 /// </summary>
+[PublicAPI]
 public interface ICachedInstanceFactory
 {
     /// <summary>
@@ -113,20 +114,4 @@ public interface ICachedInstanceFactory
     /// <param name="arg4">Fourth argument of type's constructor.</param>
     /// <returns>Created type if successful, otherwise null.</returns>
     object? CreateInstance<TType, TArg1, TArg2, TArg3, TArg4>(TArg1 arg1, TArg2 arg2, TArg3 arg3, TArg4 arg4) where TType : class;
-
-    /// <summary>
-    /// Creates an instance of a given type.
-    /// </summary>
-    /// <param name="type">Type to create.</param>
-    /// <param name="args">Constructor arguments.</param>
-    /// <returns>Created type if successful, otherwise null.</returns>
-    object? CreateInstance(Type type, params object?[]? args);
-    
-    /// <summary>
-    /// Creates an instance of a given type.
-    /// </summary>
-    /// <typeparam name="TType">Type to create.</typeparam>
-    /// <param name="args">Constructor arguments.</param>
-    /// <returns>Created type if successful, otherwise null.</returns>
-    object? CreateInstance<TType>(params object?[]? args) where TType : class;
 }

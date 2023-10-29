@@ -14,10 +14,15 @@ namespace DataExplorer.EfCore.Abstractions.DataServices;
 /// <typeparam name="TId">Type of the Id of the entity.</typeparam>
 [PublicAPI]
 public interface IReadOnlyDataService<TEntity, TId, out TContext> : IEfCoreDataServiceBase<TContext>
-    where TEntity : class, IEntity<TId>
+    where TEntity : Entity<TId>
     where TContext : class, IEfDbContext
     where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
+    /// <summary>
+    /// The underlying repository.
+    /// </summary>
+    IReadOnlyRepository<TEntity,TId> ReadOnlyRepository { get; }
+        
     /// <summary>
     /// Gets an entity based on given primary key values.
     /// </summary>
@@ -310,6 +315,6 @@ public interface IReadOnlyDataService<TEntity, TId, out TContext> : IEfCoreDataS
 /// <typeparam name="TContext">Type of the <see cref="DbContext"/> to use.</typeparam>
 [PublicAPI]
 public interface IReadOnlyDataService<TEntity, out TContext> : IReadOnlyDataService<TEntity, long, TContext>
-    where TEntity : class, IEntity<long> where TContext : class, IEfDbContext
+    where TEntity : Entity<long> where TContext : class, IEfDbContext
 {
 }

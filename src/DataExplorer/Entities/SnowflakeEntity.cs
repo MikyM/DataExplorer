@@ -10,11 +10,6 @@ namespace DataExplorer.Entities;
 public abstract class SnowflakeEntity : Entity, ISnowflakeEntity<long>
 {
     /// <summary>
-    /// Whether to fill this entity's Id automatically.
-    /// </summary>
-    public virtual bool ShouldHaveIdFilled => true;
-
-    /// <summary>
     /// The ID of the entity.
     /// </summary>
     public override long Id { get; protected set; } = SnowflakeIdFactory.CreateId();

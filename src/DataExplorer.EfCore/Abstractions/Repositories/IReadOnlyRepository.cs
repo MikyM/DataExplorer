@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using DataExplorer.Abstractions.Repositories;
 using DataExplorer.EfCore.Gridify;
 using DataExplorer.EfCore.Specifications;
 using Gridify;
@@ -135,6 +134,14 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     /// <summary>
     /// Counts the entities that satisfy the given <see cref="Specifications.ISpecification{T}"/>.
     /// </summary>
+    /// <param name="predicate">Predicate for the query.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Number of entities that satisfy given <see cref="Specifications.ISpecification{T}"/>.</returns>
+    Task<long> LongCountAsync(Expression<Func<TEntity,bool>> predicate, CancellationToken cancellationToken = default);
+    
+    /// <summary>
+    /// Counts the entities that satisfy the given <see cref="Specifications.ISpecification{T}"/>.
+    /// </summary>
     /// <param name="specification">Specification for the query.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>Number of entities that satisfy given <see cref="Specifications.ISpecification{T}"/>.</returns>
@@ -164,7 +171,7 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     Task<bool> AnyAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Finds all entities of <typeparamref name="TEntity"/>, that matches the encapsulated query logic of the
+    /// Finds all entities of <typeparamref name="TEntity"/>, that match the encapsulated query logic of the
     /// <paramref name="specification"/>, from the database.
     /// </summary>
     /// <param name="specification">The encapsulated query logic.</param>
@@ -172,6 +179,23 @@ public interface IReadOnlyRepository<TEntity,TId> : IRepositoryBase where TEntit
     ///  Returns an IAsyncEnumerable which can be enumerated asynchronously.
     /// </returns>
     IAsyncEnumerable<TEntity> AsAsyncEnumerable(ISpecification<TEntity> specification);
+    
+    /// <summary>
+    /// Finds all entities of <typeparamref name="TEntity"/>.
+    /// </summary>
+    /// <returns>
+    ///  Returns an IAsyncEnumerable which can be enumerated asynchronously.
+    /// </returns>
+    IAsyncEnumerable<TEntity> AsAsyncEnumerable();
+    
+    /// <summary>
+    /// Finds all entities of <typeparamref name="TEntity"/>, that match the given predicate.
+    /// </summary>
+    /// <param name="predicate">Predicate for the query.</param>
+    /// <returns>
+    ///  Returns an IAsyncEnumerable which can be enumerated asynchronously.
+    /// </returns>
+    IAsyncEnumerable<TEntity> AsAsyncEnumerable(Expression<Func<TEntity,bool>> predicate);
     
     /// <summary>
     /// Gets all entities that satisfy given <see cref="IGridifyQuery"/>.

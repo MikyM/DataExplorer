@@ -1,7 +1,7 @@
 ﻿using DataExplorer.EfCore.Extensions;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.Extensions.Options;
+
 // ReSharper disable SuspiciousTypeConversion.Global
 
 namespace DataExplorer.EfCore.DataContexts;
@@ -19,43 +19,53 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     protected readonly IOptions<DataExplorerEfCoreConfiguration> Config;
 
     /// <summary>
-    /// Detected changes. This will be null prior to calling SaveChangesAsync.
+    /// The time provider.
     /// </summary>
-    protected List<EntityEntry>? DetectedChanges;
-
+    protected readonly TimeProvider TimeProvider;
+    
     /// <inheritdoc />
+    // This ctor is required to be able to use the context with context pooling.
     protected EfDbContext(DbContextOptions options) : base(options)
     {
         Config = this.GetService<IOptions<DataExplorerEfCoreConfiguration>>();
+        TimeProvider = this.GetService<TimeProvider>();
     }
 
     /// <inheritdoc />
-    protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config) : base(options)
+    protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config, TimeProvider timeProvider) : base(options)
     {
         Config = config;
+        TimeProvider = timeProvider;
     }
 
     /// <inheritdoc/>
     public IQueryable<TEntity> ExecuteRawSql<TEntity>(string sql, params object[] parameters) where TEntity : class
         => Set<TEntity>().FromSqlRaw(sql, parameters);
+    
     /// <inheritdoc/>
     public IQueryable<TEntity> ExecuteInterpolatedSql<TEntity>(FormattableString sql) where TEntity : class
         => Set<TEntity>().FromSqlInterpolated(sql);
+    
     /// <inheritdoc/>
     public int ExecuteRawSql(string sql)
         => Database.ExecuteSqlRaw(sql);
+    
     /// <inheritdoc/>
     public int ExecuteRawSql(string sql, params object[] parameters)
         => Database.ExecuteSqlRaw(sql, parameters);
+    
     /// <inheritdoc/>
-    public async Task<int> ExecuteRawSqlAsync(string sql, CancellationToken cancellationToken = default)
-        => await Database.ExecuteSqlRawAsync(sql, cancellationToken);
+    public Task<int> ExecuteRawSqlAsync(string sql, CancellationToken cancellationToken = default)
+        => Database.ExecuteSqlRawAsync(sql, cancellationToken);
+    
     /// <inheritdoc/>
-    public async Task<int> ExecuteRawSqlAsync(string sql, CancellationToken cancellationToken = default, params object[] parameters)
-        => await Database.ExecuteSqlRawAsync(sql, cancellationToken, parameters);
+    public Task<int> ExecuteRawSqlAsync(string sql, CancellationToken cancellationToken = default, params object[] parameters)
+        => Database.ExecuteSqlRawAsync(sql, cancellationToken, parameters);
+    
     /// <inheritdoc/>
-    public async Task<int> ExecuteRawSqlAsync(string sql, params object[] parameters)
-        => await Database.ExecuteSqlRawAsync(sql, parameters);
+    public Task<int> ExecuteRawSqlAsync(string sql, params object[] parameters)
+        => Database.ExecuteSqlRawAsync(sql, parameters);
+    
     /// <inheritdoc/>
     public TEntity? FindTracked<TEntity>(params object[] keyValues) where TEntity : class
         => DbContextExtensions.FindTracked<TEntity>(this, keyValues);
@@ -72,44 +82,51 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     
     /// <inheritdoc cref="DbContext.SaveChangesAsync(bool,System.Threading.CancellationToken)" />
     /// <remarks>
-    /// Executes <see cref="OnBeforeSaveChanges"/> if not disabled.
+    /// Executes <see cref="OnBeforeSaveChangesAsync"/> if not disabled.
     /// </remarks>
     public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess,
         CancellationToken cancellationToken = default)
     {
         if (!Config.Value.DisableOnBeforeSaveChanges) 
-            OnBeforeSaveChanges();
+            await OnBeforeSaveChangesAsync();
         
-        return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken).ConfigureAwait(false);
+        return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
     }
 
     /// <inheritdoc cref="DbContext.SaveChangesAsync(System.Threading.CancellationToken)" />
     /// <remarks>
-    /// Executes <see cref="OnBeforeSaveChanges"/> if not disabled.
+    /// Executes <see cref="OnBeforeSaveChangesAsync"/> if not disabled.
     /// </remarks>
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         if (!Config.Value.DisableOnBeforeSaveChanges) 
-            OnBeforeSaveChanges();
+            await OnBeforeSaveChangesAsync();
         
-        return await base.SaveChangesAsync(true, cancellationToken).ConfigureAwait(false);
+        return await base.SaveChangesAsync(true, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Gets the entries that are currently tracked by the context.
+    /// </summary>
+    /// <returns>Detected entries.</returns>
+    /// <remarks>This calls DetectChanges and makes a collection copy.</remarks>
+    protected virtual IReadOnlyList<EntityEntry> GetTrackedEntries()
+    {
+        ChangeTracker.DetectChanges();
+        return ChangeTracker.Entries().ToList().AsReadOnly();
     }
 
     /// <summary>
     /// Executes an action before executing SaveChanges.
     /// </summary>
-    protected virtual void OnBeforeSaveChanges(List<EntityEntry>? entries = null)
+    protected virtual ValueTask OnBeforeSaveChangesAsync(IReadOnlyList<EntityEntry>? entries = null)
     {
-        if (entries is null)
-        {
-            ChangeTracker.DetectChanges();
-            entries = ChangeTracker.Entries().ToList();
-        }
+        entries ??= GetTrackedEntries();
 
         var now = Config.Value.DateTimeStrategy switch
         {
-            DateTimeStrategy.UtcNow => DateTime.UtcNow,
-            DateTimeStrategy.Now => DateTime.Now,
+            DateTimeStrategy.UtcNow => TimeProvider.GetUtcNow(),
+            DateTimeStrategy.Now => TimeProvider.GetLocalNow(),
             _ => throw new ArgumentOutOfRangeException()
         };
         
@@ -121,23 +138,40 @@ public abstract class EfDbContext : DbContext, IEfDbContext
                     case EntityState.Added:
                         if (entity is ICreatedAt { CreatedAt: null } createdAt)
                         {
-                            createdAt.CreatedAt = now;
+                            createdAt.CreatedAt = now.DateTime;
                             entry.Property(nameof(ICreatedAt.CreatedAt)).IsModified = true;
+                        }
+                        if (entity is ICreatedAtOffset { CreatedAt: null } createdAtOffset)
+                        {
+                            createdAtOffset.CreatedAt = now;
+                            entry.Property(nameof(ICreatedAtOffset.CreatedAt)).IsModified = true;
                         }
                         if (entity is IUpdatedAt { UpdatedAt: null } addedUpdatedAt)
                         {
-                            addedUpdatedAt.UpdatedAt = now;
+                            addedUpdatedAt.UpdatedAt = now.DateTime;
                             entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified = true;
+                        }
+                        if (entity is IUpdatedAtOffset { UpdatedAt: null } addedUpdatedAtOffset)
+                        {
+                            addedUpdatedAtOffset.UpdatedAt = now;
+                            entry.Property(nameof(IUpdatedAtOffset.UpdatedAt)).IsModified = true;
                         }
                         break;
                     case EntityState.Modified:
                         if (entity is IUpdatedAt updatedAt && !entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified)
                         {
-                            updatedAt.UpdatedAt = now;
+                            updatedAt.UpdatedAt = now.DateTime;
                             entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified = true;
+                        }
+                        if (entity is IUpdatedAtOffset updatedAtOffset && !entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified)
+                        {
+                            updatedAtOffset.UpdatedAt = now;
+                            entry.Property(nameof(IUpdatedAtOffset.UpdatedAt)).IsModified = true;
                         }
                         break;
                 }
         }
+        
+        return ValueTask.CompletedTask;
     }
 }

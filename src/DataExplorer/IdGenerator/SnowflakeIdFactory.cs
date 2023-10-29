@@ -14,43 +14,32 @@ public static class SnowflakeIdFactory
     /// <summary>
     /// Default factory Id.
     /// </summary>
-    public static int DefaultFactoryId => 1;
+    public const int DefaultFactoryId = 1;
 
     /// <summary>
     /// Adds a specified creation factory.
     /// </summary>
     /// <param name="creationFactory">The creation factory.</param>
     /// <param name="factoryId">Factory Id.</param>
-    public static void AddFactoryMethod(Func<long> creationFactory, int factoryId)
+    public static void AddFactoryMethod(Func<long> creationFactory, int factoryId = DefaultFactoryId)
         => _factories.TryAdd(factoryId, creationFactory);
     
     /// <summary>
     /// Removes a specified creation factory.
     /// </summary>
     /// <param name="factoryId">Factory Id.</param>
-    public static void RemoveFactoryMethod(int factoryId)
+    public static void RemoveFactoryMethod(int factoryId = DefaultFactoryId)
         => _factories.Remove(factoryId);
-
-    /// <summary>
-    /// Creates a new snowflake Id based on a first registered factory.
-    /// </summary>
-    /// <returns>Generated snowflake ID.</returns>
-    public static long CreateId()
-    {
-        if (_factories.Count == 0) 
-            throw new InvalidOperationException("You can not create an instance without first adding a factory.");
-        return _factories[DefaultFactoryId]();
-    }
     
     /// <summary>
-    /// Creates a new snowflake Id based on a passed registered id.
+    /// Creates a new snowflake Id.
     /// </summary>
     /// <param name="factoryId">Id of the factory.</param>
     /// <returns>Generated snowflake ID.</returns>
-    public static long CreateId(int factoryId)
+    public static long CreateId(int factoryId = DefaultFactoryId)
     {
         if (!_factories.TryGetValue(factoryId, out var df))
-            throw new InvalidOperationException("Couldn't find generator factory registered for default generator name.");
+            throw new InvalidOperationException($"Factory method with Id {factoryId} doesn't exist.");
         return df();
     }
 }

@@ -220,10 +220,11 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
     }
     
     /// <inheritdoc />
-    public async Task RollbackAsync(CancellationToken cancellationToken = default)
+    public Task RollbackAsync(CancellationToken cancellationToken = default)
     {
         if (Transaction is not null) 
-            await Transaction.AbortTransactionAsync(cancellationToken).ConfigureAwait(false);
+            return Transaction.AbortTransactionAsync(cancellationToken);
+        return Task.CompletedTask;
     }
 
     /// <inheritdoc />
@@ -234,24 +235,11 @@ public sealed class MongoUnitOfWork<TContext> : IMongoUnitOfWork<TContext> where
     {
         if (Transaction is null)
         {
-            await Context.CommitAsync(cancellationToken).ConfigureAwait(false);
+            await Context.CommitAsync(cancellationToken);
             return;
         }
 
-        await Transaction.CommitTransactionAsync(cancellationToken).ConfigureAwait(false);
-        Transaction = null;
-    }
-
-    /// <inheritdoc />
-    public async Task CommitAsync(string userId, CancellationToken cancellationToken = default)
-    {
-        if (Transaction is null)
-        {
-            await Context.CommitAsync(cancellationToken).ConfigureAwait(false);
-            return;
-        }
-        
-        await Transaction.CommitTransactionAsync(cancellationToken).ConfigureAwait(false);
+        await Transaction.CommitTransactionAsync(cancellationToken);
         Transaction = null;
     }
 

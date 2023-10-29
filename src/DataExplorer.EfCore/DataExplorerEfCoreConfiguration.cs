@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using DataExplorer.EfCore.Abstractions;
-using DataExplorer.EfCore.DataContexts;
 using DataExplorer.EfCore.Gridify;
 using Gridify;
 using Microsoft.Extensions.DependencyInjection;

@@ -6,6 +6,7 @@ namespace DataExplorer.Abstractions.UnitOfWork;
 /// <summary>
 /// Represents a base Unit of Work.
 /// </summary>
+/// <remarks>This also works as a factory for <see cref="IRepositoryBase"/>.</remarks>
 [PublicAPI]
 public interface IUnitOfWorkBase : IDisposable
 {
@@ -22,14 +23,6 @@ public interface IUnitOfWorkBase : IDisposable
     /// <returns>Number of affected rows.</returns>
     /// <param name="cancellationToken">Cancellation token.</param>
     Task CommitAsync(CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Commits pending changes to the underlying database.
-    /// </summary>
-    /// <param name="userId">Id of the user that is responsible for doing changes.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    /// <returns>Number of affected rows.</returns>
-    Task CommitAsync(string userId, CancellationToken cancellationToken = default);
     
     /// <summary>
     /// Rolls the current transaction back.

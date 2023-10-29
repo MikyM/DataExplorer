@@ -14,8 +14,4 @@ public interface ISnowflakeEntity<TId> : ISnowflakeEntity, IEntity<TId> where TI
 [PublicAPI]
 public interface ISnowflakeEntity : IEntityBase
 {
-    /// <summary>
-    /// Whether to fill this entity's Id automatically.
-    /// </summary>
-    bool ShouldHaveIdFilled { get; }
 }

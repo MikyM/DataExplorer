@@ -27,13 +27,6 @@ public interface IDataServiceBase<out TContext> : IDisposable where TContext : I
     Task<Result> CommitAsync(CancellationToken cancellationToken = default);
     
     /// <summary>
-    /// Commits pending changes with specifying user that is responsible for them.
-    /// </summary>
-    /// <param name="auditUserId">Id of the user that's responsible for the changes.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    Task<Result> CommitAsync(string auditUserId, CancellationToken cancellationToken = default);
-    
-    /// <summary>
     /// Rolls the current transaction back.
     /// </summary>
     /// <param name="cancellationToken">Cancellation token.</param>

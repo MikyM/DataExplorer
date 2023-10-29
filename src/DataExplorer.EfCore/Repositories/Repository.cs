@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using DataExplorer.EfCore.Gridify;
 using DataExplorer.EfCore.Specifications;
-using DataExplorer.Exceptions;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
+// ReSharper disable SuspiciousTypeConversion.Global
 
 namespace DataExplorer.EfCore.Repositories;
 
@@ -22,18 +22,23 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     }
 
     /// <inheritdoc />
-    public virtual async Task<int> ExecuteDeleteAsync(Specifications.ISpecification<TEntity> specification,
+    public virtual Task<int> ExecuteDeleteAsync(ISpecification<TEntity> specification,
         CancellationToken cancellationToken = default)
-        => await ApplySpecification(specification).ExecuteDeleteAsync(cancellationToken).ConfigureAwait(false);
+        => ApplySpecification(specification).ExecuteDeleteAsync(cancellationToken);
     
     /// <inheritdoc />
-    public virtual async Task<int> ExecuteDeleteAsync(CancellationToken cancellationToken = default)
-        => await Set.ExecuteDeleteAsync(cancellationToken).ConfigureAwait(false);
+    public virtual Task<int> ExecuteDeleteAsync(Func<TEntity,bool> predicate,
+        CancellationToken cancellationToken = default)
+        => Set.Where(predicate).AsQueryable().ExecuteDeleteAsync(cancellationToken);
     
     /// <inheritdoc />
-    public virtual async Task<int> ExecuteUpdateAsync(IUpdateSpecification<TEntity> specification,
+    public virtual Task<int> ExecuteDeleteAsync(CancellationToken cancellationToken = default)
+        => Set.ExecuteDeleteAsync(cancellationToken);
+    
+    /// <inheritdoc />
+    public virtual Task<int> ExecuteUpdateAsync(IUpdateSpecification<TEntity> specification,
         CancellationToken cancellationToken = default)
-        => await ApplyUpdateSpecificationAsync<TEntity>(specification).ConfigureAwait(false);
+        => ApplyUpdateSpecificationAsync<TEntity>(specification);
 
     /// <inheritdoc />
     public virtual void Add(TEntity entity)
@@ -52,12 +57,12 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         => Set.AddRange(entities);
     
     /// <inheritdoc />
-    public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
-        => await Set.AddRangeAsync(entities, cancellationToken);
+    public virtual Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
+        => Set.AddRangeAsync(entities, cancellationToken);
     
     /// <inheritdoc />
-    public virtual async Task AddRangeAsync(params TEntity[] entities)
-        => await Set.AddRangeAsync(entities);
+    public virtual Task AddRangeAsync(params TEntity[] entities)
+        => Set.AddRangeAsync(entities);
 
     /// <inheritdoc />
     public virtual EntityEntry<TEntity> BeginUpdate(TEntity entity, bool shouldSwapAttached = false)
@@ -108,10 +113,10 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     }
     
     /// <inheritdoc />
-    public virtual void Delete(TId id)
+    public virtual async Task<bool> DeleteAsync(TId id, CancellationToken cancellationToken = default)
     {
-        var entity = Context.FindTracked<TEntity>(id) ?? (TEntity) Activator.CreateInstance(typeof(TEntity), id)!;
-        Set.Remove(entity);
+        var res = await ExecuteDeleteAsync(x => x.Id.Equals(id), cancellationToken);
+        return res == 1;
     }
 
     /// <inheritdoc />
@@ -119,34 +124,20 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         => Set.RemoveRange(entities);
 
     /// <inheritdoc />
-    public virtual void DeleteRange(IEnumerable<TId> ids)
+    public virtual async Task<long> DeleteRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default)
     {
-        var entities = ids.Select(id =>
-                Context.FindTracked<TEntity>(id) ?? (TEntity) Activator.CreateInstance(typeof(TEntity), id)!)
-            .ToList();
-        Set.RemoveRange(entities);
+        var res = await ExecuteDeleteAsync(x => ids.Contains(x.Id), cancellationToken);
+        return res;
     }
 
     /// <inheritdoc />
     public virtual void Disable(TEntity entity)
     {
-        if (entity is not IDisableableEntity)
+        if (entity is not IDisableableEntity disableableEntity)
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
         
         BeginUpdate(entity);
-        ((IDisableableEntity)entity).IsDisabled = true;
-    }
-
-    /// <inheritdoc />
-    public virtual async Task DisableAsync(TId id, CancellationToken cancellationToken = default)
-    {
-        var entity = await GetAsync(new object[] { id }, cancellationToken).ConfigureAwait(false);
-        
-        if (entity is not IDisableableEntity)
-            throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
-        
-        BeginUpdate(entity ?? throw new NotFoundException());
-        ((IDisableableEntity)entity).IsDisabled = true;
+        disableableEntity.IsDisabled = true;
     }
 
     /// <inheritdoc />
@@ -160,20 +151,6 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         BeginUpdateRange(list);
         foreach (var entity in list) 
             ((IDisableableEntity)entity).IsDisabled = true;
-    }
-
-    /// <inheritdoc />
-    public virtual async Task DisableRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default)
-    {
-        var entities = await Set
-            .Join(ids, ent => ent.Id, id => id, (ent, id) => ent)
-            .ToListAsync(cancellationToken).ConfigureAwait(false);
-        
-        if (entities.FirstOrDefault() is not IDisableableEntity)
-            throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
-
-        BeginUpdateRange(entities);
-        entities.ForEach(x => ((IDisableableEntity)x).IsDisabled = true);
     }
 
     /// <inheritdoc />
@@ -239,9 +216,9 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     /// <typeparam name="TResult">The type of the value returned by the projection.</typeparam>
     /// <param name="specification">The encapsulated query logic.</param>
     /// <returns>The filtered projected entities as an <see cref="IQueryable{T}" />.</returns>
-    protected virtual async Task<int> ApplyUpdateSpecificationAsync<TResult>(
+    protected virtual Task<int> ApplyUpdateSpecificationAsync<TResult>(
         IUpdateSpecification<TEntity> specification)
-        => await SpecificationEvaluator.EvaluateUpdateAsync(Set.AsQueryable(), specification).ConfigureAwait(false);
+        => SpecificationEvaluator.EvaluateUpdateAsync(Set.AsQueryable(), specification);
 }
 
 /// <summary>

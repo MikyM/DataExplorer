@@ -13,4 +13,19 @@ internal static class TypeExtensions
 
         return generic.GenericTypeArguments.First();
     }
+    
+    internal static bool GetIsDisableable(this Type type)
+        => type.GetInterfaces().FirstOrDefault(x => x == typeof(IDisableableEntity)) is not null;
+    
+    internal static bool GetIsSnowflake(this Type type)
+        => type.GetInterfaces().FirstOrDefault(x => x == typeof(ISnowflakeEntity)) is not null;
+    
+    internal static Type? GetEntityTypeFromRepoType(this Type type)
+        => type.GetGenericArguments().FirstOrDefault();
+
+    internal static bool GetIsCrudFromRepoType(this Type type)
+    {
+        var generic = type.GetGenericTypeDefinition();
+        return generic == typeof(IRepository<,>) || generic == typeof(IRepository<>);
+    }
 }

@@ -28,25 +28,11 @@ public abstract class MongoDataServiceBase<TContext> : IMongoDataServiceBase<TCo
     }
 
     /// <inheritdoc />
-    public virtual async Task<Result> CommitAsync(string auditUserId, CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            await UnitOfWork.CommitAsync(auditUserId, cancellationToken).ConfigureAwait(false);
-            return Result.FromSuccess();
-        }
-        catch (Exception ex)
-        {
-            return ex;
-        }
-    }
-
-    /// <inheritdoc />
     public virtual async Task<Result> CommitAsync(CancellationToken cancellationToken = default)
     {
         try
         {
-            await UnitOfWork.CommitAsync(cancellationToken).ConfigureAwait(false);
+            await UnitOfWork.CommitAsync(cancellationToken);
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -60,7 +46,7 @@ public abstract class MongoDataServiceBase<TContext> : IMongoDataServiceBase<TCo
     {
         try
         {
-            await UnitOfWork.RollbackAsync(cancellationToken).ConfigureAwait(false);
+            await UnitOfWork.RollbackAsync(cancellationToken);
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -74,7 +60,7 @@ public abstract class MongoDataServiceBase<TContext> : IMongoDataServiceBase<TCo
     {
         try
         {
-            await UnitOfWork.UseExplicitTransactionAsync(cancellationToken).ConfigureAwait(false);
+            await UnitOfWork.UseExplicitTransactionAsync(cancellationToken);
             return Result.FromSuccess();
         }
         catch (Exception ex)

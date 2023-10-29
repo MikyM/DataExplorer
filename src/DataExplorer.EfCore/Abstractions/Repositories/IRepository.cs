@@ -1,5 +1,4 @@
 ﻿using DataExplorer.EfCore.Specifications;
-using DataExplorer.Exceptions;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 #pragma warning disable CS1574, CS1584, CS1581, CS1580
 
@@ -54,6 +53,26 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     Task<int> ExecuteDeleteAsync(CancellationToken cancellationToken = default);
     
     /// <summary>
+    ///     Asynchronously deletes all database rows that satisfy given predicate.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         This operation executes immediately against the database, rather than being deferred until
+    ///         <see cref="DbContext.SaveChanges()" /> is called. It also does not interact with the EF change tracker in any way:
+    ///         entity instances which happen to be tracked when this operation is invoked aren't taken into account, and aren't updated
+    ///         to reflect the changes.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-bulk-operations">Executing bulk operations with EF Core</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="predicate">Predicate for the query.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>The total number of rows deleted in the database.</returns>
+    Task<int> ExecuteDeleteAsync(Func<TEntity,bool> predicate, CancellationToken cancellationToken = default);
+    
+    /// <summary>
     ///     Asynchronously deletes database rows for the entity instances which match the LINQ query generated based on the provided specification from the database.
     /// </summary>
     /// <remarks>
@@ -71,7 +90,7 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// <param name="specification">Specification for the query.</param>
     /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
     /// <returns>The total number of rows deleted in the database.</returns>
-    Task<int> ExecuteDeleteAsync(Specifications.ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+    Task<int> ExecuteDeleteAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
     
     /// <summary>
     ///     <para>
@@ -282,30 +301,24 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     void Delete(TEntity entity);
 
     /// <summary>
-    ///     Tries to find a tracked entity by given Id or attempts to create a shell instance of it.
-    ///     Begins tracking the given entity in the <see cref="EntityState.Deleted" /> state such that it will
-    ///     be removed from the database when <see cref="DbContext.SaveChanges()" /> is called.
+    ///     Asynchronously deletes an entity with given Id.
     /// </summary>
     /// <remarks>
     ///     <para>
-    ///         If the entity is already tracked in the <see cref="EntityState.Added" /> state then the context will
-    ///         stop tracking the entity (rather than marking it as <see cref="EntityState.Deleted" />) since the
-    ///         entity was previously added to the context and does not exist in the database.
+    ///         This operation executes immediately against the database, rather than being deferred until
+    ///         <see cref="DbContext.SaveChanges()" /> is called. It also does not interact with the EF change tracker in any way:
+    ///         entity instances which happen to be tracked when this operation is invoked aren't taken into account, and aren't updated
+    ///         to reflect the changes.
     ///     </para>
     ///     <para>
-    ///         Any other reachable entities that are not already being tracked will be tracked in the same way that
-    ///         they would be if <see cref="DbSet.Attach(TEntity)" /> was called before calling this method.
-    ///         This allows any cascading actions to be applied when <see cref="DbContext.SaveChanges()" /> is called.
-    ///     </para>
-    ///     <para>
-    ///         Use <see cref="EntityEntry.State" /> to set the state of only a single entity.
-    ///     </para>
-    ///     <para>
-    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see> for more information.
+    ///         See <see href="https://aka.ms/efcore-docs-bulk-operations">Executing bulk operations with EF Core</see>
+    ///         for more information and examples.
     ///     </para>
     /// </remarks>
-    /// <param name="id">The Id of the entity to remove.</param>
-    void Delete(TId id);
+    /// <param name="id">Id of the entity to delete.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>True if an entity was found and deleted, otherwise false.</returns>
+    Task<bool> DeleteAsync(TId id, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Begins tracking the given entities in the <see cref="EntityState.Deleted" /> state such that they will
@@ -332,29 +345,24 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     void DeleteRange(IEnumerable<TEntity> entities);
 
     /// <summary>
-    ///     Tries to find tracked entities by given Ids or attempts to create shell instances of them.
-    ///     Begins tracking the given entities in the <see cref="EntityState.Deleted" /> state such that they will
-    ///     be removed from the database when <see cref="DbContext.SaveChanges()" /> is called.
+    ///     Asynchronously deletes entities with given Ids.
     /// </summary>
     /// <remarks>
     ///     <para>
-    ///         If any of the entities are already tracked in the <see cref="EntityState.Added" /> state then the context will
-    ///         stop tracking those entities (rather than marking them as <see cref="EntityState.Deleted" />) since those
-    ///         entities were previously added to the context and do not exist in the database.
+    ///         This operation executes immediately against the database, rather than being deferred until
+    ///         <see cref="DbContext.SaveChanges()" /> is called. It also does not interact with the EF change tracker in any way:
+    ///         entity instances which happen to be tracked when this operation is invoked aren't taken into account, and aren't updated
+    ///         to reflect the changes.
     ///     </para>
     ///     <para>
-    ///         Any other reachable entities that are not already being tracked will be tracked in the same way that
-    ///         they would be if <see cref="AttachRange(IEnumerable{TEntity})" /> was called before calling this method.
-    ///         This allows any cascading actions to be applied when <see cref="DbContext.SaveChanges()" /> is called.
-    ///     </para>
-    ///     <para>
-    ///         See <see href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</see>
-    ///         and <see href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</see>
-    ///         for more information.
+    ///         See <see href="https://aka.ms/efcore-docs-bulk-operations">Executing bulk operations with EF Core</see>
+    ///         for more information and examples.
     ///     </para>
     /// </remarks>
-    /// <param name="ids">The Ids of the entities to remove.</param>
-    void DeleteRange(IEnumerable<TId> ids);
+    /// <param name="ids">Ids of the entities to delete.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>The number of deleted entities.</returns>
+    Task<long> DeleteRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     <para>
@@ -370,20 +378,6 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
 
     /// <summary>
     ///     <para>
-    ///         Disables an entity.
-    ///     </para>
-    ///     <para>
-    ///         Tries to fetch the entity by the provided Id, then begins tracking the given entity via <see cref="BeginUpdate"/> and sets it's <see cref="IDisableableEntity.IsDisabled"/> property to <b>true</b>.
-    ///     </para>
-    /// </summary>
-    /// <param name="id">Id of the entity to disable.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    /// <exception cref="NotFoundException">Thrown when entity with given Id is not found.</exception>
-    /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="IDisableableEntity"/>.</exception>
-    Task DisableAsync(TId id, CancellationToken cancellationToken = default);
-
-    /// <summary>
-    ///     <para>
     ///         Disables a range of entities.
     ///     </para>
     ///     <para>
@@ -393,20 +387,7 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// <param name="entities">Entities to disable.</param>
     /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="IDisableableEntity"/>.</exception>
     void DisableRange(IEnumerable<TEntity> entities);
-
-    /// <summary>
-    ///     <para>
-    ///         Disables a range of entities.
-    ///     </para>
-    ///     <para>
-    ///         Tries to fetch the entities by provided ids, then begins tracking the given entities via <see cref="BeginUpdate"/> and sets their <see cref="IDisableableEntity.IsDisabled"/> properties to <b>true</b>.
-    ///     </para>
-    /// </summary>
-    /// <param name="ids">Ids of the entities to disable.</param>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="IDisableableEntity"/>.</exception>
-    Task DisableRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default);
-
+    
     /// <summary>
     ///     <para>
     ///         Detaches the given entity from the current context, and any other reachable entities that are

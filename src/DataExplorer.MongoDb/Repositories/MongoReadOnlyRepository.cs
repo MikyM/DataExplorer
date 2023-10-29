@@ -47,28 +47,28 @@ public class MongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity
     }
 
     /// <inheritdoc />
-    public async Task<long> CountEstimatedAsync(CancellationToken cancellation = default)
-        => await Context.CountEstimatedAsync<TEntity>(cancellation).ConfigureAwait(false);
+    public Task<long> CountEstimatedAsync(CancellationToken cancellation = default)
+        => Context.CountEstimatedAsync<TEntity>(cancellation);
 
     /// <inheritdoc />
-    public async Task<long> CountAsync(Expression<Func<TEntity, bool>> expression,
+    public Task<long> CountAsync(Expression<Func<TEntity, bool>> expression,
         CancellationToken cancellation = default, CountOptions? options = null,
         bool ignoreGlobalFilters = false)
-        => await Context.CountAsync(expression, cancellation, options, ignoreGlobalFilters).ConfigureAwait(false);
+        => Context.CountAsync(expression, cancellation, options, ignoreGlobalFilters);
 
     /// <inheritdoc />
-    public async Task<long> CountAsync(CancellationToken cancellation = default)
-        => await Context.CountAsync<TEntity>(cancellation).ConfigureAwait(false);
+    public Task<long> CountAsync(CancellationToken cancellation = default)
+        => Context.CountAsync<TEntity>(cancellation);
 
     /// <inheritdoc />
-    public async Task<long> CountAsync(FilterDefinition<TEntity> filter, CancellationToken cancellation = default, CountOptions? options = null,
+    public Task<long> CountAsync(FilterDefinition<TEntity> filter, CancellationToken cancellation = default, CountOptions? options = null,
         bool ignoreGlobalFilters = false)
-        => await Context.CountAsync(filter, cancellation, options, ignoreGlobalFilters).ConfigureAwait(false);
+        => Context.CountAsync(filter, cancellation, options, ignoreGlobalFilters);
 
     /// <inheritdoc />
-    public async Task<long> CountAsync(Func<FilterDefinitionBuilder<TEntity>, FilterDefinition<TEntity>> filter, CancellationToken cancellation = default, CountOptions? options = null,
+    public Task<long> CountAsync(Func<FilterDefinitionBuilder<TEntity>, FilterDefinition<TEntity>> filter, CancellationToken cancellation = default, CountOptions? options = null,
         bool ignoreGlobalFilters = false)
-        => await Context.CountAsync(filter, cancellation, options, ignoreGlobalFilters).ConfigureAwait(false);
+        => Context.CountAsync(filter, cancellation, options, ignoreGlobalFilters);
 
     /// <inheritdoc />
     public Distinct<TEntity, TProperty> Distinct<TProperty>()
@@ -108,24 +108,24 @@ public class MongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity
         => Context.PagedSearch<TEntity,TProjection>();
 
     /// <inheritdoc />
-    public async Task<IAsyncCursor<TResult>> PipelineCursorAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    public Task<IAsyncCursor<TResult>> PipelineCursorAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false)
-        => await Context.PipelineCursorAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
+        => Context.PipelineCursorAsync(template, options, cancellation, ignoreGlobalFilters);
 
     /// <inheritdoc />
-    public async Task<List<TResult>> PipelineAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    public Task<List<TResult>> PipelineAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false)
-        => await Context.PipelineAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
+        => Context.PipelineAsync(template, options, cancellation, ignoreGlobalFilters);
 
     /// <inheritdoc />
-    public async Task<TResult?> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    public Task<TResult?> PipelineSingleAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false)
-        => await Context.PipelineSingleAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
+        => Context.PipelineSingleAsync(template, options, cancellation, ignoreGlobalFilters);
 
     /// <inheritdoc />
-    public async Task<TResult?> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
+    public Task<TResult?> PipelineFirstAsync<TResult>(Template<TEntity, TResult> template, AggregateOptions? options = null,
         CancellationToken cancellation = default, bool ignoreGlobalFilters = false)
-        => await Context.PipelineFirstAsync(template, options, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
+        => Context.PipelineFirstAsync(template, options, cancellation, ignoreGlobalFilters);
 
     /// <inheritdoc />
     public IMongoQueryable<T> Queryable<T>(AggregateOptions? options = null, bool ignoreGlobalFilters = false)
@@ -133,16 +133,16 @@ public class MongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity
         => Context.Queryable<T>();
 
     /// <inheritdoc />
-    public virtual async Task<long> LongCountAsync(CancellationToken cancellationToken = default)
-        => await MongoQueryable.LongCountAsync(cancellationToken).ConfigureAwait(false);
+    public virtual Task<long> LongCountAsync(CancellationToken cancellationToken = default)
+        => MongoQueryable.LongCountAsync(cancellationToken);
     
     /// <inheritdoc />
-    public async Task<long> LongCountAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
-        => await MongoQueryable.LongCountAsync(predicate, cancellationToken).ConfigureAwait(false);
+    public Task<long> LongCountAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+        => MongoQueryable.LongCountAsync(predicate, cancellationToken);
 
     /// <inheritdoc />
-    public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
-        => await MongoQueryable.AnyAsync(predicate, cancellationToken).ConfigureAwait(false);
+    public Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+        => MongoQueryable.AnyAsync(predicate, cancellationToken);
 
     /// <inheritdoc />
     public async Task<IReadOnlyList<TEntity>> WhereAsync(Expression<Func<TEntity, bool>> predicate,
@@ -150,11 +150,11 @@ public class MongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity
         => await MongoQueryable.Where(predicate).ToListAsync(cancellationToken);
     
     /// <inheritdoc />
-    public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate,
+    public Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate,
         CancellationToken cancellationToken = default)
-        => await MongoQueryable.FirstOrDefaultAsync(predicate, cancellationToken);
+        => MongoQueryable.FirstOrDefaultAsync(predicate, cancellationToken);
     
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
-        => await MongoQueryable.ToListAsync(cancellationToken).ConfigureAwait(false);
+        => await MongoQueryable.ToListAsync(cancellationToken);
 }

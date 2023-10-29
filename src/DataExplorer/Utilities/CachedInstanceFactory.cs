@@ -8,10 +8,6 @@ namespace DataExplorer.Utilities;
 [UsedImplicitly]
 public class CachedInstanceFactory : ICachedInstanceFactory
 {
-  private delegate object? CreateDelegate(Type type, object? arg1, object? arg2, object? arg3, object? arg4);
-
-  private readonly ConcurrentDictionary<Tuple<Type, Type, Type, Type, Type>, CreateDelegate> _cachedFuncs = new();
-
   /// <inheritdoc/>
   public object? CreateInstance(Type type)
     => CachedInstanceFactory<TypeToIgnore, TypeToIgnore, TypeToIgnore, TypeToIgnore>.CreateInstance(type, null, null, null, null);
@@ -51,79 +47,20 @@ public class CachedInstanceFactory : ICachedInstanceFactory
   /// <inheritdoc/>
   public object? CreateInstance<TType, TArg1, TArg2, TArg3, TArg4>(TArg1 arg1, TArg2 arg2, TArg3 arg3, TArg4 arg4) where TType : class
     => CachedInstanceFactory<TArg1, TArg2, TArg3, TArg4>.CreateInstance(typeof(TType), arg1, arg2, arg3, arg4) as TType;
-
-  /// <inheritdoc/>
-  public object? CreateInstance<TType>(params object?[]? args) where TType : class
-    => CreateInstance(typeof(TType), args?.ToArray());
-  
-  /// <inheritdoc/>
-  public object? CreateInstance(Type type, params object?[]? args)
-  {
-    if (args is null)
-      return CreateInstance(type);
-
-    if (args.Length > 4 || 
-      (args.Length > 0 && args[0] == null) ||
-      (args.Length > 1 && args[1] == null) ||
-      (args.Length > 2 && args[2] == null) ||
-      (args.Length > 3 && args[3] == null))
-    {
-        return Activator.CreateInstance(type, args);   
-    }
-
-    var arg0 = args.Length > 0 ? args[0] : null;
-    var arg1 = args.Length > 1 ? args[1] : null;
-    var arg2 = args.Length > 2 ? args[2] : null;
-    var arg3 = args.Length > 3 ? args[3] : null;
-
-    var key = Tuple.Create(
-      type,
-      arg0?.GetType() ?? typeof(TypeToIgnore),
-      arg1?.GetType() ?? typeof(TypeToIgnore),
-      arg2?.GetType() ?? typeof(TypeToIgnore),
-      arg3?.GetType() ?? typeof(TypeToIgnore));
-    
-    return _cachedFuncs.TryGetValue(key, out var func) 
-      ? func(type, arg0, arg1, arg2, arg3) 
-      : CacheFunc(key)(type, arg0, arg1, arg2, arg3);
-  }
-
-  private CreateDelegate CacheFunc(Tuple<Type, Type, Type, Type, Type> key)
-  {
-    var types = new[] { key.Item1, key.Item2, key.Item3, key.Item4 };
-    var method = typeof(CachedInstanceFactory)
-      .GetMethods()
-      .Where(m => m.Name == "CreateInstance").Single(m => m.GetParameters().Length == 4);
-    var generic = method.MakeGenericMethod(key.Item2, key.Item3, key.Item4);
-
-    var paramExpr = new List<ParameterExpression>();
-    paramExpr.Add(Expression.Parameter(typeof(Type)));
-    
-    for (var i = 0; i < 3; i++)
-      paramExpr.Add(Expression.Parameter(typeof(object)));
-
-    var callParamExpr = new List<Expression>();
-    callParamExpr.Add(paramExpr[0]);
-    
-    for (var i = 1; i < 4; i++)
-      callParamExpr.Add(Expression.Convert(paramExpr[i], types[i]));
-    
-    var callExpr = Expression.Call(generic, callParamExpr);
-    var lambdaExpr = Expression.Lambda<CreateDelegate>(callExpr, paramExpr);
-    var func = lambdaExpr.Compile();
-    _cachedFuncs.TryAdd(key, func);
-    return func;
-  }
 }
+
+internal delegate object CreateDelegate(object? arg1, object? arg2, object? arg3, object? arg4);
 
 internal static class CachedInstanceFactory<TArg1, TArg2, TArg3, TArg4>
 {
-  private static readonly ConcurrentDictionary<Type, Func<TArg1?, TArg2?, TArg3?, TArg4?, object>> CachedFuncs = new();
+  // ReSharper disable once StaticMemberInGenericType
+  // this is fine - we will still properly cache the delegates because we use our own TypeToIgnore type to polyfill the generics
+  private static readonly ConcurrentDictionary<Type, CreateDelegate> _cachedFuncs = new();
 
   internal static object? CreateInstance(Type type, TArg1? arg1, TArg2? arg2, TArg3? arg3, TArg4? arg4)
-    => CachedFuncs.TryGetValue(type, out var func) ? func(arg1, arg2, arg3, arg4) : CacheFunc(type, arg1, arg2, arg3, arg4)(arg1, arg2, arg3, arg4);
+    => _cachedFuncs.TryGetValue(type, out var func) ? func(arg1, arg2, arg3, arg4) : CacheFunc(type)(arg1, arg2, arg3, arg4);
 
-  private static Func<TArg1?, TArg2?, TArg3?, TArg4?, object> CacheFunc(Type type, TArg1? arg1, TArg2? arg2, TArg3? arg3, TArg4? arg4)
+  private static CreateDelegate CacheFunc(Type type)
   {
     var constructorTypes = new List<Type>();
     if (typeof(TArg1) != typeof(TypeToIgnore))
@@ -137,21 +74,21 @@ internal static class CachedInstanceFactory<TArg1, TArg2, TArg3, TArg4>
 
     var parameters = new List<ParameterExpression>()
     {
-      Expression.Parameter(typeof(TArg1)),
-      Expression.Parameter(typeof(TArg2)),
-      Expression.Parameter(typeof(TArg3)),
-      Expression.Parameter(typeof(TArg4))
+      Expression.Parameter(typeof(object)),
+      Expression.Parameter(typeof(object)),
+      Expression.Parameter(typeof(object)),
+      Expression.Parameter(typeof(object))
     };
 
-    var constructor = type.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, constructorTypes.ToArray());
-    var constructorParameters = parameters.Take(constructorTypes.Count).ToList();
+    var constructor = type.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public, constructorTypes.ToArray());
+    var constructorParameters = parameters.Take(constructorTypes.Count)
+      .Select((x,i) => Expression.Convert(x, constructorTypes[i]));
     
-    var newExpr = Expression.New(constructor ?? throw new InvalidOperationException(), constructorParameters);
-    var lambdaExpr = Expression.Lambda<Func<TArg1?, TArg2?, TArg3?, TArg4?, object>>(newExpr, parameters);
+    var newExpr = Expression.New(constructor ?? throw new InvalidOperationException("Constructor not found"), constructorParameters);
+    var lambdaExpr = Expression.Lambda<CreateDelegate>(newExpr, parameters);
     
     var func = lambdaExpr.Compile();
-    
-    CachedFuncs.TryAdd(type, func);
+    _cachedFuncs.TryAdd(type, func);
     
     return func;
   }

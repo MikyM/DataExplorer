@@ -1,9 +1,9 @@
 ﻿using AttributeBasedRegistration.Autofac;
 using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
-using AutoMapper.Extensions.ExpressionMapping;
 using DataExplorer.Utilities;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer;
@@ -23,17 +23,19 @@ public static class DependencyInjectionExtensions
     {
         var config = new DataExplorerConfiguration(builder);
         options.Invoke(config);
-        
+
         // register automapper
-        builder.RegisterAutoMapper(opt => opt.AddExpressionMapping(), false, AppDomain.CurrentDomain.GetAssemblies());
+        builder.RegisterAutoMapper(config.AutoMapperConfiguration, false, config.AutoMapperProfileAssembliesAccessor().ToArray());
         //register async interceptor adapter
         builder.RegisterGeneric(typeof(AsyncInterceptorAdapter<>));
         // register instance factory
         builder.RegisterType<CachedInstanceFactory>().As<ICachedInstanceFactory>().SingleInstance();
+        // register the time provider conditionally
+        builder.RegisterInstance(TimeProvider.System).As<TimeProvider>().SingleInstance().IfNotRegistered(typeof(TimeProvider));
 
         return builder;
     }
-
+    
     /// <summary>
     /// Adds Data Explorer to the application.
     /// </summary>
@@ -44,13 +46,15 @@ public static class DependencyInjectionExtensions
     {
         var config = new DataExplorerConfiguration(serviceCollection);
         options.Invoke(config);
-
+        
         // register automapper
-        serviceCollection.AddAutoMapper(opt => opt.AddExpressionMapping(), AppDomain.CurrentDomain.GetAssemblies());
+        serviceCollection.AddAutoMapper(config.AutoMapperConfiguration, config.AutoMapperProfileAssembliesAccessor(), Microsoft.Extensions.DependencyInjection.ServiceLifetime.Scoped);
         // register async interceptor adapter
         serviceCollection.AddSingleton(typeof(AsyncInterceptorAdapter<>));
         // register instance factory
         serviceCollection.AddSingleton<ICachedInstanceFactory,CachedInstanceFactory>();
+        // register the time provider conditionally
+        serviceCollection.TryAddSingleton(TimeProvider.System);
 
         config.ReleaseRefs();
 

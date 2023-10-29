@@ -93,15 +93,15 @@ public class SpecificationEvaluator : ISpecificationEvaluator
             .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification));
     }
 
-    public async Task<int> EvaluateUpdateAsync<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
+    public Task<int> EvaluateUpdateAsync<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
         bool evaluateCriteriaOnly = false, CancellationToken cancellationToken = default) where T : class
     {
         if (specification is null) 
             throw new ArgumentNullException(nameof(specification), "Specification is required");
 
-        return await (evaluateCriteriaOnly ? _preUpdateEvaluators.Where(x => x.IsCriteriaEvaluator) : _preUpdateEvaluators)
+        return (evaluateCriteriaOnly ? _preUpdateEvaluators.Where(x => x.IsCriteriaEvaluator) : _preUpdateEvaluators)
             .OrderBy(x => x.ApplicationOrder)
             .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification))
-            .ExecuteUpdateAsync(_updateEvaluator.Evaluate(specification), cancellationToken).ConfigureAwait(false);
+            .ExecuteUpdateAsync(_updateEvaluator.Evaluate(specification), cancellationToken);
     }
 }

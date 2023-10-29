@@ -1,8 +1,10 @@
-﻿using Autofac;
+﻿using System.Reflection;
+using Autofac;
+using AutoMapper;
+using AutoMapper.Extensions.ExpressionMapping;
 using DataExplorer.IdGenerator;
 using DataExplorer.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 
@@ -48,6 +50,17 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
         => ServiceCollection;
     
     /// <summary>
+    /// Gets or sets AutoMapper's configuration, defaults to opt.AddExpressionMapping().
+    /// </summary>
+    public Action<IMapperConfigurationExpression> AutoMapperConfiguration { get; set; } =
+        opt => opt.AddExpressionMapping();
+    
+    /// <summary>
+    /// Gets or sets the accessor used to get assemblies to scan for AutoMapper's profiles, defaults to all assemblies.
+    /// </summary>
+    public Func<IEnumerable<Assembly>> AutoMapperProfileAssembliesAccessor { get; set; } = () => AppDomain.CurrentDomain.GetAssemblies();
+    
+    /// <summary>
     /// Registers required Id generator services with the given <paramref name="generatorId"/>.
     /// </summary>
     /// <param name="generatorId">The generator-id to use for the singleton <see cref="IdGenerator"/> if using provided implementation.</param>
@@ -68,11 +81,11 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
         var opt = options();
         ServiceCollection?.AddSingleton<IdGen.IIdGenerator<long>>(new IdGen.IdGenerator(generatorId, opt));
 
-        Builder?.RegisterType<SnowflakeIdGenerator>().As<ISnowflakeIdGenerator>().SingleInstance();
-        ServiceCollection?.AddSingleton<ISnowflakeIdGenerator, SnowflakeIdGenerator>();
+        Builder?.RegisterType<SnowflakeGenerator>().As<ISnowflakeGenerator>().SingleInstance();
+        ServiceCollection?.AddSingleton<ISnowflakeGenerator, SnowflakeGenerator>();
 
         Builder?.RegisterBuildCallback(x =>
-            SnowflakeIdFactory.AddFactoryMethod(() => x.Resolve<ISnowflakeIdGenerator>().GenerateId(), SnowflakeIdFactory.DefaultFactoryId));
+            SnowflakeIdFactory.AddFactoryMethod(() => x.Resolve<ISnowflakeGenerator>().Generate()));
 
         if (Builder is null)
         {
@@ -88,9 +101,9 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
     /// Adds a custom snowflake Id generator.
     /// </summary>
     /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
-    public DataExplorerConfiguration AddSnowflakeIdGenerator<TGenerator>() where TGenerator : class, ISnowflakeIdGenerator
+    public DataExplorerConfiguration AddSnowflakeIdGenerator<TGenerator>() where TGenerator : class, ISnowflakeGenerator
     {
-        Builder?.RegisterType<TGenerator>().As<ISnowflakeIdGenerator>().SingleInstance();
+        Builder?.RegisterType<TGenerator>().As<ISnowflakeGenerator>().SingleInstance();
         ServiceCollection?.AddSingleton<TGenerator>();
         return this;
     }

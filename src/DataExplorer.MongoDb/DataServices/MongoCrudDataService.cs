@@ -39,7 +39,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            await Repository.CreateCollectionAsync(options, cancellation).ConfigureAwait(false);
+            await Repository.CreateCollectionAsync(options, cancellation);
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -53,7 +53,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            await Repository.DropCollectionAsync().ConfigureAwait(false);
+            await Repository.DropCollectionAsync();
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -67,7 +67,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.DeleteAsync(id, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
+            return await Repository.DeleteAsync(id, cancellation, ignoreGlobalFilters);
         }
         catch (Exception ex)
         {
@@ -80,7 +80,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.DeleteAsync(ids, cancellation, ignoreGlobalFilters).ConfigureAwait(false);
+            return await Repository.DeleteAsync(ids, cancellation, ignoreGlobalFilters);
         }
         catch (Exception ex)
         {
@@ -94,7 +94,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.DeleteAsync(expression, cancellation, collation, ignoreGlobalFilters).ConfigureAwait(false);
+            return await Repository.DeleteAsync(expression, cancellation, collation, ignoreGlobalFilters);
         }
         catch (Exception ex)
         {
@@ -108,7 +108,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.DeleteAsync(filter, cancellation, collation, ignoreGlobalFilters).ConfigureAwait(false);
+            return await Repository.DeleteAsync(filter, cancellation, collation, ignoreGlobalFilters);
         }
         catch (Exception ex)
         {
@@ -122,7 +122,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.DeleteAsync(filter, cancellation, collation, ignoreGlobalFilters).ConfigureAwait(false);
+            return await Repository.DeleteAsync(filter, cancellation, collation, ignoreGlobalFilters);
         }
         catch (Exception ex)
         {
@@ -135,7 +135,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            await Repository.InsertAsync(entity, cancellation).ConfigureAwait(false);
+            await Repository.InsertAsync(entity, cancellation);
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -149,7 +149,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.InsertAsync(entities, cancellation).ConfigureAwait(false);
+            return await Repository.InsertAsync(entities, cancellation);
         }
         catch (Exception ex)
         {
@@ -166,7 +166,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            await Repository.SaveAsync(entity, cancellation).ConfigureAwait(false);
+            await Repository.SaveAsync(entity, cancellation);
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -180,7 +180,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveAsync(entities, cancellation).ConfigureAwait(false);
+            return await Repository.SaveAsync(entities, cancellation);
         }
         catch (Exception ex)
         {
@@ -193,7 +193,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveOnlyAsync(entity, members, cancellation).ConfigureAwait(false);
+            return await Repository.SaveOnlyAsync(entity, members, cancellation);
         }
         catch (Exception ex)
         {
@@ -206,7 +206,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveOnlyAsync(entity, propNames, cancellation).ConfigureAwait(false);
+            return await Repository.SaveOnlyAsync(entity, propNames, cancellation);
         }
         catch (Exception ex)
         {
@@ -219,7 +219,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveOnlyAsync(entities, members, cancellation).ConfigureAwait(false);
+            return await Repository.SaveOnlyAsync(entities, members, cancellation);
         }
         catch (Exception ex)
         {
@@ -232,7 +232,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveOnlyAsync(entities, propNames, cancellation).ConfigureAwait(false);
+            return await Repository.SaveOnlyAsync(entities, propNames, cancellation);
         }
         catch (Exception ex)
         {
@@ -245,7 +245,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveExceptAsync(entity, members, cancellation).ConfigureAwait(false);
+            return await Repository.SaveExceptAsync(entity, members, cancellation);
         }
         catch (Exception ex)
         {
@@ -258,7 +258,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveExceptAsync(entity, propNames, cancellation).ConfigureAwait(false);
+            return await Repository.SaveExceptAsync(entity, propNames, cancellation);
         }
         catch (Exception ex)
         {
@@ -271,7 +271,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveExceptAsync(entities, members, cancellation).ConfigureAwait(false);
+            return await Repository.SaveExceptAsync(entities, members, cancellation);
         }
         catch (Exception ex)
         {
@@ -284,7 +284,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SaveExceptAsync(entities, propNames, cancellation).ConfigureAwait(false);
+            return await Repository.SaveExceptAsync(entities, propNames, cancellation);
         }
         catch (Exception ex)
         {
@@ -297,7 +297,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            return await Repository.SavePreservingAsync(entity, cancellation).ConfigureAwait(false);
+            return await Repository.SavePreservingAsync(entity, cancellation);
         }
         catch (Exception ex)
         {
@@ -322,7 +322,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            await Repository.DisableRangeAsync(entities, cancellationToken).ConfigureAwait(false);
+            await Repository.DisableRangeAsync(entities, cancellationToken);
             return Result.FromSuccess();
         }
         catch (Exception ex)
@@ -336,7 +336,7 @@ public class MongoCrudDataService<TEntity, TContext> : MongoReadOnlyDataService<
     {
         try
         {
-            await Repository.DisableAsync(entity, cancellationToken).ConfigureAwait(false);
+            await Repository.DisableAsync(entity, cancellationToken);
             return Result.FromSuccess();
         }
         catch (Exception ex)

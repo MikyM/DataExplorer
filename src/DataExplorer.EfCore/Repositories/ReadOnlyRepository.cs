@@ -1,8 +1,6 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using DataExplorer.Abstractions.DataContexts;
-using DataExplorer.Abstractions.Repositories;
 using DataExplorer.EfCore.Gridify;
 using DataExplorer.EfCore.Specifications;
 using Gridify;
@@ -62,143 +60,155 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     }
 
     /// <inheritdoc />
-    public virtual async ValueTask<TEntity?> GetAsync(params object[] keyValues)
-        => await Set.FindAsync(keyValues).ConfigureAwait(false);
+    public virtual ValueTask<TEntity?> GetAsync(params object[] keyValues)
+        => Set.FindAsync(keyValues);
     
     /// <inheritdoc />
-    public virtual async ValueTask<TEntity?> GetAsync(object?[]? keyValues, CancellationToken cancellationToken)
-        => await Set.FindAsync(keyValues, cancellationToken).ConfigureAwait(false);
+    public virtual ValueTask<TEntity?> GetAsync(object?[]? keyValues, CancellationToken cancellationToken)
+        => Set.FindAsync(keyValues, cancellationToken);
 
     /// <inheritdoc />
-    public virtual async Task<TEntity?> GetSingleBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
-        => await ApplySpecification(specification)
-            .FirstOrDefaultAsync(cancellationToken).ConfigureAwait(false);
+    public virtual Task<TEntity?> GetSingleBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+        => ApplySpecification(specification)
+            .FirstOrDefaultAsync(cancellationToken);
 
     /// <inheritdoc />
-    public virtual async Task<TResult?> GetSingleBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
+    public virtual Task<TResult?> GetSingleBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
     {
         specification.MapperConfigurationProvider ??= Mapper.ConfigurationProvider;
         
-        return await ApplySpecification(specification)
-            .FirstOrDefaultAsync(cancellationToken).ConfigureAwait(false);
+        return ApplySpecification(specification)
+            .FirstOrDefaultAsync(cancellationToken);
     }
 
     /// <inheritdoc />
-    public virtual async Task<TEntity?> GetSingleAsync(ISpecification<TEntity> specification,
+    public virtual Task<TEntity?> GetSingleAsync(ISpecification<TEntity> specification,
         CancellationToken cancellationToken = default)
-        => await GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+        => GetSingleBySpecAsync(specification, cancellationToken);
 
     /// <inheritdoc />
-    public virtual async Task<TResult?> GetSingleAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
-        => await GetSingleBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+    public virtual Task<TResult?> GetSingleAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
+        => GetSingleBySpecAsync(specification, cancellationToken);
 
     /// <inheritdoc />
     public IAsyncEnumerable<TEntity> AsAsyncEnumerable(ISpecification<TEntity> specification)
         => ApplySpecification(specification, true).AsAsyncEnumerable();
 
     /// <inheritdoc />
-    public virtual async Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
-        CancellationToken cancellationToken = default)
-        => await Set.GridifyAsync(gridifyQuery, cancellationToken, GridifyMapperProvider.GetMapperFor<TEntity>()).ConfigureAwait(false);
+    public IAsyncEnumerable<TEntity> AsAsyncEnumerable(Expression<Func<TEntity, bool>> predicate)
+        => Set.Where(predicate).AsAsyncEnumerable();
+    
+    /// <inheritdoc />
+    public IAsyncEnumerable<TEntity> AsAsyncEnumerable()
+        => Set.AsAsyncEnumerable();
 
     /// <inheritdoc />
-    public virtual async Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
+    public virtual Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
+        CancellationToken cancellationToken = default)
+        => Set.GridifyAsync(gridifyQuery, cancellationToken, GridifyMapperProvider.GetMapperFor<TEntity>());
+
+    /// <inheritdoc />
+    public virtual Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
         IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-        => await Set.GridifyAsync(gridifyQuery, cancellationToken, gridifyMapper).ConfigureAwait(false);
+        => Set.GridifyAsync(gridifyQuery, cancellationToken, gridifyMapper);
 
     /// <inheritdoc />
     public virtual async Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
         CancellationToken cancellationToken = default)
     {
-        var queryable = await Set.GridifyQueryableAsync(gridifyQuery, GridifyMapperProvider.GetMapperFor<TEntity>(), cancellationToken).ConfigureAwait(false);
-        var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken).ConfigureAwait(false);
-        return new Paging<TResult>(queryable.Count, sub);
+        var queryable = await Set.GridifyQueryableAsync(gridifyQuery, GridifyMapperProvider.GetMapperFor<TEntity>(), cancellationToken);
+        var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken);
+        return new Paging<TResult>(queryable.Count, sub.AsReadOnly());
     }
 
     /// <inheritdoc />
     public virtual async Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
         IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
     {
-        var queryable = await Set.GridifyQueryableAsync(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
-        var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken).ConfigureAwait(false);
-        return new Paging<TResult>(queryable.Count, sub);
+        var queryable = await Set.GridifyQueryableAsync(gridifyQuery, gridifyMapper, cancellationToken);
+        var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken);
+        return new Paging<TResult>(queryable.Count, sub.AsReadOnly());
     }
     
     /// <inheritdoc />
-    public virtual async Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
+    public virtual Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
         CancellationToken cancellationToken = default)
-        => await GetByGridifyQueryAsync(gridifyQuery, cancellationToken).ConfigureAwait(false);
+        => GetByGridifyQueryAsync(gridifyQuery, cancellationToken);
     /// <inheritdoc />
-    public virtual async Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
+    public virtual Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
         IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-        => await GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
+        => GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken);
 
     /// <inheritdoc />
-    public virtual async Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
+    public virtual Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
         CancellationToken cancellationToken = default)
-        => await GetByGridifyQueryAsync<TResult>(gridifyQuery, cancellationToken).ConfigureAwait(false);
+        => GetByGridifyQueryAsync<TResult>(gridifyQuery, cancellationToken);
 
     /// <inheritdoc />
-    public virtual async Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
+    public virtual Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
         IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-        => await GetByGridifyQueryAsync<TResult>(gridifyQuery, gridifyMapper, cancellationToken).ConfigureAwait(false);
+        => GetByGridifyQueryAsync<TResult>(gridifyQuery, gridifyMapper, cancellationToken);
 
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
     {
         specification.MapperConfigurationProvider ??= Mapper.ConfigurationProvider;
         
-        var result = await ApplySpecification(specification).ToListAsync(cancellationToken).ConfigureAwait(false);
+        var result = await ApplySpecification(specification).ToListAsync(cancellationToken);
         return specification.PostProcessingAction is null
-            ? result
-            : specification.PostProcessingAction(result).ToList();
+            ? result.AsReadOnly()
+            : specification.PostProcessingAction(result).ToList().AsReadOnly();
     }
 
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TEntity>> GetBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
     {
         var result = await ApplySpecification(specification)
-            .ToListAsync(cancellationToken).ConfigureAwait(false);
+            .ToListAsync(cancellationToken);
 
         return specification.PostProcessingAction is null
-            ? result
-            : specification.PostProcessingAction(result).ToList();
+            ? result.AsReadOnly()
+            : specification.PostProcessingAction(result).ToList().AsReadOnly();
     }
     
     /// <inheritdoc />
-    public virtual async Task<IReadOnlyList<TResult>> GetAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
-        => await GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+    public virtual Task<IReadOnlyList<TResult>> GetAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
+        => GetBySpecAsync(specification, cancellationToken);
 
     /// <inheritdoc />
-    public virtual async Task<IReadOnlyList<TEntity>> GetAsync(ISpecification<TEntity> specification,
+    public virtual Task<IReadOnlyList<TEntity>> GetAsync(ISpecification<TEntity> specification,
         CancellationToken cancellationToken = default)
-        => await GetBySpecAsync(specification, cancellationToken).ConfigureAwait(false);
+        => GetBySpecAsync(specification, cancellationToken);
 
     /// <inheritdoc />
-    public virtual async Task<long> LongCountAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
-        => await ApplySpecification(specification)
-            .LongCountAsync(cancellationToken).ConfigureAwait(false);
+    public virtual Task<long> LongCountAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+        => ApplySpecification(specification)
+            .LongCountAsync(cancellationToken);
     
     /// <inheritdoc />
-    public virtual async Task<long> LongCountAsync(CancellationToken cancellationToken = default)
-        => await Set.LongCountAsync(cancellationToken).ConfigureAwait(false);
+    public virtual Task<long> LongCountAsync(CancellationToken cancellationToken = default)
+        => Set.LongCountAsync(cancellationToken);
+    
+    /// <inheritdoc />
+    public virtual Task<long> LongCountAsync(Expression<Func<TEntity,bool>> predicate, CancellationToken cancellationToken = default)
+        => Set.LongCountAsync(predicate, cancellationToken);
 
     /// <inheritdoc />
-    public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
-        => await Set.AnyAsync(predicate, cancellationToken).ConfigureAwait(false);
+    public Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+        => Set.AnyAsync(predicate, cancellationToken);
 
     /// <inheritdoc />
-    public async Task<bool> AnyAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
-        => await ApplySpecification(specification).AnyAsync(cancellationToken).ConfigureAwait(false);
+    public Task<bool> AnyAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)
+        => ApplySpecification(specification).AnyAsync(cancellationToken);
 
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
-        => await Set.ToListAsync(cancellationToken).ConfigureAwait(false);
+        => await Set.ToListAsync(cancellationToken);
 
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TProjectTo>> GetAllAsync<TProjectTo>(CancellationToken cancellationToken = default) where TProjectTo : class
         => await ApplySpecification(new Specification<TEntity, TProjectTo>(Mapper.ConfigurationProvider))
-            .ToListAsync(cancellationToken).ConfigureAwait(false);
+            .ToListAsync(cancellationToken);
 
     /// <summary>
     ///     Filters the entities  of <typeparamref name="TEntity" />, to those that match the encapsulated query logic of the

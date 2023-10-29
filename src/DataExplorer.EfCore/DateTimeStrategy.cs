@@ -1,17 +1,17 @@
 ﻿namespace DataExplorer.EfCore;
 
 /// <summary>
-/// Datetime filling strategy for <see cref="IUpdatedAt"/> and <see cref="ICreatedAt"/> entities.
+/// Filling strategy for <see cref="IUpdatedAt"/>, <see cref="IUpdatedAtOffset"/>, <see cref="ICreatedAtOffset"/> and <see cref="ICreatedAt"/> entities.
 /// </summary>
 [PublicAPI]
 public enum DateTimeStrategy
 {
     /// <summary>
-    /// <see cref="DateTime.UtcNow"/> strategy.
+    /// Strategy based on <see cref="TimeProvider"/> <see cref="TimeProvider.GetUtcNow"/>.
     /// </summary>
     UtcNow,
     /// <summary>
-    /// <see cref="DateTime.Now"/> strategy.
+    /// Strategy based on <see cref="TimeProvider"/> <see cref="TimeProvider.GetLocalNow"/>.
     /// </summary>
     Now
 }

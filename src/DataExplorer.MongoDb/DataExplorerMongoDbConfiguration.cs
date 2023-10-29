@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using DataExplorer.MongoDb.Abstractions;
-using DataExplorer.MongoDb.Abstractions.DataContexts;
 using Microsoft.Extensions.DependencyInjection;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
