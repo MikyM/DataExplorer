@@ -33,14 +33,14 @@ public static class ExpressionExtensions
     {
         var newSharedParam = Expression.Parameter(typeof(SetPropertyCalls<T>), "arbitraryParamDataExplorer");
 
-        var newFirst = new ReplaceExpressionVisitor(leftExpression.Parameters[0], newSharedParam)
+        var left = new ReplaceExpressionVisitor(leftExpression.Parameters[0], newSharedParam)
             .Visit(leftExpression.Body);
-        var newSecond =
-            new ReplaceExpressionVisitor(rightExpression.Parameters[0], newFirst ?? throw new InvalidOperationException())
+        var right =
+            new ReplaceExpressionVisitor(rightExpression.Parameters[0], left ?? throw new InvalidOperationException())
                 .Visit(rightExpression.Body);
 
         return Expression.Lambda<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>(
-            newSecond ?? throw new InvalidOperationException(), newSharedParam);
+            right ?? throw new InvalidOperationException(), newSharedParam);
     }
     
     public static Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> Join<T>(
@@ -66,20 +66,19 @@ public static class ExpressionExtensions
             Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> leftExpression,
         Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> rightExpression, ParameterExpression parameterExpression, bool skipReplaceParamInLeft)
     {
-        Expression? newFirst = null;
+        Expression? left = null;
         if (!skipReplaceParamInLeft)
         {
-            newFirst = new ReplaceExpressionVisitor(leftExpression.Parameters[0], parameterExpression)
+            left = new ReplaceExpressionVisitor(leftExpression.Parameters[0], parameterExpression)
                 .Visit(leftExpression.Body);
         }
 
-        var newSecond =
-            new ReplaceExpressionVisitor(rightExpression.Parameters[0],
-                    newFirst is null && !skipReplaceParamInLeft ? throw new InvalidOperationException() : leftExpression)
-                .Visit(rightExpression.Body);
+        left ??= leftExpression;
+
+        var right = new ReplaceExpressionVisitor(rightExpression.Parameters[0], left).Visit(rightExpression.Body);
 
         return Expression.Lambda<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>(
-            newSecond ?? throw new InvalidOperationException(), parameterExpression);
+            right ?? throw new InvalidOperationException(), parameterExpression);
     }
 
     public static Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> Join<T>(

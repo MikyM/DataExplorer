@@ -69,7 +69,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <param name="instanceFactory">Instance factory.</param>
     public UnitOfWork(TContext context, ISpecificationEvaluator specificationEvaluator, 
         IMapper mapper, IOptions<DataExplorerEfCoreConfiguration> options, 
-        IGridifyMapperProvider gridifyMapperProvider, IEfDataExplorerTypeCache efDataExplorerTypeCache, ICachedInstanceFactory instanceFactory)
+        IGridifyMapperProvider gridifyMapperProvider, IEfDataExplorerTypeCache efDataExplorerTypeCache, 
+        ICachedInstanceFactory instanceFactory)
     {
         Context = context;
         SpecificationEvaluator = specificationEvaluator;

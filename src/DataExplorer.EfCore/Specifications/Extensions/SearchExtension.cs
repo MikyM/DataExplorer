@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using System.Reflection;
 using DataExplorer.EfCore.Specifications.Exceptions;
 using DataExplorer.EfCore.Specifications.Expressions;
 
@@ -17,6 +18,11 @@ public static class SearchExtension
             throw new InvalidSearchPatternException(pattern);
         }
     }
+    
+    private static readonly MemberExpression _functions = Expression.Property(null, typeof(EF).GetProperty(nameof(EF.Functions))!);
+    
+    private static readonly MethodInfo _like = typeof(DbFunctionsExtensions).GetMethod(nameof(DbFunctionsExtensions.Like),
+        new[] { _functions.Type, typeof(string), typeof(string) })!;
 
     /// <summary>
     /// Filters <paramref name="source"/> by applying an 'SQL LIKE' operation to it.
@@ -37,16 +43,13 @@ public static class SearchExtension
 
         foreach (var criteria in criterias)
         {
-            if (string.IsNullOrEmpty(criteria.SearchTerm)) continue;
-
-            var functions = Expression.Property(null, typeof(EF).GetProperty(nameof(EF.Functions))!);
-            var like = typeof(DbFunctionsExtensions).GetMethod(nameof(DbFunctionsExtensions.Like),
-                new[] { functions.Type, typeof(string), typeof(string) });
-
+            if (string.IsNullOrEmpty(criteria.SearchTerm)) 
+                continue;
+            
             var propertySelector =
                 ParameterReplacerVisitor.Replace(criteria.Selector, criteria.Selector.Parameters[0], parameter);
 
-            var likeExpression = Expression.Call(null, like!, functions, (propertySelector as LambdaExpression)?.Body!,
+            var likeExpression = Expression.Call(null, _like!, _functions, (propertySelector as LambdaExpression)?.Body!,
                 Expression.Constant(criteria.SearchTerm));
 
             expr = expr == null ? likeExpression : Expression.OrElse(expr, likeExpression);
