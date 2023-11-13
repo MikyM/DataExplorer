@@ -10,14 +10,10 @@ on:
   push:
     branches:
       - master
-      - release/*
-  pull_request:
-    branches: 
-      - master
-      - release/*
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     if: "!contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[ci-skip]')"
     steps:
@@ -40,34 +36,50 @@ jobs:
         dotnet restore
         dotnet build -c Release --no-restore
 
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
     - name: Run tests
       run: |
         cd src
         dotnet test -c Release --no-restore --no-build --verbosity minimal
-
-    - name: Build solution and generate base NuGet package
+  
+  publish:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: Pack DataExplorer
       run: |  
         cd src/DataExplorer
         dotnet pack -c Release -o out 
 
-    - name: Push generated base package to NuGet registry
+    - name: Push DataExplorer NuGet registry
       run: dotnet nuget push ./src/DataExplorer/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
-    - name: Build solution and generate Ef NuGet package
+    - name: Pack DataExplorer.EfCore
       run: | 
         cd src/DataExplorer.EfCore
         dotnet pack -c Release -o out 
-    - name: Push generated Ef package to NuGet registry
+
+    - name: Push DataExplorer.EfCore NuGet registry
       run: dotnet nuget push ./src/DataExplorer.EfCore/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
-    - name: Build docs - prepare metadata
-      run: dotnet tool restore && cd ./docs && dotnet docfx metadata
+  build_docs:
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+    - name: Restore dotnet tools
+      run: dotnet tool restore
+      
+    - name: Docfx metadata
+      run: cd ./docs && dotnet docfx metadata
 
-    - name: Build docs - fix namespaces
+    - name: Fix namespaces
       shell: pwsh
       run: cd ./docs && ./fix-nmsp.ps1 api\toc.yml
 
-    - name: Build docs - docfx
+    - name: Docfx build
       run: cd ./docs && dotnet docfx build -f
       
     - name: Upload docs
@@ -78,8 +90,7 @@ jobs:
 
   publish_docs:
     name: Publish Documentation
-    needs: build
-    if: github.event_name == 'push'
+    needs: build_docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout triggering branch
@@ -100,7 +111,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: docfx-site
-          path: site/${{ github.ref_name }}
+          path: site
       
       - name: Build
         run: bash base/docs/scripts/build.sh
