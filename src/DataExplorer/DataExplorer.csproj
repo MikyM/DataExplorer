@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer</PackageId>
-        <Version>2.2.12</Version>
+        <Version>3.0.0</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core) and MongoDb (MongoDb.Entities).</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -42,7 +42,7 @@
         <PackageReference Include="IdGen" Version="3.0.3" />
         <PackageReference Include="IdGen.DependencyInjection" Version="3.0.0" />
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
-        <PackageReference Include="Remora.Results" Version="7.4.0" />
+        <PackageReference Include="Remora.Results" Version="7.4.1" />
     </ItemGroup>
     <PropertyGroup Condition="('$(TargetFramework)' == 'net6.0')">
         <DefineConstants>NET6_0</DefineConstants>
@@ -60,7 +60,7 @@
         <PackageReference Include="IdGen" Version="3.0.3" />
         <PackageReference Include="IdGen.DependencyInjection" Version="3.0.0" />
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
-        <PackageReference Include="Remora.Results" Version="7.4.0" />
+        <PackageReference Include="Remora.Results" Version="7.4.1" />
     </ItemGroup>
     <PropertyGroup Condition="('$(TargetFramework)' == 'net7.0')">
         <DefineConstants>NET7_0</DefineConstants>
@@ -78,7 +78,7 @@
         <PackageReference Include="IdGen" Version="3.0.3" />
         <PackageReference Include="IdGen.DependencyInjection" Version="3.0.0" />
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
-        <PackageReference Include="Remora.Results" Version="7.4.0" />
+        <PackageReference Include="Remora.Results" Version="7.4.1" />
     </ItemGroup>
     <PropertyGroup Condition="('$(TargetFramework)' == 'net8.0')">
         <DefineConstants>NET8_0</DefineConstants>

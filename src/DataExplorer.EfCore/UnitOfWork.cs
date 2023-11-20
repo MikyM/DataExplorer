@@ -172,21 +172,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         
         return LazilyGetOrCreateRepository<IReadOnlyRepository<TEntity, TId>>(info.ReadOnlyGenericIdRepoInfo);
     }
-
-    [DoesNotReturn]
-    [DebuggerStepThrough]
-    private static void ThrowUnknownEntity(string entity)
-    {
-        throw new InvalidOperationException($"Unknown entity type {entity}, couldn't find the type in entity cache. Make sure you passed the correct assemblies to scan for entity types during registration.");
-    }
-    
-    [DoesNotReturn]
-    [DebuggerStepThrough]
-    private static void ThrowIncompatibleEntityId(string type)
-    {
-        throw new InvalidOperationException($"Can't create {type} repository for the given type as it's ID is incompatible - this type only supports long Ids.");
-    }
-
+        
     /// <inheritdoc/>
     public TRepository GetRepository<TRepository>() where TRepository : class, IRepositoryBase
     {
@@ -214,6 +200,11 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     private TRepository LazilyGetOrCreateRepository<TRepository>(DataExplorerRepoInfo repoCacheData) where TRepository : IRepositoryBase
     {
         _repositories ??= new ConcurrentDictionary<RepositoryEntryKey, RepositoryEntry>();
+        
+        if (ShouldExchangeForSingleArgRepo(repoCacheData, out var singleArgRepoInfo))
+        {
+            repoCacheData = singleArgRepoInfo;
+        }
 
         var repositoryTypeName = repoCacheData.RepoImplType.FullName ?? repoCacheData.RepoImplType.Name;
         var entityTypeName = repoCacheData.EntityInfo.EntityType.FullName ?? repoCacheData.EntityInfo.EntityType.Name;
@@ -252,6 +243,42 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
             // ReSharper disable once HeapView.PossibleBoxingAllocation
             return (TRepository)instance;
         }, LazyThreadSafetyMode.ExecutionAndPublication));
+        
+        // this handles the situation where the client wants a IRepository<TEntity,long> rather than IRepository<TEntity>, we will create the Repository<TEntity> instead (or read-only variation)
+        bool ShouldExchangeForSingleArgRepo(DataExplorerRepoInfo repoInfo, [NotNullWhen(true)] out DataExplorerRepoInfo? outputInfo)
+        {
+            outputInfo = null;
+
+            if (!repoInfo.EntityInfo.HasLongId)
+            {
+                return false;
+            }
+
+            if (repoInfo.IsLongIdVariation)
+            {
+                return false;
+            }
+
+            outputInfo = repoInfo.IsCrud
+                ? repoInfo.EntityInfo.CrudLongIdRepoInfo
+                : repoInfo.EntityInfo.ReadOnlyLongIdRepoInfo;
+            
+            return outputInfo is not null;
+        }
+    }
+    
+    [DoesNotReturn]
+    [DebuggerStepThrough]
+    private static void ThrowUnknownEntity(string entity)
+    {
+        throw new InvalidOperationException($"Unknown entity type {entity}, couldn't find the type in entity cache. Make sure you passed the correct assemblies to scan for entity types during registration.");
+    }
+    
+    [DoesNotReturn]
+    [DebuggerStepThrough]
+    private static void ThrowIncompatibleEntityId(string type)
+    {
+        throw new InvalidOperationException($"Can't create {type} repository for the given type as it's ID is incompatible - this type only supports long Ids.");
     }
     
     /// <inheritdoc />
@@ -319,40 +346,40 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
 
         _disposed = true;
     }
-    
-    /// <summary>
-    /// Repository entry.
-    /// </summary>
-    private sealed record RepositoryEntry
+}
+
+/// <summary>
+/// Repository entry.
+/// </summary>
+internal sealed record RepositoryEntry
+{
+    internal RepositoryEntry(DataExplorerRepoInfo repoCacheData, Lazy<IRepositoryBase> lazyRepo)
     {
-        internal RepositoryEntry(DataExplorerRepoInfo repoCacheData, Lazy<IRepositoryBase> lazyRepo)
-        {
-            RepoInfo = repoCacheData;
-            LazyRepo = lazyRepo;
-        }
-        internal DataExplorerRepoInfo RepoInfo { get; }
-        internal Lazy<IRepositoryBase> LazyRepo { get; }
+        RepoInfo = repoCacheData;
+        LazyRepo = lazyRepo;
+    }
+    internal DataExplorerRepoInfo RepoInfo { get; }
+    internal Lazy<IRepositoryBase> LazyRepo { get; }
+}
+
+/// <summary>
+/// Repository entry key.
+/// </summary>
+internal readonly struct RepositoryEntryKey : IEquatable<RepositoryEntryKey>
+{
+    internal RepositoryEntryKey(string entityTypeName)
+    {
+        EntityTypeName = entityTypeName;
     }
 
-    /// <summary>
-    /// Repository entry key.
-    /// </summary>
-    private readonly struct RepositoryEntryKey : IEquatable<RepositoryEntryKey>
-    {
-        internal RepositoryEntryKey(string entityTypeName)
-        {
-            EntityTypeName = entityTypeName;
-        }
+    private string EntityTypeName { get; }
 
-        private string EntityTypeName { get; }
+    public bool Equals(RepositoryEntryKey other)
+        => EntityTypeName == other.EntityTypeName;
 
-        public bool Equals(RepositoryEntryKey other)
-            => EntityTypeName == other.EntityTypeName;
+    public override bool Equals(object? obj)
+        => obj is RepositoryEntryKey other && Equals(other);
 
-        public override bool Equals(object? obj)
-            => obj is RepositoryEntryKey other && Equals(other);
-
-        public override int GetHashCode()
-            => EntityTypeName.GetHashCode();
-    }
+    public override int GetHashCode()
+        => EntityTypeName.GetHashCode();
 }

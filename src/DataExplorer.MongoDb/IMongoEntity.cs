@@ -7,6 +7,6 @@ namespace DataExplorer.MongoDb;
 /// Represents a MongoDB entity.
 /// </summary>
 [PublicAPI]
-public interface IMongoEntity : IEntity, IDataExplorerEntity
+public interface IMongoEntity : IEntity
 {
 }

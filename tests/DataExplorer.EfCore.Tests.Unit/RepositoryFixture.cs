@@ -15,19 +15,20 @@ public class RepositoryFixture
     public Mock<IMapper> GetMapperMock() => new();
     public Mock<IGridifyMapperProvider> GetGridifyMock() => new();
     
-    public IReadOnlyRepository<TEntity> GetReadOnlyRepository<TEntity>(IEfDbContext efDbContext, ISpecificationEvaluator evaluator, 
-        IMapper mapper, IGridifyMapperProvider gridifyMapperProvider) where TEntity : Entity<long>
-        => new ReadOnlyRepository<TEntity>(efDbContext, evaluator, mapper, gridifyMapperProvider);
+    public ReadOnlyRepository<TEntity> GetReadOnlyRepository<TEntity>(IEfDbContext efDbContext,
+        ISpecificationEvaluator evaluator, IMapper mapper, IGridifyMapperProvider gridifyMapperProvider)
+        where TEntity : Entity<long> =>
+        new(efDbContext, evaluator, mapper, gridifyMapperProvider);
     
-    public IReadOnlyRepository<TEntity> GetRepository<TEntity>(IEfDbContext efDbContext, ISpecificationEvaluator evaluator, 
-        IMapper mapper, IGridifyMapperProvider gridifyMapperProvider) where TEntity : Entity<long>
-        => new Repository<TEntity>(efDbContext, evaluator, mapper, gridifyMapperProvider);
+    public Repository<TEntity> GetRepository<TEntity>(IEfDbContext efDbContext, ISpecificationEvaluator evaluator,
+        IMapper mapper, IGridifyMapperProvider gridifyMapperProvider) where TEntity : Entity<long> =>
+        new(efDbContext, evaluator, mapper, gridifyMapperProvider);
     
-    public IReadOnlyRepository<TEntity> GetReadOnlyRepository<TEntity>(Mock<IEfDbContext> efDbContext, Mock<ISpecificationEvaluator> evaluator, 
+    public ReadOnlyRepository<TEntity> GetReadOnlyRepository<TEntity>(Mock<IEfDbContext> efDbContext, Mock<ISpecificationEvaluator> evaluator, 
         Mock<IMapper> mapper, Mock<IGridifyMapperProvider> gridifyMapperProvider) where TEntity : Entity<long>
-        => new ReadOnlyRepository<TEntity>(efDbContext.Object, evaluator.Object, mapper.Object, gridifyMapperProvider.Object);
+        => new(efDbContext.Object, evaluator.Object, mapper.Object, gridifyMapperProvider.Object);
     
-    public IReadOnlyRepository<TEntity> GetRepository<TEntity>(Mock<IEfDbContext> efDbContext, Mock<ISpecificationEvaluator> evaluator, 
+    public Repository<TEntity> GetRepository<TEntity>(Mock<IEfDbContext> efDbContext, Mock<ISpecificationEvaluator> evaluator, 
         Mock<IMapper> mapper, Mock<IGridifyMapperProvider> gridifyMapperProvider) where TEntity : Entity<long>
-        => new Repository<TEntity>(efDbContext.Object, evaluator.Object, mapper.Object, gridifyMapperProvider.Object);
+        => new(efDbContext.Object, evaluator.Object, mapper.Object, gridifyMapperProvider.Object);
 }
