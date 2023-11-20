@@ -1,0 +1,2759 @@
+{
+  "homepages": [],
+  "source_base_path": "/home/runner/work/DataExplorer/DataExplorer/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.DataContexts.IDataContextBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.DataContexts.IDataContextBase.html",
+          "hash": "m3W3F8OPkEiFrphOkI5WPkh3EMnHP5Tkqzb0FAxfyoU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.DataContexts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.DataContexts.html",
+          "hash": "X5rBP9VnkS0TC/9k9QQ+ndhsliHp8OeY6fryHw1/L8c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.DataServices.IDataServiceBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html",
+          "hash": "cN00ENWwPVLdWagsR831mzQROOALNCrDlb4E6yTnaz8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.DataServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.DataServices.html",
+          "hash": "g7wZoRI4u4wfOUp4FsRKcPLz2FDNZk/yH9NuZJH+1Aw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.ICreatedAt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.ICreatedAt.html",
+          "hash": "nFDvl0Rb991vemMyjyote4BnPx2gx4myp5Hrpc+JG2k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.ICreatedAtOffset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.ICreatedAtOffset.html",
+          "hash": "hKkPes9oPFsSm2V09gHqhlslxFTbrr1iS+aHx22f7J0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.IDisableableEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.IDisableableEntity.html",
+          "hash": "VJ6eRHf3k/3aQuELWYFNxCDc/g+b22saGI1pd7ZNo58="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.IEntity-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.IEntity-1.html",
+          "hash": "9WHXL75mGg+dLVJ69L+dH1QTloMOrP8BFzZunNA9xXM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.IEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.IEntity.html",
+          "hash": "uVduJ9ydCGDjnOBw5EHeB3LBYzalp7s27zEWlzw95X4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.IEntityBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.IEntityBase.html",
+          "hash": "OZDfqekvqPYxeg3cust/Uv2i5rhNbifaqCy55BBDwWA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.ISnowflakeEntity-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.ISnowflakeEntity-1.html",
+          "hash": "GHZzidxhHfEh+UAgvHADiMUESdgoQQsBfn4htAGMcqE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.ISnowflakeEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.ISnowflakeEntity.html",
+          "hash": "fG5qC7ZbdDsT7vrMJxge6TFH3mQcjBzP92lZMLyRvq0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.IUpdatedAt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.IUpdatedAt.html",
+          "hash": "aWfNzLJEDjeW5J+T1bWjup37Gk9x57ZH6EXKwvRZQsY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.IUpdatedAtOffset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.IUpdatedAtOffset.html",
+          "hash": "UBn4OzLapXtD1v9KLrtvEyUyOMKaS4GGXIlN3EjeNqA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Entities.html",
+          "hash": "bqqtwKlKv+CiuV6X6YOUgJZO5Gee18zec4ahrlr/ZWk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase.html",
+          "hash": "6cJ1Ta9L6YutHVkyIjeVTQqHq+BfxxvGpsims9b9D9Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Repositories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Repositories.html",
+          "hash": "mojkyF4rMqXsXUOhxJOAbzM7JQvZrA6/aIeRk76R9AM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html",
+          "hash": "nXY8EBmBYIaLN8kYeQ7g3F5/5fba5MRhxf8meceAI1c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.UnitOfWork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.UnitOfWork.html",
+          "hash": "+LmNdZO4W/p3krK3QFnCG2lbV7wjiYDO+QvgHw1z4qg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Attributes.ISkipDataServiceRegistrationAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Attributes.ISkipDataServiceRegistrationAttribute.html",
+          "hash": "taBpb/AmjahHkLRl+dKdv1dBIz+EdlJPyRO+0jnFOHY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Attributes.SkipDataServiceRegistrationAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Attributes.SkipDataServiceRegistrationAttribute.html",
+          "hash": "M4QW7u47mvRM1GljHCpMaJHpOhZrRX38QKHWOhH5pgI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Attributes.html",
+          "hash": "9W+EAyAgF/pEbLHe/qDfftMaWMHlgaYsPskJcn3caJo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.DataExplorerConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.DataExplorerConfiguration.html",
+          "hash": "OyUDCOjfezX4WUFlbOUGunM2NFEbxk5qeyDZCnU3ImI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.DataExplorerConfigurationBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.DataExplorerConfigurationBase.html",
+          "hash": "l74OIK95USZkloY9Za8fqFJoZoTKah/FrVEjtqKhCTw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.DataExplorerTimeProvider.StaticDataExplorerTimeProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.DataExplorerTimeProvider.StaticDataExplorerTimeProvider.html",
+          "hash": "gZZi8ytOAPociLV65qD+FgKRp99pEebbDYNElr/nfFk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.DataExplorerTimeProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.DataExplorerTimeProvider.html",
+          "hash": "z73Whw8GbCVWbT1KezXS/HvmF45b2I8P4jNtlirPSZk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.DataRegistrationStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.DataRegistrationStrategy.html",
+          "hash": "PtU407ysQlObktLuAFsB3khvc6Dr7H37P79MqhmQqM4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.DependencyInjectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.DependencyInjectionExtensions.html",
+          "hash": "0N+Ro4i+z01S8e0HmKB3VxIq3vW5dRI+tR5aUKZRN/4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataContexts.IAuditableEfDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataContexts.IAuditableEfDbContext.html",
+          "hash": "SPjEZYaPye5nXVpjgCEiCfk5nt0R8IOc9ps9M/znO9U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html",
+          "hash": "FQrDXcb8FTAH22t9jm72KCcQdV2BpF00xMwjZwuLU0w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataContexts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataContexts.html",
+          "hash": "GkJAw+yKmQIEtFcq2rmTPdWzOunVuHMbZioxXeYrECE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.ICrudDataService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.ICrudDataService-2.html",
+          "hash": "TeKO6a/N+wo87KQ26TB7CT6OrwOOww39ZTwzFnwN7l0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.ICrudDataService-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.ICrudDataService-3.html",
+          "hash": "cEK3Ia5O6BG5n8YR21HlStpFMqNvy8EaV5WtjxEgmls="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase-1.html",
+          "hash": "JNsY6ex04LFPo8PuUgs2vCLI03gepanxROTWetlIEeY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IReadOnlyDataService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IReadOnlyDataService-2.html",
+          "hash": "h2PaRtnWN4jPdZuPo4Z08ockIGG09s59FvvE5AQd5yI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IReadOnlyDataService-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IReadOnlyDataService-3.html",
+          "hash": "3kA6rIwpIb/AgQHo8UepAgWqRHCb6Y4CKRcHJ+Pb4E8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.html",
+          "hash": "Ec36wAWduNGzpydUv7DwatAsPgMvgzQORkpPxtf3cfI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.IUnitOfWork-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.IUnitOfWork-1.html",
+          "hash": "AE77ce/OZZQNzrE4a3T4K1oUvwupHQpPc2TUR29HX1E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.IUnitOfWork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.IUnitOfWork.html",
+          "hash": "vDRveKK3yCBKHg7yc8bmbjCi1iOVdTO0Y6FLwxP2+vY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html",
+          "hash": "YUaAi8JonOKkYGrf9yVUKQUKYSOMNhY9k/Ks0EXmiEo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html",
+          "hash": "3q8saoNSBMU2WJphIhT+dEO8p1iiRZeBYHt92AloNOA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html",
+          "hash": "ZJxEiNARIF9u+O1F66++vyNMktlbl3DCY1mJjScWFt4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html",
+          "hash": "sEPeXl6CjxH1AkSrhDMDd8YjTL6Wq8Zp2AWIKzqRtM0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.html",
+          "hash": "jxOA+R0m/HXZMF0BFHSPIBaJfVhOkvd55nqNdpJDM28="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Abstractions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Abstractions.html",
+          "hash": "SooCBglAzX+m8+fLu7FlP8ZAuj7vPPxuBlpyQPhKkjY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataContexts.EfDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataContexts.EfDbContext.html",
+          "hash": "XiMrPo0FSbP9t/TcGV7Rphr9MqF+agpVvQ80rAJPmVo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataContexts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataContexts.html",
+          "hash": "jbK7/gonxKWkFioSLJmoLd3oK0zKJMf/aUycYDmDvwk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html",
+          "hash": "R7r6jxQPk+BMDLdz63Z3HAp7LtYSwvqAaykp6KRZsvA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataExplorerEntityInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataExplorerEntityInfo.html",
+          "hash": "NZd0+vIalxmpAcHLC76Wcr7oczQYFhQD4SQSnWr42gU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataExplorerRepoInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataExplorerRepoInfo.html",
+          "hash": "zf7+TwaXOY/4M8qW+G+NnoGgqif+7tFU0FGCct1BVyg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataServices.CrudDataService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataServices.CrudDataService-2.html",
+          "hash": "GCheHO2kCWIDfWmKg3vtshzPxXI5ncagC3BWapfjccg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataServices.CrudDataService-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataServices.CrudDataService-3.html",
+          "hash": "nF2htVerFDms6sNxZzNGGv8cdreRru/R3KTMNIP5T0Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataServices.EfCoreDataServiceBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataServices.EfCoreDataServiceBase-1.html",
+          "hash": "0A/OR9VeV1j7XwpobOIJenROxwPev8hGYV+njPqQ+ZY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-2.html",
+          "hash": "/87DSEEYZs5Fg0Q+BuHCIcl5WPf3ifU8Uo4kzsi1EPo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html",
+          "hash": "BqAUhAlCAtBLPad0ZsOfYYOsEhumhoZPe1UXZhYIKqg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DataServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DataServices.html",
+          "hash": "mwhtTCrXth7Yk6C5E3NRiRus7NwsrPUTeq+LKoGCaTY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.DateTimeStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.DateTimeStrategy.html",
+          "hash": "rPAbfiD7Il2kuleoItI+yJ8jMHmgK94WSnx3PuLaIEY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.EfDataExplorerTypeCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.EfDataExplorerTypeCache.html",
+          "hash": "+H9Wxt/6m+QQSNY5UsTMBqtMFKYwkwUhqjY8Zhjweeo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Extensions.CrudDataServiceExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Extensions.CrudDataServiceExtensions.html",
+          "hash": "Eu7WDbeKqmRBh5kOf9KYNCICn/wNjS09IyvqTFfYv9Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html",
+          "hash": "oH4S+jUhgF92Jb5VT2CjYNdZSsholq2k4rb7/2V9x+E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Extensions.DbContextExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Extensions.DbContextExtensions.html",
+          "hash": "Ix4iPun7Xci4FN2hsBG+93DLEd3hwoIX4FVDAWoab+c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Extensions.RepositoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Extensions.RepositoryExtensions.html",
+          "hash": "5Paycwd/6zWBjG1PPHygcx9Hke8YVndsgPsib8LSygA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Extensions.html",
+          "hash": "6peFAKGSugORGOsnZzCe3X9ymjqyuw24S/ehRMJQYbM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Gridify.GridifyMapperProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Gridify.GridifyMapperProvider.html",
+          "hash": "KDPoCwQ7dYzVmnUuAvI4s3a8KKmjmi47zOlMZiBQjuE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Gridify.IGridifyMapperProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Gridify.IGridifyMapperProvider.html",
+          "hash": "dAHPNldLbg2Rxj5BqyFpgU6QjvsBYC3l8kyzbbedfvk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Gridify.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Gridify.html",
+          "hash": "j52c34SQhmEuNokrD2wD+KVXcVIYNce06pkTfngce1I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.IEfDataExplorerTypeCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.IEfDataExplorerTypeCache.html",
+          "hash": "Nmfx6ioGyF11fT4j00ivEZDevWMaF1ESd6cVLprLzRM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-1.html",
+          "hash": "lfgCiqKpMNpzuaxz2VhPd6lQm+rCqQGGGYxZ+gS0jnA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html",
+          "hash": "KITM2eedXn3DqHtMav/eU9dbTSJle97Kv2FUD7W1dgY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Repositories.Repository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Repositories.Repository-1.html",
+          "hash": "+ZZ5J9TBexkWNCDwfrklNHAIcrfb0hyhKLlzOraS6wY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Repositories.Repository-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Repositories.Repository-2.html",
+          "hash": "YS8SspS0NPv1aIx5TmSqJS/iKYEhLKI3wypbPDOiMRk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Repositories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Repositories.html",
+          "hash": "Ozq8nQZNqSildpbXy9CF6E75MZ+NTmsBYbdDRj+73rA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.ResultTransformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.ResultTransformation.html",
+          "hash": "/PkDlD/PEcS4j29mxjvUp4IbZmxjgaGpUd85Hyhv0yU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.BasicSpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.BasicSpecification-1.html",
+          "hash": "N1xQbD1fOtpXEVOssYwjdET0t6lBUKdppsn07S7QkS4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.BasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.BasicSpecificationBuilder-1.html",
+          "hash": "+NW+E7lgjUhvSHVzRSS0x7QBKnMvDXh618AiRMJ5j/A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheBuilderExtensions.html",
+          "hash": "tTa3dLpV+0AdI8fcXGedJxP0vADLf22R4TsKq9L0iNY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheSpecificationBuilder-1.html",
+          "hash": "C3Ipe4qK+mmb6LkAE1y6cmTE3iJZe/BTToWDxKnqaHE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.GroupedBasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.GroupedBasicSpecificationBuilder-1.html",
+          "hash": "pW7F1wuwJuu/+1vBmAvsAn2IH3mbG9jpfd5jcCqu9ms="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.GroupedSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.GroupedSpecificationBuilder-1.html",
+          "hash": "If6tdp+KJRgThMamvAgTGbcIcmvGoDuElE3zhORYJuA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IBasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IBasicSpecificationBuilder-1.html",
+          "hash": "7peH0xSIRbVo8PQGl3Y93GyXKTdaf42hc9ABz5t2kaU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ICacheSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ICacheSpecificationBuilder-1.html",
+          "hash": "pI+CxO+HVSL3A5BnuUy6Hco56GT1wWTkRuE9BAblDJg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IChainControlledSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IChainControlledSpecification.html",
+          "hash": "ws9SgTttfuH5Gk6KOl+cHV3k+Az3cfhFYBc+6w3G6f4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IGroupedBasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IGroupedBasicSpecificationBuilder-1.html",
+          "hash": "yqq+ieA+i2GfNQ7ze2L9FpjhHhPrAMfpJS6faJkOjNA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IGroupedSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IGroupedSpecificationBuilder-1.html",
+          "hash": "B3wEU3w+f1KHdeUjc2w9QMy9UD7LWoQ3zAB1L7U3hGI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IIncludableSpecificationBuilder-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IIncludableSpecificationBuilder-2.html",
+          "hash": "G4D8srdKjDBfrNd7teKc+7ILSSAioAbFcLD1LsLpMBo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IOrderedBasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IOrderedBasicSpecificationBuilder-1.html",
+          "hash": "PnP4Z7xYeI/tH6OYp0RZnUsRztkgJmA2CkFWqFWCUxo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IOrderedSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IOrderedSpecificationBuilder-1.html",
+          "hash": "twWCutd/stNh0xvtC8BjoTIG1MztKLiWqeMSEsq5KjE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-1.html",
+          "hash": "rOQeA6MHetNkaI/RgkoSpnB0zp2S+f3P1ztgUtC25Wk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html",
+          "hash": "Rh7xP1ZmFzXGzbAsDNpM4V5J+MAGtSWFTLJcPvML3YE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IncludableBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IncludableBuilderExtensions.html",
+          "hash": "0pmVQfEGHw8pbOcQKKeS0i2RiIy2BMU7pg6IUOiC9xw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IncludableSpecificationBuilder-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IncludableSpecificationBuilder-2.html",
+          "hash": "RAEfrlkz2wm+aAguP5RslUdmrzfCD6Ts5yYoZmV16xE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedBasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedBasicSpecificationBuilder-1.html",
+          "hash": "yVRdJALk6pVbTdv8VCFnjTG4ag66u2LgNenGvBTHzwk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedBuilderExtensions.html",
+          "hash": "uTDsCq+kHW7s5YeyddDE6YVFD584tYGw2MEePI4WQ0M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedSpecificationBuilder-1.html",
+          "hash": "cV9zX//cDYca4mJXeAKpsXzzDkMsCNdZWHee0uyt9zQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilder-1.html",
+          "hash": "c8JezHc2Inlo5elpLA4di4dDaAJUBw7pEAlh9IuWhqU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilder-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilder-2.html",
+          "hash": "lzN7PjjZ2AlbXoP1CoVIpMSQRx/0L8kTFzgaNhu+kHU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html",
+          "hash": "tbY2WLGQmHOGZBdODdkcJYKaPuOtqkxLybMlOXUJ19Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.html",
+          "hash": "TIKNd85Pzuiy9veSJod8ax9oM0RAEYziRfGZotz00Gs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-2.html",
+          "hash": "fuLdOF6mROC1Z7r8DyX9JlncbOwXkDKdxVGG6AErkUk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsNoTrackingEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsNoTrackingEvaluator.html",
+          "hash": "Oc8r8JtgpnDo0LedgfC0jNNPosiObMpYRjfWTQhjVtw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsNoTrackingWithIdentityResolutionEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsNoTrackingWithIdentityResolutionEvaluator.html",
+          "hash": "gp4opMu8dS9Wu/Hr43Tv9W/SxCiXtjrWjJ9zLNLXrc8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsSplitQueryEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsSplitQueryEvaluator.html",
+          "hash": "hiAz3M/U5cialMZASLuHxBTvnxamtaDdyIGFalhQyqM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsTrackingEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsTrackingEvaluator.html",
+          "hash": "rUwkmgxhIKmOOzE9N0e2nf1PmVqStOsV4qaj96smZEw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.CachingEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.CachingEvaluator.html",
+          "hash": "R3+AW3VVoG63lZQt4Y4psoH2v1+I8ryHMu62hQ1/QSM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator.html",
+          "hash": "WiCKs54KPe429bZIvtgy1zIlhd6AF5zTeZAzMWVbMPw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IBasicEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IBasicEvaluator.html",
+          "hash": "Q2F3vq42LrYov3BbuF7CWP6XC3zLfvi+Z5lEqeKoCwg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IBasicInMemoryEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IBasicInMemoryEvaluator.html",
+          "hash": "9nByJRXKnc+svsMcheFdL9QNsAPsYJmxmaxD8jLzJ28="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEvaluator.html",
+          "hash": "ieBRMQ0pi1NCmDMkZ+ZdYft6SpgX2dkxk8miU5WwBI8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEvaluatorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEvaluatorData.html",
+          "hash": "YJQHphgzq0IoY1ApihuduYa+7szL1Nxx0LZp+eQ4EEg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluator.html",
+          "hash": "20+5CBzaRHpNZ0N4mwk6fjYB2mNypG0l4WN8HZXor+s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorData.html",
+          "hash": "MCZ0G6lE0YSye/fj3hxGGi15eKx997XdCurWwcBOhbM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorMarker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorMarker.html",
+          "hash": "F2wU4jWOXsJgDep8NFECH1QMo1pRmlaYkuf5jzPIS44="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator.html",
+          "hash": "NTE9SWJpzjUdP4jHhKmrrNDPSUtHcUT5h6mw6GsB+Jg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IPreUpdateEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IPreUpdateEvaluator.html",
+          "hash": "7Ju0GZmr/YO9aHPjIR0XR2KKwQ1QMWXlEPQ+pFjgvyk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IProjectionEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IProjectionEvaluator.html",
+          "hash": "YWmYC8+KNPD2uF42PMRF2/d5u/rD01KwJpi/fgPI0Dg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ISpecialCaseEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ISpecialCaseEvaluator.html",
+          "hash": "IwjODnQsDJP28/WQGB/JW6RcA5HcMTLXtATVrkzb/hc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator.html",
+          "hash": "yPwhfwRTSaBq/5YePYf1go8Mz47IG0cNsG1dXihyoe4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IgnoreQueryFiltersEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IgnoreQueryFiltersEvaluator.html",
+          "hash": "+69r395GnHCo6lELhkAkfJUHkZ3AA2IViFMh1EM5iog="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.InMemorySpecificationEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.InMemorySpecificationEvaluator.html",
+          "hash": "YL6z7eJascjCq2ITTmZXHXAPZGSkE8Zgc40FFsVmSqU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IncludeEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IncludeEvaluator.html",
+          "hash": "KwFLAjMCpFrXj0CCqPPxG9RYm+TsZYNuye8bfpFZ0Mw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.html",
+          "hash": "nDQuve8AGV0zV9U8rdE5DdinL4dyh8IyRBg5Vw1/WMM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.PaginationEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.PaginationEvaluator.html",
+          "hash": "vWEx5PO+KUGUGWKcFcLhlqXvYLr8aZHtDiH1Of5cp7s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.html",
+          "hash": "oF71cITUElqm13VeisDS10IysQ4A8d82UXLs0raF6A0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.SearchEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.SearchEvaluator.html",
+          "hash": "QQXCqdemp/Q3J+msnJOWqO+3pTcEsdUXqoD4WKEnYhs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.WhereEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.WhereEvaluator.html",
+          "hash": "6GfeYYOj+QgB4/D/xFHq3HAK+gu3hq6DzgubeX6N31k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.html",
+          "hash": "+QjxkU/NX1h2dWUgHeQ4EdrItHvJYTzPA4Fu6XR5/xw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.ConcurrentSelectorsException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.ConcurrentSelectorsException.html",
+          "hash": "xzTajSOHVp+CFbClWRzKo0ubg2rqLAo7weFyiP+E9rI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateOrderChainException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateOrderChainException.html",
+          "hash": "9BcJSMiFosPklpQHNyc8R/XmnfSe7ZgDR2GYNHLp6PA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicatePaginationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicatePaginationException.html",
+          "hash": "lFYiMg8YBGJZHPoM0iasQyKfmxt+UXNlnYPEPuhLh/w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateSkipException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateSkipException.html",
+          "hash": "w9W9EvlxaW4TYxFCfkRjFKH/Iyk+vX9Th4aWBIzjkw8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateTakeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateTakeException.html",
+          "hash": "8cjlUT0EbRFpQJE9hPgnrRqAh9U8e0PIJz7zIRiaK4M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.InvalidSearchPatternException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.InvalidSearchPatternException.html",
+          "hash": "548TfzVJf+QkTHqL1Ccj/6n12MTOEEKnDjXmxFHBhZc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.SelectorNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.SelectorNotFoundException.html",
+          "hash": "ttMh91UvoQWsSdwa5tOd6HJ0GN5nHIuznZuaQo9xSiE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.html",
+          "hash": "p5/2uZ0U5LsZ5x7Ug/GhtXGD6fTEjujys/AliGMsdZE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.IncludeExpressionInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.IncludeExpressionInfo.html",
+          "hash": "N96r7kq7+vPm50wEzSMnqcSeFHwacY6JXNymGLbBVLo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.OrderExpressionInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.OrderExpressionInfo-1.html",
+          "hash": "rW5ynM/3TNUUXg8pF5Q6JkK9zAOELE9r8vwHcnOPd6Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.SearchExpressionInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.SearchExpressionInfo-1.html",
+          "hash": "EGATHMzeCjDE8q8rSH11RF2GMOK0Vef6/KR2Ojjfy7g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.WhereExpressionInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.WhereExpressionInfo-1.html",
+          "hash": "vWAU+6yYrBYd3GMeHmUvgh7Q97H5diGE8SnxYY3wphg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.html",
+          "hash": "ofuIKwxSVH3U6plWRZDkmQr6gfyCHcgc1uJE9+alELM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Extensions.ExpressionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Extensions.ExpressionExtensions.html",
+          "hash": "YWQ/SPLjxm6GTs64g41kCaBnANPCHnW/x8UUQ9r4C5A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Extensions.SearchExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Extensions.SearchExtension.html",
+          "hash": "9DvNaxOF0t3ea3TrfYhAh/2C8bRSkmvJk8VPV+fQCqs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Extensions.html",
+          "hash": "roAKDb8q5+9ER78hqY+jKI64Cxfs+iJMAKxHBSQdn6Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.IncludeTypeEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.IncludeTypeEnum.html",
+          "hash": "KVTtpCQIXrC6g88UYAmf1c3F10hq+OMAQxAgWoOUmNY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.OrderTypeEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.OrderTypeEnum.html",
+          "hash": "xHFvn6k9bzM1N4xdABSDmYjX02TBKBZJ5fM3FodfBg8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.html",
+          "hash": "yIjK+nxKEqirAoG0yH3sXQqFryKtAuuZ2xodJ6p4W9s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.IBasicSpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.IBasicSpecification-1.html",
+          "hash": "n9eYLvKo4JVs64wK6f//clAnZAvMuZNQSj+G6qIHx1A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification-1.html",
+          "hash": "sBQAAEHb4Gbro9vUIKeIVhYwdutmkY5VCN6ge8hoE4M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification-2.html",
+          "hash": "yW1xRnLz6ADSyZilOrRmhVBSwKubbhgT4cRglJG1yP8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification.html",
+          "hash": "QK06FqXVaDQsk0ahD+/JIapm1GlTFHRjXcZuHbQhPno="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.ISpecificationFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.ISpecificationFactory.html",
+          "hash": "YuypyjYy3to8rwYHvxjBD8+ZiPgFjAxu5twiefGsLJM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Specification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Specification-1.html",
+          "hash": "iztqp1aDgcBQkxJU+nQnt3R7SOx9Avhl+IIw+lovCz0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Specification-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Specification-2.html",
+          "hash": "NEBhPXsk7LAd1svobS4yWmnNqiHVur9cn+0ZE2X19bE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.SpecificationEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.SpecificationEvaluator.html",
+          "hash": "GOVr4dhUH87KEiFgSyxDESTKDRxmNnInLIwLZmpLCC4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IBasicValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IBasicValidator.html",
+          "hash": "phyR96hLiYUb327YZa3W2Yxbntg5g/2oOxdzuRKTggU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.ISpecificationValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.ISpecificationValidator.html",
+          "hash": "CmNxmWDzMRv3lD6lzR03tL8x5JAQKPchsdEAOe4qjCM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IValidator.html",
+          "hash": "leeKvI6xCgbvxflWxx6wEoa/HmUY2Op7bp5o0F3olWE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IValidatorMarker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IValidatorMarker.html",
+          "hash": "pxxXeL1wEWS4LEEi6qlIK5tozZasDQl1gqDJz4V43wk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.SearchValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.SearchValidator.html",
+          "hash": "LU0gLTO3MAf2eg+yD4XYsLIly0uKr580G20n+EMxrV4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.SpecificationValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.SpecificationValidator.html",
+          "hash": "GhtmphNUBIfnZujrgfu1/qlFX47gwTriI0mlv9VIEq0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.WhereValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.WhereValidator.html",
+          "hash": "eLnEZGKcfNOgpv2Rtgvq3VqgnFrMcNfjywBkylXL53I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.html",
+          "hash": "F6c3t8+v9HFY++8qOkaNlvhOUflZxgpvA+ewspbBu0M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.html",
+          "hash": "I7S8iXxelY5fWWhhAJKkAKd3FOXetDggIGlE/q8Qe54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.UnitOfWork-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.UnitOfWork-1.html",
+          "hash": "UAxqBdgA1EG5z5Wee5kYupxfqEksU3cDbHMgkpZZcVo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.html",
+          "hash": "R1MyvGmEm9R7uQkzz3yCci6Po8UMQjfM25tMHuoEYOc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Entities.Entity-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Entities.Entity-1.html",
+          "hash": "6FIAtpXy2J1ylPHPWlhaGEcKO7qdgoQSRLGmC/mpvmc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Entities.Entity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Entities.Entity.html",
+          "hash": "mnr2OMxekDyT0N41nbQnfixfAVsSjE4+3BEvSYFh3xY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Entities.EntityBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Entities.EntityBase.html",
+          "hash": "wJBbXlimz04qK7o5a4J2ixtbSq0/4X44YOWrA3flUSU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Entities.SnowflakeEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Entities.SnowflakeEntity.html",
+          "hash": "26LzZE/9lM8CsoLKNOfLUyRgtYoDmhV/5pwzoGNqayc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Entities.html",
+          "hash": "u98pJgQxt/QkIeWQ+9bXP312VVivgiQSC0ELr1UzYDQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Exceptions.NotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Exceptions.NotFoundException.html",
+          "hash": "n0HJKlzSF1UD8CkGe0QIVywD+LS4MGfy+wJxcoIG9ng="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Exceptions.html",
+          "hash": "9Yboa7o8NbBkcUGIxvzPqqsrob8T56ltaXD9KJKgdNI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Extensions.EnumerableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Extensions.EnumerableExtensions.html",
+          "hash": "BRobTHV62q69KynqFP9OuCtBZjECEp6eKvBUetio1bE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Extensions.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Extensions.StringExtensions.html",
+          "hash": "XUS5rp1goOC0cwus/b4Udn0XPp40zKtlx/IBIQrpaE8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Extensions.html",
+          "hash": "TGYVNhMPMxFP9CiNHJnqOPJtG+QnBQWtsc/dU2q2BaU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.IdGenerator.IdGenAutofacExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.IdGenerator.IdGenAutofacExtensions.html",
+          "hash": "4ABRZ2F7/LoRqJjvbyVV70WPtt7cNoQbPUN168fnnL4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.IdGenerator.SnowflakeIdFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.IdGenerator.SnowflakeIdFactory.html",
+          "hash": "xY9sQF6PtT+4wwZqNG2DEIMN2MqBsBtUh0LsKwEJnY0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.IdGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.IdGenerator.html",
+          "hash": "Tig+rNITzznEp6x/PG4w+4eqSMv+30hT8bhqN8AjxM0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.DataContexts.IMongoDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataContexts.IMongoDbContext.html",
+          "hash": "5bXfQ9gpB4zZq1HeDgpDLNj5LC5Vp37ipZ3GlPBkO5A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.DataContexts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataContexts.html",
+          "hash": "F/8ElfqwrJYKzakOBFz/iqhhkQq6cX0VXp9DKFu+Xtw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoCrudDataService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoCrudDataService-2.html",
+          "hash": "ltmeIQxypQvEWuRYEn3tu/3n6pflRfFBerX84DhX/QQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoDataServiceBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoDataServiceBase-1.html",
+          "hash": "uKieQnOOcuiraRr3CwZei2hiru0/x1Nbsc1yUlF6lzk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoReadOnlyDataService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoReadOnlyDataService-2.html",
+          "hash": "B3et96sXz4qFcSHy3895RW9ZfuYi4S1NB7WYVBGCE6U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.html",
+          "hash": "IOviTEO9Xu4ktUls8en/q/DulXd0R7pMdSIoQouCuNM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork-1.html",
+          "hash": "ZQGzki26VNjaziFGt3cNbvWNsQrq6kQ96zITbkN8mgs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork.html",
+          "hash": "J/XwnJBUqnE5WfewN8b42fPBFgZXnyGR1Sp6WogvufQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.IMongoReadOnlyRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.IMongoReadOnlyRepository-1.html",
+          "hash": "HNtmE6p6DsbY5Xs5DhnJXadtTAUdE0KJd8rXIyvjbTs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.IMongoRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.IMongoRepository-1.html",
+          "hash": "IovntmPa5AgeNdY0lFetdfqiImseQGQbsvHL/2xGQ2I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.html",
+          "hash": "nYSuMO5Aw+kxEYH5mrwZHd5nrgpzdC3/VqLiXVllkys="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Abstractions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Abstractions.html",
+          "hash": "uLyUUXv8jj6WmLnPePaawyp4x7B2qLbNga9bl2UUITA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.DataContexts.MongoDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.DataContexts.MongoDbContext.html",
+          "hash": "CGltwIWXQFUpXC8hP9ywQuHWKyH+bihf8s7KmIYEahU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.DataContexts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.DataContexts.html",
+          "hash": "nIVpt6g+nV+oS/nhxzNU3LYxpJWggDVXlTwnZ8iLkh4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.DataExplorerMongoDbConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.DataExplorerMongoDbConfiguration.html",
+          "hash": "AqfDv4o8/z+p3mVU5OER8pTd177lRSMb4bq1M68H/Fs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.DataServices.MongoCrudDataService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.DataServices.MongoCrudDataService-2.html",
+          "hash": "jlIs562235ac+3uI5MdXVPU87D4WW6nRJVWPGwUL+nU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.DataServices.MongoDataServiceBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.DataServices.MongoDataServiceBase-1.html",
+          "hash": "bSxpo+SXF0BZSW7nyx25PEKTZF1FucGgquY57NBL7fc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService-2.html",
+          "hash": "/L+GE9UQii48TAMeldLMDaqQ0SEsRF2VQaPrMiDUVt8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.DataServices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.DataServices.html",
+          "hash": "0WtxAS+sfbw84uSEfUsTYkB8XmNtlVX6+RBm52FFh44="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Extensions.DataExplorerConfigurationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Extensions.DataExplorerConfigurationExtensions.html",
+          "hash": "DokxPW6KB27PZZS12hDg5WovUL6cNfeBpn7shZXytrs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Extensions.html",
+          "hash": "ubNa7zyB0u+YgaDC0TjTjHyzilSebncZcaBqijgheXU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.IMongoDataExplorerTypeCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.IMongoDataExplorerTypeCache.html",
+          "hash": "kgvIH4+4kfpiukTlYUKtLjvqij6vFseu3rcCmY8uoF4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.IMongoEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.IMongoEntity.html",
+          "hash": "GGPz6N8V0QVCD6z+MBlm3yF3XIPhsMrY1HBqv+EC7XE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.MongoDataExplorerTypeCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.MongoDataExplorerTypeCache.html",
+          "hash": "XT33N1cOH/9szdgQ5RImzBBEwLt9oQ9gJqCV7QTayeg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.MongoDbContextOptions-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.MongoDbContextOptions-1.html",
+          "hash": "x2jeFLkJCWt5/7yXaw1mG5ogCXI+egJY4wPHDqce+XI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.MongoDbContextOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.MongoDbContextOptions.html",
+          "hash": "DhO7McoKC+4HCI4Xn3OwWfYOkTguYtC1lbNS4gzruW8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.MongoEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.MongoEntity.html",
+          "hash": "7sA6PU4VHJzPhFxoLP6PibYxQ72oLXQMTUCPwmlBuN0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.MongoUnitOfWork-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.MongoUnitOfWork-1.html",
+          "hash": "6mbiRsg2sF2SAogIkwoJjwDVKkCixiXcilBm8dvKL5Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Repositories.MongoReadOnlyRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Repositories.MongoReadOnlyRepository-1.html",
+          "hash": "m4Itvhi2aA0OApmyQSTSCimKfHBaIaelIdW2LEIvd38="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Repositories.MongoRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Repositories.MongoRepository-1.html",
+          "hash": "qDFGAvjKbfJTnW5CM+VJsbt3SUE57+FjV3RXFcK/FTQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.Repositories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.Repositories.html",
+          "hash": "7X3prkIcC/9aglCfXEZicJ317KIL43jP4Y4g3WofIk4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.MongoDb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.MongoDb.html",
+          "hash": "fuaLEztCEWDBO7MPNfXV3pWNyAcnhBFL6wVYVUY3Ja4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.PaginationFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.PaginationFilter.html",
+          "hash": "oGBOXctj5QeFTYHVjhL8iY0Wa2ZETHF19kJSdg+QfaU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Services.ISnowflakeGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Services.ISnowflakeGenerator.html",
+          "hash": "d2BSjroEQfl5oBGHzNytzpnhCHMgFLA7DHH9MIfQR/c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Services.SnowflakeGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Services.SnowflakeGenerator.html",
+          "hash": "gZ/M/+tlAsUJ9B257CAFtJi3YbwOMJnLwhWVfNV9GCs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Services.html",
+          "hash": "zqwL1FaMFlJDVHdMMC1TNXucvTimUi/EizPoN+YDis0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Utilities.CachedInstanceFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Utilities.CachedInstanceFactory.html",
+          "hash": "dd5o1jS4E+lur3mJtaoTHWHhE612d/ETcGW4RMGCwtk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Utilities.ICachedInstanceFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Utilities.ICachedInstanceFactory.html",
+          "hash": "f9tjph4rn/aOrHYDN1RsBlZR/f/nt6B6RgmFp4BGZis="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Utilities.html",
+          "hash": "A1Wj7c1hEtyzEYwcu3z19BN2gKaOoWPbRtHxv/80CVw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.html",
+          "hash": "oEo+5hw70YNlM8p0adFEE5xIWkCaX4JBBXTQOoDKv3o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "DEKxH9XNzphYP2pV/tBly5iN8jK+sRwCii/76dv8wP8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "T65IljpusZQcSrcjXCJdwjSs5nL+4g/dnzFMgoLriS0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/dt-ef.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/dt-ef.html",
+          "hash": "EEs56PbN8HKtHu90BDa+J9fWyPAYW9KJKdyjsmgQaoY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/dt-mng.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/dt-mng.html",
+          "hash": "oz8QhomJLLvaVx2XXzGRneQombTk/Ccd4Y5RK21UjDI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/dt.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/dt.html",
+          "hash": "IrNBtTWvAzW+pBK717irTPkuiKpYEaX0Ky43b08yqmI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "6CtG9zS8g0iJWZKnDwmtJpA2VhgrP1P9+BeS3c5Q3MY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "p7VWARw/O54K4hxPc3ExA44SylWFn30qaidzpJqnf74="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "1lR/btQszD/R6T093F/3OWFf23aINn4iGQ4RYJxZoEk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "ForceRebuild"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 5,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 218,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
