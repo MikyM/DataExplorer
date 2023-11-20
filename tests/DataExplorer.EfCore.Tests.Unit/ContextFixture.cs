@@ -9,11 +9,11 @@ namespace DataExplorer.EfCore.Tests.Unit;
 
 public class ContextFixture
 {
-    public Mock<TestContext> GetTextContextMock(TimeProvider? timeProvider = null, bool callBase = true)
+    public Mock<TestContext> GetTextContextMock(DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool callBase = true)
     {
         var opt = Options.Create(new DataExplorerEfCoreConfiguration(new ServiceCollection()));
         var inMemoryDatabase = new DbContextOptionsBuilder().UseInMemoryDatabase("test");
-        var ctx = new Mock<TestContext>(inMemoryDatabase.Options, opt, timeProvider ?? TimeProvider.System)
+        var ctx = new Mock<TestContext>(inMemoryDatabase.Options, opt, dataExplorerTimeProvider ?? DataExplorerTimeProvider.Instance)
         {
             CallBase = callBase
         };
@@ -25,25 +25,25 @@ public class ContextFixture
 
     public Mock<ITestContext> GetITextContextMock(bool callBase = true) => new() { CallBase = callBase };
 
-    public ITestContext GetTextContext(TimeProvider? timeProvider = null, bool ensureCreated = true)
+    public ITestContext GetTextContext(DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool ensureCreated = true)
     {
         var opt = Options.Create(new DataExplorerEfCoreConfiguration(new ServiceCollection()));
         var inMemoryDatabase = new DbContextOptionsBuilder().UseInMemoryDatabase("test");
-        var ctx = new TestContext(inMemoryDatabase.Options, opt, timeProvider ?? TimeProvider.System);
+        var ctx = new TestContext(inMemoryDatabase.Options, opt, dataExplorerTimeProvider ?? DataExplorerTimeProvider.Instance);
         if (ensureCreated)
             ctx.Database.EnsureCreated();
         return ctx;
     }
     
-    public ITestContext GetTextContext(DataExplorerEfCoreConfiguration config, TimeProvider? timeProvider = null, bool ensureCreated = true)
+    public ITestContext GetTextContext(DataExplorerEfCoreConfiguration config, DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool ensureCreated = true)
     {
         var opt = Options.Create(config);
         var inMemoryDatabase = new DbContextOptionsBuilder().UseInMemoryDatabase("test");
-        var ctx = new TestContext(inMemoryDatabase.Options, opt, timeProvider ?? TimeProvider.System);
+        var ctx = new TestContext(inMemoryDatabase.Options, opt, dataExplorerTimeProvider ?? DataExplorerTimeProvider.Instance);
         if (ensureCreated)
             ctx.Database.EnsureCreated();
         return ctx;
     }
 
-    public Mock<TimeProvider> GetTimeProviderMock() => new();
+    public Mock<DataExplorerTimeProvider> GetTimeProviderMock() => new();
 }

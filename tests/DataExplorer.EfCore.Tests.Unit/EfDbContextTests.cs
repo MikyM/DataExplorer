@@ -69,14 +69,14 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldFillUpdatedAtForUpdatedAtUpdatedEntriesWhenNonModified()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
             var entry = TestEntity.Create();
 
-            var now = TimeProvider.System.GetUtcNow();
+            var now = DateTimeOffset.Now;
 
             entry.UpdatedAt = now.DateTime;
 
@@ -96,14 +96,14 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldFillUpdatedAtForUpdatedAtOffsetWhenUpdatedEntriesWhenNonModified()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
             var entry = TestEntityOffset.Create();
 
-            var now = TimeProvider.System.GetUtcNow();
+            var now = DateTimeOffset.Now;
 
             entry.UpdatedAt = now;
 
@@ -123,14 +123,14 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldLeaveUpdatedAtForUpdatedAtEntriesUntouchedWhenManuallyModified()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
             var entry = TestEntity.Create();
 
-            var now = TimeProvider.System.GetUtcNow();
+            var now = DateTimeOffset.Now;
 
             entry.UpdatedAt = now.DateTime;
 
@@ -139,7 +139,7 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
             await ctx.SaveChangesAsync();
 
             // Act
-            var anotherNow = TimeProvider.System.GetUtcNow();
+            var anotherNow = DateTimeOffset.Now;
             entry.UpdatedAt = anotherNow.DateTime;
             await ctx.SaveChangesAsync();
 
@@ -151,13 +151,13 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldLeaveUpdatedAtForUpdatedAtOffsetEntriesUntouchedWhenManuallyModified()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
             var entry = TestEntityOffset.Create();
-            var now = TimeProvider.System.GetUtcNow();
+            var now = DateTimeOffset.Now;
 
             entry.UpdatedAt = now;
 
@@ -166,7 +166,7 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
             await ctx.SaveChangesAsync();
 
             // Act
-            var anotherNow = TimeProvider.System.GetUtcNow();
+            var anotherNow = DateTimeOffset.Now;
             entry.UpdatedAt = anotherNow;
             await ctx.SaveChangesAsync();
 
@@ -178,11 +178,11 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldFillCreatedAtForCreatedAtEntriesWhenNonManuallyFilled()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
             var entry = TestEntity.Create();
 
             // Act
@@ -197,11 +197,11 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldFillCreatedAtForCreatedAtOffsetEntriesWhenNonManuallyFilled()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
             var entry = TestEntityOffset.Create();
 
             // Act
@@ -216,11 +216,11 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldFillUpdatedAtForUpdatedAtEntriesWhenCreatedNonManuallyFilled()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
             var entry = TestEntity.Create();
 
             // Act
@@ -235,11 +235,11 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldFillUpdatedAtForUpdatedAtOffsetEntriesWhenCreatedNonManuallyFilled()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
             var entry = TestEntityOffset.Create();
 
             // Act
@@ -254,12 +254,12 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldLeaveUpdatedAtForUpdatedAtEntriesUntouchedWhenCreatedManuallyFilled()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
-            var anotherNow = TimeProvider.System.GetUtcNow();
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
+            var anotherNow = DateTimeOffset.Now;
             var entry = TestEntity.Create();
             entry.UpdatedAt = anotherNow.DateTime;
 
@@ -275,12 +275,12 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         public async Task ShouldLeaveUpdatedAtForUpdatedAtOffsetEntriesUntouchedWhenCreatedManuallyFilled()
         {
             // Arrange
-            var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            var dataExplorerTimeProvider = _fixture.GetTimeProviderMock();
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
+            dataExplorerTimeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
-            await using var ctx = _fixture.GetTextContext(timeProvider.Object);
-            var anotherNow = TimeProvider.System.GetUtcNow();
+            await using var ctx = _fixture.GetTextContext(dataExplorerTimeProvider.Object);
+            var anotherNow = DateTimeOffset.Now;
             var entry = TestEntityOffset.Create();
             entry.UpdatedAt = anotherNow;
 
@@ -297,11 +297,11 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         {
             // Arrange
             var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
             timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
             await using var ctx = _fixture.GetTextContext(timeProvider.Object);
-            var anotherNow = TimeProvider.System.GetUtcNow();
+            var anotherNow = DateTimeOffset.Now;
             var entry = TestEntity.Create();
             entry.CreatedAt = anotherNow.DateTime;
 
@@ -318,11 +318,11 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         {
             // Arrange
             var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
+            var futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(2));
             timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
 
             await using var ctx = _fixture.GetTextContext(timeProvider.Object);
-            var anotherNow = TimeProvider.System.GetUtcNow();
+            var anotherNow = DateTimeOffset.Now;
             var entry = TestEntityOffset.Create();
             entry.CreatedAt = anotherNow;
 
@@ -341,10 +341,19 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
         {
             // Arrange
             var timeProvider = _fixture.GetTimeProviderMock();
-            var futureNow = TimeProvider.System.GetUtcNow().Add(TimeSpan.FromMinutes(2));
-            timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
-            timeProvider.SetupGet(x => x.LocalTimeZone)
-                .Returns(TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
+            
+            DateTimeOffset futureNow;
+
+            if (dateTimeStrategy == DateTimeStrategy.UtcNow)
+            {
+                futureNow = DateTimeOffset.UtcNow.Add(TimeSpan.FromMinutes(Random.Shared.Next(1,10000)));
+                timeProvider.Setup(x => x.GetUtcNow()).Returns(futureNow);
+            }
+            else
+            {
+                futureNow = DateTimeOffset.Now.Add(TimeSpan.FromMinutes(Random.Shared.Next(1,10000)));
+                timeProvider.Setup(x => x.GetLocalNow()).Returns(futureNow);
+            }
 
             var cfg = new DataExplorerEfCoreConfiguration(new ServiceCollection())
             {

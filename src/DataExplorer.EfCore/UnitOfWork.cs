@@ -83,10 +83,22 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
 
     /// <inheritdoc />
     public TContext Context { get; }
+    
+    private void CheckDisposed()
+    {
+#if NET7_0_OR_GREATER
+        ObjectDisposedException.ThrowIf(_disposed, this);
+#else
+        if (_disposed)
+            throw new ObjectDisposedException(nameof(UnitOfWork<TContext>));
+#endif
+    }
 
     /// <inheritdoc />
     public async Task<IDbContextTransaction> UseExplicitTransactionAsync(CancellationToken cancellationToken = default)
     {
+        CheckDisposed();
+        
         if (Transaction is not null)
             return Transaction;
         
@@ -98,6 +110,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <inheritdoc />
     public Task<IDbContextTransaction> UseExplicitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default)
     {
+        CheckDisposed();
+        
         Transaction = transaction;
 
         return Task.FromResult(Transaction);
@@ -106,6 +120,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <inheritdoc cref="IUnitOfWork.GetRepositoryFor{TRepository}" />
     public IRepository<TEntity> GetRepositoryFor<TEntity>() where TEntity : Entity<long>
     {
+        CheckDisposed();
+        
         var entityType = typeof(TEntity);
         if (!_cache.TryGetEntityInfo(entityType, out var info))
             ThrowUnknownEntity(entityType.Name);
@@ -119,6 +135,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <inheritdoc cref="IUnitOfWork.GetReadOnlyRepositoryFor{TRepository}" />
     public IReadOnlyRepository<TEntity> GetReadOnlyRepositoryFor<TEntity>() where TEntity : Entity<long>
     {
+        CheckDisposed();
+        
         var entityType = typeof(TEntity);
         if (!_cache.TryGetEntityInfo(entityType, out var info))
             ThrowUnknownEntity(entityType.Name);
@@ -133,6 +151,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     public IRepository<TEntity, TId> GetRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
+        CheckDisposed();
+        
         var entityType = typeof(TEntity);
         if (!_cache.TryGetEntityInfo(entityType, out var info))
             ThrowUnknownEntity(entityType.Name);
@@ -144,6 +164,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     public IReadOnlyRepository<TEntity, TId> GetReadOnlyRepositoryFor<TEntity, TId>() where TEntity : Entity<TId>
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
+        CheckDisposed();
+        
         var entityType = typeof(TEntity);
         if (!_cache.TryGetEntityInfo(entityType, out var info))
             ThrowUnknownEntity(entityType.Name);
@@ -168,6 +190,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <inheritdoc/>
     public TRepository GetRepository<TRepository>() where TRepository : class, IRepositoryBase
     {
+        CheckDisposed();
+        
         var repoInterfaceType = typeof(TRepository);
         
         if (!repoInterfaceType.IsInterface || !repoInterfaceType.IsGenericType)
@@ -232,7 +256,10 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     
     /// <inheritdoc />
     public Task RollbackAsync(CancellationToken cancellationToken = default)
-        => Transaction is not null ? Transaction.RollbackAsync(cancellationToken) : Task.CompletedTask;
+    {
+        CheckDisposed();
+        return Transaction is not null ? Transaction.RollbackAsync(cancellationToken) : Task.CompletedTask;
+    }
 
     /// <inheritdoc />
     // ReSharper disable once HeapView.PossibleBoxingAllocation
@@ -241,6 +268,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <inheritdoc />
     public async Task CommitAsync(CancellationToken cancellationToken = default)
     {
+        CheckDisposed();
+        
         if (Transaction is null)
         {
             _ = await Context.SaveChangesAsync(cancellationToken);
@@ -255,6 +284,8 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <inheritdoc />
     public async Task<int> CommitWithCountAsync(CancellationToken cancellationToken = default)
     {
+        CheckDisposed();
+        
         if (Transaction is null)
             return await Context.SaveChangesAsync(cancellationToken);
         

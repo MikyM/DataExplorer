@@ -11,11 +11,11 @@ public class TestContext : EfDbContext, ITestContext
     public TestContext(DbContextOptions options) : base(options)
     {
     }
-
-    public TestContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config, TimeProvider timeProvider) : base(options, config, timeProvider)
+    
+    public TestContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config, DataExplorerTimeProvider timeProvider) : base(options, config, timeProvider)
     {
     }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<TestEntity>();

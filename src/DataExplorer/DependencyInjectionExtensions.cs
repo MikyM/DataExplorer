@@ -31,11 +31,13 @@ public static class DependencyInjectionExtensions
         // register instance factory
         builder.RegisterType<CachedInstanceFactory>().As<ICachedInstanceFactory>().SingleInstance();
 
-#if NET8_0
+#if NET8_0_OR_GREATER
         // register the time provider conditionally
         builder.RegisterInstance(TimeProvider.System).As<TimeProvider>().SingleInstance().IfNotRegistered(typeof(TimeProvider)); 
+        builder.RegisterType<DataExplorerTimeProvider.DependencyDataExplorerTimeProvider>().As<DataExplorerTimeProvider>().SingleInstance();
+#else
+        builder.RegisterInstance(DataExplorerTimeProvider.Instance).As<DataExplorerTimeProvider>().SingleInstance();
 #endif
-
 
         return builder;
     }
@@ -58,9 +60,12 @@ public static class DependencyInjectionExtensions
         // register instance factory
         serviceCollection.AddSingleton<ICachedInstanceFactory,CachedInstanceFactory>();
         
-#if NET8_0
+#if NET8_0_OR_GREATER
         // register the time provider conditionally
         serviceCollection.TryAddSingleton(TimeProvider.System);
+        serviceCollection.AddSingleton<DataExplorerTimeProvider,DataExplorerTimeProvider.DependencyDataExplorerTimeProvider>();
+#else
+        serviceCollection.AddSingleton(DataExplorerTimeProvider.Instance);
 #endif
 
         config.ReleaseRefs();

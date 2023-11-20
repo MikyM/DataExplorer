@@ -668,7 +668,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
         [Theory]
         [InlineData(1)]
         [InlineData(null)]
-        public void ShouldCallCorrectMethodsAndReturnResult(int? id)
+        public async Task ShouldCallCorrectMethodsAndReturnResult(int? id)
         {
             // Arrange
             var ctx = _ctxFixture.GetEfDbContextMock();
@@ -695,7 +695,12 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
 
             // Act
             var result = repo.AsAsyncEnumerable(spec);
-            var res = result.ToBlockingEnumerable();
+
+            var res = new List<TestEntity>();
+            await foreach (var ent in result)
+            {
+                res.Add(ent);
+            }
 
             // Assert
             if (id is not null)
@@ -723,7 +728,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
         [Theory]
         [InlineData(1)]
         [InlineData(null)]
-        public void ShouldCallCorrectMethodsAndReturnResult(int? id)
+        public async Task ShouldCallCorrectMethodsAndReturnResult(int? id)
         {
             // Arrange
             var ctx = _ctxFixture.GetEfDbContextMock();
@@ -741,7 +746,11 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
 
             // Act
             var result = repo.AsAsyncEnumerable(x => x.Id == test.Id);
-            var res = result.ToBlockingEnumerable();
+            var res = new List<TestEntity>();
+            await foreach (var ent in result)
+            {
+                res.Add(ent);
+            }
 
             // Assert
             if (id is not null)
@@ -767,7 +776,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
         [Theory]
         [InlineData(1)]
         [InlineData(null)]
-        public void ShouldCallCorrectMethodsAndReturnResult(int? id)
+        public async Task ShouldCallCorrectMethodsAndReturnResult(int? id)
         {
             // Arrange
             var ctx = _ctxFixture.GetEfDbContextMock();
@@ -786,7 +795,11 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
 
             // Act
             var result = repo.AsAsyncEnumerable();
-            var res = result.ToBlockingEnumerable();
+            var res = new List<TestEntity>();
+            await foreach (var ent in result)
+            {
+                res.Add(ent);
+            }
 
             // Assert
             if (id is not null)

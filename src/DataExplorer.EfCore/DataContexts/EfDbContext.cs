@@ -17,14 +17,11 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     /// Configuration.
     /// </summary>
     protected readonly IOptions<DataExplorerEfCoreConfiguration> Config;
-
-
-#if NET8_0_OR_GREATER
+    
     /// <summary>
     /// The time provider.
     /// </summary>
-    protected readonly TimeProvider TimeProvider; 
-#endif
+    protected readonly DataExplorerTimeProvider TimeProvider; 
 
     
     /// <inheritdoc />
@@ -32,26 +29,16 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     protected EfDbContext(DbContextOptions options) : base(options)
     {
         Config = this.GetService<IOptions<DataExplorerEfCoreConfiguration>>();
-        
-#if NET8_0_OR_GREATER
-        TimeProvider = this.GetService<TimeProvider>();
-#endif
+        TimeProvider = this.GetService<DataExplorerTimeProvider>();
     }
 
-#if NET8_0_OR_GREATER
+
     /// <inheritdoc />
-    protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config, TimeProvider timeProvider) : base(options)
+    protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config, DataExplorerTimeProvider timeProvider) : base(options)
     {
         Config = config;
         TimeProvider = timeProvider;
     }
-#else
-    /// <inheritdoc />
-    protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config) : base(options)
-    {
-        Config = config;
-    }
-#endif
 
     /// <inheritdoc/>
     public IQueryable<TEntity> ExecuteRawSql<TEntity>(string sql, params object[] parameters) where TEntity : class
@@ -137,22 +124,13 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     protected virtual ValueTask OnBeforeSaveChangesAsync(IReadOnlyList<EntityEntry>? entries = null)
     {
         entries ??= GetTrackedEntries();
-
-#if NET8_0_OR_GREATER_OR_GREATER
+        
         var now = Config.Value.DateTimeStrategy switch
         {
             DateTimeStrategy.UtcNow => TimeProvider.GetUtcNow(),
             DateTimeStrategy.Now => TimeProvider.GetLocalNow(),
             _ => throw new ArgumentOutOfRangeException()
-        };;
-#else
-        var now = Config.Value.DateTimeStrategy switch
-        {
-            DateTimeStrategy.UtcNow => DateTimeOffset.UtcNow,
-            DateTimeStrategy.Now => DateTimeOffset.Now,
-            _ => throw new ArgumentOutOfRangeException()
-        };   
-#endif
+        };
         
         foreach (var entry in entries)
         {
