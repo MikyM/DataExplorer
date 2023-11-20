@@ -41,8 +41,8 @@
       <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
       <PackageReference Include="IdGen" Version="3.0.3" />
       <PackageReference Include="IdGen.DependencyInjection" Version="3.0.0" />
-      <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
-      <PackageReference Include="Remora.Results" Version="7.3.0" />
+      <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
+      <PackageReference Include="Remora.Results" Version="7.4.0" />
     </ItemGroup>
 
 
