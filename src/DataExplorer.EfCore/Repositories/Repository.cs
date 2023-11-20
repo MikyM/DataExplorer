@@ -21,7 +21,8 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         specificationEvaluator, mapper, gridifyMapperProvider)
     {
     }
-
+    
+#if NET7_0_OR_GREATER 
     /// <inheritdoc />
     public virtual Task<int> ExecuteDeleteAsync(ISpecification<TEntity> specification,
         CancellationToken cancellationToken = default)
@@ -43,6 +44,7 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         var (query, evaluatedCalls) = ApplySpecification(specification);
         return query.ExecuteUpdateAsync(evaluatedCalls, cancellationToken);
     }
+#endif
 
     /// <inheritdoc />
     public virtual void Add(TEntity entity)
@@ -115,7 +117,8 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     {
         Set.Remove(entity);
     }
-    
+
+#if NET7_0_OR_GREATER
     /// <inheritdoc />
     public virtual async Task<bool> DeleteAsync(TId id, CancellationToken cancellationToken = default)
     {
@@ -124,15 +127,16 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     }
 
     /// <inheritdoc />
-    public virtual void DeleteRange(IEnumerable<TEntity> entities)
-        => Set.RemoveRange(entities);
-
-    /// <inheritdoc />
     public virtual async Task<long> DeleteRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default)
     {
         var res = await ExecuteDeleteAsync(x => ids.Contains(x.Id), cancellationToken);
         return res;
     }
+#endif
+    
+    /// <inheritdoc />
+    public virtual void DeleteRange(IEnumerable<TEntity> entities)
+        => Set.RemoveRange(entities);
 
     /// <inheritdoc />
     public virtual void Disable(TEntity entity)
@@ -213,6 +217,7 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         }
     }
 
+#if NET7_0_OR_GREATER 
     /// <summary>
     ///     Applies the encapsulated logic by the update specification to the underlying query and returns the evaluated property calls.
     /// </summary>
@@ -220,7 +225,8 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     /// <returns>The filtered query after applying the specification and evaluated property calls.</returns>
     protected virtual (IQueryable<TEntity> Query, Expression<Func<SetPropertyCalls<TEntity>, SetPropertyCalls<TEntity>>>
         EvaluatedCalls) ApplySpecification(IUpdateSpecification<TEntity> specification)
-        => SpecificationEvaluator.GetQuery(Set.AsQueryable(), specification);
+        => SpecificationEvaluator.GetQuery(Set.AsQueryable(), specification); 
+#endif
 }
 
 /// <summary>

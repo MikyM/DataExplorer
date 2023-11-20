@@ -1,4 +1,5 @@
-﻿// ReSharper disable once CheckNamespace
+﻿#if NET7_0_OR_GREATER
+// ReSharper disable once CheckNamespace
 namespace DataExplorer.EfCore.Specifications;
 
 /// <summary>
@@ -30,3 +31,4 @@ public sealed class DisableSpecification<TEntity, TId> : UpdateSpecification<TEn
         Modify(x => x.SetProperty(p => p.IsDisabled, true));
     }
 }
+#endif

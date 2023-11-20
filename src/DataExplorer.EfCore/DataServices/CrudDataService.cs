@@ -33,6 +33,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     /// </summary>
     public IRepository<TEntity, TId> Repository => (IRepository<TEntity, TId>)BaseRepository;
 
+#if NET7_0_OR_GREATER 
     /// <inheritdoc />
     public virtual async Task<Result<int>> ExecuteUpdateAsync(IUpdateSpecification<TEntity> specification, CancellationToken cancellationToken = default)
     {
@@ -71,6 +72,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             return ex;
         }
     }
+#endif
 
     /// <inheritdoc />
     public virtual async Task<Result<TId?>> AddAsync<TPost>(TPost entry, bool shouldSave, CancellationToken cancellationToken = default)
@@ -230,6 +232,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     public Task<Result> DeleteAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave, CancellationToken cancellationToken = default) where TDelete : class
         => DeleteRangeAsync(entries, shouldSave, cancellationToken);
 
+#if NET7_0_OR_GREATER
     /// <inheritdoc />
     public Task<Result<long>> DeleteAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default)
         => DeleteRangeAsync(ids, cancellationToken);
@@ -260,6 +263,7 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
             return new ExceptionError(ex);
         }
     }
+#endif
     
     /// <inheritdoc />
     public virtual async Task<Result> DeleteRangeAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave,

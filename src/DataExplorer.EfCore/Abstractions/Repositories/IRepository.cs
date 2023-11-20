@@ -12,6 +12,7 @@ namespace DataExplorer.EfCore.Abstractions.Repositories;
 [PublicAPI]
 public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> where TEntity : Entity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
+#if NET7_0_OR_GREATER 
     /// <summary>
     ///     Asynchronously updates database rows for the entity instances which match the LINQ query generated based on the provided specification from the database.
     /// </summary>
@@ -91,6 +92,7 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
     /// <returns>The total number of rows deleted in the database.</returns>
     Task<int> ExecuteDeleteAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
+#endif
     
     /// <summary>
     ///     <para>
@@ -300,6 +302,7 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// <param name="entity">The entity to remove.</param>
     void Delete(TEntity entity);
 
+#if NET7_0_OR_GREATER
     /// <summary>
     ///     Asynchronously deletes an entity with given Id.
     /// </summary>
@@ -319,7 +322,28 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
     /// <returns>True if an entity was found and deleted, otherwise false.</returns>
     Task<bool> DeleteAsync(TId id, CancellationToken cancellationToken = default);
-
+    
+    /// <summary>
+    ///     Asynchronously deletes entities with given Ids.
+    /// </summary>
+    /// <remarks>
+    ///     <para>
+    ///         This operation executes immediately against the database, rather than being deferred until
+    ///         <see cref="DbContext.SaveChanges()" /> is called. It also does not interact with the EF change tracker in any way:
+    ///         entity instances which happen to be tracked when this operation is invoked aren't taken into account, and aren't updated
+    ///         to reflect the changes.
+    ///     </para>
+    ///     <para>
+    ///         See <see href="https://aka.ms/efcore-docs-bulk-operations">Executing bulk operations with EF Core</see>
+    ///         for more information and examples.
+    ///     </para>
+    /// </remarks>
+    /// <param name="ids">Ids of the entities to delete.</param>
+    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+    /// <returns>The number of deleted entities.</returns>
+    Task<long> DeleteRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default);
+#endif
+    
     /// <summary>
     ///     Begins tracking the given entities in the <see cref="EntityState.Deleted" /> state such that they will
     ///     be removed from the database when <see cref="DbContext.SaveChanges()" /> is called.
@@ -343,27 +367,7 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     /// </remarks>
     /// <param name="entities">The entities to remove.</param>
     void DeleteRange(IEnumerable<TEntity> entities);
-
-    /// <summary>
-    ///     Asynchronously deletes entities with given Ids.
-    /// </summary>
-    /// <remarks>
-    ///     <para>
-    ///         This operation executes immediately against the database, rather than being deferred until
-    ///         <see cref="DbContext.SaveChanges()" /> is called. It also does not interact with the EF change tracker in any way:
-    ///         entity instances which happen to be tracked when this operation is invoked aren't taken into account, and aren't updated
-    ///         to reflect the changes.
-    ///     </para>
-    ///     <para>
-    ///         See <see href="https://aka.ms/efcore-docs-bulk-operations">Executing bulk operations with EF Core</see>
-    ///         for more information and examples.
-    ///     </para>
-    /// </remarks>
-    /// <param name="ids">Ids of the entities to delete.</param>
-    /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
-    /// <returns>The number of deleted entities.</returns>
-    Task<long> DeleteRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default);
-
+    
     /// <summary>
     ///     <para>
     ///         Disables an entity.

@@ -39,6 +39,7 @@ public interface ISpecificationEvaluator
     IQueryable<T> GetQuery<T>(IQueryable<T> query, IBasicSpecification<T> specification,
         bool evaluateCriteriaOnly = false) where T : class;
 
+#if NET7_0_OR_GREATER 
     /// <summary>
     ///     Applies the logic encapsulated by <paramref name="specification" /> to given <paramref name="query" /> and executes the update.
     /// </summary>
@@ -47,5 +48,6 @@ public interface ISpecificationEvaluator
     /// <param name="evaluateCriteriaOnly">Whether to only evaluate criteria.</param>
     /// <returns>The number of updated rows.</returns>
     (IQueryable<T> Query, Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> EvaluatedCalls) GetQuery<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
-        bool evaluateCriteriaOnly = false) where T : class;
+        bool evaluateCriteriaOnly = false) where T : class;   
+#endif
 }

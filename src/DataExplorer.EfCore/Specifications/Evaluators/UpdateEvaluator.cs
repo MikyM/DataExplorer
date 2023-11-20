@@ -1,4 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿#if NET7_0_OR_GREATER 
+
+using System.Linq.Expressions;
 using ExpressionExtensions = DataExplorer.EfCore.Specifications.Extensions.ExpressionExtensions;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
@@ -23,3 +25,4 @@ public class UpdateEvaluator : IUpdateEvaluator, ISpecialCaseEvaluator
     public bool IsCriteriaEvaluator { get; } = false;
     public int ApplicationOrder { get; } = int.MaxValue;
 }
+#endif

@@ -30,8 +30,12 @@ public static class DependencyInjectionExtensions
         builder.RegisterGeneric(typeof(AsyncInterceptorAdapter<>));
         // register instance factory
         builder.RegisterType<CachedInstanceFactory>().As<ICachedInstanceFactory>().SingleInstance();
+
+#if NET8_0
         // register the time provider conditionally
-        builder.RegisterInstance(TimeProvider.System).As<TimeProvider>().SingleInstance().IfNotRegistered(typeof(TimeProvider));
+        builder.RegisterInstance(TimeProvider.System).As<TimeProvider>().SingleInstance().IfNotRegistered(typeof(TimeProvider)); 
+#endif
+
 
         return builder;
     }
@@ -53,8 +57,11 @@ public static class DependencyInjectionExtensions
         serviceCollection.AddSingleton(typeof(AsyncInterceptorAdapter<>));
         // register instance factory
         serviceCollection.AddSingleton<ICachedInstanceFactory,CachedInstanceFactory>();
+        
+#if NET8_0
         // register the time provider conditionally
         serviceCollection.TryAddSingleton(TimeProvider.System);
+#endif
 
         config.ReleaseRefs();
 

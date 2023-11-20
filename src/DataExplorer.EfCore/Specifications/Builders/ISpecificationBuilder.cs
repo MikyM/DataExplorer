@@ -10,10 +10,12 @@ public interface ISpecificationBuilder<T> : IBasicSpecificationBuilder<T> where 
     new Specification<T> Specification { get; }
 }
 
+#if NET7_0_OR_GREATER 
 public interface IUpdateSpecificationBuilder<T> : IBasicSpecificationBuilder<T> where T : class
 {
     new UpdateSpecification<T> Specification { get; }
 }
+#endif
 
 public interface IBasicSpecificationBuilder<T> where T : class
 {

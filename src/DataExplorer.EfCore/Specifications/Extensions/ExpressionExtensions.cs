@@ -27,6 +27,7 @@ public static class ExpressionExtensions
         return Expression.Lambda<Func<T, bool>>(combineOperator(leftBody, rightBody), leftParameter);
     }
 
+#if NET7_0_OR_GREATER 
     public static Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> Join<T>(this
             Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> leftExpression,
         Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> rightExpression)
@@ -84,6 +85,7 @@ public static class ExpressionExtensions
     public static Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> Join<T>(
         IEnumerable<Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>> expressions)
         => Join(expressions.ToArray());
+#endif
 
     private class ReplaceExpressionVisitor : ExpressionVisitor
     {

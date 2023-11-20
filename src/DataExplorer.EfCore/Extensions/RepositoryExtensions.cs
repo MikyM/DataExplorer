@@ -8,6 +8,7 @@ namespace DataExplorer.EfCore.Extensions;
 [PublicAPI]
 public static class RepositoryExtensions
 {
+#if NET7_0_OR_GREATER
     /// <summary>
     ///     <para>
     ///         Disables an entity by executing an explicit update on the database.
@@ -63,4 +64,5 @@ public static class RepositoryExtensions
         var res = await repository.ExecuteUpdateAsync(new DisableSpecification<TEntity,TId>(ids), cancellationToken);
         return res;
     }
+#endif
 }

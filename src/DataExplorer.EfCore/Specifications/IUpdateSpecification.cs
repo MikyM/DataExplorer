@@ -1,4 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿#if NET7_0_OR_GREATER 
+
+using System.Linq.Expressions;
 
 namespace DataExplorer.EfCore.Specifications;
 
@@ -13,3 +15,4 @@ public interface IUpdateSpecification<T> : IBasicSpecification<T> where T : clas
     /// </summary>
     IEnumerable<Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>>? UpdateExpressions { get; }
 }
+#endif

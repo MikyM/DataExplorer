@@ -15,11 +15,15 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    if: "!contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[ci-skip]')"
     steps:
-    - name: Setup .NET 8.0
+    - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: | 
+          6.0.x
+          7.0.x
+          8.0.x
 
     - name: Install and cache PowerShell modules
       uses: potatoqualitee/psmodulecache@v5.2
@@ -29,61 +33,55 @@ jobs:
     - name: Check out Code 
       uses: actions/checkout@v3
 
+    - name: Restore dotnet tools
+      run: dotnet tool restore
+
     - name: Build
       run: |
         cd src
         dotnet restore
         dotnet build -c Release --no-restore
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
     - name: Run tests
       run: |
         cd src
         dotnet test -c Release --no-restore --no-build --verbosity minimal
   
-  publish:
-    runs-on: ubuntu-latest
-    needs: test
-    if: github.event_name == 'push'
-    steps:
     - name: Pack DataExplorer
+      if: github.event_name == 'push'
       run: |  
         cd src/DataExplorer
         dotnet pack -c Release -o out 
 
     - name: Push DataExplorer NuGet registry
+      if: github.event_name == 'push'
       run: dotnet nuget push ./src/DataExplorer/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
     - name: Pack DataExplorer.EfCore
+      if: github.event_name == 'push'
       run: | 
         cd src/DataExplorer.EfCore
         dotnet pack -c Release -o out 
 
     - name: Push DataExplorer.EfCore NuGet registry
+      if: github.event_name == 'push'
       run: dotnet nuget push ./src/DataExplorer.EfCore/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
-  build_docs:
-    runs-on: ubuntu-latest
-    needs: publish
-    if: github.event_name == 'push'
-    steps:
-    - name: Restore dotnet tools
-      run: dotnet tool restore
-      
-    - name: Docfx metadata
-      run: cd ./docs && dotnet docfx metadata
+    - name: Build docs - copy readme and docfx metadata
+      if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
+      run: cd ./docs && cp ../README.md index.md && dotnet docfx metadata
 
-    - name: Fix namespaces
+    - name: Build docs - fix namespaces
+      if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
       shell: pwsh
       run: cd ./docs && ./fix-nmsp.ps1 api\toc.yml
 
-    - name: Docfx build
+    - name: Build docs - docfx build
+      if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
       run: cd ./docs && dotnet docfx build -f
       
     - name: Upload docs
+      if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
       uses: actions/upload-artifact@v3
       with:
         name: docfx-site
@@ -91,8 +89,8 @@ jobs:
 
   publish_docs:
     name: Publish Documentation
-    needs: build_docs
-    if: github.event_name == 'push'
+    needs: build
+    if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]') && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[ci-skip]')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout triggering branch

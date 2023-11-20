@@ -25,7 +25,8 @@ public static class SpecificationBuilderExtensions
 
         return specificationBuilder;
     }
-    
+
+#if NET7_0_OR_GREATER 
     /// <summary>
     ///         Specify property and value to be set in ExecuteUpdate method with chaining multiple calls for updating
     ///         multiple columns.
@@ -56,6 +57,7 @@ public static class SpecificationBuilderExtensions
 
         return specificationBuilder;
     }
+#endif
     
     /// <summary>
     /// Specify a predicate that will be applied to the query

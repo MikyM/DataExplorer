@@ -9,6 +9,7 @@ namespace DataExplorer.EfCore.Extensions;
 [PublicAPI]
 public static class CrudDataServiceExtensions
 {
+#if NET7_0_OR_GREATER
     /// <summary>
     /// Disables an entity.
     /// </summary>
@@ -105,4 +106,5 @@ public static class CrudDataServiceExtensions
             return new ExceptionError(ex);
         }
     }
+#endif
 }

@@ -24,8 +24,12 @@ public class SpecificationEvaluator : ISpecificationEvaluator
     private readonly List<IPreUpdateEvaluator> _preUpdateEvaluators = new();
 
     private readonly IProjectionEvaluator _projectionEvaluator;
+    
+#if NET7_0_OR_GREATER 
     private readonly IUpdateEvaluator _updateEvaluator;
+#endif
 
+#if NET7_0_OR_GREATER 
     internal SpecificationEvaluator(IEnumerable<IEvaluator> evaluators, IEnumerable<IBasicEvaluator> basicEvaluators, 
         IEnumerable<IPreUpdateEvaluator> preUpdateEvaluators, IProjectionEvaluator projectionEvaluator, IUpdateEvaluator updateEvaluator)
     {
@@ -35,11 +39,23 @@ public class SpecificationEvaluator : ISpecificationEvaluator
         _evaluators.AddRange(evaluators);
         _basicEvaluators.AddRange(basicEvaluators);
     }
+#else
+    internal SpecificationEvaluator(IEnumerable<IEvaluator> evaluators, IEnumerable<IBasicEvaluator> basicEvaluators, 
+        IEnumerable<IPreUpdateEvaluator> preUpdateEvaluators, IProjectionEvaluator projectionEvaluator)
+    {
+        _projectionEvaluator = projectionEvaluator;
+        _preUpdateEvaluators.AddRange(preUpdateEvaluators);
+        _evaluators.AddRange(evaluators);
+        _basicEvaluators.AddRange(basicEvaluators);
+    }
+#endif
 
     internal SpecificationEvaluator(bool cacheEnabled = false)
     {
         _projectionEvaluator = ProjectionEvaluator.Instance;
+#if NET7_0_OR_GREATER 
         _updateEvaluator = UpdateEvaluator.Instance;
+#endif
         _evaluators.AddRange(new List<IEvaluator>()
         {
             WhereEvaluator.Default, SearchEvaluator.Default, cacheEnabled ? IncludeEvaluator.Cached : IncludeEvaluator.Default,
@@ -95,6 +111,7 @@ public class SpecificationEvaluator : ISpecificationEvaluator
             .Aggregate(query, (current, evaluator) => evaluator.GetQuery(current, specification));
     }
 
+#if NET7_0_OR_GREATER 
     public (IQueryable<T> Query, Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> EvaluatedCalls) GetQuery<T>(IQueryable<T> query, IUpdateSpecification<T> specification,
         bool evaluateCriteriaOnly = false) where T : class
     {
@@ -109,4 +126,5 @@ public class SpecificationEvaluator : ISpecificationEvaluator
         
         return new ValueTuple<IQueryable<T>, Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>>(resultQuery, _updateEvaluator.Evaluate(specification));
     }
+#endif
 }

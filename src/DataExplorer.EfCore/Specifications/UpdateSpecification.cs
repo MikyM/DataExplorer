@@ -1,4 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿#if NET7_0_OR_GREATER
+
+using System.Linq.Expressions;
 using DataExplorer.EfCore.Specifications.Builders;
 
 namespace DataExplorer.EfCore.Specifications;
@@ -42,3 +44,5 @@ public class UpdateSpecification<T> : BasicSpecification<T>, IUpdateSpecificatio
         return this;
     }
 }
+
+#endif

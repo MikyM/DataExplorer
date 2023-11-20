@@ -86,8 +86,14 @@ public sealed class EfDataExplorerTypeCache : IEfDataExplorerTypeCache
             typeof(IRepository<>), typeof(IRepository<,>), typeof(IReadOnlyRepository<>), typeof(IReadOnlyRepository<,>)
         };
 
+#if NET7_0_OR_GREATER
         EntityInfo = entities.AsReadOnly();
         RepoInfo = repos.AsReadOnly();
+#else
+        EntityInfo = entities;
+        RepoInfo = repos;
+#endif
+
     }
     
     /// <inheritdoc/>

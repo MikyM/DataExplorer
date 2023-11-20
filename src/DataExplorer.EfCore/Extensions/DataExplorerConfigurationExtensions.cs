@@ -270,14 +270,18 @@ public static class DataExplorerConfigurationExtensions
             .SingleInstance();
         
         serviceCollection?.AddSingleton<IProjectionEvaluator>(new ProjectionEvaluator());
-        
+
+#if NET7_0_OR_GREATER
         builder?.RegisterType<UpdateEvaluator>()
             .As<IUpdateEvaluator>()
             .FindConstructorsWith(ctorFinder)
             .SingleInstance();
 
-        serviceCollection?.AddSingleton<IUpdateEvaluator>(new UpdateEvaluator());
+        serviceCollection?.AddSingleton<IUpdateEvaluator>(new UpdateEvaluator());   
+#endif
 
+
+#if NET7_0_OR_GREATER
         builder?.RegisterType<SpecificationEvaluator>()
             .As<ISpecificationEvaluator>()
             .UsingConstructor(typeof(IEnumerable<IEvaluator>), typeof(IEnumerable<IBasicEvaluator>),
@@ -290,6 +294,19 @@ public static class DataExplorerConfigurationExtensions
                 x.GetRequiredService<IEnumerable<IBasicEvaluator>>(),
                 x.GetRequiredService<IEnumerable<IPreUpdateEvaluator>>(), x.GetRequiredService<IProjectionEvaluator>(),
                 x.GetRequiredService<IUpdateEvaluator>()));
+#else
+        builder?.RegisterType<SpecificationEvaluator>()
+            .As<ISpecificationEvaluator>()
+            .UsingConstructor(typeof(IEnumerable<IEvaluator>), typeof(IEnumerable<IBasicEvaluator>),
+                typeof(IEnumerable<IPreUpdateEvaluator>), typeof(IProjectionEvaluator))
+            .FindConstructorsWith(ctorFinder)
+            .SingleInstance();
+
+        serviceCollection?.AddSingleton<ISpecificationEvaluator>(x =>
+            new SpecificationEvaluator(x.GetRequiredService<IEnumerable<IEvaluator>>(),
+                x.GetRequiredService<IEnumerable<IBasicEvaluator>>(),
+                x.GetRequiredService<IEnumerable<IPreUpdateEvaluator>>(), x.GetRequiredService<IProjectionEvaluator>()));
+#endif
 
         builder?.RegisterType<SpecificationValidator>()
             .As<ISpecificationValidator>()

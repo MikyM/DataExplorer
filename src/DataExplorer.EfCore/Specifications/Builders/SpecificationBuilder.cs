@@ -21,6 +21,7 @@ public class SpecificationBuilder<T> : BasicSpecificationBuilder<T>, ISpecificat
     public override Specification<T> Specification { get; }
 }
 
+#if NET7_0_OR_GREATER 
 public class UpdateSpecificationBuilder<T> : BasicSpecificationBuilder<T>, IUpdateSpecificationBuilder<T> where T : class
 {
     public UpdateSpecificationBuilder(UpdateSpecification<T> specification) : base(specification)
@@ -30,7 +31,7 @@ public class UpdateSpecificationBuilder<T> : BasicSpecificationBuilder<T>, IUpda
 
     public override UpdateSpecification<T> Specification { get; }
 }
-
+#endif
 
 public class BasicSpecificationBuilder<T> : IBasicSpecificationBuilder<T> where T : class
 {

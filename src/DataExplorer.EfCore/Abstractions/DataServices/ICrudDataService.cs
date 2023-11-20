@@ -17,6 +17,7 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// </summary>
     IRepository<TEntity,TId> Repository { get; }
     
+#if NET7_0_OR_GREATER 
     /// <summary>
     ///     Asynchronously updates database rows for the entity instances which match the LINQ query generated based on the provided specification from the database.
     /// </summary>
@@ -76,7 +77,8 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
     /// <returns>The total number of rows deleted in the database.</returns>
     Task<Result<int>> ExecuteDeleteAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default);
-    
+#endif    
+
     /// <summary>
     /// Adds an entry.
     /// </summary>
@@ -147,7 +149,8 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <returns><see cref="Result"/> of the operation</returns>
     Task<Result> DeleteAsync<TDelete>(TDelete entry, bool shouldSave = false, CancellationToken cancellationToken = default)
         where TDelete : class;
-    
+
+#if NET7_0_OR_GREATER 
     /// <summary>
     /// Deletes an entity.
     /// </summary>
@@ -155,6 +158,8 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns><see cref="Result"/> of the operation containing information whether any entity has been deleted.</returns>
     Task<Result<bool>> DeleteAsync(TId id, CancellationToken cancellationToken = default);
+#endif
+
 
     /// <summary>
     /// Deletes a range of entities.
@@ -177,7 +182,8 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <returns><see cref="Result"/> of the operation</returns>
     Task<Result> DeleteAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave, CancellationToken cancellationToken = default)
         where TDelete : class;
-    
+
+#if NET7_0_OR_GREATER
     /// <summary>
     /// Deletes a range of entities.
     /// </summary>
@@ -201,16 +207,6 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <summary>
     /// Deletes a range of entities.
     /// </summary>
-    /// <param name="entries">Entries to delete</param>
-    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
-    /// <param name="cancellationToken">Cancellation token.</param>
-    /// <returns><see cref="Result"/> of the operation</returns>
-    Task<Result> DeleteRangeAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave = false, CancellationToken cancellationToken = default)
-        where TDelete : class;
-    
-    /// <summary>
-    /// Deletes a range of entities.
-    /// </summary>
     /// <remarks>
     ///     <para>
     ///         This operation executes immediately against the database, rather than being deferred until
@@ -227,6 +223,17 @@ public interface ICrudDataService<TEntity, TId, out TContext> : IReadOnlyDataSer
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns><see cref="Result"/> of the operation</returns>
     Task<Result<long>> DeleteRangeAsync(IEnumerable<TId> ids, CancellationToken cancellationToken = default);
+#endif
+    
+    /// <summary>
+    /// Deletes a range of entities.
+    /// </summary>
+    /// <param name="entries">Entries to delete</param>
+    /// <param name="shouldSave">Whether to automatically call SaveChangesAsync() </param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns><see cref="Result"/> of the operation</returns>
+    Task<Result> DeleteRangeAsync<TDelete>(IEnumerable<TDelete> entries, bool shouldSave = false, CancellationToken cancellationToken = default)
+        where TDelete : class;
     
     /// <summary>
     /// Disables an entity.
