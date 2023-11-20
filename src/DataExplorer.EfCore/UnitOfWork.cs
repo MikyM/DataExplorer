@@ -165,7 +165,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         throw new InvalidOperationException($"Can't create {type} repository for the given type as it's ID is incompatible - this type only supports long Ids.");
     }
 
-    /// <inheritdoc cref="IUnitOfWork.GetRepository{TRepository}" />
+    /// <inheritdoc/>
     public TRepository GetRepository<TRepository>() where TRepository : class, IRepositoryBase
     {
         var repoInterfaceType = typeof(TRepository);
