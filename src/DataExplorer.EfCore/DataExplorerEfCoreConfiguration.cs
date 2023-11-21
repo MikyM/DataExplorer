@@ -10,7 +10,7 @@ namespace DataExplorer.EfCore;
 /// Configuration for EFCore Data Explorer.
 /// </summary>
 [PublicAPI]
-public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
+public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IOptions<DataExplorerEfCoreConfiguration>
 {
     /// <summary>
     /// Creates an instance of the configuration class.
@@ -175,4 +175,7 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase
         DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
         return this;
     }
+
+    /// <inheritdoc/>
+    DataExplorerEfCoreConfiguration IOptions<DataExplorerEfCoreConfiguration>.Value => this;
 }

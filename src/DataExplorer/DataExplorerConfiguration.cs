@@ -14,7 +14,7 @@ namespace DataExplorer;
 /// Configuration of the data explorer.
 /// </summary>
 [PublicAPI]
-public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
+public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, IOptions<DataExplorerConfiguration>
 {
     /// <summary>
     /// Creates an instance of the configuration class.
@@ -107,6 +107,9 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase
         ServiceCollection?.AddSingleton<TGenerator>();
         return this;
     }
+
+    /// <inheritdoc/>
+    DataExplorerConfiguration IOptions<DataExplorerConfiguration>.Value => this;
 }
 
 /// <summary>

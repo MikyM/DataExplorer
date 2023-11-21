@@ -152,7 +152,7 @@ public class MongoReadOnlyRepository<TEntity> : IMongoReadOnlyRepository<TEntity
     /// <inheritdoc />
     public Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate,
         CancellationToken cancellationToken = default)
-        => MongoQueryable.FirstOrDefaultAsync(predicate, cancellationToken);
+        => MongoQueryable.FirstOrDefaultAsync(predicate, cancellationToken)!;
     
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)

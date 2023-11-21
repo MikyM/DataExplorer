@@ -32,7 +32,7 @@ public static class CrudDataServiceExtensions
     public static Task<Result<long>> DisableAsync<TEntity, TId, TContext>(
         this ICrudDataService<TEntity, TId, TContext> service, IEnumerable<TId> ids,
         CancellationToken cancellationToken = default)
-        where TEntity : Entity<TId>, IDisableableEntity
+        where TEntity : Entity<TId>, IDisableable
         where TId : IComparable, IEquatable<TId>, IComparable<TId>
         where TContext : class, IEfDbContext 
         => DisableRangeAsync(service, ids, cancellationToken);
@@ -58,7 +58,7 @@ public static class CrudDataServiceExtensions
     /// <returns><see cref="Result"/> of the operation</returns>
     public static async Task<Result<bool>> DisableAsync<TEntity,TId,TContext>(this ICrudDataService<TEntity,TId,TContext> service, TId id,
         CancellationToken cancellationToken = default) 
-        where TEntity : Entity<TId>, IDisableableEntity
+        where TEntity : Entity<TId>, IDisableable
         where TId : IComparable, IEquatable<TId>, IComparable<TId> 
         where TContext : class, IEfDbContext
     {
@@ -93,7 +93,7 @@ public static class CrudDataServiceExtensions
     /// <returns><see cref="Result"/> of the operation</returns>
     public static async Task<Result<long>> DisableRangeAsync<TEntity,TId,TContext>(this ICrudDataService<TEntity,TId,TContext> service, IEnumerable<TId> ids,
         CancellationToken cancellationToken = default) 
-        where TEntity : Entity<TId>, IDisableableEntity
+        where TEntity : Entity<TId>, IDisableable
         where TId : IComparable, IEquatable<TId>, IComparable<TId> 
         where TContext : class, IEfDbContext
     {

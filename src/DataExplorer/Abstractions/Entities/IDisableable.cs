@@ -4,7 +4,7 @@
 /// Represents an entity that is soft deleted.
 /// </summary>
 [PublicAPI]
-public interface IDisableableEntity
+public interface IDisableable
 {
     /// <summary>
     /// Whether this entity is currently disabled.

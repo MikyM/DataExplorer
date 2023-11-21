@@ -373,11 +373,11 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     ///         Disables an entity.
     ///     </para>
     ///     <para>
-    ///         Begins tracking the given entity via <see cref="BeginUpdate"/> and sets it's <see cref="IDisableableEntity.IsDisabled"/> property to <b>true</b>.
+    ///         Begins tracking the given entity via <see cref="BeginUpdate"/> and sets it's <see cref="IDisableable.IsDisabled"/> property to <b>true</b>.
     ///     </para>
     /// </summary>
     /// <param name="entity">Entity to disable.</param>
-    /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="IDisableableEntity"/>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="IDisableable"/>.</exception>
     void Disable(TEntity entity);
 
     /// <summary>
@@ -385,11 +385,11 @@ public interface IRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> whe
     ///         Disables a range of entities.
     ///     </para>
     ///     <para>
-    ///         Begins tracking the given entities via <see cref="BeginUpdate"/> and sets their <see cref="IDisableableEntity.IsDisabled"/> properties to <b>true</b>.
+    ///         Begins tracking the given entities via <see cref="BeginUpdate"/> and sets their <see cref="IDisableable.IsDisabled"/> properties to <b>true</b>.
     ///     </para>
     /// </summary>
     /// <param name="entities">Entities to disable.</param>
-    /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="IDisableableEntity"/>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="IDisableable"/>.</exception>
     void DisableRange(IEnumerable<TEntity> entities);
 
     /// <summary>

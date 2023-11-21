@@ -121,7 +121,7 @@ public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongo
 
     public virtual Task DisableAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        if (entity is not IDisableableEntity disableableEntity)
+        if (entity is not IDisableable disableableEntity)
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
 
         disableableEntity.IsDisabled = true;
@@ -133,11 +133,11 @@ public class MongoRepository<TEntity> : MongoReadOnlyRepository<TEntity>, IMongo
     {
         var list = entities.ToList();
         
-        if (list.FirstOrDefault() is not IDisableableEntity)
+        if (list.FirstOrDefault() is not IDisableable)
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
         
         foreach (var entity in list) 
-            ((IDisableableEntity)entity).IsDisabled = true;
+            ((IDisableable)entity).IsDisabled = true;
 
         await SaveAsync(list, cancellationToken);;
     }

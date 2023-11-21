@@ -15,7 +15,7 @@ internal static class TypeExtensions
     }
     
     internal static bool GetIsDisableable(this Type type)
-        => type.GetInterfaces().FirstOrDefault(x => x == typeof(IDisableableEntity)) is not null;
+        => type.GetInterfaces().FirstOrDefault(x => x == typeof(IDisableable)) is not null;
     
     internal static bool GetIsSnowflake(this Type type)
         => type.GetInterfaces().FirstOrDefault(x => x == typeof(ISnowflakeEntity)) is not null;

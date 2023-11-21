@@ -1,15 +1,16 @@
-﻿#if NET7_0_OR_GREATER
+﻿// ReSharper disable VirtualMemberCallInConstructor
+#if NET7_0_OR_GREATER
 // ReSharper disable once CheckNamespace
 namespace DataExplorer.EfCore.Specifications;
 
 /// <summary>
-/// A helper specification used to disable entities implementing <see cref="IDisableableEntity"/>.
+/// A helper specification used to disable entities implementing <see cref="IDisableable"/>.
 /// </summary>
 /// <typeparam name="TEntity">The entity type.</typeparam>
 /// <typeparam name="TId">The Id type.</typeparam>
 [PublicAPI]
-public sealed class DisableSpecification<TEntity, TId> : UpdateSpecification<TEntity>
-    where TEntity : class, IDisableableEntity, IEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
+public class DisableSpecification<TEntity, TId> : UpdateSpecification<TEntity>
+    where TEntity : class, IDisableable, IEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
     /// Constructor.
@@ -31,4 +32,21 @@ public sealed class DisableSpecification<TEntity, TId> : UpdateSpecification<TEn
         Modify(x => x.SetProperty(p => p.IsDisabled, true));
     }
 }
+
+/// <summary>
+/// A helper specification used to disable entities implementing <see cref="IDisableable"/>.
+/// </summary>
+/// <typeparam name="TEntity">The entity type.</typeparam>
+[PublicAPI]
+public sealed class DisableSpecification<TEntity> : DisableSpecification<TEntity, long>
+    where TEntity : class, IDisableable, IEntity<long>
+{
+    public DisableSpecification(long id) : base(id)
+    {
+    }
+    public DisableSpecification(IEnumerable<long> ids) : base(ids)
+    {
+    }
+}
+
 #endif

@@ -4,6 +4,7 @@ using AutoMapper.Contrib.Autofac.DependencyInjection;
 using DataExplorer.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer;
@@ -31,6 +32,8 @@ public static class DependencyInjectionExtensions
         // register instance factory
         builder.RegisterType<CachedInstanceFactory>().As<ICachedInstanceFactory>().SingleInstance();
 
+        builder.RegisterInstance(config).AsSelf().As<IOptions<DataExplorerConfiguration>>().SingleInstance();
+
 #if NET8_0_OR_GREATER
         // register the time provider conditionally
         builder.RegisterInstance(TimeProvider.System).As<TimeProvider>().SingleInstance().IfNotRegistered(typeof(TimeProvider)); 
@@ -38,6 +41,8 @@ public static class DependencyInjectionExtensions
 #else
         builder.RegisterInstance(DataExplorerTimeProvider.Instance).As<DataExplorerTimeProvider>().SingleInstance();
 #endif
+        
+        config.ReleaseRefs();
 
         return builder;
     }
@@ -59,6 +64,8 @@ public static class DependencyInjectionExtensions
         serviceCollection.AddSingleton(typeof(AsyncInterceptorAdapter<>));
         // register instance factory
         serviceCollection.AddSingleton<ICachedInstanceFactory,CachedInstanceFactory>();
+
+        serviceCollection.AddOptions<DataExplorerConfiguration>().Configure(options);
         
 #if NET8_0_OR_GREATER
         // register the time provider conditionally

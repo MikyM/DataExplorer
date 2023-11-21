@@ -7,7 +7,7 @@ namespace DataExplorer.EfCore.Specifications;
 /// <typeparam name="TEntity">The entity type.</typeparam>
 /// <typeparam name="TId">The Id type.</typeparam>
 [PublicAPI]
-public sealed class EntityByIdSpecification<TEntity, TId> : Specification<TEntity>
+public class EntityByIdSpecification<TEntity, TId> : Specification<TEntity>
     where TEntity : class, IEntity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
     /// <summary>
@@ -26,5 +26,22 @@ public sealed class EntityByIdSpecification<TEntity, TId> : Specification<TEntit
     public EntityByIdSpecification(IEnumerable<TId> ids)
     {
         Where(x => ids.Contains(x.Id));
+    }
+}
+
+/// <summary>
+/// A helper specification used to fetch entities by their Id.
+/// </summary>
+/// <typeparam name="TEntity">The entity type.</typeparam>
+[PublicAPI]
+public sealed class EntityByIdSpecification<TEntity> : EntityByIdSpecification<TEntity, long>
+    where TEntity : class, IEntity<long>
+{
+    public EntityByIdSpecification(long id) : base(id)
+    {
+    }
+
+    public EntityByIdSpecification(IEnumerable<long> ids) : base(ids)
+    {
     }
 }

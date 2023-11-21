@@ -141,7 +141,7 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     /// <inheritdoc />
     public virtual void Disable(TEntity entity)
     {
-        if (entity is not IDisableableEntity disableableEntity)
+        if (entity is not IDisableable disableableEntity)
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
         
         BeginUpdate(entity);
@@ -153,12 +153,12 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     {
         var list = entities.ToList();
         
-        if (list.FirstOrDefault() is not IDisableableEntity)
+        if (list.FirstOrDefault() is not IDisableable)
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
         
         BeginUpdateRange(list);
         foreach (var entity in list) 
-            ((IDisableableEntity)entity).IsDisabled = true;
+            ((IDisableable)entity).IsDisabled = true;
     }
 
     /// <inheritdoc />

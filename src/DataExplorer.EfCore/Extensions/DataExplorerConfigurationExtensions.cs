@@ -149,7 +149,10 @@ public static class DataExplorerConfigurationExtensions
         Action<DataExplorerEfCoreConfiguration>? options = null)
     {
         var config = new DataExplorerEfCoreConfiguration(configuration);
-        options?.Invoke(config);
+        
+        options ??= _ => { };
+        
+        options.Invoke(config);
         
         var builder = config.GetContainerBuilder();
         var serviceCollection = config.GetServiceCollection();
@@ -167,13 +170,12 @@ public static class DataExplorerConfigurationExtensions
         serviceCollection?.AddSingleton(mapperProvider);
 
         var ctorFinder = new AllConstructorsFinder();
-
-        var iopt = Options.Create(config);
-        builder?.RegisterInstance(iopt).As<IOptions<DataExplorerEfCoreConfiguration>>().SingleInstance();
+        
+        builder?.RegisterInstance(config).AsSelf().As<IOptions<DataExplorerEfCoreConfiguration>>().SingleInstance();
         builder?.Register(x => x.Resolve<IOptions<DataExplorerEfCoreConfiguration>>().Value).AsSelf().SingleInstance();
         builder?.RegisterGeneric(typeof(UnitOfWork<>)).As(typeof(IUnitOfWork<>)).InstancePerLifetimeScope();
-        
-        serviceCollection?.AddSingleton(iopt);
+
+        serviceCollection?.AddOptions<DataExplorerEfCoreConfiguration>().Configure(options);
         serviceCollection?.AddSingleton(x => x.GetRequiredService<IOptions<DataExplorerEfCoreConfiguration>>().Value);
         serviceCollection?.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 

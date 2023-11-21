@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using DataExplorer.Abstractions.Entities;
 using DataExplorer.Exceptions;
 
 #pragma warning disable CS1574, CS1584, CS1581, CS1580
@@ -271,7 +272,7 @@ public interface IMongoRepository<TEntity> : IMongoReadOnlyRepository<TEntity> w
     /// </summary>
     /// <param name="entities">Entities to disable.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
-    /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="DataExplorer.Abstractions.Entities.IDisableableEntity"/>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="IDisableable"/>.</exception>
     Task DisableRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
     
     /// <summary>
@@ -282,6 +283,6 @@ public interface IMongoRepository<TEntity> : IMongoReadOnlyRepository<TEntity> w
     /// <param name="entity">The entity to disable.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <exception cref="NotFoundException">Thrown when entity with given Id is not found.</exception>
-    /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="DataExplorer.Abstractions.Entities.IDisableableEntity"/>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="IDisableable"/>.</exception>
     Task DisableAsync(TEntity entity, CancellationToken cancellationToken = default);
 }

@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using DataExplorer.Abstractions.Entities;
 using DataExplorer.Exceptions;
 using DataExplorer.MongoDb.Abstractions.DataContexts;
 
@@ -268,7 +269,7 @@ public interface IMongoCrudDataService<TEntity, out TContext> : IMongoReadOnlyDa
     /// </summary>
     /// <param name="entities">Entities to disable.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
-    /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="DataExplorer.Abstractions.Entities.IDisableableEntity"/>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the given entities do not implement <see cref="IDisableable"/>.</exception>
     Task<Result> DisableRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
     
     /// <summary>
@@ -279,6 +280,6 @@ public interface IMongoCrudDataService<TEntity, out TContext> : IMongoReadOnlyDa
     /// <param name="entity">The entity to disable.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <exception cref="NotFoundException">Thrown when entity with given Id is not found.</exception>
-    /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="DataExplorer.Abstractions.Entities.IDisableableEntity"/>.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when the given entity does not implement <see cref="IDisableable"/>.</exception>
     Task<Result> DisableAsync(TEntity entity, CancellationToken cancellationToken = default);
 }

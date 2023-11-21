@@ -31,7 +31,7 @@ public static class RepositoryExtensions
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <remarks>True if any row was affected, otherwise false.</remarks>
     public static async Task<bool> DisableAsync<TEntity,TId>(this IRepository<TEntity,TId> repository, TId id, CancellationToken cancellationToken = default) 
-        where TEntity : Entity<TId>, IDisableableEntity where TId : IComparable, IEquatable<TId>, IComparable<TId>
+        where TEntity : Entity<TId>, IDisableable where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
         var res = await repository.ExecuteUpdateAsync(new DisableSpecification<TEntity,TId>(id), cancellationToken);
         return res == 1;
@@ -59,7 +59,7 @@ public static class RepositoryExtensions
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>The amount of affected rows.</returns>
     public static async Task<long> DisableRangeAsync<TEntity,TId>(this IRepository<TEntity,TId> repository, IEnumerable<TId> ids, CancellationToken cancellationToken = default) 
-        where TEntity : Entity<TId>, IDisableableEntity where TId : IComparable, IEquatable<TId>, IComparable<TId>
+        where TEntity : Entity<TId>, IDisableable where TId : IComparable, IEquatable<TId>, IComparable<TId>
     {
         var res = await repository.ExecuteUpdateAsync(new DisableSpecification<TEntity,TId>(ids), cancellationToken);
         return res;
