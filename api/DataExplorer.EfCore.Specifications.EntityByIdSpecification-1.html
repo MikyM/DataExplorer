@@ -6,10 +6,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class EntityByIdSpecification&lt;TEntity, TId&gt;
+    <title>Class EntityByIdSpecification&lt;TEntity&gt;
  </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class EntityByIdSpecification&lt;TEntity, TId&gt;
+    <meta name="title" content="Class EntityByIdSpecification&lt;TEntity&gt;
  ">
     <meta name="generator" content="docfx ">
   
@@ -92,10 +92,10 @@
                           </div>
                         </div>
 
-                    <article class="content wrap" id="_content" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`2">
+                    <article class="content wrap" id="_content" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`1">
 
 
-  <h1 id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_2" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`2" class="text-break">Class EntityByIdSpecification&lt;TEntity, TId&gt;
+  <h1 id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_1" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`1" class="text-break">Class EntityByIdSpecification&lt;TEntity&gt;
 </h1>
   <div class="markdown level0 summary"><p>A helper specification used to fetch entities by their Id.</p>
 </div>
@@ -105,8 +105,8 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="DataExplorer.EfCore.Specifications.BasicSpecification-1.html">BasicSpecification</a>&lt;TEntity&gt;</div>
     <div class="level2"><a class="xref" href="DataExplorer.EfCore.Specifications.Specification-1.html">Specification</a>&lt;TEntity&gt;</div>
-    <div class="level3"><span class="xref">EntityByIdSpecification&lt;TEntity, TId&gt;</span></div>
-      <div class="level4"><a class="xref" href="DataExplorer.EfCore.Specifications.EntityByIdSpecification-1.html">EntityByIdSpecification&lt;TEntity&gt;</a></div>
+    <div class="level3"><a class="xref" href="DataExplorer.EfCore.Specifications.EntityByIdSpecification-2.html">EntityByIdSpecification</a>&lt;TEntity, <span class="xref">System.Int64</span>&gt;</div>
+    <div class="level4"><span class="xref">EntityByIdSpecification&lt;TEntity&gt;</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -272,10 +272,10 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.Specifications.html">DataExplorer.EfCore.Specifications</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
-  <h5 id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_2_syntax">Syntax</h5>
+  <h5 id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_1_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[PublicAPI]
-public class EntityByIdSpecification&lt;TEntity, TId&gt; : Specification&lt;TEntity&gt;, ISpecification&lt;TEntity&gt;, IBasicSpecification&lt;TEntity&gt;, ISpecification where TEntity : class, IEntity&lt;TId&gt; where TId : IComparable, IEquatable&lt;TId&gt;, IComparable&lt;TId&gt;</code></pre>
+public sealed class EntityByIdSpecification&lt;TEntity&gt; : EntityByIdSpecification&lt;TEntity, long&gt;, ISpecification&lt;TEntity&gt;, IBasicSpecification&lt;TEntity&gt;, ISpecification where TEntity : class, IEntity&lt;long&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -291,30 +291,25 @@ public class EntityByIdSpecification&lt;TEntity, TId&gt; : Specification&lt;TEnt
         <td><p>The entity type.</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="parametername">TId</span></td>
-        <td><p>The Id type.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_EntityByIdSpecification_2__ctor__1_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.EntityByIdSpecification%602.%23ctor(%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_System_Collections_Generic_IEnumerable_System_Int64__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.EntityByIdSpecification%601.%23ctor(System.Collections.Generic.IEnumerable%7BSystem.Int64%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/BaseImplementations/EntityByIdSpecification.cs/#L17">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/BaseImplementations/EntityByIdSpecification.cs/#L44">View Source</a>
   </span>
-  <a id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_2__ctor_" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`2.#ctor*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_2__ctor__1_" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`2.#ctor(`1)">EntityByIdSpecification(TId)</h4>
-  <div class="markdown level1 summary"><p>Constructor.</p>
+  <a id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor*"></a>
+  <h4 id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_System_Collections_Generic_IEnumerable_System_Int64__" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor(System.Collections.Generic.IEnumerable{System.Int64})">EntityByIdSpecification(IEnumerable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"><p>A helper specification used to fetch entities by their Id.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EntityByIdSpecification(TId id)</code></pre>
+    <pre><code class="lang-csharp hljs">public EntityByIdSpecification(IEnumerable&lt;long&gt; ids)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -327,28 +322,27 @@ public class EntityByIdSpecification&lt;TEntity, TId&gt; : Specification&lt;TEnt
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TId</span></td>
-        <td><span class="parametername">id</span></td>
-        <td><p>The id.</p>
-</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="parametername">ids</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_EntityByIdSpecification_2__ctor_System_Collections_Generic_IEnumerable__1__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.EntityByIdSpecification%602.%23ctor(System.Collections.Generic.IEnumerable%7B%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_System_Int64_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.EntityByIdSpecification%601.%23ctor(System.Int64)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/BaseImplementations/EntityByIdSpecification.cs/#L26">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/BaseImplementations/EntityByIdSpecification.cs/#L40">View Source</a>
   </span>
-  <a id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_2__ctor_" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`2.#ctor*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_2__ctor_System_Collections_Generic_IEnumerable__1__" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`2.#ctor(System.Collections.Generic.IEnumerable{`1})">EntityByIdSpecification(IEnumerable&lt;TId&gt;)</h4>
-  <div class="markdown level1 summary"><p>Constructor.</p>
+  <a id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor*"></a>
+  <h4 id="DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_System_Int64_" data-uid="DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor(System.Int64)">EntityByIdSpecification(Int64)</h4>
+  <div class="markdown level1 summary"><p>A helper specification used to fetch entities by their Id.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EntityByIdSpecification(IEnumerable&lt;TId&gt; ids)</code></pre>
+    <pre><code class="lang-csharp hljs">public EntityByIdSpecification(long id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -361,10 +355,9 @@ public class EntityByIdSpecification&lt;TEntity, TId&gt; : Specification&lt;TEnt
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TId&gt;</td>
-        <td><span class="parametername">ids</span></td>
-        <td><p>The ids.</p>
-</td>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

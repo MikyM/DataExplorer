@@ -173,25 +173,25 @@ references:
   isSpec: "True"
   fullName: DataExplorer.Abstractions.Entities.ICreatedAtOffset.CreatedAt
   nameWithType: ICreatedAtOffset.CreatedAt
-- uid: DataExplorer.Abstractions.Entities.IDisableableEntity
-  name: IDisableableEntity
-  href: api/DataExplorer.Abstractions.Entities.IDisableableEntity.html
-  commentId: T:DataExplorer.Abstractions.Entities.IDisableableEntity
-  fullName: DataExplorer.Abstractions.Entities.IDisableableEntity
-  nameWithType: IDisableableEntity
-- uid: DataExplorer.Abstractions.Entities.IDisableableEntity.IsDisabled
+- uid: DataExplorer.Abstractions.Entities.IDisableable
+  name: IDisableable
+  href: api/DataExplorer.Abstractions.Entities.IDisableable.html
+  commentId: T:DataExplorer.Abstractions.Entities.IDisableable
+  fullName: DataExplorer.Abstractions.Entities.IDisableable
+  nameWithType: IDisableable
+- uid: DataExplorer.Abstractions.Entities.IDisableable.IsDisabled
   name: IsDisabled
-  href: api/DataExplorer.Abstractions.Entities.IDisableableEntity.html#DataExplorer_Abstractions_Entities_IDisableableEntity_IsDisabled
-  commentId: P:DataExplorer.Abstractions.Entities.IDisableableEntity.IsDisabled
-  fullName: DataExplorer.Abstractions.Entities.IDisableableEntity.IsDisabled
-  nameWithType: IDisableableEntity.IsDisabled
-- uid: DataExplorer.Abstractions.Entities.IDisableableEntity.IsDisabled*
+  href: api/DataExplorer.Abstractions.Entities.IDisableable.html#DataExplorer_Abstractions_Entities_IDisableable_IsDisabled
+  commentId: P:DataExplorer.Abstractions.Entities.IDisableable.IsDisabled
+  fullName: DataExplorer.Abstractions.Entities.IDisableable.IsDisabled
+  nameWithType: IDisableable.IsDisabled
+- uid: DataExplorer.Abstractions.Entities.IDisableable.IsDisabled*
   name: IsDisabled
-  href: api/DataExplorer.Abstractions.Entities.IDisableableEntity.html#DataExplorer_Abstractions_Entities_IDisableableEntity_IsDisabled_
-  commentId: Overload:DataExplorer.Abstractions.Entities.IDisableableEntity.IsDisabled
+  href: api/DataExplorer.Abstractions.Entities.IDisableable.html#DataExplorer_Abstractions_Entities_IDisableable_IsDisabled_
+  commentId: Overload:DataExplorer.Abstractions.Entities.IDisableable.IsDisabled
   isSpec: "True"
-  fullName: DataExplorer.Abstractions.Entities.IDisableableEntity.IsDisabled
-  nameWithType: IDisableableEntity.IsDisabled
+  fullName: DataExplorer.Abstractions.Entities.IDisableable.IsDisabled
+  nameWithType: IDisableable.IsDisabled
 - uid: DataExplorer.Abstractions.Entities.IEntity
   name: IEntity
   href: api/DataExplorer.Abstractions.Entities.IEntity.html
@@ -544,6 +544,23 @@ references:
   isSpec: "True"
   fullName: DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
   nameWithType: DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
+- uid: DataExplorer.DataExplorerConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#DataExplorerConfiguration}#Value
+  name: IOptions<DataExplorerConfiguration>.Value
+  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_DataExplorerConfiguration__Value
+  commentId: P:DataExplorer.DataExplorerConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#DataExplorerConfiguration}#Value
+  name.vb: Microsoft.Extensions.Options.IOptions<DataExplorer.DataExplorerConfiguration>.Value
+  fullName: DataExplorer.DataExplorerConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.DataExplorerConfiguration>.Value
+  nameWithType: DataExplorerConfiguration.IOptions<DataExplorerConfiguration>.Value
+  nameWithType.vb: DataExplorerConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.DataExplorerConfiguration>.Value
+- uid: DataExplorer.DataExplorerConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#DataExplorerConfiguration}#Value*
+  name: IOptions<DataExplorerConfiguration>.Value
+  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_DataExplorerConfiguration__Value_
+  commentId: Overload:DataExplorer.DataExplorerConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#DataExplorerConfiguration}#Value
+  isSpec: "True"
+  name.vb: Microsoft.Extensions.Options.IOptions<DataExplorer.DataExplorerConfiguration>.Value
+  fullName: DataExplorer.DataExplorerConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.DataExplorerConfiguration>.Value
+  nameWithType: DataExplorerConfiguration.IOptions<DataExplorerConfiguration>.Value
+  nameWithType.vb: DataExplorerConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.DataExplorerConfiguration>.Value
 - uid: DataExplorer.DataExplorerConfigurationBase
   name: DataExplorerConfigurationBase
   href: api/DataExplorer.DataExplorerConfigurationBase.html
@@ -3131,6 +3148,23 @@ references:
   isSpec: "True"
   fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.EnableIncludeCache
   nameWithType: DataExplorerEfCoreConfiguration.EnableIncludeCache
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#EfCore#DataExplorerEfCoreConfiguration}#Value
+  name: IOptions<DataExplorerEfCoreConfiguration>.Value
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__Value
+  commentId: P:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#EfCore#DataExplorerEfCoreConfiguration}#Value
+  name.vb: Microsoft.Extensions.Options.IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>.Value
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>.Value
+  nameWithType: DataExplorerEfCoreConfiguration.IOptions<DataExplorerEfCoreConfiguration>.Value
+  nameWithType.vb: DataExplorerEfCoreConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>.Value
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#EfCore#DataExplorerEfCoreConfiguration}#Value*
+  name: IOptions<DataExplorerEfCoreConfiguration>.Value
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__Value_
+  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#EfCore#DataExplorerEfCoreConfiguration}#Value
+  isSpec: "True"
+  name.vb: Microsoft.Extensions.Options.IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>.Value
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>.Value
+  nameWithType: DataExplorerEfCoreConfiguration.IOptions<DataExplorerEfCoreConfiguration>.Value
+  nameWithType.vb: DataExplorerEfCoreConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>.Value
 - uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.UseGridifyMapperProvider*
   name: UseGridifyMapperProvider
   href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_UseGridifyMapperProvider_
@@ -3162,22 +3196,6 @@ references:
   commentId: T:DataExplorer.EfCore.DataExplorerEntityInfo
   fullName: DataExplorer.EfCore.DataExplorerEntityInfo
   nameWithType: DataExplorerEntityInfo
-- uid: DataExplorer.EfCore.DataExplorerEntityInfo.#ctor(System.Type,System.Collections.Generic.IEnumerable{System.Type},System.Type,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,System.Boolean,System.Boolean,System.Boolean)
-  name: DataExplorerEntityInfo(Type, IEnumerable<Type>, Type, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, Boolean, Boolean, Boolean)
-  href: api/DataExplorer.EfCore.DataExplorerEntityInfo.html#DataExplorer_EfCore_DataExplorerEntityInfo__ctor_System_Type_System_Collections_Generic_IEnumerable_System_Type__System_Type_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_System_Boolean_System_Boolean_System_Boolean_
-  commentId: M:DataExplorer.EfCore.DataExplorerEntityInfo.#ctor(System.Type,System.Collections.Generic.IEnumerable{System.Type},System.Type,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,System.Boolean,System.Boolean,System.Boolean)
-  name.vb: DataExplorerEntityInfo(Type, IEnumerable(Of Type), Type, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, Boolean, Boolean, Boolean)
-  fullName: DataExplorer.EfCore.DataExplorerEntityInfo.DataExplorerEntityInfo(System.Type, System.Collections.Generic.IEnumerable<System.Type>, System.Type, DataExplorer.EfCore.DataExplorerRepoInfo, DataExplorer.EfCore.DataExplorerRepoInfo, DataExplorer.EfCore.DataExplorerRepoInfo, DataExplorer.EfCore.DataExplorerRepoInfo, System.Boolean, System.Boolean, System.Boolean)
-  fullName.vb: DataExplorer.EfCore.DataExplorerEntityInfo.DataExplorerEntityInfo(System.Type, System.Collections.Generic.IEnumerable(Of System.Type), System.Type, DataExplorer.EfCore.DataExplorerRepoInfo, DataExplorer.EfCore.DataExplorerRepoInfo, DataExplorer.EfCore.DataExplorerRepoInfo, DataExplorer.EfCore.DataExplorerRepoInfo, System.Boolean, System.Boolean, System.Boolean)
-  nameWithType: DataExplorerEntityInfo.DataExplorerEntityInfo(Type, IEnumerable<Type>, Type, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, Boolean, Boolean, Boolean)
-  nameWithType.vb: DataExplorerEntityInfo.DataExplorerEntityInfo(Type, IEnumerable(Of Type), Type, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, Boolean, Boolean, Boolean)
-- uid: DataExplorer.EfCore.DataExplorerEntityInfo.#ctor*
-  name: DataExplorerEntityInfo
-  href: api/DataExplorer.EfCore.DataExplorerEntityInfo.html#DataExplorer_EfCore_DataExplorerEntityInfo__ctor_
-  commentId: Overload:DataExplorer.EfCore.DataExplorerEntityInfo.#ctor
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.DataExplorerEntityInfo.DataExplorerEntityInfo
-  nameWithType: DataExplorerEntityInfo.DataExplorerEntityInfo
 - uid: DataExplorer.EfCore.DataExplorerEntityInfo.CrudGenericIdRepoInfo
   name: CrudGenericIdRepoInfo
   href: api/DataExplorer.EfCore.DataExplorerEntityInfo.html#DataExplorer_EfCore_DataExplorerEntityInfo_CrudGenericIdRepoInfo
@@ -3314,19 +3332,6 @@ references:
   commentId: T:DataExplorer.EfCore.DataExplorerRepoInfo
   fullName: DataExplorer.EfCore.DataExplorerRepoInfo
   nameWithType: DataExplorerRepoInfo
-- uid: DataExplorer.EfCore.DataExplorerRepoInfo.#ctor(System.Type,System.Type,System.Type,System.Boolean,System.Boolean)
-  name: DataExplorerRepoInfo(Type, Type, Type, Boolean, Boolean)
-  href: api/DataExplorer.EfCore.DataExplorerRepoInfo.html#DataExplorer_EfCore_DataExplorerRepoInfo__ctor_System_Type_System_Type_System_Type_System_Boolean_System_Boolean_
-  commentId: M:DataExplorer.EfCore.DataExplorerRepoInfo.#ctor(System.Type,System.Type,System.Type,System.Boolean,System.Boolean)
-  fullName: DataExplorer.EfCore.DataExplorerRepoInfo.DataExplorerRepoInfo(System.Type, System.Type, System.Type, System.Boolean, System.Boolean)
-  nameWithType: DataExplorerRepoInfo.DataExplorerRepoInfo(Type, Type, Type, Boolean, Boolean)
-- uid: DataExplorer.EfCore.DataExplorerRepoInfo.#ctor*
-  name: DataExplorerRepoInfo
-  href: api/DataExplorer.EfCore.DataExplorerRepoInfo.html#DataExplorer_EfCore_DataExplorerRepoInfo__ctor_
-  commentId: Overload:DataExplorer.EfCore.DataExplorerRepoInfo.#ctor
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.DataExplorerRepoInfo.DataExplorerRepoInfo
-  nameWithType: DataExplorerRepoInfo.DataExplorerRepoInfo
 - uid: DataExplorer.EfCore.DataExplorerRepoInfo.EntityInfo
   name: EntityInfo
   href: api/DataExplorer.EfCore.DataExplorerRepoInfo.html#DataExplorer_EfCore_DataExplorerRepoInfo_EntityInfo
@@ -7525,6 +7530,41 @@ references:
   fullName.vb: DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithPostProcessingAction(Of T, TResult)(DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder(Of T, TResult), System.Func(Of System.Collections.Generic.IEnumerable(Of TResult), System.Collections.Generic.IEnumerable(Of TResult)))
   nameWithType: SpecificationBuilderExtensions.WithPostProcessingAction<T, TResult>(ISpecificationBuilder<T, TResult>, Func<IEnumerable<TResult>, IEnumerable<TResult>>)
   nameWithType.vb: SpecificationBuilderExtensions.WithPostProcessingAction(Of T, TResult)(ISpecificationBuilder(Of T, TResult), Func(Of IEnumerable(Of TResult), IEnumerable(Of TResult)))
+- uid: DataExplorer.EfCore.Specifications.EntityByIdSpecification`1
+  name: EntityByIdSpecification<TEntity>
+  href: api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-1.html
+  commentId: T:DataExplorer.EfCore.Specifications.EntityByIdSpecification`1
+  name.vb: EntityByIdSpecification(Of TEntity)
+  fullName: DataExplorer.EfCore.Specifications.EntityByIdSpecification<TEntity>
+  fullName.vb: DataExplorer.EfCore.Specifications.EntityByIdSpecification(Of TEntity)
+  nameWithType: EntityByIdSpecification<TEntity>
+  nameWithType.vb: EntityByIdSpecification(Of TEntity)
+- uid: DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor(System.Collections.Generic.IEnumerable{System.Int64})
+  name: EntityByIdSpecification(IEnumerable<Int64>)
+  href: api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-1.html#DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_System_Collections_Generic_IEnumerable_System_Int64__
+  commentId: M:DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor(System.Collections.Generic.IEnumerable{System.Int64})
+  name.vb: EntityByIdSpecification(IEnumerable(Of Int64))
+  fullName: DataExplorer.EfCore.Specifications.EntityByIdSpecification<TEntity>.EntityByIdSpecification(System.Collections.Generic.IEnumerable<System.Int64>)
+  fullName.vb: DataExplorer.EfCore.Specifications.EntityByIdSpecification(Of TEntity).EntityByIdSpecification(System.Collections.Generic.IEnumerable(Of System.Int64))
+  nameWithType: EntityByIdSpecification<TEntity>.EntityByIdSpecification(IEnumerable<Int64>)
+  nameWithType.vb: EntityByIdSpecification(Of TEntity).EntityByIdSpecification(IEnumerable(Of Int64))
+- uid: DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor(System.Int64)
+  name: EntityByIdSpecification(Int64)
+  href: api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-1.html#DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_System_Int64_
+  commentId: M:DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor(System.Int64)
+  fullName: DataExplorer.EfCore.Specifications.EntityByIdSpecification<TEntity>.EntityByIdSpecification(System.Int64)
+  fullName.vb: DataExplorer.EfCore.Specifications.EntityByIdSpecification(Of TEntity).EntityByIdSpecification(System.Int64)
+  nameWithType: EntityByIdSpecification<TEntity>.EntityByIdSpecification(Int64)
+  nameWithType.vb: EntityByIdSpecification(Of TEntity).EntityByIdSpecification(Int64)
+- uid: DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor*
+  name: EntityByIdSpecification
+  href: api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-1.html#DataExplorer_EfCore_Specifications_EntityByIdSpecification_1__ctor_
+  commentId: Overload:DataExplorer.EfCore.Specifications.EntityByIdSpecification`1.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.EfCore.Specifications.EntityByIdSpecification<TEntity>.EntityByIdSpecification
+  fullName.vb: DataExplorer.EfCore.Specifications.EntityByIdSpecification(Of TEntity).EntityByIdSpecification
+  nameWithType: EntityByIdSpecification<TEntity>.EntityByIdSpecification
+  nameWithType.vb: EntityByIdSpecification(Of TEntity).EntityByIdSpecification
 - uid: DataExplorer.EfCore.Specifications.EntityByIdSpecification`2
   name: EntityByIdSpecification<TEntity, TId>
   href: api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-2.html

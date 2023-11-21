@@ -106,6 +106,10 @@
     <div class="level1"><a class="xref" href="DataExplorer.DataExplorerConfigurationBase.html">DataExplorerConfigurationBase</a></div>
     <div class="level2"><span class="xref">DataExplorerConfiguration</span></div>
   </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Microsoft.Extensions.Options.IOptions</span>&lt;<a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a>&gt;</div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -141,7 +145,7 @@
   <h5 id="DataExplorer_DataExplorerConfiguration_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[PublicAPI]
-public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase</code></pre>
+public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, IOptions&lt;DataExplorerConfiguration&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -464,6 +468,43 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase</c
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_DataExplorerConfiguration__Value.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.Microsoft%23Extensions%23Options%23IOptions%7BDataExplorer%23DataExplorerConfiguration%7D%23Value%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L112">View Source</a>
+  </span>
+  <a id="DataExplorer_DataExplorerConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_DataExplorerConfiguration__Value_" data-uid="DataExplorer.DataExplorerConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#DataExplorerConfiguration}#Value*"></a>
+  <h4 id="DataExplorer_DataExplorerConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_DataExplorerConfiguration__Value" data-uid="DataExplorer.DataExplorerConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#DataExplorerConfiguration}#Value">IOptions&lt;DataExplorerConfiguration&gt;.Value</h4>
+  <div class="markdown level1 summary"><p>Configuration of the data explorer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataExplorerConfiguration IOptions&lt;DataExplorerConfiguration&gt;.Value { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Microsoft.Extensions.Options.IOptions&lt;TOptions&gt;</span>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_System_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__System_Reflection_Assembly___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, Action&lt;DataExplorerEfCoreConfiguration&gt;, Assembly[])</a>

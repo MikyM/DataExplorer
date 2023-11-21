@@ -97,7 +97,8 @@
 
   <h1 id="DataExplorer_EfCore_DataExplorerEntityInfo" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo" class="text-break">Class DataExplorerEntityInfo
 </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Represents information about an entity.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -136,87 +137,9 @@
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_DataExplorerEntityInfo_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityInfo&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">[PublicAPI]
+public sealed class DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityInfo&gt;</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo__ctor_System_Type_System_Collections_Generic_IEnumerable_System_Type__System_Type_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_System_Boolean_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.%23ctor(System.Type%2CSystem.Collections.Generic.IEnumerable%7BSystem.Type%7D%2CSystem.Type%2CDataExplorer.EfCore.DataExplorerRepoInfo%2CDataExplorer.EfCore.DataExplorerRepoInfo%2CDataExplorer.EfCore.DataExplorerRepoInfo%2CDataExplorer.EfCore.DataExplorerRepoInfo%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L120">View Source</a>
-  </span>
-  <a id="DataExplorer_EfCore_DataExplorerEntityInfo__ctor_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.#ctor*"></a>
-  <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo__ctor_System_Type_System_Collections_Generic_IEnumerable_System_Type__System_Type_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_DataExplorer_EfCore_DataExplorerRepoInfo_System_Boolean_System_Boolean_System_Boolean_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.#ctor(System.Type,System.Collections.Generic.IEnumerable{System.Type},System.Type,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,DataExplorer.EfCore.DataExplorerRepoInfo,System.Boolean,System.Boolean,System.Boolean)">DataExplorerEntityInfo(Type, IEnumerable&lt;Type&gt;, Type, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, DataExplorerRepoInfo, Boolean, Boolean, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerEntityInfo(Type EntityType, IEnumerable&lt;Type&gt; Interfaces, Type IdType, DataExplorerRepoInfo CrudGenericIdRepoInfo, DataExplorerRepoInfo ReadOnlyGenericIdRepoInfo, DataExplorerRepoInfo CrudLongIdRepoInfo, DataExplorerRepoInfo ReadOnlyLongIdRepoInfo, bool IsDisableable, bool IsSnowflake, bool HasLongId)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Type</span></td>
-        <td><span class="parametername">EntityType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Type</span>&gt;</td>
-        <td><span class="parametername">Interfaces</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Type</span></td>
-        <td><span class="parametername">IdType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.DataExplorerRepoInfo.html">DataExplorerRepoInfo</a></td>
-        <td><span class="parametername">CrudGenericIdRepoInfo</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.DataExplorerRepoInfo.html">DataExplorerRepoInfo</a></td>
-        <td><span class="parametername">ReadOnlyGenericIdRepoInfo</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.DataExplorerRepoInfo.html">DataExplorerRepoInfo</a></td>
-        <td><span class="parametername">CrudLongIdRepoInfo</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.DataExplorerRepoInfo.html">DataExplorerRepoInfo</a></td>
-        <td><span class="parametername">ReadOnlyLongIdRepoInfo</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">IsDisableable</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">IsSnowflake</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">HasLongId</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
@@ -224,11 +147,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_CrudGenericIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.CrudGenericIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L124">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L55">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_CrudGenericIdRepoInfo_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.CrudGenericIdRepoInfo*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_CrudGenericIdRepoInfo" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.CrudGenericIdRepoInfo">CrudGenericIdRepoInfo</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The associated CRUD generic Id repo info.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -254,11 +178,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_CrudLongIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.CrudLongIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L126">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L61">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_CrudLongIdRepoInfo_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.CrudLongIdRepoInfo*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_CrudLongIdRepoInfo" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.CrudLongIdRepoInfo">CrudLongIdRepoInfo</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The associated CRUD long Id repo info.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -284,11 +209,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_EntityType.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.EntityType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L121">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L46">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_EntityType_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.EntityType*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_EntityType" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.EntityType">EntityType</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The entity type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -314,11 +240,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_HasLongId.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.HasLongId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L130">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L73">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_HasLongId_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.HasLongId*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_HasLongId" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.HasLongId">HasLongId</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the entity has Id of type <span class="xref">System.Int64</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -344,11 +271,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IdType.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IdType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L123">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L52">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_IdType_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.IdType*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_IdType" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.IdType">IdType</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The Id type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -374,11 +302,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_Interfaces.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.Interfaces%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L122">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L49">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_Interfaces_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.Interfaces*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_Interfaces" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.Interfaces">Interfaces</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The interfaces.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -404,11 +333,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IsDisableable.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IsDisableable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L128">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L67">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_IsDisableable_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.IsDisableable*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_IsDisableable" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.IsDisableable">IsDisableable</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the entity implements <a class="xref" href="DataExplorer.Abstractions.Entities.IDisableable.html">IDisableable</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -434,11 +364,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IsSnowflake.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IsSnowflake%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L129">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L70">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_IsSnowflake_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.IsSnowflake*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_IsSnowflake" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.IsSnowflake">IsSnowflake</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the entity implements <a class="xref" href="DataExplorer.Abstractions.Entities.ISnowflakeEntity-1.html">ISnowflakeEntity&lt;TId&gt;</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -464,11 +395,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyGenericIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyGenericIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L125">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L58">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyGenericIdRepoInfo_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyGenericIdRepoInfo*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyGenericIdRepoInfo" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyGenericIdRepoInfo">ReadOnlyGenericIdRepoInfo</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The associated read-only generic Id repo info.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -494,11 +426,12 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyLongIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyLongIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/EfDataExplorerTypeCache.cs/#L127">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L64">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyLongIdRepoInfo_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyLongIdRepoInfo*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyLongIdRepoInfo" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyLongIdRepoInfo">ReadOnlyLongIdRepoInfo</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The associated read-only long Id repo info.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">

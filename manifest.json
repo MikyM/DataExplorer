@@ -77,11 +77,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.Abstractions.Entities.IDisableableEntity.yml",
+      "source_relative_path": "api/DataExplorer.Abstractions.Entities.IDisableable.yml",
       "output": {
         ".html": {
-          "relative_path": "api/DataExplorer.Abstractions.Entities.IDisableableEntity.html",
-          "hash": "VJ6eRHf3k/3aQuELWYFNxCDc/g+b22saGI1pd7ZNo58="
+          "relative_path": "api/DataExplorer.Abstractions.Entities.IDisableable.html",
+          "hash": "l2f6tCtddKKKDYJ9ULq4TQsv+sNYjRXmO6uqdSA9lEQ="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.Entities.html",
-          "hash": "bqqtwKlKv+CiuV6X6YOUgJZO5Gee18zec4ahrlr/ZWk="
+          "hash": "+x1d2UnhbWqT1utFPqMjAeQcWLlDm9Or3vbeFRDGFCY="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.DataExplorerConfiguration.html",
-          "hash": "OyUDCOjfezX4WUFlbOUGunM2NFEbxk5qeyDZCnU3ImI="
+          "hash": "2n8GHC4YKclj2meTuKlr2Km/ueGL2LxaNwQSB3sqqHM="
         }
       },
       "is_incremental": false,
@@ -333,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.DependencyInjectionExtensions.html",
-          "hash": "0N+Ro4i+z01S8e0HmKB3VxIq3vW5dRI+tR5aUKZRN/4="
+          "hash": "Ycmlf7AqQHFG6P8EQAAgoOlDc/Ow2jKJDstHI8LCCEg="
         }
       },
       "is_incremental": false,
@@ -513,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html",
-          "hash": "sEPeXl6CjxH1AkSrhDMDd8YjTL6Wq8Zp2AWIKzqRtM0="
+          "hash": "U2/KiO4t6L6QV7M+aJKKvAPmUqBvKx/hx4yuZZlpvrg="
         }
       },
       "is_incremental": false,
@@ -573,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html",
-          "hash": "R7r6jxQPk+BMDLdz63Z3HAp7LtYSwvqAaykp6KRZsvA="
+          "hash": "PsdSPnDhwP3k9SQBmIGI4hbC06raJnRQspz6tNvNsjE="
         }
       },
       "is_incremental": false,
@@ -585,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataExplorerEntityInfo.html",
-          "hash": "NZd0+vIalxmpAcHLC76Wcr7oczQYFhQD4SQSnWr42gU="
+          "hash": "mpj0xLyu5aTurm9+T7ccimtYry2yMcOktEFaBHCp+H8="
         }
       },
       "is_incremental": false,
@@ -597,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataExplorerRepoInfo.html",
-          "hash": "zf7+TwaXOY/4M8qW+G+NnoGgqif+7tFU0FGCct1BVyg="
+          "hash": "zixp2G2CnRjMHe45l5CHJup7u0pag7afOgEYILRnftk="
         }
       },
       "is_incremental": false,
@@ -849,7 +849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.Repository-2.html",
-          "hash": "YS8SspS0NPv1aIx5TmSqJS/iKYEhLKI3wypbPDOiMRk="
+          "hash": "n1ikP7LMwCtmgEs22YHBtoeOMHzZ2QxAv3qVicAHUw4="
         }
       },
       "is_incremental": false,
@@ -1181,11 +1181,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-1.html",
+          "hash": "CA7ZtKQxZMuw6nE3OB9wWWnoVG1ZTDwMCWokJxbcgc8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-2.yml",
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-2.html",
-          "hash": "fuLdOF6mROC1Z7r8DyX9JlncbOwXkDKdxVGG6AErkUk="
+          "hash": "c5JC1CMnaEGdfeBnaspvCIFVXUvYtie0lNVUVLTqK0A="
         }
       },
       "is_incremental": false,
@@ -1941,7 +1953,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.html",
-          "hash": "I7S8iXxelY5fWWhhAJKkAKd3FOXetDggIGlE/q8Qe54="
+          "hash": "eMRJdam/vosjYFr/+uMMLziKCeKGVtzNdHwRwvkW1ok="
         }
       },
       "is_incremental": false,
@@ -1965,7 +1977,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.html",
-          "hash": "R1MyvGmEm9R7uQkzz3yCci6Po8UMQjfM25tMHuoEYOc="
+          "hash": "VOdEeBm2PjKFZ6CDiDak9I2n5ZWVVsl3mWPPnYfIIis="
         }
       },
       "is_incremental": false,
@@ -2157,7 +2169,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoCrudDataService-2.html",
-          "hash": "ltmeIQxypQvEWuRYEn3tu/3n6pflRfFBerX84DhX/QQ="
+          "hash": "dyRL6G3r+A6YrncR9XVfW6Yds2moYrIHWP+nvjM6D8g="
         }
       },
       "is_incremental": false,
@@ -2241,7 +2253,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.IMongoRepository-1.html",
-          "hash": "IovntmPa5AgeNdY0lFetdfqiImseQGQbsvHL/2xGQ2I="
+          "hash": "8gg5Ryxc9eY+EpV875RXULQaSC1Ty5zqo8tezO4wA2M="
         }
       },
       "is_incremental": false,
@@ -2628,7 +2640,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "T65IljpusZQcSrcjXCJdwjSs5nL+4g/dnzFMgoLriS0="
+          "hash": "j9g0VXnxGCkW4Yw+zuUP7qEEMtU3CpCF8T0PljGEFEQ="
         }
       },
       "is_incremental": false,
@@ -2727,7 +2739,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 218,
+          "total_file_count": 219,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
