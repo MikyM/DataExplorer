@@ -30,7 +30,6 @@ To register the library services with the DI container use extension methods on 
 builder.AddDataExplorer(options => 
 {
     options.AddEfCore(assembliesToScan);
-    options.AddMongoDb();
 });
 ```
 ## Download
@@ -44,4 +43,4 @@ Documentation available at https://mikym.github.io/DataExplorer/.
 
 ## Description
 
-Detailed descriptions are provided within EfCore and MongoDb directories (packages) and articles in documentation.
+Detailed descriptions are provided within subdirectories (packages) and articles in documentation.
