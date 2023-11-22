@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer</PackageId>
-        <Version>3.0.1</Version>
+        <Version>3.0.2</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core).</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -31,8 +31,8 @@
     </ItemGroup>
     
     <ItemGroup Condition="('$(TargetFramework)' == 'net6.0')">
-        <PackageReference Include="AttributeBasedRegistration" Version="2.2.2" />
-        <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.2" />
+        <PackageReference Include="AttributeBasedRegistration" Version="2.2.3" />
+        <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.3" />
         <PackageReference Include="Autofac" Version="7.1.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
         <PackageReference Include="AutoMapper" Version="12.0.1" />
@@ -49,8 +49,8 @@
     </PropertyGroup>
 
     <ItemGroup Condition="('$(TargetFramework)' == 'net7.0')">
-        <PackageReference Include="AttributeBasedRegistration" Version="2.2.2" />
-        <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.2" />
+        <PackageReference Include="AttributeBasedRegistration" Version="2.2.3" />
+        <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.3" />
         <PackageReference Include="Autofac" Version="7.1.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
         <PackageReference Include="AutoMapper" Version="12.0.1" />
@@ -67,8 +67,8 @@
     </PropertyGroup>
 
     <ItemGroup Condition="('$(TargetFramework)' == 'net8.0')">
-        <PackageReference Include="AttributeBasedRegistration" Version="2.2.2" />
-        <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.2" />
+        <PackageReference Include="AttributeBasedRegistration" Version="2.2.3" />
+        <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.3" />
         <PackageReference Include="Autofac" Version="7.1.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
         <PackageReference Include="AutoMapper" Version="12.0.1" />
