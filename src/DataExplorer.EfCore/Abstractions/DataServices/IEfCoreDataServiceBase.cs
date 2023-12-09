@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using DataExplorer.Abstractions.DataServices;
-using DataExplorer.EfCore.Gridify;
+﻿using DataExplorer.Abstractions.DataServices;
 using Microsoft.EntityFrameworkCore.Storage;
 using Remora.Results;
 
@@ -13,16 +11,6 @@ namespace DataExplorer.EfCore.Abstractions.DataServices;
 [PublicAPI]
 public interface IEfCoreDataServiceBase<out TContext> : IDataServiceBase<TContext> where TContext : class, IEfDbContext
 {
-    /// <summary>
-    /// Mapper.
-    /// </summary>
-    IMapper Mapper { get; }
-    
-    /// <summary>
-    /// Gridify mapper provider.
-    /// </summary>
-    IGridifyMapperProvider GridifyMapperProvider { get; }
-    
     /// <summary>
     /// Current Unit of Work.
     /// </summary>

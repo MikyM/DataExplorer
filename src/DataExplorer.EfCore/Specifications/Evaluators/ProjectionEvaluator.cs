@@ -1,4 +1,6 @@
 ﻿using AutoMapper.QueryableExtensions;
+using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 

@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using DataExplorer.EfCore.Gridify;
+﻿using DataExplorer.EfCore.Specifications.Evaluators;
 using Microsoft.EntityFrameworkCore.Storage;
-using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
 
 namespace DataExplorer.EfCore.Abstractions;
 
@@ -75,19 +73,9 @@ public interface IUnitOfWork : IUnitOfWorkBase
         where TId : IComparable, IEquatable<TId>, IComparable<TId>;
     
     /// <summary>
-    /// Mapper instance.
-    /// </summary>
-    IMapper Mapper { get; }
-    
-    /// <summary>
     /// Specification evaluator instance.
     /// </summary>
-    ISpecificationEvaluator SpecificationEvaluator { get; }
-    
-    /// <summary>
-    /// Gridify mapper provider instance.
-    /// </summary>
-    IGridifyMapperProvider GridifyMapperProvider { get; }
+    new IEfSpecificationEvaluator SpecificationEvaluator { get; }
 }
 
 /// <inheritdoc cref="IUnitOfWork"/>

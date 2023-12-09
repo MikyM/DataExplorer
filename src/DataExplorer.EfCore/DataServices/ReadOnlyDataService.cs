@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
+using DataExplorer.Abstractions.DataServices;
+using DataExplorer.Abstractions.Specifications;
 using DataExplorer.EfCore.Abstractions.DataServices;
-using DataExplorer.EfCore.Specifications;
 using Gridify;
 using Remora.Results;
 
@@ -28,18 +29,22 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
     /// <summary>
     /// Gets the base repository for this data service.
     /// </summary>
-    internal virtual IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IReadOnlyRepository<TEntity,TId>>();
+    internal virtual IBaseRepository BaseRepositoryInternal => UnitOfWork.GetRepository<IReadOnlyRepository<TEntity,TId>>();
+    
+    /// <inheritdoc />
+    IReadOnlyRepositoryBase<TEntity, TId> IReadOnlyDataServiceBase<TEntity, TId, TContext>.ReadOnlyRepository => ReadOnlyRepository;
     
     /// <summary>
     /// Gets the base repository for this data service.
     /// </summary>
-    protected IRepositoryBase BaseRepository => BaseRepositoryInternal;
+    protected IBaseRepository BaseRepository => BaseRepositoryInternal;
     
     /// <summary>
     /// Gets the read-only version of the <see cref="BaseRepository"/> (essentially casts it for you).
     /// </summary>
     public IReadOnlyRepository<TEntity,TId> ReadOnlyRepository =>
         (IReadOnlyRepository<TEntity,TId>)BaseRepository;
+    
 
     /// <inheritdoc />
     public virtual async Task<Result<TEntity>> GetAsync(params object[] keyValues)
@@ -391,5 +396,5 @@ public class ReadOnlyDataService<TEntity, TContext> : ReadOnlyDataService<TEntit
     }
     
     /// <inheritdoc />
-    internal override IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IReadOnlyRepository<TEntity>>();
+    internal override IBaseRepository BaseRepositoryInternal => UnitOfWork.GetRepository<IReadOnlyRepository<TEntity>>();
 }

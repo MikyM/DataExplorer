@@ -3,9 +3,10 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using AutoMapper;
-using DataExplorer.EfCore.Gridify;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.EfCore.Specifications.Evaluators;
+using DataExplorer.Gridify;
 using Microsoft.EntityFrameworkCore.Storage;
-using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
 
 namespace DataExplorer.EfCore;
 
@@ -14,9 +15,12 @@ namespace DataExplorer.EfCore;
 public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext : IEfDbContext
 {
     /// <summary>
-    /// Inner <see cref="ISpecificationEvaluator"/>.
+    /// Inner <see cref="IEfSpecificationEvaluator"/>.
     /// </summary>
-    public ISpecificationEvaluator SpecificationEvaluator { get; }
+    public IEfSpecificationEvaluator SpecificationEvaluator { get; }
+    
+    /// <inheritdoc />
+    ISpecificationEvaluator IUnitOfWorkBase.SpecificationEvaluator => SpecificationEvaluator;
     
     /// <summary>
     /// Configuration.
@@ -41,7 +45,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// Mapper instance.
     /// </summary>
     public IMapper Mapper { get; }
-    
+
     /// <summary>
     /// GridifyMapperProvider instance.
     /// </summary>
@@ -67,7 +71,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <param name="gridifyMapperProvider">Gridify mapper provider.</param>
     /// <param name="efDataExplorerTypeCache">Unit of Work cache.</param>
     /// <param name="instanceFactory">Instance factory.</param>
-    public UnitOfWork(TContext context, ISpecificationEvaluator specificationEvaluator, 
+    public UnitOfWork(TContext context, IEfSpecificationEvaluator specificationEvaluator, 
         IMapper mapper, IOptions<DataExplorerEfCoreConfiguration> options, 
         IGridifyMapperProvider gridifyMapperProvider, IEfDataExplorerTypeCache efDataExplorerTypeCache, 
         ICachedInstanceFactory instanceFactory)
@@ -174,7 +178,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     }
         
     /// <inheritdoc/>
-    public TRepository GetRepository<TRepository>() where TRepository : class, IRepositoryBase
+    public TRepository GetRepository<TRepository>() where TRepository : class, IBaseRepository
     {
         CheckDisposed();
         
@@ -197,7 +201,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <returns>Created repo instance.</returns>
     /// <exception cref="InvalidOperationException"></exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private TRepository LazilyGetOrCreateRepository<TRepository>(DataExplorerRepoInfo repoCacheData) where TRepository : IRepositoryBase
+    private TRepository LazilyGetOrCreateRepository<TRepository>(DataExplorerRepoInfo repoCacheData) where TRepository : IBaseRepository
     {
         _repositories ??= new ConcurrentDictionary<RepositoryEntryKey, RepositoryEntry>();
         
@@ -232,7 +236,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
 
         return (TRepository)repositoryEntry.LazyRepo.Value;
         
-        RepositoryEntry GetRepositoryEntry(DataExplorerRepoInfo data) => new(data, new Lazy<IRepositoryBase>(()  =>
+        RepositoryEntry GetRepositoryEntry(DataExplorerRepoInfo data) => new(data, new Lazy<IBaseRepository>(()  =>
         {
             var instance = _instanceFactory.CreateInstance(repoCacheData.RepoImplType, Context,
                 SpecificationEvaluator, Mapper, GridifyMapperProvider);
@@ -353,13 +357,13 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
 /// </summary>
 internal sealed record RepositoryEntry
 {
-    internal RepositoryEntry(DataExplorerRepoInfo repoCacheData, Lazy<IRepositoryBase> lazyRepo)
+    internal RepositoryEntry(DataExplorerRepoInfo repoCacheData, Lazy<IBaseRepository> lazyRepo)
     {
         RepoInfo = repoCacheData;
         LazyRepo = lazyRepo;
     }
     internal DataExplorerRepoInfo RepoInfo { get; }
-    internal Lazy<IRepositoryBase> LazyRepo { get; }
+    internal Lazy<IBaseRepository> LazyRepo { get; }
 }
 
 /// <summary>

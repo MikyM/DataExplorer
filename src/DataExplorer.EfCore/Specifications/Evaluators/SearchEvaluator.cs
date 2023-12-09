@@ -1,8 +1,10 @@
-﻿using DataExplorer.EfCore.Specifications.Extensions;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.EfCore.Specifications.Extensions;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class SearchEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IPreUpdateEvaluator
+public class SearchEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase, IPreUpdateEvaluator
 {
     private SearchEvaluator() { }
     public static SearchEvaluator Default { get; } = new SearchEvaluator();

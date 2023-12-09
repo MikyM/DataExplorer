@@ -1,8 +1,10 @@
-﻿using EFCoreSecondLevelCacheInterceptor;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using EFCoreSecondLevelCacheInterceptor;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class CachingEvaluator : IEvaluator, IEvaluatorMarker
+public class CachingEvaluator : IEvaluator, IEvaluatorBase
 {
     private CachingEvaluator()
     {
@@ -15,8 +17,18 @@ public class CachingEvaluator : IEvaluator, IEvaluatorMarker
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {
-        if (!specification.IsCacheEnabled.HasValue) return query;
+        if (!specification.IsCacheEnabled.HasValue) 
+            return query;
+        
+        if (!specification.IsCacheEnabled.Value)
+            return query.NotCacheable();
+        
+        if (specification.CacheExpirationMode is null && specification.CacheTimeout is null)
+            return query.Cacheable();
             
-        return !specification.IsCacheEnabled.Value ? query.NotCacheable() : query.Cacheable();
+        if (specification.CacheExpirationMode is not null && specification.CacheTimeout is not null)
+            return query.Cacheable((CacheExpirationMode)(int)specification.CacheExpirationMode.Value, specification.CacheTimeout.Value);
+
+        return query.Cacheable();
     }
 }

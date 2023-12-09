@@ -1,6 +1,9 @@
-﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
 
-public class WhereEvaluator : IEvaluator, IBasicInMemoryEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IPreUpdateEvaluator, IInMemoryEvaluatorMarker
+namespace DataExplorer.EfCore.Specifications.Evaluators;
+
+public class WhereEvaluator : IEvaluator, IBasicInMemoryEvaluator, IInMemoryEvaluator, IEvaluatorBase, IPreUpdateEvaluator, IInMemoryEvaluatorMarker
 {
     private WhereEvaluator() { }
     public static WhereEvaluator Default { get; } = new();

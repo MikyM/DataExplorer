@@ -1,15 +1,18 @@
-﻿namespace DataExplorer.EfCore.Specifications.Builders;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Builders;
+
+namespace DataExplorer.EfCore.Specifications.Builders;
 
 public class OrderedSpecificationBuilder<T> : IOrderedSpecificationBuilder<T> where T : class
 {
-    public Specification<T> Specification { get; }
+    public ISpecification<T> Specification { get; }
     public bool IsChainDiscarded { get; set; }
 
-    public OrderedSpecificationBuilder(Specification<T> specification, bool isChainDiscarded = false)
+    public OrderedSpecificationBuilder(ISpecification<T> specification, bool isChainDiscarded = false)
     {
         Specification = specification;
         IsChainDiscarded = isChainDiscarded;
     }
     
-    BasicSpecification<T> IBasicSpecificationBuilder<T>.Specification => Specification;
+    IBasicSpecification<T> IBasicSpecificationBuilder<T>.Specification => Specification;
 }

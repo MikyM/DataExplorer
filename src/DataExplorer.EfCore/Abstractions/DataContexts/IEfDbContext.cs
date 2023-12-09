@@ -767,7 +767,7 @@ public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable
     ///     This is usually because the data in the database has been modified since it was loaded into memory.
     /// </exception>
     /// <exception cref="OperationCanceledException">If the <see cref="CancellationToken" /> is canceled.</exception>
-    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    new Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     <para>

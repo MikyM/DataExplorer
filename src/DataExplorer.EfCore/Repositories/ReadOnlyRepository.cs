@@ -1,11 +1,13 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using DataExplorer.EfCore.Gridify;
+using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications;
+using DataExplorer.EfCore.Specifications.Evaluators;
+using DataExplorer.Gridify;
 using Gridify;
 using Gridify.EntityFramework;
-using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
 
 namespace DataExplorer.EfCore.Repositories;
 
@@ -20,7 +22,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     public Type EntityType => typeof(TEntity);
 
     /// <inheritdoc />
-    IDataContextBase IRepositoryBase.Context => Context;
+    IDataContextBase IBaseRepository.Context => Context;
 
     /// <inheritdoc />
     public IEfDbContext Context { get; }
@@ -30,11 +32,14 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     
     /// <inheritdoc />
     public IGridifyMapperProvider GridifyMapperProvider { get; }
+    
+    /// <inheritdoc />
+    ISpecificationEvaluator IReadOnlyRepositoryBase<TEntity, TId>.SpecificationEvaluator => SpecificationEvaluator;
 
     /// <summary>
     /// Specification evaluator.
     /// </summary>
-    public ISpecificationEvaluator SpecificationEvaluator { get; }
+    public IEfSpecificationEvaluator SpecificationEvaluator { get; }
 
     /// <summary>
     /// Mapper instance.
@@ -49,7 +54,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     /// <param name="mapper">Mapper.</param>
     /// <param name="gridifyProvider">Gridify provider</param>
     /// <exception cref="ArgumentNullException"></exception>
-    internal ReadOnlyRepository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
+    internal ReadOnlyRepository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper,
         IGridifyMapperProvider gridifyProvider)
     {
         Context = context ?? throw new ArgumentNullException(nameof(context));
@@ -244,7 +249,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
 [PublicAPI]
 public class ReadOnlyRepository<TEntity> : ReadOnlyRepository<TEntity, long>, IReadOnlyRepository<TEntity> where TEntity : Entity<long>
 {
-    internal ReadOnlyRepository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
+    internal ReadOnlyRepository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper,
         IGridifyMapperProvider gridifyMapperProvider) : base(context, specificationEvaluator, mapper,
         gridifyMapperProvider)
     {

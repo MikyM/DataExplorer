@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using DataExplorer.Abstractions.DataServices;
 using DataExplorer.EfCore.Abstractions.DataServices;
-using DataExplorer.EfCore.Gridify;
+using DataExplorer.Gridify;
 using Microsoft.EntityFrameworkCore.Storage;
 using Remora.Results;
 

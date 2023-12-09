@@ -8,31 +8,29 @@ using Autofac.Builder;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
 using DataExplorer.Abstractions.DataServices;
+using DataExplorer.Abstractions.Specifications.Evaluators;
 using DataExplorer.Attributes;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.DataServices;
-using DataExplorer.EfCore.Gridify;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using Gridify;
 using Microsoft.Extensions.DependencyInjection;
 using MikyM.Utilities.Extensions;
 using GroupByEvaluator = DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator;
-using IBasicEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IBasicEvaluator;
-using IBasicInMemoryEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IBasicInMemoryEvaluator;
-using IBasicValidator = DataExplorer.EfCore.Specifications.Validators.IBasicValidator;
-using IEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IEvaluator;
-using IEvaluatorMarker = DataExplorer.EfCore.Specifications.Evaluators.IEvaluatorMarker;
-using IInMemoryEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluator;
-using IInMemoryEvaluatorMarker = DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorMarker;
-using IInMemorySpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator;
+using IBasicEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IBasicEvaluator;
+using IBasicInMemoryEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IBasicInMemoryEvaluator;
+using IBasicValidator = DataExplorer.Abstractions.Specifications.Validators.IBasicValidator;
+using IEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IEvaluator;
+using IInMemoryEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluator;
+using IInMemoryEvaluatorMarker = DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluatorMarker;
+using IInMemorySpecificationEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator;
 using InMemorySpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.InMemorySpecificationEvaluator;
-using IPreUpdateEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IPreUpdateEvaluator;
-using IProjectionEvaluator = DataExplorer.EfCore.Specifications.Evaluators.IProjectionEvaluator;
-using ISpecialCaseEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecialCaseEvaluator;
-using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
-using ISpecificationValidator = DataExplorer.EfCore.Specifications.Validators.ISpecificationValidator;
-using IValidator = DataExplorer.EfCore.Specifications.Validators.IValidator;
-using IValidatorMarker = DataExplorer.EfCore.Specifications.Validators.IValidatorMarker;
+using IPreUpdateEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IPreUpdateEvaluator;
+using IProjectionEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IProjectionEvaluator;
+using ISpecialCaseEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.ISpecialCaseEvaluator;
+using ISpecificationValidator = DataExplorer.Abstractions.Specifications.Validators.ISpecificationValidator;
+using IValidator = DataExplorer.Abstractions.Specifications.Validators.IValidator;
+using IValidatorMarker = DataExplorer.Abstractions.Specifications.Validators.IValidatorMarker;
 using ProjectionEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 using SpecificationEvaluator = DataExplorer.EfCore.Specifications.SpecificationEvaluator;
@@ -165,10 +163,6 @@ public static class DataExplorerConfigurationExtensions
         builder?.RegisterInstance(cache).As<IEfDataExplorerTypeCache>().SingleInstance();
         serviceCollection?.AddSingleton<IEfDataExplorerTypeCache>(cache);
 
-        var mapperProvider = config.MapperProvider ?? new GridifyMapperProvider();
-        builder?.RegisterInstance(mapperProvider).As<IGridifyMapperProvider>().SingleInstance();
-        serviceCollection?.AddSingleton(mapperProvider);
-
         var ctorFinder = new AllConstructorsFinder();
         
         builder?.RegisterInstance(config).AsSelf().As<IOptions<DataExplorerEfCoreConfiguration>>().SingleInstance();
@@ -186,7 +180,7 @@ public static class DataExplorerConfigurationExtensions
                 builder.RegisterAssemblyTypes(assembly)
                     .Where(x => x.GetInterface(nameof(IValidatorMarker)) is not null || 
                                 x.GetInterface(nameof(IInMemoryEvaluatorMarker)) is not null ||
-                                x.GetInterface(nameof(IEvaluatorMarker)) is not null 
+                                x.GetInterface(nameof(IEvaluatorBase)) is not null 
                                     && x.GetInterface(nameof(ISpecialCaseEvaluator)) is null)
                     .AsImplementedInterfaces()
                     .FindConstructorsWith(new AllConstructorsFinder())
@@ -198,7 +192,7 @@ public static class DataExplorerConfigurationExtensions
             {
                 foreach (var type in assembly.GetTypes().Where(x => x.GetInterface(nameof(IValidatorMarker)) is not null || 
                                                                     x.GetInterface(nameof(IInMemoryEvaluatorMarker)) is not null ||
-                                                                    x.GetInterface(nameof(IEvaluatorMarker)) is not null 
+                                                                    x.GetInterface(nameof(IEvaluatorBase)) is not null 
                                                                     && x.GetInterface(nameof(ISpecialCaseEvaluator)) is null))
                 {
                     var instance = Activator.CreateInstance(
@@ -224,7 +218,7 @@ public static class DataExplorerConfigurationExtensions
         builder?.RegisterAssemblyTypes(typeof(GroupByEvaluator).Assembly)
             .Where(x => x.GetInterface(nameof(IValidatorMarker)) is not null ||
                         x.GetInterface(nameof(IInMemoryEvaluatorMarker)) is not null ||
-                        x.GetInterface(nameof(IEvaluatorMarker)) is not null
+                        x.GetInterface(nameof(IEvaluatorBase)) is not null
                         && x.GetInterface(nameof(ISpecialCaseEvaluator)) is null)
             .AsImplementedInterfaces()
             .FindConstructorsWith(new AllConstructorsFinder())
@@ -234,7 +228,7 @@ public static class DataExplorerConfigurationExtensions
         {
             foreach (var type in typeof(GroupByEvaluator).Assembly.GetTypes().Where(x => x.GetInterface(nameof(IValidatorMarker)) is not null || 
                                                                 x.GetInterface(nameof(IInMemoryEvaluatorMarker)) is not null ||
-                                                                x.GetInterface(nameof(IEvaluatorMarker)) is not null 
+                                                                x.GetInterface(nameof(IEvaluatorBase)) is not null 
                                                                 && x.GetInterface(nameof(ISpecialCaseEvaluator)) is null))
             {
                 var instance = Activator.CreateInstance(
@@ -286,6 +280,7 @@ public static class DataExplorerConfigurationExtensions
 #if NET7_0_OR_GREATER
         builder?.RegisterType<SpecificationEvaluator>()
             .As<ISpecificationEvaluator>()
+            .As<IEfSpecificationEvaluator>()
             .UsingConstructor(typeof(IEnumerable<IEvaluator>), typeof(IEnumerable<IBasicEvaluator>),
                 typeof(IEnumerable<IPreUpdateEvaluator>), typeof(IProjectionEvaluator), typeof(IUpdateEvaluator))
             .FindConstructorsWith(ctorFinder)
@@ -299,6 +294,7 @@ public static class DataExplorerConfigurationExtensions
 #else
         builder?.RegisterType<SpecificationEvaluator>()
             .As<ISpecificationEvaluator>()
+            .As<IEfSpecificationEvaluator>()
             .UsingConstructor(typeof(IEnumerable<IEvaluator>), typeof(IEnumerable<IBasicEvaluator>),
                 typeof(IEnumerable<IPreUpdateEvaluator>), typeof(IProjectionEvaluator))
             .FindConstructorsWith(ctorFinder)

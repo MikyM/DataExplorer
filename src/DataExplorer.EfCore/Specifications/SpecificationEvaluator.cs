@@ -1,12 +1,15 @@
 ﻿using System.Linq.Expressions;
+using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.EfCore.Abstractions.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.EfCore.Specifications.Exceptions;
+using DataExplorer.Specifications.Exceptions;
 
 namespace DataExplorer.EfCore.Specifications;
 
 /// <inheritdoc cref="ISpecificationEvaluator" />
 [PublicAPI]
-public class SpecificationEvaluator : ISpecificationEvaluator
+public class SpecificationEvaluator : IEfSpecificationEvaluator
 {
     // Will use singleton for default configuration. Yet, it can be instantiated if necessary, with default or provided evaluators.
     /// <summary>

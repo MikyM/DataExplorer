@@ -1,11 +1,13 @@
 ﻿using System.Linq.Expressions;
 using System.Reflection;
-using DataExplorer.EfCore.Specifications.Expressions;
-using DataExplorer.EfCore.Specifications.Helpers;
+using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.Specifications;
+using DataExplorer.Specifications.Expressions;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
-public class IncludeEvaluator : IEvaluator, IEvaluatorMarker, ISpecialCaseEvaluator
+public class IncludeEvaluator : IEvaluator, IEvaluatorBase, ISpecialCaseEvaluator
 {
     private static readonly MethodInfo IncludeMethodInfo = typeof(EntityFrameworkQueryableExtensions)
         .GetTypeInfo().GetDeclaredMethods(nameof(EntityFrameworkQueryableExtensions.Include))
@@ -69,11 +71,11 @@ public class IncludeEvaluator : IEvaluator, IEvaluatorMarker, ISpecialCaseEvalua
         if (specification.IncludeExpressions is not null)
             foreach (var includeInfo in specification.IncludeExpressions)
             {
-                if (includeInfo.Type == IncludeTypeEnum.Include)
+                if (includeInfo.Type == IncludeType.Include)
                 {
                     query = BuildInclude<T>(query, includeInfo);
                 }
-                else if (includeInfo.Type == IncludeTypeEnum.ThenInclude)
+                else if (includeInfo.Type == IncludeType.ThenInclude)
                 {
                     query = BuildThenInclude<T>(query, includeInfo);
                 }

@@ -223,7 +223,7 @@ public class UnitOfWorkTests
             var key = new RepositoryEntryKey(typeof(TestEntity).FullName ?? typeof(TestEntity).Name);
             
             var repos = InitializeAndGetRepositoriesFromUof(unitOfWork);
-            repos!.TryAdd(key, new RepositoryEntry(repoInf, new Lazy<IRepositoryBase>(() => repo)));
+            repos!.TryAdd(key, new RepositoryEntry(repoInf, new Lazy<IBaseRepository>(() => repo)));
 
             if (repos.Count != 1)
                 throw new InvalidOperationException();
@@ -289,7 +289,7 @@ public class UnitOfWorkTests
             var key = new RepositoryEntryKey(typeof(TestEntity).FullName ?? typeof(TestEntity).Name);
             
             var repos = InitializeAndGetRepositoriesFromUof(unitOfWork);
-            repos!.TryAdd(key, new RepositoryEntry(repoROInf, new Lazy<IRepositoryBase>(() => repoRO)));
+            repos!.TryAdd(key, new RepositoryEntry(repoROInf, new Lazy<IBaseRepository>(() => repoRO)));
 
             if (repos.Count != 1)
                 throw new InvalidOperationException();

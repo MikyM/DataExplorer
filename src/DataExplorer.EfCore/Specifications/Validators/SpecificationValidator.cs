@@ -1,4 +1,7 @@
-﻿namespace DataExplorer.EfCore.Specifications.Validators;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Validators;
+
+namespace DataExplorer.EfCore.Specifications.Validators;
 
 public class SpecificationValidator : ISpecificationValidator
 {

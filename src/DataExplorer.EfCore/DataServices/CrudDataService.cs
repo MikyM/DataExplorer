@@ -1,5 +1,7 @@
-﻿using DataExplorer.EfCore.Abstractions.DataServices;
-using DataExplorer.EfCore.Specifications;
+﻿using DataExplorer.Abstractions.DataServices;
+using DataExplorer.Abstractions.Specifications;
+using DataExplorer.EfCore.Abstractions.DataServices;
+using DataExplorer.EfCore.Abstractions.Specifications;
 using Remora.Results;
 
 // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
@@ -26,7 +28,10 @@ public class CrudDataService<TEntity, TId, TContext> : ReadOnlyDataService<TEnti
     }
 
     /// <inheritdoc />
-    internal override IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IRepository<TEntity, TId>>();
+    internal override IBaseRepository BaseRepositoryInternal => UnitOfWork.GetRepository<IRepository<TEntity, TId>>();
+    
+    /// <inheritdoc />
+    IRepositoryBase<TEntity, TId> ICrudDataServiceBase<TEntity, TId, TContext>.Repository => Repository;
 
     /// <summary>
     /// Gets the CRUD version of the <see cref="ReadOnlyDataService{TEntity,TId,TContext}.BaseRepository"/> (essentially casts it for you).
@@ -402,5 +407,5 @@ public class CrudDataService<TEntity, TContext> : CrudDataService<TEntity, long,
     }
     
     /// <inheritdoc />
-    internal override IRepositoryBase BaseRepositoryInternal => UnitOfWork.GetRepository<IRepository<TEntity>>();
+    internal override IBaseRepository BaseRepositoryInternal => UnitOfWork.GetRepository<IRepository<TEntity>>();
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
-using DataExplorer.EfCore.Specifications.Expressions;
-using DataExplorer.EfCore.Specifications.Helpers;
+using DataExplorer.Abstractions.Specifications.Builders;
+using DataExplorer.Specifications;
+using DataExplorer.Specifications.Expressions;
 
 namespace DataExplorer.EfCore.Specifications.Builders;
 
@@ -34,7 +35,7 @@ public static class OrderedBuilderExtensions
         if (condition && !orderedBuilder.IsChainDiscarded)
         {
             orderedBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
-            ((List<OrderExpressionInfo<T>>)orderedBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.ThenBy));
+            ((List<OrderExpressionInfo<T>>)orderedBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderType.ThenBy));
         }
         else
         {
@@ -71,7 +72,7 @@ public static class OrderedBuilderExtensions
         if (condition && !orderedBuilder.IsChainDiscarded)
         {
             orderedBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
-            ((List<OrderExpressionInfo<T>>)orderedBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.ThenByDescending));
+            ((List<OrderExpressionInfo<T>>)orderedBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderType.ThenByDescending));
         }
         else
         {
@@ -108,7 +109,7 @@ public static class OrderedBuilderExtensions
         if (condition && !orderedBuilder.IsChainDiscarded)
         {
             orderedBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
-            ((List<OrderExpressionInfo<T>>)orderedBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.ThenBy));
+            ((List<OrderExpressionInfo<T>>)orderedBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderType.ThenBy));
         }
         else
         {
@@ -145,7 +146,7 @@ public static class OrderedBuilderExtensions
         if (condition && !orderedBuilder.IsChainDiscarded)
         {
             orderedBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
-            ((List<OrderExpressionInfo<T>>)orderedBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.ThenByDescending));
+            ((List<OrderExpressionInfo<T>>)orderedBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderType.ThenByDescending));
         }
         else
         {

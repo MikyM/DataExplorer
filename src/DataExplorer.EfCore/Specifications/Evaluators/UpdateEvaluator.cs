@@ -1,10 +1,14 @@
 ﻿#if NET7_0_OR_GREATER 
 
 using System.Linq.Expressions;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.EfCore.Abstractions.Specifications;
 using ExpressionExtensions = DataExplorer.EfCore.Specifications.Extensions.ExpressionExtensions;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 
+/// <inheritdoc cref="IUpdateEvaluator"/>
+[PublicAPI]
 public class UpdateEvaluator : IUpdateEvaluator, ISpecialCaseEvaluator
 {
     public static UpdateEvaluator Instance { get; } = new();

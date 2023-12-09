@@ -1,14 +1,19 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
+using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Builders;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.Abstractions.Specifications.Validators;
 using DataExplorer.EfCore.Specifications.Builders;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.EfCore.Specifications.Expressions;
 using DataExplorer.EfCore.Specifications.Validators;
+using DataExplorer.Specifications.Expressions;
 using EFCoreSecondLevelCacheInterceptor;
+using CacheExpirationMode = DataExplorer.Specifications.CacheExpirationMode;
 
 namespace DataExplorer.EfCore.Specifications;
 
-/// <inheritdoc cref="ISpecification{T,TResult}" />
+/// <inheritdoc cref="ISpecification" />
 [PublicAPI]
 public class Specification<T, TResult> : Specification<T>, ISpecification<T, TResult> where T : class
 {
@@ -44,22 +49,22 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
         => Evaluator.Evaluate(entities, this);
 
     /// <inheritdoc/>
-    public Expression<Func<T, TResult>>? Selector { get; internal set; }
+    public Expression<Func<T, TResult>>? Selector { get; set; }
     
     /// <inheritdoc/>
-    public Expression<Func<T, IEnumerable<TResult>>>? SelectorMany { get; internal set; }
+    public Expression<Func<T, IEnumerable<TResult>>>? SelectorMany { get; set; }
 
     /// <inheritdoc />
     public IConfigurationProvider? MapperConfigurationProvider { get; set; }
 
     /// <inheritdoc />
-    public IEnumerable<Expression<Func<TResult, object>>>? MembersToExpand { get; internal set; }
+    public IEnumerable<Expression<Func<TResult, object>>>? MembersToExpand { get; set; }
 
     /// <inheritdoc />
-    public IEnumerable<string>? StringMembersToExpand { get; internal set; }
+    public IEnumerable<string>? StringMembersToExpand { get; set; }
 
     /// <inheritdoc />
-    public new Func<IEnumerable<TResult>, IEnumerable<TResult>>? PostProcessingAction { get; internal set; }
+    public new Func<IEnumerable<TResult>, IEnumerable<TResult>>? PostProcessingAction { get; set; }
 
     /// <summary>
     /// Specify a transform function to apply to the result of the query.
@@ -157,34 +162,34 @@ public class Specification<T> : BasicSpecification<T>,  ISpecification<T> where 
     }
     
     /// <inheritdoc />
-    public IEnumerable<IncludeExpressionInfo>? IncludeExpressions { get; internal set; }
+    public IEnumerable<IncludeExpressionInfo>? IncludeExpressions { get; set; }
     
     /// <inheritdoc />
-    public IEnumerable<string>? IncludeStrings { get; internal set; }
+    public IEnumerable<string>? IncludeStrings { get; set; }
 
     /// <inheritdoc />
-    public TimeSpan? CacheTimeout { get; internal set; }
+    public TimeSpan? CacheTimeout { get; set; }
 
     /// <inheritdoc />
-    public CacheExpirationMode? CacheExpirationMode { get; internal set; }
+    public CacheExpirationMode? CacheExpirationMode { get; set; }
 
     /// <inheritdoc />
-    public Func<IEnumerable<T>, IEnumerable<T>>? PostProcessingAction { get; internal set; }
+    public Func<IEnumerable<T>, IEnumerable<T>>? PostProcessingAction { get; set; }
 
     /// <inheritdoc />
-    public bool? IsCacheEnabled { get; internal set; }
+    public bool? IsCacheEnabled { get; set; }
     
     /// <inheritdoc />
-    public bool IsAsNoTracking { get; internal set; } = true;
+    public bool IsAsNoTracking { get; set; } = true;
 
     /// <inheritdoc />
-    public bool IsAsSplitQuery { get; internal set; }
+    public bool IsAsSplitQuery { get; set; }
 
     /// <inheritdoc />
-    public bool IsAsNoTrackingWithIdentityResolution { get; internal set; }
+    public bool IsAsNoTrackingWithIdentityResolution { get; set; }
 
     /// <inheritdoc />
-    public bool IsAsTracking { get; internal set; }
+    public bool IsAsTracking { get; set; }
     
     /// <summary>
     /// Inner <see cref="ISpecificationBuilder{T,TResult}"/>
@@ -406,7 +411,7 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
             return _paginationFilter;
 
         }
-        internal set
+        set
         {
             if (value is null)
             {
@@ -423,27 +428,27 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     }
     
     /// <inheritdoc />
-    public bool IsPagingEnabled { get; internal set; }
+    public bool IsPagingEnabled { get; set; }
 
     
     /// <inheritdoc />
     public IEnumerable<OrderExpressionInfo<T>>? OrderExpressions
     {
         get;
-        internal set;
+        set;
     }
 
     /// <inheritdoc />
-    public Expression<Func<T, object>>? GroupByExpression { get; internal set; }
+    public Expression<Func<T, object>>? GroupByExpression { get; set; }
 
     /// <inheritdoc />
-    public int? Take { get; internal set; }
+    public int? Take { get; set; }
 
     /// <inheritdoc />
-    public int? Skip { get; internal set; }
+    public int? Skip { get; set; }
 
     /// <inheritdoc/>
-    public bool IgnoreQueryFilters { get; internal set; }
+    public bool IgnoreQueryFilters { get; set; }
     
     /// <summary>
     /// Inner <see cref="ISpecificationBuilder{T}"/>
@@ -476,11 +481,11 @@ public class BasicSpecification<T> : IBasicSpecification<T> where T : class
     public IEnumerable<SearchExpressionInfo<T>>? SearchCriterias
     {
         get;
-        internal set;
+        set;
     }
     
     /// <inheritdoc />
-    public IEnumerable<WhereExpressionInfo<T>>? WhereExpressions { get; internal set; }
+    public IEnumerable<WhereExpressionInfo<T>>? WhereExpressions { get; set; }
     
     /// <summary>
     /// Specify a predicate that will be applied to the query

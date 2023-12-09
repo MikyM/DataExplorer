@@ -1,6 +1,8 @@
 ﻿#if NET7_0_OR_GREATER
 
 using System.Linq.Expressions;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.EfCore.Abstractions.Specifications;
 
 namespace DataExplorer.EfCore.Specifications.Evaluators;
 

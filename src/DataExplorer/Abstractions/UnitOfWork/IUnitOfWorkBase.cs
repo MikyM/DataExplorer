@@ -1,12 +1,15 @@
-﻿using DataExplorer.Abstractions.DataContexts;
+﻿using AutoMapper;
+using DataExplorer.Abstractions.DataContexts;
 using DataExplorer.Abstractions.Repositories;
+using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.Gridify;
 
 namespace DataExplorer.Abstractions.UnitOfWork;
 
 /// <summary>
 /// Represents a base Unit of Work.
 /// </summary>
-/// <remarks>This also works as a factory for <see cref="IRepositoryBase"/>.</remarks>
+/// <remarks>This also works as a factory for <see cref="IBaseRepository"/>.</remarks>
 [PublicAPI]
 public interface IUnitOfWorkBase : IDisposable
 {
@@ -15,7 +18,7 @@ public interface IUnitOfWorkBase : IDisposable
     /// </summary>
     /// <typeparam name="TRepository">Type of the repository to get.</typeparam>
     /// <returns>Wanted repository</returns>
-    TRepository GetRepository<TRepository>() where TRepository : class, IRepositoryBase;
+    TRepository GetRepository<TRepository>() where TRepository : class, IBaseRepository;
 
     /// <summary>
     /// Commits pending changes to the underlying database.
@@ -35,4 +38,19 @@ public interface IUnitOfWorkBase : IDisposable
     /// The current data context.
     /// </summary>
     IDataContextBase Context { get; }
+    
+    /// <summary>
+    /// Mapper instance.
+    /// </summary>
+    IMapper Mapper { get; }
+    
+    /// <summary>
+    /// Specification evaluator instance.
+    /// </summary>
+    ISpecificationEvaluator SpecificationEvaluator { get; }
+    
+    /// <summary>
+    /// Gridify mapper provider instance.
+    /// </summary>
+    IGridifyMapperProvider GridifyMapperProvider { get; }
 }

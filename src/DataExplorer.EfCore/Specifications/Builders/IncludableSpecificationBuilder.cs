@@ -1,16 +1,19 @@
-﻿namespace DataExplorer.EfCore.Specifications.Builders;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Builders;
+
+namespace DataExplorer.EfCore.Specifications.Builders;
 
 [PublicAPI]
 public class IncludableSpecificationBuilder<T, TProperty> : IIncludableSpecificationBuilder<T, TProperty> where T : class
 {
-    public Specification<T> Specification { get; }
+    public ISpecification<T> Specification { get; }
     public bool IsChainDiscarded { get; set; }
 
-    public IncludableSpecificationBuilder(Specification<T> specification, bool isChainDiscarded = false)
+    public IncludableSpecificationBuilder(ISpecification<T> specification, bool isChainDiscarded = false)
     {
         Specification = specification;
         IsChainDiscarded = isChainDiscarded;
     }
     
-    BasicSpecification<T> IBasicSpecificationBuilder<T>.Specification => Specification;
+    IBasicSpecification<T> IBasicSpecificationBuilder<T>.Specification => Specification;
 }

@@ -1,5 +1,7 @@
-﻿using DataExplorer.Abstractions.DataContexts;
+﻿using AutoMapper;
+using DataExplorer.Abstractions.DataContexts;
 using DataExplorer.Abstractions.UnitOfWork;
+using DataExplorer.Gridify;
 using Remora.Results;
 
 namespace DataExplorer.Abstractions.DataServices;
@@ -19,6 +21,16 @@ public interface IDataServiceBase<out TContext> : IDisposable where TContext : I
     /// Current Unit of Work.
     /// </summary>
     IUnitOfWorkBase UnitOfWork { get; }
+    
+    /// <summary>
+    /// Mapper.
+    /// </summary>
+    IMapper Mapper { get; }
+    
+    /// <summary>
+    /// Gridify mapper provider.
+    /// </summary>
+    IGridifyMapperProvider GridifyMapperProvider { get; }
     
     /// <summary>
     /// Commits pending changes.

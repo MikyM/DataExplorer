@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using DataExplorer.EfCore.Gridify;
-using Gridify;
 using Microsoft.Extensions.DependencyInjection;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
@@ -51,8 +49,6 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// 
     public bool DisableOnBeforeSaveChanges { get; set; }
 
-    internal IGridifyMapperProvider? MapperProvider { get; set; }
-
     /// <summary>
     /// Whether to cache include expressions (queries are evaluated faster), defaults to true.
     /// </summary>
@@ -81,53 +77,6 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// Gets registered data service decorators.
     /// </summary>
     public Dictionary<Type, int> DataDecorators { get; private set; } = new();
-
-    /// <summary>
-    /// Adds a <see cref="IGridifyMapper{T}"/> to the <see cref="IGridifyMapperProvider"/>.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
-    public DataExplorerEfCoreConfiguration AddGridifyMapper<T>() where T : class, IGridifyMapper<T>, new()
-    {
-        MapperProvider ??= new GridifyMapperProvider();
-        
-        ((GridifyMapperProvider)MapperProvider).AddMapper(new T());
-        return this;
-    }
-    
-    /// <summary>
-    /// Adds a <see cref="IGridifyMapper{T}"/> to the <see cref="IGridifyMapperProvider"/>.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
-    public DataExplorerEfCoreConfiguration AddGridifyMapper<T>(IGridifyMapper<T> mapper) where T : class
-    {
-        MapperProvider ??= new GridifyMapperProvider();
-        
-        var addRes = ((GridifyMapperProvider)MapperProvider).AddMapper(mapper);
-        if (!addRes)
-            throw new InvalidOperationException($"Two gridify mappers were registered for the type: {typeof(T).Name}");
-        
-        return this;
-    }
-    
-    /// <summary>
-    /// Registers a customized implementation of <see cref="IGridifyMapperProvider"/>.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
-    public DataExplorerEfCoreConfiguration UseGridifyMapperProvider<TProvider>(TProvider provider) where TProvider : class, IGridifyMapperProvider
-    {
-        MapperProvider = provider;
-        return this;
-    }
-    
-    /// <summary>
-    /// Registers a customized implementation of <see cref="IGridifyMapperProvider"/>.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerEfCoreConfiguration"/> instance.</returns>
-    public DataExplorerEfCoreConfiguration UseGridifyMapperProvider<TProvider>() where TProvider : class, IGridifyMapperProvider, new()
-    {
-        MapperProvider = new TProvider();
-        return this;
-    }
 
     /// <summary>
     /// Marks an interceptor of a given type to be used for intercepting base data services.

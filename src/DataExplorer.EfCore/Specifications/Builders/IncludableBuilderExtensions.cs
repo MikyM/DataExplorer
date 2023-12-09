@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
-using DataExplorer.EfCore.Specifications.Expressions;
+using DataExplorer.Abstractions.Specifications.Builders;
+using DataExplorer.Specifications.Expressions;
 
 namespace DataExplorer.EfCore.Specifications.Builders;
 

@@ -1,4 +1,6 @@
-﻿using DataExplorer.EfCore.Specifications.Extensions;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Validators;
+using DataExplorer.EfCore.Specifications.Extensions;
 
 namespace DataExplorer.EfCore.Specifications.Validators;
 

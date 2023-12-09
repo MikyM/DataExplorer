@@ -1,6 +1,9 @@
-﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
 
-public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorMarker, IInMemoryEvaluatorMarker, IPreUpdateEvaluator
+namespace DataExplorer.EfCore.Specifications.Evaluators;
+
+public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator, IEvaluatorBase, IInMemoryEvaluatorMarker, IPreUpdateEvaluator
 {
     internal PaginationEvaluator()
     {

@@ -1,6 +1,9 @@
-﻿namespace DataExplorer.EfCore.Specifications.Evaluators;
+﻿using DataExplorer.Abstractions.Specifications;
+using DataExplorer.Abstractions.Specifications.Evaluators;
 
-public class AsTrackingEvaluator : IEvaluator, IEvaluatorMarker
+namespace DataExplorer.EfCore.Specifications.Evaluators;
+
+public class AsTrackingEvaluator : IEvaluator, IEvaluatorBase
 {
     private AsTrackingEvaluator() { }
     

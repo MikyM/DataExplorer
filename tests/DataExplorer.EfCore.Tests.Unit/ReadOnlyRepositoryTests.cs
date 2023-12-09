@@ -1,4 +1,4 @@
-﻿using DataExplorer.EfCore.Specifications;
+﻿using DataExplorer.Abstractions.Specifications;
 using DataExplorer.Tests.Shared;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;

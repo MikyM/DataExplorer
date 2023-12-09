@@ -1,6 +1,8 @@
 ﻿#if NET7_0_OR_GREATER
 
 using System.Linq.Expressions;
+using DataExplorer.Abstractions.Specifications.Builders;
+using DataExplorer.EfCore.Abstractions.Specifications;
 using DataExplorer.EfCore.Specifications.Builders;
 
 namespace DataExplorer.EfCore.Specifications;
@@ -14,12 +16,12 @@ public class UpdateSpecification<T> : BasicSpecification<T>, IUpdateSpecificatio
         Query = new UpdateSpecificationBuilder<T>(this);
     }
     
-    public IEnumerable<Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>>? UpdateExpressions { get; internal set; }
+    public IEnumerable<Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>>>? UpdateExpressions { get; set; }
     
     /// <summary>
     /// Inner <see cref="IUpdateSpecificationBuilder{T}"/>
     /// </summary>
-    protected new IUpdateSpecificationBuilder<T> Query { get; }
+    protected new Builders.IUpdateSpecificationBuilder<T> Query { get; }
 
     /// <summary>
     ///         Specify property and value to be set in ExecuteUpdate method with chaining multiple calls for updating

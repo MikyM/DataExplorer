@@ -1,5 +1,4 @@
-﻿using DataExplorer.Abstractions.Entities;
-using IEntity = MongoDB.Entities.IEntity;
+﻿using IEntity = MongoDB.Entities.IEntity;
 
 namespace DataExplorer.MongoDb;
 

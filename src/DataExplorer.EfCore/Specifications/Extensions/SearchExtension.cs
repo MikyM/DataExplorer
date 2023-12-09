@@ -1,7 +1,8 @@
 ﻿using System.Linq.Expressions;
 using System.Reflection;
-using DataExplorer.EfCore.Specifications.Exceptions;
-using DataExplorer.EfCore.Specifications.Expressions;
+using DataExplorer.Specifications.Exceptions;
+using DataExplorer.Specifications.Expressions;
+using DataExplorer.Specifications.Extensions;
 
 namespace DataExplorer.EfCore.Specifications.Extensions;
 

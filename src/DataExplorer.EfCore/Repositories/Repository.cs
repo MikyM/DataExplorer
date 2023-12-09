@@ -1,9 +1,10 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
-using DataExplorer.EfCore.Gridify;
-using DataExplorer.EfCore.Specifications;
+using DataExplorer.Abstractions.Specifications;
+using DataExplorer.EfCore.Abstractions.Specifications;
+using DataExplorer.EfCore.Specifications.Evaluators;
+using DataExplorer.Gridify;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using ISpecificationEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator;
 // ReSharper disable SuspiciousTypeConversion.Global
 
 namespace DataExplorer.EfCore.Repositories;
@@ -16,7 +17,7 @@ namespace DataExplorer.EfCore.Repositories;
 public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IRepository<TEntity,TId>
     where TEntity : Entity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
-    internal Repository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
+    internal Repository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper,
         IGridifyMapperProvider gridifyMapperProvider) : base(context,
         specificationEvaluator, mapper, gridifyMapperProvider)
     {
@@ -27,7 +28,7 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     public virtual Task<int> ExecuteDeleteAsync(ISpecification<TEntity> specification,
         CancellationToken cancellationToken = default)
         => ApplySpecification(specification).ExecuteDeleteAsync(cancellationToken);
-    
+
     /// <inheritdoc />
     public virtual Task<int> ExecuteDeleteAsync(Func<TEntity,bool> predicate,
         CancellationToken cancellationToken = default)
@@ -71,7 +72,15 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         => Set.AddRangeAsync(entities);
 
     /// <inheritdoc />
-    public virtual EntityEntry<TEntity> BeginUpdate(TEntity entity, bool shouldSwapAttached = false)
+    void IRepositoryBase<TEntity, TId>.BeginUpdate(TEntity entity, bool shouldSwapAttached)
+        => BeginUpdateWithEntityEntry(entity, shouldSwapAttached);
+
+    /// <inheritdoc />
+    void IRepositoryBase<TEntity, TId>.BeginUpdateRange(IEnumerable<TEntity> entities, bool shouldSwapAttached)
+        => BeginUpdateRangeWithEntityEntries(entities, shouldSwapAttached);
+
+    /// <inheritdoc />
+    public virtual EntityEntry<TEntity> BeginUpdateWithEntityEntry(TEntity entity, bool shouldSwapAttached = false)
     {
         var local = Set.Local.FirstOrDefault(entry => entry.Id.Equals(entity.Id));
 
@@ -88,7 +97,7 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
     }
 
     /// <inheritdoc />
-    public virtual IReadOnlyList<EntityEntry<TEntity>> BeginUpdateRange(IEnumerable<TEntity> entities, bool shouldSwapAttached = false)
+    public virtual IReadOnlyList<EntityEntry<TEntity>> BeginUpdateRangeWithEntityEntries(IEnumerable<TEntity> entities, bool shouldSwapAttached = false)
     {
         var entries = new List<EntityEntry<TEntity>>();
 
@@ -144,7 +153,7 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         if (entity is not IDisableable disableableEntity)
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
         
-        BeginUpdate(entity);
+        BeginUpdateWithEntityEntry(entity);
         disableableEntity.IsDisabled = true;
     }
 
@@ -156,7 +165,7 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
         if (list.FirstOrDefault() is not IDisableable)
             throw new InvalidOperationException("Can't disable an entity that isn't disableable.");
         
-        BeginUpdateRange(list);
+        BeginUpdateRangeWithEntityEntries(list);
         foreach (var entity in list) 
             ((IDisableable)entity).IsDisabled = true;
     }
@@ -236,7 +245,7 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
 [PublicAPI]
 public class Repository<TEntity> : Repository<TEntity, long>, IRepository<TEntity> where TEntity : Entity<long>
 {
-    internal Repository(IEfDbContext context, ISpecificationEvaluator specificationEvaluator, IMapper mapper,
+    internal Repository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper,
         IGridifyMapperProvider gridifyMapperProvider) : base(context, specificationEvaluator, mapper,
         gridifyMapperProvider)
     {

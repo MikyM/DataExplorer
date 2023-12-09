@@ -176,4 +176,8 @@ public abstract class EfDbContext : DbContext, IEfDbContext
         
         return ValueTask.CompletedTask;
     }
+
+    /// <inheritdoc/>
+    Task IDataContextBase.SaveChangesAsync(CancellationToken cancellationToken)
+        => SaveChangesAsync(cancellationToken);
 }

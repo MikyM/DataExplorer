@@ -1,8 +1,9 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
-using DataExplorer.EfCore.Specifications.Exceptions;
-using DataExplorer.EfCore.Specifications.Expressions;
-using DataExplorer.EfCore.Specifications.Helpers;
+using DataExplorer.Abstractions.Specifications.Builders;
+using DataExplorer.Specifications;
+using DataExplorer.Specifications.Exceptions;
+using DataExplorer.Specifications.Expressions;
 using EFCoreSecondLevelCacheInterceptor;
 
 namespace DataExplorer.EfCore.Specifications.Builders;
@@ -143,7 +144,7 @@ public static class SpecificationBuilderExtensions
         {
             specificationBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
             ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions).Add(
-                new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.OrderBy));
+                new OrderExpressionInfo<T>(orderExpression, OrderType.OrderBy));
         }
 
         var orderedSpecificationBuilder =
@@ -177,7 +178,7 @@ public static class SpecificationBuilderExtensions
         {
             specificationBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
             ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions).Add(
-                new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.OrderByDescending));
+                new OrderExpressionInfo<T>(orderExpression, OrderType.OrderByDescending));
         }
 
         var orderedSpecificationBuilder =
@@ -300,7 +301,7 @@ public static class SpecificationBuilderExtensions
         {
             specificationBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
             ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions).Add(
-                new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.OrderBy));
+                new OrderExpressionInfo<T>(orderExpression, OrderType.OrderBy));
         }
 
         var orderedSpecificationBuilder =
@@ -334,7 +335,7 @@ public static class SpecificationBuilderExtensions
         {
             specificationBuilder.Specification.OrderExpressions ??= new List<OrderExpressionInfo<T>>();
             ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions).Add(
-                new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.OrderByDescending));
+                new OrderExpressionInfo<T>(orderExpression, OrderType.OrderByDescending));
         }
 
         var orderedSpecificationBuilder =
