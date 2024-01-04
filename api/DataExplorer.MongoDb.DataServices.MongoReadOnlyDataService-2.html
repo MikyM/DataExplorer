@@ -241,7 +241,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.Abstractions.Repositories.IRepositoryBase.html">IRepositoryBase</a></td>
+        <td><span class="xref">DataExplorer.Abstractions.Repositories.IRepositoryBase</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -329,7 +329,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>True if any elements in the source sequence satisfy the condition, otherwise false.</p>
 </td>
       </tr>
@@ -379,26 +379,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_Expression_Func__0_System_Boolean___CancellationToken_MongoDB_Driver_CountOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.CountAsync(Expression%7BFunc%7B%600%2CSystem.Boolean%7D%7D%2CCancellationToken%2CMongoDB.Driver.CountOptions%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_Expression_Func__0_System_Boolean___CancellationToken_System_Nullable_CountOptions__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.CountAsync(Expression%7BFunc%7B%600%2CSystem.Boolean%7D%7D%2CCancellationToken%2CSystem.Nullable%7BCountOptions%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L85">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_Expression_Func__0_System_Boolean___CancellationToken_MongoDB_Driver_CountOptions_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync(Expression{Func{`0,System.Boolean}},CancellationToken,MongoDB.Driver.CountOptions,System.Boolean)">CountAsync(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, CancellationToken, CountOptions, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_Expression_Func__0_System_Boolean___CancellationToken_System_Nullable_CountOptions__System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync(Expression{Func{`0,System.Boolean}},CancellationToken,System.Nullable{CountOptions},System.Boolean)">CountAsync(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, CancellationToken, Nullable&lt;CountOptions&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Gets an accurate count of how many entities are matched for a given expression/filter</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;long&gt;&gt; CountAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; expression, CancellationToken cancellation = null, CountOptions options = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;long&gt;&gt; CountAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; expression, CancellationToken cancellation = null, CountOptions? options = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -423,7 +423,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.CountOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">CountOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>An optional CountOptions object</p>
 </td>
@@ -446,93 +446,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_Func_MongoDB_Driver_FilterDefinitionBuilder__0__MongoDB_Driver_FilterDefinition__0___CancellationToken_MongoDB_Driver_CountOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.CountAsync(Func%7BMongoDB.Driver.FilterDefinitionBuilder%7B%600%7D%2CMongoDB.Driver.FilterDefinition%7B%600%7D%7D%2CCancellationToken%2CMongoDB.Driver.CountOptions%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L126">View Source</a>
-  </span>
-  <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_Func_MongoDB_Driver_FilterDefinitionBuilder__0__MongoDB_Driver_FilterDefinition__0___CancellationToken_MongoDB_Driver_CountOptions_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync(Func{MongoDB.Driver.FilterDefinitionBuilder{`0},MongoDB.Driver.FilterDefinition{`0}},CancellationToken,MongoDB.Driver.CountOptions,System.Boolean)">CountAsync(Func&lt;FilterDefinitionBuilder&lt;TEntity&gt;, FilterDefinition&lt;TEntity&gt;&gt;, CancellationToken, CountOptions, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Gets an accurate count of how many total entities are in the collection for a given entity type</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;long&gt;&gt; CountAsync(Func&lt;FilterDefinitionBuilder&lt;TEntity&gt;, FilterDefinition&lt;TEntity&gt;&gt; filter, CancellationToken cancellation = null, CountOptions options = null, bool ignoreGlobalFilters = false)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">MongoDB.Driver.FilterDefinitionBuilder</span>&lt;TEntity&gt;, <span class="xref">MongoDB.Driver.FilterDefinition</span>&lt;TEntity&gt;&gt;</td>
-        <td><span class="parametername">filter</span></td>
-        <td><p>f =&gt; f.Eq(x =&gt; x.Prop, Value) &amp; f.Gt(x =&gt; x.Prop, Value)</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">cancellation</span></td>
-        <td><p>An optional cancellation token</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">MongoDB.Driver.CountOptions</span></td>
-        <td><span class="parametername">options</span></td>
-        <td><p>An optional CountOptions object</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">ignoreGlobalFilters</span></td>
-        <td><p>Set to true if you'd like to ignore any global filters for this operation</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_MongoDB_Driver_FilterDefinition__0__CancellationToken_MongoDB_Driver_CountOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.CountAsync(MongoDB.Driver.FilterDefinition%7B%600%7D%2CCancellationToken%2CMongoDB.Driver.CountOptions%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_FilterDefinition__0__CancellationToken_System_Nullable_CountOptions__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.CountAsync(FilterDefinition%7B%600%7D%2CCancellationToken%2CSystem.Nullable%7BCountOptions%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L112">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_MongoDB_Driver_FilterDefinition__0__CancellationToken_MongoDB_Driver_CountOptions_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync(MongoDB.Driver.FilterDefinition{`0},CancellationToken,MongoDB.Driver.CountOptions,System.Boolean)">CountAsync(FilterDefinition&lt;TEntity&gt;, CancellationToken, CountOptions, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_FilterDefinition__0__CancellationToken_System_Nullable_CountOptions__System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync(FilterDefinition{`0},CancellationToken,System.Nullable{CountOptions},System.Boolean)">CountAsync(FilterDefinition&lt;TEntity&gt;, CancellationToken, Nullable&lt;CountOptions&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Gets an accurate count of how many total entities are in the collection for a given entity type</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;long&gt;&gt; CountAsync(FilterDefinition&lt;TEntity&gt; filter, CancellationToken cancellation = null, CountOptions options = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;long&gt;&gt; CountAsync(FilterDefinition&lt;TEntity&gt; filter, CancellationToken cancellation = null, CountOptions? options = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -545,7 +478,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.FilterDefinition</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">FilterDefinition</span>&lt;TEntity&gt;</td>
         <td><span class="parametername">filter</span></td>
         <td><p>A filter definition</p>
 </td>
@@ -557,7 +490,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.CountOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">CountOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>An optional CountOptions object</p>
 </td>
@@ -580,7 +513,74 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_Func_FilterDefinitionBuilder__0__FilterDefinition__0___CancellationToken_System_Nullable_CountOptions__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.CountAsync(Func%7BFilterDefinitionBuilder%7B%600%7D%2CFilterDefinition%7B%600%7D%7D%2CCancellationToken%2CSystem.Nullable%7BCountOptions%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L126">View Source</a>
+  </span>
+  <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync*"></a>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_CountAsync_Func_FilterDefinitionBuilder__0__FilterDefinition__0___CancellationToken_System_Nullable_CountOptions__System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.CountAsync(Func{FilterDefinitionBuilder{`0},FilterDefinition{`0}},CancellationToken,System.Nullable{CountOptions},System.Boolean)">CountAsync(Func&lt;FilterDefinitionBuilder&lt;TEntity&gt;, FilterDefinition&lt;TEntity&gt;&gt;, CancellationToken, Nullable&lt;CountOptions&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Gets an accurate count of how many total entities are in the collection for a given entity type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;long&gt;&gt; CountAsync(Func&lt;FilterDefinitionBuilder&lt;TEntity&gt;, FilterDefinition&lt;TEntity&gt;&gt; filter, CancellationToken cancellation = null, CountOptions? options = null, bool ignoreGlobalFilters = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">FilterDefinitionBuilder</span>&lt;TEntity&gt;, <span class="xref">FilterDefinition</span>&lt;TEntity&gt;&gt;</td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>f =&gt; f.Eq(x =&gt; x.Prop, Value) &amp; f.Gt(x =&gt; x.Prop, Value)</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellation</span></td>
+        <td><p>An optional cancellation token</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">CountOptions</span>&gt;</td>
+        <td><span class="parametername">options</span></td>
+        <td><p>An optional CountOptions object</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">ignoreGlobalFilters</span></td>
+        <td><p>Set to true if you'd like to ignore any global filters for this operation</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -630,7 +630,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -661,7 +661,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Distinct</span>&lt;TEntity, TProperty&gt;</td>
+        <td><span class="xref">Distinct</span>&lt;TEntity, TProperty&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -708,7 +708,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Find</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">Find</span>&lt;TEntity&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -739,7 +739,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Find</span>&lt;TEntity, TProjection&gt;</td>
+        <td><span class="xref">Find</span>&lt;TEntity, TProjection&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -810,7 +810,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TEntity&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;TEntity&gt;&gt;</td>
         <td><p>If found an instance of the found entity, otherwise null.</p>
 </td>
       </tr>
@@ -818,19 +818,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Fluent_MongoDB_Driver_AggregateOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.Fluent(MongoDB.Driver.AggregateOptions%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Fluent_System_Nullable_AggregateOptions__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.Fluent(System.Nullable%7BAggregateOptions%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L152">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Fluent_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.Fluent*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Fluent_MongoDB_Driver_AggregateOptions_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.Fluent(MongoDB.Driver.AggregateOptions,System.Boolean)">Fluent(AggregateOptions, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Fluent_System_Nullable_AggregateOptions__System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.Fluent(System.Nullable{AggregateOptions},System.Boolean)">Fluent(Nullable&lt;AggregateOptions&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Exposes the MongoDB collection for the given entity type as IAggregateFluent in order to facilitate Fluent queries</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IAggregateFluent&lt;TEntity&gt; Fluent(AggregateOptions options = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public IAggregateFluent&lt;TEntity&gt; Fluent(AggregateOptions? options = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -843,7 +843,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.AggregateOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">AggregateOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The options for the aggregation. This is not required.</p>
 </td>
@@ -866,27 +866,27 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.IAggregateFluent</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">IAggregateFluent</span>&lt;TEntity&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_FluentTextSearch_MongoDB_Entities_Search_System_String_System_Boolean_System_Boolean_System_Nullable_System_String__MongoDB_Driver_AggregateOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.FluentTextSearch(MongoDB.Entities.Search%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Nullable%7BSystem.String%7D%2CMongoDB.Driver.AggregateOptions%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_FluentTextSearch_Search_System_String_System_Boolean_System_Boolean_System_Nullable_System_String__System_Nullable_AggregateOptions__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.FluentTextSearch(Search%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BAggregateOptions%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L156">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_FluentTextSearch_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.FluentTextSearch*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_FluentTextSearch_MongoDB_Entities_Search_System_String_System_Boolean_System_Boolean_System_Nullable_System_String__MongoDB_Driver_AggregateOptions_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.FluentTextSearch(MongoDB.Entities.Search,System.String,System.Boolean,System.Boolean,System.Nullable{System.String},MongoDB.Driver.AggregateOptions,System.Boolean)">FluentTextSearch(Search, String, Boolean, Boolean, Nullable&lt;String&gt;, AggregateOptions, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_FluentTextSearch_Search_System_String_System_Boolean_System_Boolean_System_Nullable_System_String__System_Nullable_AggregateOptions__System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.FluentTextSearch(Search,System.String,System.Boolean,System.Boolean,System.Nullable{System.String},System.Nullable{AggregateOptions},System.Boolean)">FluentTextSearch(Search, String, Boolean, Boolean, Nullable&lt;String&gt;, Nullable&lt;AggregateOptions&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Start a fluent aggregation pipeline with a $text stage with the supplied parameters</p>
 <p>TIP: Make sure to define a text index with DB.Index&lt;T>() before searching</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IAggregateFluent&lt;TEntity&gt; FluentTextSearch(Search searchType, string searchTerm, bool caseSensitive = false, bool diacriticSensitive = false, string? language = null, AggregateOptions options = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public IAggregateFluent&lt;TEntity&gt; FluentTextSearch(Search searchType, string searchTerm, bool caseSensitive = false, bool diacriticSensitive = false, string? language = null, AggregateOptions? options = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -899,7 +899,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Search</span></td>
+        <td><span class="xref">Search</span></td>
         <td><span class="parametername">searchType</span></td>
         <td><p>The type of text matching to do</p>
 </td>
@@ -929,7 +929,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.AggregateOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">AggregateOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>Options for finding documents (not required)</p>
 </td>
@@ -952,26 +952,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.IAggregateFluent</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">IAggregateFluent</span>&lt;TEntity&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_GeoNear_MongoDB_Entities_Coordinates2D_Expression_Func__0_System_Nullable_System_Object____System_Boolean_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__MongoDB_Bson_BsonDocument_System_Nullable_System_Int32__System_Nullable_Expression_Func__0_System_Nullable_System_Object_____System_Nullable_System_String__MongoDB_Driver_AggregateOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.GeoNear(MongoDB.Entities.Coordinates2D%2CExpression%7BFunc%7B%600%2CSystem.Nullable%7BSystem.Object%7D%7D%7D%2CSystem.Boolean%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CMongoDB.Bson.BsonDocument%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BExpression%7BFunc%7B%600%2CSystem.Nullable%7BSystem.Object%7D%7D%7D%7D%2CSystem.Nullable%7BSystem.String%7D%2CMongoDB.Driver.AggregateOptions%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_GeoNear_Coordinates2D_Expression_Func__0_System_Nullable_System_Object____System_Boolean_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_BsonDocument__System_Nullable_System_Int32__System_Nullable_Expression_Func__0_System_Nullable_System_Object_____System_Nullable_System_String__System_Nullable_AggregateOptions__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.GeoNear(Coordinates2D%2CExpression%7BFunc%7B%600%2CSystem.Nullable%7BSystem.Object%7D%7D%7D%2CSystem.Boolean%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BBsonDocument%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BExpression%7BFunc%7B%600%2CSystem.Nullable%7BSystem.Object%7D%7D%7D%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BAggregateOptions%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L162">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_GeoNear_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.GeoNear*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_GeoNear_MongoDB_Entities_Coordinates2D_Expression_Func__0_System_Nullable_System_Object____System_Boolean_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__MongoDB_Bson_BsonDocument_System_Nullable_System_Int32__System_Nullable_Expression_Func__0_System_Nullable_System_Object_____System_Nullable_System_String__MongoDB_Driver_AggregateOptions_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.GeoNear(MongoDB.Entities.Coordinates2D,Expression{Func{`0,System.Nullable{System.Object}}},System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},MongoDB.Bson.BsonDocument,System.Nullable{System.Int32},System.Nullable{Expression{Func{`0,System.Nullable{System.Object}}}},System.Nullable{System.String},MongoDB.Driver.AggregateOptions,System.Boolean)">GeoNear(Coordinates2D, Expression&lt;Func&lt;TEntity, Nullable&lt;Object&gt;&gt;&gt;, Boolean, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, BsonDocument, Nullable&lt;Int32&gt;, Nullable&lt;Expression&lt;Func&lt;TEntity, Nullable&lt;Object&gt;&gt;&gt;&gt;, Nullable&lt;String&gt;, AggregateOptions, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_GeoNear_Coordinates2D_Expression_Func__0_System_Nullable_System_Object____System_Boolean_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_BsonDocument__System_Nullable_System_Int32__System_Nullable_Expression_Func__0_System_Nullable_System_Object_____System_Nullable_System_String__System_Nullable_AggregateOptions__System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.GeoNear(Coordinates2D,Expression{Func{`0,System.Nullable{System.Object}}},System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{BsonDocument},System.Nullable{System.Int32},System.Nullable{Expression{Func{`0,System.Nullable{System.Object}}}},System.Nullable{System.String},System.Nullable{AggregateOptions},System.Boolean)">GeoNear(Coordinates2D, Expression&lt;Func&lt;TEntity, Nullable&lt;Object&gt;&gt;&gt;, Boolean, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;BsonDocument&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Expression&lt;Func&lt;TEntity, Nullable&lt;Object&gt;&gt;&gt;&gt;, Nullable&lt;String&gt;, Nullable&lt;AggregateOptions&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Start a fluent aggregation pipeline with a $GeoNear stage with the supplied parameters</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IAggregateFluent&lt;TEntity&gt; GeoNear(Coordinates2D nearCoordinates, Expression&lt;Func&lt;TEntity, object?&gt;&gt; distanceField, bool spherical = true, int? maxDistance = null, int? minDistance = null, int? limit = null, BsonDocument query = null, int? distanceMultiplier = null, Expression&lt;Func&lt;TEntity, object?&gt;&gt;? includeLocations = null, string? indexKey = null, AggregateOptions options = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public IAggregateFluent&lt;TEntity&gt; GeoNear(Coordinates2D nearCoordinates, Expression&lt;Func&lt;TEntity, object?&gt;&gt; distanceField, bool spherical = true, int? maxDistance = null, int? minDistance = null, int? limit = null, BsonDocument? query = null, int? distanceMultiplier = null, Expression&lt;Func&lt;TEntity, object?&gt;&gt;? includeLocations = null, string? indexKey = null, AggregateOptions? options = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -984,7 +984,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Coordinates2D</span></td>
+        <td><span class="xref">Coordinates2D</span></td>
         <td><span class="parametername">nearCoordinates</span></td>
         <td><p>The coordinates from which to find documents from</p>
 </td>
@@ -1020,7 +1020,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Bson.BsonDocument</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">BsonDocument</span>&gt;</td>
         <td><span class="parametername">query</span></td>
         <td><p>Limits the results to the documents that match the query</p>
 </td>
@@ -1043,7 +1043,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.AggregateOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">AggregateOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The options for the aggregation. This is not required.</p>
 </td>
@@ -1066,7 +1066,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.IAggregateFluent</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">IAggregateFluent</span>&lt;TEntity&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1115,7 +1115,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">IReadOnlyList</span>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">IReadOnlyList</span>&lt;TEntity&gt;&gt;&gt;</td>
         <td><p><see cref="!:IReadOnlyList&lt;T>"></see> with all entities.</p>
 </td>
       </tr>
@@ -1166,7 +1166,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">IReadOnlyList</span>&lt;TGetResult&gt;&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">IReadOnlyList</span>&lt;TGetResult&gt;&gt;&gt;</td>
         <td><p><see cref="!:IReadOnlyList&lt;T>"></see> with all entities.</p>
 </td>
       </tr>
@@ -1231,7 +1231,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
         <td><p>Number of entities.</p>
 </td>
       </tr>
@@ -1287,7 +1287,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
         <td><p>Number of entities.</p>
 </td>
       </tr>
@@ -1319,7 +1319,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.PagedSearch</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">PagedSearch</span>&lt;TEntity&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1350,7 +1350,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.PagedSearch</span>&lt;TEntity, TProjection&gt;</td>
+        <td><span class="xref">PagedSearch</span>&lt;TEntity, TProjection&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1373,20 +1373,20 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineAsync__1_MongoDB_Entities_Template__0___0__MongoDB_Driver_AggregateOptions_CancellationToken_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.PipelineAsync%60%601(MongoDB.Entities.Template%7B%600%2C%60%600%7D%2CMongoDB.Driver.AggregateOptions%2CCancellationToken%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineAsync__1_Template__0___0__System_Nullable_AggregateOptions__CancellationToken_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.PipelineAsync%60%601(Template%7B%600%2C%60%600%7D%2CSystem.Nullable%7BAggregateOptions%7D%2CCancellationToken%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L194">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineAsync_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineAsync*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineAsync__1_MongoDB_Entities_Template__0___0__MongoDB_Driver_AggregateOptions_CancellationToken_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineAsync``1(MongoDB.Entities.Template{`0,``0},MongoDB.Driver.AggregateOptions,CancellationToken,System.Boolean)">PipelineAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt;, AggregateOptions, CancellationToken, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineAsync__1_Template__0___0__System_Nullable_AggregateOptions__CancellationToken_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineAsync``1(Template{`0,``0},System.Nullable{AggregateOptions},CancellationToken,System.Boolean)">PipelineAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt;, Nullable&lt;AggregateOptions&gt;, CancellationToken, Boolean)</h4>
   <div class="markdown level1 summary"><p>Executes an aggregation pipeline by supplying a 'Template' object.
 Gets a list back as the result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;IReadOnlyList&lt;TResult&gt;&gt;&gt; PipelineAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt; template, AggregateOptions options = null, CancellationToken cancellation = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;IReadOnlyList&lt;TResult&gt;&gt;&gt; PipelineAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt; template, AggregateOptions? options = null, CancellationToken cancellation = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1399,13 +1399,13 @@ Gets a list back as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Template</span>&lt;TEntity, TResult&gt;</td>
+        <td><span class="xref">Template</span>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">template</span></td>
         <td><p>A 'Template' object with tags replaced</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.AggregateOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">AggregateOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The options for the aggregation. This is not required.</p>
 </td>
@@ -1434,7 +1434,7 @@ Gets a list back as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">IReadOnlyList</span>&lt;TResult&gt;&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">IReadOnlyList</span>&lt;TResult&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1457,20 +1457,20 @@ Gets a list back as the result.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineCursorAsync__1_MongoDB_Entities_Template__0___0__MongoDB_Driver_AggregateOptions_CancellationToken_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.PipelineCursorAsync%60%601(MongoDB.Entities.Template%7B%600%2C%60%600%7D%2CMongoDB.Driver.AggregateOptions%2CCancellationToken%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineCursorAsync__1_Template__0___0__System_Nullable_AggregateOptions__CancellationToken_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.PipelineCursorAsync%60%601(Template%7B%600%2C%60%600%7D%2CSystem.Nullable%7BAggregateOptions%7D%2CCancellationToken%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L179">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineCursorAsync_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineCursorAsync*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineCursorAsync__1_MongoDB_Entities_Template__0___0__MongoDB_Driver_AggregateOptions_CancellationToken_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineCursorAsync``1(MongoDB.Entities.Template{`0,``0},MongoDB.Driver.AggregateOptions,CancellationToken,System.Boolean)">PipelineCursorAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt;, AggregateOptions, CancellationToken, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineCursorAsync__1_Template__0___0__System_Nullable_AggregateOptions__CancellationToken_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineCursorAsync``1(Template{`0,``0},System.Nullable{AggregateOptions},CancellationToken,System.Boolean)">PipelineCursorAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt;, Nullable&lt;AggregateOptions&gt;, CancellationToken, Boolean)</h4>
   <div class="markdown level1 summary"><p>Executes an aggregation pipeline by supplying a 'Template' object.
 Gets a cursor back as the result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;IAsyncCursor&lt;TResult&gt;&gt;&gt; PipelineCursorAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt; template, AggregateOptions options = null, CancellationToken cancellation = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;IAsyncCursor&lt;TResult&gt;&gt;&gt; PipelineCursorAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt; template, AggregateOptions? options = null, CancellationToken cancellation = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1483,13 +1483,13 @@ Gets a cursor back as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Template</span>&lt;TEntity, TResult&gt;</td>
+        <td><span class="xref">Template</span>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">template</span></td>
         <td><p>A 'Template' object with tags replaced</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.AggregateOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">AggregateOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The options for the aggregation. This is not required.</p>
 </td>
@@ -1518,7 +1518,7 @@ Gets a cursor back as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">MongoDB.Driver.IAsyncCursor</span>&lt;TResult&gt;&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">IAsyncCursor</span>&lt;TResult&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1541,20 +1541,20 @@ Gets a cursor back as the result.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineFirstAsync__1_MongoDB_Entities_Template__0___0__MongoDB_Driver_AggregateOptions_CancellationToken_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.PipelineFirstAsync%60%601(MongoDB.Entities.Template%7B%600%2C%60%600%7D%2CMongoDB.Driver.AggregateOptions%2CCancellationToken%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineFirstAsync__1_Template__0___0__System_Nullable_AggregateOptions__CancellationToken_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.PipelineFirstAsync%60%601(Template%7B%600%2C%60%600%7D%2CSystem.Nullable%7BAggregateOptions%7D%2CCancellationToken%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L222">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineFirstAsync_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineFirstAsync*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineFirstAsync__1_MongoDB_Entities_Template__0___0__MongoDB_Driver_AggregateOptions_CancellationToken_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineFirstAsync``1(MongoDB.Entities.Template{`0,``0},MongoDB.Driver.AggregateOptions,CancellationToken,System.Boolean)">PipelineFirstAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt;, AggregateOptions, CancellationToken, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineFirstAsync__1_Template__0___0__System_Nullable_AggregateOptions__CancellationToken_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineFirstAsync``1(Template{`0,``0},System.Nullable{AggregateOptions},CancellationToken,System.Boolean)">PipelineFirstAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt;, Nullable&lt;AggregateOptions&gt;, CancellationToken, Boolean)</h4>
   <div class="markdown level1 summary"><p>Executes an aggregation pipeline by supplying a 'Template' object.
 Gets the first or default value as the result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;TResult&gt;&gt; PipelineFirstAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt; template, AggregateOptions options = null, CancellationToken cancellation = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;TResult&gt;&gt; PipelineFirstAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt; template, AggregateOptions? options = null, CancellationToken cancellation = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1567,13 +1567,13 @@ Gets the first or default value as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Template</span>&lt;TEntity, TResult&gt;</td>
+        <td><span class="xref">Template</span>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">template</span></td>
         <td><p>A 'Template' object with tags replaced</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.AggregateOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">AggregateOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The options for the aggregation. This is not required.</p>
 </td>
@@ -1602,7 +1602,7 @@ Gets the first or default value as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;TResult&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1625,20 +1625,20 @@ Gets the first or default value as the result.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineSingleAsync__1_MongoDB_Entities_Template__0___0__MongoDB_Driver_AggregateOptions_CancellationToken_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.PipelineSingleAsync%60%601(MongoDB.Entities.Template%7B%600%2C%60%600%7D%2CMongoDB.Driver.AggregateOptions%2CCancellationToken%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineSingleAsync__1_Template__0___0__System_Nullable_AggregateOptions__CancellationToken_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.PipelineSingleAsync%60%601(Template%7B%600%2C%60%600%7D%2CSystem.Nullable%7BAggregateOptions%7D%2CCancellationToken%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L208">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineSingleAsync_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineSingleAsync*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineSingleAsync__1_MongoDB_Entities_Template__0___0__MongoDB_Driver_AggregateOptions_CancellationToken_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineSingleAsync``1(MongoDB.Entities.Template{`0,``0},MongoDB.Driver.AggregateOptions,CancellationToken,System.Boolean)">PipelineSingleAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt;, AggregateOptions, CancellationToken, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_PipelineSingleAsync__1_Template__0___0__System_Nullable_AggregateOptions__CancellationToken_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.PipelineSingleAsync``1(Template{`0,``0},System.Nullable{AggregateOptions},CancellationToken,System.Boolean)">PipelineSingleAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt;, Nullable&lt;AggregateOptions&gt;, CancellationToken, Boolean)</h4>
   <div class="markdown level1 summary"><p>Executes an aggregation pipeline by supplying a 'Template' object.
 Gets a single or default value as the result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;TResult&gt;&gt; PipelineSingleAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt; template, AggregateOptions options = null, CancellationToken cancellation = null, bool ignoreGlobalFilters = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;Result&lt;TResult&gt;&gt; PipelineSingleAsync&lt;TResult&gt;(Template&lt;TEntity, TResult&gt; template, AggregateOptions? options = null, CancellationToken cancellation = null, bool ignoreGlobalFilters = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1651,13 +1651,13 @@ Gets a single or default value as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.Template</span>&lt;TEntity, TResult&gt;</td>
+        <td><span class="xref">Template</span>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">template</span></td>
         <td><p>A 'Template' object with tags replaced</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.AggregateOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">AggregateOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The options for the aggregation. This is not required.</p>
 </td>
@@ -1686,7 +1686,7 @@ Gets a single or default value as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;TResult&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1709,19 +1709,19 @@ Gets a single or default value as the result.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Queryable__1_MongoDB_Driver_AggregateOptions_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.Queryable%60%601(MongoDB.Driver.AggregateOptions%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Queryable__1_System_Nullable_AggregateOptions__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService%602.Queryable%60%601(System.Nullable%7BAggregateOptions%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/DataServices/MongoReadOnlyDataService.cs/#L236">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Queryable_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.Queryable*"></a>
-  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Queryable__1_MongoDB_Driver_AggregateOptions_System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.Queryable``1(MongoDB.Driver.AggregateOptions,System.Boolean)">Queryable&lt;T&gt;(AggregateOptions, Boolean)</h4>
+  <h4 id="DataExplorer_MongoDb_DataServices_MongoReadOnlyDataService_2_Queryable__1_System_Nullable_AggregateOptions__System_Boolean_" data-uid="DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService`2.Queryable``1(System.Nullable{AggregateOptions},System.Boolean)">Queryable&lt;T&gt;(Nullable&lt;AggregateOptions&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Exposes the MongoDB collection for the given entity type as IQueryable in order to facilitate LINQ queries</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IMongoQueryable&lt;T&gt; Queryable&lt;T&gt;(AggregateOptions options = null, bool ignoreGlobalFilters = false)
+    <pre><code class="lang-csharp hljs">public IMongoQueryable&lt;T&gt; Queryable&lt;T&gt;(AggregateOptions? options = null, bool ignoreGlobalFilters = false)
     where T : MongoEntity</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1735,7 +1735,7 @@ Gets a single or default value as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.AggregateOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">AggregateOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The aggregate options</p>
 </td>
@@ -1758,7 +1758,7 @@ Gets a single or default value as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.Linq.IMongoQueryable</span>&lt;T&gt;</td>
+        <td><span class="xref">IMongoQueryable</span>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1828,7 +1828,7 @@ Gets a single or default value as the result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">IReadOnlyList</span>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">IReadOnlyList</span>&lt;TEntity&gt;&gt;&gt;</td>
         <td><p><see cref="!:IReadOnlyList&lt;T>"></see> with filtered entities.</p>
 </td>
       </tr>

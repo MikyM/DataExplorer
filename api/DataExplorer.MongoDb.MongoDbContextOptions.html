@@ -116,19 +116,19 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_MongoDbContextOptions__ctor_System_String_MongoDB_Driver_MongoClientSettings_MongoDB_Entities_ModifiedBy_Type_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.MongoDbContextOptions.%23ctor(System.String%2CMongoDB.Driver.MongoClientSettings%2CMongoDB.Entities.ModifiedBy%2CType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_MongoDbContextOptions__ctor_System_String_MongoClientSettings_System_Nullable_ModifiedBy__Type_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.MongoDbContextOptions.%23ctor(System.String%2CMongoClientSettings%2CSystem.Nullable%7BModifiedBy%7D%2CType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/MongoDbContextOptions.cs/#L18">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_MongoDbContextOptions__ctor_" data-uid="DataExplorer.MongoDb.MongoDbContextOptions.#ctor*"></a>
-  <h4 id="DataExplorer_MongoDb_MongoDbContextOptions__ctor_System_String_MongoDB_Driver_MongoClientSettings_MongoDB_Entities_ModifiedBy_Type_" data-uid="DataExplorer.MongoDb.MongoDbContextOptions.#ctor(System.String,MongoDB.Driver.MongoClientSettings,MongoDB.Entities.ModifiedBy,Type)">MongoDbContextOptions(String, MongoClientSettings, ModifiedBy, Type)</h4>
+  <h4 id="DataExplorer_MongoDb_MongoDbContextOptions__ctor_System_String_MongoClientSettings_System_Nullable_ModifiedBy__Type_" data-uid="DataExplorer.MongoDb.MongoDbContextOptions.#ctor(System.String,MongoClientSettings,System.Nullable{ModifiedBy},Type)">MongoDbContextOptions(String, MongoClientSettings, Nullable&lt;ModifiedBy&gt;, Type)</h4>
   <div class="markdown level1 summary"><p>The MongoDB connection settings.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected MongoDbContextOptions(string database, MongoClientSettings mongoClientSettings, ModifiedBy modifiedBy, Type contextType)</code></pre>
+    <pre><code class="lang-csharp hljs">protected MongoDbContextOptions(string database, MongoClientSettings mongoClientSettings, ModifiedBy? modifiedBy, Type contextType)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -147,13 +147,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Driver.MongoClientSettings</span></td>
+        <td><span class="xref">MongoClientSettings</span></td>
         <td><span class="parametername">mongoClientSettings</span></td>
         <td><p>Mongo client settings.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MongoDB.Entities.ModifiedBy</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ModifiedBy</span>&gt;</td>
         <td><span class="parametername">modifiedBy</span></td>
         <td><p>Modified by.</p>
 </td>
@@ -244,7 +244,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModifiedBy ModifiedBy { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ModifiedBy? ModifiedBy { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -256,7 +256,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Entities.ModifiedBy</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ModifiedBy</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -287,7 +287,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.MongoClientSettings</span></td>
+        <td><span class="xref">MongoClientSettings</span></td>
         <td></td>
       </tr>
     </tbody>

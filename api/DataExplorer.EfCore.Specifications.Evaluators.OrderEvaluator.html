@@ -106,11 +106,12 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IEvaluator.html">IEvaluator</a></div>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IBasicEvaluator.html">IBasicEvaluator</a></div>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IEvaluatorData.html">IEvaluatorData</a></div>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluator.html">IInMemoryEvaluator</a></div>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorData.html">IInMemoryEvaluatorData</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IEvaluator.html">IEvaluator</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IBasicEvaluator.html">IBasicEvaluator</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IEvaluatorData.html">IEvaluatorData</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluator.html">IInMemoryEvaluator</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluatorData.html">IInMemoryEvaluatorData</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IEvaluatorBase.html">IEvaluatorBase</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -140,7 +141,7 @@
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class OrderEvaluator : IEvaluator, IBasicEvaluator, IEvaluatorData, IInMemoryEvaluator, IInMemoryEvaluatorData</code></pre>
+    <pre><code class="lang-csharp hljs">public class OrderEvaluator : IEvaluator, IBasicEvaluator, IEvaluatorData, IInMemoryEvaluator, IInMemoryEvaluatorData, IEvaluatorBase</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
@@ -149,7 +150,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_ApplicationOrder.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.ApplicationOrder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L14">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L16">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_ApplicationOrder_" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.ApplicationOrder*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_ApplicationOrder" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.ApplicationOrder">ApplicationOrder</h4>
@@ -179,7 +180,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_Default.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.Default%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L11">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L13">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_Default_" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.Default*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_Default" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.Default">Default</h4>
@@ -209,7 +210,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_IsCriteriaEvaluator.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.IsCriteriaEvaluator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L13">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L15">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_IsCriteriaEvaluator_" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.IsCriteriaEvaluator*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_IsCriteriaEvaluator" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.IsCriteriaEvaluator">IsCriteriaEvaluator</h4>
@@ -238,13 +239,13 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_Evaluate__1_System_Collections_Generic_IEnumerable___0__DataExplorer_EfCore_Specifications_ISpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.Evaluate%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CDataExplorer.EfCore.Specifications.ISpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_Evaluate__1_System_Collections_Generic_IEnumerable___0__DataExplorer_Abstractions_Specifications_ISpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.Evaluate%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L58">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L60">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_Evaluate_" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.Evaluate*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_Evaluate__1_System_Collections_Generic_IEnumerable___0__DataExplorer_EfCore_Specifications_ISpecification___0__" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.Evaluate``1(System.Collections.Generic.IEnumerable{``0},DataExplorer.EfCore.Specifications.ISpecification{``0})">Evaluate&lt;T&gt;(IEnumerable&lt;T&gt;, ISpecification&lt;T&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_Evaluate__1_System_Collections_Generic_IEnumerable___0__DataExplorer_Abstractions_Specifications_ISpecification___0__" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.Evaluate``1(System.Collections.Generic.IEnumerable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0})">Evaluate&lt;T&gt;(IEnumerable&lt;T&gt;, ISpecification&lt;T&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -268,7 +269,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;T&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;T&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td></td>
       </tr>
@@ -306,13 +307,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery__1_System_Linq_IQueryable___0__DataExplorer_EfCore_Specifications_IBasicSpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery%60%601(System.Linq.IQueryable%7B%60%600%7D%2CDataExplorer.EfCore.Specifications.IBasicSpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery__1_System_Linq_IQueryable___0__DataExplorer_Abstractions_Specifications_IBasicSpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery%60%601(System.Linq.IQueryable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.IBasicSpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L15">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L17">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery_" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery__1_System_Linq_IQueryable___0__DataExplorer_EfCore_Specifications_IBasicSpecification___0__" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery``1(System.Linq.IQueryable{``0},DataExplorer.EfCore.Specifications.IBasicSpecification{``0})">GetQuery&lt;T&gt;(IQueryable&lt;T&gt;, IBasicSpecification&lt;T&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery__1_System_Linq_IQueryable___0__DataExplorer_Abstractions_Specifications_IBasicSpecification___0__" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery``1(System.Linq.IQueryable{``0},DataExplorer.Abstractions.Specifications.IBasicSpecification{``0})">GetQuery&lt;T&gt;(IQueryable&lt;T&gt;, IBasicSpecification&lt;T&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -336,7 +337,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.IBasicSpecification-1.html">IBasicSpecification</a>&lt;T&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html">IBasicSpecification</a>&lt;T&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td></td>
       </tr>
@@ -374,13 +375,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery__1_System_Linq_IQueryable___0__DataExplorer_EfCore_Specifications_ISpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery%60%601(System.Linq.IQueryable%7B%60%600%7D%2CDataExplorer.EfCore.Specifications.ISpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery__1_System_Linq_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery%60%601(System.Linq.IQueryable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L55">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/OrderEvaluator.cs/#L57">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery_" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery__1_System_Linq_IQueryable___0__DataExplorer_EfCore_Specifications_ISpecification___0__" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery``1(System.Linq.IQueryable{``0},DataExplorer.EfCore.Specifications.ISpecification{``0})">GetQuery&lt;T&gt;(IQueryable&lt;T&gt;, ISpecification&lt;T&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Evaluators_OrderEvaluator_GetQuery__1_System_Linq_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0__" data-uid="DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.GetQuery``1(System.Linq.IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0})">GetQuery&lt;T&gt;(IQueryable&lt;T&gt;, ISpecification&lt;T&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -404,7 +405,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;T&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;T&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td></td>
       </tr>
@@ -442,19 +443,22 @@
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IEvaluator.html">IEvaluator</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IEvaluator.html">IEvaluator</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IBasicEvaluator.html">IBasicEvaluator</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IBasicEvaluator.html">IBasicEvaluator</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IEvaluatorData.html">IEvaluatorData</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IEvaluatorData.html">IEvaluatorData</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluator.html">IInMemoryEvaluator</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluator.html">IInMemoryEvaluator</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorData.html">IInMemoryEvaluatorData</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluatorData.html">IInMemoryEvaluatorData</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IEvaluatorBase.html">IEvaluatorBase</a>
   </div>
 </article>
               

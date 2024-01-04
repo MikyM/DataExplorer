@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.DataContexts.IDataContextBase.html",
-          "hash": "m3W3F8OPkEiFrphOkI5WPkh3EMnHP5Tkqzb0FAxfyoU="
+          "hash": "5DuwB3I43OryTRus0ozbcXalE4az+2/JNH4QmFeCCN8="
         }
       },
       "is_incremental": false,
@@ -29,11 +29,59 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.DataServices.ICrudDataServiceBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.DataServices.ICrudDataServiceBase-2.html",
+          "hash": "8/6MdVidBBa6B79S4ZJ/ka1NsTTwKyLi3W5Wx+jGdBw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.DataServices.ICrudDataServiceBase-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.DataServices.ICrudDataServiceBase-3.html",
+          "hash": "WrAPEGHXXs/9wh+XV2ZZZebGA8b8daK7aQG78Cfa78o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/DataExplorer.Abstractions.DataServices.IDataServiceBase-1.yml",
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html",
-          "hash": "cN00ENWwPVLdWagsR831mzQROOALNCrDlb4E6yTnaz8="
+          "hash": "Ynxkk9XURkyE+fvVLxXh7dKr6wGCcpDU/izwXWLRc4M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-2.html",
+          "hash": "UbhTke1JqjjmreYdjVmgYNf41YsKLy33JNTXZ3zcww4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html",
+          "hash": "YN93qruxXiENMuSvvmjYwXkkyPzNpGlhBeCzf9gK5D4="
         }
       },
       "is_incremental": false,
@@ -45,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.DataServices.html",
-          "hash": "g7wZoRI4u4wfOUp4FsRKcPLz2FDNZk/yH9NuZJH+1Aw="
+          "hash": "l8Dgy46SenQ7Tzj9nYU4zAWIzYFfDsD+En7/oUdYyeA="
         }
       },
       "is_incremental": false,
@@ -185,11 +233,59 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase.yml",
+      "source_relative_path": "api/DataExplorer.Abstractions.Repositories.IBaseRepository.yml",
       "output": {
         ".html": {
-          "relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase.html",
-          "hash": "6cJ1Ta9L6YutHVkyIjeVTQqHq+BfxxvGpsims9b9D9Y="
+          "relative_path": "api/DataExplorer.Abstractions.Repositories.IBaseRepository.html",
+          "hash": "TdGWHeQIFBD0DbNsIX9gBLPwEUPwhWKcZ8ZcoKdCgxc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-1.html",
+          "hash": "Zg2czGGLUTbFJOYcpSEFuG0gPE70Uwp1PcE54ZbjC+4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html",
+          "hash": "kY5ojGcK9oFF/v/zY/oULepjgslOaTiJq/plF76n6IQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase-1.html",
+          "hash": "yhNzYQ9cmyE4pOaZNE+K2LCCXHgkITLZGePRwuK4N/w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase-2.html",
+          "hash": "wzriEsvifLGv+U+EZNH8OnFo0e7C6XyDS+m0I+tkvtQ="
         }
       },
       "is_incremental": false,
@@ -201,7 +297,427 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.Repositories.html",
-          "hash": "mojkyF4rMqXsXUOhxJOAbzM7JQvZrA6/aIeRk76R9AM="
+          "hash": "T0VgEVLAbytubEqoqQgMCzTUW6T8jY7RJqpMtvh6snw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IBasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IBasicSpecificationBuilder-1.html",
+          "hash": "UE4KU2u+XaiuNXsNcl0j76lOTspUfIeA1S2VLpeDJzg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IChainControlledSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IChainControlledSpecification.html",
+          "hash": "l7S0xtAeQVNrLERBPIOv5XU0ZwiPuEayX53iO9q4Bio="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IGroupedBasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IGroupedBasicSpecificationBuilder-1.html",
+          "hash": "CV/GVNddkJW/bEW/TdBpjY3179T8EqKnLLNrl3ay8Lc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IGroupedSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IGroupedSpecificationBuilder-1.html",
+          "hash": "80ep8MS7TkNww7UhORszBURFRWuOObdab9N1kLvLGeU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IIncludableSpecificationBuilder-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IIncludableSpecificationBuilder-2.html",
+          "hash": "KjA3v7+P/Ra2SnuIS+PhW0CjZMWZHezrus/fxT6bf/k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IOrderedBasicSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IOrderedBasicSpecificationBuilder-1.html",
+          "hash": "i4W2kyCGyYjcX7hayAkIwKKcNtrSD5EFzrG2mXPqT74="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IOrderedSpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.IOrderedSpecificationBuilder-1.html",
+          "hash": "DAzTh3fJBHJKKR7drl99lHuQU6P8ekkrgyFBoYiLV7E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-1.html",
+          "hash": "cYi6/XApmiCKQJUMBd5/F4tYvtibNWEc/Uhw7emRIg4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html",
+          "hash": "LoFSt7eHUeQ14v41Jr8sQSaw7k7NZbLjF7JDnx/rCyo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Builders.html",
+          "hash": "KoSt2d8/KNs+Z6efLn/pmpD1Xom5lk+fN6CG9Ssvmu8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IBasicEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IBasicEvaluator.html",
+          "hash": "ZoToqJstPdVxigDQ9kTQEKE0dIeXUmD5Y1qfGBtVvQ4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IBasicInMemoryEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IBasicInMemoryEvaluator.html",
+          "hash": "L8rbAoEZYIRvTCER2crLpixd/w9NhOhBuQXvak2t6jg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IEvaluator.html",
+          "hash": "e30u00gQfRaEutQyHL7IqzS8DMQTfTCq4iAbSApMXD8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IEvaluatorBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IEvaluatorBase.html",
+          "hash": "GBLHZQG+URYhRLe//NdPSw9BiQ5DN/tY0d/EQlvTKjg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IEvaluatorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IEvaluatorData.html",
+          "hash": "8qeJK0lH4oaA/umeT9S0iNCrxafW/eUDzkqoBUfpRtI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluator.html",
+          "hash": "8fcq4zLRxH/pnXWPdAVpY5wyr3Xj+cpKqneTrhHQ7XI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluatorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluatorData.html",
+          "hash": "2gWH8+QAAO6jHBpPmdHwXp8XzYaSjsnLleghVYeVrZw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluatorMarker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IInMemoryEvaluatorMarker.html",
+          "hash": "EWZwZF0IthcPdXi+USl31PkdFZUbyRsVZ5njX8jaods="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.html",
+          "hash": "EtynyS1NA4H0pULtw/qcButcfb+QwMzUy5sfXY9lKOw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IPreUpdateEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IPreUpdateEvaluator.html",
+          "hash": "DBOCJmuBV5kn0k15Ne1/DsBHiUq5KRHc1NA4dPbw1Hs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IProjectionEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.IProjectionEvaluator.html",
+          "hash": "G2CN7pTab2r+wzDW2MqaP8FmZMMbltD779+7434shtM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.ISpecialCaseEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.ISpecialCaseEvaluator.html",
+          "hash": "CcxJzu1l3naXKZTKpe5SxE63RPLsOlsdMcPz719BnZg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.ISpecificationEvaluator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.ISpecificationEvaluator.html",
+          "hash": "EY870SIoSzuS+KDqTKspNJSSARao/Z8c7yZ0jJpobpA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Evaluators.html",
+          "hash": "BTSMh/uiRumiolahok1+OIiknEVqDLVOjTWwueLyCTI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.IBasicSpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html",
+          "hash": "oNlmR0xStu8Lx4zxn3Tyb+ucMJVEfrqr6tG4ma9rSg8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.ISpecification-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.ISpecification-1.html",
+          "hash": "Z+2QXvWawtkIjUD8pKrj4B1KnwYpDkV6kgOWCmwSUoo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.ISpecification-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.ISpecification-2.html",
+          "hash": "wQhLCoaL3ME9hGb+/EZ5dHirWtYu9JiRFoEjROZbCh8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.ISpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.ISpecification.html",
+          "hash": "ex67Nme2hvm8Wl9YOnCDkQo/xVnOse9koB7jh72YeLg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.ISpecificationFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.ISpecificationFactory.html",
+          "hash": "PUeczZE8EgnRReM8LFejmH7HOqMODFEkgioMEV9HtLo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.IBasicValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.IBasicValidator.html",
+          "hash": "LZpRAmmiMDA2S30ORDBxRMIOUgwCjOrXU4MbFBcjUnk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.ISpecificationValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.ISpecificationValidator.html",
+          "hash": "t6CA6kHdjDLJdpXFOsvRug4hEgOA34kPjc+avcQWykI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.IValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.IValidator.html",
+          "hash": "XlqPz7kQAg1e7o/kgSjHQeFwLv87XB61gl8A7CcuktQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.IValidatorMarker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.IValidatorMarker.html",
+          "hash": "C2jZJj7Y/oeeEd5eUCCRtAcytJGl6ES2rWK+HcxRIjc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.Validators.html",
+          "hash": "nHNgqUnk91vrWwZVSQ1H5uVgYGEo56ahXqp0nMTTjZQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Abstractions.Specifications.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Abstractions.Specifications.html",
+          "hash": "Xf3pc79UiQCgezxYIrJdHZ8WCeiWeoWNyzU1SoQWwz4="
         }
       },
       "is_incremental": false,
@@ -213,7 +729,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html",
-          "hash": "nXY8EBmBYIaLN8kYeQ7g3F5/5fba5MRhxf8meceAI1c="
+          "hash": "YoxFF87gJhEZvtmE9kpeV+d3extcbKM2aTlR6n4sVEk="
         }
       },
       "is_incremental": false,
@@ -273,7 +789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.DataExplorerConfiguration.html",
-          "hash": "2n8GHC4YKclj2meTuKlr2Km/ueGL2LxaNwQSB3sqqHM="
+          "hash": "vvBFk8TuPbWql20ZQ7pw8AlXE5+AJ8+MAYIYa6Ih+YM="
         }
       },
       "is_incremental": false,
@@ -333,7 +849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.DependencyInjectionExtensions.html",
-          "hash": "Ycmlf7AqQHFG6P8EQAAgoOlDc/Ow2jKJDstHI8LCCEg="
+          "hash": "1qhAtEsMgLuyRhW6w+pbQwl/NRFgMa9QH/Rrao5xu58="
         }
       },
       "is_incremental": false,
@@ -381,7 +897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.ICrudDataService-2.html",
-          "hash": "TeKO6a/N+wo87KQ26TB7CT6OrwOOww39ZTwzFnwN7l0="
+          "hash": "6cX3SKsrp9FTBjAf5drvCW3qW8kWF/bX9P4t0XlBoaQ="
         }
       },
       "is_incremental": false,
@@ -393,7 +909,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.ICrudDataService-3.html",
-          "hash": "cEK3Ia5O6BG5n8YR21HlStpFMqNvy8EaV5WtjxEgmls="
+          "hash": "kR8TgGlOnH84duckxpTph9TQ2jcaQLZPz2FJN0L1GnA="
         }
       },
       "is_incremental": false,
@@ -405,7 +921,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase-1.html",
-          "hash": "JNsY6ex04LFPo8PuUgs2vCLI03gepanxROTWetlIEeY="
+          "hash": "x8ma0VNZcrVarsHqf2B38qG5t2ev0Y+HWYOVXBJ74z4="
         }
       },
       "is_incremental": false,
@@ -417,7 +933,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IReadOnlyDataService-2.html",
-          "hash": "h2PaRtnWN4jPdZuPo4Z08ockIGG09s59FvvE5AQd5yI="
+          "hash": "93lcB15+YqxuwpaTqq55QlqIdzDK9N0V37KB27s6CIU="
         }
       },
       "is_incremental": false,
@@ -429,7 +945,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IReadOnlyDataService-3.html",
-          "hash": "3kA6rIwpIb/AgQHo8UepAgWqRHCb6Y4CKRcHJ+Pb4E8="
+          "hash": "+K8Gs8kp/5qCsKmb8xvz7QXNaNdNb3PRDdJbQHi0ltw="
         }
       },
       "is_incremental": false,
@@ -453,7 +969,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.IUnitOfWork-1.html",
-          "hash": "AE77ce/OZZQNzrE4a3T4K1oUvwupHQpPc2TUR29HX1E="
+          "hash": "9wVdHi9247hJiG45KBWmt/x5D9FhLzKVmaHsmy2joe4="
         }
       },
       "is_incremental": false,
@@ -465,7 +981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.IUnitOfWork.html",
-          "hash": "vDRveKK3yCBKHg7yc8bmbjCi1iOVdTO0Y6FLwxP2+vY="
+          "hash": "thXFuojI9YGtMzu0ezh4XCl+TTBUIlyLPuhRMIqRK8E="
         }
       },
       "is_incremental": false,
@@ -477,7 +993,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html",
-          "hash": "YUaAi8JonOKkYGrf9yVUKQUKYSOMNhY9k/Ks0EXmiEo="
+          "hash": "DJWxCkEExC7WWX4Ps7s/wfZNTKy1du/DY1BakiBg0NI="
         }
       },
       "is_incremental": false,
@@ -489,7 +1005,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html",
-          "hash": "3q8saoNSBMU2WJphIhT+dEO8p1iiRZeBYHt92AloNOA="
+          "hash": "yG29gQbusUgTjm3qRrrriwenEtmDy75lb0PwfuWqPSQ="
         }
       },
       "is_incremental": false,
@@ -501,7 +1017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html",
-          "hash": "ZJxEiNARIF9u+O1F66++vyNMktlbl3DCY1mJjScWFt4="
+          "hash": "yIyPzhZCMfeQqJJT63WZZpXYcJb/P+okzy0MhK890XY="
         }
       },
       "is_incremental": false,
@@ -513,7 +1029,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html",
-          "hash": "U2/KiO4t6L6QV7M+aJKKvAPmUqBvKx/hx4yuZZlpvrg="
+          "hash": "rtIGu+yPuwgD0YO0RZWIRGcvslfUvVed7gyM/7SRt8w="
         }
       },
       "is_incremental": false,
@@ -549,7 +1065,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataContexts.EfDbContext.html",
-          "hash": "XiMrPo0FSbP9t/TcGV7Rphr9MqF+agpVvQ80rAJPmVo="
+          "hash": "stx64XFik5peLgRM61dQ+4uLoGuAviJ6e86eYFYtNXs="
         }
       },
       "is_incremental": false,
@@ -573,7 +1089,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html",
-          "hash": "PsdSPnDhwP3k9SQBmIGI4hbC06raJnRQspz6tNvNsjE="
+          "hash": "VTxIZzxWRQHXJUW4ER3ub2/Iq8cfHUKFNcHWGzE2N+g="
         }
       },
       "is_incremental": false,
@@ -609,7 +1125,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.CrudDataService-2.html",
-          "hash": "GCheHO2kCWIDfWmKg3vtshzPxXI5ncagC3BWapfjccg="
+          "hash": "W8todexI4VhwXq7xGLjDUj+cBrL6+YTanX0XteVeHd8="
         }
       },
       "is_incremental": false,
@@ -621,7 +1137,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.CrudDataService-3.html",
-          "hash": "nF2htVerFDms6sNxZzNGGv8cdreRru/R3KTMNIP5T0Q="
+          "hash": "NHXPv/n+B81xlmCG+cPLly35GtpBCsEbvLQwXp3n5D8="
         }
       },
       "is_incremental": false,
@@ -633,7 +1149,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.EfCoreDataServiceBase-1.html",
-          "hash": "0A/OR9VeV1j7XwpobOIJenROxwPev8hGYV+njPqQ+ZY="
+          "hash": "dlOfJOlRsB/rNtFcMo6+z21jSyFNiVj6EXfzhDJFOZ4="
         }
       },
       "is_incremental": false,
@@ -645,7 +1161,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-2.html",
-          "hash": "/87DSEEYZs5Fg0Q+BuHCIcl5WPf3ifU8Uo4kzsi1EPo="
+          "hash": "VrJZSoSf6Zd9kJlzFhvKgp0zCLhfaJsC/Lk57HKG29A="
         }
       },
       "is_incremental": false,
@@ -657,7 +1173,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html",
-          "hash": "BqAUhAlCAtBLPad0ZsOfYYOsEhumhoZPe1UXZhYIKqg="
+          "hash": "vXao3w7cWdv9vUfpV89eXqB80FNNIl7IMo6GLptTXjE="
         }
       },
       "is_incremental": false,
@@ -717,7 +1233,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html",
-          "hash": "oH4S+jUhgF92Jb5VT2CjYNdZSsholq2k4rb7/2V9x+E="
+          "hash": "t7l/FMG/PLYv7L9fIiZmkm79iCMcJ+gPOduziiWIBv8="
         }
       },
       "is_incremental": false,
@@ -761,42 +1277,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Gridify.GridifyMapperProvider.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Gridify.GridifyMapperProvider.html",
-          "hash": "KDPoCwQ7dYzVmnUuAvI4s3a8KKmjmi47zOlMZiBQjuE="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Gridify.IGridifyMapperProvider.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Gridify.IGridifyMapperProvider.html",
-          "hash": "dAHPNldLbg2Rxj5BqyFpgU6QjvsBYC3l8kyzbbedfvk="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Gridify.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Gridify.html",
-          "hash": "j52c34SQhmEuNokrD2wD+KVXcVIYNce06pkTfngce1I="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/DataExplorer.EfCore.IEfDataExplorerTypeCache.yml",
       "output": {
         ".html": {
@@ -813,7 +1293,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-1.html",
-          "hash": "lfgCiqKpMNpzuaxz2VhPd6lQm+rCqQGGGYxZ+gS0jnA="
+          "hash": "M4KTNVBXKK4I3avgvsNGV4C9MW9rFCBIKsgjuW3vplk="
         }
       },
       "is_incremental": false,
@@ -825,7 +1305,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html",
-          "hash": "KITM2eedXn3DqHtMav/eU9dbTSJle97Kv2FUD7W1dgY="
+          "hash": "c3CchMMPIzzyhMjhA1i5XnFMR/zMfj6+I6E8oGHK5YI="
         }
       },
       "is_incremental": false,
@@ -837,7 +1317,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.Repository-1.html",
-          "hash": "+ZZ5J9TBexkWNCDwfrklNHAIcrfb0hyhKLlzOraS6wY="
+          "hash": "cjraDEWSj36DL+vxwUgiyKvLt1qACIMKl4SC7pe4ibY="
         }
       },
       "is_incremental": false,
@@ -849,7 +1329,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.Repository-2.html",
-          "hash": "n1ikP7LMwCtmgEs22YHBtoeOMHzZ2QxAv3qVicAHUw4="
+          "hash": "x/23KDw7NFPz4D2O1LFxYb9hGMKtxRyCVXNtTgAREyQ="
         }
       },
       "is_incremental": false,
@@ -869,23 +1349,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.ResultTransformation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.ResultTransformation.html",
-          "hash": "/PkDlD/PEcS4j29mxjvUp4IbZmxjgaGpUd85Hyhv0yU="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/DataExplorer.EfCore.Specifications.BasicSpecification-1.yml",
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.BasicSpecification-1.html",
-          "hash": "N1xQbD1fOtpXEVOssYwjdET0t6lBUKdppsn07S7QkS4="
+          "hash": "rmYejM1XU33botudWGARPXSkXZNQOGzIQhG0zViwUr0="
         }
       },
       "is_incremental": false,
@@ -897,19 +1365,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.BasicSpecificationBuilder-1.html",
-          "hash": "+NW+E7lgjUhvSHVzRSS0x7QBKnMvDXh618AiRMJ5j/A="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheBuilderExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheBuilderExtensions.html",
-          "hash": "tTa3dLpV+0AdI8fcXGedJxP0vADLf22R4TsKq9L0iNY="
+          "hash": "x4EdgVixn4+eNquzeGIL9Wi30bud8gtKqopOCA/eRzg="
         }
       },
       "is_incremental": false,
@@ -921,7 +1377,19 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheSpecificationBuilder-1.html",
-          "hash": "C3Ipe4qK+mmb6LkAE1y6cmTE3iJZe/BTToWDxKnqaHE="
+          "hash": "f7AWiUM9W3zCnd1ZIReF6OcNDyiAFIN1BpZ6WqEzwig="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheSpecificationBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.CacheSpecificationBuilderExtensions.html",
+          "hash": "CwIvubd4GBF2hjg9Nhool3syhyFS/SbjUNM84peCJKU="
         }
       },
       "is_incremental": false,
@@ -933,7 +1401,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.GroupedBasicSpecificationBuilder-1.html",
-          "hash": "pW7F1wuwJuu/+1vBmAvsAn2IH3mbG9jpfd5jcCqu9ms="
+          "hash": "4ku6jwVwT+nfHB7MIo1ib33mQi4QObN3zMU8DzuVkY4="
         }
       },
       "is_incremental": false,
@@ -945,19 +1413,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.GroupedSpecificationBuilder-1.html",
-          "hash": "If6tdp+KJRgThMamvAgTGbcIcmvGoDuElE3zhORYJuA="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IBasicSpecificationBuilder-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IBasicSpecificationBuilder-1.html",
-          "hash": "7peH0xSIRbVo8PQGl3Y93GyXKTdaf42hc9ABz5t2kaU="
+          "hash": "lpEt3dVMZNULFHwZez/tV9syA7lHyKDS1FHaWt/Ju94="
         }
       },
       "is_incremental": false,
@@ -969,103 +1425,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ICacheSpecificationBuilder-1.html",
-          "hash": "pI+CxO+HVSL3A5BnuUy6Hco56GT1wWTkRuE9BAblDJg="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IChainControlledSpecification.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IChainControlledSpecification.html",
-          "hash": "ws9SgTttfuH5Gk6KOl+cHV3k+Az3cfhFYBc+6w3G6f4="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IGroupedBasicSpecificationBuilder-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IGroupedBasicSpecificationBuilder-1.html",
-          "hash": "yqq+ieA+i2GfNQ7ze2L9FpjhHhPrAMfpJS6faJkOjNA="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IGroupedSpecificationBuilder-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IGroupedSpecificationBuilder-1.html",
-          "hash": "B3wEU3w+f1KHdeUjc2w9QMy9UD7LWoQ3zAB1L7U3hGI="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IIncludableSpecificationBuilder-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IIncludableSpecificationBuilder-2.html",
-          "hash": "G4D8srdKjDBfrNd7teKc+7ILSSAioAbFcLD1LsLpMBo="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IOrderedBasicSpecificationBuilder-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IOrderedBasicSpecificationBuilder-1.html",
-          "hash": "PnP4Z7xYeI/tH6OYp0RZnUsRztkgJmA2CkFWqFWCUxo="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IOrderedSpecificationBuilder-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IOrderedSpecificationBuilder-1.html",
-          "hash": "twWCutd/stNh0xvtC8BjoTIG1MztKLiWqeMSEsq5KjE="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-1.html",
-          "hash": "rOQeA6MHetNkaI/RgkoSpnB0zp2S+f3P1ztgUtC25Wk="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html",
-          "hash": "Rh7xP1ZmFzXGzbAsDNpM4V5J+MAGtSWFTLJcPvML3YE="
+          "hash": "V3mGg09aglLxnXTpcdvK2AHHjv9RULqLKRNwuNBnWdo="
         }
       },
       "is_incremental": false,
@@ -1077,7 +1437,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IncludableBuilderExtensions.html",
-          "hash": "0pmVQfEGHw8pbOcQKKeS0i2RiIy2BMU7pg6IUOiC9xw="
+          "hash": "1qe2oDIPS/1Xxeci84ITwJbkaxxs397puqN083fICq8="
         }
       },
       "is_incremental": false,
@@ -1089,7 +1449,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.IncludableSpecificationBuilder-2.html",
-          "hash": "RAEfrlkz2wm+aAguP5RslUdmrzfCD6Ts5yYoZmV16xE="
+          "hash": "7fGJWDrb4U/biG/FekXjrAygsD7X+hyobG/SCkoXF8M="
         }
       },
       "is_incremental": false,
@@ -1101,7 +1461,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedBasicSpecificationBuilder-1.html",
-          "hash": "yVRdJALk6pVbTdv8VCFnjTG4ag66u2LgNenGvBTHzwk="
+          "hash": "D0oxc9vQHslabEMEfKt3gFbaEDDXtvoh2cYEgUNXBzQ="
         }
       },
       "is_incremental": false,
@@ -1113,7 +1473,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedBuilderExtensions.html",
-          "hash": "uTDsCq+kHW7s5YeyddDE6YVFD584tYGw2MEePI4WQ0M="
+          "hash": "eearbdmxKlzM/bTN+C1ujqRKwAAGiq/p7N9+0Af0fN0="
         }
       },
       "is_incremental": false,
@@ -1125,7 +1485,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.OrderedSpecificationBuilder-1.html",
-          "hash": "cV9zX//cDYca4mJXeAKpsXzzDkMsCNdZWHee0uyt9zQ="
+          "hash": "Z0TTJNxLLHyqS40AMH5ovdWHe/4+N008vRq3q4alHp0="
         }
       },
       "is_incremental": false,
@@ -1137,7 +1497,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilder-1.html",
-          "hash": "c8JezHc2Inlo5elpLA4di4dDaAJUBw7pEAlh9IuWhqU="
+          "hash": "n28sWmsEgdiet16jTkYejq8YRo/24/8hHdFOrR3HY3w="
         }
       },
       "is_incremental": false,
@@ -1149,7 +1509,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilder-2.html",
-          "hash": "lzN7PjjZ2AlbXoP1CoVIpMSQRx/0L8kTFzgaNhu+kHU="
+          "hash": "e0VD1AiuEboaYTP/hrud7RiWDhw2cWX08L0h6xIt4Yg="
         }
       },
       "is_incremental": false,
@@ -1161,7 +1521,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html",
-          "hash": "tbY2WLGQmHOGZBdODdkcJYKaPuOtqkxLybMlOXUJ19Y="
+          "hash": "0iLH9XUOSsa5qHh67UkeB6Ij2rkhb8g7RlX18Bd/AKw="
         }
       },
       "is_incremental": false,
@@ -1173,7 +1533,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Builders.html",
-          "hash": "TIKNd85Pzuiy9veSJod8ax9oM0RAEYziRfGZotz00Gs="
+          "hash": "b/TdFMgf5OmYg//0o2LCBkbz4ZLPQgzUoAHcWxg7nIc="
         }
       },
       "is_incremental": false,
@@ -1185,7 +1545,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-1.html",
-          "hash": "CA7ZtKQxZMuw6nE3OB9wWWnoVG1ZTDwMCWokJxbcgc8="
+          "hash": "u8ToOD+RPYWwFOL1qhilBkKkRKMPnJ6I1YrywkP1Pmw="
         }
       },
       "is_incremental": false,
@@ -1197,7 +1557,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.EntityByIdSpecification-2.html",
-          "hash": "c5JC1CMnaEGdfeBnaspvCIFVXUvYtie0lNVUVLTqK0A="
+          "hash": "dtYz5RbJvBQHuokGr1PXwBMlfDrEw49Tjnm5HbZqkB8="
         }
       },
       "is_incremental": false,
@@ -1209,7 +1569,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsNoTrackingEvaluator.html",
-          "hash": "Oc8r8JtgpnDo0LedgfC0jNNPosiObMpYRjfWTQhjVtw="
+          "hash": "6JfI11Oq1bGKro5Epn7i2ZIT85mA5pUiWiuj2SzLIps="
         }
       },
       "is_incremental": false,
@@ -1221,7 +1581,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsNoTrackingWithIdentityResolutionEvaluator.html",
-          "hash": "gp4opMu8dS9Wu/Hr43Tv9W/SxCiXtjrWjJ9zLNLXrc8="
+          "hash": "LRdME3ApDYCquNp56pH1SwAOE+ZM1Kw3sntK/b4kegk="
         }
       },
       "is_incremental": false,
@@ -1233,7 +1593,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsSplitQueryEvaluator.html",
-          "hash": "hiAz3M/U5cialMZASLuHxBTvnxamtaDdyIGFalhQyqM="
+          "hash": "dqQwRpYh+Hr4m0MPOf4mNxD+QXODI9uf1ArKyN5Ub5E="
         }
       },
       "is_incremental": false,
@@ -1245,7 +1605,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.AsTrackingEvaluator.html",
-          "hash": "rUwkmgxhIKmOOzE9N0e2nf1PmVqStOsV4qaj96smZEw="
+          "hash": "N8YV9kDH5K4OoRcHTA2VLfbb8YnR+Vb+6w1f89kZ8Ls="
         }
       },
       "is_incremental": false,
@@ -1257,7 +1617,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.CachingEvaluator.html",
-          "hash": "R3+AW3VVoG63lZQt4Y4psoH2v1+I8ryHMu62hQ1/QSM="
+          "hash": "HulWCaHBHiV8jHlVnQiSvux3FzPnJH61j1e1QeshJS4="
         }
       },
       "is_incremental": false,
@@ -1269,7 +1629,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator.html",
-          "hash": "WiCKs54KPe429bZIvtgy1zIlhd6AF5zTeZAzMWVbMPw="
+          "hash": "ZXxC1enFbw51Eqa8hI5rmjL/MwGdSEZ032efMV6qLMA="
         }
       },
       "is_incremental": false,
@@ -1277,143 +1637,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IBasicEvaluator.yml",
+      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator.yml",
       "output": {
         ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IBasicEvaluator.html",
-          "hash": "Q2F3vq42LrYov3BbuF7CWP6XC3zLfvi+Z5lEqeKoCwg="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IBasicInMemoryEvaluator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IBasicInMemoryEvaluator.html",
-          "hash": "9nByJRXKnc+svsMcheFdL9QNsAPsYJmxmaxD8jLzJ28="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEvaluator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEvaluator.html",
-          "hash": "ieBRMQ0pi1NCmDMkZ+ZdYft6SpgX2dkxk8miU5WwBI8="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEvaluatorData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEvaluatorData.html",
-          "hash": "YJQHphgzq0IoY1ApihuduYa+7szL1Nxx0LZp+eQ4EEg="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluator.html",
-          "hash": "20+5CBzaRHpNZ0N4mwk6fjYB2mNypG0l4WN8HZXor+s="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorData.html",
-          "hash": "MCZ0G6lE0YSye/fj3hxGGi15eKx997XdCurWwcBOhbM="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorMarker.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemoryEvaluatorMarker.html",
-          "hash": "F2wU4jWOXsJgDep8NFECH1QMo1pRmlaYkuf5jzPIS44="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator.html",
-          "hash": "NTE9SWJpzjUdP4jHhKmrrNDPSUtHcUT5h6mw6GsB+Jg="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IPreUpdateEvaluator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IPreUpdateEvaluator.html",
-          "hash": "7Ju0GZmr/YO9aHPjIR0XR2KKwQ1QMWXlEPQ+pFjgvyk="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IProjectionEvaluator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IProjectionEvaluator.html",
-          "hash": "YWmYC8+KNPD2uF42PMRF2/d5u/rD01KwJpi/fgPI0Dg="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ISpecialCaseEvaluator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ISpecialCaseEvaluator.html",
-          "hash": "IwjODnQsDJP28/WQGB/JW6RcA5HcMTLXtATVrkzb/hc="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator.html",
-          "hash": "yPwhfwRTSaBq/5YePYf1go8Mz47IG0cNsG1dXihyoe4="
+          "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator.html",
+          "hash": "LMM1U+rA4Kfe8MpTXpLKn1a9GcvawmOZIlaP/r+oe7o="
         }
       },
       "is_incremental": false,
@@ -1425,7 +1653,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IgnoreQueryFiltersEvaluator.html",
-          "hash": "+69r395GnHCo6lELhkAkfJUHkZ3AA2IViFMh1EM5iog="
+          "hash": "XAbuSlmWIDP9ClM98rt6r49qEFDVzgLgCYmXYJJnPOs="
         }
       },
       "is_incremental": false,
@@ -1437,7 +1665,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.InMemorySpecificationEvaluator.html",
-          "hash": "YL6z7eJascjCq2ITTmZXHXAPZGSkE8Zgc40FFsVmSqU="
+          "hash": "yPYkYW8YYCgY/PmS7pcN0WM9wHhBax8d0pNcq3eju0o="
         }
       },
       "is_incremental": false,
@@ -1449,7 +1677,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.IncludeEvaluator.html",
-          "hash": "KwFLAjMCpFrXj0CCqPPxG9RYm+TsZYNuye8bfpFZ0Mw="
+          "hash": "Yk+Lad+QALV6Q50/Ff9g5m40KC5LOW59lUXs7P1Sn2I="
         }
       },
       "is_incremental": false,
@@ -1461,7 +1689,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.OrderEvaluator.html",
-          "hash": "nDQuve8AGV0zV9U8rdE5DdinL4dyh8IyRBg5Vw1/WMM="
+          "hash": "Kj8qzfSg5Wk9i6B6FdkuHjdSmygPNswHmNO5v02dB3Q="
         }
       },
       "is_incremental": false,
@@ -1473,7 +1701,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.PaginationEvaluator.html",
-          "hash": "vWEx5PO+KUGUGWKcFcLhlqXvYLr8aZHtDiH1Of5cp7s="
+          "hash": "3sGyUPseGSuIHlxTzDnUJpQtI6pW+9sJlwHyk2s1AQk="
         }
       },
       "is_incremental": false,
@@ -1485,7 +1713,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.html",
-          "hash": "oF71cITUElqm13VeisDS10IysQ4A8d82UXLs0raF6A0="
+          "hash": "+7LrPWAAQ5eJ2FJkMWLNx3fwH+zGqd+VD0VPeQDgaCg="
         }
       },
       "is_incremental": false,
@@ -1497,7 +1725,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.SearchEvaluator.html",
-          "hash": "QQXCqdemp/Q3J+msnJOWqO+3pTcEsdUXqoD4WKEnYhs="
+          "hash": "31tauWc+6Y4kcxXZBS0rnsgArJ6mGKnuXN9/knbwE/k="
         }
       },
       "is_incremental": false,
@@ -1509,7 +1737,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.WhereEvaluator.html",
-          "hash": "6GfeYYOj+QgB4/D/xFHq3HAK+gu3hq6DzgubeX6N31k="
+          "hash": "VBh9pkl1EEvym3tlpBaCvKaqJY+OXM/D32wClJoMjVI="
         }
       },
       "is_incremental": false,
@@ -1521,163 +1749,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Evaluators.html",
-          "hash": "+QjxkU/NX1h2dWUgHeQ4EdrItHvJYTzPA4Fu6XR5/xw="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.ConcurrentSelectorsException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.ConcurrentSelectorsException.html",
-          "hash": "xzTajSOHVp+CFbClWRzKo0ubg2rqLAo7weFyiP+E9rI="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateOrderChainException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateOrderChainException.html",
-          "hash": "9BcJSMiFosPklpQHNyc8R/XmnfSe7ZgDR2GYNHLp6PA="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicatePaginationException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicatePaginationException.html",
-          "hash": "lFYiMg8YBGJZHPoM0iasQyKfmxt+UXNlnYPEPuhLh/w="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateSkipException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateSkipException.html",
-          "hash": "w9W9EvlxaW4TYxFCfkRjFKH/Iyk+vX9Th4aWBIzjkw8="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateTakeException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.DuplicateTakeException.html",
-          "hash": "8cjlUT0EbRFpQJE9hPgnrRqAh9U8e0PIJz7zIRiaK4M="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.InvalidSearchPatternException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.InvalidSearchPatternException.html",
-          "hash": "548TfzVJf+QkTHqL1Ccj/6n12MTOEEKnDjXmxFHBhZc="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.SelectorNotFoundException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.SelectorNotFoundException.html",
-          "hash": "ttMh91UvoQWsSdwa5tOd6HJ0GN5nHIuznZuaQo9xSiE="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Exceptions.html",
-          "hash": "p5/2uZ0U5LsZ5x7Ug/GhtXGD6fTEjujys/AliGMsdZE="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.IncludeExpressionInfo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.IncludeExpressionInfo.html",
-          "hash": "N96r7kq7+vPm50wEzSMnqcSeFHwacY6JXNymGLbBVLo="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.OrderExpressionInfo-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.OrderExpressionInfo-1.html",
-          "hash": "rW5ynM/3TNUUXg8pF5Q6JkK9zAOELE9r8vwHcnOPd6Q="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.SearchExpressionInfo-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.SearchExpressionInfo-1.html",
-          "hash": "EGATHMzeCjDE8q8rSH11RF2GMOK0Vef6/KR2Ojjfy7g="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.WhereExpressionInfo-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.WhereExpressionInfo-1.html",
-          "hash": "vWAU+6yYrBYd3GMeHmUvgh7Q97H5diGE8SnxYY3wphg="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Expressions.html",
-          "hash": "ofuIKwxSVH3U6plWRZDkmQr6gfyCHcgc1uJE9+alELM="
+          "hash": "ML0Q8P+R1akqps5pNhoUlaod3ASb1dQInInlOvi6jJk="
         }
       },
       "is_incremental": false,
@@ -1701,7 +1773,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Extensions.SearchExtension.html",
-          "hash": "9DvNaxOF0t3ea3TrfYhAh/2C8bRSkmvJk8VPV+fQCqs="
+          "hash": "bcmkWOvTjxEejr5DdawWWo3tteyIruaAaapEqju1qMM="
         }
       },
       "is_incremental": false,
@@ -1721,107 +1793,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.IncludeTypeEnum.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.IncludeTypeEnum.html",
-          "hash": "KVTtpCQIXrC6g88UYAmf1c3F10hq+OMAQxAgWoOUmNY="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.OrderTypeEnum.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.OrderTypeEnum.html",
-          "hash": "xHFvn6k9bzM1N4xdABSDmYjX02TBKBZJ5fM3FodfBg8="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Helpers.html",
-          "hash": "yIjK+nxKEqirAoG0yH3sXQqFryKtAuuZ2xodJ6p4W9s="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.IBasicSpecification-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.IBasicSpecification-1.html",
-          "hash": "n9eYLvKo4JVs64wK6f//clAnZAvMuZNQSj+G6qIHx1A="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification-1.html",
-          "hash": "sBQAAEHb4Gbro9vUIKeIVhYwdutmkY5VCN6ge8hoE4M="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification-2.html",
-          "hash": "yW1xRnLz6ADSyZilOrRmhVBSwKubbhgT4cRglJG1yP8="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.ISpecification.html",
-          "hash": "QK06FqXVaDQsk0ahD+/JIapm1GlTFHRjXcZuHbQhPno="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.ISpecificationFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.ISpecificationFactory.html",
-          "hash": "YuypyjYy3to8rwYHvxjBD8+ZiPgFjAxu5twiefGsLJM="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/DataExplorer.EfCore.Specifications.Specification-1.yml",
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Specification-1.html",
-          "hash": "iztqp1aDgcBQkxJU+nQnt3R7SOx9Avhl+IIw+lovCz0="
+          "hash": "mxsNWXqRw+njY05X2m6LCS7ilxsEeKKppUW1CJ0FDwM="
         }
       },
       "is_incremental": false,
@@ -1833,7 +1809,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Specification-2.html",
-          "hash": "NEBhPXsk7LAd1svobS4yWmnNqiHVur9cn+0ZE2X19bE="
+          "hash": "UxquQdVntV1NOK8s5E2ig/fqT/XGuGg+c1QmflZJ57A="
         }
       },
       "is_incremental": false,
@@ -1845,55 +1821,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.SpecificationEvaluator.html",
-          "hash": "GOVr4dhUH87KEiFgSyxDESTKDRxmNnInLIwLZmpLCC4="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IBasicValidator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IBasicValidator.html",
-          "hash": "phyR96hLiYUb327YZa3W2Yxbntg5g/2oOxdzuRKTggU="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.ISpecificationValidator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.ISpecificationValidator.html",
-          "hash": "CmNxmWDzMRv3lD6lzR03tL8x5JAQKPchsdEAOe4qjCM="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IValidator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IValidator.html",
-          "hash": "leeKvI6xCgbvxflWxx6wEoa/HmUY2Op7bp5o0F3olWE="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IValidatorMarker.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.IValidatorMarker.html",
-          "hash": "pxxXeL1wEWS4LEEi6qlIK5tozZasDQl1gqDJz4V43wk="
+          "hash": "RJ1EMGixzJ+HJwH7y0eJ40vYFL2WaY0LM5uHLwfBsGM="
         }
       },
       "is_incremental": false,
@@ -1905,7 +1833,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.SearchValidator.html",
-          "hash": "LU0gLTO3MAf2eg+yD4XYsLIly0uKr580G20n+EMxrV4="
+          "hash": "ayfeuYneWtwFdnqGRaGREjMigqrNk9qlN8R2uVo8His="
         }
       },
       "is_incremental": false,
@@ -1917,7 +1845,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.SpecificationValidator.html",
-          "hash": "GhtmphNUBIfnZujrgfu1/qlFX47gwTriI0mlv9VIEq0="
+          "hash": "8x8C+GuGm+cjKRDhT2uH1h66jL9OLboOCfcrGCZQJ7s="
         }
       },
       "is_incremental": false,
@@ -1929,7 +1857,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.WhereValidator.html",
-          "hash": "eLnEZGKcfNOgpv2Rtgvq3VqgnFrMcNfjywBkylXL53I="
+          "hash": "D20i2vrIpmlyBLQlMIBWHTbO3kCbInPrPCqC+kh6FMs="
         }
       },
       "is_incremental": false,
@@ -1941,7 +1869,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.Validators.html",
-          "hash": "F6c3t8+v9HFY++8qOkaNlvhOUflZxgpvA+ewspbBu0M="
+          "hash": "bTZbSqrKcxiypmnM0r+36WtIctd5NYCVpltODaRLLF8="
         }
       },
       "is_incremental": false,
@@ -1953,7 +1881,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Specifications.html",
-          "hash": "eMRJdam/vosjYFr/+uMMLziKCeKGVtzNdHwRwvkW1ok="
+          "hash": "E1mpNL0qQ0iUNpqg+bCNUw0szFtJLEy/7LS9PZuhka8="
         }
       },
       "is_incremental": false,
@@ -1965,7 +1893,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.UnitOfWork-1.html",
-          "hash": "UAxqBdgA1EG5z5Wee5kYupxfqEksU3cDbHMgkpZZcVo="
+          "hash": "5Qp8k0ksk7b2g1xRAy31kjmHhWPnhe4QXLg1FczGz8A="
         }
       },
       "is_incremental": false,
@@ -1977,7 +1905,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.html",
-          "hash": "VOdEeBm2PjKFZ6CDiDak9I2n5ZWVVsl3mWPPnYfIIis="
+          "hash": "RItulEUmi2W+3L8t1Hgzx1aoebuR4VATQpTTk16O1Dg="
         }
       },
       "is_incremental": false,
@@ -2105,6 +2033,42 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Gridify.GridifyMapperProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Gridify.GridifyMapperProvider.html",
+          "hash": "QWvWjaRGdjsJIONHcMT9sXqcsE0xbyEIalgYIst7bnc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Gridify.IGridifyMapperProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Gridify.IGridifyMapperProvider.html",
+          "hash": "cUJyuMo7LOJDv/2HIci1Q6NpwVACfv22mMMbQMmebDI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Gridify.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Gridify.html",
+          "hash": "N8Bi4SkBTfnm8wrhFzaoiPeI//thtsZM1zSQHuDKVws="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/DataExplorer.IdGenerator.IdGenAutofacExtensions.yml",
       "output": {
         ".html": {
@@ -2145,7 +2109,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataContexts.IMongoDbContext.html",
-          "hash": "5bXfQ9gpB4zZq1HeDgpDLNj5LC5Vp37ipZ3GlPBkO5A="
+          "hash": "PdehfofGnUnMOmS0mbQiylVxyQmX6vjwDhdhDXv510w="
         }
       },
       "is_incremental": false,
@@ -2169,7 +2133,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoCrudDataService-2.html",
-          "hash": "dyRL6G3r+A6YrncR9XVfW6Yds2moYrIHWP+nvjM6D8g="
+          "hash": "g5t33M02X1MbdtW9xJDn/oHMun7Hd2QoKs9l6WFerws="
         }
       },
       "is_incremental": false,
@@ -2181,7 +2145,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoDataServiceBase-1.html",
-          "hash": "uKieQnOOcuiraRr3CwZei2hiru0/x1Nbsc1yUlF6lzk="
+          "hash": "KbnATKUkrJ0RV8DYJun6gg3oA5vqpJrLUR1IBZbkpEA="
         }
       },
       "is_incremental": false,
@@ -2193,7 +2157,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.DataServices.IMongoReadOnlyDataService-2.html",
-          "hash": "B3et96sXz4qFcSHy3895RW9ZfuYi4S1NB7WYVBGCE6U="
+          "hash": "o50OiQcDwqkbEoUaHkKQHQdWRaUaYfWmePA8nGg2T4k="
         }
       },
       "is_incremental": false,
@@ -2217,7 +2181,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork-1.html",
-          "hash": "ZQGzki26VNjaziFGt3cNbvWNsQrq6kQ96zITbkN8mgs="
+          "hash": "VBJZQfqNBW6/djC8FG/MTl7gKNZk6cpbhMHMkrOxMAc="
         }
       },
       "is_incremental": false,
@@ -2229,7 +2193,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork.html",
-          "hash": "J/XwnJBUqnE5WfewN8b42fPBFgZXnyGR1Sp6WogvufQ="
+          "hash": "rWxzs/Nt43Kx8wv1+hAu8vYcykQbmtdHoy/cBQ0N1fg="
         }
       },
       "is_incremental": false,
@@ -2241,7 +2205,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.IMongoReadOnlyRepository-1.html",
-          "hash": "HNtmE6p6DsbY5Xs5DhnJXadtTAUdE0KJd8rXIyvjbTs="
+          "hash": "V/1sm2nmTpzP18yXZaPK0whqQsw8rQQLI7dnT+qHkqc="
         }
       },
       "is_incremental": false,
@@ -2253,7 +2217,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Abstractions.Repositories.IMongoRepository-1.html",
-          "hash": "8gg5Ryxc9eY+EpV875RXULQaSC1Ty5zqo8tezO4wA2M="
+          "hash": "RBRxf7LOqRYu45D+R1tVnZCijRO8ACGWDzTJWzGbHDc="
         }
       },
       "is_incremental": false,
@@ -2289,7 +2253,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.DataContexts.MongoDbContext.html",
-          "hash": "CGltwIWXQFUpXC8hP9ywQuHWKyH+bihf8s7KmIYEahU="
+          "hash": "YpHt2WfbGqRQ+CH3stKr9XP0LVSufUpHKo3O0a2FRLI="
         }
       },
       "is_incremental": false,
@@ -2313,7 +2277,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.DataExplorerMongoDbConfiguration.html",
-          "hash": "AqfDv4o8/z+p3mVU5OER8pTd177lRSMb4bq1M68H/Fs="
+          "hash": "Bm5b3/0OakFnoH7s0BxXXRhA2kOXApBGdYkR8mC087c="
         }
       },
       "is_incremental": false,
@@ -2325,7 +2289,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.DataServices.MongoCrudDataService-2.html",
-          "hash": "jlIs562235ac+3uI5MdXVPU87D4WW6nRJVWPGwUL+nU="
+          "hash": "Nf7LZq/EV6zDHJapOJLzdLvZPefNvNX9AUHR2O7BkDs="
         }
       },
       "is_incremental": false,
@@ -2337,7 +2301,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.DataServices.MongoDataServiceBase-1.html",
-          "hash": "bSxpo+SXF0BZSW7nyx25PEKTZF1FucGgquY57NBL7fc="
+          "hash": "ZRK7CdMemYPcfmxlDQg6Mkwe2dT23uDF3jh8y08r6V0="
         }
       },
       "is_incremental": false,
@@ -2349,7 +2313,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.DataServices.MongoReadOnlyDataService-2.html",
-          "hash": "/L+GE9UQii48TAMeldLMDaqQ0SEsRF2VQaPrMiDUVt8="
+          "hash": "qjDKElyfOE1dyTBAWlUoHw35ND7JKfzgXJloL4Bpb8w="
         }
       },
       "is_incremental": false,
@@ -2409,7 +2373,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.IMongoEntity.html",
-          "hash": "GGPz6N8V0QVCD6z+MBlm3yF3XIPhsMrY1HBqv+EC7XE="
+          "hash": "0iZG2Jc3oyj5hpKbxvJ95GNrLqAFq4bbYehbiol3cqk="
         }
       },
       "is_incremental": false,
@@ -2445,7 +2409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.MongoDbContextOptions.html",
-          "hash": "DhO7McoKC+4HCI4Xn3OwWfYOkTguYtC1lbNS4gzruW8="
+          "hash": "1XgCUXF4OCr/yTio1nGEx6QtF+2L1CDGzn1FWi0OUPc="
         }
       },
       "is_incremental": false,
@@ -2457,7 +2421,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.MongoEntity.html",
-          "hash": "7sA6PU4VHJzPhFxoLP6PibYxQ72oLXQMTUCPwmlBuN0="
+          "hash": "BMriO9UCdfL93E8oWMFyF6DKXvzE1DT87zsDbld0hMg="
         }
       },
       "is_incremental": false,
@@ -2469,7 +2433,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.MongoUnitOfWork-1.html",
-          "hash": "6mbiRsg2sF2SAogIkwoJjwDVKkCixiXcilBm8dvKL5Y="
+          "hash": "UHZUTQE3KFes2OOYnkHBFVGlGzgnsLbV9J3c7Akv4AU="
         }
       },
       "is_incremental": false,
@@ -2481,7 +2445,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Repositories.MongoReadOnlyRepository-1.html",
-          "hash": "m4Itvhi2aA0OApmyQSTSCimKfHBaIaelIdW2LEIvd38="
+          "hash": "ZubDbawtBXz1jNtJrjpUKcZFyNmrufYFvyggYd3MiEg="
         }
       },
       "is_incremental": false,
@@ -2493,7 +2457,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.MongoDb.Repositories.MongoRepository-1.html",
-          "hash": "qDFGAvjKbfJTnW5CM+VJsbt3SUE57+FjV3RXFcK/FTQ="
+          "hash": "Zg6cc1TaPZ8x6wIFDzW6E+O5XUAavhEGFnK7ddAo7vA="
         }
       },
       "is_incremental": false,
@@ -2537,6 +2501,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.ResultTransformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.ResultTransformation.html",
+          "hash": "u0lhoBNhfbbnFQGNXJkixfhIJd/cZ70/BEm9nkNqkxM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/DataExplorer.Services.ISnowflakeGenerator.yml",
       "output": {
         ".html": {
@@ -2566,6 +2542,234 @@
         ".html": {
           "relative_path": "api/DataExplorer.Services.html",
           "hash": "zqwL1FaMFlJDVHdMMC1TNXucvTimUi/EizPoN+YDis0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.CacheExpirationMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.CacheExpirationMode.html",
+          "hash": "SVazQkxz+IRy+W7GNiqsHoreEH7S9H+FGokSALMkRa8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Exceptions.ConcurrentSelectorsException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Exceptions.ConcurrentSelectorsException.html",
+          "hash": "jPoyjWp62ixTU9zNwC6Kq7+7czN7VDTYaDYHWokam3I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Exceptions.DuplicateOrderChainException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Exceptions.DuplicateOrderChainException.html",
+          "hash": "Ux+ULKUR0v/b6NuW5TCqon15A+NDjslc1p4xI2T+5XY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Exceptions.DuplicatePaginationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Exceptions.DuplicatePaginationException.html",
+          "hash": "b05wE/zt7Z3a985vq3HgZs0F4b5GUkXsui45KQe7sGs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Exceptions.DuplicateSkipException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Exceptions.DuplicateSkipException.html",
+          "hash": "WMvxHx4LSY5o/7RNind3A+g9GOzNpMBrr1m6s/a788M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Exceptions.DuplicateTakeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Exceptions.DuplicateTakeException.html",
+          "hash": "pj/BUaiRUR3SuIKJgwMfFMODzPQl9Vf9RhGBctxTQeU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Exceptions.InvalidSearchPatternException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Exceptions.InvalidSearchPatternException.html",
+          "hash": "s3/v+/8akE9w1bcwIG7BHeBq5aObvetT5n8MVIm61lI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Exceptions.SelectorNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Exceptions.SelectorNotFoundException.html",
+          "hash": "xDy2bmVNuN+moE1gWyc/k39cRHTNYh8TBpujqcxeEWo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Exceptions.html",
+          "hash": "d1EnhUtMyNVNRHFA9UTS1vQxByEN87V1AJ+umpZa5Z8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Expressions.IncludeExpressionInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Expressions.IncludeExpressionInfo.html",
+          "hash": "Az6qFCxGE/QSMVbNhdQy0y0P2+RgwbJY9o0Y23CfFSE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Expressions.OrderExpressionInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Expressions.OrderExpressionInfo-1.html",
+          "hash": "paKHZzIV6pGbHhxUlCeXDgzBvFqbf1lhYRYSp7w7NIM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Expressions.SearchExpressionInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Expressions.SearchExpressionInfo-1.html",
+          "hash": "UVCn9KRw3bAgh/gQOdkjyIDJbdDjt9LwaIMvF6GkzbU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Expressions.WhereExpressionInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Expressions.WhereExpressionInfo-1.html",
+          "hash": "CDq7X8WhbXg9y72cIUAEQmnPoezB3ZxvQ/g418NgDXc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Expressions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Expressions.html",
+          "hash": "y44IJm6AdYty5cp32SElknKOgbcguZ/3etsgfl7eIdk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Extensions.ParameterReplacerVisitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Extensions.ParameterReplacerVisitor.html",
+          "hash": "ft7aEB/tuwej4AsSIOG3u8JpDeyrrbXtYqZOU14BM18="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.Extensions.html",
+          "hash": "ivkSqZkCUtcLrlpz+AahobLKTgbjvDfb/dRMTRrZcg0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.IncludeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.IncludeType.html",
+          "hash": "F61InP+npdrF5x1Lil36jQfuGvmyg8AKNr89EtwTlHg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.OrderType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.OrderType.html",
+          "hash": "q5bqP44WXFpAwk5lii9YDwTjeGJhCzHWnDZKxP0TA+8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataExplorer.Specifications.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataExplorer.Specifications.html",
+          "hash": "X16FL76vpq9lalsObl75P59co0ru8yZzao8SGavZWlg="
         }
       },
       "is_incremental": false,
@@ -2613,7 +2817,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.html",
-          "hash": "oEo+5hw70YNlM8p0adFEE5xIWkCaX4JBBXTQOoDKv3o="
+          "hash": "TADfnHZ2bX3TAwOhvTHFVLAN2R23Vzmcb6NTnW8qhtg="
         }
       },
       "is_incremental": false,
@@ -2640,7 +2844,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "QSsuUor0ShW99C8wduqSILoP6go2SIfXz2gVsv+zy7Y="
+          "hash": "USCDfxhOD/JlYxWrk7D4z/93pnD5qJQT8RaXA3utiYg="
         }
       },
       "is_incremental": false,
@@ -2739,7 +2943,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 219,
+          "total_file_count": 236,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

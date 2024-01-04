@@ -97,8 +97,7 @@
 
   <h1 id="DataExplorer_EfCore_Specifications_Specification_2" data-uid="DataExplorer.EfCore.Specifications.Specification`2" class="text-break">Class Specification&lt;T, TResult&gt;
 </h1>
-  <div class="markdown level0 summary"><p>Encapsulates query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>,
-and projects the result into <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+  <div class="markdown level0 summary"><p>Marker specification interface</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -110,10 +109,10 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification</a>&lt;T, TResult&gt;</div>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;T&gt;</div>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.IBasicSpecification-1.html">IBasicSpecification</a>&lt;T&gt;</div>
-    <div><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification.html">ISpecification</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification</a>&lt;T, TResult&gt;</div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;T&gt;</div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html">IBasicSpecification</a>&lt;T&gt;</div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification.html">ISpecification</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -297,12 +296,11 @@ public class Specification&lt;T, TResult&gt; : Specification&lt;T&gt;, ISpecific
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2__ctor_AutoMapper_IConfigurationProvider_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.%23ctor(AutoMapper.IConfigurationProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L15">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L20">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2__ctor_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2__ctor_AutoMapper_IConfigurationProvider_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor(AutoMapper.IConfigurationProvider)">Specification(IConfigurationProvider)</h4>
-  <div class="markdown level1 summary"><p>Encapsulates query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>,
-and projects the result into <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+  <div class="markdown level1 summary"><p>Marker specification interface</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -328,15 +326,14 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_EfCore_Specifications_Evaluators_IInMemorySpecificationEvaluator_AutoMapper_IConfigurationProvider_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.%23ctor(DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator%2CAutoMapper.IConfigurationProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_AutoMapper_IConfigurationProvider_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.%23ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator%2CAutoMapper.IConfigurationProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L30">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L35">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2__ctor_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_EfCore_Specifications_Evaluators_IInMemorySpecificationEvaluator_AutoMapper_IConfigurationProvider_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator,AutoMapper.IConfigurationProvider)">Specification(IInMemorySpecificationEvaluator, IConfigurationProvider)</h4>
-  <div class="markdown level1 summary"><p>Encapsulates query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>,
-and projects the result into <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_AutoMapper_IConfigurationProvider_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator,AutoMapper.IConfigurationProvider)">Specification(IInMemorySpecificationEvaluator, IConfigurationProvider)</h4>
+  <div class="markdown level1 summary"><p>Marker specification interface</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -354,7 +351,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator.html">IInMemorySpecificationEvaluator</a></td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.html">IInMemorySpecificationEvaluator</a></td>
         <td><span class="parametername">inMemorySpecificationEvaluator</span></td>
         <td></td>
       </tr>
@@ -367,15 +364,14 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_EfCore_Specifications_Evaluators_IInMemorySpecificationEvaluator_DataExplorer_PaginationFilter_AutoMapper_IConfigurationProvider_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.%23ctor(DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator%2CDataExplorer.PaginationFilter%2CAutoMapper.IConfigurationProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_DataExplorer_PaginationFilter_AutoMapper_IConfigurationProvider_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.%23ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator%2CDataExplorer.PaginationFilter%2CAutoMapper.IConfigurationProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L23">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L28">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2__ctor_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_EfCore_Specifications_Evaluators_IInMemorySpecificationEvaluator_DataExplorer_PaginationFilter_AutoMapper_IConfigurationProvider_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator,DataExplorer.PaginationFilter,AutoMapper.IConfigurationProvider)">Specification(IInMemorySpecificationEvaluator, PaginationFilter, IConfigurationProvider)</h4>
-  <div class="markdown level1 summary"><p>Encapsulates query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>,
-and projects the result into <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_DataExplorer_PaginationFilter_AutoMapper_IConfigurationProvider_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator,DataExplorer.PaginationFilter,AutoMapper.IConfigurationProvider)">Specification(IInMemorySpecificationEvaluator, PaginationFilter, IConfigurationProvider)</h4>
+  <div class="markdown level1 summary"><p>Marker specification interface</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -393,7 +389,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IInMemorySpecificationEvaluator.html">IInMemorySpecificationEvaluator</a></td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.html">IInMemorySpecificationEvaluator</a></td>
         <td><span class="parametername">inMemorySpecificationEvaluator</span></td>
         <td></td>
       </tr>
@@ -414,12 +410,11 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_PaginationFilter_AutoMapper_IConfigurationProvider_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.%23ctor(DataExplorer.PaginationFilter%2CAutoMapper.IConfigurationProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L19">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L24">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2__ctor_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_PaginationFilter_AutoMapper_IConfigurationProvider_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.PaginationFilter,AutoMapper.IConfigurationProvider)">Specification(PaginationFilter, IConfigurationProvider)</h4>
-  <div class="markdown level1 summary"><p>Encapsulates query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>,
-and projects the result into <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
+  <div class="markdown level1 summary"><p>Marker specification interface</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -455,7 +450,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_MapperConfigurationProvider.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.MapperConfigurationProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L53">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L58">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_MapperConfigurationProvider_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.MapperConfigurationProvider*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_MapperConfigurationProvider" data-uid="DataExplorer.EfCore.Specifications.Specification`2.MapperConfigurationProvider">MapperConfigurationProvider</h4>
@@ -486,7 +481,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_MembersToExpand.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.MembersToExpand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L56">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L61">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_MembersToExpand_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.MembersToExpand*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_MembersToExpand" data-uid="DataExplorer.EfCore.Specifications.Specification`2.MembersToExpand">MembersToExpand</h4>
@@ -495,7 +490,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Expression&lt;Func&lt;TResult, object&gt;&gt;&gt; MembersToExpand { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Expression&lt;Func&lt;TResult, object&gt;&gt;&gt; MembersToExpand { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -517,17 +512,17 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_PostProcessingAction.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.PostProcessingAction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L62">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L67">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_PostProcessingAction_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.PostProcessingAction*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_PostProcessingAction" data-uid="DataExplorer.EfCore.Specifications.Specification`2.PostProcessingAction">PostProcessingAction</h4>
   <div class="markdown level1 summary"><p>The transform function to apply to the result of the query encapsulated by the
-<a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a>.</p>
+<a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;IEnumerable&lt;TResult&gt;, IEnumerable&lt;TResult&gt;&gt; PostProcessingAction { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;IEnumerable&lt;TResult&gt;, IEnumerable&lt;TResult&gt;&gt; PostProcessingAction { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -549,11 +544,11 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_Query.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.Query%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L40">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L45">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_Query_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Query*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_Query" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Query">Query</h4>
-  <div class="markdown level1 summary"><p>Inner <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder&lt;T, TResult&gt;</a></p>
+  <div class="markdown level1 summary"><p>Inner <a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder&lt;T, TResult&gt;</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -570,7 +565,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -580,7 +575,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_Selector.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.Selector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L47">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L52">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_Selector_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Selector*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_Selector" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Selector">Selector</h4>
@@ -589,7 +584,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Expression&lt;Func&lt;T, TResult&gt;&gt; Selector { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Expression&lt;Func&lt;T, TResult&gt;&gt; Selector { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -611,7 +606,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_SelectorMany.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.SelectorMany%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L50">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L55">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_SelectorMany_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.SelectorMany*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_SelectorMany" data-uid="DataExplorer.EfCore.Specifications.Specification`2.SelectorMany">SelectorMany</h4>
@@ -620,7 +615,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Expression&lt;Func&lt;T, IEnumerable&lt;TResult&gt;&gt;&gt; SelectorMany { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Expression&lt;Func&lt;T, IEnumerable&lt;TResult&gt;&gt;&gt; SelectorMany { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -642,7 +637,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_StringMembersToExpand.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.StringMembersToExpand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L59">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L64">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_StringMembersToExpand_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.StringMembersToExpand*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_StringMembersToExpand" data-uid="DataExplorer.EfCore.Specifications.Specification`2.StringMembersToExpand">StringMembersToExpand</h4>
@@ -651,7 +646,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; StringMembersToExpand { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; StringMembersToExpand { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -675,7 +670,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_Evaluate_System_Collections_Generic_IEnumerable__0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.Evaluate(System.Collections.Generic.IEnumerable%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L43">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L48">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_Evaluate_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Evaluate*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_Evaluate_System_Collections_Generic_IEnumerable__0__" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Evaluate(System.Collections.Generic.IEnumerable{`0})">Evaluate(IEnumerable&lt;T&gt;)</h4>
@@ -724,7 +719,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_Expand_System_Linq_Expressions_Expression_System_Func__1_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.Expand(System.Linq.Expressions.Expression%7BSystem.Func%7B%601%2CSystem.Object%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L99">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L104">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_Expand_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Expand*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_Expand_System_Linq_Expressions_Expression_System_Func__1_System_Object___" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Expand(System.Linq.Expressions.Expression{System.Func{`1,System.Object}})">Expand(Expression&lt;Func&lt;TResult, Object&gt;&gt;)</h4>
@@ -763,7 +758,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
         <td><p>Current specification instance</p>
 </td>
       </tr>
@@ -774,7 +769,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_Expand_System_String_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.Expand(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L107">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L112">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_Expand_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Expand*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_Expand_System_String_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Expand(System.String)">Expand(String)</h4>
@@ -813,7 +808,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
         <td><p>Current specification instance</p>
 </td>
       </tr>
@@ -824,7 +819,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_Select_System_Linq_Expressions_Expression_System_Func__0__1___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.Select(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2C%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L84">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L89">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_Select_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Select*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_Select_System_Linq_Expressions_Expression_System_Func__0__1___" data-uid="DataExplorer.EfCore.Specifications.Specification`2.Select(System.Linq.Expressions.Expression{System.Func{`0,`1}})">Select(Expression&lt;Func&lt;T, TResult&gt;&gt;)</h4>
@@ -863,7 +858,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
         <td><p>Current specification instance</p>
 </td>
       </tr>
@@ -874,7 +869,7 @@ and projects the result into <code data-dev-comment-type="typeparamref" class="t
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_SelectMany_System_Linq_Expressions_Expression_System_Func__0_System_Collections_Generic_IEnumerable__1____.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.SelectMany(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Collections.Generic.IEnumerable%7B%601%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L91">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L96">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_SelectMany_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.SelectMany*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_SelectMany_System_Linq_Expressions_Expression_System_Func__0_System_Collections_Generic_IEnumerable__1____" data-uid="DataExplorer.EfCore.Specifications.Specification`2.SelectMany(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IEnumerable{`1}}})">SelectMany(Expression&lt;Func&lt;T, IEnumerable&lt;TResult&gt;&gt;&gt;)</h4>
@@ -913,7 +908,7 @@ to produce a flattened sequence of <code data-dev-comment-type="typeparamref" cl
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -923,7 +918,7 @@ to produce a flattened sequence of <code data-dev-comment-type="typeparamref" cl
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_WithMapperConfiguration_AutoMapper_MapperConfiguration_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.WithMapperConfiguration(AutoMapper.MapperConfiguration)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L76">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L81">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_WithMapperConfiguration_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.WithMapperConfiguration*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_WithMapperConfiguration_AutoMapper_MapperConfiguration_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.WithMapperConfiguration(AutoMapper.MapperConfiguration)">WithMapperConfiguration(MapperConfiguration)</h4>
@@ -962,7 +957,7 @@ to produce a flattened sequence of <code data-dev-comment-type="typeparamref" cl
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
         <td><p>Current specification instance</p>
 </td>
       </tr>
@@ -973,7 +968,7 @@ to produce a flattened sequence of <code data-dev-comment-type="typeparamref" cl
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_2_WithPostProcessingAction_System_Func_System_Collections_Generic_IEnumerable__1__System_Collections_Generic_IEnumerable__1___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%602.WithPostProcessingAction(System.Func%7BSystem.Collections.Generic.IEnumerable%7B%601%7D%2CSystem.Collections.Generic.IEnumerable%7B%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L68">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L73">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_2_WithPostProcessingAction_" data-uid="DataExplorer.EfCore.Specifications.Specification`2.WithPostProcessingAction*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_2_WithPostProcessingAction_System_Func_System_Collections_Generic_IEnumerable__1__System_Collections_Generic_IEnumerable__1___" data-uid="DataExplorer.EfCore.Specifications.Specification`2.WithPostProcessingAction(System.Func{System.Collections.Generic.IEnumerable{`1},System.Collections.Generic.IEnumerable{`1}})">WithPostProcessingAction(Func&lt;IEnumerable&lt;TResult&gt;, IEnumerable&lt;TResult&gt;&gt;)</h4>
@@ -1012,23 +1007,23 @@ and returns another <code data-dev-comment-type="typeparamref" class="typeparamr
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder-2.html">ISpecificationBuilder</a>&lt;T, TResult&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.IBasicSpecification-1.html">IBasicSpecification&lt;T&gt;</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html">IBasicSpecification&lt;T&gt;</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification.html">ISpecification</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification.html">ISpecification</a>
   </div>
 </article>
               

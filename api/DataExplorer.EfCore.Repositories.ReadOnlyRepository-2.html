@@ -110,7 +110,8 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository</a>&lt;TEntity, TId&gt;</div>
-    <div><a class="xref" href="DataExplorer.Abstractions.Repositories.IRepositoryBase.html">IRepositoryBase</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html">IReadOnlyRepositoryBase</a>&lt;TEntity, TId&gt;</div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -141,7 +142,7 @@
   <h5 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[PublicAPI]
-public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEntity, TId&gt;, IRepositoryBase where TEntity : Entity&lt;TId&gt; where TId : IComparable, IEquatable&lt;TId&gt;, IComparable&lt;TId&gt;</code></pre>
+public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEntity, TId&gt;, IReadOnlyRepositoryBase&lt;TEntity, TId&gt;, IBaseRepository where TEntity : Entity&lt;TId&gt; where TId : IComparable, IEquatable&lt;TId&gt;, IComparable&lt;TId&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -171,7 +172,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_Mapper.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.Mapper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L42">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L47">View Source</a>
   </span>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_Mapper" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.Mapper">Mapper</h4>
   <div class="markdown level1 summary"><p>Mapper instance.</p>
@@ -203,7 +204,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_Context.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.Context%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L26">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L28">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_Context_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.Context*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_Context" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.Context">Context</h4>
@@ -234,7 +235,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_EntityType.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.EntityType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L20">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L22">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_EntityType_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.EntityType*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_EntityType" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.EntityType">EntityType</h4>
@@ -265,7 +266,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GridifyMapperProvider.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GridifyMapperProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L32">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L34">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GridifyMapperProvider_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GridifyMapperProvider*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GridifyMapperProvider" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GridifyMapperProvider">GridifyMapperProvider</h4>
@@ -286,7 +287,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a></td>
+        <td><a class="xref" href="DataExplorer.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -296,7 +297,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_Set.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.Set%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L29">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L31">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_Set_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.Set*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_Set" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.Set">Set</h4>
@@ -327,7 +328,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_SpecificationEvaluator.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.SpecificationEvaluator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L37">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L42">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_SpecificationEvaluator_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.SpecificationEvaluator*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_SpecificationEvaluator" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.SpecificationEvaluator">SpecificationEvaluator</h4>
@@ -336,7 +337,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ISpecificationEvaluator SpecificationEvaluator { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEfSpecificationEvaluator SpecificationEvaluator { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -348,7 +349,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.ISpecificationEvaluator.html">ISpecificationEvaluator</a></td>
+        <td><a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator.html">IEfSpecificationEvaluator</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -357,14 +358,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AnyAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.AnyAsync(DataExplorer.EfCore.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AnyAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.AnyAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L201">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L206">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AnyAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AnyAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AnyAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AnyAsync(DataExplorer.EfCore.Specifications.ISpecification{`0},System.Threading.CancellationToken)">AnyAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Asynchronously determines whether any elements satisfy the given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AnyAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AnyAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)">AnyAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously determines whether any elements satisfy the given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -382,7 +383,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -416,7 +417,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.AnyAsync(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Boolean%7D%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L197">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L202">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AnyAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AnyAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AnyAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">AnyAsync(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, CancellationToken)</h4>
@@ -469,13 +470,13 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification_DataExplorer_EfCore_Specifications_ISpecification__0__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.ApplySpecification(DataExplorer.EfCore.Specifications.ISpecification%7B%600%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.ApplySpecification(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L220">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L225">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.ApplySpecification*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification_DataExplorer_EfCore_Specifications_ISpecification__0__System_Boolean_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.ApplySpecification(DataExplorer.EfCore.Specifications.ISpecification{`0},System.Boolean)">ApplySpecification(ISpecification&lt;TEntity&gt;, Boolean)</h4>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Boolean_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.ApplySpecification(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Boolean)">ApplySpecification(ISpecification&lt;TEntity&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Filters the entities  of <code data-dev-comment-type="typeparamref" class="typeparamref">TEntity</code>, to those that match the encapsulated query logic of the
 <code data-dev-comment-type="paramref" class="paramref">specification</code>.</p>
 </div>
@@ -495,7 +496,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>The encapsulated query logic.</p>
 </td>
@@ -526,13 +527,13 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.ApplySpecification%60%601(DataExplorer.EfCore.Specifications.ISpecification%7B%600%2C%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.ApplySpecification%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L235">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L240">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.ApplySpecification*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.ApplySpecification``1(DataExplorer.EfCore.Specifications.ISpecification{`0,``0})">ApplySpecification&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_ApplySpecification__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.ApplySpecification``1(DataExplorer.Abstractions.Specifications.ISpecification{`0,``0})">ApplySpecification&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;)</h4>
   <div class="markdown level1 summary"><p>Filters all entities of <code data-dev-comment-type="typeparamref" class="typeparamref">TEntity</code>, that matches the encapsulated query logic of the
 <code data-dev-comment-type="paramref" class="paramref">specification</code>, from the database.</p>
 <p>
@@ -555,7 +556,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>The encapsulated query logic.</p>
 </td>
@@ -599,7 +600,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.AsAsyncEnumerable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L102">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L107">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AsAsyncEnumerable*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AsAsyncEnumerable">AsAsyncEnumerable()</h4>
@@ -628,13 +629,13 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_DataExplorer_EfCore_Specifications_ISpecification__0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.AsAsyncEnumerable(DataExplorer.EfCore.Specifications.ISpecification%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_DataExplorer_Abstractions_Specifications_ISpecification__0__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.AsAsyncEnumerable(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L94">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L99">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AsAsyncEnumerable*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_DataExplorer_EfCore_Specifications_ISpecification__0__" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AsAsyncEnumerable(DataExplorer.EfCore.Specifications.ISpecification{`0})">AsAsyncEnumerable(ISpecification&lt;TEntity&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_DataExplorer_Abstractions_Specifications_ISpecification__0__" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AsAsyncEnumerable(DataExplorer.Abstractions.Specifications.ISpecification{`0})">AsAsyncEnumerable(ISpecification&lt;TEntity&gt;)</h4>
   <div class="markdown level1 summary"><p>Finds all entities of <code data-dev-comment-type="typeparamref" class="typeparamref">TEntity</code>, that match the encapsulated query logic of the
 <code data-dev-comment-type="paramref" class="paramref">specification</code>, from the database.</p>
 </div>
@@ -654,7 +655,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>The encapsulated query logic.</p>
 </td>
@@ -682,7 +683,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.AsAsyncEnumerable(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L98">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L103">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AsAsyncEnumerable*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_AsAsyncEnumerable_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.AsAsyncEnumerable(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">AsAsyncEnumerable(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;)</h4>
@@ -732,7 +733,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAllAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAllAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L205">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L210">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAllAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAllAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAllAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAllAsync(System.Threading.CancellationToken)">GetAllAsync(CancellationToken)</h4>
@@ -782,7 +783,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAllAsync__1_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAllAsync%60%601(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L209">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L214">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAllAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAllAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAllAsync__1_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAllAsync``1(System.Threading.CancellationToken)">GetAllAsync&lt;TProjectTo&gt;(CancellationToken)</h4>
@@ -845,14 +846,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync(DataExplorer.EfCore.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L179">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L184">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(DataExplorer.EfCore.Specifications.ISpecification{`0},System.Threading.CancellationToken)">GetAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets all entities that satisfy given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)">GetAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all entities that satisfy given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -870,7 +871,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -904,7 +905,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync(Gridify.IGridifyQuery%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L138">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L143">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)">GetAsync(IGridifyQuery, IGridifyMapper&lt;TEntity&gt;, CancellationToken)</h4>
@@ -966,7 +967,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync(Gridify.IGridifyQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L134">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L139">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)">GetAsync(IGridifyQuery, CancellationToken)</h4>
@@ -1018,14 +1019,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </tbody>
   </table>
   <h5 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method will attempt to pull a <span class="xref">Gridify.IGridifyMapper&lt;T&gt;</span> from <a class="xref" href="DataExplorer.EfCore.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a>.</p>
+  <div class="markdown level1 remarks"><p>This method will attempt to pull a <span class="xref">Gridify.IGridifyMapper&lt;T&gt;</span> from <a class="xref" href="DataExplorer.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_System_Object___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync(System.Object%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L67">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L72">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_System_Object___System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(System.Object[],System.Threading.CancellationToken)">GetAsync(Object[], CancellationToken)</h4>
@@ -1081,7 +1082,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync(System.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L63">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L68">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_System_Object___" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(System.Object[])">GetAsync(Object[])</h4>
@@ -1128,14 +1129,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync%60%601(DataExplorer.EfCore.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L175">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L180">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync``1(DataExplorer.EfCore.Specifications.ISpecification{`0,``0},System.Threading.CancellationToken)">GetAsync&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets all entities that satisfy <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a> and projects them to another entities.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync``1(DataExplorer.Abstractions.Specifications.ISpecification{`0,``0},System.Threading.CancellationToken)">GetAsync&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all entities that satisfy <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a> and projects them to another entities.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1153,7 +1154,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -1202,7 +1203,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync%60%601(Gridify.IGridifyQuery%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L148">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L153">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)">GetAsync&lt;TResult&gt;(IGridifyQuery, IGridifyMapper&lt;TEntity&gt;, CancellationToken)</h4>
@@ -1279,7 +1280,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetAsync%60%601(Gridify.IGridifyQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L143">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L148">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)">GetAsync&lt;TResult&gt;(IGridifyQuery, CancellationToken)</h4>
@@ -1346,14 +1347,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </tbody>
   </table>
   <h5 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method will attempt to pull a <span class="xref">Gridify.IGridifyMapper&lt;T&gt;</span> from <a class="xref" href="DataExplorer.EfCore.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a>.</p>
+  <div class="markdown level1 remarks"><p>This method will attempt to pull a <span class="xref">Gridify.IGridifyMapper&lt;T&gt;</span> from <a class="xref" href="DataExplorer.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetByGridifyQueryAsync(Gridify.IGridifyQuery%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L111">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L116">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)">GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper&lt;TEntity&gt;, CancellationToken)</h4>
@@ -1415,7 +1416,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetByGridifyQueryAsync(Gridify.IGridifyQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L106">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L111">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)">GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)</h4>
@@ -1467,14 +1468,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </tbody>
   </table>
   <h5 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method will attempt to pull a <span class="xref">Gridify.IGridifyMapper&lt;T&gt;</span> from <a class="xref" href="DataExplorer.EfCore.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a>.</p>
+  <div class="markdown level1 remarks"><p>This method will attempt to pull a <span class="xref">Gridify.IGridifyMapper&lt;T&gt;</span> from <a class="xref" href="DataExplorer.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetByGridifyQueryAsync%60%601(Gridify.IGridifyQuery%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L125">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L130">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)">GetByGridifyQueryAsync&lt;TResult&gt;(IGridifyQuery, IGridifyMapper&lt;TEntity&gt;, CancellationToken)</h4>
@@ -1551,7 +1552,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetByGridifyQueryAsync%60%601(Gridify.IGridifyQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L116">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L121">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)">GetByGridifyQueryAsync&lt;TResult&gt;(IGridifyQuery, CancellationToken)</h4>
@@ -1618,18 +1619,18 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </tbody>
   </table>
   <h5 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method will attempt to pull a <span class="xref">Gridify.IGridifyMapper&lt;T&gt;</span> from <a class="xref" href="DataExplorer.EfCore.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a>.</p>
+  <div class="markdown level1 remarks"><p>This method will attempt to pull a <span class="xref">Gridify.IGridifyMapper&lt;T&gt;</span> from <a class="xref" href="DataExplorer.Gridify.IGridifyMapperProvider.html">IGridifyMapperProvider</a>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetBySpecAsync(DataExplorer.EfCore.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L164">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L169">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetBySpecAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetBySpecAsync(DataExplorer.EfCore.Specifications.ISpecification{`0},System.Threading.CancellationToken)">GetBySpecAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets all entities that satisfy given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)">GetBySpecAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all entities that satisfy given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1647,7 +1648,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -1678,14 +1679,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetBySpecAsync%60%601(DataExplorer.EfCore.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L153">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L158">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetBySpecAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetBySpecAsync``1(DataExplorer.EfCore.Specifications.ISpecification{`0,``0},System.Threading.CancellationToken)">GetBySpecAsync&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets all entities that satisfy <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a> and projects them to another entities.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetBySpecAsync``1(DataExplorer.Abstractions.Specifications.ISpecification{`0,``0},System.Threading.CancellationToken)">GetBySpecAsync&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all entities that satisfy <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a> and projects them to another entities.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1703,7 +1704,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -1749,14 +1750,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetSingleAsync(DataExplorer.EfCore.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetSingleAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L85">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L90">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleAsync(DataExplorer.EfCore.Specifications.ISpecification{`0},System.Threading.CancellationToken)">GetSingleAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets a single (top 1) entity that satisfies given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification.html">ISpecification</a>.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)">GetSingleAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a single (top 1) entity that satisfies given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification.html">ISpecification</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1774,7 +1775,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -1805,14 +1806,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetSingleAsync%60%601(DataExplorer.EfCore.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetSingleAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L90">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L95">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleAsync``1(DataExplorer.EfCore.Specifications.ISpecification{`0,``0},System.Threading.CancellationToken)">GetSingleAsync&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets a single (top 1) entity that satisfies <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a> and projects it to another entity.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleAsync``1(DataExplorer.Abstractions.Specifications.ISpecification{`0,``0},System.Threading.CancellationToken)">GetSingleAsync&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a single (top 1) entity that satisfies <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a> and projects it to another entity.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1830,7 +1831,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -1876,14 +1877,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetSingleBySpecAsync(DataExplorer.EfCore.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetSingleBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L71">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L76">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleBySpecAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleBySpecAsync(DataExplorer.EfCore.Specifications.ISpecification{`0},System.Threading.CancellationToken)">GetSingleBySpecAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets a single (top 1) entity that satisfies given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification.html">ISpecification</a>.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)">GetSingleBySpecAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a single (top 1) entity that satisfies given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification.html">ISpecification</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1901,7 +1902,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -1932,14 +1933,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetSingleBySpecAsync%60%601(DataExplorer.EfCore.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.GetSingleBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L76">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L81">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleBySpecAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync__1_DataExplorer_EfCore_Specifications_ISpecification__0___0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleBySpecAsync``1(DataExplorer.EfCore.Specifications.ISpecification{`0,``0},System.Threading.CancellationToken)">GetSingleBySpecAsync&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets a single (top 1) entity that satisfies <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a> and projects it to another entity.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetSingleBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetSingleBySpecAsync``1(DataExplorer.Abstractions.Specifications.ISpecification{`0,``0},System.Threading.CancellationToken)">GetSingleBySpecAsync&lt;TResult&gt;(ISpecification&lt;TEntity, TResult&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a single (top 1) entity that satisfies <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification&lt;T, TResult&gt;</a> and projects it to another entity.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1957,7 +1958,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification</a>&lt;TEntity, TResult&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -2003,14 +2004,14 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.LongCountAsync(DataExplorer.EfCore.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.LongCountAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L184">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L189">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.LongCountAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_DataExplorer_EfCore_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.LongCountAsync(DataExplorer.EfCore.Specifications.ISpecification{`0},System.Threading.CancellationToken)">LongCountAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Counts the entities that satisfy the given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.LongCountAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)">LongCountAsync(ISpecification&lt;TEntity&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Counts the entities that satisfy the given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2028,7 +2029,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification</a>&lt;TEntity&gt;</td>
         <td><span class="parametername">specification</span></td>
         <td><p>Specification for the query.</p>
 </td>
@@ -2052,7 +2053,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-        <td><p>Number of entities that satisfy given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+        <td><p>Number of entities that satisfy given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -2062,11 +2063,11 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.LongCountAsync(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Boolean%7D%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L193">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L198">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.LongCountAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.LongCountAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">LongCountAsync(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Counts the entities that satisfy the given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+  <div class="markdown level1 summary"><p>Counts the entities that satisfy the given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2108,7 +2109,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-        <td><p>Number of entities that satisfy given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+        <td><p>Number of entities that satisfy given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -2118,11 +2119,11 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.LongCountAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L189">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L194">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.LongCountAsync*"></a>
   <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.LongCountAsync(System.Threading.CancellationToken)">LongCountAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Counts the entities, optionally using a provided <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+  <div class="markdown level1 summary"><p>Counts the entities, optionally using a provided <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2158,7 +2159,7 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-        <td><p>Number of entities that satisfy given <a class="xref" href="DataExplorer.EfCore.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+        <td><p>Number of entities that satisfy given <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -2167,19 +2168,19 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IRepositoryBase_Context.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.DataExplorer%23Abstractions%23Repositories%23IRepositoryBase%23Context%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IBaseRepository_Context.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.DataExplorer%23Abstractions%23Repositories%23IBaseRepository%23Context%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L23">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L25">View Source</a>
   </span>
-  <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IRepositoryBase_Context_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.DataExplorer#Abstractions#Repositories#IRepositoryBase#Context*"></a>
-  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IRepositoryBase_Context" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.DataExplorer#Abstractions#Repositories#IRepositoryBase#Context">IRepositoryBase.Context</h4>
+  <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IBaseRepository_Context_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.DataExplorer#Abstractions#Repositories#IBaseRepository#Context*"></a>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IBaseRepository_Context" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.DataExplorer#Abstractions#Repositories#IBaseRepository#Context">IBaseRepository.Context</h4>
   <div class="markdown level1 summary"><p>The current data context.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IDataContextBase IRepositoryBase.Context { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">IDataContextBase IBaseRepository.Context { get; }</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2196,12 +2197,46 @@ public class ReadOnlyRepository&lt;TEntity, TId&gt; : IReadOnlyRepository&lt;TEn
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_TEntity_TId__SpecificationEvaluator.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Repositories.ReadOnlyRepository%602.DataExplorer%23Abstractions%23Repositories%23IReadOnlyRepositoryBase%7BTEntity%2CTId%7D%23SpecificationEvaluator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Repositories/ReadOnlyRepository.cs/#L37">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_TEntity_TId__SpecificationEvaluator_" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.DataExplorer#Abstractions#Repositories#IReadOnlyRepositoryBase{TEntity,TId}#SpecificationEvaluator*"></a>
+  <h4 id="DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_TEntity_TId__SpecificationEvaluator" data-uid="DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.DataExplorer#Abstractions#Repositories#IReadOnlyRepositoryBase{TEntity,TId}#SpecificationEvaluator">IReadOnlyRepositoryBase&lt;TEntity, TId&gt;.SpecificationEvaluator</h4>
+  <div class="markdown level1 summary"><p>Specification evaluator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISpecificationEvaluator IReadOnlyRepositoryBase&lt;TEntity, TId&gt;.SpecificationEvaluator { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.ISpecificationEvaluator.html">ISpecificationEvaluator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.Abstractions.Repositories.IRepositoryBase.html">IRepositoryBase</a>
+      <a class="xref" href="DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html">IReadOnlyRepositoryBase&lt;TEntity, TId&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a>
   </div>
 </article>
               

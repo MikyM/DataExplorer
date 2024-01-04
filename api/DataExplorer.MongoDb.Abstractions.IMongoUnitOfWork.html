@@ -111,6 +111,12 @@
     <div>
       <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Context">IUnitOfWorkBase.Context</a>
     </div>
+    <div>
+      <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_SpecificationEvaluator">IUnitOfWorkBase.SpecificationEvaluator</a>
+    </div>
+    <div>
+      <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GridifyMapperProvider">IUnitOfWorkBase.GridifyMapperProvider</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.MongoDb.Abstractions.html">DataExplorer.MongoDb.Abstractions</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.MongoDb.dll</h6>
@@ -146,7 +152,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">AutoMapper.IMapper</span></td>
+        <td><span class="xref">IMapper</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -165,7 +171,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IClientSessionHandle Transaction { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">IClientSessionHandle? Transaction { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -177,7 +183,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.IClientSessionHandle</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IClientSessionHandle</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -378,7 +384,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">MongoDB.Driver.IClientSessionHandle</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">IClientSessionHandle</span>&gt;</td>
         <td><p>Task representing the asynchronous operation.</p>
 </td>
       </tr>
@@ -386,13 +392,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_Abstractions_IMongoUnitOfWork_UseExplicitTransactionAsync_MongoDB_Driver_IClientSessionHandle_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork.UseExplicitTransactionAsync(MongoDB.Driver.IClientSessionHandle%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_MongoDb_Abstractions_IMongoUnitOfWork_UseExplicitTransactionAsync_IClientSessionHandle_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork.UseExplicitTransactionAsync(IClientSessionHandle%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.MongoDb/Abstractions/IMongoUnitOfWork.cs/#L27">View Source</a>
   </span>
   <a id="DataExplorer_MongoDb_Abstractions_IMongoUnitOfWork_UseExplicitTransactionAsync_" data-uid="DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork.UseExplicitTransactionAsync*"></a>
-  <h4 id="DataExplorer_MongoDb_Abstractions_IMongoUnitOfWork_UseExplicitTransactionAsync_MongoDB_Driver_IClientSessionHandle_CancellationToken_" data-uid="DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork.UseExplicitTransactionAsync(MongoDB.Driver.IClientSessionHandle,CancellationToken)">UseExplicitTransactionAsync(IClientSessionHandle, CancellationToken)</h4>
+  <h4 id="DataExplorer_MongoDb_Abstractions_IMongoUnitOfWork_UseExplicitTransactionAsync_IClientSessionHandle_CancellationToken_" data-uid="DataExplorer.MongoDb.Abstractions.IMongoUnitOfWork.UseExplicitTransactionAsync(IClientSessionHandle,CancellationToken)">UseExplicitTransactionAsync(IClientSessionHandle, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Begins using a provided transaction.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -411,7 +417,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MongoDB.Driver.IClientSessionHandle</span></td>
+        <td><span class="xref">IClientSessionHandle</span></td>
         <td><span class="parametername">transaction</span></td>
         <td><p>Transaction to use.</p>
 </td>
@@ -434,7 +440,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">MongoDB.Driver.IClientSessionHandle</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">IClientSessionHandle</span>&gt;</td>
         <td><p>Task representing the asynchronous operation.</p>
 </td>
       </tr>
