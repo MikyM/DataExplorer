@@ -1,10 +1,5 @@
-﻿using BookLibrary.Application.Models;
-using BookLibrary.DataAccessLayer;
-using BookLibrary.DataAccessLayer.Specifications;
-using BookLibrary.Domain;
-using DataExplorer.EfCore.Abstractions.DataServices;
+﻿using BookLibrary.Application.Services.DataServices.Abstractions;
 using DataExplorer.EfCore.Specifications;
-using Gridify;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,26 +8,22 @@ namespace BookLibrary.API.Controllers;
 [AllowAnonymous]
 [ApiController]
 [Route("api/borrowing")]
-public class BorrowingController(ILogger<BorrowingController> logger, ICrudDataService<Borrowing, ILibraryDbContext> dataService, TimeProvider timeProvider) : ControllerBase
+public class BorrowingController(ILogger<BorrowingController> logger, IBorrowingDataService dataService, TimeProvider timeProvider) : ControllerBase
 {
     [HttpPost]
     [ActionName("AddBorrowing")]
-    public async Task<IActionResult> AddBorrowingAsync([FromBody] AddBorrowingRequest borrowing)
+    public async Task<IActionResult> AddBorrowingAsync([FromBody] AddBorrowingRequest request)
     {
-        var mapped = dataService.Mapper.Map<Borrowing>(borrowing);
-
-        mapped.BorrowedAt = timeProvider.GetUtcNow();
+        var borrowingsResult = await dataService.AddBorrowingAsync(request);
         
-        var borrowingsResult = await dataService.AddAsync(mapped, true);
-        
-        if (borrowingsResult.IsDefined(out var id))
+        if (borrowingsResult.IsDefined(out var borrowing))
         {
-            logger.LogInformation("Added new borrowing {@Borrowing}", mapped);
+            logger.LogInformation("Added new borrowing {@Borrowing}", borrowing);
             
             const string actionName = "GetBorrowingById";
-            var routeValues =  new { id };
+            var routeValues =  new { id = borrowing.Id };
             
-            return CreatedAtAction(actionName, routeValues, mapped);
+            return CreatedAtAction(actionName, routeValues, borrowing);
         }
 
         return Problem();
@@ -90,7 +81,9 @@ public class BorrowingController(ILogger<BorrowingController> logger, ICrudDataS
     public async Task<IActionResult> GetAllBorrowingsAsync([FromQuery] GridifyQuery query)
     {
         var borrowings = await dataService.GetByGridifyQueryAsync(query);
-        
-        return Ok(borrowings);
+
+        return borrowings.IsDefined(out var paging) 
+            ? Ok(paging) 
+            : Problem();
     }
 }

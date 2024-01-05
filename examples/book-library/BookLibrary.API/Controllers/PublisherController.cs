@@ -1,10 +1,6 @@
-﻿using BookLibrary.Application.Models;
-using BookLibrary.DataAccessLayer;
-using BookLibrary.DataAccessLayer.Specifications;
-using BookLibrary.Domain;
+﻿using BookLibrary.DataAccessLayer;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.Specifications;
-using Gridify;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,9 +13,9 @@ public class PublisherController(ILogger<PublisherController> logger, ICrudDataS
 {
     [HttpPost]
     [ActionName("AddPublisher")]
-    public async Task<IActionResult> AddPublisherAsync([FromBody] AddPublisherRequest publisher)
+    public async Task<IActionResult> AddPublisherAsync([FromBody] AddPublisherRequest request)
     {
-        var mapped = dataService.Mapper.Map<Publisher>(publisher);
+        var mapped = dataService.Mapper.Map<Publisher>(request);
         
         var publishersResult = await dataService.AddAsync(mapped, true);
         
@@ -100,6 +96,8 @@ public class PublisherController(ILogger<PublisherController> logger, ICrudDataS
     {
         var publishers = await dataService.GetByGridifyQueryAsync(query);
         
-        return Ok(publishers);
+        return publishers.IsDefined(out var paging) 
+            ? Ok(paging) 
+            : Problem();
     }
 }

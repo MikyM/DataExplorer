@@ -1,10 +1,6 @@
-﻿using BookLibrary.Application.Models;
-using BookLibrary.DataAccessLayer;
-using BookLibrary.DataAccessLayer.Specifications;
-using BookLibrary.Domain;
+﻿using BookLibrary.DataAccessLayer;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.Specifications;
-using Gridify;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,9 +13,9 @@ public class ClientController(ILogger<ClientController> logger, ICrudDataService
 {
     [HttpPost]
     [ActionName("AddClient")]
-    public async Task<IActionResult> AddClientAsync([FromBody] AddClientRequest client)
+    public async Task<IActionResult> AddClientAsync([FromBody] AddClientRequest request)
     {
-        var mapped = dataService.Mapper.Map<Client>(client);
+        var mapped = dataService.Mapper.Map<Client>(request);
         
         var clientsResult = await dataService.AddAsync(mapped, true);
         
@@ -100,6 +96,8 @@ public class ClientController(ILogger<ClientController> logger, ICrudDataService
     {
         var clients = await dataService.GetByGridifyQueryAsync(query);
         
-        return Ok(clients);
+        return clients.IsDefined(out var paging) 
+            ? Ok(paging) 
+            : Problem();
     }
 }

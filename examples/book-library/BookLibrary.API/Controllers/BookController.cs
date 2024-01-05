@@ -1,10 +1,7 @@
-﻿using BookLibrary.Application.Models;
+﻿using BookLibrary.Application.Services.DataServices.Abstractions;
 using BookLibrary.DataAccessLayer;
-using BookLibrary.DataAccessLayer.Specifications;
-using BookLibrary.Domain;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.Specifications;
-using Gridify;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,24 +10,22 @@ namespace BookLibrary.API.Controllers;
 [AllowAnonymous]
 [ApiController]
 [Route("api/book")]
-public class BookController(ILogger<BookController> logger, ICrudDataService<Book, ILibraryDbContext> dataService) : ControllerBase
+public class BookController(ILogger<BookController> logger, IBookDataService dataService) : ControllerBase
 {
     [HttpPost]
     [ActionName("AddBook")]
-    public async Task<IActionResult> AddBookAsync([FromBody] AddBookRequest book)
+    public async Task<IActionResult> AddBookAsync([FromBody] AddBookRequest request)
     {
-        var mapped = dataService.Mapper.Map<Book>(book);
+        var booksResult = await dataService.AddBookAsync(request);
         
-        var booksResult = await dataService.AddAsync(mapped, true);
-        
-        if (booksResult.IsDefined(out var id))
+        if (booksResult.IsDefined(out var book))
         {
-            logger.LogInformation("Added new book {@Book}", mapped);
+            logger.LogInformation("Added new book {@Book}", book);
             
             const string actionName = "GetBookById";
-            var routeValues =  new { id };
+            var routeValues =  new { id = book.Id };
             
-            return CreatedAtAction(actionName, routeValues, mapped);
+            return CreatedAtAction(actionName, routeValues, book);
         }
 
         return Problem();
@@ -100,6 +95,8 @@ public class BookController(ILogger<BookController> logger, ICrudDataService<Boo
     {
         var books = await dataService.GetByGridifyQueryAsync(query);
         
-        return Ok(books);
+        return books.IsDefined(out var paging) 
+            ? Ok(paging) 
+            : Problem();
     }
 }

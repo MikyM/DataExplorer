@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using BookLibrary.Application.Models;
-using BookLibrary.Domain;
 using DataExplorer;
 using DataExplorer.EfCore;
 using DataExplorer.EfCore.Extensions;

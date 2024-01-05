@@ -1,10 +1,6 @@
-﻿using BookLibrary.Application.Models;
-using BookLibrary.DataAccessLayer;
-using BookLibrary.DataAccessLayer.Specifications;
-using BookLibrary.Domain;
+﻿using BookLibrary.DataAccessLayer;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.Specifications;
-using Gridify;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,9 +13,9 @@ public class AuthorController(ILogger<AuthorController> logger, ICrudDataService
 {
     [HttpPost]
     [ActionName("AddAuthor")]
-    public async Task<IActionResult> AddAuthorAsync([FromBody] AddAuthorRequest author)
+    public async Task<IActionResult> AddAuthorAsync([FromBody] AddAuthorRequest request)
     {
-        var mapped = dataService.Mapper.Map<Author>(author);
+        var mapped = dataService.Mapper.Map<Author>(request);
         
         var authorsResult = await dataService.AddAsync(mapped, true);
         
@@ -100,6 +96,8 @@ public class AuthorController(ILogger<AuthorController> logger, ICrudDataService
     {
         var authors = await dataService.GetByGridifyQueryAsync(query);
         
-        return Ok(authors);
+        return authors.IsDefined(out var paging) 
+            ? Ok(paging) 
+            : Problem();
     }
 }
