@@ -6,7 +6,7 @@
 
 # DataExplorer
 
-Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core) and MongoDb (MongoDb.Entities).
+Library featuring an opinionated, reusable data access layer offering abstractions and implementations for EF Core compatible storages.
 
 To utilize all features using Autofac is required.
 
