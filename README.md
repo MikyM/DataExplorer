@@ -41,6 +41,6 @@ builder.AddDataExplorer(options =>
 
 Documentation available at https://mikym.github.io/DataExplorer/.
 
-## Description
+## Examples
 
-Detailed descriptions are provided within subdirectories (packages) and articles in documentation.
+Examples and PoCs are available within the [examples](https://github.com/MikyM/DataExplorer/tree/develop/examples) subdirectory.
