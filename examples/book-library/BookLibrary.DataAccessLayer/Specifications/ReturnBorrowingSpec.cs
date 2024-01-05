@@ -7,6 +7,7 @@ public sealed class ReturnBorrowingSpec : UpdateSpecification<Borrowing>
         Where(x => x.Id == id);
         
         Modify(x =>
-            x.SetProperty(p => p.ReturnedAt, returnedAt));
+            x.SetProperty(p => p.ReturnedAt, returnedAt)
+                .SetProperty(p => p.UpdatedAt, DateTimeOffset.UtcNow));
     }
 }

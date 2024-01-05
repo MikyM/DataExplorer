@@ -10,6 +10,7 @@ public sealed class PutAuthorSpec : UpdateSpecification<Author>
         
         Modify(x =>
             x.SetProperty(p => p.Surname, author.Surname)
-                .SetProperty(p => p.FirstName, author.FirstName));
+                .SetProperty(p => p.FirstName, author.FirstName)
+                .SetProperty(p => p.UpdatedAt, DateTimeOffset.UtcNow));
     }
 }

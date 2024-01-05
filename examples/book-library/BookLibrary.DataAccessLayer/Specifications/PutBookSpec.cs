@@ -11,6 +11,7 @@ public sealed class PutBookSpec : UpdateSpecification<Book>
         Modify(x =>
             x.SetProperty(p => p.Title, book.Title)
                 .SetProperty(p => p.AuthorId, book.AuthorId)
-                .SetProperty(p => p.PublisherId, book.PublisherId));
+                .SetProperty(p => p.PublisherId, book.PublisherId)
+                .SetProperty(p => p.UpdatedAt, DateTimeOffset.UtcNow));
     }
 }

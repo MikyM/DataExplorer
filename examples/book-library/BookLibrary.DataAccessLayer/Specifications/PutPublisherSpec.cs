@@ -9,6 +9,7 @@ public sealed class PutPublisherSpec : UpdateSpecification<Publisher>
         Where(x => x.IsDisabled == false);
         
         Modify(x =>
-            x.SetProperty(p => p.Name, publisher.Name));
+            x.SetProperty(p => p.Name, publisher.Name)
+                .SetProperty(p => p.UpdatedAt, DateTimeOffset.UtcNow));
     }
 }

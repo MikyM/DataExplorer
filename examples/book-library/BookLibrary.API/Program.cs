@@ -18,7 +18,7 @@ builder.Services.AddControllers().AddJsonOptions(opt =>
     opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 }).AddControllersAsServices();
 
-builder.Services.AddSingleton<TimeProvider>();
+builder.Services.AddSingleton(TimeProvider.System);
 
 builder.Services.AddHostedService<PostgresService>();
 

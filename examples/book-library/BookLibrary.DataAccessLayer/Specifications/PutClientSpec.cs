@@ -12,6 +12,7 @@ public sealed class PutClientSpec : UpdateSpecification<Client>
             x.SetProperty(p => p.Surname, client.Surname)
                 .SetProperty(p => p.FirstName, client.FirstName)
                 .SetProperty(p => p.Email, client.Email)
-                .SetProperty(p => p.PhoneNumber, client.PhoneNumber));
+                .SetProperty(p => p.PhoneNumber, client.PhoneNumber)
+                .SetProperty(p => p.UpdatedAt, DateTimeOffset.UtcNow));
     }
 }
