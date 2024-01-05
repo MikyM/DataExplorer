@@ -27,8 +27,8 @@ public class AuthorController(ILogger<AuthorController> logger, ICrudDataService
         {
             logger.LogInformation("Added new author {@Author}", mapped);
             
-            var actionName = "GetAuthorById";
-            var routeValues = new { id = mapped.Id };
+            const string actionName = "GetAuthorById";
+            var routeValues =  new { id };
             
             return CreatedAtAction(actionName, routeValues, mapped);
         }
@@ -88,14 +88,14 @@ public class AuthorController(ILogger<AuthorController> logger, ICrudDataService
     [HttpGet]
     public async Task<IActionResult> GetAuthorAsync([FromQuery] string surname, [FromQuery] string? firstName)
     {
-        var authorsResult = await dataService.GetSingleAsync(new AuthorWithBooksSpec(surname, firstName));
+        var authorsResult = await dataService.GetAsync(new AuthorWithBooksSpec(surname, firstName));
         
         return authorsResult.IsDefined(out var author) 
             ? Ok(author) 
             : Problem();
     }
     
-    [HttpGet("all")]
+    [HttpGet("query")]
     public async Task<IActionResult> GetAllAuthorsAsync([FromQuery] GridifyQuery query)
     {
         var authors = await dataService.GetByGridifyQueryAsync(query);

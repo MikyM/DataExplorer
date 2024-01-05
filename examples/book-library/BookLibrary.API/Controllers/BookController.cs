@@ -27,8 +27,8 @@ public class BookController(ILogger<BookController> logger, ICrudDataService<Boo
         {
             logger.LogInformation("Added new book {@Book}", mapped);
             
-            var actionName = "GetBookById";
-            var routeValues = new { id = mapped.Id };
+            const string actionName = "GetBookById";
+            var routeValues =  new { id };
             
             return CreatedAtAction(actionName, routeValues, mapped);
         }
@@ -88,14 +88,14 @@ public class BookController(ILogger<BookController> logger, ICrudDataService<Boo
     [HttpGet]
     public async Task<IActionResult> GetBookAsync([FromQuery] string title)
     {
-        var booksResult = await dataService.GetSingleAsync(new BookWithInfoSpec(title));
+        var booksResult = await dataService.GetAsync(new BookWithInfoSpec(title));
         
         return booksResult.IsDefined(out var book) 
             ? Ok(book) 
             : Problem();
     }
     
-    [HttpGet("all")]
+    [HttpGet("query")]
     public async Task<IActionResult> GetAllBooksAsync([FromQuery] GridifyQuery query)
     {
         var books = await dataService.GetByGridifyQueryAsync(query);

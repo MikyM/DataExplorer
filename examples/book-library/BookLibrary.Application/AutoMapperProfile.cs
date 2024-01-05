@@ -16,5 +16,10 @@ public class AutoMapperProfile : Profile
         
         CreateMap<AddAuthorRequest, Author>();
         CreateMap<PutAuthorRequest, Author>();
+        
+        CreateMap<AddClientRequest, Client>();
+        CreateMap<PutClientRequest, Client>();
+        
+        CreateMap<AddBorrowingRequest, Borrowing>();
     }
 }

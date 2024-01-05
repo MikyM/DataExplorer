@@ -27,8 +27,8 @@ public class PublisherController(ILogger<PublisherController> logger, ICrudDataS
         {
             logger.LogInformation("Added new publisher {@Publisher}", mapped);
             
-            var actionName = "GetPublisherById";
-            var routeValues = new { id = mapped.Id };
+            const string actionName = "GetPublisherById";
+            var routeValues =  new { id };
             
             return CreatedAtAction(actionName, routeValues, mapped);
         }
@@ -88,14 +88,14 @@ public class PublisherController(ILogger<PublisherController> logger, ICrudDataS
     [HttpGet]
     public async Task<IActionResult> GetPublisherAsync([FromQuery] string name)
     {
-        var publishersResult = await dataService.GetSingleAsync(new PublisherWithBooksSpec(name));
+        var publishersResult = await dataService.GetAsync(new PublisherWithBooksSpec(name));
         
         return publishersResult.IsDefined(out var publisher) 
             ? Ok(publisher) 
             : Problem();
     }
     
-    [HttpGet("all")]
+    [HttpGet("query")]
     public async Task<IActionResult> GetAllPublishersAsync([FromQuery] GridifyQuery query)
     {
         var publishers = await dataService.GetByGridifyQueryAsync(query);

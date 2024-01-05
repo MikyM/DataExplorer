@@ -1,11 +1,3 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace BookLibrary.Application.Models;
 
-namespace BookLibrary.Application.Models;
-
-public class PutPublisherRequest
-{
-    [Required]
-    public long Id { get; set; }
-    [Required]
-    public string? Name { get; set; }
-}
+public record PutPublisherRequest( long Id, string? Name);

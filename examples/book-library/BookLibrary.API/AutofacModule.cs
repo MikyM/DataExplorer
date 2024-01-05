@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using BookLibrary.Application;
 using BookLibrary.Application.Models;
 using BookLibrary.Domain;
 using DataExplorer;

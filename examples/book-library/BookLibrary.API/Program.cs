@@ -18,6 +18,8 @@ builder.Services.AddControllers().AddJsonOptions(opt =>
     opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 }).AddControllersAsServices();
 
+builder.Services.AddSingleton<TimeProvider>();
+
 builder.Services.AddHostedService<PostgresService>();
 
 builder.Services.AddDbContext<ILibraryDbContext, LibraryDbContext>((x,y) =>

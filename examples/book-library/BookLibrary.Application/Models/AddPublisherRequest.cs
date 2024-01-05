@@ -1,9 +1,3 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace BookLibrary.Application.Models;
 
-namespace BookLibrary.Application.Models;
-
-public class AddPublisherRequest
-{
-    [Required]
-    public string? Name { get; set; }
-}
+public record AddPublisherRequest( string? Name);

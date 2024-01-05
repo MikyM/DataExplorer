@@ -1,4 +1,6 @@
-﻿namespace BookLibrary.DataAccessLayer.Specifications;
+﻿using DataExplorer.EfCore.Specifications.Builders;
+
+namespace BookLibrary.DataAccessLayer.Specifications;
 
 public sealed class BookWithInfoSpec : Specification<Book>
 {
@@ -24,5 +26,7 @@ public sealed class BookWithInfoSpec : Specification<Book>
     {
         Include(x => x.Author);
         Include(x => x.Publisher);
+        Include(x => x.Borrowings)
+            .ThenInclude(x => x!.Client);
     }
 }
