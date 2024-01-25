@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../styles/colors.css">
     <link rel="stylesheet" href="../styles/discord.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:navrel" content="../toc.json">
+    <meta property="docfx:tocrel" content="toc.json">
   
   
   
@@ -95,11 +95,12 @@
                     <article class="content wrap" id="_content" data-uid="DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator">
 
 
+
   <h1 id="DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator" data-uid="DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator" class="text-break">Interface IInMemorySpecificationEvaluator
 </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.html">DataExplorer.Abstractions.Specifications.Evaluators</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a>.<a class="xref" href="DataExplorer.Abstractions.html">Abstractions</a>.<a class="xref" href="DataExplorer.Abstractions.Specifications.html">Specifications</a>.<a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.html">Evaluators</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -109,7 +110,7 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_Evaluate__1_System_Collections_Generic_IEnumerable___0__DataExplorer_Abstractions_Specifications_IBasicSpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.Evaluate%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.IBasicSpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_Evaluate__1_System_Collections_Generic_IEnumerable___0__DataExplorer_Abstractions_Specifications_IBasicSpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.Evaluate%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.IBasicSpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/Evaluators/IInMemorySpecificationEvaluator.cs/#L6">View Source</a>
@@ -120,11 +121,10 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;T&gt; Evaluate&lt;T&gt;(IEnumerable&lt;T&gt; source, IBasicSpecification&lt;T&gt; specification)
-    where T : class</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;T&gt; Evaluate&lt;T&gt;(IEnumerable&lt;T&gt; source, IBasicSpecification&lt;T&gt; specification) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -134,7 +134,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">source</span></td>
         <td></td>
       </tr>
@@ -146,7 +146,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -155,13 +155,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -177,7 +177,7 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_Evaluate__1_System_Collections_Generic_IEnumerable___0__DataExplorer_Abstractions_Specifications_ISpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.Evaluate%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_Evaluate__1_System_Collections_Generic_IEnumerable___0__DataExplorer_Abstractions_Specifications_ISpecification___0__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.Evaluate%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/Evaluators/IInMemorySpecificationEvaluator.cs/#L7">View Source</a>
@@ -188,11 +188,10 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;T&gt; Evaluate&lt;T&gt;(IEnumerable&lt;T&gt; source, ISpecification&lt;T&gt; specification)
-    where T : class</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;T&gt; Evaluate&lt;T&gt;(IEnumerable&lt;T&gt; source, ISpecification&lt;T&gt; specification) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -202,7 +201,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">source</span></td>
         <td></td>
       </tr>
@@ -214,7 +213,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -223,13 +222,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -245,7 +244,7 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_Evaluate__2_System_Collections_Generic_IEnumerable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.Evaluate%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_Evaluate__2_System_Collections_Generic_IEnumerable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator.Evaluate%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/Evaluators/IInMemorySpecificationEvaluator.cs/#L5">View Source</a>
@@ -256,11 +255,10 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;TResult&gt; Evaluate&lt;T, TResult&gt;(IEnumerable&lt;T&gt; source, ISpecification&lt;T, TResult&gt; specification)
-    where T : class</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;TResult&gt; Evaluate&lt;T, TResult&gt;(IEnumerable&lt;T&gt; source, ISpecification&lt;T, TResult&gt; specification) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -270,7 +268,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">source</span></td>
         <td></td>
       </tr>
@@ -282,7 +280,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -291,13 +289,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TResult&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TResult&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -315,6 +313,7 @@
       </tr>
     </tbody>
   </table>
+
 </article>
               
                 </div>

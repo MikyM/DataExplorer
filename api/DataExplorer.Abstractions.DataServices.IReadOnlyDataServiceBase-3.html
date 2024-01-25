@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../styles/colors.css">
     <link rel="stylesheet" href="../styles/discord.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:navrel" content="../toc.json">
+    <meta property="docfx:tocrel" content="toc.json">
   
   
   
@@ -95,6 +95,7 @@
                     <article class="content wrap" id="_content" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3">
 
 
+
   <h1 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3" class="text-break">Interface IReadOnlyDataServiceBase&lt;TEntity, TId, TContext&gt;
 </h1>
   <div class="markdown level0 summary"><p>Read-only data service.</p>
@@ -121,16 +122,16 @@
       <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_RollbackAsync_System_Threading_CancellationToken_">IDataServiceBase&lt;TContext&gt;.RollbackAsync(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Boolean_">IDataServiceBase&lt;TContext&gt;.WrapAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult&gt;&gt;, Boolean)</a>
+      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Boolean_">IDataServiceBase&lt;TContext&gt;.WrapAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult&gt;&gt;, bool)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_System_Func_System_Threading_Tasks_Task__System_Boolean_">IDataServiceBase&lt;TContext&gt;.WrapAsync(Func&lt;Task&gt;, Boolean)</a>
+      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_System_Func_System_Threading_Tasks_Task__System_Boolean_">IDataServiceBase&lt;TContext&gt;.WrapAsync(Func&lt;Task&gt;, bool)</a>
     </div>
     <div>
-      <span class="xref">System.IDisposable.Dispose()</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Abstractions.DataServices.html">DataExplorer.Abstractions.DataServices</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a>.<a class="xref" href="DataExplorer.Abstractions.html">Abstractions</a>.<a class="xref" href="DataExplorer.Abstractions.DataServices.html">DataServices</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -138,7 +139,7 @@
 public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : IDataServiceBase&lt;TContext&gt;, IDisposable where TEntity : Entity&lt;TId&gt; where TId : IComparable, IEquatable&lt;TId&gt;, IComparable&lt;TId&gt; where TContext : class, IDataContextBase</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -167,7 +168,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_ReadOnlyRepository.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.ReadOnlyRepository%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_ReadOnlyRepository.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.ReadOnlyRepository%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L28">View Source</a>
@@ -182,7 +183,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     <pre><code class="lang-csharp hljs">IReadOnlyRepositoryBase&lt;TEntity, TId&gt; ReadOnlyRepository { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -200,7 +201,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AnyAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.AnyAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AnyAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.AnyAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L200">View Source</a>
@@ -212,10 +213,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;bool&gt;&gt; AnyAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;bool&gt;&gt; AnyAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -231,7 +232,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -239,7 +240,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -248,7 +249,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</td>
         <td><p>True if any elements in the source sequence satisfy the condition, otherwise false.</p>
 </td>
       </tr>
@@ -256,22 +257,22 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.AnyAsync(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Boolean%7D%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.AnyAsync(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Boolean%7D%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L192">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AnyAsync_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.AnyAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.AnyAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">AnyAsync(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, CancellationToken)</h4>
+  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.AnyAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">AnyAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Asynchronously determines whether any elements satisfy the condition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;bool&gt;&gt; AnyAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; predicate, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;bool&gt;&gt; AnyAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; predicate, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -281,13 +282,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TEntity, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>Predicate for the query.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -295,7 +296,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -304,7 +305,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</td>
         <td><p>True if any elements in the source sequence satisfy the condition, otherwise false.</p>
 </td>
       </tr>
@@ -312,15 +313,15 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AsAsyncEnumerable_DataExplorer_Abstractions_Specifications_ISpecification__0__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.AsAsyncEnumerable(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AsAsyncEnumerable_DataExplorer_Abstractions_Specifications_ISpecification__0__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.AsAsyncEnumerable(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L210">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AsAsyncEnumerable_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.AsAsyncEnumerable*"></a>
   <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_AsAsyncEnumerable_DataExplorer_Abstractions_Specifications_ISpecification__0__" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.AsAsyncEnumerable(DataExplorer.Abstractions.Specifications.ISpecification{`0})">AsAsyncEnumerable(ISpecification&lt;TEntity&gt;)</h4>
-  <div class="markdown level1 summary"><p>Finds all entities of <code data-dev-comment-type="typeparamref" class="typeparamref">TEntity</code>, that matches the encapsulated query logic of the
-<code data-dev-comment-type="paramref" class="paramref">specification</code>, from the database.</p>
+  <div class="markdown level1 summary"><p>Finds all entities of <code class="typeparamref">TEntity</code>, that matches the encapsulated query logic of the
+<code class="paramref">specification</code>, from the database.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -328,7 +329,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     <pre><code class="lang-csharp hljs">Result&lt;IAsyncEnumerable&lt;TEntity&gt;&gt; AsAsyncEnumerable(ISpecification&lt;TEntity&gt; specification)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -346,7 +347,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -355,7 +356,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;TEntity&gt;&gt;</td>
+        <td><span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;TEntity&gt;&gt;</td>
         <td><p>Returns an IAsyncEnumerable which can be enumerated asynchronously.</p>
 </td>
       </tr>
@@ -363,7 +364,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAllAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAllAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAllAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAllAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L169">View Source</a>
@@ -375,10 +376,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TEntity&gt;&gt;&gt; GetAllAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TEntity&gt;&gt;&gt; GetAllAsync(CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -388,7 +389,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -396,7 +397,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -405,31 +406,30 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;TEntity&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation, with the found entities if any.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation, with the found entities if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAllAsync__1_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAllAsync%60%601(System.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAllAsync__1_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAllAsync%60%601(System.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L161">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAllAsync_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAllAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAllAsync__1_System_Boolean_System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAllAsync``1(System.Boolean,System.Threading.CancellationToken)">GetAllAsync&lt;TGetResult&gt;(Boolean, CancellationToken)</h4>
+  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAllAsync__1_System_Boolean_System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAllAsync``1(System.Boolean,System.Threading.CancellationToken)">GetAllAsync&lt;TGetResult&gt;(bool, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all entities and maps them to another type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetResult&gt;&gt;&gt; GetAllAsync&lt;TGetResult&gt;(bool shouldProject = false, CancellationToken cancellationToken = default(CancellationToken))
-    where TGetResult : class</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetResult&gt;&gt;&gt; GetAllAsync&lt;TGetResult&gt;(bool shouldProject = false, CancellationToken cancellationToken = default) where TGetResult : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -439,13 +439,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">shouldProject</span></td>
         <td><p>Whether to use AutoMappers ProjectTo method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -453,7 +453,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -462,14 +462,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;TGetResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation, with the found entities if any.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TGetResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation, with the found entities if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -485,7 +485,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L136">View Source</a>
@@ -497,10 +497,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TEntity&gt;&gt;&gt; GetAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TEntity&gt;&gt;&gt; GetAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -516,7 +516,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -524,7 +524,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -533,15 +533,15 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;TEntity&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation, with the found entities if any.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation, with the found entities if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(Gridify.IGridifyQuery%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(Gridify.IGridifyQuery%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L282">View Source</a>
@@ -553,10 +553,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TEntity&gt;&gt;&gt; GetAsync(IGridifyQuery gridifyQuery, IGridifyMapper&lt;TEntity&gt; gridifyMapper, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TEntity&gt;&gt;&gt; GetAsync(IGridifyQuery gridifyQuery, IGridifyMapper&lt;TEntity&gt; gridifyMapper, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -566,19 +566,19 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Gridify.IGridifyQuery</span></td>
+        <td><span class="xref">IGridifyQuery</span></td>
         <td><span class="parametername">gridifyQuery</span></td>
         <td><p>Gridify query query.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Gridify.IGridifyMapper</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">IGridifyMapper</span>&lt;TEntity&gt;</td>
         <td><span class="parametername">gridifyMapper</span></td>
         <td><p>Gridify mapper.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -586,7 +586,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -595,15 +595,15 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Gridify.Paging</span>&lt;TEntity&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Gridify.Paging`1</span> with found entities and count.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<span class="xref">Paging</span>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Gridify.Paging&lt;T&gt;</span> with found entities and count.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(Gridify.IGridifyQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(Gridify.IGridifyQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L272">View Source</a>
@@ -615,10 +615,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TEntity&gt;&gt;&gt; GetAsync(IGridifyQuery gridifyQuery, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TEntity&gt;&gt;&gt; GetAsync(IGridifyQuery gridifyQuery, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -628,13 +628,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Gridify.IGridifyQuery</span></td>
+        <td><span class="xref">IGridifyQuery</span></td>
         <td><span class="parametername">gridifyQuery</span></td>
         <td><p>Gridify query query.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -642,7 +642,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -651,8 +651,8 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Gridify.Paging</span>&lt;TEntity&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Gridify.Paging`1</span> with found entities and count.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<span class="xref">Paging</span>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Gridify.Paging&lt;T&gt;</span> with found entities and count.</p>
 </td>
       </tr>
     </tbody>
@@ -662,69 +662,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(System.Object%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L43">View Source</a>
-  </span>
-  <a id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(System.Object[],System.Threading.CancellationToken)">GetAsync(Object[], CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets an entity based on given primary key values.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TEntity&gt;&gt; GetAsync(object[] keyValues, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span>[]</td>
-        <td><span class="parametername">keyValues</span></td>
-        <td><p>Primary key values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Cancellation token.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TEntity&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(System.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(System.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L35">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(System.Object[])">GetAsync(Object[])</h4>
+  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(System.Object[])">GetAsync(params object[])</h4>
   <div class="markdown level1 summary"><p>Gets an entity based on given primary key values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -733,7 +677,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TEntity&gt;&gt; GetAsync(params object[] keyValues)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -743,7 +687,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Object</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
         <td><span class="parametername">keyValues</span></td>
         <td><p>Primary key values.</p>
 </td>
@@ -751,7 +695,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -760,7 +704,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TEntity&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TEntity&gt;&gt;</td>
         <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
 </td>
       </tr>
@@ -768,7 +712,63 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync(System.Object%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L43">View Source</a>
+  </span>
+  <a id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync*"></a>
+  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(System.Object[],System.Threading.CancellationToken)">GetAsync(object?[]?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets an entity based on given primary key values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TEntity&gt;&gt; GetAsync(object?[]? keyValues, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
+        <td><span class="parametername">keyValues</span></td>
+        <td><p>Primary key values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TEntity&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L153">View Source</a>
@@ -780,10 +780,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetProjectedResult&gt;&gt;&gt; GetAsync&lt;TGetProjectedResult&gt;(ISpecification&lt;TEntity, TGetProjectedResult&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetProjectedResult&gt;&gt;&gt; GetAsync&lt;TGetProjectedResult&gt;(ISpecification&lt;TEntity, TGetProjectedResult&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -799,7 +799,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -807,7 +807,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -816,14 +816,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;TGetProjectedResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation, with the found entities if any.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TGetProjectedResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation, with the found entities if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -839,7 +839,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L144">View Source</a>
@@ -851,11 +851,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetResult&gt;&gt;&gt; GetAsync&lt;TGetResult&gt;(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))
-    where TGetResult : class</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetResult&gt;&gt;&gt; GetAsync&lt;TGetResult&gt;(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default) where TGetResult : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -871,7 +870,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -879,7 +878,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -888,14 +887,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;TGetResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation, with the found entities if any.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TGetResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation, with the found entities if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -911,7 +910,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(Gridify.IGridifyQuery%2CDataExplorer.ResultTransformation%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(Gridify.IGridifyQuery%2CDataExplorer.ResultTransformation%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L310">View Source</a>
@@ -923,10 +922,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TResult&gt;&gt;&gt; GetAsync&lt;TResult&gt;(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation, IGridifyMapper&lt;TEntity&gt; gridifyMapper, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TResult&gt;&gt;&gt; GetAsync&lt;TResult&gt;(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation, IGridifyMapper&lt;TEntity&gt; gridifyMapper, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -936,7 +935,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Gridify.IGridifyQuery</span></td>
+        <td><span class="xref">IGridifyQuery</span></td>
         <td><span class="parametername">gridifyQuery</span></td>
         <td><p>Gridify query query.</p>
 </td>
@@ -948,13 +947,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Gridify.IGridifyMapper</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">IGridifyMapper</span>&lt;TEntity&gt;</td>
         <td><span class="parametername">gridifyMapper</span></td>
         <td><p>Gridify mapper.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -962,7 +961,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -971,14 +970,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Gridify.Paging</span>&lt;TResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Gridify.Paging`1</span> with found entities and count.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<span class="xref">Paging</span>&lt;TResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Gridify.Paging&lt;T&gt;</span> with found entities and count.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -997,7 +996,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(Gridify.IGridifyQuery%2CDataExplorer.ResultTransformation%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(Gridify.IGridifyQuery%2CDataExplorer.ResultTransformation%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L295">View Source</a>
@@ -1009,10 +1008,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TResult&gt;&gt;&gt; GetAsync&lt;TResult&gt;(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TResult&gt;&gt;&gt; GetAsync&lt;TResult&gt;(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1022,7 +1021,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Gridify.IGridifyQuery</span></td>
+        <td><span class="xref">IGridifyQuery</span></td>
         <td><span class="parametername">gridifyQuery</span></td>
         <td><p>Gridify query query.</p>
 </td>
@@ -1034,7 +1033,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1042,7 +1041,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1051,14 +1050,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Gridify.Paging</span>&lt;TResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Gridify.Paging`1</span> with found entities and count.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<span class="xref">Paging</span>&lt;TResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Gridify.Paging&lt;T&gt;</span> with found entities and count.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1077,23 +1076,22 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_System_Object___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(System.Object%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_System_Object___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetAsync%60%601(System.Object%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L52">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_System_Object___System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync``1(System.Object[],System.Threading.CancellationToken)">GetAsync&lt;TGetResult&gt;(Object[], CancellationToken)</h4>
+  <h4 id="DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_System_Object___System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync``1(System.Object[],System.Threading.CancellationToken)">GetAsync&lt;TGetResult&gt;(object?[]?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets an entity based on given primary key values and maps it to another type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetResult&gt;&gt; GetAsync&lt;TGetResult&gt;(object[] keyValues, CancellationToken cancellationToken = default(CancellationToken))
-    where TGetResult : class</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetResult&gt;&gt; GetAsync&lt;TGetResult&gt;(object?[]? keyValues, CancellationToken cancellationToken = default) where TGetResult : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1103,13 +1101,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Object</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
         <td><span class="parametername">keyValues</span></td>
         <td><p>Primary key values.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1117,7 +1115,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1126,14 +1124,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TGetResult&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TGetResult&gt;&gt;</td>
         <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1149,7 +1147,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetByGridifyQueryAsync(Gridify.IGridifyQuery%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetByGridifyQueryAsync(Gridify.IGridifyQuery%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L231">View Source</a>
@@ -1161,10 +1159,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TEntity&gt;&gt;&gt; GetByGridifyQueryAsync(IGridifyQuery gridifyQuery, IGridifyMapper&lt;TEntity&gt; gridifyMapper, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TEntity&gt;&gt;&gt; GetByGridifyQueryAsync(IGridifyQuery gridifyQuery, IGridifyMapper&lt;TEntity&gt; gridifyMapper, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1174,19 +1172,19 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Gridify.IGridifyQuery</span></td>
+        <td><span class="xref">IGridifyQuery</span></td>
         <td><span class="parametername">gridifyQuery</span></td>
         <td><p>Gridify query query.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Gridify.IGridifyMapper</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">IGridifyMapper</span>&lt;TEntity&gt;</td>
         <td><span class="parametername">gridifyMapper</span></td>
         <td><p>Gridify mapper.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1194,7 +1192,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1203,15 +1201,15 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Gridify.Paging</span>&lt;TEntity&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Gridify.Paging`1</span> with found entities and count.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<span class="xref">Paging</span>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Gridify.Paging&lt;T&gt;</span> with found entities and count.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetByGridifyQueryAsync(Gridify.IGridifyQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetByGridifyQueryAsync(Gridify.IGridifyQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L221">View Source</a>
@@ -1223,10 +1221,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TEntity&gt;&gt;&gt; GetByGridifyQueryAsync(IGridifyQuery gridifyQuery, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TEntity&gt;&gt;&gt; GetByGridifyQueryAsync(IGridifyQuery gridifyQuery, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1236,13 +1234,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Gridify.IGridifyQuery</span></td>
+        <td><span class="xref">IGridifyQuery</span></td>
         <td><span class="parametername">gridifyQuery</span></td>
         <td><p>Gridify query query.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1250,7 +1248,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1259,8 +1257,8 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Gridify.Paging</span>&lt;TEntity&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Gridify.Paging`1</span> with found entities and count.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<span class="xref">Paging</span>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Gridify.Paging&lt;T&gt;</span> with found entities and count.</p>
 </td>
       </tr>
     </tbody>
@@ -1270,7 +1268,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetByGridifyQueryAsync%60%601(Gridify.IGridifyQuery%2CDataExplorer.ResultTransformation%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetByGridifyQueryAsync%60%601(Gridify.IGridifyQuery%2CDataExplorer.ResultTransformation%2CGridify.IGridifyMapper%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L259">View Source</a>
@@ -1282,10 +1280,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TResult&gt;&gt;&gt; GetByGridifyQueryAsync&lt;TResult&gt;(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation, IGridifyMapper&lt;TEntity&gt; gridifyMapper, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TResult&gt;&gt;&gt; GetByGridifyQueryAsync&lt;TResult&gt;(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation, IGridifyMapper&lt;TEntity&gt; gridifyMapper, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1295,7 +1293,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Gridify.IGridifyQuery</span></td>
+        <td><span class="xref">IGridifyQuery</span></td>
         <td><span class="parametername">gridifyQuery</span></td>
         <td><p>Gridify query query.</p>
 </td>
@@ -1307,13 +1305,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Gridify.IGridifyMapper</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">IGridifyMapper</span>&lt;TEntity&gt;</td>
         <td><span class="parametername">gridifyMapper</span></td>
         <td><p>Gridify mapper.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1321,7 +1319,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1330,14 +1328,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Gridify.Paging</span>&lt;TResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Gridify.Paging`1</span> with found entities and count.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<span class="xref">Paging</span>&lt;TResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Gridify.Paging&lt;T&gt;</span> with found entities and count.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1356,7 +1354,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetByGridifyQueryAsync%60%601(Gridify.IGridifyQuery%2CDataExplorer.ResultTransformation%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetByGridifyQueryAsync%60%601(Gridify.IGridifyQuery%2CDataExplorer.ResultTransformation%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L244">View Source</a>
@@ -1368,10 +1366,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TResult&gt;&gt;&gt; GetByGridifyQueryAsync&lt;TResult&gt;(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;Paging&lt;TResult&gt;&gt;&gt; GetByGridifyQueryAsync&lt;TResult&gt;(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1381,7 +1379,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Gridify.IGridifyQuery</span></td>
+        <td><span class="xref">IGridifyQuery</span></td>
         <td><span class="parametername">gridifyQuery</span></td>
         <td><p>Gridify query query.</p>
 </td>
@@ -1393,7 +1391,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1401,7 +1399,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1410,14 +1408,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Gridify.Paging</span>&lt;TResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Gridify.Paging`1</span> with found entities and count.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<span class="xref">Paging</span>&lt;TResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Gridify.Paging&lt;T&gt;</span> with found entities and count.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1436,7 +1434,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L111">View Source</a>
@@ -1448,10 +1446,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TEntity&gt;&gt;&gt; GetBySpecAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TEntity&gt;&gt;&gt; GetBySpecAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1467,7 +1465,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1475,7 +1473,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1484,15 +1482,15 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;TEntity&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation, with the found entities if any.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TEntity&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation, with the found entities if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L128">View Source</a>
@@ -1504,10 +1502,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetProjectedResult&gt;&gt;&gt; GetBySpecAsync&lt;TGetProjectedResult&gt;(ISpecification&lt;TEntity, TGetProjectedResult&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetProjectedResult&gt;&gt;&gt; GetBySpecAsync&lt;TGetProjectedResult&gt;(ISpecification&lt;TEntity, TGetProjectedResult&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1523,7 +1521,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1531,7 +1529,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1540,14 +1538,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;TGetProjectedResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation, with the found entities if any.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TGetProjectedResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation, with the found entities if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1563,7 +1561,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L119">View Source</a>
@@ -1575,11 +1573,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetResult&gt;&gt;&gt; GetBySpecAsync&lt;TGetResult&gt;(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))
-    where TGetResult : class</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IReadOnlyList&lt;TGetResult&gt;&gt;&gt; GetBySpecAsync&lt;TGetResult&gt;(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default) where TGetResult : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1595,7 +1592,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1603,7 +1600,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1612,14 +1609,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;TGetResult&gt;&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation, with the found entities if any.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TGetResult&gt;&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation, with the found entities if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1635,7 +1632,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L86">View Source</a>
@@ -1647,10 +1644,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TEntity&gt;&gt; GetSingleAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TEntity&gt;&gt; GetSingleAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1666,7 +1663,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1674,7 +1671,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1683,7 +1680,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TEntity&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TEntity&gt;&gt;</td>
         <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
 </td>
       </tr>
@@ -1691,7 +1688,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L103">View Source</a>
@@ -1703,10 +1700,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetProjectedResult&gt;&gt; GetSingleAsync&lt;TGetProjectedResult&gt;(ISpecification&lt;TEntity, TGetProjectedResult&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetProjectedResult&gt;&gt; GetSingleAsync&lt;TGetProjectedResult&gt;(ISpecification&lt;TEntity, TGetProjectedResult&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1722,7 +1719,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1730,7 +1727,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1739,14 +1736,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TGetProjectedResult&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TGetProjectedResult&gt;&gt;</td>
         <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1762,7 +1759,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L94">View Source</a>
@@ -1774,11 +1771,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetResult&gt;&gt; GetSingleAsync&lt;TGetResult&gt;(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))
-    where TGetResult : class</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetResult&gt;&gt; GetSingleAsync&lt;TGetResult&gt;(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default) where TGetResult : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1794,7 +1790,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1802,7 +1798,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1811,14 +1807,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TGetResult&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TGetResult&gt;&gt;</td>
         <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1834,7 +1830,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L61">View Source</a>
@@ -1846,10 +1842,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TEntity&gt;&gt; GetSingleBySpecAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TEntity&gt;&gt; GetSingleBySpecAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1865,7 +1861,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1873,7 +1869,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1882,7 +1878,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TEntity&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TEntity&gt;&gt;</td>
         <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
 </td>
       </tr>
@@ -1890,7 +1886,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0___0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%2C%60%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L78">View Source</a>
@@ -1902,10 +1898,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetProjectedResult&gt;&gt; GetSingleBySpecAsync&lt;TGetProjectedResult&gt;(ISpecification&lt;TEntity, TGetProjectedResult&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetProjectedResult&gt;&gt; GetSingleBySpecAsync&lt;TGetProjectedResult&gt;(ISpecification&lt;TEntity, TGetProjectedResult&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1921,7 +1917,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1929,7 +1925,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1938,14 +1934,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TGetProjectedResult&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TGetProjectedResult&gt;&gt;</td>
         <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1961,7 +1957,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetSingleBySpecAsync__1_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.GetSingleBySpecAsync%60%601(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L69">View Source</a>
@@ -1973,11 +1969,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetResult&gt;&gt; GetSingleBySpecAsync&lt;TGetResult&gt;(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))
-    where TGetResult : class</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;TGetResult&gt;&gt; GetSingleBySpecAsync&lt;TGetResult&gt;(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default) where TGetResult : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1993,7 +1988,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -2001,7 +1996,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2010,14 +2005,14 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TGetResult&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;TGetResult&gt;&gt;</td>
         <td><p><span class="xref">Remora.Results.Result</span> containing the result of this operation, with the found entity if any.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2033,7 +2028,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_LongCountAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.LongCountAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_LongCountAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.LongCountAsync(DataExplorer.Abstractions.Specifications.ISpecification%7B%600%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L177">View Source</a>
@@ -2045,10 +2040,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;long&gt;&gt; LongCountAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;long&gt;&gt; LongCountAsync(ISpecification&lt;TEntity&gt; specification, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2064,7 +2059,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -2072,7 +2067,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2081,15 +2076,15 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_LongCountAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.LongCountAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_LongCountAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase%603.LongCountAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IReadOnlyDataService.cs/#L184">View Source</a>
@@ -2101,10 +2096,10 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;long&gt;&gt; LongCountAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;long&gt;&gt; LongCountAsync(CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2114,7 +2109,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -2122,7 +2117,7 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2131,12 +2126,13 @@ public interface IReadOnlyDataServiceBase&lt;TEntity, TId, out TContext&gt; : ID
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int64</span>&gt;&gt;</td>
-        <td><p><span class="xref">Remora.Results.Result</span> with <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span> containing the result of this operation.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<span class="xref">Result</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;&gt;</td>
+        <td><p><span class="xref">Remora.Results.Result</span> with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a> containing the result of this operation.</p>
 </td>
       </tr>
     </tbody>
   </table>
+
 </article>
               
                 </div>
