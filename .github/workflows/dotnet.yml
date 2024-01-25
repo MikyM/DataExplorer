@@ -82,7 +82,7 @@ jobs:
 
     - name: Build docs - docfx build
       if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
-      run: cd ./docs && dotnet docfx build -f
+      run: cd ./docs && dotnet docfx build
       
     - name: Upload docs
       if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
