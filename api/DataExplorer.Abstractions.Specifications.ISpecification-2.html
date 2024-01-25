@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../styles/colors.css">
     <link rel="stylesheet" href="../styles/discord.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.json">
-    <meta property="docfx:tocrel" content="toc.json">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
   
   
   
@@ -95,11 +95,10 @@
                     <article class="content wrap" id="_content" data-uid="DataExplorer.Abstractions.Specifications.ISpecification`2">
 
 
-
   <h1 id="DataExplorer_Abstractions_Specifications_ISpecification_2" data-uid="DataExplorer.Abstractions.Specifications.ISpecification`2" class="text-break">Interface ISpecification&lt;T, TResult&gt;
 </h1>
-  <div class="markdown level0 summary"><p>Encapsulates query logic for <code class="typeparamref">T</code>,
-and projects the result into <code class="typeparamref">TResult</code>.</p>
+  <div class="markdown level0 summary"><p>Encapsulates query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>,
+and projects the result into <code data-dev-comment-type="typeparamref" class="typeparamref">TResult</code>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -162,7 +161,7 @@ and projects the result into <code class="typeparamref">TResult</code>.</p>
       <a class="xref" href="DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html#DataExplorer_Abstractions_Specifications_IBasicSpecification_1_WhereExpressions">IBasicSpecification&lt;T&gt;.WhereExpressions</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a>.<a class="xref" href="DataExplorer.Abstractions.html">Abstractions</a>.<a class="xref" href="DataExplorer.Abstractions.Specifications.html">Specifications</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Abstractions.Specifications.html">DataExplorer.Abstractions.Specifications</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Abstractions_Specifications_ISpecification_2_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -170,7 +169,7 @@ and projects the result into <code class="typeparamref">TResult</code>.</p>
 public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBasicSpecification&lt;T&gt;, ISpecification where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -194,7 +193,7 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_MapperConfigurationProvider.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.MapperConfigurationProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_MapperConfigurationProvider.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.MapperConfigurationProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/ISpecification.cs/#L20">View Source</a>
@@ -206,10 +205,10 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IConfigurationProvider? MapperConfigurationProvider { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">IConfigurationProvider MapperConfigurationProvider { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -218,14 +217,14 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IConfigurationProvider</span></td>
+        <td><span class="xref">AutoMapper.IConfigurationProvider</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_MembersToExpand.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.MembersToExpand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_MembersToExpand.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.MembersToExpand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/ISpecification.cs/#L25">View Source</a>
@@ -237,10 +236,10 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;Expression&lt;Func&lt;TResult, object&gt;&gt;&gt;? MembersToExpand { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;Expression&lt;Func&lt;TResult, object&gt;&gt;&gt; MembersToExpand { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -249,14 +248,14 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Object</span>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_PostProcessingAction.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.PostProcessingAction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_PostProcessingAction.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.PostProcessingAction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/ISpecification.cs/#L36">View Source</a>
@@ -269,10 +268,10 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Func&lt;IEnumerable&lt;TResult&gt;, IEnumerable&lt;TResult&gt;&gt;? PostProcessingAction { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">Func&lt;IEnumerable&lt;TResult&gt;, IEnumerable&lt;TResult&gt;&gt; PostProcessingAction { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -281,29 +280,29 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TResult&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TResult&gt;&gt;</td>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TResult&gt;, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TResult&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_Selector.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.Selector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_Selector.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.Selector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/ISpecification.cs/#L48">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_Specifications_ISpecification_2_Selector_" data-uid="DataExplorer.Abstractions.Specifications.ISpecification`2.Selector*"></a>
   <h4 id="DataExplorer_Abstractions_Specifications_ISpecification_2_Selector" data-uid="DataExplorer.Abstractions.Specifications.ISpecification`2.Selector">Selector</h4>
-  <div class="markdown level1 summary"><p>The transform function to apply to the <code class="typeparamref">T</code> element.</p>
+  <div class="markdown level1 summary"><p>The transform function to apply to the <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> element.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Expression&lt;Func&lt;T, TResult&gt;&gt;? Selector { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">Expression&lt;Func&lt;T, TResult&gt;&gt; Selector { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -312,29 +311,29 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, TResult&gt;&gt;</td>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, TResult&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_SelectorMany.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.SelectorMany%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_SelectorMany.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.SelectorMany%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/ISpecification.cs/#L53">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_Specifications_ISpecification_2_SelectorMany_" data-uid="DataExplorer.Abstractions.Specifications.ISpecification`2.SelectorMany*"></a>
   <h4 id="DataExplorer_Abstractions_Specifications_ISpecification_2_SelectorMany" data-uid="DataExplorer.Abstractions.Specifications.ISpecification`2.SelectorMany">SelectorMany</h4>
-  <div class="markdown level1 summary"><p>The SelectMany transform function to apply to the <code class="typeparamref">T</code> element.</p>
+  <div class="markdown level1 summary"><p>The SelectMany transform function to apply to the <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> element.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Expression&lt;Func&lt;T, IEnumerable&lt;TResult&gt;&gt;&gt;? SelectorMany { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">Expression&lt;Func&lt;T, IEnumerable&lt;TResult&gt;&gt;&gt; SelectorMany { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -343,14 +342,14 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TResult&gt;&gt;&gt;</td>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TResult&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_StringMembersToExpand.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.StringMembersToExpand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_StringMembersToExpand.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.StringMembersToExpand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/ISpecification.cs/#L30">View Source</a>
@@ -362,10 +361,10 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;string&gt;? StringMembersToExpand { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;string&gt; StringMembersToExpand { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -374,7 +373,7 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -383,7 +382,7 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_Evaluate_System_Collections_Generic_IEnumerable__0__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.Evaluate(System.Collections.Generic.IEnumerable%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_Specifications_ISpecification_2_Evaluate_System_Collections_Generic_IEnumerable__0__.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.Specifications.ISpecification%602.Evaluate(System.Collections.Generic.IEnumerable%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/Specifications/ISpecification.cs/#L43">View Source</a>
@@ -398,7 +397,7 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     <pre><code class="lang-csharp hljs">IEnumerable&lt;TResult&gt; Evaluate(IEnumerable&lt;T&gt; entities)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -408,7 +407,7 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
         <td><span class="parametername">entities</span></td>
         <td><p>Entities to evaluate</p>
 </td>
@@ -416,7 +415,7 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -425,12 +424,11 @@ public interface ISpecification&lt;T, TResult&gt; : ISpecification&lt;T&gt;, IBa
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TResult&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TResult&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-
 </article>
               
                 </div>

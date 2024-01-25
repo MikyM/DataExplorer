@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../styles/colors.css">
     <link rel="stylesheet" href="../styles/discord.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.json">
-    <meta property="docfx:tocrel" content="toc.json">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
   
   
   
@@ -95,7 +95,6 @@
                     <article class="content wrap" id="_content" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo">
 
 
-
   <h1 id="DataExplorer_EfCore_DataExplorerEntityInfo" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo" class="text-break">Class DataExplorerEntityInfo
 </h1>
   <div class="markdown level0 summary"><p>Represents information about an entity.</p>
@@ -103,46 +102,49 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">DataExplorerEntityInfo</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="DataExplorer.EfCore.DataExplorerEntityInfo.html">DataExplorerEntityInfo</a>&gt;</div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="DataExplorer.EfCore.DataExplorerEntityInfo.html">DataExplorerEntityInfo</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+      <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <span class="xref">System.Object.GetHashCode()</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+      <span class="xref">System.Object.GetType()</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+      <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a>.<a class="xref" href="DataExplorer.EfCore.html">EfCore</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.html">DataExplorer.EfCore</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_DataExplorerEntityInfo_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[PublicAPI]
-public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityInfo&gt;</code></pre>
+public sealed class DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityInfo&gt;</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_CrudGenericIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.CrudGenericIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_CrudGenericIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.CrudGenericIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L55">View Source</a>
@@ -154,10 +156,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerRepoInfo CrudGenericIdRepoInfo { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DataExplorerRepoInfo CrudGenericIdRepoInfo { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -173,7 +175,7 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_CrudLongIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.CrudLongIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_CrudLongIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.CrudLongIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L61">View Source</a>
@@ -185,10 +187,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerRepoInfo? CrudLongIdRepoInfo { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DataExplorerRepoInfo CrudLongIdRepoInfo { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -204,7 +206,7 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_EntityType.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.EntityType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_EntityType.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.EntityType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L46">View Source</a>
@@ -216,10 +218,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type EntityType { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Type EntityType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -228,29 +230,29 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="xref">System.Type</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_HasLongId.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.HasLongId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_HasLongId.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.HasLongId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L73">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEntityInfo_HasLongId_" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.HasLongId*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEntityInfo_HasLongId" data-uid="DataExplorer.EfCore.DataExplorerEntityInfo.HasLongId">HasLongId</h4>
-  <div class="markdown level1 summary"><p>Whether the entity has Id of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></p>
+  <div class="markdown level1 summary"><p>Whether the entity has Id of type <span class="xref">System.Int64</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasLongId { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool HasLongId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -259,14 +261,14 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IdType.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IdType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IdType.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IdType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L52">View Source</a>
@@ -278,10 +280,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type IdType { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Type IdType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -290,14 +292,14 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="xref">System.Type</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_Interfaces.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.Interfaces%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_Interfaces.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.Interfaces%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L49">View Source</a>
@@ -309,10 +311,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Type&gt; Interfaces { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Type&gt; Interfaces { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -321,14 +323,14 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Type</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IsDisableable.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IsDisableable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IsDisableable.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IsDisableable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L67">View Source</a>
@@ -340,10 +342,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDisableable { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsDisableable { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -352,14 +354,14 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IsSnowflake.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IsSnowflake%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_IsSnowflake.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.IsSnowflake%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L70">View Source</a>
@@ -371,10 +373,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsSnowflake { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsSnowflake { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -383,14 +385,14 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyGenericIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyGenericIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyGenericIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyGenericIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L58">View Source</a>
@@ -402,10 +404,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerRepoInfo ReadOnlyGenericIdRepoInfo { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DataExplorerRepoInfo ReadOnlyGenericIdRepoInfo { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -421,7 +423,7 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyLongIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyLongIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEntityInfo_ReadOnlyLongIdRepoInfo.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEntityInfo.ReadOnlyLongIdRepoInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEntityInfo.cs/#L64">View Source</a>
@@ -433,10 +435,10 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerRepoInfo? ReadOnlyLongIdRepoInfo { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DataExplorerRepoInfo ReadOnlyLongIdRepoInfo { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -452,9 +454,8 @@ public sealed record DataExplorerEntityInfo : IEquatable&lt;DataExplorerEntityIn
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
   </div>
-
 </article>
               
                 </div>

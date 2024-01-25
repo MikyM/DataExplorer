@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../styles/colors.css">
     <link rel="stylesheet" href="../styles/discord.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.json">
-    <meta property="docfx:tocrel" content="toc.json">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
   
   
   
@@ -95,7 +95,6 @@
                     <article class="content wrap" id="_content" data-uid="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase">
 
 
-
   <h1 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase" data-uid="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase" class="text-break">Interface IUnitOfWorkBase
 </h1>
   <div class="markdown level0 summary"><p>Represents a base Unit of Work.</p>
@@ -104,10 +103,10 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
+      <span class="xref">System.IDisposable.Dispose()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a>.<a class="xref" href="DataExplorer.Abstractions.html">Abstractions</a>.<a class="xref" href="DataExplorer.Abstractions.UnitOfWork.html">UnitOfWork</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.html">DataExplorer.Abstractions.UnitOfWork</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -121,7 +120,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Context.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.Context%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Context.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.Context%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/UnitOfWork/IUnitOfWorkBase.cs/#L40">View Source</a>
@@ -136,7 +135,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">IDataContextBase Context { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -150,9 +149,12 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Context_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a>.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GridifyMapperProvider.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GridifyMapperProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GridifyMapperProvider.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GridifyMapperProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/UnitOfWork/IUnitOfWorkBase.cs/#L55">View Source</a>
@@ -167,7 +169,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">IGridifyMapperProvider GridifyMapperProvider { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -181,9 +183,12 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GridifyMapperProvider_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a>.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Mapper.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.Mapper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Mapper.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.Mapper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/UnitOfWork/IUnitOfWorkBase.cs/#L45">View Source</a>
@@ -198,7 +203,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">IMapper Mapper { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -207,14 +212,17 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IMapper</span></td>
+        <td><span class="xref">AutoMapper.IMapper</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Mapper_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a>.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_SpecificationEvaluator.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.SpecificationEvaluator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_SpecificationEvaluator.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.SpecificationEvaluator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/UnitOfWork/IUnitOfWorkBase.cs/#L50">View Source</a>
@@ -229,7 +237,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">ISpecificationEvaluator SpecificationEvaluator { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -243,11 +251,14 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_SpecificationEvaluator_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a>.</p>
+</div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_CommitAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.CommitAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_CommitAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.CommitAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/UnitOfWork/IUnitOfWorkBase.cs/#L28">View Source</a>
@@ -259,10 +270,10 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task CommitAsync(CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">Task CommitAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -272,7 +283,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -280,7 +291,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -289,15 +300,18 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
         <td><p>Number of affected rows.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_CommitAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a>.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GetRepository__1.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GetRepository%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GetRepository__1.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GetRepository%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/UnitOfWork/IUnitOfWorkBase.cs/#L21">View Source</a>
@@ -309,10 +323,11 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TRepository GetRepository&lt;TRepository&gt;() where TRepository : class, IBaseRepository</code></pre>
+    <pre><code class="lang-csharp hljs">TRepository GetRepository&lt;TRepository&gt;()
+    where TRepository : class, IBaseRepository</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -328,7 +343,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -343,9 +358,12 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GetRepository__1_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a>.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_RollbackAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.RollbackAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_RollbackAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.RollbackAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/UnitOfWork/IUnitOfWorkBase.cs/#L35">View Source</a>
@@ -357,10 +375,10 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task RollbackAsync(CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">Task RollbackAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -370,7 +388,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -378,7 +396,7 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -387,13 +405,15 @@ public interface IUnitOfWorkBase : IDisposable</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
         <td><p>Task representing the asynchronous operation.</p>
 </td>
       </tr>
     </tbody>
   </table>
-
+  <h5 id="DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_RollbackAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.Abstractions.Repositories.IBaseRepository.html">IBaseRepository</a>.</p>
+</div>
 </article>
               
                 </div>

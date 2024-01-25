@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../styles/colors.css">
     <link rel="stylesheet" href="../styles/discord.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.json">
-    <meta property="docfx:tocrel" content="toc.json">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
   
   
   
@@ -95,15 +95,14 @@
                     <article class="content wrap" id="_content" data-uid="DataExplorer.Utilities.CachedInstanceFactory">
 
 
-
   <h1 id="DataExplorer_Utilities_CachedInstanceFactory" data-uid="DataExplorer.Utilities.CachedInstanceFactory" class="text-break">Class CachedInstanceFactory
 </h1>
-  <div class="markdown level0 summary"><p>Supports all classes in the .NET class hierarchy and provides low-level services to derived classes. This is the ultimate base class of all .NET classes; it is the root of the type hierarchy.</p>
+  <div class="markdown level0 summary"><p>Factory that utilizes delegate caching for creating instances.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">CachedInstanceFactory</span></div>
   </div>
   <div class="implements">
@@ -113,28 +112,28 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+      <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+      <span class="xref">System.Object.GetHashCode()</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+      <span class="xref">System.Object.GetType()</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+      <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a>.<a class="xref" href="DataExplorer.Utilities.html">Utilities</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Utilities.html">DataExplorer.Utilities</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Utilities_CachedInstanceFactory_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -145,7 +144,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance_System_Type_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance_System_Type_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L12">View Source</a>
@@ -157,10 +156,10 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance(Type type)</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance(Type type)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -170,7 +169,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="xref">System.Type</span></td>
         <td><span class="parametername">type</span></td>
         <td><p>Type to create.</p>
 </td>
@@ -178,7 +177,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -187,7 +186,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td><p>Created type if successful, otherwise null.</p>
 </td>
       </tr>
@@ -195,7 +194,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__1.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__1.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L32">View Source</a>
@@ -207,10 +206,11 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TType&gt;() where TType : class</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TType&gt;()
+    where TType : class</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -219,13 +219,13 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -242,7 +242,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__1_System_Type___0_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%601(System.Type%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__1_System_Type___0_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%601(System.Type%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L16">View Source</a>
@@ -254,10 +254,10 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TArg1&gt;(Type type, TArg1 arg1)</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TArg1&gt;(Type type, TArg1 arg1)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -267,7 +267,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="xref">System.Type</span></td>
         <td><span class="parametername">type</span></td>
         <td><p>Type to create.</p>
 </td>
@@ -281,7 +281,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -290,14 +290,14 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td><p>Created type if successful, otherwise null.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -314,7 +314,79 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__2_System_Type___0___1_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%602(System.Type%2C%60%600%2C%60%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__2___1_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%602(%60%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L36">View Source</a>
+  </span>
+  <a id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance*"></a>
+  <h4 id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__2___1_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance``2(``1)">CreateInstance&lt;TType, TArg1&gt;(TArg1)</h4>
+  <div class="markdown level1 summary"><p>Creates an instance of a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TType, TArg1&gt;(TArg1 arg1)
+    where TType : class</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TArg1</span></td>
+        <td><span class="parametername">arg1</span></td>
+        <td><p>First argument of type's constructor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>Created type if successful, otherwise null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TType</span></td>
+        <td><p>Type to create.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TArg1</span></td>
+        <td><p>Type of the first argument of type's constructor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__2_System_Type___0___1_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%602(System.Type%2C%60%600%2C%60%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L20">View Source</a>
@@ -326,10 +398,10 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TArg1, TArg2&gt;(Type type, TArg1 arg1, TArg2 arg2)</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TArg1, TArg2&gt;(Type type, TArg1 arg1, TArg2 arg2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -339,7 +411,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="xref">System.Type</span></td>
         <td><span class="parametername">type</span></td>
         <td><p>Type to create.</p>
 </td>
@@ -359,7 +431,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -368,14 +440,14 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td><p>Created type if successful, otherwise null.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -397,22 +469,23 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__2___1_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%602(%60%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__3___1___2_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%603(%60%601%2C%60%602)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L36">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L40">View Source</a>
   </span>
   <a id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance*"></a>
-  <h4 id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__2___1_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance``2(``1)">CreateInstance&lt;TType, TArg1&gt;(TArg1)</h4>
+  <h4 id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__3___1___2_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance``3(``1,``2)">CreateInstance&lt;TType, TArg1, TArg2&gt;(TArg1, TArg2)</h4>
   <div class="markdown level1 summary"><p>Creates an instance of a given type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TType, TArg1&gt;(TArg1 arg1) where TType : class</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TType, TArg1, TArg2&gt;(TArg1 arg1, TArg2 arg2)
+    where TType : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -427,10 +500,16 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
         <td><p>First argument of type's constructor.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">TArg2</span></td>
+        <td><span class="parametername">arg2</span></td>
+        <td><p>Second argument of type's constructor.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -439,14 +518,14 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td><p>Created type if successful, otherwise null.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -464,11 +543,16 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
         <td><p>Type of the first argument of type's constructor.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="parametername">TArg2</span></td>
+        <td><p>Type of the second argument of type's constructor.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__3_System_Type___0___1___2_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%603(System.Type%2C%60%600%2C%60%601%2C%60%602)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__3_System_Type___0___1___2_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%603(System.Type%2C%60%600%2C%60%601%2C%60%602)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L24">View Source</a>
@@ -480,10 +564,10 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TArg1, TArg2, TArg3&gt;(Type type, TArg1 arg1, TArg2 arg2, TArg3 arg3)</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TArg1, TArg2, TArg3&gt;(Type type, TArg1 arg1, TArg2 arg2, TArg3 arg3)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -493,7 +577,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="xref">System.Type</span></td>
         <td><span class="parametername">type</span></td>
         <td><p>Type to create.</p>
 </td>
@@ -519,7 +603,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -528,14 +612,14 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td><p>Created type if successful, otherwise null.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -562,22 +646,23 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__3___1___2_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%603(%60%601%2C%60%602)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__4___1___2___3_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%604(%60%601%2C%60%602%2C%60%603)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L40">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L44">View Source</a>
   </span>
   <a id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance*"></a>
-  <h4 id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__3___1___2_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance``3(``1,``2)">CreateInstance&lt;TType, TArg1, TArg2&gt;(TArg1, TArg2)</h4>
+  <h4 id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__4___1___2___3_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance``4(``1,``2,``3)">CreateInstance&lt;TType, TArg1, TArg2, TArg3&gt;(TArg1, TArg2, TArg3)</h4>
   <div class="markdown level1 summary"><p>Creates an instance of a given type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TType, TArg1, TArg2&gt;(TArg1 arg1, TArg2 arg2) where TType : class</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TType, TArg1, TArg2, TArg3&gt;(TArg1 arg1, TArg2 arg2, TArg3 arg3)
+    where TType : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -598,10 +683,16 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
         <td><p>Second argument of type's constructor.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">TArg3</span></td>
+        <td><span class="parametername">arg3</span></td>
+        <td><p>Third argument of type's constructor.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -610,14 +701,14 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td><p>Created type if successful, otherwise null.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -640,11 +731,16 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
         <td><p>Type of the second argument of type's constructor.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="parametername">TArg3</span></td>
+        <td><p>Type of the third argument of type's constructor.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__4_System_Type___0___1___2___3_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%604(System.Type%2C%60%600%2C%60%601%2C%60%602%2C%60%603)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__4_System_Type___0___1___2___3_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%604(System.Type%2C%60%600%2C%60%601%2C%60%602%2C%60%603)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L28">View Source</a>
@@ -656,10 +752,10 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TArg1, TArg2, TArg3, TArg4&gt;(Type type, TArg1 arg1, TArg2 arg2, TArg3 arg3, TArg4 arg4)</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TArg1, TArg2, TArg3, TArg4&gt;(Type type, TArg1 arg1, TArg2 arg2, TArg3 arg3, TArg4 arg4)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -669,7 +765,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="xref">System.Type</span></td>
         <td><span class="parametername">type</span></td>
         <td><p>Type to create.</p>
 </td>
@@ -701,7 +797,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -710,14 +806,14 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td><p>Created type if successful, otherwise null.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -749,100 +845,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__4___1___2___3_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%604(%60%601%2C%60%602%2C%60%603)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L44">View Source</a>
-  </span>
-  <a id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance*"></a>
-  <h4 id="DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__4___1___2___3_" data-uid="DataExplorer.Utilities.CachedInstanceFactory.CreateInstance``4(``1,``2,``3)">CreateInstance&lt;TType, TArg1, TArg2, TArg3&gt;(TArg1, TArg2, TArg3)</h4>
-  <div class="markdown level1 summary"><p>Creates an instance of a given type.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TType, TArg1, TArg2, TArg3&gt;(TArg1 arg1, TArg2 arg2, TArg3 arg3) where TType : class</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TArg1</span></td>
-        <td><span class="parametername">arg1</span></td>
-        <td><p>First argument of type's constructor.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">TArg2</span></td>
-        <td><span class="parametername">arg2</span></td>
-        <td><p>Second argument of type's constructor.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">TArg3</span></td>
-        <td><span class="parametername">arg3</span></td>
-        <td><p>Third argument of type's constructor.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
-        <td><p>Created type if successful, otherwise null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TType</span></td>
-        <td><p>Type to create.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TArg1</span></td>
-        <td><p>Type of the first argument of type's constructor.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TArg2</span></td>
-        <td><p>Type of the second argument of type's constructor.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TArg3</span></td>
-        <td><p>Type of the third argument of type's constructor.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__5___1___2___3___4_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%605(%60%601%2C%60%602%2C%60%603%2C%60%604)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Utilities_CachedInstanceFactory_CreateInstance__5___1___2___3___4_.md&amp;value=---%0Auid%3A%20DataExplorer.Utilities.CachedInstanceFactory.CreateInstance%60%605(%60%601%2C%60%602%2C%60%603%2C%60%604)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Utilities/CachedInstanceFactory.cs/#L48">View Source</a>
@@ -854,10 +857,11 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object? CreateInstance&lt;TType, TArg1, TArg2, TArg3, TArg4&gt;(TArg1 arg1, TArg2 arg2, TArg3 arg3, TArg4 arg4) where TType : class</code></pre>
+    <pre><code class="lang-csharp hljs">public object CreateInstance&lt;TType, TArg1, TArg2, TArg3, TArg4&gt;(TArg1 arg1, TArg2 arg2, TArg3 arg3, TArg4 arg4)
+    where TType : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -893,7 +897,7 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -902,14 +906,14 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="xref">System.Object</span></td>
         <td><p>Created type if successful, otherwise null.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -948,7 +952,6 @@ public class CachedInstanceFactory : ICachedInstanceFactory</code></pre>
   <div>
       <a class="xref" href="DataExplorer.Utilities.ICachedInstanceFactory.html">ICachedInstanceFactory</a>
   </div>
-
 </article>
               
                 </div>

@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../styles/colors.css">
     <link rel="stylesheet" href="../styles/discord.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.json">
-    <meta property="docfx:tocrel" content="toc.json">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
   
   
   
@@ -95,7 +95,6 @@
                     <article class="content wrap" id="_content" data-uid="DataExplorer.Abstractions.Specifications.Builders.IOrderedBasicSpecificationBuilder`1">
 
 
-
   <h1 id="DataExplorer_Abstractions_Specifications_Builders_IOrderedBasicSpecificationBuilder_1" data-uid="DataExplorer.Abstractions.Specifications.Builders.IOrderedBasicSpecificationBuilder`1" class="text-break">Interface IOrderedBasicSpecificationBuilder&lt;T&gt;
 </h1>
   <div class="markdown level0 summary"></div>
@@ -109,14 +108,14 @@
       <a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.IBasicSpecificationBuilder-1.html#DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder_1_Specification">IBasicSpecificationBuilder&lt;T&gt;.Specification</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a>.<a class="xref" href="DataExplorer.Abstractions.html">Abstractions</a>.<a class="xref" href="DataExplorer.Abstractions.Specifications.html">Specifications</a>.<a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.html">Builders</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Abstractions.Specifications.Builders.html">DataExplorer.Abstractions.Specifications.Builders</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Abstractions_Specifications_Builders_IOrderedBasicSpecificationBuilder_1_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface IOrderedBasicSpecificationBuilder&lt;T&gt; : IChainControlledSpecification, IBasicSpecificationBuilder&lt;T&gt; where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
+  <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -130,7 +129,61 @@
       </tr>
     </tbody>
   </table>
-
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_GroupBy__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">SpecificationBuilderExtensions.GroupBy&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_OrderBy__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Boolean_">SpecificationBuilderExtensions.OrderBy&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_OrderBy__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">SpecificationBuilderExtensions.OrderBy&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_OrderByDescending__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Boolean_">SpecificationBuilderExtensions.OrderByDescending&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_OrderByDescending__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">SpecificationBuilderExtensions.OrderByDescending&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_Search__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_String___System_String_System_Boolean_System_Int32_">SpecificationBuilderExtensions.Search&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, String&gt;&gt;, String, Boolean, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_Search__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_String___System_String_System_Int32_">SpecificationBuilderExtensions.Search&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, String&gt;&gt;, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_Skip__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Int32_System_Boolean_">SpecificationBuilderExtensions.Skip&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_Skip__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Int32_">SpecificationBuilderExtensions.Skip&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_Take__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Int32_System_Boolean_">SpecificationBuilderExtensions.Take&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_Take__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Int32_">SpecificationBuilderExtensions.Take&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_Where__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Boolean_">SpecificationBuilderExtensions.Where&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Boolean&gt;&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_Where__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___">SpecificationBuilderExtensions.Where&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Boolean&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_WithPaginationFilter__1_DataExplorer_Abstractions_Specifications_Builders_IBasicSpecificationBuilder___0__DataExplorer_PaginationFilter_">SpecificationBuilderExtensions.WithPaginationFilter&lt;T&gt;(IBasicSpecificationBuilder&lt;T&gt;, PaginationFilter)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.OrderedBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_OrderedBuilderExtensions_ThenBy__1_DataExplorer_Abstractions_Specifications_Builders_IOrderedBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Boolean_">OrderedBuilderExtensions.ThenBy&lt;T&gt;(IOrderedBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.OrderedBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_OrderedBuilderExtensions_ThenBy__1_DataExplorer_Abstractions_Specifications_Builders_IOrderedBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">OrderedBuilderExtensions.ThenBy&lt;T&gt;(IOrderedBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.OrderedBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_OrderedBuilderExtensions_ThenByDescending__1_DataExplorer_Abstractions_Specifications_Builders_IOrderedBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Boolean_">OrderedBuilderExtensions.ThenByDescending&lt;T&gt;(IOrderedBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.Builders.OrderedBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_OrderedBuilderExtensions_ThenByDescending__1_DataExplorer_Abstractions_Specifications_Builders_IOrderedBasicSpecificationBuilder___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">OrderedBuilderExtensions.ThenByDescending&lt;T&gt;(IOrderedBasicSpecificationBuilder&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a>
+  </div>
 </article>
               
                 </div>
