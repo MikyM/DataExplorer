@@ -25,11 +25,6 @@ jobs:
           7.0.x
           8.0.x
 
-    - name: Install and cache PowerShell modules
-      uses: potatoqualitee/psmodulecache@v5.2
-      with:
-        modules-to-cache: powershell-yaml
-
     - name: Check out Code 
       uses: actions/checkout@v3
 
@@ -84,11 +79,6 @@ jobs:
     - name: Build docs - copy readme and docfx metadata
       if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
       run: cd ./docs && cp ../README.md index.md && dotnet docfx metadata
-
-    - name: Build docs - fix namespaces
-      if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
-      shell: pwsh
-      run: cd ./docs && ./fix-nmsp.ps1 api\toc.yml
 
     - name: Build docs - docfx build
       if: github.event_name == 'push' && !contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[doc-skip]')
