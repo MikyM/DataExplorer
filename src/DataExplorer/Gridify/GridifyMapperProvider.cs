@@ -1,7 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using Gridify;
-using MikyM.Utilities.Extensions;
 
 namespace DataExplorer.Gridify;
 
@@ -21,7 +20,7 @@ public class GridifyMapperProvider : IGridifyMapperProvider
     {
         if (_mappers.TryGetValue(typeof(T), out var objectMapper))
         {
-            mapper = objectMapper.CastTo<IGridifyMapper<T>>();
+            mapper = (IGridifyMapper<T>)objectMapper;
             return true;
         }
 
@@ -35,7 +34,7 @@ public class GridifyMapperProvider : IGridifyMapperProvider
 
     /// <inheritdoc/>
     public IGridifyMapper<T>? GetMapperFor<T>() where T : class
-        => _mappers.GetValueOrDefault(typeof(T))?.CastTo<IGridifyMapper<T>>();
+        => (IGridifyMapper<T>?)_mappers.GetValueOrDefault(typeof(T));
 
     /// <inheritdoc/>
     public bool TryGetMapperFor(Type type, [NotNullWhen(true)] out object? mapper)

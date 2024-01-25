@@ -15,7 +15,6 @@ using DataExplorer.EfCore.DataServices;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using Gridify;
 using Microsoft.Extensions.DependencyInjection;
-using MikyM.Utilities.Extensions;
 using GroupByEvaluator = DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator;
 using IBasicEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IBasicEvaluator;
 using IBasicInMemoryEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IBasicInMemoryEvaluator;

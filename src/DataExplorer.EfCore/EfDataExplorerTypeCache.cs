@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using AttributeBasedRegistration.Extensions;
 using DataExplorer.EfCore.Extensions;
 using DataExplorer.EfCore.Repositories;
-using MikyM.Utilities.Extensions;
 
 namespace DataExplorer.EfCore;
 
