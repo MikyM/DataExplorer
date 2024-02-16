@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer</PackageId>
-        <Version>3.0.4</Version>
+        <Version>3.0.5</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core).</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
@@ -35,10 +35,9 @@
         <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.6" />
         <PackageReference Include="Autofac" Version="8.0.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
-        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="AutoMapper" Version="13.0.1" />
         <PackageReference Include="AutoMapper.Contrib.Autofac.DependencyInjection" Version="7.2.0" />
-        <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="6.0.4" />
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="7.0.0" />
         <PackageReference Include="IdGen" Version="3.0.3" />
         <PackageReference Include="IdGen.DependencyInjection" Version="3.0.0" />
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
@@ -54,10 +53,9 @@
         <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.6" />
         <PackageReference Include="Autofac" Version="8.0.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
-        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="AutoMapper" Version="13.0.1" />
         <PackageReference Include="AutoMapper.Contrib.Autofac.DependencyInjection" Version="7.2.0" />
-        <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="6.0.4" />
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="7.0.0" />
         <PackageReference Include="IdGen" Version="3.0.3" />
         <PackageReference Include="IdGen.DependencyInjection" Version="3.0.0" />
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
@@ -73,10 +71,9 @@
         <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.2.6" />
         <PackageReference Include="Autofac" Version="8.0.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
-        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="AutoMapper" Version="13.0.1" />
         <PackageReference Include="AutoMapper.Contrib.Autofac.DependencyInjection" Version="7.2.0" />
-        <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="6.0.4" />
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="7.0.0" />
         <PackageReference Include="IdGen" Version="3.0.3" />
         <PackageReference Include="IdGen.DependencyInjection" Version="3.0.0" />
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
