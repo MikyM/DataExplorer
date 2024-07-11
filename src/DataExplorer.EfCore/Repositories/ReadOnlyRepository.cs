@@ -1,13 +1,9 @@
 ﻿using System.Linq.Expressions;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using DataExplorer.Abstractions.Specifications;
 using DataExplorer.Abstractions.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.Gridify;
-using Gridify;
-using Gridify.EntityFramework;
 
 namespace DataExplorer.EfCore.Repositories;
 
@@ -31,9 +27,6 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     public DbSet<TEntity> Set { get; }
     
     /// <inheritdoc />
-    public IGridifyMapperProvider GridifyMapperProvider { get; }
-    
-    /// <inheritdoc />
     ISpecificationEvaluator IReadOnlyRepositoryBase<TEntity, TId>.SpecificationEvaluator => SpecificationEvaluator;
 
     /// <summary>
@@ -52,16 +45,13 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     /// <param name="context"></param>
     /// <param name="specificationEvaluator"></param>
     /// <param name="mapper">Mapper.</param>
-    /// <param name="gridifyProvider">Gridify provider</param>
     /// <exception cref="ArgumentNullException"></exception>
-    internal ReadOnlyRepository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper,
-        IGridifyMapperProvider gridifyProvider)
+    internal ReadOnlyRepository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper)
     {
         Context = context ?? throw new ArgumentNullException(nameof(context));
         Set = context.Set<TEntity>();
         SpecificationEvaluator = specificationEvaluator;
         Mapper = mapper;
-        GridifyMapperProvider = gridifyProvider;
     }
 
     /// <inheritdoc />
@@ -106,53 +96,6 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     /// <inheritdoc />
     public IAsyncEnumerable<TEntity> AsAsyncEnumerable()
         => Set.AsAsyncEnumerable();
-
-    /// <inheritdoc />
-    public virtual Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
-        CancellationToken cancellationToken = default)
-        => Set.GridifyAsync(gridifyQuery, cancellationToken, GridifyMapperProvider.GetMapperFor<TEntity>());
-
-    /// <inheritdoc />
-    public virtual Task<Paging<TEntity>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
-        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-        => Set.GridifyAsync(gridifyQuery, cancellationToken, gridifyMapper);
-
-    /// <inheritdoc />
-    public virtual async Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
-        CancellationToken cancellationToken = default)
-    {
-        var queryable = await Set.GridifyQueryableAsync(gridifyQuery, GridifyMapperProvider.GetMapperFor<TEntity>(), cancellationToken);
-        var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken);
-        return new Paging<TResult>(queryable.Count, sub.AsReadOnly());
-    }
-
-    /// <inheritdoc />
-    public virtual async Task<Paging<TResult>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery,
-        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-    {
-        var queryable = await Set.GridifyQueryableAsync(gridifyQuery, gridifyMapper, cancellationToken);
-        var sub = await queryable.Query.ProjectTo<TResult>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken);
-        return new Paging<TResult>(queryable.Count, sub.AsReadOnly());
-    }
-    
-    /// <inheritdoc />
-    public virtual Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
-        CancellationToken cancellationToken = default)
-        => GetByGridifyQueryAsync(gridifyQuery, cancellationToken);
-    /// <inheritdoc />
-    public virtual Task<Paging<TEntity>> GetAsync(IGridifyQuery gridifyQuery,
-        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-        => GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken);
-
-    /// <inheritdoc />
-    public virtual Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
-        CancellationToken cancellationToken = default)
-        => GetByGridifyQueryAsync<TResult>(gridifyQuery, cancellationToken);
-
-    /// <inheritdoc />
-    public virtual Task<Paging<TResult>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
-        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-        => GetByGridifyQueryAsync<TResult>(gridifyQuery, gridifyMapper, cancellationToken);
 
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
@@ -249,9 +192,8 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
 [PublicAPI]
 public class ReadOnlyRepository<TEntity> : ReadOnlyRepository<TEntity, long>, IReadOnlyRepository<TEntity> where TEntity : Entity<long>
 {
-    internal ReadOnlyRepository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper,
-        IGridifyMapperProvider gridifyMapperProvider) : base(context, specificationEvaluator, mapper,
-        gridifyMapperProvider)
+    internal ReadOnlyRepository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper) 
+        : base(context, specificationEvaluator, mapper)
     {
     }
 }

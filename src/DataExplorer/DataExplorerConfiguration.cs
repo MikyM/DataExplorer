@@ -2,10 +2,8 @@
 using Autofac;
 using AutoMapper;
 using AutoMapper.Extensions.ExpressionMapping;
-using DataExplorer.Gridify;
 using DataExplorer.IdGenerator;
 using DataExplorer.Services;
-using Gridify;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
@@ -50,9 +48,7 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// </summary>
     internal IServiceCollection? GetServiceCollection()
         => ServiceCollection;
-    
-    internal IGridifyMapperProvider? MapperProvider { get; set; }
-    
+
     /// <summary>
     /// Gets or sets AutoMapper's configuration, defaults to opt.AddExpressionMapping().
     /// </summary>
@@ -63,53 +59,6 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// Gets or sets the accessor used to get assemblies to scan for AutoMapper's profiles, defaults to all assemblies.
     /// </summary>
     public Func<IEnumerable<Assembly>> AutoMapperProfileAssembliesAccessor { get; set; } = () => AppDomain.CurrentDomain.GetAssemblies();
-    
-    /// <summary>
-    /// Adds a <see cref="IGridifyMapper{T}"/> to the <see cref="IGridifyMapperProvider"/>.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
-    public DataExplorerConfiguration AddGridifyMapper<T>() where T : class, IGridifyMapper<T>, new()
-    {
-        MapperProvider ??= new GridifyMapperProvider();
-        
-        ((GridifyMapperProvider)MapperProvider).AddMapper(new T());
-        return this;
-    }
-    
-    /// <summary>
-    /// Adds a <see cref="IGridifyMapper{T}"/> to the <see cref="IGridifyMapperProvider"/>.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
-    public DataExplorerConfiguration AddGridifyMapper<T>(IGridifyMapper<T> mapper) where T : class
-    {
-        MapperProvider ??= new GridifyMapperProvider();
-        
-        var addRes = ((GridifyMapperProvider)MapperProvider).AddMapper(mapper);
-        if (!addRes)
-            throw new InvalidOperationException($"Two gridify mappers were registered for the type: {typeof(T).Name}");
-        
-        return this;
-    }
-    
-    /// <summary>
-    /// Registers a customized implementation of <see cref="IGridifyMapperProvider"/>.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
-    public DataExplorerConfiguration UseGridifyMapperProvider<TProvider>(TProvider provider) where TProvider : class, IGridifyMapperProvider
-    {
-        MapperProvider = provider;
-        return this;
-    }
-    
-    /// <summary>
-    /// Registers a customized implementation of <see cref="IGridifyMapperProvider"/>.
-    /// </summary>
-    /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
-    public DataExplorerConfiguration UseGridifyMapperProvider<TProvider>() where TProvider : class, IGridifyMapperProvider, new()
-    {
-        MapperProvider = new TProvider();
-        return this;
-    }
     
     /// <summary>
     /// Registers required Id generator services with the given <paramref name="generatorId"/>.

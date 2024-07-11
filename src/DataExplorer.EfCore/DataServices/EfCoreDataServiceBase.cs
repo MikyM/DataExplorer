@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using DataExplorer.Abstractions.DataServices;
 using DataExplorer.EfCore.Abstractions.DataServices;
-using DataExplorer.Gridify;
 using Microsoft.EntityFrameworkCore.Storage;
 using Remora.Results;
 
@@ -12,9 +11,6 @@ public abstract class EfCoreDataServiceBase<TContext> : IEfCoreDataServiceBase<T
 {
     /// <inheritdoc/>
     public IMapper Mapper => UnitOfWork.Mapper;
-
-    /// <inheritdoc/>
-    public IGridifyMapperProvider GridifyMapperProvider => UnitOfWork.GridifyMapperProvider;
 
     /// <inheritdoc/>
     public IUnitOfWork<TContext> UnitOfWork { get; }

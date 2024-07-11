@@ -1,7 +1,6 @@
 ﻿using AttributeBasedRegistration.Autofac;
 using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
-using DataExplorer.Gridify;
 using DataExplorer.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -43,9 +42,6 @@ public static class DependencyInjectionExtensions
         builder.RegisterInstance(DataExplorerTimeProvider.Instance).As<DataExplorerTimeProvider>().SingleInstance();
 #endif
         
-        var mapperProvider = config.MapperProvider ?? new GridifyMapperProvider();
-        builder.RegisterInstance(mapperProvider).As<IGridifyMapperProvider>().SingleInstance();
-        
         config.ReleaseRefs();
 
         return builder;
@@ -78,9 +74,6 @@ public static class DependencyInjectionExtensions
 #else
         serviceCollection.AddSingleton(DataExplorerTimeProvider.Instance);
 #endif
-        
-        var mapperProvider = config.MapperProvider ?? new GridifyMapperProvider();
-        serviceCollection.AddSingleton(mapperProvider);
 
         config.ReleaseRefs();
 

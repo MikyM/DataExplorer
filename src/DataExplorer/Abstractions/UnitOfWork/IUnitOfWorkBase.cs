@@ -2,7 +2,6 @@
 using DataExplorer.Abstractions.DataContexts;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Abstractions.Specifications.Evaluators;
-using DataExplorer.Gridify;
 
 namespace DataExplorer.Abstractions.UnitOfWork;
 
@@ -48,9 +47,4 @@ public interface IUnitOfWorkBase : IDisposable
     /// Specification evaluator instance.
     /// </summary>
     ISpecificationEvaluator SpecificationEvaluator { get; }
-    
-    /// <summary>
-    /// Gridify mapper provider instance.
-    /// </summary>
-    IGridifyMapperProvider GridifyMapperProvider { get; }
 }

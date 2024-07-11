@@ -2,7 +2,6 @@
 using DataExplorer.Abstractions.DataServices;
 using DataExplorer.Abstractions.Specifications;
 using DataExplorer.EfCore.Abstractions.DataServices;
-using Gridify;
 using Remora.Results;
 
 namespace DataExplorer.EfCore.DataServices;
@@ -103,92 +102,6 @@ public class ReadOnlyDataService<TEntity, TId, TContext> : EfCoreDataServiceBase
             return new ExceptionError(ex);
         }
     }
-
-    /// <inheritdoc />
-    public virtual async Task<Result<Paging<TEntity>>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
-        CancellationToken cancellationToken = default)
-    {
-        try
-        {
-           return await ReadOnlyRepository.GetByGridifyQueryAsync(gridifyQuery, cancellationToken);
-        }
-        catch (Exception ex)
-        {
-            return new ExceptionError(ex);
-        }
-    }
-
-    /// <inheritdoc />
-    public virtual async Task<Result<Paging<TEntity>>> GetByGridifyQueryAsync(IGridifyQuery gridifyQuery,
-        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            return await ReadOnlyRepository.GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken);
-        }
-        catch (Exception ex)
-        {
-            return new ExceptionError(ex);
-        }
-    }
-    
-    /// <inheritdoc />
-    public virtual async Task<Result<Paging<TResult>>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation,
-        CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            if (resultTransformation is ResultTransformation.ProjectTo)
-                return await ReadOnlyRepository.GetByGridifyQueryAsync<TResult>(gridifyQuery, cancellationToken);
-            
-            var sub = await ReadOnlyRepository.GetByGridifyQueryAsync(gridifyQuery, cancellationToken);
-            return new Paging<TResult>(sub.Count, Mapper.Map<IEnumerable<TResult>>(sub.Data));
-        }
-        catch (Exception ex)
-        {
-            return new ExceptionError(ex);
-        }
-    }
-
-    /// <inheritdoc />
-    public virtual async Task<Result<Paging<TResult>>> GetByGridifyQueryAsync<TResult>(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation,
-        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-    {
-        try
-        {
-            if (resultTransformation is ResultTransformation.ProjectTo)
-                return await ReadOnlyRepository.GetByGridifyQueryAsync<TResult>(gridifyQuery, gridifyMapper, cancellationToken);
-            
-            var sub = await ReadOnlyRepository.GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken);
-            return new Paging<TResult>(sub.Count, Mapper.Map<IEnumerable<TResult>>(sub.Data));
-        }
-        catch (Exception ex)
-        {
-            return new ExceptionError(ex);
-        }
-    }
-    
-    /// <inheritdoc />
-    public virtual Task<Result<Paging<TEntity>>> GetAsync(IGridifyQuery gridifyQuery,
-        CancellationToken cancellationToken = default)
-        => GetByGridifyQueryAsync(gridifyQuery, cancellationToken);
-
-    /// <inheritdoc />
-    public virtual Task<Result<Paging<TEntity>>> GetAsync(IGridifyQuery gridifyQuery,
-        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-        => GetByGridifyQueryAsync(gridifyQuery, gridifyMapper, cancellationToken);
-    
-    /// <inheritdoc />
-    public virtual Task<Result<Paging<TResult>>> GetAsync<TResult>(IGridifyQuery gridifyQuery, ResultTransformation resultTransformation,
-        CancellationToken cancellationToken = default)
-        => GetByGridifyQueryAsync<TResult>(gridifyQuery, resultTransformation, cancellationToken);
-
-    /// <inheritdoc />
-    public virtual Task<Result<Paging<TResult>>> GetAsync<TResult>(IGridifyQuery gridifyQuery,
-        ResultTransformation resultTransformation,
-        IGridifyMapper<TEntity> gridifyMapper, CancellationToken cancellationToken = default)
-        => GetByGridifyQueryAsync<TResult>(gridifyQuery, resultTransformation, gridifyMapper, cancellationToken)
-            ;
 
     /// <inheritdoc />
     public virtual async Task<Result<TEntity>> GetSingleBySpecAsync(ISpecification<TEntity> specification, CancellationToken cancellationToken = default)

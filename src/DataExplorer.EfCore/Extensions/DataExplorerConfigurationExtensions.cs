@@ -13,7 +13,6 @@ using DataExplorer.Attributes;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.DataServices;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using Gridify;
 using Microsoft.Extensions.DependencyInjection;
 using GroupByEvaluator = DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator;
 using IBasicEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IBasicEvaluator;
@@ -153,8 +152,6 @@ public static class DataExplorerConfigurationExtensions
         
         var builder = config.GetContainerBuilder();
         var serviceCollection = config.GetServiceCollection();
-        
-        GridifyGlobalConfiguration.EnableEntityFrameworkCompatibilityLayer();
 
         var toScan = assembliesToScanForServices.ToArray();
         

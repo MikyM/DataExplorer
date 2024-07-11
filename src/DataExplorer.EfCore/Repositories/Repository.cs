@@ -3,7 +3,6 @@ using AutoMapper;
 using DataExplorer.Abstractions.Specifications;
 using DataExplorer.EfCore.Abstractions.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.Gridify;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 // ReSharper disable SuspiciousTypeConversion.Global
 
@@ -17,9 +16,8 @@ namespace DataExplorer.EfCore.Repositories;
 public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IRepository<TEntity,TId>
     where TEntity : Entity<TId> where TId : IComparable, IEquatable<TId>, IComparable<TId>
 {
-    internal Repository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper,
-        IGridifyMapperProvider gridifyMapperProvider) : base(context,
-        specificationEvaluator, mapper, gridifyMapperProvider)
+    internal Repository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper) 
+        : base(context, specificationEvaluator, mapper)
     {
     }
     
@@ -245,9 +243,8 @@ public class Repository<TEntity,TId> : ReadOnlyRepository<TEntity,TId>, IReposit
 [PublicAPI]
 public class Repository<TEntity> : Repository<TEntity, long>, IRepository<TEntity> where TEntity : Entity<long>
 {
-    internal Repository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper,
-        IGridifyMapperProvider gridifyMapperProvider) : base(context, specificationEvaluator, mapper,
-        gridifyMapperProvider)
+    internal Repository(IEfDbContext context, IEfSpecificationEvaluator specificationEvaluator, IMapper mapper) 
+        : base(context, specificationEvaluator, mapper)
     {
     }
 }

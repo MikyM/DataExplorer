@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/MikyM/DataExplorer/actions/workflows/release.yml/badge.svg)](https://github.com/MikyM/DataExplorer/actions)
 
-Library featuring an opinionated, reusable data access layer offering abstractions and implementations for SQL storages (EF Core) and MongoDb (MongoDb.Entities).
+Library featuring a few popular patterns in regard to working with data in .NET offering abstractions and implementations for EF Core and MongoDb.
 
 To utilize all features using Autofac is required.
 
@@ -31,10 +31,6 @@ builder.AddDataExplorer(options =>
 });
 ```
 
-## Documentation
-
-Documentation available at https://docs.data-explorer.mikym.me/.
-
 ## Description
 
-Detailed descriptions are provided within EfCore and MongoDb directories (packages) and articles in documentation.
+Detailed descriptions are provided within EfCore and MongoDb directories (packages).

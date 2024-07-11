@@ -9,33 +9,6 @@ namespace DataExplorer.EfCore.Tests.Unit;
 
 public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixture<RepositoryFixture>
 {
-    public class GridifyMapperProvider : IClassFixture<ContextFixture>, IClassFixture<RepositoryFixture>
-    {
-        private readonly ContextFixture _ctxFixture;
-        private readonly RepositoryFixture _repoFixture;
-
-        public GridifyMapperProvider(ContextFixture ctxFixture, RepositoryFixture repoFixture)
-        {
-            _ctxFixture = ctxFixture;
-            _repoFixture = repoFixture;
-        }
-        
-        [Fact]
-        public void ShouldReturnCorrectInstance()
-        {
-            // Arrange
-            var ctx = _ctxFixture.GetEfDbContextMock();
-
-            var gridify = _repoFixture.GetGridifyMock();
-        
-            var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx, _repoFixture.GetEvaluatorMock(),
-                _repoFixture.GetMapperMock(), gridify);
-        
-            // Act & Assert
-            repo.GridifyMapperProvider.Should().NotBeNull().And.Be(gridify.Object);
-        }
-    }
-
     public class Context : IClassFixture<ContextFixture>, IClassFixture<RepositoryFixture>
     {
         private readonly ContextFixture _ctxFixture;
@@ -52,11 +25,9 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
         {
             // Arrange
             var ctx = _ctxFixture.GetEfDbContextMock();
-
-            var gridify = _repoFixture.GetGridifyMock();
         
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx, _repoFixture.GetEvaluatorMock(),
-                _repoFixture.GetMapperMock(), gridify);
+                _repoFixture.GetMapperMock());
         
             // Act & Assert
             repo.Context.Should().NotBeNull().And.Be(ctx.Object);
@@ -79,13 +50,11 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
         {
             // Arrange
             var ctx = _ctxFixture.GetEfDbContextMock();
-
-            var gridify = _repoFixture.GetGridifyMock();
         
             var evaluator = _repoFixture.GetEvaluatorMock();
         
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx, evaluator,
-                _repoFixture.GetMapperMock(), gridify);
+                _repoFixture.GetMapperMock());
         
             // Act & Assert
             repo.SpecificationEvaluator.Should().NotBeNull().And.Be(evaluator.Object);
@@ -110,13 +79,11 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             var ctx = _ctxFixture.GetEfDbContextMock();
             var set = new Mock<DbSet<TestEntity>>();
             ctx.Setup(x => x.Set<TestEntity>()).Returns(set.Object);
-
-            var gridify = _repoFixture.GetGridifyMock();
         
             var evaluator = _repoFixture.GetEvaluatorMock();
         
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx, evaluator,
-                _repoFixture.GetMapperMock(), gridify);
+                _repoFixture.GetMapperMock());
         
             // Act & Assert
             repo.Set.Should().NotBeNull().And.BeSameAs(set.Object);
@@ -154,7 +121,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             setMock.Setup(x => x.FindAsync(It.Is<object[]>(o => o.Length == 1))).ReturnsAsync(returnVal);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx, _repoFixture.GetEvaluatorMock(),
-                _repoFixture.GetMapperMock(), _repoFixture.GetGridifyMock());
+                _repoFixture.GetMapperMock());
 
             // Act
             var result = await repo.GetAsync(id ?? 15);
@@ -203,7 +170,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
                 .ReturnsAsync(returnVal);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx, _repoFixture.GetEvaluatorMock(),
-                _repoFixture.GetMapperMock(), _repoFixture.GetGridifyMock());
+                _repoFixture.GetMapperMock());
 
             // Act
             var result = await repo.GetAsync(new object?[] { id ?? 15 }, CancellationToken.None);
@@ -257,7 +224,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec, false)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetSingleBySpecAsync(spec, CancellationToken.None);
@@ -311,7 +278,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetSingleBySpecAsync(spec, CancellationToken.None);
@@ -364,7 +331,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec, false)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetSingleAsync(spec, CancellationToken.None);
@@ -418,7 +385,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetSingleAsync(spec, CancellationToken.None);
@@ -473,7 +440,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec, false)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetBySpecAsync(spec, CancellationToken.None);
@@ -528,7 +495,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetBySpecAsync(spec, CancellationToken.None);
@@ -582,7 +549,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec, false)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetAsync(spec, CancellationToken.None);
@@ -637,7 +604,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetAsync(spec, CancellationToken.None);
@@ -691,7 +658,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec, true)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = repo.AsAsyncEnumerable(spec);
@@ -742,7 +709,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             var evaluator = _repoFixture.GetEvaluatorMock();
         
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = repo.AsAsyncEnumerable(x => x.Id == test.Id);
@@ -791,7 +758,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             var evaluator = _repoFixture.GetEvaluatorMock();
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = repo.AsAsyncEnumerable();
@@ -837,7 +804,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             ctx.Setup(x => x.Set<TestEntity>()).Returns(retQueryable.Object);
         
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, _repoFixture.GetEvaluatorMock().Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetAllAsync(CancellationToken.None);
@@ -888,7 +855,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, It.IsAny<ISpecification<TestEntity,TestEntityOffset>>())).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.GetAllAsync<TestEntityOffset>(CancellationToken.None);
@@ -931,7 +898,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             ctx.Setup(x => x.Set<TestEntity>()).Returns(retQueryable.Object);
         
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, _repoFixture.GetEvaluatorMock().Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.AnyAsync(x => x.Id == test.Id, CancellationToken.None);
@@ -984,7 +951,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec, false)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.AnyAsync(spec, CancellationToken.None);
@@ -1027,7 +994,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             ctx.Setup(x => x.Set<TestEntity>()).Returns(retQueryable.Object);
         
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, _repoFixture.GetEvaluatorMock().Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.LongCountAsync(x => x.Id == test.Id, CancellationToken.None);
@@ -1080,7 +1047,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             evaluator.Setup(x => x.GetQuery(queryable.Object, spec, false)).Returns(retQueryable.Object);
 
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, evaluator.Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.LongCountAsync(spec, CancellationToken.None);
@@ -1123,7 +1090,7 @@ public class ReadOnlyRepositoryTests : IClassFixture<ContextFixture>, IClassFixt
             ctx.Setup(x => x.Set<TestEntity>()).Returns(retQueryable.Object);
         
             var repo = _repoFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, _repoFixture.GetEvaluatorMock().Object,
-                _repoFixture.GetMapperMock().Object, _repoFixture.GetGridifyMock().Object);
+                _repoFixture.GetMapperMock().Object);
 
             // Act
             var result = await repo.LongCountAsync(CancellationToken.None);

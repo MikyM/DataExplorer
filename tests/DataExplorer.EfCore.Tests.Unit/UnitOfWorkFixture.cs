@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.Gridify;
 using DataExplorer.Utilities;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -13,12 +12,6 @@ public class UnitOfWorkFixture
     {
         var mapperMock = new Mock<IMapper>();
         return mapperMock;
-    }
-    
-    public Mock<IGridifyMapperProvider> GetIGridifyMapperProviderMock()
-    {
-        var gridifyMapperProviderMock = new Mock<IGridifyMapperProvider>();
-        return gridifyMapperProviderMock;
     }
     
     public Mock<IEfSpecificationEvaluator> GetISpecificationEvaluatorMock()

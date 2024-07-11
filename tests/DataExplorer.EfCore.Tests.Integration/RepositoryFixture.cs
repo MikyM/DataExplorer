@@ -1,15 +1,12 @@
-﻿using System.ComponentModel;
-using AutoMapper;
+﻿using AutoMapper;
 using DataExplorer.EfCore.Abstractions.Repositories;
 using DataExplorer.EfCore.Repositories;
 using DataExplorer.EfCore.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.Gridify;
 using DataExplorer.Tests.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Moq;
 using Testcontainers.PostgreSql;
 
 namespace DataExplorer.EfCore.Tests.Integration;
@@ -22,7 +19,7 @@ public class RepositoryFixture : IDisposable
     {
         var ctx = new TestIntegrationContext(_dbContextOptions, _config, _timeProvider);
         _testContexts.Add(ctx);
-        var repo = new Repository<TestEntity>(ctx, _specificationEvaluator, _mapper, _gridifyMapperProvider);
+        var repo = new Repository<TestEntity>(ctx, _specificationEvaluator, _mapper);
         return repo;
     }
     
@@ -30,14 +27,13 @@ public class RepositoryFixture : IDisposable
     {
         var ctx = new TestIntegrationContext(_dbContextOptions, _config, _timeProvider);
         _testContexts.Add(ctx);
-        var repo = new ReadOnlyRepository<TestEntity>(ctx, _specificationEvaluator, _mapper, _gridifyMapperProvider);
+        var repo = new ReadOnlyRepository<TestEntity>(ctx, _specificationEvaluator, _mapper);
         return repo;
     }
 
     private readonly IOptions<DataExplorerEfCoreConfiguration> _config;
     private readonly DataExplorerTimeProvider _timeProvider;
     private readonly DbContextOptions<TestIntegrationContext> _dbContextOptions;
-    private readonly IGridifyMapperProvider _gridifyMapperProvider;
     private readonly IEfSpecificationEvaluator _specificationEvaluator;
     private readonly IMapper _mapper;
     
@@ -48,7 +44,6 @@ public class RepositoryFixture : IDisposable
         _config = Options.Create(new DataExplorerEfCoreConfiguration(new ServiceCollection()));
         
         _timeProvider = new DataExplorerTimeProvider.StaticDataExplorerTimeProvider();
-        _gridifyMapperProvider = new GridifyMapperProvider();
         _specificationEvaluator = new SpecificationEvaluator(true);
 
         var config = new MapperConfiguration(cfg => {

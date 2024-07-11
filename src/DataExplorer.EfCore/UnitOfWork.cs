@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using AutoMapper;
 using DataExplorer.Abstractions.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Evaluators;
-using DataExplorer.Gridify;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace DataExplorer.EfCore;
@@ -47,11 +46,6 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     public IMapper Mapper { get; }
 
     /// <summary>
-    /// GridifyMapperProvider instance.
-    /// </summary>
-    public IGridifyMapperProvider GridifyMapperProvider { get; }
-
-    /// <summary>
     /// Data cache.
     /// </summary>
     private readonly IEfDataExplorerTypeCache _cache;
@@ -68,18 +62,15 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <param name="specificationEvaluator">Specification evaluator to be used.</param>
     /// <param name="mapper">Mapper.</param>
     /// <param name="options">Options.</param>
-    /// <param name="gridifyMapperProvider">Gridify mapper provider.</param>
     /// <param name="efDataExplorerTypeCache">Unit of Work cache.</param>
     /// <param name="instanceFactory">Instance factory.</param>
     public UnitOfWork(TContext context, IEfSpecificationEvaluator specificationEvaluator, 
-        IMapper mapper, IOptions<DataExplorerEfCoreConfiguration> options, 
-        IGridifyMapperProvider gridifyMapperProvider, IEfDataExplorerTypeCache efDataExplorerTypeCache, 
+        IMapper mapper, IOptions<DataExplorerEfCoreConfiguration> options, IEfDataExplorerTypeCache efDataExplorerTypeCache, 
         ICachedInstanceFactory instanceFactory)
     {
         Context = context;
         SpecificationEvaluator = specificationEvaluator;
         _options = options;
-        GridifyMapperProvider = gridifyMapperProvider;
         Mapper = mapper;
         _cache = efDataExplorerTypeCache;
         _instanceFactory = instanceFactory;
@@ -239,7 +230,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
         RepositoryEntry GetRepositoryEntry(DataExplorerRepoInfo data) => new(data, new Lazy<IBaseRepository>(()  =>
         {
             var instance = _instanceFactory.CreateInstance(repoCacheData.RepoImplType, Context,
-                SpecificationEvaluator, Mapper, GridifyMapperProvider);
+                SpecificationEvaluator, Mapper);
 
             if (instance is null)
                 throw new InvalidOperationException($"Couldn't create an instance of {repositoryTypeName} repository - please file an issue on GitHub.");

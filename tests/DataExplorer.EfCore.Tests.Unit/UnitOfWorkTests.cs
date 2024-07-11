@@ -41,8 +41,7 @@ public class UnitOfWorkTests
             ctx.SetupGet(x => x.Database).Returns(facade.Object);
 
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object,
-                _uofFixture.GetIGridifyMapperProviderMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
                 _uofFixture.GetICachedInstanceFactoryMock().Object);
 
             // Act
@@ -77,8 +76,7 @@ public class UnitOfWorkTests
             // Arrange
             var ctx = _contextFixture.GetTextContextMock();
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object,
-                _uofFixture.GetIGridifyMapperProviderMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
                 _uofFixture.GetICachedInstanceFactoryMock().Object);
             unitOfWork.Dispose();
             
@@ -95,8 +93,7 @@ public class UnitOfWorkTests
             // Arrange
             var ctx = _contextFixture.GetTextContextMock();
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object,
-                _uofFixture.GetIGridifyMapperProviderMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
                 _uofFixture.GetICachedInstanceFactoryMock().Object);
             
             // Act
@@ -112,8 +109,7 @@ public class UnitOfWorkTests
             // Arrange
             var ctx = _contextFixture.GetTextContextMock();
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object,
-                _uofFixture.GetIGridifyMapperProviderMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
                 _uofFixture.GetICachedInstanceFactoryMock().Object);
             
             // Act
@@ -133,7 +129,7 @@ public class UnitOfWorkTests
             var repoInterfaceType = typeof(IRepository<TestEntity>);
             
             var repo = _repositoryFixture.GetRepository<TestEntity>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIGridifyMapperProviderMock().Object);
+                _uofFixture.GetIMapperMock().Object);
 
             var cacheMock = _uofFixture.GetIEfDataExplorerTypeCacheMock();
 
@@ -157,11 +153,11 @@ public class UnitOfWorkTests
                 .Returns(true);
             
             factoryMock.Setup(x => x.CreateInstance(It.Is<Type>(t => t == repoImplType), It.IsAny<object>(), 
-                    It.IsAny<object>(), It.IsAny<object>(), It.IsAny<object>()))
+                    It.IsAny<object>(), It.IsAny<object>()))
                 .Returns(repo);
             
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIGridifyMapperProviderMock().Object, 
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, 
                 cacheMock.Object, factoryMock.Object);
 
             // ReSharper disable once UseNameOfInsteadOfTypeOf
@@ -188,10 +184,10 @@ public class UnitOfWorkTests
             var repoInterfaceType = typeof(IRepository<TestEntity>);
             
             var repoRO = _repositoryFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIGridifyMapperProviderMock().Object);
+                _uofFixture.GetIMapperMock().Object);
             
             var repo = _repositoryFixture.GetRepository<TestEntity>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIGridifyMapperProviderMock().Object);
+                _uofFixture.GetIMapperMock().Object);
 
             var cacheMock = _uofFixture.GetIEfDataExplorerTypeCacheMock();
 
@@ -216,7 +212,7 @@ public class UnitOfWorkTests
                 .Returns(true);
             
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIGridifyMapperProviderMock().Object, 
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, 
                 cacheMock.Object, factoryMock.Object);
 
             // ReSharper disable once UseNameOfInsteadOfTypeOf
@@ -249,10 +245,10 @@ public class UnitOfWorkTests
             var repoInterfaceType = typeof(IRepository<TestEntity>);
             
             var repoRO = _repositoryFixture.GetReadOnlyRepository<TestEntity>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIGridifyMapperProviderMock().Object);
+                _uofFixture.GetIMapperMock().Object);
             
             var repo = _repositoryFixture.GetRepository<TestEntity>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIGridifyMapperProviderMock().Object);
+                _uofFixture.GetIMapperMock().Object);
 
             var cacheMock = _uofFixture.GetIEfDataExplorerTypeCacheMock();
 
@@ -278,11 +274,11 @@ public class UnitOfWorkTests
                 .Returns(true);
             
             factoryMock.Setup(x => x.CreateInstance(It.Is<Type>(t => t == repoImplType), It.IsAny<object>(), 
-                    It.IsAny<object>(), It.IsAny<object>(), It.IsAny<object>()))
+                    It.IsAny<object>(), It.IsAny<object>()))
                 .Returns(repo);
             
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIGridifyMapperProviderMock().Object, 
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, 
                 cacheMock.Object, factoryMock.Object);
 
             // ReSharper disable once UseNameOfInsteadOfTypeOf
