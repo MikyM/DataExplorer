@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.DataServices.ICrudDataServiceBase-2.html",
-          "hash": "8/6MdVidBBa6B79S4ZJ/ka1NsTTwKyLi3W5Wx+jGdBw="
+          "hash": "xMMfINaVDZbTfctzKrFN65CQOagfJEwb1cJ0Upwsbvg="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.DataServices.ICrudDataServiceBase-3.html",
-          "hash": "WrAPEGHXXs/9wh+XV2ZZZebGA8b8daK7aQG78Cfa78o="
+          "hash": "zs+Y+oN0JhnKhT5QK/SZ4/hYG0Wo8wGB6OK1B36ODb8="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html",
-          "hash": "Ynxkk9XURkyE+fvVLxXh7dKr6wGCcpDU/izwXWLRc4M="
+          "hash": "MdFhgcTdL/T+hlLcm9Ho4earI5DmfmOqNqRjrQx1r14="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-2.html",
-          "hash": "UbhTke1JqjjmreYdjVmgYNf41YsKLy33JNTXZ3zcww4="
+          "hash": "xTmNOaVR/0su5DyEkeC0tLLA33rMQgUTnHzug6xRMHM="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html",
-          "hash": "YN93qruxXiENMuSvvmjYwXkkyPzNpGlhBeCzf9gK5D4="
+          "hash": "HcQI8MhD5Le1po3+P37vjSKrmtSsa+z0vMZtDvQs7lI="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-1.html",
-          "hash": "Zg2czGGLUTbFJOYcpSEFuG0gPE70Uwp1PcE54ZbjC+4="
+          "hash": "crt/ST6u9f6/z/HXntqB1yQ9KsB3nRZhBz4Z6Orxahw="
         }
       },
       "is_incremental": false,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html",
-          "hash": "kY5ojGcK9oFF/v/zY/oULepjgslOaTiJq/plF76n6IQ="
+          "hash": "gbZs04BtLCG3FMZBvnGJ3Ga1/d4dQ16DY6qDwpLuHp4="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase-1.html",
-          "hash": "yhNzYQ9cmyE4pOaZNE+K2LCCXHgkITLZGePRwuK4N/w="
+          "hash": "/xUUnUkaRg8QlJenIebRsJxAeYM+8NooNcHVOC98Hzc="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.Repositories.IRepositoryBase-2.html",
-          "hash": "wzriEsvifLGv+U+EZNH8OnFo0e7C6XyDS+m0I+tkvtQ="
+          "hash": "+XQ1Le1vDCKv7U8n3SopsbjX/9MY96Uo3j+zQfSOQtU="
         }
       },
       "is_incremental": false,
@@ -729,7 +729,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html",
-          "hash": "YoxFF87gJhEZvtmE9kpeV+d3extcbKM2aTlR6n4sVEk="
+          "hash": "1cA8URIB+nNuL55HfBVFOwZpRq7X728CAydNuI5sXpk="
         }
       },
       "is_incremental": false,
@@ -789,7 +789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.DataExplorerConfiguration.html",
-          "hash": "d+OThjkshWzuI9+eDdqrMIGjN1tnohI1RUlsuyJFlH0="
+          "hash": "rGX3Uuj8ydxk6qDchkPYpzCm9RB+hgCCeZwzi6fzMRc="
         }
       },
       "is_incremental": false,
@@ -849,7 +849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.DependencyInjectionExtensions.html",
-          "hash": "1qhAtEsMgLuyRhW6w+pbQwl/NRFgMa9QH/Rrao5xu58="
+          "hash": "Ycmlf7AqQHFG6P8EQAAgoOlDc/Ow2jKJDstHI8LCCEg="
         }
       },
       "is_incremental": false,
@@ -897,7 +897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.ICrudDataService-2.html",
-          "hash": "6cX3SKsrp9FTBjAf5drvCW3qW8kWF/bX9P4t0XlBoaQ="
+          "hash": "E64qaIjAzBoeS5BQ+o3EmFcRwuXD+4REtiXoZ2qelTI="
         }
       },
       "is_incremental": false,
@@ -909,7 +909,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.ICrudDataService-3.html",
-          "hash": "kR8TgGlOnH84duckxpTph9TQ2jcaQLZPz2FJN0L1GnA="
+          "hash": "aHCt2mLJN9CydIyYyKnizvB2MPkIFEVsk1AmN6GNPtc="
         }
       },
       "is_incremental": false,
@@ -921,7 +921,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase-1.html",
-          "hash": "x8ma0VNZcrVarsHqf2B38qG5t2ev0Y+HWYOVXBJ74z4="
+          "hash": "OwC7e0COB+Y49CC/YdJFju3Nu/gb9tJNrrKvjL88zF4="
         }
       },
       "is_incremental": false,
@@ -933,7 +933,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IReadOnlyDataService-2.html",
-          "hash": "93lcB15+YqxuwpaTqq55QlqIdzDK9N0V37KB27s6CIU="
+          "hash": "onJfpiLFYrq+TGt9MZhTbRgpt309OZ7J/eqtCqT4kaU="
         }
       },
       "is_incremental": false,
@@ -945,7 +945,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.DataServices.IReadOnlyDataService-3.html",
-          "hash": "+K8Gs8kp/5qCsKmb8xvz7QXNaNdNb3PRDdJbQHi0ltw="
+          "hash": "494I9avrGN6zGdUNGEwiB7smq4nP7mLAypTYkUUyK/U="
         }
       },
       "is_incremental": false,
@@ -969,7 +969,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.IUnitOfWork-1.html",
-          "hash": "9wVdHi9247hJiG45KBWmt/x5D9FhLzKVmaHsmy2joe4="
+          "hash": "AmJ0vdcqfDbb3aoxX+6LK3YTjF2LbreqEpjlyEeYEMs="
         }
       },
       "is_incremental": false,
@@ -981,7 +981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.IUnitOfWork.html",
-          "hash": "thXFuojI9YGtMzu0ezh4XCl+TTBUIlyLPuhRMIqRK8E="
+          "hash": "VKKHOLZSDaRzGQLgVWHTf42/CZZhf3tKkqJq+Jl8eis="
         }
       },
       "is_incremental": false,
@@ -993,7 +993,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html",
-          "hash": "DJWxCkEExC7WWX4Ps7s/wfZNTKy1du/DY1BakiBg0NI="
+          "hash": "gESFOPYhtRW/HUgORXoe39k4TZWuU6bzZ+kQc84ud/M="
         }
       },
       "is_incremental": false,
@@ -1005,7 +1005,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html",
-          "hash": "yG29gQbusUgTjm3qRrrriwenEtmDy75lb0PwfuWqPSQ="
+          "hash": "7qEQoeRXajZchiPiK3y24vutUdyVlNpJNm/92hVWj3E="
         }
       },
       "is_incremental": false,
@@ -1017,7 +1017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html",
-          "hash": "yIyPzhZCMfeQqJJT63WZZpXYcJb/P+okzy0MhK890XY="
+          "hash": "JTTokXqeqeL3OoTHws8hAjwsx8yy/ghAMH4hF0tgtz4="
         }
       },
       "is_incremental": false,
@@ -1029,7 +1029,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html",
-          "hash": "rtIGu+yPuwgD0YO0RZWIRGcvslfUvVed7gyM/7SRt8w="
+          "hash": "uNFI/hSQhBvNIjpEVhfzqlo0vp0JjjF/Ur2djfskY0M="
         }
       },
       "is_incremental": false,
@@ -1125,7 +1125,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.CrudDataService-2.html",
-          "hash": "W8todexI4VhwXq7xGLjDUj+cBrL6+YTanX0XteVeHd8="
+          "hash": "dYwB/6eGRHm+yPuLSKWWuuauSXP3obb+2c53lA9NO4c="
         }
       },
       "is_incremental": false,
@@ -1137,7 +1137,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.CrudDataService-3.html",
-          "hash": "NHXPv/n+B81xlmCG+cPLly35GtpBCsEbvLQwXp3n5D8="
+          "hash": "FeDfAJeo9+OhaDgMVAYIch6+hIiBxFneC/p2ErcUsYk="
         }
       },
       "is_incremental": false,
@@ -1149,7 +1149,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.EfCoreDataServiceBase-1.html",
-          "hash": "dlOfJOlRsB/rNtFcMo6+z21jSyFNiVj6EXfzhDJFOZ4="
+          "hash": "dOFDG61JAqe14J5WjVeoNaUTINEd4qnJIeOzFpTLy8Y="
         }
       },
       "is_incremental": false,
@@ -1161,7 +1161,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-2.html",
-          "hash": "VrJZSoSf6Zd9kJlzFhvKgp0zCLhfaJsC/Lk57HKG29A="
+          "hash": "aCgGepjG9ybdKfIwfMeFSPSlbg/sm9xFZ/IXRYnllr0="
         }
       },
       "is_incremental": false,
@@ -1173,7 +1173,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html",
-          "hash": "vXao3w7cWdv9vUfpV89eXqB80FNNIl7IMo6GLptTXjE="
+          "hash": "G0LQYCwEfJRLIoJpZMKfYcm/wjcCDOx7kIoRkN87/HA="
         }
       },
       "is_incremental": false,
@@ -1233,7 +1233,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html",
-          "hash": "Uauw5Zkw7a8oM6EqbyS4hYmvATIpggMRx8rwGj3RDNY="
+          "hash": "4g34KfmZhs2Wy9QI1YpZB7ztkCUxexFgHqxnv0P173I="
         }
       },
       "is_incremental": false,
@@ -1293,7 +1293,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-1.html",
-          "hash": "M4KTNVBXKK4I3avgvsNGV4C9MW9rFCBIKsgjuW3vplk="
+          "hash": "Wk6xywLpiTlSwAlEkhg45etguhfbpwQppVaPF9ABqoU="
         }
       },
       "is_incremental": false,
@@ -1305,7 +1305,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html",
-          "hash": "c3CchMMPIzzyhMjhA1i5XnFMR/zMfj6+I6E8oGHK5YI="
+          "hash": "K2QiSCnbzAqcAWiPFLKm+0qFwnRQM0PETqVRgInE7nU="
         }
       },
       "is_incremental": false,
@@ -1317,7 +1317,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.Repository-1.html",
-          "hash": "cjraDEWSj36DL+vxwUgiyKvLt1qACIMKl4SC7pe4ibY="
+          "hash": "RazwNSYS/uXWJFBFbsGIJ+1q5sMUBPYgtkdG63Pijpk="
         }
       },
       "is_incremental": false,
@@ -1329,7 +1329,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.Repositories.Repository-2.html",
-          "hash": "x/23KDw7NFPz4D2O1LFxYb9hGMKtxRyCVXNtTgAREyQ="
+          "hash": "hJiE1y/WKpX4iWcm9TyX5GFNcP0O0239vAx7epCniHM="
         }
       },
       "is_incremental": false,
@@ -1893,7 +1893,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DataExplorer.EfCore.UnitOfWork-1.html",
-          "hash": "5Qp8k0ksk7b2g1xRAy31kjmHhWPnhe4QXLg1FczGz8A="
+          "hash": "BD/o6VYefbs5XxVubMLQqP9WPvdbhHNQmzGkHJljC7A="
         }
       },
       "is_incremental": false,
@@ -2026,42 +2026,6 @@
         ".html": {
           "relative_path": "api/DataExplorer.Extensions.html",
           "hash": "TGYVNhMPMxFP9CiNHJnqOPJtG+QnBQWtsc/dU2q2BaU="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.Gridify.GridifyMapperProvider.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.Gridify.GridifyMapperProvider.html",
-          "hash": "i/qA0o2azfWXx3Kwzf8Upuoq1kQ/IjMcZ28JinpGk80="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.Gridify.IGridifyMapperProvider.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.Gridify.IGridifyMapperProvider.html",
-          "hash": "cUJyuMo7LOJDv/2HIci1Q6NpwVACfv22mMMbQMmebDI="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/DataExplorer.Gridify.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DataExplorer.Gridify.html",
-          "hash": "N8Bi4SkBTfnm8wrhFzaoiPeI//thtsZM1zSQHuDKVws="
         }
       },
       "is_incremental": false,
@@ -2460,7 +2424,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "e9ssjNYznhHOcEgsA5PL/E2efI76nOxqoHr5Rf0ej9s="
+          "hash": "XbCxHbNypyneYZgLuPQgCWGU0g/S1PlNU1P5S5kbKK0="
         }
       },
       "is_incremental": false,
@@ -2559,7 +2523,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 204,
+          "total_file_count": 201,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

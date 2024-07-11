@@ -314,23 +314,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.DataServices.IDataServiceBase(Of TContext).Context
   nameWithType: IDataServiceBase<TContext>.Context
   nameWithType.vb: IDataServiceBase(Of TContext).Context
-- uid: DataExplorer.Abstractions.DataServices.IDataServiceBase`1.GridifyMapperProvider
-  name: GridifyMapperProvider
-  href: api/DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_GridifyMapperProvider
-  commentId: P:DataExplorer.Abstractions.DataServices.IDataServiceBase`1.GridifyMapperProvider
-  fullName: DataExplorer.Abstractions.DataServices.IDataServiceBase<TContext>.GridifyMapperProvider
-  fullName.vb: DataExplorer.Abstractions.DataServices.IDataServiceBase(Of TContext).GridifyMapperProvider
-  nameWithType: IDataServiceBase<TContext>.GridifyMapperProvider
-  nameWithType.vb: IDataServiceBase(Of TContext).GridifyMapperProvider
-- uid: DataExplorer.Abstractions.DataServices.IDataServiceBase`1.GridifyMapperProvider*
-  name: GridifyMapperProvider
-  href: api/DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_GridifyMapperProvider_
-  commentId: Overload:DataExplorer.Abstractions.DataServices.IDataServiceBase`1.GridifyMapperProvider
-  isSpec: "True"
-  fullName: DataExplorer.Abstractions.DataServices.IDataServiceBase<TContext>.GridifyMapperProvider
-  fullName.vb: DataExplorer.Abstractions.DataServices.IDataServiceBase(Of TContext).GridifyMapperProvider
-  nameWithType: IDataServiceBase<TContext>.GridifyMapperProvider
-  nameWithType.vb: IDataServiceBase(Of TContext).GridifyMapperProvider
 - uid: DataExplorer.Abstractions.DataServices.IDataServiceBase`1.Mapper
   name: Mapper
   href: api/DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_Mapper
@@ -507,23 +490,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity), System.Threading.CancellationToken)
   nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync(ISpecification<TEntity>, CancellationToken)
   nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(ISpecification(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetAsync(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync(IGridifyQuery, CancellationToken)
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(IGridifyQuery, CancellationToken)
 - uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync(System.Object[],System.Threading.CancellationToken)
   name: GetAsync(Object[], CancellationToken)
   href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync_System_Object___System_Threading_CancellationToken_
@@ -569,24 +535,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Of TGetResult)(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity), System.Threading.CancellationToken)
   nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync<TGetResult>(ISpecification<TEntity>, CancellationToken)
   nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Of TGetResult)(ISpecification(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetAsync<TResult>(IGridifyQuery, ResultTransformation, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetAsync(Of TResult)(IGridifyQuery, ResultTransformation, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync<TResult>(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Of TResult)(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync<TResult>(IGridifyQuery, ResultTransformation, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Of TResult)(IGridifyQuery, ResultTransformation, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,System.Threading.CancellationToken)
-  name: GetAsync<TResult>(IGridifyQuery, ResultTransformation, CancellationToken)
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,System.Threading.CancellationToken)
-  name.vb: GetAsync(Of TResult)(IGridifyQuery, ResultTransformation, CancellationToken)
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync<TResult>(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Of TResult)(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, System.Threading.CancellationToken)
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync<TResult>(IGridifyQuery, ResultTransformation, CancellationToken)
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Of TResult)(IGridifyQuery, ResultTransformation, CancellationToken)
 - uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetAsync``1(System.Object[],System.Threading.CancellationToken)
   name: GetAsync<TGetResult>(Object[], CancellationToken)
   href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetAsync__1_System_Object___System_Threading_CancellationToken_
@@ -596,50 +544,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Of TGetResult)(System.Object(), System.Threading.CancellationToken)
   nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetAsync<TGetResult>(Object[], CancellationToken)
   nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetAsync(Of TGetResult)(Object(), CancellationToken)
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync*
-  name: GetByGridifyQueryAsync
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync_
-  commentId: Overload:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync
-  isSpec: "True"
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync<TResult>(IGridifyQuery, ResultTransformation, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, ResultTransformation, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync<TResult>(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Of TResult)(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync<TResult>(IGridifyQuery, ResultTransformation, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, ResultTransformation, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync<TResult>(IGridifyQuery, ResultTransformation, CancellationToken)
-  href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, ResultTransformation, CancellationToken)
-  fullName: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync<TResult>(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Of TResult)(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, System.Threading.CancellationToken)
-  nameWithType: IReadOnlyDataServiceBase<TEntity, TId, TContext>.GetByGridifyQueryAsync<TResult>(IGridifyQuery, ResultTransformation, CancellationToken)
-  nameWithType.vb: IReadOnlyDataServiceBase(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, ResultTransformation, CancellationToken)
 - uid: DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase`3.GetBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)
   name: GetBySpecAsync(ISpecification<TEntity>, CancellationToken)
   href: api/DataExplorer.Abstractions.DataServices.IReadOnlyDataServiceBase-3.html#DataExplorer_Abstractions_DataServices_IReadOnlyDataServiceBase_3_GetBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_
@@ -1141,23 +1045,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity), System.Threading.CancellationToken)
   nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetAsync(ISpecification<TEntity>, CancellationToken)
   nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(ISpecification(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetAsync(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetAsync(IGridifyQuery, CancellationToken)
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(IGridifyQuery, CancellationToken)
 - uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync(System.Object[],System.Threading.CancellationToken)
   name: GetAsync(Object[], CancellationToken)
   href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetAsync_System_Object___System_Threading_CancellationToken_
@@ -1194,68 +1081,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(Of TResult)(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity, TResult), System.Threading.CancellationToken)
   nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetAsync<TResult>(ISpecification<TEntity, TResult>, CancellationToken)
   nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(Of TResult)(ISpecification(Of TEntity, TResult), CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetAsync<TResult>(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetAsync__1_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetAsync(Of TResult)(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetAsync<TResult>(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(Of TResult)(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetAsync<TResult>(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(Of TResult)(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetAsync<TResult>(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name.vb: GetAsync(Of TResult)(IGridifyQuery, CancellationToken)
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetAsync<TResult>(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(Of TResult)(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetAsync<TResult>(IGridifyQuery, CancellationToken)
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetAsync(Of TResult)(IGridifyQuery, CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync*
-  name: GetByGridifyQueryAsync
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetByGridifyQueryAsync_
-  commentId: Overload:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync
-  isSpec: "True"
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync<TResult>(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync<TResult>(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync(Of TResult)(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync<TResult>(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync<TResult>(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, CancellationToken)
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync<TResult>(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync(Of TResult)(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetByGridifyQueryAsync<TResult>(IGridifyQuery, CancellationToken)
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, CancellationToken)
 - uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GetBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)
   name: GetBySpecAsync(ISpecification<TEntity>, CancellationToken)
   href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GetBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_
@@ -1337,23 +1162,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GetSingleBySpecAsync(Of TResult)(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity, TResult), System.Threading.CancellationToken)
   nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GetSingleBySpecAsync<TResult>(ISpecification<TEntity, TResult>, CancellationToken)
   nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GetSingleBySpecAsync(Of TResult)(ISpecification(Of TEntity, TResult), CancellationToken)
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GridifyMapperProvider
-  name: GridifyMapperProvider
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GridifyMapperProvider
-  commentId: P:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GridifyMapperProvider
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GridifyMapperProvider
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GridifyMapperProvider
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GridifyMapperProvider
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GridifyMapperProvider
-- uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GridifyMapperProvider*
-  name: GridifyMapperProvider
-  href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_GridifyMapperProvider_
-  commentId: Overload:DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.GridifyMapperProvider
-  isSpec: "True"
-  fullName: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase<TEntity, TId>.GridifyMapperProvider
-  fullName.vb: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase(Of TEntity, TId).GridifyMapperProvider
-  nameWithType: IReadOnlyRepositoryBase<TEntity, TId>.GridifyMapperProvider
-  nameWithType.vb: IReadOnlyRepositoryBase(Of TEntity, TId).GridifyMapperProvider
 - uid: DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase`2.LongCountAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)
   name: LongCountAsync(ISpecification<TEntity>, CancellationToken)
   href: api/DataExplorer.Abstractions.Repositories.IReadOnlyRepositoryBase-2.html#DataExplorer_Abstractions_Repositories_IReadOnlyRepositoryBase_2_LongCountAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_
@@ -2740,19 +2548,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GetRepository(Of TRepository)()
   nameWithType: IUnitOfWorkBase.GetRepository<TRepository>()
   nameWithType.vb: IUnitOfWorkBase.GetRepository(Of TRepository)()
-- uid: DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GridifyMapperProvider
-  name: GridifyMapperProvider
-  href: api/DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GridifyMapperProvider
-  commentId: P:DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GridifyMapperProvider
-  fullName: DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GridifyMapperProvider
-  nameWithType: IUnitOfWorkBase.GridifyMapperProvider
-- uid: DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GridifyMapperProvider*
-  name: GridifyMapperProvider
-  href: api/DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GridifyMapperProvider_
-  commentId: Overload:DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GridifyMapperProvider
-  isSpec: "True"
-  fullName: DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.GridifyMapperProvider
-  nameWithType: IUnitOfWorkBase.GridifyMapperProvider
 - uid: DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.Mapper
   name: Mapper
   href: api/DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Mapper
@@ -2841,31 +2636,6 @@ references:
   isSpec: "True"
   fullName: DataExplorer.DataExplorerConfiguration.DataExplorerConfiguration
   nameWithType: DataExplorerConfiguration.DataExplorerConfiguration
-- uid: DataExplorer.DataExplorerConfiguration.AddGridifyMapper*
-  name: AddGridifyMapper
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_AddGridifyMapper_
-  commentId: Overload:DataExplorer.DataExplorerConfiguration.AddGridifyMapper
-  isSpec: "True"
-  fullName: DataExplorer.DataExplorerConfiguration.AddGridifyMapper
-  nameWithType: DataExplorerConfiguration.AddGridifyMapper
-- uid: DataExplorer.DataExplorerConfiguration.AddGridifyMapper``1
-  name: AddGridifyMapper<T>()
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_AddGridifyMapper__1
-  commentId: M:DataExplorer.DataExplorerConfiguration.AddGridifyMapper``1
-  name.vb: AddGridifyMapper(Of T)()
-  fullName: DataExplorer.DataExplorerConfiguration.AddGridifyMapper<T>()
-  fullName.vb: DataExplorer.DataExplorerConfiguration.AddGridifyMapper(Of T)()
-  nameWithType: DataExplorerConfiguration.AddGridifyMapper<T>()
-  nameWithType.vb: DataExplorerConfiguration.AddGridifyMapper(Of T)()
-- uid: DataExplorer.DataExplorerConfiguration.AddGridifyMapper``1(Gridify.IGridifyMapper{``0})
-  name: AddGridifyMapper<T>(IGridifyMapper<T>)
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_AddGridifyMapper__1_Gridify_IGridifyMapper___0__
-  commentId: M:DataExplorer.DataExplorerConfiguration.AddGridifyMapper``1(Gridify.IGridifyMapper{``0})
-  name.vb: AddGridifyMapper(Of T)(IGridifyMapper(Of T))
-  fullName: DataExplorer.DataExplorerConfiguration.AddGridifyMapper<T>(Gridify.IGridifyMapper<T>)
-  fullName.vb: DataExplorer.DataExplorerConfiguration.AddGridifyMapper(Of T)(Gridify.IGridifyMapper(Of T))
-  nameWithType: DataExplorerConfiguration.AddGridifyMapper<T>(IGridifyMapper<T>)
-  nameWithType.vb: DataExplorerConfiguration.AddGridifyMapper(Of T)(IGridifyMapper(Of T))
 - uid: DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32,System.Func{IdGen.IdGeneratorOptions})
   name: AddSnowflakeIdGeneration(Int32, Func<IdGeneratorOptions>)
   href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_System_Func_IdGen_IdGeneratorOptions__
@@ -2947,31 +2717,6 @@ references:
   fullName: DataExplorer.DataExplorerConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.DataExplorerConfiguration>.Value
   nameWithType: DataExplorerConfiguration.IOptions<DataExplorerConfiguration>.Value
   nameWithType.vb: DataExplorerConfiguration.Microsoft.Extensions.Options.IOptions<DataExplorer.DataExplorerConfiguration>.Value
-- uid: DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider*
-  name: UseGridifyMapperProvider
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_UseGridifyMapperProvider_
-  commentId: Overload:DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider
-  isSpec: "True"
-  fullName: DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider
-  nameWithType: DataExplorerConfiguration.UseGridifyMapperProvider
-- uid: DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider``1
-  name: UseGridifyMapperProvider<TProvider>()
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_UseGridifyMapperProvider__1
-  commentId: M:DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider``1
-  name.vb: UseGridifyMapperProvider(Of TProvider)()
-  fullName: DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider<TProvider>()
-  fullName.vb: DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider(Of TProvider)()
-  nameWithType: DataExplorerConfiguration.UseGridifyMapperProvider<TProvider>()
-  nameWithType.vb: DataExplorerConfiguration.UseGridifyMapperProvider(Of TProvider)()
-- uid: DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider``1(``0)
-  name: UseGridifyMapperProvider<TProvider>(TProvider)
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_UseGridifyMapperProvider__1___0_
-  commentId: M:DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider``1(``0)
-  name.vb: UseGridifyMapperProvider(Of TProvider)(TProvider)
-  fullName: DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider<TProvider>(TProvider)
-  fullName.vb: DataExplorer.DataExplorerConfiguration.UseGridifyMapperProvider(Of TProvider)(TProvider)
-  nameWithType: DataExplorerConfiguration.UseGridifyMapperProvider<TProvider>(TProvider)
-  nameWithType.vb: DataExplorerConfiguration.UseGridifyMapperProvider(Of TProvider)(TProvider)
 - uid: DataExplorer.DataExplorerConfigurationBase
   name: DataExplorerConfigurationBase
   href: api/DataExplorer.DataExplorerConfigurationBase.html
@@ -5079,23 +4824,6 @@ references:
   fullName.vb: DataExplorer.EfCore.DataServices.EfCoreDataServiceBase(Of TContext).Dispose
   nameWithType: EfCoreDataServiceBase<TContext>.Dispose
   nameWithType.vb: EfCoreDataServiceBase(Of TContext).Dispose
-- uid: DataExplorer.EfCore.DataServices.EfCoreDataServiceBase`1.GridifyMapperProvider
-  name: GridifyMapperProvider
-  href: api/DataExplorer.EfCore.DataServices.EfCoreDataServiceBase-1.html#DataExplorer_EfCore_DataServices_EfCoreDataServiceBase_1_GridifyMapperProvider
-  commentId: P:DataExplorer.EfCore.DataServices.EfCoreDataServiceBase`1.GridifyMapperProvider
-  fullName: DataExplorer.EfCore.DataServices.EfCoreDataServiceBase<TContext>.GridifyMapperProvider
-  fullName.vb: DataExplorer.EfCore.DataServices.EfCoreDataServiceBase(Of TContext).GridifyMapperProvider
-  nameWithType: EfCoreDataServiceBase<TContext>.GridifyMapperProvider
-  nameWithType.vb: EfCoreDataServiceBase(Of TContext).GridifyMapperProvider
-- uid: DataExplorer.EfCore.DataServices.EfCoreDataServiceBase`1.GridifyMapperProvider*
-  name: GridifyMapperProvider
-  href: api/DataExplorer.EfCore.DataServices.EfCoreDataServiceBase-1.html#DataExplorer_EfCore_DataServices_EfCoreDataServiceBase_1_GridifyMapperProvider_
-  commentId: Overload:DataExplorer.EfCore.DataServices.EfCoreDataServiceBase`1.GridifyMapperProvider
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.DataServices.EfCoreDataServiceBase<TContext>.GridifyMapperProvider
-  fullName.vb: DataExplorer.EfCore.DataServices.EfCoreDataServiceBase(Of TContext).GridifyMapperProvider
-  nameWithType: EfCoreDataServiceBase<TContext>.GridifyMapperProvider
-  nameWithType.vb: EfCoreDataServiceBase(Of TContext).GridifyMapperProvider
 - uid: DataExplorer.EfCore.DataServices.EfCoreDataServiceBase`1.Mapper
   name: Mapper
   href: api/DataExplorer.EfCore.DataServices.EfCoreDataServiceBase-1.html#DataExplorer_EfCore_DataServices_EfCoreDataServiceBase_1_Mapper
@@ -5361,23 +5089,6 @@ references:
   fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity), System.Threading.CancellationToken)
   nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetAsync(ISpecification<TEntity>, CancellationToken)
   nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(ISpecification(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetAsync(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetAsync(IGridifyQuery, CancellationToken)
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(IGridifyQuery, CancellationToken)
 - uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync(System.Object[],System.Threading.CancellationToken)
   name: GetAsync(Object[], CancellationToken)
   href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetAsync_System_Object___System_Threading_CancellationToken_
@@ -5423,24 +5134,6 @@ references:
   fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Of TGetResult)(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity), System.Threading.CancellationToken)
   nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetAsync<TGetResult>(ISpecification<TEntity>, CancellationToken)
   nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Of TGetResult)(ISpecification(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetAsync<TResult>(IGridifyQuery, ResultTransformation, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetAsync(Of TResult)(IGridifyQuery, ResultTransformation, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetAsync<TResult>(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Of TResult)(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetAsync<TResult>(IGridifyQuery, ResultTransformation, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Of TResult)(IGridifyQuery, ResultTransformation, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,System.Threading.CancellationToken)
-  name: GetAsync<TResult>(IGridifyQuery, ResultTransformation, CancellationToken)
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,System.Threading.CancellationToken)
-  name.vb: GetAsync(Of TResult)(IGridifyQuery, ResultTransformation, CancellationToken)
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetAsync<TResult>(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Of TResult)(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, System.Threading.CancellationToken)
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetAsync<TResult>(IGridifyQuery, ResultTransformation, CancellationToken)
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Of TResult)(IGridifyQuery, ResultTransformation, CancellationToken)
 - uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetAsync``1(System.Object[],System.Threading.CancellationToken)
   name: GetAsync<TGetResult>(Object[], CancellationToken)
   href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetAsync__1_System_Object___System_Threading_CancellationToken_
@@ -5450,50 +5143,6 @@ references:
   fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Of TGetResult)(System.Object(), System.Threading.CancellationToken)
   nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetAsync<TGetResult>(Object[], CancellationToken)
   nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetAsync(Of TGetResult)(Object(), CancellationToken)
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetByGridifyQueryAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync*
-  name: GetByGridifyQueryAsync
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetByGridifyQueryAsync_
-  commentId: Overload:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync<TResult>(IGridifyQuery, ResultTransformation, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, ResultTransformation, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync<TResult>(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Of TResult)(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync<TResult>(IGridifyQuery, ResultTransformation, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, ResultTransformation, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync<TResult>(IGridifyQuery, ResultTransformation, CancellationToken)
-  href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_DataExplorer_ResultTransformation_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,DataExplorer.ResultTransformation,System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, ResultTransformation, CancellationToken)
-  fullName: DataExplorer.EfCore.DataServices.ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync<TResult>(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.DataServices.ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Of TResult)(Gridify.IGridifyQuery, DataExplorer.ResultTransformation, System.Threading.CancellationToken)
-  nameWithType: ReadOnlyDataService<TEntity, TId, TContext>.GetByGridifyQueryAsync<TResult>(IGridifyQuery, ResultTransformation, CancellationToken)
-  nameWithType.vb: ReadOnlyDataService(Of TEntity, TId, TContext).GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, ResultTransformation, CancellationToken)
 - uid: DataExplorer.EfCore.DataServices.ReadOnlyDataService`3.GetBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)
   name: GetBySpecAsync(ISpecification<TEntity>, CancellationToken)
   href: api/DataExplorer.EfCore.DataServices.ReadOnlyDataService-3.html#DataExplorer_EfCore_DataServices_ReadOnlyDataService_3_GetBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_
@@ -6170,23 +5819,6 @@ references:
   fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetAsync(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity), System.Threading.CancellationToken)
   nameWithType: ReadOnlyRepository<TEntity, TId>.GetAsync(ISpecification<TEntity>, CancellationToken)
   nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetAsync(ISpecification(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetAsync(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetAsync(IGridifyQuery, CancellationToken)
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetAsync(IGridifyQuery, CancellationToken)
 - uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync(System.Object[],System.Threading.CancellationToken)
   name: GetAsync(Object[], CancellationToken)
   href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync_System_Object___System_Threading_CancellationToken_
@@ -6223,68 +5855,6 @@ references:
   fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetAsync(Of TResult)(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity, TResult), System.Threading.CancellationToken)
   nameWithType: ReadOnlyRepository<TEntity, TId>.GetAsync<TResult>(ISpecification<TEntity, TResult>, CancellationToken)
   nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetAsync(Of TResult)(ISpecification(Of TEntity, TResult), CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetAsync<TResult>(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetAsync(Of TResult)(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetAsync<TResult>(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetAsync(Of TResult)(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetAsync<TResult>(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetAsync(Of TResult)(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetAsync<TResult>(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name.vb: GetAsync(Of TResult)(IGridifyQuery, CancellationToken)
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetAsync<TResult>(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetAsync(Of TResult)(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetAsync<TResult>(IGridifyQuery, CancellationToken)
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetAsync(Of TResult)(IGridifyQuery, CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync(IGridifyQuery, CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync*
-  name: GetByGridifyQueryAsync
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync_
-  commentId: Overload:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync<TResult>(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_Gridify_IGridifyMapper__0__System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,Gridify.IGridifyMapper{`0},System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync<TResult>(Gridify.IGridifyQuery, Gridify.IGridifyMapper<TEntity>, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync(Of TResult)(Gridify.IGridifyQuery, Gridify.IGridifyMapper(Of TEntity), System.Threading.CancellationToken)
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync<TResult>(IGridifyQuery, IGridifyMapper<TEntity>, CancellationToken)
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, IGridifyMapper(Of TEntity), CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name: GetByGridifyQueryAsync<TResult>(IGridifyQuery, CancellationToken)
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetByGridifyQueryAsync__1_Gridify_IGridifyQuery_System_Threading_CancellationToken_
-  commentId: M:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetByGridifyQueryAsync``1(Gridify.IGridifyQuery,System.Threading.CancellationToken)
-  name.vb: GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, CancellationToken)
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync<TResult>(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync(Of TResult)(Gridify.IGridifyQuery, System.Threading.CancellationToken)
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GetByGridifyQueryAsync<TResult>(IGridifyQuery, CancellationToken)
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetByGridifyQueryAsync(Of TResult)(IGridifyQuery, CancellationToken)
 - uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GetBySpecAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)
   name: GetBySpecAsync(ISpecification<TEntity>, CancellationToken)
   href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GetBySpecAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_
@@ -6366,23 +5936,6 @@ references:
   fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GetSingleBySpecAsync(Of TResult)(DataExplorer.Abstractions.Specifications.ISpecification(Of TEntity, TResult), System.Threading.CancellationToken)
   nameWithType: ReadOnlyRepository<TEntity, TId>.GetSingleBySpecAsync<TResult>(ISpecification<TEntity, TResult>, CancellationToken)
   nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GetSingleBySpecAsync(Of TResult)(ISpecification(Of TEntity, TResult), CancellationToken)
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GridifyMapperProvider
-  name: GridifyMapperProvider
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GridifyMapperProvider
-  commentId: P:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GridifyMapperProvider
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GridifyMapperProvider
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GridifyMapperProvider
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GridifyMapperProvider
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GridifyMapperProvider
-- uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GridifyMapperProvider*
-  name: GridifyMapperProvider
-  href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_GridifyMapperProvider_
-  commentId: Overload:DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.GridifyMapperProvider
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.Repositories.ReadOnlyRepository<TEntity, TId>.GridifyMapperProvider
-  fullName.vb: DataExplorer.EfCore.Repositories.ReadOnlyRepository(Of TEntity, TId).GridifyMapperProvider
-  nameWithType: ReadOnlyRepository<TEntity, TId>.GridifyMapperProvider
-  nameWithType.vb: ReadOnlyRepository(Of TEntity, TId).GridifyMapperProvider
 - uid: DataExplorer.EfCore.Repositories.ReadOnlyRepository`2.LongCountAsync(DataExplorer.Abstractions.Specifications.ISpecification{`0},System.Threading.CancellationToken)
   name: LongCountAsync(ISpecification<TEntity>, CancellationToken)
   href: api/DataExplorer.EfCore.Repositories.ReadOnlyRepository-2.html#DataExplorer_EfCore_Repositories_ReadOnlyRepository_2_LongCountAsync_DataExplorer_Abstractions_Specifications_ISpecification__0__System_Threading_CancellationToken_
@@ -10778,15 +10331,15 @@ references:
   fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext)
   nameWithType: UnitOfWork<TContext>
   nameWithType.vb: UnitOfWork(Of TContext)
-- uid: DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.Gridify.IGridifyMapperProvider,DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
-  name: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions<DataExplorerEfCoreConfiguration>, IGridifyMapperProvider, IEfDataExplorerTypeCache, ICachedInstanceFactory)
-  href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_AutoMapper_IMapper_Microsoft_Extensions_Options_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_Gridify_IGridifyMapperProvider_DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_
-  commentId: M:DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.Gridify.IGridifyMapperProvider,DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
-  name.vb: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorerEfCoreConfiguration), IGridifyMapperProvider, IEfDataExplorerTypeCache, ICachedInstanceFactory)
-  fullName: DataExplorer.EfCore.UnitOfWork<TContext>.UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, AutoMapper.IMapper, Microsoft.Extensions.Options.IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>, DataExplorer.Gridify.IGridifyMapperProvider, DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
-  fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, AutoMapper.IMapper, Microsoft.Extensions.Options.IOptions(Of DataExplorer.EfCore.DataExplorerEfCoreConfiguration), DataExplorer.Gridify.IGridifyMapperProvider, DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
-  nameWithType: UnitOfWork<TContext>.UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions<DataExplorerEfCoreConfiguration>, IGridifyMapperProvider, IEfDataExplorerTypeCache, ICachedInstanceFactory)
-  nameWithType.vb: UnitOfWork(Of TContext).UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorerEfCoreConfiguration), IGridifyMapperProvider, IEfDataExplorerTypeCache, ICachedInstanceFactory)
+- uid: DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
+  name: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions<DataExplorerEfCoreConfiguration>, IEfDataExplorerTypeCache, ICachedInstanceFactory)
+  href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_AutoMapper_IMapper_Microsoft_Extensions_Options_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_
+  commentId: M:DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
+  name.vb: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorerEfCoreConfiguration), IEfDataExplorerTypeCache, ICachedInstanceFactory)
+  fullName: DataExplorer.EfCore.UnitOfWork<TContext>.UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, AutoMapper.IMapper, Microsoft.Extensions.Options.IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>, DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
+  fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, AutoMapper.IMapper, Microsoft.Extensions.Options.IOptions(Of DataExplorer.EfCore.DataExplorerEfCoreConfiguration), DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
+  nameWithType: UnitOfWork<TContext>.UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions<DataExplorerEfCoreConfiguration>, IEfDataExplorerTypeCache, ICachedInstanceFactory)
+  nameWithType.vb: UnitOfWork(Of TContext).UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorerEfCoreConfiguration), IEfDataExplorerTypeCache, ICachedInstanceFactory)
 - uid: DataExplorer.EfCore.UnitOfWork`1.#ctor*
   name: UnitOfWork
   href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1__ctor_
@@ -10974,23 +10527,6 @@ references:
   fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).GetRepositoryFor(Of TEntity, TId)()
   nameWithType: UnitOfWork<TContext>.GetRepositoryFor<TEntity, TId>()
   nameWithType.vb: UnitOfWork(Of TContext).GetRepositoryFor(Of TEntity, TId)()
-- uid: DataExplorer.EfCore.UnitOfWork`1.GridifyMapperProvider
-  name: GridifyMapperProvider
-  href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1_GridifyMapperProvider
-  commentId: P:DataExplorer.EfCore.UnitOfWork`1.GridifyMapperProvider
-  fullName: DataExplorer.EfCore.UnitOfWork<TContext>.GridifyMapperProvider
-  fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).GridifyMapperProvider
-  nameWithType: UnitOfWork<TContext>.GridifyMapperProvider
-  nameWithType.vb: UnitOfWork(Of TContext).GridifyMapperProvider
-- uid: DataExplorer.EfCore.UnitOfWork`1.GridifyMapperProvider*
-  name: GridifyMapperProvider
-  href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1_GridifyMapperProvider_
-  commentId: Overload:DataExplorer.EfCore.UnitOfWork`1.GridifyMapperProvider
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.UnitOfWork<TContext>.GridifyMapperProvider
-  fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).GridifyMapperProvider
-  nameWithType: UnitOfWork<TContext>.GridifyMapperProvider
-  nameWithType.vb: UnitOfWork(Of TContext).GridifyMapperProvider
 - uid: DataExplorer.EfCore.UnitOfWork`1.Mapper
   name: Mapper
   href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1_Mapper
@@ -11448,176 +10984,6 @@ references:
   isSpec: "True"
   fullName: DataExplorer.Extensions.StringExtensions.Contains
   nameWithType: StringExtensions.Contains
-- uid: DataExplorer.Gridify
-  name: DataExplorer.Gridify
-  href: api/DataExplorer.Gridify.html
-  commentId: N:DataExplorer.Gridify
-  fullName: DataExplorer.Gridify
-  nameWithType: DataExplorer.Gridify
-- uid: DataExplorer.Gridify.GridifyMapperProvider
-  name: GridifyMapperProvider
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html
-  commentId: T:DataExplorer.Gridify.GridifyMapperProvider
-  fullName: DataExplorer.Gridify.GridifyMapperProvider
-  nameWithType: GridifyMapperProvider
-- uid: DataExplorer.Gridify.GridifyMapperProvider.AddMapper*
-  name: AddMapper
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_AddMapper_
-  commentId: Overload:DataExplorer.Gridify.GridifyMapperProvider.AddMapper
-  isSpec: "True"
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.AddMapper
-  nameWithType: GridifyMapperProvider.AddMapper
-- uid: DataExplorer.Gridify.GridifyMapperProvider.AddMapper``1(Gridify.IGridifyMapper{``0})
-  name: AddMapper<T>(IGridifyMapper<T>)
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_AddMapper__1_Gridify_IGridifyMapper___0__
-  commentId: M:DataExplorer.Gridify.GridifyMapperProvider.AddMapper``1(Gridify.IGridifyMapper{``0})
-  name.vb: AddMapper(Of T)(IGridifyMapper(Of T))
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.AddMapper<T>(Gridify.IGridifyMapper<T>)
-  fullName.vb: DataExplorer.Gridify.GridifyMapperProvider.AddMapper(Of T)(Gridify.IGridifyMapper(Of T))
-  nameWithType: GridifyMapperProvider.AddMapper<T>(IGridifyMapper<T>)
-  nameWithType.vb: GridifyMapperProvider.AddMapper(Of T)(IGridifyMapper(Of T))
-- uid: DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor(System.Type)
-  name: GetMapperFor(Type)
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_GetMapperFor_System_Type_
-  commentId: M:DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor(System.Type)
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor(System.Type)
-  nameWithType: GridifyMapperProvider.GetMapperFor(Type)
-- uid: DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor*
-  name: GetMapperFor
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_GetMapperFor_
-  commentId: Overload:DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor
-  isSpec: "True"
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor
-  nameWithType: GridifyMapperProvider.GetMapperFor
-- uid: DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor``1
-  name: GetMapperFor<T>()
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_GetMapperFor__1
-  commentId: M:DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor``1
-  name.vb: GetMapperFor(Of T)()
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor<T>()
-  fullName.vb: DataExplorer.Gridify.GridifyMapperProvider.GetMapperFor(Of T)()
-  nameWithType: GridifyMapperProvider.GetMapperFor<T>()
-  nameWithType.vb: GridifyMapperProvider.GetMapperFor(Of T)()
-- uid: DataExplorer.Gridify.GridifyMapperProvider.Mappers
-  name: Mappers
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_Mappers
-  commentId: P:DataExplorer.Gridify.GridifyMapperProvider.Mappers
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.Mappers
-  nameWithType: GridifyMapperProvider.Mappers
-- uid: DataExplorer.Gridify.GridifyMapperProvider.Mappers*
-  name: Mappers
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_Mappers_
-  commentId: Overload:DataExplorer.Gridify.GridifyMapperProvider.Mappers
-  isSpec: "True"
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.Mappers
-  nameWithType: GridifyMapperProvider.Mappers
-- uid: DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor(System.Type,System.Object@)
-  name: TryGetMapperFor(Type, out Object)
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_TryGetMapperFor_System_Type_System_Object__
-  commentId: M:DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor(System.Type,System.Object@)
-  name.vb: TryGetMapperFor(Type, ByRef Object)
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor(System.Type, out System.Object)
-  fullName.vb: DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor(System.Type, ByRef System.Object)
-  nameWithType: GridifyMapperProvider.TryGetMapperFor(Type, out Object)
-  nameWithType.vb: GridifyMapperProvider.TryGetMapperFor(Type, ByRef Object)
-- uid: DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor*
-  name: TryGetMapperFor
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_TryGetMapperFor_
-  commentId: Overload:DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor
-  isSpec: "True"
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor
-  nameWithType: GridifyMapperProvider.TryGetMapperFor
-- uid: DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor``1(Gridify.IGridifyMapper{``0}@)
-  name: TryGetMapperFor<T>(out IGridifyMapper<T>)
-  href: api/DataExplorer.Gridify.GridifyMapperProvider.html#DataExplorer_Gridify_GridifyMapperProvider_TryGetMapperFor__1_Gridify_IGridifyMapper___0___
-  commentId: M:DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor``1(Gridify.IGridifyMapper{``0}@)
-  name.vb: TryGetMapperFor(Of T)(ByRef IGridifyMapper(Of T))
-  fullName: DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor<T>(out Gridify.IGridifyMapper<T>)
-  fullName.vb: DataExplorer.Gridify.GridifyMapperProvider.TryGetMapperFor(Of T)(ByRef Gridify.IGridifyMapper(Of T))
-  nameWithType: GridifyMapperProvider.TryGetMapperFor<T>(out IGridifyMapper<T>)
-  nameWithType.vb: GridifyMapperProvider.TryGetMapperFor(Of T)(ByRef IGridifyMapper(Of T))
-- uid: DataExplorer.Gridify.IGridifyMapperProvider
-  name: IGridifyMapperProvider
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html
-  commentId: T:DataExplorer.Gridify.IGridifyMapperProvider
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider
-  nameWithType: IGridifyMapperProvider
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.AddMapper*
-  name: AddMapper
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_AddMapper_
-  commentId: Overload:DataExplorer.Gridify.IGridifyMapperProvider.AddMapper
-  isSpec: "True"
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.AddMapper
-  nameWithType: IGridifyMapperProvider.AddMapper
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.AddMapper``1(Gridify.IGridifyMapper{``0})
-  name: AddMapper<T>(IGridifyMapper<T>)
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_AddMapper__1_Gridify_IGridifyMapper___0__
-  commentId: M:DataExplorer.Gridify.IGridifyMapperProvider.AddMapper``1(Gridify.IGridifyMapper{``0})
-  name.vb: AddMapper(Of T)(IGridifyMapper(Of T))
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.AddMapper<T>(Gridify.IGridifyMapper<T>)
-  fullName.vb: DataExplorer.Gridify.IGridifyMapperProvider.AddMapper(Of T)(Gridify.IGridifyMapper(Of T))
-  nameWithType: IGridifyMapperProvider.AddMapper<T>(IGridifyMapper<T>)
-  nameWithType.vb: IGridifyMapperProvider.AddMapper(Of T)(IGridifyMapper(Of T))
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor(System.Type)
-  name: GetMapperFor(Type)
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_GetMapperFor_System_Type_
-  commentId: M:DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor(System.Type)
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor(System.Type)
-  nameWithType: IGridifyMapperProvider.GetMapperFor(Type)
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor*
-  name: GetMapperFor
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_GetMapperFor_
-  commentId: Overload:DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor
-  isSpec: "True"
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor
-  nameWithType: IGridifyMapperProvider.GetMapperFor
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor``1
-  name: GetMapperFor<T>()
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_GetMapperFor__1
-  commentId: M:DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor``1
-  name.vb: GetMapperFor(Of T)()
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor<T>()
-  fullName.vb: DataExplorer.Gridify.IGridifyMapperProvider.GetMapperFor(Of T)()
-  nameWithType: IGridifyMapperProvider.GetMapperFor<T>()
-  nameWithType.vb: IGridifyMapperProvider.GetMapperFor(Of T)()
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.Mappers
-  name: Mappers
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_Mappers
-  commentId: P:DataExplorer.Gridify.IGridifyMapperProvider.Mappers
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.Mappers
-  nameWithType: IGridifyMapperProvider.Mappers
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.Mappers*
-  name: Mappers
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_Mappers_
-  commentId: Overload:DataExplorer.Gridify.IGridifyMapperProvider.Mappers
-  isSpec: "True"
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.Mappers
-  nameWithType: IGridifyMapperProvider.Mappers
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor(System.Type,System.Object@)
-  name: TryGetMapperFor(Type, out Object)
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_TryGetMapperFor_System_Type_System_Object__
-  commentId: M:DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor(System.Type,System.Object@)
-  name.vb: TryGetMapperFor(Type, ByRef Object)
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor(System.Type, out System.Object)
-  fullName.vb: DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor(System.Type, ByRef System.Object)
-  nameWithType: IGridifyMapperProvider.TryGetMapperFor(Type, out Object)
-  nameWithType.vb: IGridifyMapperProvider.TryGetMapperFor(Type, ByRef Object)
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor*
-  name: TryGetMapperFor
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_TryGetMapperFor_
-  commentId: Overload:DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor
-  isSpec: "True"
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor
-  nameWithType: IGridifyMapperProvider.TryGetMapperFor
-- uid: DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor``1(Gridify.IGridifyMapper{``0}@)
-  name: TryGetMapperFor<T>(out IGridifyMapper<T>)
-  href: api/DataExplorer.Gridify.IGridifyMapperProvider.html#DataExplorer_Gridify_IGridifyMapperProvider_TryGetMapperFor__1_Gridify_IGridifyMapper___0___
-  commentId: M:DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor``1(Gridify.IGridifyMapper{``0}@)
-  name.vb: TryGetMapperFor(Of T)(ByRef IGridifyMapper(Of T))
-  fullName: DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor<T>(out Gridify.IGridifyMapper<T>)
-  fullName.vb: DataExplorer.Gridify.IGridifyMapperProvider.TryGetMapperFor(Of T)(ByRef Gridify.IGridifyMapper(Of T))
-  nameWithType: IGridifyMapperProvider.TryGetMapperFor<T>(out IGridifyMapper<T>)
-  nameWithType.vb: IGridifyMapperProvider.TryGetMapperFor(Of T)(ByRef IGridifyMapper(Of T))
 - uid: DataExplorer.IdGenerator
   name: DataExplorer.IdGenerator
   href: api/DataExplorer.IdGenerator.html
