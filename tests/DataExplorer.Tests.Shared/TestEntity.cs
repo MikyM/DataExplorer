@@ -17,7 +17,9 @@ public class TestEntity : Entity, ICreatedAt, IUpdatedAt
         {
             Name = "a"
         };
+        
         ent.SetId(Random.Shared.NextInt64());
+        
         return ent;
     }
 }

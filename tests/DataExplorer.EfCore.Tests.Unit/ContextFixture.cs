@@ -23,19 +23,26 @@ public class ContextFixture
 
     public Mock<IEfDbContext> GetEfDbContextMock() => new();
 
-    public Mock<ITestContext> GetITextContextMock(bool callBase = true) => new() { CallBase = callBase };
+    public Mock<ITestContext> GetITestContextMock(bool callBase = true) => new() { CallBase = callBase };
 
-    public ITestContext GetTextContext(DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool ensureCreated = true)
+    public ITestContext GetTestContext(DateTimeStrategy strategy = DateTimeStrategy.UtcNow, DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool ensureCreated = true)
     {
-        var opt = Options.Create(new DataExplorerEfCoreConfiguration(new ServiceCollection()));
+        var config = new DataExplorerEfCoreConfiguration(new ServiceCollection());
+        
+        config.DateTimeStrategy = strategy;
+        
+        var opt = Options.Create(config);
+        
         var inMemoryDatabase = new DbContextOptionsBuilder().UseInMemoryDatabase("test");
+        
         var ctx = new TestContext(inMemoryDatabase.Options, opt, dataExplorerTimeProvider ?? DataExplorerTimeProvider.Instance);
+        
         if (ensureCreated)
             ctx.Database.EnsureCreated();
         return ctx;
     }
     
-    public ITestContext GetTextContext(DataExplorerEfCoreConfiguration config, DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool ensureCreated = true)
+    public ITestContext GetTestContext(DataExplorerEfCoreConfiguration config, DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool ensureCreated = true)
     {
         var opt = Options.Create(config);
         var inMemoryDatabase = new DbContextOptionsBuilder().UseInMemoryDatabase("test");

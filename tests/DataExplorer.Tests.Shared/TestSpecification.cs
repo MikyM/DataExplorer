@@ -27,7 +27,7 @@ public class TestSpecificationTransform : Specification<TestEntity, TestEntityOf
 }
 
 #if NET7_0_OR_GREATER
-public class TestUpdateSpecification : UpdateSpecification<TestEntity>
+public sealed class TestUpdateSpecification : UpdateSpecification<TestEntity>
 {
     public TestUpdateSpecification(long id)
     {

@@ -125,10 +125,17 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     {
         entries ??= GetTrackedEntries();
         
-        var now = Config.Value.DateTimeStrategy switch
+        var nowOffset = Config.Value.DateTimeStrategy switch
         {
             DateTimeStrategy.UtcNow => TimeProvider.GetUtcNow(),
             DateTimeStrategy.Now => TimeProvider.GetLocalNow(),
+            _ => throw new ArgumentOutOfRangeException()
+        };
+        
+        var now = Config.Value.DateTimeStrategy switch
+        {
+            DateTimeStrategy.UtcNow => TimeProvider.GetUtcNow().DateTime.ToUniversalTime(),
+            DateTimeStrategy.Now => TimeProvider.GetLocalNow().DateTime.ToLocalTime(),
             _ => throw new ArgumentOutOfRangeException()
         };
         
@@ -140,34 +147,34 @@ public abstract class EfDbContext : DbContext, IEfDbContext
                     case EntityState.Added:
                         if (entity is ICreatedAt { CreatedAt: null } createdAt)
                         {
-                            createdAt.CreatedAt = now.DateTime;
+                            createdAt.CreatedAt = now;
                             entry.Property(nameof(ICreatedAt.CreatedAt)).IsModified = true;
                         }
                         if (entity is ICreatedAtOffset { CreatedAt: null } createdAtOffset)
                         {
-                            createdAtOffset.CreatedAt = now;
+                            createdAtOffset.CreatedAt = nowOffset;
                             entry.Property(nameof(ICreatedAtOffset.CreatedAt)).IsModified = true;
                         }
                         if (entity is IUpdatedAt { UpdatedAt: null } addedUpdatedAt)
                         {
-                            addedUpdatedAt.UpdatedAt = now.DateTime;
+                            addedUpdatedAt.UpdatedAt = now;
                             entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified = true;
                         }
                         if (entity is IUpdatedAtOffset { UpdatedAt: null } addedUpdatedAtOffset)
                         {
-                            addedUpdatedAtOffset.UpdatedAt = now;
+                            addedUpdatedAtOffset.UpdatedAt = nowOffset;
                             entry.Property(nameof(IUpdatedAtOffset.UpdatedAt)).IsModified = true;
                         }
                         break;
                     case EntityState.Modified:
                         if (entity is IUpdatedAt updatedAt && !entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified)
                         {
-                            updatedAt.UpdatedAt = now.DateTime;
+                            updatedAt.UpdatedAt = now;
                             entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified = true;
                         }
                         if (entity is IUpdatedAtOffset updatedAtOffset && !entry.Property(nameof(IUpdatedAt.UpdatedAt)).IsModified)
                         {
-                            updatedAtOffset.UpdatedAt = now;
+                            updatedAtOffset.UpdatedAt = nowOffset;
                             entry.Property(nameof(IUpdatedAtOffset.UpdatedAt)).IsModified = true;
                         }
                         break;

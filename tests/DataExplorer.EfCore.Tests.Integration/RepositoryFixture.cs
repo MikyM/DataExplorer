@@ -75,7 +75,7 @@ public class RepositoryFixture : IDisposable
 
     private void InitEntity()
     {
-        var now = DateTime.UtcNow;
+        var now = DateTime.Now.ToUniversalTime();
         
         var ent1 = new TestEntity
         {

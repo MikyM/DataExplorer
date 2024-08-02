@@ -36,6 +36,7 @@ public static class ExpressionExtensions
 
         var left = new ReplaceExpressionVisitor(leftExpression.Parameters[0], newSharedParam)
             .Visit(leftExpression.Body);
+        
         var right =
             new ReplaceExpressionVisitor(rightExpression.Parameters[0], left ?? throw new InvalidOperationException())
                 .Visit(rightExpression.Body);
@@ -54,27 +55,22 @@ public static class ExpressionExtensions
         if (expressions.Length == 2)
             return expressions[0].Join(expressions[1]);
 
-        var newSharedParam = Expression.Parameter(typeof(SetPropertyCalls<T>), "arbitraryParamDataExplorer");
+        var newSharedParam = Expression.Parameter(typeof(SetPropertyCalls<T>), "joinParam");
 
-        var newExp = expressions[0].Join(expressions[1], newSharedParam, false);
+        var newExp = expressions[0].Join(expressions[1], newSharedParam);
+        
         for (var i = 2; i < expressions.Length; i++)
-            newExp = newExp.Join(expressions[i], newSharedParam, true);
+            newExp = newExp.Join(expressions[i], newSharedParam);
 
         return newExp;
     }
     
     private static Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> Join<T>(this
             Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> leftExpression,
-        Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> rightExpression, ParameterExpression parameterExpression, bool skipReplaceParamInLeft)
+        Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> rightExpression, ParameterExpression parameterExpression)
     {
-        Expression? left = null;
-        if (!skipReplaceParamInLeft)
-        {
-            left = new ReplaceExpressionVisitor(leftExpression.Parameters[0], parameterExpression)
-                .Visit(leftExpression.Body);
-        }
-
-        left ??= leftExpression;
+        var left = new ReplaceExpressionVisitor(leftExpression.Parameters[0], parameterExpression)
+            .Visit(leftExpression.Body) ?? throw new InvalidOperationException();
 
         var right = new ReplaceExpressionVisitor(rightExpression.Parameters[0], left).Visit(rightExpression.Body);
 
