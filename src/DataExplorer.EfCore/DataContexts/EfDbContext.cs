@@ -134,8 +134,8 @@ public abstract class EfDbContext : DbContext, IEfDbContext
         
         var now = Config.Value.DateTimeStrategy switch
         {
-            DateTimeStrategy.UtcNow => TimeProvider.GetUtcNow().DateTime.ToUniversalTime(),
-            DateTimeStrategy.Now => TimeProvider.GetLocalNow().DateTime.ToLocalTime(),
+            DateTimeStrategy.UtcNow => nowOffset.DateTime.ToUniversalTime(),
+            DateTimeStrategy.Now => nowOffset.DateTime.ToLocalTime(),
             _ => throw new ArgumentOutOfRangeException()
         };
         
