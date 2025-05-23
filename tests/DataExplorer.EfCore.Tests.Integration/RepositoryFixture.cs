@@ -5,6 +5,7 @@ using DataExplorer.EfCore.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.Tests.Shared;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Testcontainers.PostgreSql;
@@ -63,6 +64,11 @@ public class RepositoryFixture : IDisposable
         _container.StartAsync().Wait();
         
         var optionsBuilder = new DbContextOptionsBuilder<TestIntegrationContext>();
+        
+#if NET9_0_OR_GREATER
+        optionsBuilder.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
+#endif
+        
         optionsBuilder.UseNpgsql(_container.GetConnectionString());
         _dbContextOptions = optionsBuilder.Options;
         
