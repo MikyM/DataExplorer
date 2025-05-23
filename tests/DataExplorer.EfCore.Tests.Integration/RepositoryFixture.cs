@@ -68,9 +68,9 @@ public class RepositoryFixture : IDisposable
         _container.StartAsync().Wait();
         
         var optionsBuilder = new DbContextOptionsBuilder<TestIntegrationContext>();
-        
+
 #if NET9_0_OR_GREATER
-        optionsBuilder.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
+        optionsBuilder.ConfigureWarnings(x => x.Ignore(RelationalEventId.PendingModelChangesWarning));
 #endif
         
         optionsBuilder.UseNpgsql(_container.GetConnectionString());
@@ -79,59 +79,6 @@ public class RepositoryFixture : IDisposable
         var initCtx = new TestIntegrationContext(_dbContextOptions, _config, _timeProvider);
         initCtx.Database.Migrate();
         initCtx.Dispose();
-        
-        InitEntity();
-    }
-
-    private void InitEntity()
-    {
-        var now = DateTime.Now.ToUniversalTime();
-        
-        var ent1 = new TestEntity
-        {
-            Name = "test1",
-            Description = "test1",
-            CreatedAt = now,
-            UpdatedAt = now
-        };
-        ent1.SetId(1);
-        var ent2 = new TestEntity
-        {
-            Name = "test2",
-            Description = "test2",
-            CreatedAt = now,
-            UpdatedAt = now
-        };
-        ent2.SetId(2);
-        var ent3 = new TestEntity
-        {
-            Name = "test3",
-            Description = "test3",
-            CreatedAt = now,
-            UpdatedAt = now
-        };
-        ent3.SetId(3);
-        var ent4 = new TestEntity
-        {
-            Name = "test4",
-            Description = "test4",
-            CreatedAt = now,
-            UpdatedAt = now
-        };
-        ent4.SetId(4);
-        var ent5 = new TestEntity
-        {
-            Name = "test5",
-            Description = "test5",
-            CreatedAt = now,
-            UpdatedAt = now
-        };
-        ent5.SetId(5);
-        
-        var ctx = new TestIntegrationContext(_dbContextOptions, _config, _timeProvider);
-        ctx.AddRange(ent1, ent2, ent3, ent4, ent5);
-        ctx.SaveChanges();
-        ctx.Dispose();
     }
 
     public void Dispose()

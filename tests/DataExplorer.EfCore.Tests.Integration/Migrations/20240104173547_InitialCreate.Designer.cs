@@ -38,7 +38,8 @@ namespace DataExplorer.EfCore.Tests.Integration.Migrations
                         .HasColumnName("created_at");
 
                     b.Property<string>("Description")
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("description");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -50,41 +51,14 @@ namespace DataExplorer.EfCore.Tests.Integration.Migrations
                         .HasColumnName("updated_at");
 
                     b.Property<int>("Version")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("version");
 
                     b.HasKey("Id");
 
                     b.ToTable("test_entity", (string)null);
                 });
-
-            modelBuilder.Entity("DataExplorer.Tests.Shared.TestEntityOffset", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<DateTimeOffset?>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("Version")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TestEntityOffset");
-                });
+            
 #pragma warning restore 612, 618
         }
     }

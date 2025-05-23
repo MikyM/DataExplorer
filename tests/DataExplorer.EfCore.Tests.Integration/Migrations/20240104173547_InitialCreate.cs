@@ -14,34 +14,29 @@ namespace DataExplorer.EfCore.Tests.Integration.Migrations
                 name: "test_entity",
                 columns: table => new
                 {
-                    id = table.Column<long>(type: "bigint", nullable: false)
+                    id = table.Column<long>(type: "bigint", nullable: false, name: "id")
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    Version = table.Column<int>(type: "integer", nullable: false),
-                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
+                    description = table.Column<string>(type: "text", nullable: true, name: "description"),
+                    version = table.Column<int>(type: "integer", nullable: false, name: "version"),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, name: "created_at"),
+                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true, name: "updated_at"),
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_test_entity", x => x.id);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "TestEntityOffset",
-                columns: table => new
+            
+            migrationBuilder.InsertData(
+                table: "test_entity",
+                columns: new[] { "id", "name", "description", "version", "created_at", "updated_at" },
+                values: new object[,]
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    Version = table.Column<int>(type: "integer", nullable: false),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
-                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TestEntityOffset", x => x.Id);
+                    { 1, "test1", "test1", 1, new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc), new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { 2, "test2", "test2", 1, new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc), new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { 3, "test3", "test3", 1, new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc), new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { 4, "test4", "test4", 1, new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc), new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { 5, "test5", "test5", 1, new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc), new DateTime(2025, 5, 5, 0, 0, 0, 0, DateTimeKind.Utc) }
                 });
         }
 
@@ -49,9 +44,6 @@ namespace DataExplorer.EfCore.Tests.Integration.Migrations
         {
             migrationBuilder.DropTable(
                 name: "test_entity");
-
-            migrationBuilder.DropTable(
-                name: "TestEntityOffset");
         }
     }
 }

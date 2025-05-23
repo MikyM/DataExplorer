@@ -6,10 +6,10 @@ namespace DataExplorer.EfCore.Tests.Integration.Specifications;
 
 #if NET7_0_OR_GREATER
 
-[CollectionDefinition("ReadOnlyRepositoryTests")]
+[CollectionDefinition("UpdateEvaluatorTests")]
 public class UpdateEvaluatorTests : ICollectionFixture<RepositoryFixture>
 {
-    [Collection("ReadOnlyRepositoryTests")]
+    [Collection("UpdateEvaluatorTests")]
     public class EvaluateShould
     {
         private readonly RepositoryFixture _fixture;
