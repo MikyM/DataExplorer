@@ -40,6 +40,23 @@ public class RepositoryFixture : IDisposable
     
     private readonly PostgreSqlContainer _container;
     
+    private readonly Stack<int> _ports = new Stack<int>(Enumerable.Range(5432, 5999));
+
+#if NET9_0_OR_GREATER
+    private readonly Lock _portLock = new();
+ #else
+    private readonly object _portLock = new();
+#endif
+
+
+    private int GetPostgresPort()
+    {
+        lock (_portLock)
+        {
+            return _ports.Pop();
+        }
+    }
+    
     public RepositoryFixture()
     {
         _config = Options.Create(new DataExplorerEfCoreConfiguration(new ServiceCollection()));
@@ -53,12 +70,14 @@ public class RepositoryFixture : IDisposable
         });
         _mapper = config.CreateMapper();
         
+        var port = GetPostgresPort();
+        
         _container = new PostgreSqlBuilder()
             .WithDatabase("test")
             .WithPassword("test")
             .WithUsername("test")
-            .WithImage("postgres:16.1-bookworm")
-            .WithPortBinding(5432, 5432)
+            .WithImage("postgres:17.5-bookworm")
+            .WithPortBinding(port, port)
             .Build();
         
         _container.StartAsync().Wait();
