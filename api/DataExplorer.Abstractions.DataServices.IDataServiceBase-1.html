@@ -100,18 +100,12 @@
   <div class="markdown level0 summary"><p>Represents a base data service.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.IDisposable.Dispose()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Abstractions.DataServices.html">DataExplorer.Abstractions.DataServices</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TContext : IDataContextBase</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IDataServiceBase&lt;out TContext&gt;
+    where TContext : IDataContextBase</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -187,7 +181,7 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">AutoMapper.IMapper</span></td>
+        <td><span class="xref">IMapper</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -227,19 +221,19 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IDataServiceBase_1_CommitAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IDataServiceBase%601.CommitAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IDataServiceBase_1_CommitAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IDataServiceBase%601.CommitAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IDataServiceBase.cs/#L33">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_CommitAsync_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.CommitAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_CommitAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.CommitAsync(System.Threading.CancellationToken)">CommitAsync(CancellationToken)</h4>
+  <h4 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_CommitAsync_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.CommitAsync(CancellationToken)">CommitAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Commits pending changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&gt; CommitAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&gt; CommitAsync(CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -252,7 +246,7 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -269,26 +263,26 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IDataServiceBase_1_RollbackAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IDataServiceBase%601.RollbackAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IDataServiceBase_1_RollbackAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IDataServiceBase%601.RollbackAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IDataServiceBase.cs/#L40">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_RollbackAsync_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.RollbackAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_RollbackAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.RollbackAsync(System.Threading.CancellationToken)">RollbackAsync(CancellationToken)</h4>
+  <h4 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_RollbackAsync_CancellationToken_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.RollbackAsync(CancellationToken)">RollbackAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Rolls the current transaction back.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&gt; RollbackAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&gt; RollbackAsync(CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -301,7 +295,7 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -318,21 +312,21 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&gt;</td>
-        <td><p>Task with a <span class="xref">Remora.Results.Result</span> representing the async operation.</p>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&gt;</td>
+        <td><p>Task with a <see cref="!:Result"></see> representing the async operation.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_System_Func_System_Threading_Tasks_Task__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IDataServiceBase%601.WrapAsync(System.Func%7BSystem.Threading.Tasks.Task%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_Func_Task__System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IDataServiceBase%601.WrapAsync(Func%7BTask%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IDataServiceBase.cs/#L57">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.WrapAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_System_Func_System_Threading_Tasks_Task__System_Boolean_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.WrapAsync(System.Func{System.Threading.Tasks.Task},System.Boolean)">WrapAsync(Func&lt;Task&gt;, Boolean)</h4>
+  <h4 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_Func_Task__System_Boolean_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.WrapAsync(Func{Task},System.Boolean)">WrapAsync(Func&lt;Task&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Wraps a call in a try catch block.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -351,7 +345,7 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</td>
         <td><span class="parametername">func</span></td>
         <td><p>Func to wrap.</p>
 </td>
@@ -374,7 +368,7 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&gt;</td>
         <td><p>Result of the call.</p>
 </td>
       </tr>
@@ -382,13 +376,13 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IDataServiceBase%601.WrapAsync%60%601(System.Func%7BSystem.Threading.Tasks.Task%7B%60%600%7D%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync__1_Func_Task___0___System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.DataServices.IDataServiceBase%601.WrapAsync%60%601(Func%7BTask%7B%60%600%7D%7D%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/DataServices/IDataServiceBase.cs/#L49">View Source</a>
   </span>
   <a id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.WrapAsync*"></a>
-  <h4 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Boolean_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.WrapAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Boolean)">WrapAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult&gt;&gt;, Boolean)</h4>
+  <h4 id="DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync__1_Func_Task___0___System_Boolean_" data-uid="DataExplorer.Abstractions.DataServices.IDataServiceBase`1.WrapAsync``1(Func{Task{``0}},System.Boolean)">WrapAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult&gt;&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Wraps a call in a try catch block.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -407,7 +401,7 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;TResult&gt;&gt;</td>
         <td><span class="parametername">func</span></td>
         <td><p>Func to wrap.</p>
 </td>
@@ -430,7 +424,7 @@ public interface IDataServiceBase&lt;out TContext&gt; : IDisposable where TConte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;TResult&gt;&gt;</td>
         <td><p>Result of the call.</p>
 </td>
       </tr>

@@ -105,36 +105,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">SnowflakeIdFactory</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.IdGenerator.html">DataExplorer.IdGenerator</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_IdGenerator_SnowflakeIdFactory_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public static class SnowflakeIdFactory</code></pre>
+    <pre><code class="lang-csharp hljs">public static class SnowflakeIdFactory : object</code></pre>
   </div>
   <h3 id="fields">Fields
 </h3>
@@ -151,7 +126,7 @@ public static class SnowflakeIdFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const int DefaultFactoryId = 1</code></pre>
+    <pre><code class="lang-csharp hljs">public const int DefaultFactoryId = null</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -172,19 +147,19 @@ public static class SnowflakeIdFactory</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_IdGenerator_SnowflakeIdFactory_AddFactoryMethod_System_Func_System_Int64__System_Int32_.md&amp;value=---%0Auid%3A%20DataExplorer.IdGenerator.SnowflakeIdFactory.AddFactoryMethod(System.Func%7BSystem.Int64%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_IdGenerator_SnowflakeIdFactory_AddFactoryMethod_Func_System_Int64__System_Int32_.md&amp;value=---%0Auid%3A%20DataExplorer.IdGenerator.SnowflakeIdFactory.AddFactoryMethod(Func%7BSystem.Int64%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/IdGenerator/SnowflakeIdFactory.cs/#L24">View Source</a>
   </span>
   <a id="DataExplorer_IdGenerator_SnowflakeIdFactory_AddFactoryMethod_" data-uid="DataExplorer.IdGenerator.SnowflakeIdFactory.AddFactoryMethod*"></a>
-  <h4 id="DataExplorer_IdGenerator_SnowflakeIdFactory_AddFactoryMethod_System_Func_System_Int64__System_Int32_" data-uid="DataExplorer.IdGenerator.SnowflakeIdFactory.AddFactoryMethod(System.Func{System.Int64},System.Int32)">AddFactoryMethod(Func&lt;Int64&gt;, Int32)</h4>
+  <h4 id="DataExplorer_IdGenerator_SnowflakeIdFactory_AddFactoryMethod_Func_System_Int64__System_Int32_" data-uid="DataExplorer.IdGenerator.SnowflakeIdFactory.AddFactoryMethod(Func{System.Int64},System.Int32)">AddFactoryMethod(Func&lt;Int64&gt;, Int32)</h4>
   <div class="markdown level1 summary"><p>Adds a specified creation factory.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void AddFactoryMethod(Func&lt;long&gt; creationFactory, int factoryId = 1)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void AddFactoryMethod(Func&lt;long&gt; creationFactory, int factoryId = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -197,7 +172,7 @@ public static class SnowflakeIdFactory</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
         <td><span class="parametername">creationFactory</span></td>
         <td><p>The creation factory.</p>
 </td>
@@ -224,7 +199,7 @@ public static class SnowflakeIdFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static long CreateId(int factoryId = 1)</code></pre>
+    <pre><code class="lang-csharp hljs">public static long CreateId(int factoryId = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -274,7 +249,7 @@ public static class SnowflakeIdFactory</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void RemoveFactoryMethod(int factoryId = 1)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void RemoveFactoryMethod(int factoryId = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

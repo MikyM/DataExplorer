@@ -108,7 +108,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">Microsoft.Extensions.Options.IOptions</span>&lt;<a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a>&gt;</div>
+    <div><span class="xref">IOptions</span>&lt;<a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -118,46 +118,24 @@
     <div>
       <a class="xref" href="DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_ServiceCollection">DataExplorerConfigurationBase.ServiceCollection</a>
     </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_DataExplorerConfiguration_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, IOptions&lt;DataExplorerConfiguration&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration__ctor_Autofac_ContainerBuilder_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.%23ctor(Autofac.ContainerBuilder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration__ctor_ContainerBuilder_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.%23ctor(ContainerBuilder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L29">View Source</a>
   </span>
   <a id="DataExplorer_DataExplorerConfiguration__ctor_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor*"></a>
-  <h4 id="DataExplorer_DataExplorerConfiguration__ctor_Autofac_ContainerBuilder_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor(Autofac.ContainerBuilder)">DataExplorerConfiguration(ContainerBuilder)</h4>
+  <h4 id="DataExplorer_DataExplorerConfiguration__ctor_ContainerBuilder_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor(ContainerBuilder)">DataExplorerConfiguration(ContainerBuilder)</h4>
   <div class="markdown level1 summary"><p>Creates an instance of the configuration class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -176,7 +154,7 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Autofac.ContainerBuilder</span></td>
+        <td><span class="xref">ContainerBuilder</span></td>
         <td><span class="parametername">builder</span></td>
         <td></td>
       </tr>
@@ -217,13 +195,13 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.%23ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration__ctor_IServiceCollection_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.%23ctor(IServiceCollection)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L22">View Source</a>
   </span>
   <a id="DataExplorer_DataExplorerConfiguration__ctor_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor*"></a>
-  <h4 id="DataExplorer_DataExplorerConfiguration__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">DataExplorerConfiguration(IServiceCollection)</h4>
+  <h4 id="DataExplorer_DataExplorerConfiguration__ctor_IServiceCollection_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor(IServiceCollection)">DataExplorerConfiguration(IServiceCollection)</h4>
   <div class="markdown level1 summary"><p>Creates an instance of the configuration class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -242,7 +220,7 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
+        <td><span class="xref">IServiceCollection</span></td>
         <td><span class="parametername">serviceCollection</span></td>
         <td></td>
       </tr>
@@ -276,7 +254,7 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">AutoMapper.IMapperConfigurationExpression</span>&gt;</td>
+        <td><span class="xref">Action</span>&lt;<span class="xref">IMapperConfigurationExpression</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -307,7 +285,7 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Reflection.Assembly</span>&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">Assembly</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -316,19 +294,19 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_System_Func_IdGen_IdGeneratorOptions__.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32%2CSystem.Func%7BIdGen.IdGeneratorOptions%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_Func_IdGen_IdGeneratorOptions__.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32%2CFunc%7BIdGen.IdGeneratorOptions%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L77">View Source</a>
   </span>
   <a id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration*"></a>
-  <h4 id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_System_Func_IdGen_IdGeneratorOptions__" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32,System.Func{IdGen.IdGeneratorOptions})">AddSnowflakeIdGeneration(Int32, Func&lt;IdGeneratorOptions&gt;)</h4>
+  <h4 id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_Func_IdGen_IdGeneratorOptions__" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32,Func{IdGen.IdGeneratorOptions})">AddSnowflakeIdGeneration(Int32, Func&lt;IdGen.IdGeneratorOptions&gt;)</h4>
   <div class="markdown level1 summary"><p>Registers required Id generator services with the given <code data-dev-comment-type="paramref" class="paramref">generatorId</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId, Func&lt;IdGeneratorOptions&gt; options)</code></pre>
+    <pre><code class="lang-csharp hljs">public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId, Func&lt;IdGen.IdGeneratorOptions&gt; options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -347,9 +325,9 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">IdGen.IdGeneratorOptions</span>&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">IdGen.IdGeneratorOptions</span>&gt;</td>
         <td><span class="parametername">options</span></td>
-        <td><p>The <span class="xref">IdGen.IdGeneratorOptions</span> for the singleton <a class="xref" href="DataExplorer.IdGenerator.html">DataExplorer.IdGenerator</a>.</p>
+        <td><p>The <see cref="!:IdGen.IdGeneratorOptions"></see> for the singleton <a class="xref" href="DataExplorer.IdGenerator.html">DataExplorer.IdGenerator</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -468,61 +446,28 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
       </tr>
     </tbody>
   </table>
-  <h3 id="eii">Explicit Interface Implementations
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_DataExplorerConfiguration__Value.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.Microsoft%23Extensions%23Options%23IOptions%7BDataExplorer%23DataExplorerConfiguration%7D%23Value%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L112">View Source</a>
-  </span>
-  <a id="DataExplorer_DataExplorerConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_DataExplorerConfiguration__Value_" data-uid="DataExplorer.DataExplorerConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#DataExplorerConfiguration}#Value*"></a>
-  <h4 id="DataExplorer_DataExplorerConfiguration_Microsoft_Extensions_Options_IOptions_DataExplorer_DataExplorerConfiguration__Value" data-uid="DataExplorer.DataExplorerConfiguration.Microsoft#Extensions#Options#IOptions{DataExplorer#DataExplorerConfiguration}#Value">IOptions&lt;DataExplorerConfiguration&gt;.Value</h4>
-  <div class="markdown level1 summary"><p>Configuration of the data explorer.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">DataExplorerConfiguration IOptions&lt;DataExplorerConfiguration&gt;.Value { get; }</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">Microsoft.Extensions.Options.IOptions&lt;TOptions&gt;</span>
+      <span class="xref">IOptions&lt;&gt;</span>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_System_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__System_Reflection_Assembly___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, Action&lt;DataExplorerEfCoreConfiguration&gt;, Assembly[])</a>
+      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__Assembly___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, Action&lt;DataExplorerEfCoreConfiguration&gt;, Assembly[])</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_System_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__System_Type___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, Action&lt;DataExplorerEfCoreConfiguration&gt;, Type[])</a>
+      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__Type___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, Action&lt;DataExplorerEfCoreConfiguration&gt;, Type[])</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_System_Collections_Generic_IEnumerable_System_Reflection_Assembly__System_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Assembly&gt;, Action&lt;DataExplorerEfCoreConfiguration&gt;)</a>
+      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_IEnumerable_Assembly__IEnumerable_Assembly__System_Nullable_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Assembly&gt;, IEnumerable&lt;Assembly&gt;, Nullable&lt;Action&lt;DataExplorerEfCoreConfiguration&gt;&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_System_Collections_Generic_IEnumerable_System_Reflection_Assembly__System_Collections_Generic_IEnumerable_System_Reflection_Assembly__System_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Assembly&gt;, IEnumerable&lt;Assembly&gt;, Action&lt;DataExplorerEfCoreConfiguration&gt;)</a>
+      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_IEnumerable_Assembly__System_Nullable_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Assembly&gt;, Nullable&lt;Action&lt;DataExplorerEfCoreConfiguration&gt;&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_System_Collections_Generic_IEnumerable_System_Type__System_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Type&gt;, Action&lt;DataExplorerEfCoreConfiguration&gt;)</a>
+      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_IEnumerable_Type__IEnumerable_Type__System_Nullable_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Type&gt;, IEnumerable&lt;Type&gt;, Nullable&lt;Action&lt;DataExplorerEfCoreConfiguration&gt;&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_System_Collections_Generic_IEnumerable_System_Type__System_Collections_Generic_IEnumerable_System_Type__System_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Type&gt;, IEnumerable&lt;Type&gt;, Action&lt;DataExplorerEfCoreConfiguration&gt;)</a>
+      <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_IEnumerable_Type__System_Nullable_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Type&gt;, Nullable&lt;Action&lt;DataExplorerEfCoreConfiguration&gt;&gt;)</a>
   </div>
 </article>
               

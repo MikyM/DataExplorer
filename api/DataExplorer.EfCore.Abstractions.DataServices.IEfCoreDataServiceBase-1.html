@@ -109,27 +109,23 @@
       <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_Mapper">IDataServiceBase&lt;TContext&gt;.Mapper</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_CommitAsync_System_Threading_CancellationToken_">IDataServiceBase&lt;TContext&gt;.CommitAsync(CancellationToken)</a>
+      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_CommitAsync_CancellationToken_">IDataServiceBase&lt;TContext&gt;.CommitAsync(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_RollbackAsync_System_Threading_CancellationToken_">IDataServiceBase&lt;TContext&gt;.RollbackAsync(CancellationToken)</a>
+      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_RollbackAsync_CancellationToken_">IDataServiceBase&lt;TContext&gt;.RollbackAsync(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Boolean_">IDataServiceBase&lt;TContext&gt;.WrapAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult&gt;&gt;, Boolean)</a>
+      <span class="xref">DataExplorer.Abstractions.DataServices.IDataServiceBase&lt;TContext&gt;.WrapAsync&lt;TResult&gt;(Func&lt;&gt;, System.Boolean)</span>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.DataServices.IDataServiceBase-1.html#DataExplorer_Abstractions_DataServices_IDataServiceBase_1_WrapAsync_System_Func_System_Threading_Tasks_Task__System_Boolean_">IDataServiceBase&lt;TContext&gt;.WrapAsync(Func&lt;Task&gt;, Boolean)</a>
-    </div>
-    <div>
-      <span class="xref">System.IDisposable.Dispose()</span>
+      <span class="xref">DataExplorer.Abstractions.DataServices.IDataServiceBase&lt;TContext&gt;.WrapAsync(Func&lt;&gt;, System.Boolean)</span>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.Abstractions.DataServices.html">DataExplorer.EfCore.Abstractions.DataServices</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public interface IEfCoreDataServiceBase&lt;out TContext&gt; : IDataServiceBase&lt;TContext&gt;, IDisposable where TContext : class, IEfDbContext</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IEfCoreDataServiceBase&lt;out TContext&gt; : IDataServiceBase&lt;TContext&gt; where TContext : class, IEfDbContext</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -142,7 +138,7 @@ public interface IEfCoreDataServiceBase&lt;out TContext&gt; : IDataServiceBase&l
     <tbody>
       <tr>
         <td><span class="parametername">TContext</span></td>
-        <td><p>Type that derives from <span class="xref">Microsoft.EntityFrameworkCore.DbContext</span>.</p>
+        <td><p>Type that derives from <see cref="!:DbContext"></see>.</p>
 </td>
       </tr>
     </tbody>
@@ -184,19 +180,19 @@ public interface IEfCoreDataServiceBase&lt;out TContext&gt; : IDataServiceBase&l
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_CommitWithCountAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase%601.CommitWithCountAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_CommitWithCountAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase%601.CommitWithCountAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataServices/IEfCoreDataServiceBase.cs/#L27">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_CommitWithCountAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase`1.CommitWithCountAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_CommitWithCountAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase`1.CommitWithCountAsync(System.Threading.CancellationToken)">CommitWithCountAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Commits pending changes.</p>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_CommitWithCountAsync_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase`1.CommitWithCountAsync(CancellationToken)">CommitWithCountAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Base data service for Entity Framework Core.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;int&gt;&gt; CommitWithCountAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;int&gt;&gt; CommitWithCountAsync(CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -209,57 +205,7 @@ public interface IEfCoreDataServiceBase&lt;out TContext&gt; : IDataServiceBase&l
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Cancellation token.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">System.Int32</span>&gt;&gt;</td>
-        <td><p>Number of affected rows.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_UseExplicitTransactionAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase%601.UseExplicitTransactionAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataServices/IEfCoreDataServiceBase.cs/#L23">View Source</a>
-  </span>
-  <a id="DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_UseExplicitTransactionAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase`1.UseExplicitTransactionAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_UseExplicitTransactionAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase`1.UseExplicitTransactionAsync(System.Threading.CancellationToken)">UseExplicitTransactionAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Begins a transaction or returns an ongoing transaction.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IDbContextTransaction&gt;&gt; UseExplicitTransactionAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
@@ -275,8 +221,57 @@ public interface IEfCoreDataServiceBase&lt;out TContext&gt; : IDataServiceBase&l
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Remora.Results.Result</span>&lt;<span class="xref">Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction</span>&gt;&gt;</td>
-        <td><p>Task with a <span class="xref">Remora.Results.Result</span> representing the async operation.</p>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">System.Int32</span>&gt;&gt;</td>
+        <td><p>Number of affected rows.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_UseExplicitTransactionAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase%601.UseExplicitTransactionAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataServices/IEfCoreDataServiceBase.cs/#L23">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_UseExplicitTransactionAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase`1.UseExplicitTransactionAsync*"></a>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataServices_IEfCoreDataServiceBase_1_UseExplicitTransactionAsync_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataServices.IEfCoreDataServiceBase`1.UseExplicitTransactionAsync(CancellationToken)">UseExplicitTransactionAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Begins a transaction or returns an ongoing transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Result&lt;IDbContextTransaction&gt;&gt; UseExplicitTransactionAsync(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">Result</span>&lt;<span class="xref">IDbContextTransaction</span>&gt;&gt;</td>
+        <td><p>Task with a <see cref="!:Result"></see> representing the async operation.</p>
 </td>
       </tr>
     </tbody>

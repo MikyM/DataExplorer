@@ -103,16 +103,16 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html#DataExplorer_EfCore_Abstractions_IUnitOfWork_UseExplicitTransactionAsync_System_Threading_CancellationToken_">IUnitOfWork.UseExplicitTransactionAsync(CancellationToken)</a>
+      <a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html#DataExplorer_EfCore_Abstractions_IUnitOfWork_UseExplicitTransactionAsync_CancellationToken_">IUnitOfWork.UseExplicitTransactionAsync(CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html#DataExplorer_EfCore_Abstractions_IUnitOfWork_Transaction">IUnitOfWork.Transaction</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html#DataExplorer_EfCore_Abstractions_IUnitOfWork_UseExplicitTransactionAsync_Microsoft_EntityFrameworkCore_Storage_IDbContextTransaction_System_Threading_CancellationToken_">IUnitOfWork.UseExplicitTransactionAsync(IDbContextTransaction, CancellationToken)</a>
+      <a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html#DataExplorer_EfCore_Abstractions_IUnitOfWork_UseExplicitTransactionAsync_IDbContextTransaction_CancellationToken_">IUnitOfWork.UseExplicitTransactionAsync(IDbContextTransaction, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html#DataExplorer_EfCore_Abstractions_IUnitOfWork_CommitWithCountAsync_System_Threading_CancellationToken_">IUnitOfWork.CommitWithCountAsync(CancellationToken)</a>
+      <a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html#DataExplorer_EfCore_Abstractions_IUnitOfWork_CommitWithCountAsync_CancellationToken_">IUnitOfWork.CommitWithCountAsync(CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html#DataExplorer_EfCore_Abstractions_IUnitOfWork_GetRepositoryFor__1">IUnitOfWork.GetRepositoryFor&lt;TEntity&gt;()</a>
@@ -133,24 +133,20 @@
       <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_GetRepository__1">IUnitOfWorkBase.GetRepository&lt;TRepository&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_CommitAsync_System_Threading_CancellationToken_">IUnitOfWorkBase.CommitAsync(CancellationToken)</a>
+      <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_CommitAsync_CancellationToken_">IUnitOfWorkBase.CommitAsync(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_RollbackAsync_System_Threading_CancellationToken_">IUnitOfWorkBase.RollbackAsync(CancellationToken)</a>
+      <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_RollbackAsync_CancellationToken_">IUnitOfWorkBase.RollbackAsync(CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html#DataExplorer_Abstractions_UnitOfWork_IUnitOfWorkBase_Mapper">IUnitOfWorkBase.Mapper</a>
-    </div>
-    <div>
-      <span class="xref">System.IDisposable.Dispose()</span>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.Abstractions.html">DataExplorer.EfCore.Abstractions</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_Abstractions_IUnitOfWork_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public interface IUnitOfWork&lt;out TContext&gt; : IUnitOfWork, IUnitOfWorkBase, IDisposable where TContext : IEfDbContext</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IUnitOfWork&lt;out TContext&gt; : IUnitOfWork, IUnitOfWorkBase where TContext : IEfDbContext</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -183,7 +179,7 @@ public interface IUnitOfWork&lt;out TContext&gt; : IUnitOfWork, IUnitOfWorkBase,
   </span>
   <a id="DataExplorer_EfCore_Abstractions_IUnitOfWork_1_Context_" data-uid="DataExplorer.EfCore.Abstractions.IUnitOfWork`1.Context*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_IUnitOfWork_1_Context" data-uid="DataExplorer.EfCore.Abstractions.IUnitOfWork`1.Context">Context</h4>
-  <div class="markdown level1 summary"><p>Current <span class="xref">Microsoft.EntityFrameworkCore.DbContext</span>.</p>
+  <div class="markdown level1 summary"><p>Current <see cref="!:DbContext"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

@@ -110,38 +110,13 @@
     <div><a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork-1.html">IUnitOfWork</a>&lt;TContext&gt;</div>
     <div><a class="xref" href="DataExplorer.EfCore.Abstractions.IUnitOfWork.html">IUnitOfWork</a></div>
     <div><a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html">IUnitOfWorkBase</a></div>
-    <div><span class="xref">System.IDisposable</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
+    <div><span class="xref">IDisposable</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.html">DataExplorer.EfCore</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_UnitOfWork_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IUnitOfWork, IUnitOfWorkBase, IDisposable where TContext : IEfDbContext</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class UnitOfWork&lt;TContext&gt; : object, IUnitOfWork&lt;TContext&gt;, IUnitOfWork, IUnitOfWorkBase where TContext : IEfDbContext</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -167,13 +142,13 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_AutoMapper_IMapper_Microsoft_Extensions_Options_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.%23ctor(%600%2CDataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator%2CAutoMapper.IMapper%2CMicrosoft.Extensions.Options.IOptions%7BDataExplorer.EfCore.DataExplorerEfCoreConfiguration%7D%2CDataExplorer.EfCore.IEfDataExplorerTypeCache%2CDataExplorer.Utilities.ICachedInstanceFactory)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_IMapper_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.%23ctor(%600%2CDataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator%2CIMapper%2CIOptions%7BDataExplorer.EfCore.DataExplorerEfCoreConfiguration%7D%2CDataExplorer.EfCore.IEfDataExplorerTypeCache%2CDataExplorer.Utilities.ICachedInstanceFactory)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/UnitOfWork.cs/#L67">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_UnitOfWork_1__ctor_" data-uid="DataExplorer.EfCore.UnitOfWork`1.#ctor*"></a>
-  <h4 id="DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_AutoMapper_IMapper_Microsoft_Extensions_Options_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_" data-uid="DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,AutoMapper.IMapper,Microsoft.Extensions.Options.IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)">UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions&lt;DataExplorerEfCoreConfiguration&gt;, IEfDataExplorerTypeCache, ICachedInstanceFactory)</h4>
+  <h4 id="DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_IMapper_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_" data-uid="DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,IMapper,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)">UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions&lt;DataExplorerEfCoreConfiguration&gt;, IEfDataExplorerTypeCache, ICachedInstanceFactory)</h4>
   <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="DataExplorer.EfCore.UnitOfWork-1.html">UnitOfWork&lt;TContext&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -194,7 +169,7 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
       <tr>
         <td><span class="xref">TContext</span></td>
         <td><span class="parametername">context</span></td>
-        <td><p><span class="xref">Microsoft.EntityFrameworkCore.DbContext</span> to be used.</p>
+        <td><p><see cref="!:DbContext"></see> to be used.</p>
 </td>
       </tr>
       <tr>
@@ -204,13 +179,13 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
 </td>
       </tr>
       <tr>
-        <td><span class="xref">AutoMapper.IMapper</span></td>
+        <td><span class="xref">IMapper</span></td>
         <td><span class="parametername">mapper</span></td>
         <td><p>Mapper.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Options.IOptions</span>&lt;<a class="xref" href="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html">DataExplorerEfCoreConfiguration</a>&gt;</td>
+        <td><span class="xref">IOptions</span>&lt;<a class="xref" href="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html">DataExplorerEfCoreConfiguration</a>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>Options.</p>
 </td>
@@ -229,7 +204,7 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_AutoMapper_IMapper_Microsoft_Extensions_Options_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_IMapper_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
@@ -244,7 +219,7 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
   </span>
   <a id="DataExplorer_EfCore_UnitOfWork_1_Context_" data-uid="DataExplorer.EfCore.UnitOfWork`1.Context*"></a>
   <h4 id="DataExplorer_EfCore_UnitOfWork_1_Context" data-uid="DataExplorer.EfCore.UnitOfWork`1.Context">Context</h4>
-  <div class="markdown level1 summary"><p>Current <span class="xref">Microsoft.EntityFrameworkCore.DbContext</span>.</p>
+  <div class="markdown level1 summary"><p>Current <see cref="!:DbContext"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -296,7 +271,7 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">AutoMapper.IMapper</span></td>
+        <td><span class="xref">IMapper</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -349,12 +324,12 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
   </span>
   <a id="DataExplorer_EfCore_UnitOfWork_1_Transaction_" data-uid="DataExplorer.EfCore.UnitOfWork`1.Transaction*"></a>
   <h4 id="DataExplorer_EfCore_UnitOfWork_1_Transaction" data-uid="DataExplorer.EfCore.UnitOfWork`1.Transaction">Transaction</h4>
-  <div class="markdown level1 summary"><p>Inner <span class="xref">Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction</span>.</p>
+  <div class="markdown level1 summary"><p>Inner <see cref="!:IDbContextTransaction"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IDbContextTransaction Transaction { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IDbContextTransaction? Transaction { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -366,7 +341,7 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDbContextTransaction</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -379,19 +354,19 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_CommitAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.CommitAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_CommitAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.CommitAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/UnitOfWork.cs/#L291">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_UnitOfWork_1_CommitAsync_" data-uid="DataExplorer.EfCore.UnitOfWork`1.CommitAsync*"></a>
-  <h4 id="DataExplorer_EfCore_UnitOfWork_1_CommitAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.CommitAsync(System.Threading.CancellationToken)">CommitAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Commits pending changes to the underlying database.</p>
+  <h4 id="DataExplorer_EfCore_UnitOfWork_1_CommitAsync_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.CommitAsync(CancellationToken)">CommitAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Represents an EF Unit of Work.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task CommitAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task CommitAsync(CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -404,10 +379,9 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Cancellation token.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -421,31 +395,30 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td><p>Number of affected rows.</p>
-</td>
+        <td><span class="xref">Task</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_UnitOfWork_1_CommitAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_UnitOfWork_1_CommitAsync_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_CommitWithCountAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.CommitWithCountAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_CommitWithCountAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.CommitWithCountAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/UnitOfWork.cs/#L307">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_UnitOfWork_1_CommitWithCountAsync_" data-uid="DataExplorer.EfCore.UnitOfWork`1.CommitWithCountAsync*"></a>
-  <h4 id="DataExplorer_EfCore_UnitOfWork_1_CommitWithCountAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.CommitWithCountAsync(System.Threading.CancellationToken)">CommitWithCountAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Commits pending changes to the underlying database.</p>
+  <h4 id="DataExplorer_EfCore_UnitOfWork_1_CommitWithCountAsync_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.CommitWithCountAsync(CancellationToken)">CommitWithCountAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Represents an EF Unit of Work.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;int&gt; CommitWithCountAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;int&gt; CommitWithCountAsync(CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -458,7 +431,7 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -475,13 +448,13 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><p>Number of affected rows. If a transaction was involved 0 will be returned.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_UnitOfWork_1_CommitWithCountAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_UnitOfWork_1_CommitWithCountAsync_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
@@ -558,22 +531,6 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when couldn't find proper type or name in cache.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_GetReadOnlyRepositoryFor__2.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.GetReadOnlyRepositoryFor%60%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -632,22 +589,6 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when couldn't find proper type or name in cache.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_GetRepository__1.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.GetRepository%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -754,22 +695,6 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when couldn't find proper type or name in cache.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_GetRepositoryFor__2.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.GetRepositoryFor%60%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -828,37 +753,21 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when couldn't find proper type or name in cache.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_RollbackAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.RollbackAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_RollbackAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.RollbackAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/UnitOfWork.cs/#L280">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_UnitOfWork_1_RollbackAsync_" data-uid="DataExplorer.EfCore.UnitOfWork`1.RollbackAsync*"></a>
-  <h4 id="DataExplorer_EfCore_UnitOfWork_1_RollbackAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.RollbackAsync(System.Threading.CancellationToken)">RollbackAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Rolls the current transaction back.</p>
+  <h4 id="DataExplorer_EfCore_UnitOfWork_1_RollbackAsync_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.RollbackAsync(CancellationToken)">RollbackAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Represents an EF Unit of Work.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task RollbackAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task RollbackAsync(CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -871,10 +780,9 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Cancellation token.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -888,91 +796,30 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td><p>Task representing the asynchronous operation.</p>
-</td>
+        <td><span class="xref">Task</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_UnitOfWork_1_RollbackAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_UnitOfWork_1_RollbackAsync_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_Microsoft_EntityFrameworkCore_Storage_IDbContextTransaction_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.UseExplicitTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/UnitOfWork.cs/#L106">View Source</a>
-  </span>
-  <a id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_" data-uid="DataExplorer.EfCore.UnitOfWork`1.UseExplicitTransactionAsync*"></a>
-  <h4 id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_Microsoft_EntityFrameworkCore_Storage_IDbContextTransaction_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.UseExplicitTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction,System.Threading.CancellationToken)">UseExplicitTransactionAsync(IDbContextTransaction, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Begins using a provided transaction.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IDbContextTransaction&gt; UseExplicitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td><p>Transaction to use.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Cancellation token.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction</span>&gt;</td>
-        <td><p>Task representing the asynchronous operation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_Microsoft_EntityFrameworkCore_Storage_IDbContextTransaction_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
-, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.UseExplicitTransactionAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.UseExplicitTransactionAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/UnitOfWork.cs/#L93">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_" data-uid="DataExplorer.EfCore.UnitOfWork`1.UseExplicitTransactionAsync*"></a>
-  <h4 id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.UseExplicitTransactionAsync(System.Threading.CancellationToken)">UseExplicitTransactionAsync(CancellationToken)</h4>
+  <h4 id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.UseExplicitTransactionAsync(CancellationToken)">UseExplicitTransactionAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Begins a transaction or returns an ongoing transaction.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;IDbContextTransaction&gt; UseExplicitTransactionAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;IDbContextTransaction&gt; UseExplicitTransactionAsync(CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -985,7 +832,7 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Cancellation token.</p>
 </td>
@@ -1002,13 +849,73 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">IDbContextTransaction</span>&gt;</td>
         <td><p>Task representing the asynchronous operation.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
+, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_IDbContextTransaction_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.UnitOfWork%601.UseExplicitTransactionAsync(IDbContextTransaction%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/UnitOfWork.cs/#L106">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_" data-uid="DataExplorer.EfCore.UnitOfWork`1.UseExplicitTransactionAsync*"></a>
+  <h4 id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_IDbContextTransaction_CancellationToken_" data-uid="DataExplorer.EfCore.UnitOfWork`1.UseExplicitTransactionAsync(IDbContextTransaction,CancellationToken)">UseExplicitTransactionAsync(IDbContextTransaction, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Begins using a provided transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IDbContextTransaction&gt; UseExplicitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDbContextTransaction</span></td>
+        <td><span class="parametername">transaction</span></td>
+        <td><p>Transaction to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">IDbContextTransaction</span>&gt;</td>
+        <td><p>Task representing the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DataExplorer_EfCore_UnitOfWork_1_UseExplicitTransactionAsync_IDbContextTransaction_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This also works as a factory for <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-2.html">IReadOnlyRepository&lt;TEntity, TId&gt;</a>, <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IReadOnlyRepository-1.html">IReadOnlyRepository&lt;TEntity&gt;</a>,
 , <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-2.html">IRepository&lt;TEntity, TId&gt;</a> and <a class="xref" href="DataExplorer.EfCore.Abstractions.Repositories.IRepository-1.html">IRepository&lt;TEntity&gt;</a></p>
 </div>
@@ -1095,7 +1002,7 @@ public sealed class UnitOfWork&lt;TContext&gt; : IUnitOfWork&lt;TContext&gt;, IU
       <a class="xref" href="DataExplorer.Abstractions.UnitOfWork.IUnitOfWorkBase.html">IUnitOfWorkBase</a>
   </div>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <span class="xref">IDisposable</span>
   </div>
 </article>
               

@@ -147,7 +147,7 @@
       <a class="xref" href="DataExplorer.EfCore.Specifications.BasicSpecification-1.html#DataExplorer_EfCore_Specifications_BasicSpecification_1_IsSatisfiedBy__0_">BasicSpecification&lt;T&gt;.IsSatisfiedBy(T)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.EfCore.Specifications.BasicSpecification-1.html#DataExplorer_EfCore_Specifications_BasicSpecification_1_Evaluate_System_Collections_Generic_IEnumerable__0__">BasicSpecification&lt;T&gt;.Evaluate(IEnumerable&lt;T&gt;)</a>
+      <a class="xref" href="DataExplorer.EfCore.Specifications.BasicSpecification-1.html#DataExplorer_EfCore_Specifications_BasicSpecification_1_Evaluate_IEnumerable__0__">BasicSpecification&lt;T&gt;.Evaluate(IEnumerable&lt;T&gt;)</a>
     </div>
     <div>
       <a class="xref" href="DataExplorer.EfCore.Specifications.BasicSpecification-1.html#DataExplorer_EfCore_Specifications_BasicSpecification_1_SearchCriterias">BasicSpecification&lt;T&gt;.SearchCriterias</a>
@@ -155,34 +155,12 @@
     <div>
       <a class="xref" href="DataExplorer.EfCore.Specifications.BasicSpecification-1.html#DataExplorer_EfCore_Specifications_BasicSpecification_1_WhereExpressions">BasicSpecification&lt;T&gt;.WhereExpressions</a>
     </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.Specifications.html">DataExplorer.EfCore.Specifications</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_Specifications_Specification_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public class Specification&lt;T&gt; : BasicSpecification&lt;T&gt;, ISpecification&lt;T&gt;, IBasicSpecification&lt;T&gt;, ISpecification where T : class</code></pre>
+    <pre><code class="lang-csharp hljs">public class Specification&lt;T&gt; : BasicSpecification&lt;T&gt;, ISpecification&lt;T&gt;, IBasicSpecification&lt;T&gt;, ISpecification where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -485,7 +463,7 @@ public class Specification&lt;T&gt; : BasicSpecification&lt;T&gt;, ISpecificatio
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_CacheExpirationMode_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.CacheExpirationMode*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_CacheExpirationMode" data-uid="DataExplorer.EfCore.Specifications.Specification`1.CacheExpirationMode">CacheExpirationMode</h4>
-  <div class="markdown level1 summary"><p>Cache expiration mode if any.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -516,7 +494,7 @@ public class Specification&lt;T&gt; : BasicSpecification&lt;T&gt;, ISpecificatio
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_CacheTimeout_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.CacheTimeout*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_CacheTimeout" data-uid="DataExplorer.EfCore.Specifications.Specification`1.CacheTimeout">CacheTimeout</h4>
-  <div class="markdown level1 summary"><p>Cache timeout if any.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -533,7 +511,7 @@ public class Specification&lt;T&gt; : BasicSpecification&lt;T&gt;, ISpecificatio
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -547,13 +525,12 @@ public class Specification&lt;T&gt; : BasicSpecification&lt;T&gt;, ISpecificatio
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_IncludeExpressions_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IncludeExpressions*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_IncludeExpressions" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IncludeExpressions">IncludeExpressions</h4>
-  <div class="markdown level1 summary"><p>The collection of <a class="xref" href="DataExplorer.Specifications.Expressions.IncludeExpressionInfo.html">IncludeExpressionInfo</a>s describing each include expression.
-This information is utilized to build Include/ThenInclude functions in the query.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IncludeExpressionInfo&gt; IncludeExpressions { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IncludeExpressionInfo&gt;? IncludeExpressions { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -565,7 +542,7 @@ This information is utilized to build Include/ThenInclude functions in the query
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DataExplorer.Specifications.Expressions.IncludeExpressionInfo.html">IncludeExpressionInfo</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="DataExplorer.Specifications.Expressions.IncludeExpressionInfo.html">IncludeExpressionInfo</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -579,12 +556,12 @@ This information is utilized to build Include/ThenInclude functions in the query
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_IncludeStrings_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IncludeStrings*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_IncludeStrings" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IncludeStrings">IncludeStrings</h4>
-  <div class="markdown level1 summary"><p>The collection of navigation properties, as strings, to include in the query.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; IncludeStrings { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt;? IncludeStrings { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -596,7 +573,7 @@ This information is utilized to build Include/ThenInclude functions in the query
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -610,9 +587,7 @@ This information is utilized to build Include/ThenInclude functions in the query
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_IsAsNoTracking_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsAsNoTracking*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_IsAsNoTracking" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsAsNoTracking">IsAsNoTracking</h4>
-  <div class="markdown level1 summary"><p>Returns whether or not the change tracker will track any of the entities
-that are returned. When true, if the entity instances are modified, this will not be detected
-by the change tracker.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -643,7 +618,7 @@ by the change tracker.</p>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_IsAsNoTrackingWithIdentityResolution_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsAsNoTrackingWithIdentityResolution*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_IsAsNoTrackingWithIdentityResolution" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsAsNoTrackingWithIdentityResolution">IsAsNoTrackingWithIdentityResolution</h4>
-  <div class="markdown level1 summary"><p>Returns whether or not the change tracker with track the result of this query identity resolution.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -674,8 +649,7 @@ by the change tracker.</p>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_IsAsSplitQuery_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsAsSplitQuery*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_IsAsSplitQuery" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsAsSplitQuery">IsAsSplitQuery</h4>
-  <div class="markdown level1 summary"><p>Returns whether or not to treat this query as split query.
-by the change tracker.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -706,8 +680,7 @@ by the change tracker.</p>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_IsAsTracking_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsAsTracking*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_IsAsTracking" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsAsTracking">IsAsTracking</h4>
-  <div class="markdown level1 summary"><p>Returns whether or not the change tracker will track any of the entities
-that are returned.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -738,8 +711,7 @@ that are returned.</p>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_IsCacheEnabled_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsCacheEnabled*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_IsCacheEnabled" data-uid="DataExplorer.EfCore.Specifications.Specification`1.IsCacheEnabled">IsCacheEnabled</h4>
-  <div class="markdown level1 summary"><p>Whether or not the results should be cached, setting this will override default caching settings for this query.
-Defaults to null - no override.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -770,12 +742,12 @@ Defaults to null - no override.</p>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_PostProcessingAction_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.PostProcessingAction*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_PostProcessingAction" data-uid="DataExplorer.EfCore.Specifications.Specification`1.PostProcessingAction">PostProcessingAction</h4>
-  <div class="markdown level1 summary"><p>The transform function to apply to the result of the query encapsulated by the <a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-1.html">ISpecification&lt;T&gt;</a>.</p>
+  <div class="markdown level1 summary"><p>Encapsulates extended query logic for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt; PostProcessingAction { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt;? PostProcessingAction { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -787,7 +759,7 @@ Defaults to null - no override.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Func</span>&lt;<span class="xref">IEnumerable</span>&lt;T&gt;, <span class="xref">IEnumerable</span>&lt;T&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1217,13 +1189,13 @@ by the change tracker.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_GroupBy_System_Linq_Expressions_Expression_System_Func__0_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.GroupBy(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Object%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_GroupBy_Expression_Func__0_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.GroupBy(Expression%7BFunc%7B%600%2CSystem.Object%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L352">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_GroupBy_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.GroupBy*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_GroupBy_System_Linq_Expressions_Expression_System_Func__0_System_Object___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.GroupBy(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">GroupBy(Expression&lt;Func&lt;T, Object&gt;&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_GroupBy_Expression_Func__0_System_Object___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.GroupBy(Expression{Func{`0,System.Object}})">GroupBy(Expression&lt;Func&lt;T, Object&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Specify the query result will be grouped by <code data-dev-comment-type="paramref" class="paramref">groupByExpression</code> in a descending order</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1242,7 +1214,7 @@ by the change tracker.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Object</span>&gt;&gt;</td>
         <td><span class="parametername">groupByExpression</span></td>
         <td><p>Member to use for grouping</p>
 </td>
@@ -1266,16 +1238,16 @@ by the change tracker.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.GroupBy(System.Linq.Expressions.Expression&lt;System.Func&lt;T, System.Object&gt;&gt;)</span></div>
+  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.GroupBy(Expression&lt;Func&lt;T, System.Object&gt;&gt;)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_Include__1_System_Linq_Expressions_Expression_System_Func__0___0___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.Include%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2C%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_Include__1_Expression_Func__0___0___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.Include%60%601(Expression%7BFunc%7B%600%2C%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L301">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_Include_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Include*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_Include__1_System_Linq_Expressions_Expression_System_Func__0___0___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Include``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">Include&lt;TProperty&gt;(Expression&lt;Func&lt;T, TProperty&gt;&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_Include__1_Expression_Func__0___0___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Include``1(Expression{Func{`0,``0}})">Include&lt;TProperty&gt;(Expression&lt;Func&lt;T, TProperty&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Specify an include expression.
 This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
 to include related entities (via navigation properties) in the query result.</p>
@@ -1296,7 +1268,7 @@ to include related entities (via navigation properties) in the query result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, TProperty&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, TProperty&gt;&gt;</td>
         <td><span class="parametername">includeExpression</span></td>
         <td><p>Member to include</p>
 </td>
@@ -1336,19 +1308,19 @@ to include related entities (via navigation properties) in the query result.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_OrderBy_System_Linq_Expressions_Expression_System_Func__0_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.OrderBy(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Object%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_OrderBy_Expression_Func__0_System_Nullable_System_Object____.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.OrderBy(Expression%7BFunc%7B%600%2CSystem.Nullable%7BSystem.Object%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L360">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_OrderBy_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.OrderBy*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_OrderBy_System_Linq_Expressions_Expression_System_Func__0_System_Object___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.OrderBy(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">OrderBy(Expression&lt;Func&lt;T, Object&gt;&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_OrderBy_Expression_Func__0_System_Nullable_System_Object____" data-uid="DataExplorer.EfCore.Specifications.Specification`1.OrderBy(Expression{Func{`0,System.Nullable{System.Object}}})">OrderBy(Expression&lt;Func&lt;T, Nullable&lt;Object&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Specify the query result will be ordered by <code data-dev-comment-type="paramref" class="paramref">orderByExpression</code> in an ascending order</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected sealed override IOrderedSpecificationBuilder&lt;T&gt; OrderBy(Expression&lt;Func&lt;T, object&gt;&gt; orderByExpression)</code></pre>
+    <pre><code class="lang-csharp hljs">protected sealed override IOrderedSpecificationBuilder&lt;T&gt; OrderBy(Expression&lt;Func&lt;T, object?&gt;&gt; orderByExpression)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1361,7 +1333,7 @@ to include related entities (via navigation properties) in the query result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">orderByExpression</span></td>
         <td><p>Member to use for ordering</p>
 </td>
@@ -1385,22 +1357,22 @@ to include related entities (via navigation properties) in the query result.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.OrderBy(System.Linq.Expressions.Expression&lt;System.Func&lt;T, System.Object&gt;&gt;)</span></div>
+  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.OrderBy(Expression&lt;Func&lt;T, System.Nullable&lt;System.Object&gt;&gt;&gt;)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_OrderByDescending_System_Linq_Expressions_Expression_System_Func__0_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.OrderByDescending(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Object%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_OrderByDescending_Expression_Func__0_System_Nullable_System_Object____.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.OrderByDescending(Expression%7BFunc%7B%600%2CSystem.Nullable%7BSystem.Object%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L368">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_OrderByDescending_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.OrderByDescending*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_OrderByDescending_System_Linq_Expressions_Expression_System_Func__0_System_Object___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.OrderByDescending(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">OrderByDescending(Expression&lt;Func&lt;T, Object&gt;&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_OrderByDescending_Expression_Func__0_System_Nullable_System_Object____" data-uid="DataExplorer.EfCore.Specifications.Specification`1.OrderByDescending(Expression{Func{`0,System.Nullable{System.Object}}})">OrderByDescending(Expression&lt;Func&lt;T, Nullable&lt;Object&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Specify the query result will be ordered by <code data-dev-comment-type="paramref" class="paramref">orderByDescendingExpression</code> in a descending order</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected sealed override IOrderedSpecificationBuilder&lt;T&gt; OrderByDescending(Expression&lt;Func&lt;T, object&gt;&gt; orderByDescendingExpression)</code></pre>
+    <pre><code class="lang-csharp hljs">protected sealed override IOrderedSpecificationBuilder&lt;T&gt; OrderByDescending(Expression&lt;Func&lt;T, object?&gt;&gt; orderByDescendingExpression)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1413,7 +1385,7 @@ to include related entities (via navigation properties) in the query result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">orderByDescendingExpression</span></td>
         <td><p>Member to use for ordering</p>
 </td>
@@ -1437,16 +1409,16 @@ to include related entities (via navigation properties) in the query result.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.OrderByDescending(System.Linq.Expressions.Expression&lt;System.Func&lt;T, System.Object&gt;&gt;)</span></div>
+  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.OrderByDescending(Expression&lt;Func&lt;T, System.Nullable&lt;System.Object&gt;&gt;&gt;)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_Search_System_Linq_Expressions_Expression_System_Func__0_System_String___System_String_System_Int32_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.Search(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.String%7D%7D%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_Search_Expression_Func__0_System_String___System_String_System_Int32_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.Search(Expression%7BFunc%7B%600%2CSystem.String%7D%7D%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L320">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_Search_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Search*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_Search_System_Linq_Expressions_Expression_System_Func__0_System_String___System_String_System_Int32_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Search(System.Linq.Expressions.Expression{System.Func{`0,System.String}},System.String,System.Int32)">Search(Expression&lt;Func&lt;T, String&gt;&gt;, String, Int32)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_Search_Expression_Func__0_System_String___System_String_System_Int32_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Search(Expression{Func{`0,System.String}},System.String,System.Int32)">Search(Expression&lt;Func&lt;T, String&gt;&gt;, String, Int32)</h4>
   <div class="markdown level1 summary"><p>Specify a 'SQL LIKE' operations for search purposes</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1465,7 +1437,7 @@ to include related entities (via navigation properties) in the query result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.String</span>&gt;&gt;</td>
         <td><span class="parametername">selector</span></td>
         <td><p>the property to apply the SQL LIKE against</p>
 </td>
@@ -1501,16 +1473,16 @@ to include related entities (via navigation properties) in the query result.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.Search(System.Linq.Expressions.Expression&lt;System.Func&lt;T, System.String&gt;&gt;, System.String, System.Int32)</span></div>
+  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.Search(Expression&lt;Func&lt;T, System.String&gt;&gt;, System.String, System.Int32)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_Where_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.Where(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_Where_Expression_Func__0_System_Boolean___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.Where(Expression%7BFunc%7B%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L310">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_Where_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Where*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_Where_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">Where(Expression&lt;Func&lt;T, Boolean&gt;&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_Where_Expression_Func__0_System_Boolean___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.Where(Expression{Func{`0,System.Boolean}})">Where(Expression&lt;Func&lt;T, Boolean&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Specify a predicate that will be applied to the query</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1529,7 +1501,7 @@ to include related entities (via navigation properties) in the query result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><span class="parametername">criteria</span></td>
         <td><p>Given criteria</p>
 </td>
@@ -1553,7 +1525,7 @@ to include related entities (via navigation properties) in the query result.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.Where(System.Linq.Expressions.Expression&lt;System.Func&lt;T, System.Boolean&gt;&gt;)</span></div>
+  <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.Where(Expression&lt;Func&lt;T, System.Boolean&gt;&gt;)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_WithCaching_System_Boolean_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.WithCaching(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1563,7 +1535,7 @@ to include related entities (via navigation properties) in the query result.</p>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_WithCaching_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.WithCaching*"></a>
   <h4 id="DataExplorer_EfCore_Specifications_Specification_1_WithCaching_System_Boolean_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.WithCaching(System.Boolean)">WithCaching(Boolean)</h4>
-  <div class="markdown level1 summary"><p>Specify whether results should be cached using <span class="xref">EFCoreSecondLevelCacheInterceptor.SecondLevelCacheInterceptor</span>.</p>
+  <div class="markdown level1 summary"><p>Specify whether results should be cached using <see cref="!:SecondLevelCacheInterceptor"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1743,13 +1715,13 @@ to include related entities (via navigation properties) in the query result.</p>
   <div><span class="xref">DataExplorer.EfCore.Specifications.BasicSpecification&lt;T&gt;.WithPaginationFilter(DataExplorer.PaginationFilter)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_WithPostProcessingAction_System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.WithPostProcessingAction(System.Func%7BSystem.Collections.Generic.IEnumerable%7B%600%7D%2CSystem.Collections.Generic.IEnumerable%7B%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Specification_1_WithPostProcessingAction_Func_IEnumerable__0__IEnumerable__0___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Specification%601.WithPostProcessingAction(Func%7BIEnumerable%7B%600%7D%2CIEnumerable%7B%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Specification.cs/#L223">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Specification_1_WithPostProcessingAction_" data-uid="DataExplorer.EfCore.Specifications.Specification`1.WithPostProcessingAction*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_WithPostProcessingAction_System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.WithPostProcessingAction(System.Func{System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0}})">WithPostProcessingAction(Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Specification_1_WithPostProcessingAction_Func_IEnumerable__0__IEnumerable__0___" data-uid="DataExplorer.EfCore.Specifications.Specification`1.WithPostProcessingAction(Func{IEnumerable{`0},IEnumerable{`0}})">WithPostProcessingAction(Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Specify a transform function to apply to the result of the query
 and returns the same <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> type</p>
 </div>
@@ -1769,7 +1741,7 @@ and returns the same <code data-dev-comment-type="typeparamref" class="typeparam
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">IEnumerable</span>&lt;T&gt;, <span class="xref">IEnumerable</span>&lt;T&gt;&gt;</td>
         <td><span class="parametername">postProcessingAction</span></td>
         <td><p>Action to use for post processing</p>
 </td>

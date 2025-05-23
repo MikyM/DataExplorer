@@ -127,7 +127,7 @@
       <a class="xref" href="DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html#DataExplorer_Abstractions_Specifications_IBasicSpecification_1_IsSatisfiedBy__0_">IBasicSpecification&lt;T&gt;.IsSatisfiedBy(T)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html#DataExplorer_Abstractions_Specifications_IBasicSpecification_1_Evaluate_System_Collections_Generic_IEnumerable__0__">IBasicSpecification&lt;T&gt;.Evaluate(IEnumerable&lt;T&gt;)</a>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html#DataExplorer_Abstractions_Specifications_IBasicSpecification_1_Evaluate_IEnumerable__0__">IBasicSpecification&lt;T&gt;.Evaluate(IEnumerable&lt;T&gt;)</a>
     </div>
     <div>
       <a class="xref" href="DataExplorer.Abstractions.Specifications.IBasicSpecification-1.html#DataExplorer_Abstractions_Specifications_IBasicSpecification_1_SearchCriterias">IBasicSpecification&lt;T&gt;.SearchCriterias</a>
@@ -217,7 +217,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -237,7 +237,7 @@ This information is utilized to build Include/ThenInclude functions in the query
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;IncludeExpressionInfo&gt; IncludeExpressions { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IncludeExpressionInfo&gt;? IncludeExpressions { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -249,7 +249,7 @@ This information is utilized to build Include/ThenInclude functions in the query
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DataExplorer.Specifications.Expressions.IncludeExpressionInfo.html">IncludeExpressionInfo</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="DataExplorer.Specifications.Expressions.IncludeExpressionInfo.html">IncludeExpressionInfo</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -268,7 +268,7 @@ This information is utilized to build Include/ThenInclude functions in the query
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;string&gt; IncludeStrings { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;string&gt;? IncludeStrings { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -280,7 +280,7 @@ This information is utilized to build Include/ThenInclude functions in the query
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -459,7 +459,7 @@ Defaults to null - no override.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt; PostProcessingAction { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">Func&lt;IEnumerable&lt;T&gt;, IEnumerable&lt;T&gt;&gt;? PostProcessingAction { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -471,7 +471,7 @@ Defaults to null - no override.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Func</span>&lt;<span class="xref">IEnumerable</span>&lt;T&gt;, <span class="xref">IEnumerable</span>&lt;T&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>

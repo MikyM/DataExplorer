@@ -105,36 +105,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">OrderExpressionInfo&lt;T&gt;</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Specifications.Expressions.html">DataExplorer.Specifications.Expressions</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Specifications_Expressions_OrderExpressionInfo_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public class OrderExpressionInfo&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class OrderExpressionInfo&lt;T&gt; : object</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -156,19 +131,19 @@ public class OrderExpressionInfo&lt;T&gt;</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Specifications_Expressions_OrderExpressionInfo_1__ctor_System_Linq_Expressions_Expression_System_Func__0_System_Object___DataExplorer_Specifications_OrderType_.md&amp;value=---%0Auid%3A%20DataExplorer.Specifications.Expressions.OrderExpressionInfo%601.%23ctor(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Object%7D%7D%2CDataExplorer.Specifications.OrderType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Specifications_Expressions_OrderExpressionInfo_1__ctor_Expression_Func__0_System_Nullable_System_Object____DataExplorer_Specifications_OrderType_.md&amp;value=---%0Auid%3A%20DataExplorer.Specifications.Expressions.OrderExpressionInfo%601.%23ctor(Expression%7BFunc%7B%600%2CSystem.Nullable%7BSystem.Object%7D%7D%7D%2CDataExplorer.Specifications.OrderType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Specifications/Expressions/OrderExpressionInfo.cs/#L20">View Source</a>
   </span>
   <a id="DataExplorer_Specifications_Expressions_OrderExpressionInfo_1__ctor_" data-uid="DataExplorer.Specifications.Expressions.OrderExpressionInfo`1.#ctor*"></a>
-  <h4 id="DataExplorer_Specifications_Expressions_OrderExpressionInfo_1__ctor_System_Linq_Expressions_Expression_System_Func__0_System_Object___DataExplorer_Specifications_OrderType_" data-uid="DataExplorer.Specifications.Expressions.OrderExpressionInfo`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},DataExplorer.Specifications.OrderType)">OrderExpressionInfo(Expression&lt;Func&lt;T, Object&gt;&gt;, OrderType)</h4>
+  <h4 id="DataExplorer_Specifications_Expressions_OrderExpressionInfo_1__ctor_Expression_Func__0_System_Nullable_System_Object____DataExplorer_Specifications_OrderType_" data-uid="DataExplorer.Specifications.Expressions.OrderExpressionInfo`1.#ctor(Expression{Func{`0,System.Nullable{System.Object}}},DataExplorer.Specifications.OrderType)">OrderExpressionInfo(Expression&lt;Func&lt;T, Nullable&lt;Object&gt;&gt;&gt;, OrderType)</h4>
   <div class="markdown level1 summary"><p>Creates instance of <a class="xref" href="DataExplorer.Specifications.Expressions.OrderExpressionInfo-1.html">OrderExpressionInfo&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OrderExpressionInfo(Expression&lt;Func&lt;T, object&gt;&gt; keySelector, OrderType orderType)</code></pre>
+    <pre><code class="lang-csharp hljs">public OrderExpressionInfo(Expression&lt;Func&lt;T, object?&gt;&gt; keySelector, OrderType orderType)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -181,7 +156,7 @@ public class OrderExpressionInfo&lt;T&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">keySelector</span></td>
         <td><p>A function to extract a key from an element.</p>
 </td>
@@ -190,22 +165,6 @@ public class OrderExpressionInfo&lt;T&gt;</code></pre>
         <td><a class="xref" href="DataExplorer.Specifications.OrderType.html">OrderType</a></td>
         <td><span class="parametername">orderType</span></td>
         <td><p>Whether to (subsequently) sort ascending or descending.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>If <code data-dev-comment-type="paramref" class="paramref">keySelector</code> is null.</p>
 </td>
       </tr>
     </tbody>
@@ -226,7 +185,7 @@ public class OrderExpressionInfo&lt;T&gt;</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Expression&lt;Func&lt;T, object&gt;&gt; KeySelector { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Expression&lt;Func&lt;T, object?&gt;&gt; KeySelector { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -238,7 +197,7 @@ public class OrderExpressionInfo&lt;T&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -257,7 +216,7 @@ public class OrderExpressionInfo&lt;T&gt;</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;T, object&gt; KeySelectorFunc { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;T, object?&gt; KeySelectorFunc { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -269,7 +228,7 @@ public class OrderExpressionInfo&lt;T&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;T, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>

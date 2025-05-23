@@ -109,35 +109,11 @@
     <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IProjectionEvaluator.html">IProjectionEvaluator</a></div>
     <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.ISpecialCaseEvaluator.html">ISpecialCaseEvaluator</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.Specifications.Evaluators.html">DataExplorer.EfCore.Specifications.Evaluators</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ProjectionEvaluator : IProjectionEvaluator, ISpecialCaseEvaluator</code></pre>
+    <pre><code class="lang-csharp hljs">public class ProjectionEvaluator : object, IProjectionEvaluator, ISpecialCaseEvaluator</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
@@ -175,13 +151,13 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_GetQuery__2_System_Linq_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery%60%602(System.Linq.IQueryable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_GetQuery__2_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery%60%602(IQueryable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Specifications/Evaluators/ProjectionEvaluator.cs/#L16">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_GetQuery_" data-uid="DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery*"></a>
-  <h4 id="DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_GetQuery__2_System_Linq_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__" data-uid="DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery``2(System.Linq.IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})">GetQuery&lt;T, TResult&gt;(IQueryable&lt;T&gt;, ISpecification&lt;T, TResult&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_GetQuery__2_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__" data-uid="DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery``2(IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})">GetQuery&lt;T, TResult&gt;(IQueryable&lt;T&gt;, ISpecification&lt;T, TResult&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -200,7 +176,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.IQueryable</span>&lt;T&gt;</td>
+        <td><span class="xref">IQueryable</span>&lt;T&gt;</td>
         <td><span class="parametername">query</span></td>
         <td></td>
       </tr>
@@ -221,7 +197,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.IQueryable</span>&lt;TResult&gt;</td>
+        <td><span class="xref">IQueryable</span>&lt;TResult&gt;</td>
         <td></td>
       </tr>
     </tbody>

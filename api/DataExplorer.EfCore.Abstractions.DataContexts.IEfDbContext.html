@@ -100,21 +100,11 @@
   <div class="markdown level0 summary"><p>Base definition of an EF database context.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.IDisposable.Dispose()</span>
-    </div>
-    <div>
-      <span class="xref">System.IAsyncDisposable.DisposeAsync()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.html">DataExplorer.EfCore.Abstractions.DataContexts</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.EfCore.dll</h6>
   <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IEfDbContext : IDataContextBase</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
@@ -144,7 +134,7 @@ public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable<
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker</span></td>
+        <td><span class="xref">ChangeTracker</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -184,7 +174,7 @@ public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable<
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.DbContextId</span></td>
+        <td><span class="xref">DbContextId</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -215,7 +205,7 @@ public interface IEfDbContext : IDataContextBase, IDisposable, IAsyncDisposable<
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade</span></td>
+        <td><span class="xref">DatabaseFacade</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -247,7 +237,7 @@ May not include all the information necessary to initialize the database.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.Metadata.IModel</span></td>
+        <td><span class="xref">IModel</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -267,7 +257,7 @@ May not include all the information necessary to initialize the database.</p>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Add_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Add*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Add_System_Object_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Add(System.Object)">Add(Object)</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entity, and any other reachable entities that are
-not already being tracked, in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state such that they will
+not already being tracked, in the <see cref="!:EntityState.Added"></see> state such that they will
 be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -303,8 +293,8 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span></td>
-        <td><p>The <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span> for the entity. The entry provides
+        <td><span class="xref">EntityEntry</span></td>
+        <td><p>The <see cref="!:EntityEntry"></see> for the entity. The entry provides
 access to change tracking information and operations for the entity.</p>
 </td>
       </tr>
@@ -312,7 +302,7 @@ access to change tracking information and operations for the entity.</p>
   </table>
   <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Add_System_Object__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 <p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a> for more information and examples.
@@ -328,7 +318,7 @@ access to change tracking information and operations for the entity.</p>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Add_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Add*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Add__1___0_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Add``1(``0)">Add&lt;TEntity&gt;(TEntity)</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entity, and any other reachable entities that are
-not already being tracked, in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state such that
+not already being tracked, in the <see cref="!:EntityState.Added"></see> state such that
 they will be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -365,8 +355,8 @@ they will be inserted into the database when <a class="xref" href="DataExplorer.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span>&lt;TEntity&gt;</td>
-        <td><p>The <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry&lt;TEntity&gt;</span> for the entity. The entry provides
+        <td><span class="xref">EntityEntry</span>&lt;TEntity&gt;</td>
+        <td><p>The <see cref="!:EntityEntry&lt;TEntity>"></see> for the entity. The entry provides
 access to change tracking information and operations for the entity.</p>
 </td>
       </tr>
@@ -390,7 +380,7 @@ access to change tracking information and operations for the entity.</p>
   </table>
   <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Add__1___0__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 <p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a> for more information and examples.
@@ -398,21 +388,21 @@ access to change tracking information and operations for the entity.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync(System.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync_System_Object_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync(System.Object%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L126">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync_System_Object_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync(System.Object,System.Threading.CancellationToken)">AddAsync(Object, CancellationToken)</h4>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync_System_Object_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync(System.Object,CancellationToken)">AddAsync(Object, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entity, and any other reachable entities that are
-not already being tracked, in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state such that they will
+not already being tracked, in the <see cref="!:EntityState.Added"></see> state such that they will
 be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ValueTask&lt;EntityEntry&gt; AddAsync(object entity, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">ValueTask&lt;EntityEntry&gt; AddAsync(object entity, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -431,9 +421,9 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>A <span class="xref">System.Threading.CancellationToken</span> to observe while waiting for the task to complete.</p>
+        <td><p>A <see cref="!:CancellationToken"></see> to observe while waiting for the task to complete.</p>
 </td>
       </tr>
     </tbody>
@@ -448,17 +438,17 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span>&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<span class="xref">EntityEntry</span>&gt;</td>
         <td><p>A task that represents the asynchronous Add operation. The task result contains the
-<span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span> for the entity. The entry provides access to change tracking
+<see cref="!:EntityEntry"></see> for the entity. The entry provides access to change tracking
 information and operations for the entity.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync_System_Object_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync_System_Object_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 <p>
     This method is async only to allow special value generators, such as the one used by
@@ -476,39 +466,23 @@ information and operations for the entity.</p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a> for more information and examples.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.OperationCanceledException</span></td>
-        <td><p>If the <span class="xref">System.Threading.CancellationToken</span> is canceled.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync__1___0_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync%60%601(%60%600%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync__1___0_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync%60%601(%60%600%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L88">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync__1___0_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync``1(``0,System.Threading.CancellationToken)">AddAsync&lt;TEntity&gt;(TEntity, CancellationToken)</h4>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync__1___0_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddAsync``1(``0,CancellationToken)">AddAsync&lt;TEntity&gt;(TEntity, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entity, and any other reachable entities that are
-not already being tracked, in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state such that they will
+not already being tracked, in the <see cref="!:EntityState.Added"></see> state such that they will
 be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ValueTask&lt;EntityEntry&lt;TEntity&gt;&gt; AddAsync&lt;TEntity&gt;(TEntity entity, CancellationToken cancellationToken = default(CancellationToken))
+    <pre><code class="lang-csharp hljs">ValueTask&lt;EntityEntry&lt;TEntity&gt;&gt; AddAsync&lt;TEntity&gt;(TEntity entity, CancellationToken cancellationToken = null)
     where TEntity : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -528,9 +502,9 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>A <span class="xref">System.Threading.CancellationToken</span> to observe while waiting for the task to complete.</p>
+        <td><p>A <see cref="!:CancellationToken"></see> to observe while waiting for the task to complete.</p>
 </td>
       </tr>
     </tbody>
@@ -545,9 +519,9 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span>&lt;TEntity&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<span class="xref">EntityEntry</span>&lt;TEntity&gt;&gt;</td>
         <td><p>A task that represents the asynchronous Add operation. The task result contains the
-<span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry&lt;TEntity&gt;</span> for the entity. The entry provides access to change tracking
+<see cref="!:EntityEntry&lt;TEntity>"></see> for the entity. The entry provides access to change tracking
 information and operations for the entity.</p>
 </td>
       </tr>
@@ -569,7 +543,7 @@ information and operations for the entity.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync__1___0_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddAsync__1___0_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
     This method is async only to allow special value generators, such as the one used by
     &apos;Microsoft.EntityFrameworkCore.Metadata.SqlServerValueGenerationStrategy.SequenceHiLo&apos;,
@@ -586,33 +560,17 @@ information and operations for the entity.</p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a> for more information and examples.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.OperationCanceledException</span></td>
-        <td><p>If the <span class="xref">System.Threading.CancellationToken</span> is canceled.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_System_Collections_Generic_IEnumerable_System_Object__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRange(System.Collections.Generic.IEnumerable%7BSystem.Object%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_IEnumerable_System_Object__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRange(IEnumerable%7BSystem.Object%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L182">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRange*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_System_Collections_Generic_IEnumerable_System_Object__" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRange(System.Collections.Generic.IEnumerable{System.Object})">AddRange(IEnumerable&lt;Object&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_IEnumerable_System_Object__" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRange(IEnumerable{System.Object})">AddRange(IEnumerable&lt;Object&gt;)</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entities, and any other reachable entities that are
-not already being tracked, in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state such that they will
+not already being tracked, in the <see cref="!:EntityState.Added"></see> state such that they will
 be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -631,14 +589,14 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">entities</span></td>
         <td><p>The entities to add.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_System_Collections_Generic_IEnumerable_System_Object___remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_IEnumerable_System_Object___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a>
 and <a href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</a>
 for more information and examples.</p>
@@ -653,7 +611,7 @@ for more information and examples.</p>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRange*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRange_System_Object___" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRange(System.Object[])">AddRange(Object[])</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entities, and any other reachable entities that are
-not already being tracked, in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state such that they will
+not already being tracked, in the <see cref="!:EntityState.Added"></see> state such that they will
 be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -686,21 +644,21 @@ for more information and examples.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_System_Collections_Generic_IEnumerable_System_Object__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRangeAsync(System.Collections.Generic.IEnumerable%7BSystem.Object%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_IEnumerable_System_Object__CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRangeAsync(IEnumerable%7BSystem.Object%7D%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L214">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRangeAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_System_Collections_Generic_IEnumerable_System_Object__System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRangeAsync(System.Collections.Generic.IEnumerable{System.Object},System.Threading.CancellationToken)">AddRangeAsync(IEnumerable&lt;Object&gt;, CancellationToken)</h4>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_IEnumerable_System_Object__CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRangeAsync(IEnumerable{System.Object},CancellationToken)">AddRangeAsync(IEnumerable&lt;Object&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entity, and any other reachable entities that are
-not already being tracked, in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state such that they will
+not already being tracked, in the <see cref="!:EntityState.Added"></see> state such that they will
 be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task AddRangeAsync(IEnumerable&lt;object&gt; entities, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task AddRangeAsync(IEnumerable&lt;object&gt; entities, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -713,15 +671,15 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">entities</span></td>
         <td><p>The entities to add.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>A <span class="xref">System.Threading.CancellationToken</span> to observe while waiting for the task to complete.</p>
+        <td><p>A <see cref="!:CancellationToken"></see> to observe while waiting for the task to complete.</p>
 </td>
       </tr>
     </tbody>
@@ -736,13 +694,13 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><span class="xref">Task</span></td>
         <td><p>A task that represents the asynchronous operation.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_System_Collections_Generic_IEnumerable_System_Object__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_IEnumerable_System_Object__CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
     This method is async only to allow special value generators, such as the one used by
     &apos;Microsoft.EntityFrameworkCore.Metadata.SqlServerValueGenerationStrategy.SequenceHiLo&apos;,
@@ -761,22 +719,6 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     for more information and examples.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.OperationCanceledException</span></td>
-        <td><p>If the <span class="xref">System.Threading.CancellationToken</span> is canceled.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRangeAsync(System.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -787,7 +729,7 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRangeAsync*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AddRangeAsync_System_Object___" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AddRangeAsync(System.Object[])">AddRangeAsync(Object[])</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entity, and any other reachable entities that are
-not already being tracked, in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state such that they will
+not already being tracked, in the <see cref="!:EntityState.Added"></see> state such that they will
 be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -823,7 +765,7 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><span class="xref">Task</span></td>
         <td><p>A task that represents the asynchronous operation.</p>
 </td>
       </tr>
@@ -859,7 +801,7 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Attach__1___0_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Attach``1(``0)">Attach&lt;TEntity&gt;(TEntity)</h4>
   <div class="markdown level1 summary"><p>
     Begins tracking the given entity and entries reachable from the given entity using
-    the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span> state by default, but see below for cases
+    the <see cref="!:EntityState.Unchanged"></see> state by default, but see below for cases
     when a different state will be used.
 </p>
 <p>
@@ -872,17 +814,17 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
 </p>
 <p>
     For entity types with generated keys if an entity has its primary key value set
-    then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span> state. If the primary key
-    value is not set then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state.
+    then it will be tracked in the <see cref="!:EntityState.Unchanged"></see> state. If the primary key
+    value is not set then it will be tracked in the <see cref="!:EntityState.Added"></see> state.
     This helps ensure only new entities will be inserted.
     An entity is considered to have its primary key value set if the primary key property is set
     to anything other than the CLR default for the property type.
 </p>
 <p>
-    For entity types without generated keys, the state set is always <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span>.
+    For entity types without generated keys, the state set is always <see cref="!:EntityState.Unchanged"></see>.
 </p>
 <p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -919,8 +861,8 @@ be inserted into the database when <a class="xref" href="DataExplorer.EfCore.Abs
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span>&lt;TEntity&gt;</td>
-        <td><p>The <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry&lt;TEntity&gt;</span> for the entity. The entry provides
+        <td><span class="xref">EntityEntry</span>&lt;TEntity&gt;</td>
+        <td><p>The <see cref="!:EntityEntry&lt;TEntity>"></see> for the entity. The entry provides
 access to change tracking information and operations for the entity.</p>
 </td>
       </tr>
@@ -947,16 +889,16 @@ access to change tracking information and operations for the entity.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AttachRange_System_Collections_Generic_IEnumerable_System_Object__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AttachRange(System.Collections.Generic.IEnumerable%7BSystem.Object%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AttachRange_IEnumerable_System_Object__.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AttachRange(IEnumerable%7BSystem.Object%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L686">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AttachRange_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AttachRange*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AttachRange_System_Collections_Generic_IEnumerable_System_Object__" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AttachRange(System.Collections.Generic.IEnumerable{System.Object})">AttachRange(IEnumerable&lt;Object&gt;)</h4>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AttachRange_IEnumerable_System_Object__" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AttachRange(IEnumerable{System.Object})">AttachRange(IEnumerable&lt;Object&gt;)</h4>
   <div class="markdown level1 summary"><p>
     Begins tracking the given entities and entries reachable from the given entities using
-    the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span> state by default, but see below for cases
+    the <see cref="!:EntityState.Unchanged"></see> state by default, but see below for cases
     when a different state will be used.
 </p>
 <p>
@@ -969,17 +911,17 @@ access to change tracking information and operations for the entity.</p>
 </p>
 <p>
     For entity types with generated keys if an entity has its primary key value set
-    then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span> state. If the primary key
-    value is not set then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state.
+    then it will be tracked in the <see cref="!:EntityState.Unchanged"></see> state. If the primary key
+    value is not set then it will be tracked in the <see cref="!:EntityState.Added"></see> state.
     This helps ensure only new entities will be inserted.
     An entity is considered to have its primary key value set if the primary key property is set
     to anything other than the CLR default for the property type.
 </p>
 <p>
-    For entity types without generated keys, the state set is always <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span>.
+    For entity types without generated keys, the state set is always <see cref="!:EntityState.Unchanged"></see>.
 </p>
 <p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -998,14 +940,14 @@ access to change tracking information and operations for the entity.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">entities</span></td>
         <td><p>The entities to attach.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AttachRange_System_Collections_Generic_IEnumerable_System_Object___remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AttachRange_IEnumerable_System_Object___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a>
 and <a href="https://aka.ms/efcore-docs-attach-range">Using AddRange, UpdateRange, AttachRange, and RemoveRange</a>
 for more information.</p>
@@ -1021,7 +963,7 @@ for more information.</p>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_AttachRange_System_Object___" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.AttachRange(System.Object[])">AttachRange(Object[])</h4>
   <div class="markdown level1 summary"><p>
     Begins tracking the given entities and entries reachable from the given entities using
-    the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span> state by default, but see below for cases
+    the <see cref="!:EntityState.Unchanged"></see> state by default, but see below for cases
     when a different state will be used.
 </p>
 <p>
@@ -1034,17 +976,17 @@ for more information.</p>
 </p>
 <p>
     For entity types with generated keys if an entity has its primary key value set
-    then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span> state. If the primary key
-    value is not set then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state.
+    then it will be tracked in the <see cref="!:EntityState.Unchanged"></see> state. If the primary key
+    value is not set then it will be tracked in the <see cref="!:EntityState.Added"></see> state.
     This helps ensure only new entities will be inserted.
     An entity is considered to have its primary key value set if the primary key property is set
     to anything other than the CLR default for the property type.
 </p>
 <p>
-    For entity types without generated keys, the state set is always <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Unchanged</span>.
+    For entity types without generated keys, the state set is always <see cref="!:EntityState.Unchanged"></see>.
 </p>
 <p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1084,7 +1026,7 @@ for more information.</p>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Entry_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Entry*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Entry__1___0_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Entry``1(``0)">Entry&lt;TEntity&gt;(TEntity)</h4>
-  <div class="markdown level1 summary"><p>Gets an <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry&lt;TEntity&gt;</span> for the given entity. The entry provides
+  <div class="markdown level1 summary"><p>Gets an <see cref="!:EntityEntry&lt;TEntity>"></see> for the given entity. The entry provides
 access to change tracking information and operations for the entity.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1121,7 +1063,7 @@ access to change tracking information and operations for the entity.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">EntityEntry</span>&lt;TEntity&gt;</td>
         <td><p>The entry for the given entity.</p>
 </td>
       </tr>
@@ -1148,13 +1090,13 @@ access to change tracking information and operations for the entity.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_System_FormattableString_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteInterpolatedSql%60%601(System.FormattableString)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_FormattableString_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteInterpolatedSql%60%601(FormattableString)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L397">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteInterpolatedSql*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_System_FormattableString_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteInterpolatedSql``1(System.FormattableString)">ExecuteInterpolatedSql&lt;TEntity&gt;(FormattableString)</h4>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_FormattableString_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteInterpolatedSql``1(FormattableString)">ExecuteInterpolatedSql&lt;TEntity&gt;(FormattableString)</h4>
   <div class="markdown level1 summary"><p>
     Creates a LINQ query based on an interpolated string representing a SQL query.
 </p>
@@ -1166,7 +1108,7 @@ access to change tracking information and operations for the entity.</p>
 <p>
     As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection
     attack. You can include interpolated parameter place holders in the SQL query string. Any interpolated parameter values
-    you supply will automatically be converted to a <span class="xref">System.Data.Common.DbParameter</span>:
+    you supply will automatically be converted to a <see cref="!:DbParameter"></see>:
 </p>
 <pre><code>context.Blogs.FromSqlInterpolated($&quot;SELECT * FROM Blogs WHERE Name = {userSuppliedSearchTerm}&quot;)</code></pre>
 </div>
@@ -1187,7 +1129,7 @@ access to change tracking information and operations for the entity.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.FormattableString</span></td>
+        <td><span class="xref">FormattableString</span></td>
         <td><span class="parametername">sql</span></td>
         <td><p>The interpolated string representing a SQL query with parameters.</p>
 </td>
@@ -1204,8 +1146,8 @@ access to change tracking information and operations for the entity.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.IQueryable</span>&lt;TEntity&gt;</td>
-        <td><p>An <span class="xref">System.Linq.IQueryable&lt;T&gt;</span> representing the interpolated string SQL query.</p>
+        <td><span class="xref">IQueryable</span>&lt;TEntity&gt;</td>
+        <td><p>An <see cref="!:IQueryable&lt;T>"></see> representing the interpolated string SQL query.</p>
 </td>
       </tr>
     </tbody>
@@ -1226,7 +1168,7 @@ access to change tracking information and operations for the entity.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_System_FormattableString__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_FormattableString__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-efcore-docs-raw-sql">Executing raw SQL commands with EF Core</a>
 for more information.</p>
 </div>
@@ -1247,8 +1189,8 @@ for more information.</p>
     a transaction, first call <see cref="!:BeginTransaction"></see> or <see cref="O:UseTransaction"></see>.
 </p>
 <p>
-    Note that the current <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span> is not used by this method
-    since the SQL may not be idempotent and does not run in a transaction. An <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span>
+    Note that the current <see cref="!:ExecutionStrategy"></see> is not used by this method
+    since the SQL may not be idempotent and does not run in a transaction. An <see cref="!:ExecutionStrategy"></see>
     can be used explicitly, making sure to also use a transaction if the SQL is not
     idempotent.
 </p>
@@ -1262,7 +1204,7 @@ for more information.</p>
 <p>
     However, <strong>never</strong> pass a concatenated or interpolated string (<code>$&quot;&quot;</code>) with non-validated user-provided values
     into this method. Doing so may expose your application to SQL injection attacks. To use the interpolated string syntax,
-    consider using <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_System_FormattableString_">ExecuteInterpolatedSql&lt;TEntity&gt;(FormattableString)</a> to create parameters.
+    consider using <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_FormattableString_">ExecuteInterpolatedSql&lt;TEntity&gt;(FormattableString)</a> to create parameters.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1331,8 +1273,8 @@ for more information.</p>
     a transaction, first call <see cref="!:BeginTransaction"></see> or <see cref="O:UseTransaction"></see>.
 </p>
 <p>
-    Note that the current <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span> is not used by this method
-    since the SQL may not be idempotent and does not run in a transaction. An <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span>
+    Note that the current <see cref="!:ExecutionStrategy"></see> is not used by this method
+    since the SQL may not be idempotent and does not run in a transaction. An <see cref="!:ExecutionStrategy"></see>
     can be used explicitly, making sure to also use a transaction if the SQL is not
     idempotent.
 </p>
@@ -1346,7 +1288,7 @@ for more information.</p>
 <p>
     However, <strong>never</strong> pass a concatenated or interpolated string (<code>$&quot;&quot;</code>) with non-validated user-provided values
     into this method. Doing so may expose your application to SQL injection attacks. To use the interpolated string syntax,
-    consider using <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_System_FormattableString_">ExecuteInterpolatedSql&lt;TEntity&gt;(FormattableString)</a> to create parameters.
+    consider using <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_FormattableString_">ExecuteInterpolatedSql&lt;TEntity&gt;(FormattableString)</a> to create parameters.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1411,16 +1353,16 @@ for more information.</p>
 <p>
     As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection
     attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional
-    arguments. Any parameter values you supply will automatically be converted to a <span class="xref">System.Data.Common.DbParameter</span>:
+    arguments. Any parameter values you supply will automatically be converted to a <see cref="!:DbParameter"></see>:
 </p>
 <pre><code>context.Blogs.FromSqlRaw(&quot;SELECT * FROM Blogs WHERE Name = {0}&quot;, userSuppliedSearchTerm)</code></pre>
 <p>
     However, <strong>never</strong> pass a concatenated or interpolated string (<code>$&quot;&quot;</code>) with non-validated user-provided values
     into this method. Doing so may expose your application to SQL injection attacks. To use the interpolated string syntax,
-    consider using <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_System_FormattableString_">ExecuteInterpolatedSql&lt;TEntity&gt;(FormattableString)</a> to create parameters.
+    consider using <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteInterpolatedSql__1_FormattableString_">ExecuteInterpolatedSql&lt;TEntity&gt;(FormattableString)</a> to create parameters.
 </p>
 <p>
-    This overload also accepts <span class="xref">System.Data.Common.DbParameter</span> instances as parameter values. In addition to using positional
+    This overload also accepts <see cref="!:DbParameter"></see> instances as parameter values. In addition to using positional
     placeholders as above (<code>{0}</code>), you can also use named placeholders directly in the SQL query string:
 </p>
 <pre><code>context.Blogs.FromSqlRaw(&quot;SELECT * FROM Blogs WHERE Name = @searchTerm&quot;, new SqlParameter(&quot;@searchTerm&quot;, userSuppliedSearchTerm))</code></pre>
@@ -1465,8 +1407,8 @@ for more information.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.IQueryable</span>&lt;TEntity&gt;</td>
-        <td><p>An <span class="xref">System.Linq.IQueryable&lt;T&gt;</span> representing the raw SQL query.</p>
+        <td><span class="xref">IQueryable</span>&lt;TEntity&gt;</td>
+        <td><p>An <see cref="!:IQueryable&lt;T>"></see> representing the raw SQL query.</p>
 </td>
       </tr>
     </tbody>
@@ -1493,6 +1435,168 @@ for more information.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_CancellationToken_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String%2CCancellationToken%2CSystem.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L543">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync*"></a>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_CancellationToken_System_Object___" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String,CancellationToken,System.Object[])">ExecuteRawSqlAsync(String, CancellationToken, Object[])</h4>
+  <div class="markdown level1 summary"><p>
+    Executes the given SQL against the database and returns the number of rows affected.
+</p>
+<p>
+    Note that this method does not start a transaction. To use this method with
+    a transaction, first call <see cref="!:BeginTransaction"></see> or <see cref="O:UseTransaction"></see>.
+</p>
+<p>
+    Note that the current <see cref="!:ExecutionStrategy"></see> is not used by this method
+    since the SQL may not be idempotent and does not run in a transaction. An <see cref="!:ExecutionStrategy"></see>
+    can be used explicitly, making sure to also use a transaction if the SQL is not
+    idempotent.
+</p>
+<pre><code>     var userSuppliedSearchTerm = &quot;.NET&quot;;
+     context.Database.ExecuteSqlRawAsync(&quot;UPDATE Blogs SET Rank = 50 WHERE Name = {0}&quot;, userSuppliedSearchTerm);</code></pre>
+<p>
+<strong>Never</strong> pass a concatenated or interpolated string (<code>$&quot;&quot;</code>) with non-validated user-provided values
+into this method. Doing so may expose your application to SQL injection attacks.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteRawSqlAsync(string sql, CancellationToken cancellationToken = null, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sql</span></td>
+        <td><p>The SQL to execute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A <see cref="!:CancellationToken"></see> to observe while waiting for the task to complete.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>Parameters to use with the SQL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><p>A task that represents the asynchronous operation. The task result is the number of rows affected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_CancellationToken_System_Object____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-efcore-docs-raw-sql">Executing raw SQL commands with EF Core</a>
+for more information.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L507">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync*"></a>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String,CancellationToken)">ExecuteRawSqlAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>
+    Executes the given SQL against the database and returns the number of rows affected.
+</p>
+<p>
+    Note that this method does not start a transaction. To use this method with
+    a transaction, first call <see cref="!:BeginTransaction"></see> or <see cref="O:UseTransaction"></see>.
+</p>
+<p>
+    Note that the current <see cref="!:ExecutionStrategy"></see> is not used by this method
+    since the SQL may not be idempotent and does not run in a transaction. An <see cref="!:ExecutionStrategy"></see>
+    can be used explicitly, making sure to also use a transaction if the SQL is not
+    idempotent.
+</p>
+<pre><code>     var userSuppliedSearchTerm = &quot;.NET&quot;;
+     context.Database.ExecuteSqlRawAsync(&quot;UPDATE Blogs SET Rank = 50 WHERE Name = {0}&quot;, userSuppliedSearchTerm);</code></pre>
+<p>
+<strong>Never</strong> pass a concatenated or interpolated string (<code>$&quot;&quot;</code>) with non-validated user-provided values
+into this method. Doing so may expose your application to SQL injection attacks.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteRawSqlAsync(string sql, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sql</span></td>
+        <td><p>The SQL to execute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A <see cref="!:CancellationToken"></see> to observe while waiting for the task to complete.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><p>A task that represents the asynchronous operation. The task result is the number of rows affected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-efcore-docs-raw-sql">Executing raw SQL commands with EF Core</a>
+for more information.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String%2CSystem.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -1508,8 +1612,8 @@ for more information.</p>
     a transaction, first call <see cref="!:BeginTransaction"></see> or <see cref="O:UseTransaction"></see>.
 </p>
 <p>
-    Note that the current <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span> is not used by this method
-    since the SQL may not be idempotent and does not run in a transaction. An <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span>
+    Note that the current <see cref="!:ExecutionStrategy"></see> is not used by this method
+    since the SQL may not be idempotent and does not run in a transaction. An <see cref="!:ExecutionStrategy"></see>
     can be used explicitly, making sure to also use a transaction if the SQL is not
     idempotent.
 </p>
@@ -1559,7 +1663,7 @@ into this method. Doing so may expose your application to SQL injection attacks.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><p>A task that represents the asynchronous operation. The task result is the number of rows affected.</p>
 </td>
       </tr>
@@ -1569,200 +1673,6 @@ into this method. Doing so may expose your application to SQL injection attacks.
   <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-efcore-docs-raw-sql">Executing raw SQL commands with EF Core</a>
 for more information.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_System_Threading_CancellationToken_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String%2CSystem.Threading.CancellationToken%2CSystem.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L543">View Source</a>
-  </span>
-  <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_System_Threading_CancellationToken_System_Object___" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String,System.Threading.CancellationToken,System.Object[])">ExecuteRawSqlAsync(String, CancellationToken, Object[])</h4>
-  <div class="markdown level1 summary"><p>
-    Executes the given SQL against the database and returns the number of rows affected.
-</p>
-<p>
-    Note that this method does not start a transaction. To use this method with
-    a transaction, first call <see cref="!:BeginTransaction"></see> or <see cref="O:UseTransaction"></see>.
-</p>
-<p>
-    Note that the current <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span> is not used by this method
-    since the SQL may not be idempotent and does not run in a transaction. An <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span>
-    can be used explicitly, making sure to also use a transaction if the SQL is not
-    idempotent.
-</p>
-<pre><code>     var userSuppliedSearchTerm = &quot;.NET&quot;;
-     context.Database.ExecuteSqlRawAsync(&quot;UPDATE Blogs SET Rank = 50 WHERE Name = {0}&quot;, userSuppliedSearchTerm);</code></pre>
-<p>
-<strong>Never</strong> pass a concatenated or interpolated string (<code>$&quot;&quot;</code>) with non-validated user-provided values
-into this method. Doing so may expose your application to SQL injection attacks.
-</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteRawSqlAsync(string sql, CancellationToken cancellationToken = default(CancellationToken), params object[] parameters)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">sql</span></td>
-        <td><p>The SQL to execute.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>A <span class="xref">System.Threading.CancellationToken</span> to observe while waiting for the task to complete.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Object</span>[]</td>
-        <td><span class="parametername">parameters</span></td>
-        <td><p>Parameters to use with the SQL.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><p>A task that represents the asynchronous operation. The task result is the number of rows affected.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_System_Threading_CancellationToken_System_Object____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-efcore-docs-raw-sql">Executing raw SQL commands with EF Core</a>
-for more information.</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.OperationCanceledException</span></td>
-        <td><p>If the <span class="xref">System.Threading.CancellationToken</span> is canceled.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L507">View Source</a>
-  </span>
-  <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.ExecuteRawSqlAsync(System.String,System.Threading.CancellationToken)">ExecuteRawSqlAsync(String, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>
-    Executes the given SQL against the database and returns the number of rows affected.
-</p>
-<p>
-    Note that this method does not start a transaction. To use this method with
-    a transaction, first call <see cref="!:BeginTransaction"></see> or <see cref="O:UseTransaction"></see>.
-</p>
-<p>
-    Note that the current <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span> is not used by this method
-    since the SQL may not be idempotent and does not run in a transaction. An <span class="xref">Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy</span>
-    can be used explicitly, making sure to also use a transaction if the SQL is not
-    idempotent.
-</p>
-<pre><code>     var userSuppliedSearchTerm = &quot;.NET&quot;;
-     context.Database.ExecuteSqlRawAsync(&quot;UPDATE Blogs SET Rank = 50 WHERE Name = {0}&quot;, userSuppliedSearchTerm);</code></pre>
-<p>
-<strong>Never</strong> pass a concatenated or interpolated string (<code>$&quot;&quot;</code>) with non-validated user-provided values
-into this method. Doing so may expose your application to SQL injection attacks.
-</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteRawSqlAsync(string sql, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">sql</span></td>
-        <td><p>The SQL to execute.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>A <span class="xref">System.Threading.CancellationToken</span> to observe while waiting for the task to complete.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><p>A task that represents the asynchronous operation. The task result is the number of rows affected.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_ExecuteRawSqlAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-efcore-docs-raw-sql">Executing raw SQL commands with EF Core</a>
-for more information.</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.OperationCanceledException</span></td>
-        <td><p>If the <span class="xref">System.Threading.CancellationToken</span> is canceled.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_FindTracked__1_System_Object___.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.FindTracked%60%601(System.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1845,7 +1755,7 @@ or <span class="xref">null</span> if not mapped to a table.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string GetTableName&lt;TEntity&gt;()
+    <pre><code class="lang-csharp hljs">string? GetTableName&lt;TEntity&gt;()
     where TEntity : class</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
@@ -1858,7 +1768,7 @@ or <span class="xref">null</span> if not mapped to a table.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><p>The name of the table to which the entity type is mapped.</p>
 </td>
       </tr>
@@ -1889,7 +1799,7 @@ or <span class="xref">null</span> if not mapped to a table.</p>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Remove_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Remove*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Remove_System_Object_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Remove(System.Object)">Remove(Object)</h4>
-  <div class="markdown level1 summary"><p>Begins tracking the given entity in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Deleted</span> state such that it will
+  <div class="markdown level1 summary"><p>Begins tracking the given entity in the <see cref="!:EntityState.Deleted"></see> state such that it will
 be removed from the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1925,8 +1835,8 @@ be removed from the database when <a class="xref" href="DataExplorer.EfCore.Abst
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span></td>
-        <td><p>The <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span> for the entity. The entry provides
+        <td><span class="xref">EntityEntry</span></td>
+        <td><p>The <see cref="!:EntityEntry"></see> for the entity. The entry provides
 access to change tracking information and operations for the entity.</p>
 </td>
       </tr>
@@ -1934,8 +1844,8 @@ access to change tracking information and operations for the entity.</p>
   </table>
   <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Remove_System_Object__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-    If the entity is already tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state then the context will
-    stop tracking the entity (rather than marking it as <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Deleted</span>) since the
+    If the entity is already tracked in the <see cref="!:EntityState.Added"></see> state then the context will
+    stop tracking the entity (rather than marking it as <see cref="!:EntityState.Deleted"></see>) since the
     entity was previously added to the context and does not exist in the database.
 </p>
 <p>
@@ -1944,7 +1854,7 @@ access to change tracking information and operations for the entity.</p>
     This allows any cascading actions to be applied when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.
 </p>
 <p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 <p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a> for more information and examples.
@@ -1959,7 +1869,7 @@ access to change tracking information and operations for the entity.</p>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Remove_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Remove*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Remove__1___0_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Remove``1(``0)">Remove&lt;TEntity&gt;(TEntity)</h4>
-  <div class="markdown level1 summary"><p>Begins tracking the given entity in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Deleted</span> state such that it will
+  <div class="markdown level1 summary"><p>Begins tracking the given entity in the <see cref="!:EntityState.Deleted"></see> state such that it will
 be removed from the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1996,8 +1906,8 @@ be removed from the database when <a class="xref" href="DataExplorer.EfCore.Abst
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span>&lt;TEntity&gt;</td>
-        <td><p>The <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry&lt;TEntity&gt;</span> for the entity. The entry provides
+        <td><span class="xref">EntityEntry</span>&lt;TEntity&gt;</td>
+        <td><p>The <see cref="!:EntityEntry&lt;TEntity>"></see> for the entity. The entry provides
 access to change tracking information and operations for the entity.</p>
 </td>
       </tr>
@@ -2021,8 +1931,8 @@ access to change tracking information and operations for the entity.</p>
   </table>
   <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Remove__1___0__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-    If the entity is already tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state then the context will
-    stop tracking the entity (rather than marking it as <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Deleted</span>) since the
+    If the entity is already tracked in the <see cref="!:EntityState.Added"></see> state then the context will
+    stop tracking the entity (rather than marking it as <see cref="!:EntityState.Deleted"></see>) since the
     entity was previously added to the context and does not exist in the database.
 </p>
 <p>
@@ -2031,7 +1941,7 @@ access to change tracking information and operations for the entity.</p>
     This allows any cascading actions to be applied when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.
 </p>
 <p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 <p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a> for more information and examples.
@@ -2046,7 +1956,7 @@ access to change tracking information and operations for the entity.</p>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_RemoveRange_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.RemoveRange*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_RemoveRange_System_Object___" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.RemoveRange(System.Object[])">RemoveRange(Object[])</h4>
-  <div class="markdown level1 summary"><p>Begins tracking the given entity in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Deleted</span> state such that it will
+  <div class="markdown level1 summary"><p>Begins tracking the given entity in the <see cref="!:EntityState.Deleted"></see> state such that it will
 be removed from the database when <a class="xref" href="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.html#DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges">SaveChanges()</a> is called.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2074,8 +1984,8 @@ be removed from the database when <a class="xref" href="DataExplorer.EfCore.Abst
   </table>
   <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_RemoveRange_System_Object____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
-    If any of the entities are already tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state then the context will
-    stop tracking those entities (rather than marking them as <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Deleted</span>) since those
+    If any of the entities are already tracked in the <see cref="!:EntityState.Added"></see> state then the context will
+    stop tracking those entities (rather than marking them as <see cref="!:EntityState.Deleted"></see>) since those
     entities were previously added to the context and do not exist in the database.
 </p>
 <p>
@@ -2102,9 +2012,9 @@ be removed from the database when <a class="xref" href="DataExplorer.EfCore.Abst
     Saves all changes made in this context to the database.
 </p>
 <p>
-    This method will automatically call <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges</span> to discover any
+    This method will automatically call <see cref="!:ChangeTracker.DetectChanges"></see> to discover any
     changes to entity instances before saving to the underlying database. This can be disabled via
-<span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled</span>.
+<see cref="!:ChangeTracker.AutoDetectChangesEnabled"></see>.
 </p>
 <p>
     Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
@@ -2137,45 +2047,22 @@ be removed from the database when <a class="xref" href="DataExplorer.EfCore.Abst
   <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChanges_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-saving-data">Saving data in EF Core</a> for more information.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.DbUpdateException</span></td>
-        <td><p>An error is encountered while saving to the database.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException</span></td>
-        <td><p>A concurrency violation is encountered while saving to the database.
-A concurrency violation occurs when an unexpected number of rows are affected during save.
-This is usually because the data in the database has been modified since it was loaded into memory.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync(System.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync(CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L809">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L770">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Boolean_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">SaveChangesAsync(Boolean, CancellationToken)</h4>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync(CancellationToken)">SaveChangesAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>
     Saves all changes made in this context to the database.
 </p>
 <p>
-    This method will automatically call <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges</span> to discover any
+    This method will automatically call <see cref="!:ChangeTracker.DetectChanges"></see> to discover any
     changes to entity instances before saving to the underlying database. This can be disabled via
-<span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled</span>.
+<see cref="!:ChangeTracker.AutoDetectChangesEnabled"></see>.
 </p>
 <p>
     Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
@@ -2187,7 +2074,74 @@ This is usually because the data in the database has been modified since it was 
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; SaveChangesAsync(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A <see cref="!:CancellationToken"></see> to observe while waiting for the task to complete.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><p>A task that represents the asynchronous save operation. The task result contains the
+number of state entries written to the database.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-saving-data">Saving data in EF Core</a> for more information.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Boolean_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync(System.Boolean%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L809">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync*"></a>
+  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Boolean_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync(System.Boolean,CancellationToken)">SaveChangesAsync(Boolean, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>
+    Saves all changes made in this context to the database.
+</p>
+<p>
+    This method will automatically call <see cref="!:ChangeTracker.DetectChanges"></see> to discover any
+    changes to entity instances before saving to the underlying database. This can be disabled via
+<see cref="!:ChangeTracker.AutoDetectChangesEnabled"></see>.
+</p>
+<p>
+    Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
+    includes both parallel execution of async queries and any explicit concurrent use from multiple threads.
+    Therefore, always await async calls immediately, or use separate DbContext instances for operations that execute
+    in parallel. See <a href="https://aka.ms/efcore-docs-threading">Avoiding DbContext threading issues</a> for more information.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2202,14 +2156,14 @@ This is usually because the data in the database has been modified since it was 
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">acceptAllChangesOnSuccess</span></td>
-        <td><p>Indicates whether <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges</span> is called after the changes have
+        <td><p>Indicates whether <see cref="!:ChangeTracker.AcceptAllChanges"></see> is called after the changes have
 been sent successfully to the database.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>A <span class="xref">System.Threading.CancellationToken</span> to observe while waiting for the task to complete.</p>
+        <td><p>A <see cref="!:CancellationToken"></see> to observe while waiting for the task to complete.</p>
 </td>
       </tr>
     </tbody>
@@ -2224,139 +2178,16 @@ been sent successfully to the database.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><p>A task that represents the asynchronous save operation. The task result contains the
 number of state entries written to the database.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Boolean_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Boolean_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-saving-data">Saving data in EF Core</a> for more information.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.DbUpdateException</span></td>
-        <td><p>An error is encountered while saving to the database.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException</span></td>
-        <td><p>A concurrency violation is encountered while saving to the database.
-A concurrency violation occurs when an unexpected number of rows are affected during save.
-This is usually because the data in the database has been modified since it was loaded into memory.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.OperationCanceledException</span></td>
-        <td><p>If the <span class="xref">System.Threading.CancellationToken</span> is canceled.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/Abstractions/DataContexts/IEfDbContext.cs/#L770">View Source</a>
-  </span>
-  <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync*"></a>
-  <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Threading_CancellationToken_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.SaveChangesAsync(System.Threading.CancellationToken)">SaveChangesAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>
-    Saves all changes made in this context to the database.
-</p>
-<p>
-    This method will automatically call <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges</span> to discover any
-    changes to entity instances before saving to the underlying database. This can be disabled via
-<span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled</span>.
-</p>
-<p>
-    Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
-    includes both parallel execution of async queries and any explicit concurrent use from multiple threads.
-    Therefore, always await async calls immediately, or use separate DbContext instances for operations that execute
-    in parallel. See <a href="https://aka.ms/efcore-docs-threading">Avoiding DbContext threading issues</a> for more information.
-</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>A <span class="xref">System.Threading.CancellationToken</span> to observe while waiting for the task to complete.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><p>A task that represents the asynchronous save operation. The task result contains the
-number of state entries written to the database.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_SaveChangesAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>See <a href="https://aka.ms/efcore-docs-saving-data">Saving data in EF Core</a> for more information.</p>
-</div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.DbUpdateException</span></td>
-        <td><p>An error is encountered while saving to the database.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException</span></td>
-        <td><p>A concurrency violation is encountered while saving to the database.
-A concurrency violation occurs when an unexpected number of rows are affected during save.
-This is usually because the data in the database has been modified since it was loaded into memory.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.OperationCanceledException</span></td>
-        <td><p>If the <span class="xref">System.Threading.CancellationToken</span> is canceled.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Set__1.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Set%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -2367,7 +2198,7 @@ This is usually because the data in the database has been modified since it was 
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Set_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Set*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Set__1" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Set``1">Set&lt;TEntity&gt;()</h4>
   <div class="markdown level1 summary"><p>
-    Creates a <span class="xref">Microsoft.EntityFrameworkCore.DbSet&lt;TEntity&gt;</span> that can be used to query and save instances of <code data-dev-comment-type="typeparamref" class="typeparamref">TEntity</code>.
+    Creates a <see cref="!:DbSet&lt;TEntity>"></see> that can be used to query and save instances of <code data-dev-comment-type="typeparamref" class="typeparamref">TEntity</code>.
 </p>
 <p>
     Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance. This
@@ -2392,7 +2223,7 @@ This is usually because the data in the database has been modified since it was 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.DbSet</span>&lt;TEntity&gt;</td>
+        <td><span class="xref">DbSet</span>&lt;TEntity&gt;</td>
         <td><p>A set for the given entity type.</p>
 </td>
       </tr>
@@ -2428,7 +2259,7 @@ This is usually because the data in the database has been modified since it was 
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Update_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Update*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Update_System_Object_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Update(System.Object)">Update(Object)</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entity and entries reachable from the given entity using
-the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span> state by default, but see below for cases
+the <see cref="!:EntityState.Modified"></see> state by default, but see below for cases
 when a different state will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2464,8 +2295,8 @@ when a different state will be used.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span></td>
-        <td><p>The <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span> for the entity. The entry provides
+        <td><span class="xref">EntityEntry</span></td>
+        <td><p>The <see cref="!:EntityEntry"></see> for the entity. The entry provides
 access to change tracking information and operations for the entity.</p>
 </td>
       </tr>
@@ -2482,17 +2313,17 @@ access to change tracking information and operations for the entity.</p>
 </p>
 <p>
     For entity types with generated keys if an entity has its primary key value set
-    then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span> state. If the primary key
-    value is not set then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state.
+    then it will be tracked in the <see cref="!:EntityState.Modified"></see> state. If the primary key
+    value is not set then it will be tracked in the <see cref="!:EntityState.Added"></see> state.
     This helps ensure new entities will be inserted, while existing entities will be updated.
     An entity is considered to have its primary key value set if the primary key property is set
     to anything other than the CLR default for the property type.
 </p>
 <p>
-    For entity types without generated keys, the state set is always <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span>.
+    For entity types without generated keys, the state set is always <see cref="!:EntityState.Modified"></see>.
 </p>
 <p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 <p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a> for more information and examples.
@@ -2508,7 +2339,7 @@ access to change tracking information and operations for the entity.</p>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Update_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Update*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_Update__1___0_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.Update``1(``0)">Update&lt;TEntity&gt;(TEntity)</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entity and entries reachable from the given entity using
-the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span> state by default, but see below for cases
+the <see cref="!:EntityState.Modified"></see> state by default, but see below for cases
 when a different state will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2545,8 +2376,8 @@ when a different state will be used.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry</span>&lt;TEntity&gt;</td>
-        <td><p>The <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry&lt;TEntity&gt;</span> for the entity. The entry provides
+        <td><span class="xref">EntityEntry</span>&lt;TEntity&gt;</td>
+        <td><p>The <see cref="!:EntityEntry&lt;TEntity>"></see> for the entity. The entry provides
 access to change tracking information and operations for the entity.</p>
 </td>
       </tr>
@@ -2579,17 +2410,17 @@ access to change tracking information and operations for the entity.</p>
 </p>
 <p>
     For entity types with generated keys if an entity has its primary key value set
-    then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span> state. If the primary key
-    value is not set then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state.
+    then it will be tracked in the <see cref="!:EntityState.Modified"></see> state. If the primary key
+    value is not set then it will be tracked in the <see cref="!:EntityState.Added"></see> state.
     This helps ensure new entities will be inserted, while existing entities will be updated.
     An entity is considered to have its primary key value set if the primary key property is set
     to anything other than the CLR default for the property type.
 </p>
 <p>
-    For entity types without generated keys, the state set is always <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span>.
+    For entity types without generated keys, the state set is always <see cref="!:EntityState.Modified"></see>.
 </p>
 <p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 <p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a> for more information and examples.
@@ -2605,7 +2436,7 @@ access to change tracking information and operations for the entity.</p>
   <a id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_UpdateRange_" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.UpdateRange*"></a>
   <h4 id="DataExplorer_EfCore_Abstractions_DataContexts_IEfDbContext_UpdateRange_System_Object___" data-uid="DataExplorer.EfCore.Abstractions.DataContexts.IEfDbContext.UpdateRange(System.Object[])">UpdateRange(Object[])</h4>
   <div class="markdown level1 summary"><p>Begins tracking the given entities and entries reachable from the given entities using
-the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span> state by default, but see below for cases
+the <see cref="!:EntityState.Modified"></see> state by default, but see below for cases
 when a different state will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2642,17 +2473,17 @@ when a different state will be used.</p>
 </p>
 <p>
     For entity types with generated keys if an entity has its primary key value set
-    then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span> state. If the primary key
-    value is not set then it will be tracked in the <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Added</span> state.
+    then it will be tracked in the <see cref="!:EntityState.Modified"></see> state. If the primary key
+    value is not set then it will be tracked in the <see cref="!:EntityState.Added"></see> state.
     This helps ensure new entities will be inserted, while existing entities will be updated.
     An entity is considered to have its primary key value set if the primary key property is set
     to anything other than the CLR default for the property type.
 </p>
 <p>
-    For entity types without generated keys, the state set is always <span class="xref">Microsoft.EntityFrameworkCore.EntityState.Modified</span>.
+    For entity types without generated keys, the state set is always <see cref="!:EntityState.Modified"></see>.
 </p>
 <p>
-    Use <span class="xref">Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.State</span> to set the state of only a single entity.
+    Use <see cref="!:EntityEntry.State"></see> to set the state of only a single entity.
 </p>
 <p>
     See <a href="https://aka.ms/efcore-docs-change-tracking">EF Core change tracking</a>

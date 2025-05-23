@@ -110,7 +110,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="DataExplorer.Abstractions.Entities.IEntity-1.html">IEntity</a>&lt;<span class="xref">System.Int64</span>&gt;&gt;</div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="DataExplorer.Abstractions.Entities.IEntity-1.html">IEntity</a>&lt;<span class="xref">System.Int64</span>&gt;&gt;</div>
     <div><a class="xref" href="DataExplorer.Abstractions.Entities.IEntity.html">IEntity</a></div>
     <div><a class="xref" href="DataExplorer.Abstractions.Entities.ISnowflakeEntity-1.html">ISnowflakeEntity</a>&lt;<span class="xref">System.Int64</span>&gt;</div>
     <div><a class="xref" href="DataExplorer.Abstractions.Entities.ISnowflakeEntity.html">ISnowflakeEntity</a></div>
@@ -135,30 +135,17 @@
       <a class="xref" href="DataExplorer.Entities.Entity-1.html#DataExplorer_Entities_Entity_1_Equals_DataExplorer_Abstractions_Entities_IEntity__0__">Entity&lt;Int64&gt;.Equals(IEntity&lt;Int64&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="DataExplorer.Entities.Entity-1.html#DataExplorer_Entities_Entity_1_Equals_System_Object_">Entity&lt;Int64&gt;.Equals(Object)</a>
+      <a class="xref" href="DataExplorer.Entities.Entity-1.html#DataExplorer_Entities_Entity_1_Equals_System_Nullable_System_Object__">Entity&lt;Int64&gt;.Equals(Nullable&lt;Object&gt;)</a>
     </div>
     <div>
       <a class="xref" href="DataExplorer.Entities.Entity-1.html#DataExplorer_Entities_Entity_1_GetHashCode">Entity&lt;Int64&gt;.GetHashCode()</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Entities.html">DataExplorer.Entities</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
   <h5 id="DataExplorer_Entities_SnowflakeEntity_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[PublicAPI]
-public abstract class SnowflakeEntity : Entity, IEquatable&lt;IEntity&lt;long&gt;&gt;, IEntity, ISnowflakeEntity&lt;long&gt;, ISnowflakeEntity, IEntity&lt;long&gt;, IEntityBase</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class SnowflakeEntity : Entity, IEntity, ISnowflakeEntity&lt;long&gt;, ISnowflakeEntity, IEntity&lt;long&gt;, IEntityBase</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
@@ -197,7 +184,7 @@ public abstract class SnowflakeEntity : Entity, IEquatable&lt;IEntity&lt;long&gt
   <div><span class="xref">DataExplorer.Entities.Entity&lt;System.Int64&gt;.Id</span></div>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IEquatable&lt;T&gt;</span>
+      <span class="xref">IEquatable&lt;&gt;</span>
   </div>
   <div>
       <a class="xref" href="DataExplorer.Abstractions.Entities.IEntity.html">IEntity</a>
