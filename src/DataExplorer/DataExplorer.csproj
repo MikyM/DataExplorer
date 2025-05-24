@@ -35,9 +35,6 @@
         <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.3.0" />
         <PackageReference Include="Autofac" Version="8.3.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
-        <PackageReference Include="AutoMapper" Version="14.0.0" />
-        <PackageReference Include="AutoMapper.Contrib.Autofac.DependencyInjection" Version="9.0.0" />
-        <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="8.0.0" />
         <PackageReference Include="IdGen" Version="3.0.7" />
         <PackageReference Include="IdGen.DependencyInjection" Version="3.0.7" />
         <PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
@@ -52,9 +49,6 @@
         <PackageReference Include="AttributeBasedRegistration.Autofac" Version="2.3.0" />
         <PackageReference Include="Autofac" Version="8.3.0" />
         <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
-        <PackageReference Include="AutoMapper" Version="14.0.0" />
-        <PackageReference Include="AutoMapper.Contrib.Autofac.DependencyInjection" Version="9.0.0" />
-        <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="8.0.0" />
         <PackageReference Include="IdGen" Version="3.0.7" />
         <PackageReference Include="IdGen.DependencyInjection" Version="3.0.7" />
         <PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />

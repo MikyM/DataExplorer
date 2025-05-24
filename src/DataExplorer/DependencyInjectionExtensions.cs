@@ -1,6 +1,6 @@
 ﻿using AttributeBasedRegistration.Autofac;
 using Autofac;
-using AutoMapper.Contrib.Autofac.DependencyInjection;
+using DataExplorer.Abstractions.Mapper;
 using DataExplorer.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -25,8 +25,8 @@ public static class DependencyInjectionExtensions
         var config = new DataExplorerConfiguration(builder);
         options.Invoke(config);
 
-        // register automapper
-        builder.RegisterAutoMapper(config.AutoMapperConfiguration, false, config.AutoMapperProfileAssembliesAccessor().ToArray());
+        builder.RegisterType<DefaultMapper>().As<IMapper>().SingleInstance().IfNotRegistered(typeof(IMapper));
+        
         //register async interceptor adapter
         builder.RegisterGeneric(typeof(AsyncInterceptorAdapter<>));
         // register instance factory
@@ -58,8 +58,8 @@ public static class DependencyInjectionExtensions
         var config = new DataExplorerConfiguration(serviceCollection);
         options.Invoke(config);
         
-        // register automapper
-        serviceCollection.AddAutoMapper(config.AutoMapperConfiguration, config.AutoMapperProfileAssembliesAccessor(), Microsoft.Extensions.DependencyInjection.ServiceLifetime.Scoped);
+        serviceCollection.TryAddSingleton<IMapper, DefaultMapper>();
+        
         // register async interceptor adapter
         serviceCollection.AddSingleton(typeof(AsyncInterceptorAdapter<>));
         // register instance factory

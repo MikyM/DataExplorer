@@ -1,7 +1,5 @@
 ﻿using System.Reflection;
 using Autofac;
-using AutoMapper;
-using AutoMapper.Extensions.ExpressionMapping;
 using DataExplorer.IdGenerator;
 using DataExplorer.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -48,17 +46,6 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// </summary>
     internal IServiceCollection? GetServiceCollection()
         => ServiceCollection;
-
-    /// <summary>
-    /// Gets or sets AutoMapper's configuration, defaults to opt.AddExpressionMapping().
-    /// </summary>
-    public Action<IMapperConfigurationExpression> AutoMapperConfiguration { get; set; } =
-        opt => opt.AddExpressionMapping();
-    
-    /// <summary>
-    /// Gets or sets the accessor used to get assemblies to scan for AutoMapper's profiles, defaults to all assemblies.
-    /// </summary>
-    public Func<IEnumerable<Assembly>> AutoMapperProfileAssembliesAccessor { get; set; } = () => AppDomain.CurrentDomain.GetAssemblies();
     
     /// <summary>
     /// Registers required Id generator services with the given <paramref name="generatorId"/>.

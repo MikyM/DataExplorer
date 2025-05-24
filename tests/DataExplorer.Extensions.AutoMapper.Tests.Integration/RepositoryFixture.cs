@@ -1,5 +1,5 @@
-﻿using DataExplorer.Abstractions.Mapper;
-using DataExplorer.Abstractions.Specifications.Evaluators;
+﻿using AutoMapper;
+using DataExplorer.EfCore;
 using DataExplorer.EfCore.Abstractions.Repositories;
 using DataExplorer.EfCore.Repositories;
 using DataExplorer.EfCore.Specifications;
@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Moq;
 using Testcontainers.PostgreSql;
+using IMapper = DataExplorer.Abstractions.Mapper.IMapper;
 
-namespace DataExplorer.EfCore.Tests.Integration;
+namespace DataExplorer.Extensions.AutoMapper.Integration;
 
 public class RepositoryFixture : IDisposable
 {
@@ -47,10 +47,20 @@ public class RepositoryFixture : IDisposable
         _config = Options.Create(new DataExplorerEfCoreConfiguration(new ServiceCollection()));
         
         _timeProvider = new DataExplorerTimeProvider.StaticDataExplorerTimeProvider();
-        
-        _specificationEvaluator = new SpecificationEvaluator(true);
 
-        _mapper = Mock.Of<IMapper>();
+        var config = new MapperConfiguration(cfg => {
+            cfg.CreateMap<DateTime?, DateTimeOffset?>().ConvertUsing(x => x == null ? null : new DateTimeOffset(x.Value));
+            cfg.CreateMap<TestEntity,TestEntityOffset>();
+        });
+        var autoMapper = config.CreateMapper();
+
+        var projection = new AutoMapperProjectionEvaluator(autoMapper);
+        
+        _specificationEvaluator = new SpecificationEvaluator(true, projection);
+
+        var bridge = new AutoMapperBridge(autoMapper);
+        
+        _mapper = bridge;
 
         var port = Random.Shared.Next(5000, 10000);
         

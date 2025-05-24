@@ -14,6 +14,7 @@ using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.DataServices;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using GroupByEvaluator = DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator;
 using IBasicEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IBasicEvaluator;
 using IBasicInMemoryEvaluator = DataExplorer.Abstractions.Specifications.Evaluators.IBasicInMemoryEvaluator;
@@ -29,7 +30,6 @@ using ISpecialCaseEvaluator = DataExplorer.Abstractions.Specifications.Evaluator
 using ISpecificationValidator = DataExplorer.Abstractions.Specifications.Validators.ISpecificationValidator;
 using IValidator = DataExplorer.Abstractions.Specifications.Validators.IValidator;
 using IValidatorMarker = DataExplorer.Abstractions.Specifications.Validators.IValidatorMarker;
-using ProjectionEvaluator = DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 using SpecificationEvaluator = DataExplorer.EfCore.Specifications.SpecificationEvaluator;
 using SpecificationValidator = DataExplorer.EfCore.Specifications.Validators.SpecificationValidator;
@@ -256,12 +256,13 @@ public static class DataExplorerConfigurationExtensions
 
         serviceCollection?.AddSingleton<IEvaluator>(new IncludeEvaluator(config.EnableIncludeCache));
 
-        builder?.RegisterType<ProjectionEvaluator>()
+        builder?.RegisterType<DefaultProjectionEvaluator>()
             .As<IProjectionEvaluator>()
             .FindConstructorsWith(ctorFinder)
-            .SingleInstance();
+            .SingleInstance()
+            .IfNotRegistered(typeof(IProjectionEvaluator));
         
-        serviceCollection?.AddSingleton<IProjectionEvaluator>(new ProjectionEvaluator());
+        serviceCollection?.TryAddSingleton<IProjectionEvaluator>(new DefaultProjectionEvaluator());
 
 #if NET7_0_OR_GREATER
         builder?.RegisterType<UpdateEvaluator>()

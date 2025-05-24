@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using AutoMapper;
 using DataExplorer.Abstractions.Specifications.Builders;
 using DataExplorer.Specifications;
 using DataExplorer.Specifications.Exceptions;
@@ -464,23 +463,6 @@ public static class SpecificationBuilderExtensions
     {
         specificationBuilder.Specification.StringMembersToExpand ??= new List<string>();
         ((List<string>)specificationBuilder.Specification.StringMembersToExpand).Add(member);
-
-        return specificationBuilder;
-    }
-
-    /// <summary>
-    /// Adds automapper configuration.
-    /// </summary>
-    /// <typeparam name="T">Entity type</typeparam>
-    /// <typeparam name="TResult">Result type</typeparam>
-    /// <param name="specificationBuilder">Current builder</param>
-    /// <param name="mapperConfiguration"><see cref="MapperConfiguration"/> instance</param>
-    /// <returns>Current builder instance</returns>
-    public static ISpecificationBuilder<T, TResult> WithMapperConfiguration<T, TResult>(
-        this ISpecificationBuilder<T, TResult> specificationBuilder,
-        IConfigurationProvider mapperConfiguration) where T : class
-    {
-        specificationBuilder.Specification.MapperConfigurationProvider = mapperConfiguration;
 
         return specificationBuilder;
     }

@@ -18,6 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.EfCore.Tests.Integration", "..\tests\DataExplorer.EfCore.Tests.Integration\DataExplorer.EfCore.Tests.Integration.csproj", "{E50ECD76-7CE2-4930-9438-C0698911DE66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.Extensions.AutoMapper", "DataExplorer.Extensions.AutoMapper\DataExplorer.Extensions.AutoMapper.csproj", "{0DDBA8A3-1F58-402A-B611-245727357B70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.Extensions.AutoMapper.Tests.Integration", "..\tests\DataExplorer.Extensions.AutoMapper.Tests.Integration\DataExplorer.Extensions.AutoMapper.Tests.Integration.csproj", "{18C3BEA9-A693-4B88-8E02-64ABB2A02F4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.Extensions.AutoMapper.Tests.Unit", "..\tests\DataExplorer.Extensions.AutoMapper.Tests.Unit\DataExplorer.Extensions.AutoMapper.Tests.Unit.csproj", "{30EF70F8-C172-422B-B08E-639AB4B47169}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +54,18 @@ Global
 		{E50ECD76-7CE2-4930-9438-C0698911DE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E50ECD76-7CE2-4930-9438-C0698911DE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E50ECD76-7CE2-4930-9438-C0698911DE66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDBA8A3-1F58-402A-B611-245727357B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDBA8A3-1F58-402A-B611-245727357B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDBA8A3-1F58-402A-B611-245727357B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDBA8A3-1F58-402A-B611-245727357B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18C3BEA9-A693-4B88-8E02-64ABB2A02F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18C3BEA9-A693-4B88-8E02-64ABB2A02F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18C3BEA9-A693-4B88-8E02-64ABB2A02F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18C3BEA9-A693-4B88-8E02-64ABB2A02F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30EF70F8-C172-422B-B08E-639AB4B47169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30EF70F8-C172-422B-B08E-639AB4B47169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30EF70F8-C172-422B-B08E-639AB4B47169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30EF70F8-C172-422B-B08E-639AB4B47169}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3CA1D013-9A7F-4778-9173-4D76A9229056} = {E039280D-7F2B-481D-ADAD-FAB786737469}
@@ -56,5 +74,7 @@ Global
 		{5B7ADB2F-A6C9-4F54-ACE7-23208211F76E} = {E039280D-7F2B-481D-ADAD-FAB786737469}
 		{DF2D6734-5C9B-449B-BE53-139D883D6CF6} = {E039280D-7F2B-481D-ADAD-FAB786737469}
 		{E50ECD76-7CE2-4930-9438-C0698911DE66} = {5B7ADB2F-A6C9-4F54-ACE7-23208211F76E}
+		{18C3BEA9-A693-4B88-8E02-64ABB2A02F4C} = {5B7ADB2F-A6C9-4F54-ACE7-23208211F76E}
+		{30EF70F8-C172-422B-B08E-639AB4B47169} = {3CA1D013-9A7F-4778-9173-4D76A9229056}
 	EndGlobalSection
 EndGlobal

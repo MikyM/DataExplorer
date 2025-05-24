@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using DataExplorer.Abstractions.DataServices;
+﻿using DataExplorer.Abstractions.DataServices;
+using DataExplorer.Abstractions.Mapper;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using Microsoft.EntityFrameworkCore.Storage;
 using Remora.Results;

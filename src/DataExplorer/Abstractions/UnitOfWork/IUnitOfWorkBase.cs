@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using DataExplorer.Abstractions.DataContexts;
+﻿using DataExplorer.Abstractions.DataContexts;
+using DataExplorer.Abstractions.Mapper;
 using DataExplorer.Abstractions.Repositories;
 using DataExplorer.Abstractions.Specifications.Evaluators;
 
