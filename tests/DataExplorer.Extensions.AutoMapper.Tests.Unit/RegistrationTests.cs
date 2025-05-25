@@ -2,6 +2,7 @@ using Autofac;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
 using DataExplorer.Abstractions.Mapper;
 using DataExplorer.Abstractions.Specifications.Evaluators;
+using DataExplorer.Extensions.Autofac;
 using FluentAssertions;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
@@ -56,7 +57,7 @@ public class RegistrationTests
             bridge.Should().BeOfType<AutoMapperProjectionEvaluator>();
         }
     }
-
+    
     public class AutofacServiceProvider
     {
         [Fact]
@@ -71,7 +72,7 @@ public class RegistrationTests
             {
                 x.UseAutoMapper();
             });
-
+            
             var provider = services.Build();
             
             // Assert

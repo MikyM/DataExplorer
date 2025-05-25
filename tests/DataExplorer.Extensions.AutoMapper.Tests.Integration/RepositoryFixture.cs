@@ -44,7 +44,7 @@ public class RepositoryFixture : IDisposable
     
     public RepositoryFixture()
     {
-        _config = Options.Create(new DataExplorerEfCoreConfiguration(new ServiceCollection()));
+        _config = Options.Create(new DataExplorerEfCoreConfiguration(new MicrosoftRegistrator(new ServiceCollection())));
         
         _timeProvider = new DataExplorerTimeProvider.StaticDataExplorerTimeProvider();
 

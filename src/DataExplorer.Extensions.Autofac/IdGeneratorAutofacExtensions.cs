@@ -1,8 +1,9 @@
 ﻿using Autofac;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 
-namespace DataExplorer.IdGenerator;
+namespace DataExplorer.Extensions.Autofac;
 
 /// <summary>
 /// Helper class to integrate IdGen with Autofac.

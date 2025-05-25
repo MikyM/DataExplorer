@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using DataExplorer.Abstractions;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -21,29 +22,12 @@ public class DataExplorerAutoMapperConfiguration : DataExplorerConfigurationBase
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    public DataExplorerAutoMapperConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
+    public DataExplorerAutoMapperConfiguration(IRegistrator registrator) : base(registrator)
     {
     }
-    
-    /// <summary>
-    /// Creates an instance of the configuration class.
-    /// </summary>
-    public DataExplorerAutoMapperConfiguration(ContainerBuilder builder) : base(builder)
-    {
-    }
-    
-    /// <summary>
-    /// Gets the container builder.
-    /// </summary>
-    internal ContainerBuilder? GetContainerBuilder()
-        => Builder;
-    
-    /// <summary>
-    /// Gets the service collection.
-    /// </summary>
-    internal IServiceCollection? GetServiceCollection()
-        => ServiceCollection;
 
     /// <inheritdoc/>
     public DataExplorerAutoMapperConfiguration Value => this;
+
+    internal IRegistrator GetRegistrator() => Registrator;
 }

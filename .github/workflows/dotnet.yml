@@ -66,12 +66,34 @@ jobs:
       if: github.event_name == 'push'
       run: dotnet nuget push ./src/DataExplorer.EfCore/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
+    - name: Pack DataExplorer.Extensions.Autofac
+      if: github.event_name == 'push'
+      run: | 
+        cd src/DataExplorer.Extensions.Autofac
+        dotnet pack -c Release -o out 
+
+    - name: Push DataExplorer.Autofac NuGet registry
+      if: github.event_name == 'push'
+      run: dotnet nuget push ./src/DataExplorer.Extensions.Autofac/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+
+    - name: Pack DataExplorer.Extensions.AutoMapper
+      if: github.event_name == 'push'
+      run: | 
+        cd src/DataExplorer.Extensions.AutoMapper
+        dotnet pack -c Release -o out 
+
+    - name: Push DataExplorer.Extensions.AutoMapper NuGet registry
+      if: github.event_name == 'push'
+      run: dotnet nuget push ./src/DataExplorer.Extensions.AutoMapper/out/*.nupkg --skip-duplicate -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+
     - name: Prepare package upload as artifacts
       if: github.event_name == 'push'
       run: | 
         mkdir nuget-packages
         cp src/DataExplorer/out/* nuget-packages
         cp src/DataExplorer.EfCore/out/* nuget-packages
+        cp src/DataExplorer.Extensions.AutoMapper/out/* nuget-packages
+        cp src/DataExplorer.Extensions.Autofac/out/* nuget-packages
 
     - name: Upload packages as artifacts
       if: github.event_name == 'push'

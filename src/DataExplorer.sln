@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.Extensions.Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.Extensions.AutoMapper.Tests.Unit", "..\tests\DataExplorer.Extensions.AutoMapper.Tests.Unit\DataExplorer.Extensions.AutoMapper.Tests.Unit.csproj", "{30EF70F8-C172-422B-B08E-639AB4B47169}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExplorer.Extensions.Autofac", "DataExplorer.Extensions.Autofac\DataExplorer.Extensions.Autofac.csproj", "{51095670-691F-44D3-9E19-69E54DFDB324}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{30EF70F8-C172-422B-B08E-639AB4B47169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30EF70F8-C172-422B-B08E-639AB4B47169}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30EF70F8-C172-422B-B08E-639AB4B47169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51095670-691F-44D3-9E19-69E54DFDB324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51095670-691F-44D3-9E19-69E54DFDB324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51095670-691F-44D3-9E19-69E54DFDB324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51095670-691F-44D3-9E19-69E54DFDB324}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3CA1D013-9A7F-4778-9173-4D76A9229056} = {E039280D-7F2B-481D-ADAD-FAB786737469}

@@ -60,6 +60,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\DataExplorer.EfCore\DataExplorer.EfCore.csproj" />
+      <ProjectReference Include="..\..\src\DataExplorer.Extensions.Autofac\DataExplorer.Extensions.Autofac.csproj" />
       <ProjectReference Include="..\..\src\DataExplorer.Extensions.AutoMapper\DataExplorer.Extensions.AutoMapper.csproj" />
       <ProjectReference Include="..\DataExplorer.Tests.Shared\DataExplorer.Tests.Shared.csproj" />
     </ItemGroup>

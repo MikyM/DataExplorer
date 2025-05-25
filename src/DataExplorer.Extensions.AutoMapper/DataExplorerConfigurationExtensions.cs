@@ -4,6 +4,7 @@ using DataExplorer.Abstractions.Specifications.Evaluators;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using IAutoMapper = AutoMapper.IMapper;
+using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 // ReSharper disable PossibleMultipleEnumeration
 
@@ -28,15 +29,14 @@ public static class DataExplorerConfigurationExtensions
         options ??= _ => { };
         
         options.Invoke(config);
+
+        var registrator = config.GetRegistrator();
+
+        registrator.DescribeFactory(x => new AutoMapperBridge(x.Resolve<IAutoMapper>()), typeof(AutoMapperBridge)).As(typeof(IMapper))
+            .WithLifetime(ServiceLifetime.SingleInstance).Register();
         
-        var builder = config.GetContainerBuilder();
-        var serviceCollection = config.GetServiceCollection();
-
-        builder?.Register(x => new AutoMapperBridge(x.Resolve<IAutoMapper>())).As<IMapper>().SingleInstance();
-        builder?.Register(x => new AutoMapperProjectionEvaluator(x.Resolve<IAutoMapper>())).As<IProjectionEvaluator>().SingleInstance();
-
-        serviceCollection?.AddSingleton<IMapper>(x => new AutoMapperBridge(x.GetRequiredService<IAutoMapper>()));
-        serviceCollection?.AddSingleton<IProjectionEvaluator>(x => new AutoMapperProjectionEvaluator(x.GetRequiredService<IAutoMapper>()));
+        registrator.DescribeFactory(x => new AutoMapperProjectionEvaluator(x.Resolve<IAutoMapper>()), typeof(AutoMapperProjectionEvaluator)).As(typeof(IProjectionEvaluator))
+            .WithLifetime(ServiceLifetime.SingleInstance).Register();
 
         return configuration;
     }

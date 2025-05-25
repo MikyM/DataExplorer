@@ -1,10 +1,9 @@
-﻿using System.Reflection;
-using Autofac;
-using DataExplorer.IdGenerator;
+﻿using DataExplorer.Abstractions;
 using DataExplorer.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
+using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer;
 
@@ -17,14 +16,7 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    public DataExplorerConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
-    {
-    }
-    
-    /// <summary>
-    /// Creates an instance of the configuration class.
-    /// </summary>
-    public DataExplorerConfiguration(ContainerBuilder builder) : base(builder)
+    public DataExplorerConfiguration(IRegistrator registrator) : base(registrator)
     {
     }
     
@@ -34,18 +26,12 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     public DataExplorerConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
     {
     }
-
-    /// <summary>
-    /// Gets the container builder.
-    /// </summary>
-    internal ContainerBuilder? GetContainerBuilder()
-        => Builder;
     
     /// <summary>
-    /// Gets the service collection.
+    /// Gets the registrator service.
     /// </summary>
-    internal IServiceCollection? GetServiceCollection()
-        => ServiceCollection;
+    internal IRegistrator GetRegistrator()
+        => Registrator;
     
     /// <summary>
     /// Registers required Id generator services with the given <paramref name="generatorId"/>.
@@ -63,23 +49,21 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
     public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId, Func<IdGeneratorOptions> options)
     {
-        Builder?.AddIdGen(generatorId, options);
-
         var opt = options();
-        ServiceCollection?.AddSingleton<IdGen.IIdGenerator<long>>(new IdGen.IdGenerator(generatorId, opt));
+        
+        Registrator.DescribeInstance(new IdGen.IdGenerator(generatorId, opt)).As(typeof(IdGen.IIdGenerator<long>))
+            .WithLifetime(ServiceLifetime.SingleInstance).Register();
 
-        Builder?.RegisterType<SnowflakeGenerator>().As<ISnowflakeGenerator>().SingleInstance();
-        ServiceCollection?.AddSingleton<ISnowflakeGenerator, SnowflakeGenerator>();
+        Registrator.DescribeInstance(typeof(SnowflakeGenerator)).As(typeof(ISnowflakeGenerator))
+            .WithLifetime(ServiceLifetime.SingleInstance).Register();
+        
+        var iopt = Options.Create(opt);
 
-        Builder?.RegisterBuildCallback(x =>
-            SnowflakeIdFactory.AddFactoryMethod(() => x.Resolve<ISnowflakeGenerator>().Generate()));
-
-        if (Builder is null)
-        {
-            var iopt = Options.Create(opt);
-            ServiceCollection?.AddSingleton(iopt);
-            ServiceCollection?.AddSingleton(x => x.GetRequiredService<IOptions<IdGeneratorOptions>>().Value);
-        }
+        Registrator.DescribeInstance(opt).As(typeof(IOptions<IdGeneratorOptions>))
+            .WithLifetime(ServiceLifetime.SingleInstance).Register();
+        
+        Registrator.DescribeFactory(x => x.Resolve<IOptions<IdGeneratorOptions>>().Value, typeof(IdGeneratorOptions)).As(typeof(IdGeneratorOptions))
+            .WithLifetime(ServiceLifetime.SingleInstance).Register();
 
         return this;
     }
@@ -90,8 +74,9 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
     public DataExplorerConfiguration AddSnowflakeIdGenerator<TGenerator>() where TGenerator : class, ISnowflakeGenerator
     {
-        Builder?.RegisterType<TGenerator>().As<ISnowflakeGenerator>().SingleInstance();
-        ServiceCollection?.AddSingleton<TGenerator>();
+        Registrator.Describe(typeof(TGenerator)).As(typeof(ISnowflakeGenerator))
+            .WithLifetime(ServiceLifetime.SingleInstance).Register();
+
         return this;
     }
 
