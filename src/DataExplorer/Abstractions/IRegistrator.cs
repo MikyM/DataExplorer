@@ -33,6 +33,19 @@ public interface IRegistrator
     IRegistration DescribeInstance(object instance);
 
     /// <summary>
+    /// Registers given instance as a service within the DI container.
+    /// </summary>
+    /// <param name="instance">The instance to register.</param>
+    IRegistrator DescribeOptions<TOptions>(TOptions instance) where TOptions : class;
+
+    /// <summary>
+    /// Registers given instance as a service within the DI container.
+    /// </summary>
+    /// <param name="action">The instance to register.</param>
+    /// <param name="instance">Instance.</param>
+    IRegistrator DescribeOptions<TOptions>(Action<TOptions> action, TOptions instance) where TOptions : class;
+
+    /// <summary>
     /// Gets whether the registrator supports decorators.
     /// </summary>
     bool SupportsDecoration { get; }

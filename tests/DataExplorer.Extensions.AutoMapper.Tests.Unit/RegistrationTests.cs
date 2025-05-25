@@ -6,6 +6,7 @@ using DataExplorer.Extensions.Autofac;
 using FluentAssertions;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace DataExplorer.Extensions.AutoMapper.Tests.Unit;
 
@@ -56,6 +57,46 @@ public class RegistrationTests
 
             bridge.Should().BeOfType<AutoMapperProjectionEvaluator>();
         }
+        
+        [Fact]
+        public void ShouldContainOptions()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            services.AddAutoMapper(x => {});
+            
+            // Act
+            services.AddDataExplorer(x =>
+            {
+                x.UseAutoMapper();
+            });
+            
+            var provider = services.BuildServiceProvider();
+            
+            // Assert
+            var x = () => provider.GetRequiredService<IOptions<DataExplorerAutoMapperConfiguration>>();
+            x.Should().NotThrow();
+        }
+        
+        [Fact]
+        public void ShouldContainConfiguration()
+        {
+            // Arrange
+            var services = new ServiceCollection();
+            services.AddAutoMapper(x => {});
+            
+            // Act
+            services.AddDataExplorer(x =>
+            {
+                x.UseAutoMapper();
+            });
+            
+            var provider = services.BuildServiceProvider();
+            
+            // Assert
+            var x = () =>  provider.GetRequiredService<DataExplorerAutoMapperConfiguration>();
+            x.Should().NotThrow();
+        }
     }
     
     public class AutofacServiceProvider
@@ -100,6 +141,46 @@ public class RegistrationTests
             var bridge = provider.Resolve<IProjectionEvaluator>();
 
             bridge.Should().BeOfType<AutoMapperProjectionEvaluator>();
+        }
+        
+        [Fact]
+        public void ShouldContainOptions()
+        {
+            // Arrange
+            var services = new ContainerBuilder();
+            services.RegisterAutoMapper();
+            
+            // Act
+            services.AddDataExplorer(x =>
+            {
+                x.UseAutoMapper();
+            });
+            
+            var provider = services.Build();
+            
+            // Assert
+            var x = () => provider.Resolve<IOptions<DataExplorerAutoMapperConfiguration>>();
+            x.Should().NotThrow();
+        }
+        
+        [Fact]
+        public void ShouldContainConfiguration()
+        {
+            // Arrange
+            var services = new ContainerBuilder();
+            services.RegisterAutoMapper();
+            
+            // Act
+            services.AddDataExplorer(x =>
+            {
+                x.UseAutoMapper();
+            });
+            
+            var provider = services.Build();
+            
+            // Assert
+            var x = () =>  provider.Resolve<DataExplorerAutoMapperConfiguration>();
+            x.Should().NotThrow();
         }
     }
 }

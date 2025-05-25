@@ -1,6 +1,8 @@
 ﻿using System.Linq.Expressions;
 using DataExplorer.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 
 namespace DataExplorer;
 
@@ -23,6 +25,25 @@ public class MicrosoftRegistrator : IRegistrator
 
     public IRegistration DescribeInstance(object instance)
         => new MicrosoftRegistration(this, instance);
+
+    public IRegistrator DescribeOptions<TOptions>(TOptions instance) where TOptions : class
+    {
+        var options = Options.Create(instance);
+        
+        Services.TryAddSingleton(typeof(IOptions<TOptions>), x => options);
+        Services.TryAddSingleton(x => x.GetRequiredService<IOptions<TOptions>>().Value);
+        
+        return this;
+    }
+
+    public IRegistrator DescribeOptions<TOptions>(Action<TOptions> action, TOptions instance) where TOptions : class
+    {
+        Services.AddOptions<TOptions>();
+        Services.Configure(action);
+        Services.TryAddSingleton(instance);
+        
+        return this;
+    }
 
     public IRegistration DescribeFactory(Expression<Func<IResolver, object>> factory, Type implementationType)
         => new MicrosoftRegistration(this, factory, implementationType);

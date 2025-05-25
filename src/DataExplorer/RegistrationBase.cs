@@ -97,7 +97,7 @@ public abstract class RegistrationBase : IRegistration
 
         if (ImplementationType is not null && (ImplementationType.IsAbstract || ImplementationType.IsInterface))
         {
-            throw new InvalidOperationException("Implementation type cannot be abstract or an interface");
+            throw new InvalidOperationException($"Implementation type cannot be abstract or an interface: {ImplementationType.Name}");
         }
     }
 

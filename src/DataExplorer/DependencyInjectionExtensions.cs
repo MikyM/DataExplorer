@@ -31,6 +31,7 @@ public static class DependencyInjectionExtensions
         serviceCollection.AddSingleton<ICachedInstanceFactory,CachedInstanceFactory>();
 
         serviceCollection.AddOptions<DataExplorerConfiguration>().Configure(options);
+        serviceCollection.AddSingleton(config);
         
 #if NET8_0_OR_GREATER
         // register the time provider conditionally

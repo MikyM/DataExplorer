@@ -32,6 +32,8 @@ public static class DataExplorerConfigurationExtensions
 
         var registrator = config.GetRegistrator();
 
+        registrator.DescribeOptions(options, config);
+
         registrator.DescribeFactory(x => new AutoMapperBridge(x.Resolve<IAutoMapper>()), typeof(AutoMapperBridge)).As(typeof(IMapper))
             .WithLifetime(ServiceLifetime.SingleInstance).Register();
         

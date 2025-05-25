@@ -32,7 +32,11 @@ public static class DependencyInjectionExtensions
         // register instance factory
         builder.RegisterType<CachedInstanceFactory>().As<ICachedInstanceFactory>().SingleInstance();
 
-        builder.RegisterInstance(config).AsSelf().As<IOptions<DataExplorerConfiguration>>().SingleInstance();
+        var ioptions = Options.Create(config);
+        
+        builder.RegisterInstance(ioptions).As<IOptions<DataExplorerConfiguration>>().SingleInstance();
+        builder.Register(x => x.Resolve<IOptions<DataExplorerConfiguration>>().Value).As<DataExplorerConfiguration>()
+            .SingleInstance();
 
 #if NET8_0_OR_GREATER
         // register the time provider conditionally

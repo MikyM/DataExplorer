@@ -154,14 +154,7 @@ public static class DataExplorerConfigurationExtensions
         
         registrator.DescribeInstance(cache).As(typeof(IEfDataExplorerTypeCache)).WithLifetime(ServiceLifetime.SingleInstance).Register();
 
-        if (registrator is MicrosoftRegistrator microsoftRegistrator)
-        {
-            microsoftRegistrator.Services.AddOptions<DataExplorerEfCoreConfiguration>().Configure(options);
-        }
-        
-        registrator.DescribeInstance(config).As(typeof(DataExplorerEfCoreConfiguration)).WithLifetime(ServiceLifetime.SingleInstance).Register();
-        
-        registrator.DescribeInstance(config).As(typeof(IOptions<DataExplorerEfCoreConfiguration>)).WithLifetime(ServiceLifetime.SingleInstance).Register();
+        registrator.DescribeOptions(options, config);
 
         registrator.DescribeOpenGeneric(typeof(UnitOfWork<>)).As(typeof(IUnitOfWork<>)).WithLifetime(ServiceLifetime.InstancePerLifetimeScope).Register();
         
@@ -219,7 +212,7 @@ public static class DataExplorerConfigurationExtensions
             new SpecificationEvaluator(x.Resolve<IEnumerable<IEvaluator>>(),
                 x.Resolve<IEnumerable<IBasicEvaluator>>(),
                 x.Resolve<IEnumerable<IPreUpdateEvaluator>>(), x.Resolve<IProjectionEvaluator>(),
-                x.Resolve<IUpdateEvaluator>()), typeof(SpecificationEvaluator)).As(typeof(ISpecialCaseEvaluator)).WithLifetime(ServiceLifetime.SingleInstance).Register();
+                x.Resolve<IUpdateEvaluator>()), typeof(SpecificationEvaluator)).As(typeof(ISpecificationEvaluator)).WithLifetime(ServiceLifetime.SingleInstance).Register();
         
         registrator.DescribeFactory(x => x.Resolve<ISpecificationEvaluator>(), typeof(SpecificationEvaluator)).As(typeof(IEfSpecificationEvaluator)).WithLifetime(ServiceLifetime.SingleInstance).Register();
 #else
@@ -240,7 +233,7 @@ public static class DataExplorerConfigurationExtensions
         var registReadOnlyBuilder = registrator.DescribeOpenGeneric(typeof(ReadOnlyDataService<,>)).As(typeof(IReadOnlyDataService<,>)).WithLifetime(config.BaseGenericDataServiceLifetime);
         var registReadOnlyGenericIdBuilder = registrator.DescribeOpenGeneric(typeof(ReadOnlyDataService<,,>)).As(typeof(IReadOnlyDataService<,,>)).WithLifetime(config.BaseGenericDataServiceLifetime);
         var registCrudBuilder = registrator.DescribeOpenGeneric(typeof(CrudDataService<,>)).As(typeof(ICrudDataService<,>)).WithLifetime(config.BaseGenericDataServiceLifetime);
-        var registCrudGenericIdBuilder = registrator.DescribeOpenGeneric(typeof(ICrudDataService<,,>)).As(typeof(ICrudDataService<,,>)).WithLifetime(config.BaseGenericDataServiceLifetime);
+        var registCrudGenericIdBuilder = registrator.DescribeOpenGeneric(typeof(CrudDataService<,,>)).As(typeof(ICrudDataService<,,>)).WithLifetime(config.BaseGenericDataServiceLifetime);
 
         // base data interceptors
         var crudEnabled = false;

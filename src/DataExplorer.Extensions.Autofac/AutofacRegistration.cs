@@ -57,8 +57,16 @@ public sealed class AutofacRegistration : RegistrationBase
             ? _registrator.Services.RegisterInstance(ImplementationInstance)
             : null;
         
-        var typeBuilder = ImplementationFactory is null && ImplementationInstance is null
-            ? _registrator.Services.RegisterType(ImplementationType)
+        var simpleTypeBuilder = ImplementationFactory is null && ImplementationInstance is null
+            ? IsOpenGeneric 
+                ? null
+                : _registrator.Services.RegisterType(ImplementationType)
+            : null;
+        
+        var genericTypeBuilder = ImplementationFactory is null && ImplementationInstance is null
+            ? IsOpenGeneric 
+                ? _registrator.Services.RegisterGeneric(ImplementationType)
+                : null
             : null;
         
         if (ShouldOnlyRegisterIfNotRegistered)
@@ -75,7 +83,8 @@ public sealed class AutofacRegistration : RegistrationBase
                 }
                 else if (ImplementationType is not null)
                 {
-                    typeBuilder = typeBuilder?.As(serviceType).IfNotRegistered(serviceType);
+                    simpleTypeBuilder = simpleTypeBuilder?.As(serviceType).IfNotRegistered(serviceType);
+                    genericTypeBuilder = genericTypeBuilder?.As(serviceType).IfNotRegistered(serviceType);
                 }
             }
         }
@@ -93,7 +102,8 @@ public sealed class AutofacRegistration : RegistrationBase
                 }
                 else if (ImplementationType is not null)
                 {
-                    typeBuilder = typeBuilder?.As(serviceType);
+                    simpleTypeBuilder = simpleTypeBuilder?.As(serviceType);
+                    genericTypeBuilder = genericTypeBuilder?.As(serviceType);
                 }
             }
         }
@@ -102,14 +112,16 @@ public sealed class AutofacRegistration : RegistrationBase
         {
             factoryBuilder = factoryBuilder?.EnableInterfaceInterceptors();
             instanceBuilder = instanceBuilder?.EnableInterfaceInterceptors();
-            typeBuilder = typeBuilder?.EnableInterfaceInterceptors();
+            simpleTypeBuilder = simpleTypeBuilder?.EnableInterfaceInterceptors();
+            genericTypeBuilder = genericTypeBuilder?.EnableInterfaceInterceptors();
         }
 
         foreach (var interceptor in Interceptors)
         {
             factoryBuilder = factoryBuilder?.InterceptedBy(interceptor);
             instanceBuilder = instanceBuilder?.InterceptedBy(interceptor);
-            typeBuilder = typeBuilder?.InterceptedBy(interceptor);
+            simpleTypeBuilder = simpleTypeBuilder?.InterceptedBy(interceptor);
+            genericTypeBuilder = genericTypeBuilder?.InterceptedBy(interceptor);
         }
 
         return _registrator;
