@@ -6,12 +6,16 @@ using DataExplorer.EfCore;
 using DataExplorer.EfCore.Abstractions;
 using DataExplorer.EfCore.Abstractions.DataServices;
 using DataExplorer.EfCore.Extensions;
+using DataExplorer.IdGenerator;
+using DataExplorer.Services;
 using DataExplorer.Tests.Shared;
 using DataExplorer.Utilities;
 using FluentAssertions;
+using IdGen;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
 namespace DataExplorer.Extensions.Autofac.Tests.Unit;
@@ -52,6 +56,8 @@ public class DependencyInjectionTests
         [InlineData(typeof(ICachedInstanceFactory))]
         [InlineData(typeof(TimeProvider))]
         [InlineData(typeof(DataExplorerTimeProvider))]
+        [InlineData(typeof(ISnowflakeGenerator))]
+        [InlineData(typeof(IIdGenerator<long>))]
         public void Resolve(Type typeToResolve)
         {
             // Arrange
@@ -66,6 +72,7 @@ public class DependencyInjectionTests
             
             services.AddDataExplorer(x =>
             {
+                x.AddSnowflakeIdGeneration();
                 x.AddEfCore(e =>
                 {
 
@@ -78,6 +85,36 @@ public class DependencyInjectionTests
             
             var target = () => provider.Resolve(typeToResolve);
             target.Should().NotThrow();
+        }
+
+        [Fact]
+        public void ContainSnowflakeFactoryRegistrator()
+        {
+            // Arrange
+
+            var services = new ContainerBuilder();
+
+            var microsoftServices = new ServiceCollection();
+
+            microsoftServices.AddDbContext<ITestContext, TestContext>(x => x.UseInMemoryDatabase("test"));
+            
+            services.Populate(microsoftServices);
+            
+            services.AddDataExplorer(x =>
+            {
+                x.AddSnowflakeIdGeneration();
+                x.AddEfCore(e =>
+                {
+
+                }, typeof(TestEntity).Assembly);
+            });
+            
+            var provider = services.Build();
+            
+            // Act && Assert
+
+            var hostedServices = provider.Resolve<IEnumerable<IHostedService>>();
+            hostedServices.Should().NotBeEmpty().And.ContainSingle(x => x.GetType() == typeof(SnowflakeIdFactoryRegistrator));
         }
     }
 }
