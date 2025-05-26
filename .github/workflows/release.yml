@@ -1,4 +1,4 @@
-name: deploy
+name: release
 
 env:
   DOTNET_NOLOGO: true
@@ -12,7 +12,7 @@ on:
       - master
 
 jobs:
-  build:
+  release:
     name: Build
     runs-on: ubuntu-latest
     if: "!contains(format('{0} {1}', github.event.head_commit.message, github.event.pull_request.title), '[ci-skip]')"
