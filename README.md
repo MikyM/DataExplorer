@@ -1,6 +1,6 @@
 [![NuGet](https://img.shields.io/nuget/v/DataExplorer)](https://www.nuget.org/packages/DataExplorer)[![NuGet](https://img.shields.io/nuget/dt/DataExplorer
 )](https://www.nuget.org/packages/DataExplorer)
-[![Build Status](https://github.com/MikyM/DataExplorer/actions/workflows/dotnet.yml/badge.svg)](https://github.com/MikyM/DataExplorer/actions)
+[![Build Status](https://github.com/MikyM/DataExplorer/actions/workflows/release.yml/badge.svg)](https://github.com/MikyM/DataExplorer/actions)
 ![GitHub License](https://img.shields.io/github/license/MikyM/DataExplorer)
 [![Static Badge](https://img.shields.io/badge/Documentation-DataExplorer-Green)](https://mikym.github.io/DataExplorer)
 
