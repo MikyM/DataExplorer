@@ -1,5 +1,4 @@
-﻿using Autofac;
-using Microsoft.Extensions.DependencyInjection;
+﻿using DataExplorer.Abstractions;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer.EfCore;
@@ -20,28 +19,16 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    public DataExplorerEfCoreConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
+    public DataExplorerEfCoreConfiguration(IRegistrator registrator) : base(registrator)
     {
     }
     
-    /// <summary>
-    /// Creates an instance of the configuration class.
-    /// </summary>
-    public DataExplorerEfCoreConfiguration(ContainerBuilder builder) : base(builder)
-    {
-    }
     
     /// <summary>
-    /// Gets the container builder.
+    /// Gets the registrator.
     /// </summary>
-    internal ContainerBuilder? GetContainerBuilder()
-        => Builder;
-    
-    /// <summary>
-    /// Gets the service collection.
-    /// </summary>
-    internal IServiceCollection? GetServiceCollection()
-        => ServiceCollection;
+    internal IRegistrator GetRegistrator()
+        => Registrator;
     
     /// <summary>
     /// Disables the insertion of audit log entries.
@@ -87,8 +74,8 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
     public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor(int registrationOrder, Type interceptor, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly)
     {
-        if (Builder is null)
-            throw new NotSupportedException("Supported only when used with Autofac");
+        if (!Registrator.SupportsInterception)
+            throw new NotSupportedException("Supported only when used with a registrator that supports interception");
         
         DataInterceptors.TryAdd(interceptor ?? throw new ArgumentNullException(nameof(interceptor)), new (strategy, registrationOrder));
         return this;
@@ -103,8 +90,8 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
     public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor<TInterceptor>(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly) where TInterceptor : notnull
     {
-        if (Builder is null)
-            throw new NotSupportedException("Supported only when used with Autofac");
+        if (!Registrator.SupportsInterception)
+            throw new NotSupportedException("Supported only when used with a registrator that supports interception");
         
         DataInterceptors.TryAdd(typeof(TInterceptor), new (strategy, registrationOrder));
         return this;
@@ -118,8 +105,8 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
     public virtual DataExplorerEfCoreConfiguration AddDataServiceDecorator(int registrationOrder, Type decorator)
     {
-        if (Builder is null)
-            throw new NotSupportedException("Supported only when used with Autofac");
+        if (!Registrator.SupportsDecoration)
+            throw new NotSupportedException("Supported only when used with a registrator that supports decoration");
         
         DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
         return this;

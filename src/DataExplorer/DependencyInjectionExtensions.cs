@@ -1,11 +1,7 @@
-﻿using AttributeBasedRegistration.Autofac;
-using Autofac;
-using AutoMapper.Contrib.Autofac.DependencyInjection;
+﻿using DataExplorer.Abstractions.Mapper;
 using DataExplorer.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
-using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer;
 
@@ -18,54 +14,24 @@ public static class DependencyInjectionExtensions
     /// <summary>
     /// Adds Data Explorer to the application.
     /// </summary>
-    /// <param name="builder">Current instance of <see cref="ContainerBuilder"/>.</param>
-    /// <param name="options"><see cref="Action"/> that configures DAL.</param>
-    public static ContainerBuilder AddDataExplorer(this ContainerBuilder builder, Action<DataExplorerConfiguration> options)
-    {
-        var config = new DataExplorerConfiguration(builder);
-        options.Invoke(config);
-
-        // register automapper
-        builder.RegisterAutoMapper(config.AutoMapperConfiguration, false, config.AutoMapperProfileAssembliesAccessor().ToArray());
-        //register async interceptor adapter
-        builder.RegisterGeneric(typeof(AsyncInterceptorAdapter<>));
-        // register instance factory
-        builder.RegisterType<CachedInstanceFactory>().As<ICachedInstanceFactory>().SingleInstance();
-
-        builder.RegisterInstance(config).AsSelf().As<IOptions<DataExplorerConfiguration>>().SingleInstance();
-
-#if NET8_0_OR_GREATER
-        // register the time provider conditionally
-        builder.RegisterInstance(TimeProvider.System).As<TimeProvider>().SingleInstance().IfNotRegistered(typeof(TimeProvider)); 
-        builder.RegisterType<DataExplorerTimeProvider.DependencyDataExplorerTimeProvider>().As<DataExplorerTimeProvider>().SingleInstance();
-#else
-        builder.RegisterInstance(DataExplorerTimeProvider.Instance).As<DataExplorerTimeProvider>().SingleInstance();
-#endif
-        
-        config.ReleaseRefs();
-
-        return builder;
-    }
-    
-    /// <summary>
-    /// Adds Data Explorer to the application.
-    /// </summary>
     /// <param name="serviceCollection">Current instance of <see cref="IServiceCollection"/>.</param>
     /// <param name="options"><see cref="Action"/> that configures DAL.</param>
     public static IServiceCollection AddDataExplorer(this IServiceCollection serviceCollection,
         Action<DataExplorerConfiguration> options)
     {
-        var config = new DataExplorerConfiguration(serviceCollection);
+        var registrator = new MicrosoftRegistrator(serviceCollection);
+        
+        var config = new DataExplorerConfiguration(registrator);
+        
         options.Invoke(config);
         
-        // register automapper
-        serviceCollection.AddAutoMapper(config.AutoMapperConfiguration, config.AutoMapperProfileAssembliesAccessor(), Microsoft.Extensions.DependencyInjection.ServiceLifetime.Scoped);
-        // register async interceptor adapter
-        serviceCollection.AddSingleton(typeof(AsyncInterceptorAdapter<>));
+        serviceCollection.TryAddSingleton<IMapper, DefaultMapper>();
+        
         // register instance factory
         serviceCollection.AddSingleton<ICachedInstanceFactory,CachedInstanceFactory>();
-
+        
         serviceCollection.AddOptions<DataExplorerConfiguration>().Configure(options);
+        serviceCollection.AddSingleton(config);
         
 #if NET8_0_OR_GREATER
         // register the time provider conditionally
@@ -74,32 +40,6 @@ public static class DependencyInjectionExtensions
 #else
         serviceCollection.AddSingleton(DataExplorerTimeProvider.Instance);
 #endif
-
-        config.ReleaseRefs();
-
         return serviceCollection;
-    }
-
-    /// <summary>
-    /// Registers an interceptor with <see cref="ContainerBuilder"/>.
-    /// </summary>
-    /// <param name="builder">Current builder instance.</param>
-    /// <param name="factoryMethod">Factory method for the registration.</param>
-    /// <param name="interceptorLifetime">Lifetime of the registered interceptor.</param>
-    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/></returns>
-    public static ContainerBuilder AddInterceptor<T>(this ContainerBuilder builder, Func<IComponentContext, T> factoryMethod, ServiceLifetime interceptorLifetime) where T : notnull
-    {
-        _ = interceptorLifetime switch
-        {
-            ServiceLifetime.SingleInstance => builder.Register(factoryMethod).AsSelf().SingleInstance(),
-            ServiceLifetime.InstancePerRequest => builder.Register(factoryMethod).AsSelf().InstancePerRequest(),  
-            ServiceLifetime.InstancePerLifetimeScope => builder.Register(factoryMethod).AsSelf().InstancePerLifetimeScope(),  
-            ServiceLifetime.InstancePerMatchingLifetimeScope => throw new NotSupportedException(),
-            ServiceLifetime.InstancePerDependency => builder.Register(factoryMethod).AsSelf().InstancePerDependency(), 
-            ServiceLifetime.InstancePerOwned => throw new NotSupportedException(),
-            _ => throw new ArgumentOutOfRangeException(nameof(interceptorLifetime), interceptorLifetime, null)
-        }; 
-        
-        return builder;
     }
 }

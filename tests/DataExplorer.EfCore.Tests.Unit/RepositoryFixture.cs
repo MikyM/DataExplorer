@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using DataExplorer.Abstractions.Mapper;
 using DataExplorer.EfCore.Abstractions.DataContexts;
 using DataExplorer.EfCore.Repositories;
 using DataExplorer.EfCore.Specifications.Evaluators;

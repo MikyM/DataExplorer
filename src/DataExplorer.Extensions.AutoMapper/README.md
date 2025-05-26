@@ -1,0 +1,1 @@
+﻿# DataExplorer.Extensions.AutoMapper

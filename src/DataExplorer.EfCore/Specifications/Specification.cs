@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using AutoMapper;
 using DataExplorer.Abstractions.Specifications;
 using DataExplorer.Abstractions.Specifications.Builders;
 using DataExplorer.Abstractions.Specifications.Evaluators;
@@ -17,26 +16,24 @@ namespace DataExplorer.EfCore.Specifications;
 [PublicAPI]
 public class Specification<T, TResult> : Specification<T>, ISpecification<T, TResult> where T : class
 {
-    protected internal Specification(IConfigurationProvider? mapperConfigurationProvider = null) : this(InMemorySpecificationEvaluator.Default, mapperConfigurationProvider)
+    protected internal Specification() : this(InMemorySpecificationEvaluator.Default)
     {
     }
 
-    public Specification(PaginationFilter paginationFilter, IConfigurationProvider? mapperConfigurationProvider = null) : this(InMemorySpecificationEvaluator.Default, paginationFilter, mapperConfigurationProvider)
+    public Specification(PaginationFilter paginationFilter) : this(InMemorySpecificationEvaluator.Default, paginationFilter)
     {
     }
 
-    protected Specification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, PaginationFilter paginationFilter, IConfigurationProvider? mapperConfigurationProvider = null) : base(
+    protected Specification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, PaginationFilter paginationFilter) : base(
         inMemorySpecificationEvaluator, paginationFilter)
     {
         Query = new SpecificationBuilder<T, TResult>(this);
-        MapperConfigurationProvider = mapperConfigurationProvider;
     }
 
-    protected Specification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator, IConfigurationProvider? mapperConfigurationProvider = null) : base(
+    protected Specification(IInMemorySpecificationEvaluator inMemorySpecificationEvaluator) : base(
         inMemorySpecificationEvaluator)
     {
         Query = new SpecificationBuilder<T, TResult>(this);
-        MapperConfigurationProvider = mapperConfigurationProvider;
     }
 
     /// <summary>
@@ -55,9 +52,6 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
     public Expression<Func<T, IEnumerable<TResult>>>? SelectorMany { get; set; }
 
     /// <inheritdoc />
-    public IConfigurationProvider? MapperConfigurationProvider { get; set; }
-
-    /// <inheritdoc />
     public IEnumerable<Expression<Func<TResult, object>>>? MembersToExpand { get; set; }
 
     /// <inheritdoc />
@@ -72,14 +66,6 @@ public class Specification<T, TResult> : Specification<T>, ISpecification<T, TRe
     /// </summary>
     protected ISpecificationBuilder<T,TResult> WithPostProcessingAction(Func<IEnumerable<TResult>, IEnumerable<TResult>> postProcessingAction) 
         => Query.WithPostProcessingAction(postProcessingAction);
-
-    /// <summary>
-    /// Adds automapper configuration.
-    /// </summary>
-    /// <param name="mapperConfiguration"><see cref="MapperConfiguration"/> instance</param>
-    /// <returns>Current specification instance</returns>
-    protected ISpecificationBuilder<T,TResult> WithMapperConfiguration(MapperConfiguration mapperConfiguration) => 
-        Query.WithMapperConfiguration(mapperConfiguration);
 
     /// <summary>
     /// Specify a transform function to apply to the <typeparamref name="T"/> element 

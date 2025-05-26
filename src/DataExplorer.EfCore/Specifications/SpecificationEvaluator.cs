@@ -53,9 +53,9 @@ public class SpecificationEvaluator : IEfSpecificationEvaluator
     }
 #endif
 
-    internal SpecificationEvaluator(bool cacheEnabled = false)
+    internal SpecificationEvaluator(bool cacheEnabled = false, IProjectionEvaluator? projectionEvaluator = null)
     {
-        _projectionEvaluator = ProjectionEvaluator.Instance;
+        _projectionEvaluator = projectionEvaluator ?? DefaultProjectionEvaluator.Instance;
 #if NET7_0_OR_GREATER 
         _updateEvaluator = UpdateEvaluator.Instance;
 #endif
@@ -82,7 +82,7 @@ public class SpecificationEvaluator : IEfSpecificationEvaluator
         if (specification.Selector is not null && specification.SelectorMany is not null) 
             throw new ConcurrentSelectorsException();
 
-        query = GetQuery(query, (ISpecification<T>)specification);
+        query = GetQuery<T>(query, specification);
 
         if (specification.Selector is null && specification.SelectorMany is null)
             return _projectionEvaluator.GetQuery(query, specification);
