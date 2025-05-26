@@ -6,10 +6,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DependencyInjectionExtensions
+    <title>Class AutoMapperProjectionEvaluator
  </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DependencyInjectionExtensions
+    <meta name="title" content="Class AutoMapperProjectionEvaluator
  ">
     <meta name="generator" content="docfx ">
   
@@ -92,42 +92,48 @@
                           </div>
                         </div>
 
-                    <article class="content wrap" id="_content" data-uid="DataExplorer.DependencyInjectionExtensions">
+                    <article class="content wrap" id="_content" data-uid="DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator">
 
 
-  <h1 id="DataExplorer_DependencyInjectionExtensions" data-uid="DataExplorer.DependencyInjectionExtensions" class="text-break">Class DependencyInjectionExtensions
+  <h1 id="DataExplorer_Extensions_AutoMapper_AutoMapperProjectionEvaluator" data-uid="DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator" class="text-break">Class AutoMapperProjectionEvaluator
 </h1>
-  <div class="markdown level0 summary"><p>DI extensions.</p>
+  <div class="markdown level0 summary"><p>An implementation of <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IProjectionEvaluator.html">IProjectionEvaluator</a> based on AutoMapper.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">DependencyInjectionExtensions</span></div>
+    <div class="level1"><span class="xref">AutoMapperProjectionEvaluator</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a></h6>
-  <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
-  <h5 id="DataExplorer_DependencyInjectionExtensions_syntax">Syntax</h5>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IProjectionEvaluator.html">IProjectionEvaluator</a></div>
+    <div><a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.ISpecialCaseEvaluator.html">ISpecialCaseEvaluator</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Extensions.AutoMapper.html">DataExplorer.Extensions.AutoMapper</a></h6>
+  <h6><strong>Assembly</strong>: DataExplorer.Extensions.AutoMapper.dll</h6>
+  <h5 id="DataExplorer_Extensions_AutoMapper_AutoMapperProjectionEvaluator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class DependencyInjectionExtensions : object</code></pre>
+    <pre><code class="lang-csharp hljs">public class AutoMapperProjectionEvaluator : object, IProjectionEvaluator, ISpecialCaseEvaluator</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DependencyInjectionExtensions_AddDataExplorer_IServiceCollection_Action_DataExplorer_DataExplorerConfiguration__.md&amp;value=---%0Auid%3A%20DataExplorer.DependencyInjectionExtensions.AddDataExplorer(IServiceCollection%2CAction%7BDataExplorer.DataExplorerConfiguration%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Extensions_AutoMapper_AutoMapperProjectionEvaluator_GetQuery__2_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__.md&amp;value=---%0Auid%3A%20DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery%60%602(IQueryable%7B%60%600%7D%2CDataExplorer.Abstractions.Specifications.ISpecification%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DependencyInjectionExtensions.cs/#L19">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.Extensions.AutoMapper/AutoMapperProjectionEvaluator.cs/#L24">View Source</a>
   </span>
-  <a id="DataExplorer_DependencyInjectionExtensions_AddDataExplorer_" data-uid="DataExplorer.DependencyInjectionExtensions.AddDataExplorer*"></a>
-  <h4 id="DataExplorer_DependencyInjectionExtensions_AddDataExplorer_IServiceCollection_Action_DataExplorer_DataExplorerConfiguration__" data-uid="DataExplorer.DependencyInjectionExtensions.AddDataExplorer(IServiceCollection,Action{DataExplorer.DataExplorerConfiguration})">AddDataExplorer(IServiceCollection, Action&lt;DataExplorerConfiguration&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds Data Explorer to the application.</p>
+  <a id="DataExplorer_Extensions_AutoMapper_AutoMapperProjectionEvaluator_GetQuery_" data-uid="DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery*"></a>
+  <h4 id="DataExplorer_Extensions_AutoMapper_AutoMapperProjectionEvaluator_GetQuery__2_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__" data-uid="DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery``2(IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})">GetQuery&lt;T, TResult&gt;(IQueryable&lt;T&gt;, ISpecification&lt;T, TResult&gt;)</h4>
+  <div class="markdown level1 summary"><p>An implementation of <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IProjectionEvaluator.html">IProjectionEvaluator</a> based on AutoMapper.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddDataExplorer(this IServiceCollection serviceCollection, Action&lt;DataExplorerConfiguration&gt; options)</code></pre>
+    <pre><code class="lang-csharp hljs">public IQueryable&lt;TResult&gt; GetQuery&lt;T, TResult&gt;(IQueryable&lt;T&gt; query, ISpecification&lt;T, TResult&gt; specification)
+    where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -140,16 +146,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IServiceCollection</span></td>
-        <td><span class="parametername">serviceCollection</span></td>
-        <td><p>Current instance of <see cref="!:IServiceCollection"></see>.</p>
-</td>
+        <td><span class="xref">IQueryable</span>&lt;T&gt;</td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;<a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a>&gt;</td>
-        <td><span class="parametername">options</span></td>
-        <td><p><see cref="!:Action"></see> that configures DAL.</p>
-</td>
+        <td><a class="xref" href="DataExplorer.Abstractions.Specifications.ISpecification-2.html">ISpecification</a>&lt;T, TResult&gt;</td>
+        <td><span class="parametername">specification</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -163,11 +167,37 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IServiceCollection</span></td>
+        <td><span class="xref">IQueryable</span>&lt;TResult&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.IProjectionEvaluator.html">IProjectionEvaluator</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.Abstractions.Specifications.Evaluators.ISpecialCaseEvaluator.html">ISpecialCaseEvaluator</a>
+  </div>
 </article>
               
                 </div>

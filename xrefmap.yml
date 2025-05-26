@@ -7,6 +7,12 @@ references:
   commentId: N:DataExplorer
   fullName: DataExplorer
   nameWithType: DataExplorer
+- uid: DataExplorer.Abstractions
+  name: DataExplorer.Abstractions
+  href: api/DataExplorer.Abstractions.html
+  commentId: N:DataExplorer.Abstractions
+  fullName: DataExplorer.Abstractions
+  nameWithType: DataExplorer.Abstractions
 - uid: DataExplorer.Abstractions.DataContexts
   name: DataExplorer.Abstractions.DataContexts
   href: api/DataExplorer.Abstractions.DataContexts.html
@@ -892,6 +898,433 @@ references:
   isSpec: "True"
   fullName: DataExplorer.Abstractions.Entities.IUpdatedAtOffset.UpdatedAt
   nameWithType: IUpdatedAtOffset.UpdatedAt
+- uid: DataExplorer.Abstractions.IRegistration
+  name: IRegistration
+  href: api/DataExplorer.Abstractions.IRegistration.html
+  commentId: T:DataExplorer.Abstractions.IRegistration
+  fullName: DataExplorer.Abstractions.IRegistration
+  nameWithType: IRegistration
+- uid: DataExplorer.Abstractions.IRegistration.As(Type)
+  name: As(Type)
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_As_Type_
+  commentId: M:DataExplorer.Abstractions.IRegistration.As(Type)
+  fullName: DataExplorer.Abstractions.IRegistration.As(Type)
+  nameWithType: IRegistration.As(Type)
+- uid: DataExplorer.Abstractions.IRegistration.As*
+  name: As
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_As_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.As
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.As
+  nameWithType: IRegistration.As
+- uid: DataExplorer.Abstractions.IRegistration.AsConventionNamedInterface
+  name: AsConventionNamedInterface()
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_AsConventionNamedInterface
+  commentId: M:DataExplorer.Abstractions.IRegistration.AsConventionNamedInterface
+  fullName: DataExplorer.Abstractions.IRegistration.AsConventionNamedInterface()
+  nameWithType: IRegistration.AsConventionNamedInterface()
+- uid: DataExplorer.Abstractions.IRegistration.AsConventionNamedInterface*
+  name: AsConventionNamedInterface
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_AsConventionNamedInterface_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.AsConventionNamedInterface
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.AsConventionNamedInterface
+  nameWithType: IRegistration.AsConventionNamedInterface
+- uid: DataExplorer.Abstractions.IRegistration.AsDirectAncestorInterfaces
+  name: AsDirectAncestorInterfaces()
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_AsDirectAncestorInterfaces
+  commentId: M:DataExplorer.Abstractions.IRegistration.AsDirectAncestorInterfaces
+  fullName: DataExplorer.Abstractions.IRegistration.AsDirectAncestorInterfaces()
+  nameWithType: IRegistration.AsDirectAncestorInterfaces()
+- uid: DataExplorer.Abstractions.IRegistration.AsDirectAncestorInterfaces*
+  name: AsDirectAncestorInterfaces
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_AsDirectAncestorInterfaces_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.AsDirectAncestorInterfaces
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.AsDirectAncestorInterfaces
+  nameWithType: IRegistration.AsDirectAncestorInterfaces
+- uid: DataExplorer.Abstractions.IRegistration.AsImplementedInterfaces
+  name: AsImplementedInterfaces()
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_AsImplementedInterfaces
+  commentId: M:DataExplorer.Abstractions.IRegistration.AsImplementedInterfaces
+  fullName: DataExplorer.Abstractions.IRegistration.AsImplementedInterfaces()
+  nameWithType: IRegistration.AsImplementedInterfaces()
+- uid: DataExplorer.Abstractions.IRegistration.AsImplementedInterfaces*
+  name: AsImplementedInterfaces
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_AsImplementedInterfaces_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.AsImplementedInterfaces
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.AsImplementedInterfaces
+  nameWithType: IRegistration.AsImplementedInterfaces
+- uid: DataExplorer.Abstractions.IRegistration.AsSelf
+  name: AsSelf()
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_AsSelf
+  commentId: M:DataExplorer.Abstractions.IRegistration.AsSelf
+  fullName: DataExplorer.Abstractions.IRegistration.AsSelf()
+  nameWithType: IRegistration.AsSelf()
+- uid: DataExplorer.Abstractions.IRegistration.AsSelf*
+  name: AsSelf
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_AsSelf_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.AsSelf
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.AsSelf
+  nameWithType: IRegistration.AsSelf
+- uid: DataExplorer.Abstractions.IRegistration.EnableClassInterceptors
+  name: EnableClassInterceptors()
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_EnableClassInterceptors
+  commentId: M:DataExplorer.Abstractions.IRegistration.EnableClassInterceptors
+  fullName: DataExplorer.Abstractions.IRegistration.EnableClassInterceptors()
+  nameWithType: IRegistration.EnableClassInterceptors()
+- uid: DataExplorer.Abstractions.IRegistration.EnableClassInterceptors*
+  name: EnableClassInterceptors
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_EnableClassInterceptors_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.EnableClassInterceptors
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.EnableClassInterceptors
+  nameWithType: IRegistration.EnableClassInterceptors
+- uid: DataExplorer.Abstractions.IRegistration.EnableInterfaceInterceptors
+  name: EnableInterfaceInterceptors()
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_EnableInterfaceInterceptors
+  commentId: M:DataExplorer.Abstractions.IRegistration.EnableInterfaceInterceptors
+  fullName: DataExplorer.Abstractions.IRegistration.EnableInterfaceInterceptors()
+  nameWithType: IRegistration.EnableInterfaceInterceptors()
+- uid: DataExplorer.Abstractions.IRegistration.EnableInterfaceInterceptors*
+  name: EnableInterfaceInterceptors
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_EnableInterfaceInterceptors_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.EnableInterfaceInterceptors
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.EnableInterfaceInterceptors
+  nameWithType: IRegistration.EnableInterfaceInterceptors
+- uid: DataExplorer.Abstractions.IRegistration.IfNotRegistered
+  name: IfNotRegistered()
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_IfNotRegistered
+  commentId: M:DataExplorer.Abstractions.IRegistration.IfNotRegistered
+  fullName: DataExplorer.Abstractions.IRegistration.IfNotRegistered()
+  nameWithType: IRegistration.IfNotRegistered()
+- uid: DataExplorer.Abstractions.IRegistration.IfNotRegistered*
+  name: IfNotRegistered
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_IfNotRegistered_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.IfNotRegistered
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.IfNotRegistered
+  nameWithType: IRegistration.IfNotRegistered
+- uid: DataExplorer.Abstractions.IRegistration.InterceptedBy(Type)
+  name: InterceptedBy(Type)
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_InterceptedBy_Type_
+  commentId: M:DataExplorer.Abstractions.IRegistration.InterceptedBy(Type)
+  fullName: DataExplorer.Abstractions.IRegistration.InterceptedBy(Type)
+  nameWithType: IRegistration.InterceptedBy(Type)
+- uid: DataExplorer.Abstractions.IRegistration.InterceptedBy*
+  name: InterceptedBy
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_InterceptedBy_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.InterceptedBy
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.InterceptedBy
+  nameWithType: IRegistration.InterceptedBy
+- uid: DataExplorer.Abstractions.IRegistration.Register
+  name: Register()
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_Register
+  commentId: M:DataExplorer.Abstractions.IRegistration.Register
+  fullName: DataExplorer.Abstractions.IRegistration.Register()
+  nameWithType: IRegistration.Register()
+- uid: DataExplorer.Abstractions.IRegistration.Register*
+  name: Register
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_Register_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.Register
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.Register
+  nameWithType: IRegistration.Register
+- uid: DataExplorer.Abstractions.IRegistration.WithLifetime(ServiceLifetime)
+  name: WithLifetime(ServiceLifetime)
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_WithLifetime_ServiceLifetime_
+  commentId: M:DataExplorer.Abstractions.IRegistration.WithLifetime(ServiceLifetime)
+  fullName: DataExplorer.Abstractions.IRegistration.WithLifetime(ServiceLifetime)
+  nameWithType: IRegistration.WithLifetime(ServiceLifetime)
+- uid: DataExplorer.Abstractions.IRegistration.WithLifetime*
+  name: WithLifetime
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_WithLifetime_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.WithLifetime
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.WithLifetime
+  nameWithType: IRegistration.WithLifetime
+- uid: DataExplorer.Abstractions.IRegistration.WithMatchingLifetime(System.Object[])
+  name: WithMatchingLifetime(Object[])
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_WithMatchingLifetime_System_Object___
+  commentId: M:DataExplorer.Abstractions.IRegistration.WithMatchingLifetime(System.Object[])
+  name.vb: WithMatchingLifetime(Object())
+  fullName: DataExplorer.Abstractions.IRegistration.WithMatchingLifetime(System.Object[])
+  fullName.vb: DataExplorer.Abstractions.IRegistration.WithMatchingLifetime(System.Object())
+  nameWithType: IRegistration.WithMatchingLifetime(Object[])
+  nameWithType.vb: IRegistration.WithMatchingLifetime(Object())
+- uid: DataExplorer.Abstractions.IRegistration.WithMatchingLifetime*
+  name: WithMatchingLifetime
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_WithMatchingLifetime_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.WithMatchingLifetime
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.WithMatchingLifetime
+  nameWithType: IRegistration.WithMatchingLifetime
+- uid: DataExplorer.Abstractions.IRegistration.WithOwnedLifetime(Type)
+  name: WithOwnedLifetime(Type)
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_WithOwnedLifetime_Type_
+  commentId: M:DataExplorer.Abstractions.IRegistration.WithOwnedLifetime(Type)
+  fullName: DataExplorer.Abstractions.IRegistration.WithOwnedLifetime(Type)
+  nameWithType: IRegistration.WithOwnedLifetime(Type)
+- uid: DataExplorer.Abstractions.IRegistration.WithOwnedLifetime*
+  name: WithOwnedLifetime
+  href: api/DataExplorer.Abstractions.IRegistration.html#DataExplorer_Abstractions_IRegistration_WithOwnedLifetime_
+  commentId: Overload:DataExplorer.Abstractions.IRegistration.WithOwnedLifetime
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistration.WithOwnedLifetime
+  nameWithType: IRegistration.WithOwnedLifetime
+- uid: DataExplorer.Abstractions.IRegistrator
+  name: IRegistrator
+  href: api/DataExplorer.Abstractions.IRegistrator.html
+  commentId: T:DataExplorer.Abstractions.IRegistrator
+  fullName: DataExplorer.Abstractions.IRegistrator
+  nameWithType: IRegistrator
+- uid: DataExplorer.Abstractions.IRegistrator.Describe(Type)
+  name: Describe(Type)
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_Describe_Type_
+  commentId: M:DataExplorer.Abstractions.IRegistrator.Describe(Type)
+  fullName: DataExplorer.Abstractions.IRegistrator.Describe(Type)
+  nameWithType: IRegistrator.Describe(Type)
+- uid: DataExplorer.Abstractions.IRegistrator.Describe*
+  name: Describe
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_Describe_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.Describe
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.Describe
+  nameWithType: IRegistrator.Describe
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeDecorator(Type,Type)
+  name: DescribeDecorator(Type, Type)
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeDecorator_Type_Type_
+  commentId: M:DataExplorer.Abstractions.IRegistrator.DescribeDecorator(Type,Type)
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeDecorator(Type, Type)
+  nameWithType: IRegistrator.DescribeDecorator(Type, Type)
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeDecorator*
+  name: DescribeDecorator
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeDecorator_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.DescribeDecorator
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeDecorator
+  nameWithType: IRegistrator.DescribeDecorator
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeFactory(Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name: DescribeFactory(Expression<Func<IResolver, Object>>, Type)
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeFactory_Expression_Func_DataExplorer_Abstractions_IResolver_System_Object___Type_
+  commentId: M:DataExplorer.Abstractions.IRegistrator.DescribeFactory(Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name.vb: DescribeFactory(Expression(Of Func(Of IResolver, Object)), Type)
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeFactory(Expression<Func<DataExplorer.Abstractions.IResolver, System.Object>>, Type)
+  fullName.vb: DataExplorer.Abstractions.IRegistrator.DescribeFactory(Expression(Of Func(Of DataExplorer.Abstractions.IResolver, System.Object)), Type)
+  nameWithType: IRegistrator.DescribeFactory(Expression<Func<IResolver, Object>>, Type)
+  nameWithType.vb: IRegistrator.DescribeFactory(Expression(Of Func(Of IResolver, Object)), Type)
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeFactory*
+  name: DescribeFactory
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeFactory_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.DescribeFactory
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeFactory
+  nameWithType: IRegistrator.DescribeFactory
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeHostedService*
+  name: DescribeHostedService
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeHostedService_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.DescribeHostedService
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeHostedService
+  nameWithType: IRegistrator.DescribeHostedService
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeHostedService``1
+  name: DescribeHostedService<THostedService>()
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeHostedService__1
+  commentId: M:DataExplorer.Abstractions.IRegistrator.DescribeHostedService``1
+  name.vb: DescribeHostedService(Of THostedService)()
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeHostedService<THostedService>()
+  fullName.vb: DataExplorer.Abstractions.IRegistrator.DescribeHostedService(Of THostedService)()
+  nameWithType: IRegistrator.DescribeHostedService<THostedService>()
+  nameWithType.vb: IRegistrator.DescribeHostedService(Of THostedService)()
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeInstance(System.Object)
+  name: DescribeInstance(Object)
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeInstance_System_Object_
+  commentId: M:DataExplorer.Abstractions.IRegistrator.DescribeInstance(System.Object)
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeInstance(System.Object)
+  nameWithType: IRegistrator.DescribeInstance(Object)
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeInstance*
+  name: DescribeInstance
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeInstance_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.DescribeInstance
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeInstance
+  nameWithType: IRegistrator.DescribeInstance
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeOpenGeneric(Type)
+  name: DescribeOpenGeneric(Type)
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeOpenGeneric_Type_
+  commentId: M:DataExplorer.Abstractions.IRegistrator.DescribeOpenGeneric(Type)
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeOpenGeneric(Type)
+  nameWithType: IRegistrator.DescribeOpenGeneric(Type)
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeOpenGeneric*
+  name: DescribeOpenGeneric
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeOpenGeneric_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.DescribeOpenGeneric
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeOpenGeneric
+  nameWithType: IRegistrator.DescribeOpenGeneric
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeOpenGenericDecorator(Type,Type)
+  name: DescribeOpenGenericDecorator(Type, Type)
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeOpenGenericDecorator_Type_Type_
+  commentId: M:DataExplorer.Abstractions.IRegistrator.DescribeOpenGenericDecorator(Type,Type)
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeOpenGenericDecorator(Type, Type)
+  nameWithType: IRegistrator.DescribeOpenGenericDecorator(Type, Type)
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeOpenGenericDecorator*
+  name: DescribeOpenGenericDecorator
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeOpenGenericDecorator_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.DescribeOpenGenericDecorator
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeOpenGenericDecorator
+  nameWithType: IRegistrator.DescribeOpenGenericDecorator
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeOptions*
+  name: DescribeOptions
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeOptions_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.DescribeOptions
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeOptions
+  nameWithType: IRegistrator.DescribeOptions
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeOptions``1(``0)
+  name: DescribeOptions<TOptions>(TOptions)
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeOptions__1___0_
+  commentId: M:DataExplorer.Abstractions.IRegistrator.DescribeOptions``1(``0)
+  name.vb: DescribeOptions(Of TOptions)(TOptions)
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeOptions<TOptions>(TOptions)
+  fullName.vb: DataExplorer.Abstractions.IRegistrator.DescribeOptions(Of TOptions)(TOptions)
+  nameWithType: IRegistrator.DescribeOptions<TOptions>(TOptions)
+  nameWithType.vb: IRegistrator.DescribeOptions(Of TOptions)(TOptions)
+- uid: DataExplorer.Abstractions.IRegistrator.DescribeOptions``1(Action{``0},``0)
+  name: DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_DescribeOptions__1_Action___0____0_
+  commentId: M:DataExplorer.Abstractions.IRegistrator.DescribeOptions``1(Action{``0},``0)
+  name.vb: DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+  fullName: DataExplorer.Abstractions.IRegistrator.DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  fullName.vb: DataExplorer.Abstractions.IRegistrator.DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+  nameWithType: IRegistrator.DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  nameWithType.vb: IRegistrator.DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+- uid: DataExplorer.Abstractions.IRegistrator.SupportsDecoration
+  name: SupportsDecoration
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_SupportsDecoration
+  commentId: P:DataExplorer.Abstractions.IRegistrator.SupportsDecoration
+  fullName: DataExplorer.Abstractions.IRegistrator.SupportsDecoration
+  nameWithType: IRegistrator.SupportsDecoration
+- uid: DataExplorer.Abstractions.IRegistrator.SupportsDecoration*
+  name: SupportsDecoration
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_SupportsDecoration_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.SupportsDecoration
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.SupportsDecoration
+  nameWithType: IRegistrator.SupportsDecoration
+- uid: DataExplorer.Abstractions.IRegistrator.SupportsInterception
+  name: SupportsInterception
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_SupportsInterception
+  commentId: P:DataExplorer.Abstractions.IRegistrator.SupportsInterception
+  fullName: DataExplorer.Abstractions.IRegistrator.SupportsInterception
+  nameWithType: IRegistrator.SupportsInterception
+- uid: DataExplorer.Abstractions.IRegistrator.SupportsInterception*
+  name: SupportsInterception
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_SupportsInterception_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.SupportsInterception
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.SupportsInterception
+  nameWithType: IRegistrator.SupportsInterception
+- uid: DataExplorer.Abstractions.IRegistrator.SupportsNonPublicConstructors
+  name: SupportsNonPublicConstructors
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_SupportsNonPublicConstructors
+  commentId: P:DataExplorer.Abstractions.IRegistrator.SupportsNonPublicConstructors
+  fullName: DataExplorer.Abstractions.IRegistrator.SupportsNonPublicConstructors
+  nameWithType: IRegistrator.SupportsNonPublicConstructors
+- uid: DataExplorer.Abstractions.IRegistrator.SupportsNonPublicConstructors*
+  name: SupportsNonPublicConstructors
+  href: api/DataExplorer.Abstractions.IRegistrator.html#DataExplorer_Abstractions_IRegistrator_SupportsNonPublicConstructors_
+  commentId: Overload:DataExplorer.Abstractions.IRegistrator.SupportsNonPublicConstructors
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IRegistrator.SupportsNonPublicConstructors
+  nameWithType: IRegistrator.SupportsNonPublicConstructors
+- uid: DataExplorer.Abstractions.IResolver
+  name: IResolver
+  href: api/DataExplorer.Abstractions.IResolver.html
+  commentId: T:DataExplorer.Abstractions.IResolver
+  fullName: DataExplorer.Abstractions.IResolver
+  nameWithType: IResolver
+- uid: DataExplorer.Abstractions.IResolver.Resolve*
+  name: Resolve
+  href: api/DataExplorer.Abstractions.IResolver.html#DataExplorer_Abstractions_IResolver_Resolve_
+  commentId: Overload:DataExplorer.Abstractions.IResolver.Resolve
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IResolver.Resolve
+  nameWithType: IResolver.Resolve
+- uid: DataExplorer.Abstractions.IResolver.Resolve``1
+  name: Resolve<T>()
+  href: api/DataExplorer.Abstractions.IResolver.html#DataExplorer_Abstractions_IResolver_Resolve__1
+  commentId: M:DataExplorer.Abstractions.IResolver.Resolve``1
+  name.vb: Resolve(Of T)()
+  fullName: DataExplorer.Abstractions.IResolver.Resolve<T>()
+  fullName.vb: DataExplorer.Abstractions.IResolver.Resolve(Of T)()
+  nameWithType: IResolver.Resolve<T>()
+  nameWithType.vb: IResolver.Resolve(Of T)()
+- uid: DataExplorer.Abstractions.IResolver.ResolveKeyed*
+  name: ResolveKeyed
+  href: api/DataExplorer.Abstractions.IResolver.html#DataExplorer_Abstractions_IResolver_ResolveKeyed_
+  commentId: Overload:DataExplorer.Abstractions.IResolver.ResolveKeyed
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.IResolver.ResolveKeyed
+  nameWithType: IResolver.ResolveKeyed
+- uid: DataExplorer.Abstractions.IResolver.ResolveKeyed``1(System.Object)
+  name: ResolveKeyed<T>(Object)
+  href: api/DataExplorer.Abstractions.IResolver.html#DataExplorer_Abstractions_IResolver_ResolveKeyed__1_System_Object_
+  commentId: M:DataExplorer.Abstractions.IResolver.ResolveKeyed``1(System.Object)
+  name.vb: ResolveKeyed(Of T)(Object)
+  fullName: DataExplorer.Abstractions.IResolver.ResolveKeyed<T>(System.Object)
+  fullName.vb: DataExplorer.Abstractions.IResolver.ResolveKeyed(Of T)(System.Object)
+  nameWithType: IResolver.ResolveKeyed<T>(Object)
+  nameWithType.vb: IResolver.ResolveKeyed(Of T)(Object)
+- uid: DataExplorer.Abstractions.Mapper
+  name: DataExplorer.Abstractions.Mapper
+  href: api/DataExplorer.Abstractions.Mapper.html
+  commentId: N:DataExplorer.Abstractions.Mapper
+  fullName: DataExplorer.Abstractions.Mapper
+  nameWithType: DataExplorer.Abstractions.Mapper
+- uid: DataExplorer.Abstractions.Mapper.IMapper
+  name: IMapper
+  href: api/DataExplorer.Abstractions.Mapper.IMapper.html
+  commentId: T:DataExplorer.Abstractions.Mapper.IMapper
+  fullName: DataExplorer.Abstractions.Mapper.IMapper
+  nameWithType: IMapper
+- uid: DataExplorer.Abstractions.Mapper.IMapper.Map*
+  name: Map
+  href: api/DataExplorer.Abstractions.Mapper.IMapper.html#DataExplorer_Abstractions_Mapper_IMapper_Map_
+  commentId: Overload:DataExplorer.Abstractions.Mapper.IMapper.Map
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.Mapper.IMapper.Map
+  nameWithType: IMapper.Map
+- uid: DataExplorer.Abstractions.Mapper.IMapper.Map``1(System.Object)
+  name: Map<TTarget>(Object)
+  href: api/DataExplorer.Abstractions.Mapper.IMapper.html#DataExplorer_Abstractions_Mapper_IMapper_Map__1_System_Object_
+  commentId: M:DataExplorer.Abstractions.Mapper.IMapper.Map``1(System.Object)
+  name.vb: Map(Of TTarget)(Object)
+  fullName: DataExplorer.Abstractions.Mapper.IMapper.Map<TTarget>(System.Object)
+  fullName.vb: DataExplorer.Abstractions.Mapper.IMapper.Map(Of TTarget)(System.Object)
+  nameWithType: IMapper.Map<TTarget>(Object)
+  nameWithType.vb: IMapper.Map(Of TTarget)(Object)
+- uid: DataExplorer.Abstractions.Mapper.IMapper.ProjectTo*
+  name: ProjectTo
+  href: api/DataExplorer.Abstractions.Mapper.IMapper.html#DataExplorer_Abstractions_Mapper_IMapper_ProjectTo_
+  commentId: Overload:DataExplorer.Abstractions.Mapper.IMapper.ProjectTo
+  isSpec: "True"
+  fullName: DataExplorer.Abstractions.Mapper.IMapper.ProjectTo
+  nameWithType: IMapper.ProjectTo
+- uid: DataExplorer.Abstractions.Mapper.IMapper.ProjectTo``1(IQueryable,IDictionary{System.String,System.Object},System.String[])
+  name: ProjectTo<TTarget>(IQueryable, IDictionary<String, Object>, String[])
+  href: api/DataExplorer.Abstractions.Mapper.IMapper.html#DataExplorer_Abstractions_Mapper_IMapper_ProjectTo__1_IQueryable_IDictionary_System_String_System_Object__System_String___
+  commentId: M:DataExplorer.Abstractions.Mapper.IMapper.ProjectTo``1(IQueryable,IDictionary{System.String,System.Object},System.String[])
+  name.vb: ProjectTo(Of TTarget)(IQueryable, IDictionary(Of String, Object), String())
+  fullName: DataExplorer.Abstractions.Mapper.IMapper.ProjectTo<TTarget>(IQueryable, IDictionary<System.String, System.Object>, System.String[])
+  fullName.vb: DataExplorer.Abstractions.Mapper.IMapper.ProjectTo(Of TTarget)(IQueryable, IDictionary(Of System.String, System.Object), System.String())
+  nameWithType: IMapper.ProjectTo<TTarget>(IQueryable, IDictionary<String, Object>, String[])
+  nameWithType.vb: IMapper.ProjectTo(Of TTarget)(IQueryable, IDictionary(Of String, Object), String())
 - uid: DataExplorer.Abstractions.Repositories
   name: DataExplorer.Abstractions.Repositories
   href: api/DataExplorer.Abstractions.Repositories.html
@@ -2292,23 +2725,6 @@ references:
   fullName.vb: DataExplorer.Abstractions.Specifications.ISpecification(Of T, TResult).Evaluate
   nameWithType: ISpecification<T, TResult>.Evaluate
   nameWithType.vb: ISpecification(Of T, TResult).Evaluate
-- uid: DataExplorer.Abstractions.Specifications.ISpecification`2.MapperConfigurationProvider
-  name: MapperConfigurationProvider
-  href: api/DataExplorer.Abstractions.Specifications.ISpecification-2.html#DataExplorer_Abstractions_Specifications_ISpecification_2_MapperConfigurationProvider
-  commentId: P:DataExplorer.Abstractions.Specifications.ISpecification`2.MapperConfigurationProvider
-  fullName: DataExplorer.Abstractions.Specifications.ISpecification<T, TResult>.MapperConfigurationProvider
-  fullName.vb: DataExplorer.Abstractions.Specifications.ISpecification(Of T, TResult).MapperConfigurationProvider
-  nameWithType: ISpecification<T, TResult>.MapperConfigurationProvider
-  nameWithType.vb: ISpecification(Of T, TResult).MapperConfigurationProvider
-- uid: DataExplorer.Abstractions.Specifications.ISpecification`2.MapperConfigurationProvider*
-  name: MapperConfigurationProvider
-  href: api/DataExplorer.Abstractions.Specifications.ISpecification-2.html#DataExplorer_Abstractions_Specifications_ISpecification_2_MapperConfigurationProvider_
-  commentId: Overload:DataExplorer.Abstractions.Specifications.ISpecification`2.MapperConfigurationProvider
-  isSpec: "True"
-  fullName: DataExplorer.Abstractions.Specifications.ISpecification<T, TResult>.MapperConfigurationProvider
-  fullName.vb: DataExplorer.Abstractions.Specifications.ISpecification(Of T, TResult).MapperConfigurationProvider
-  nameWithType: ISpecification<T, TResult>.MapperConfigurationProvider
-  nameWithType.vb: ISpecification(Of T, TResult).MapperConfigurationProvider
 - uid: DataExplorer.Abstractions.Specifications.ISpecification`2.MembersToExpand
   name: MembersToExpand
   href: api/DataExplorer.Abstractions.Specifications.ISpecification-2.html#DataExplorer_Abstractions_Specifications_ISpecification_2_MembersToExpand
@@ -2611,24 +3027,18 @@ references:
   commentId: T:DataExplorer.DataExplorerConfiguration
   fullName: DataExplorer.DataExplorerConfiguration
   nameWithType: DataExplorerConfiguration
-- uid: DataExplorer.DataExplorerConfiguration.#ctor(ContainerBuilder)
-  name: DataExplorerConfiguration(ContainerBuilder)
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration__ctor_ContainerBuilder_
-  commentId: M:DataExplorer.DataExplorerConfiguration.#ctor(ContainerBuilder)
-  fullName: DataExplorer.DataExplorerConfiguration.DataExplorerConfiguration(ContainerBuilder)
-  nameWithType: DataExplorerConfiguration.DataExplorerConfiguration(ContainerBuilder)
+- uid: DataExplorer.DataExplorerConfiguration.#ctor(DataExplorer.Abstractions.IRegistrator)
+  name: DataExplorerConfiguration(IRegistrator)
+  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration__ctor_DataExplorer_Abstractions_IRegistrator_
+  commentId: M:DataExplorer.DataExplorerConfiguration.#ctor(DataExplorer.Abstractions.IRegistrator)
+  fullName: DataExplorer.DataExplorerConfiguration.DataExplorerConfiguration(DataExplorer.Abstractions.IRegistrator)
+  nameWithType: DataExplorerConfiguration.DataExplorerConfiguration(IRegistrator)
 - uid: DataExplorer.DataExplorerConfiguration.#ctor(DataExplorer.DataExplorerConfigurationBase)
   name: DataExplorerConfiguration(DataExplorerConfigurationBase)
   href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration__ctor_DataExplorer_DataExplorerConfigurationBase_
   commentId: M:DataExplorer.DataExplorerConfiguration.#ctor(DataExplorer.DataExplorerConfigurationBase)
   fullName: DataExplorer.DataExplorerConfiguration.DataExplorerConfiguration(DataExplorer.DataExplorerConfigurationBase)
   nameWithType: DataExplorerConfiguration.DataExplorerConfiguration(DataExplorerConfigurationBase)
-- uid: DataExplorer.DataExplorerConfiguration.#ctor(IServiceCollection)
-  name: DataExplorerConfiguration(IServiceCollection)
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration__ctor_IServiceCollection_
-  commentId: M:DataExplorer.DataExplorerConfiguration.#ctor(IServiceCollection)
-  fullName: DataExplorer.DataExplorerConfiguration.DataExplorerConfiguration(IServiceCollection)
-  nameWithType: DataExplorerConfiguration.DataExplorerConfiguration(IServiceCollection)
 - uid: DataExplorer.DataExplorerConfiguration.#ctor*
   name: DataExplorerConfiguration
   href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration__ctor_
@@ -2674,56 +3084,24 @@ references:
   fullName.vb: DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGenerator(Of TGenerator)()
   nameWithType: DataExplorerConfiguration.AddSnowflakeIdGenerator<TGenerator>()
   nameWithType.vb: DataExplorerConfiguration.AddSnowflakeIdGenerator(Of TGenerator)()
-- uid: DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration
-  name: AutoMapperConfiguration
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_AutoMapperConfiguration
-  commentId: P:DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration
-  fullName: DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration
-  nameWithType: DataExplorerConfiguration.AutoMapperConfiguration
-- uid: DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration*
-  name: AutoMapperConfiguration
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_AutoMapperConfiguration_
-  commentId: Overload:DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration
-  isSpec: "True"
-  fullName: DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration
-  nameWithType: DataExplorerConfiguration.AutoMapperConfiguration
-- uid: DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
-  name: AutoMapperProfileAssembliesAccessor
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_AutoMapperProfileAssembliesAccessor
-  commentId: P:DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
-  fullName: DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
-  nameWithType: DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
-- uid: DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor*
-  name: AutoMapperProfileAssembliesAccessor
-  href: api/DataExplorer.DataExplorerConfiguration.html#DataExplorer_DataExplorerConfiguration_AutoMapperProfileAssembliesAccessor_
-  commentId: Overload:DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
-  isSpec: "True"
-  fullName: DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
-  nameWithType: DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor
 - uid: DataExplorer.DataExplorerConfigurationBase
   name: DataExplorerConfigurationBase
   href: api/DataExplorer.DataExplorerConfigurationBase.html
   commentId: T:DataExplorer.DataExplorerConfigurationBase
   fullName: DataExplorer.DataExplorerConfigurationBase
   nameWithType: DataExplorerConfigurationBase
-- uid: DataExplorer.DataExplorerConfigurationBase.#ctor(ContainerBuilder)
-  name: DataExplorerConfigurationBase(ContainerBuilder)
-  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase__ctor_ContainerBuilder_
-  commentId: M:DataExplorer.DataExplorerConfigurationBase.#ctor(ContainerBuilder)
-  fullName: DataExplorer.DataExplorerConfigurationBase.DataExplorerConfigurationBase(ContainerBuilder)
-  nameWithType: DataExplorerConfigurationBase.DataExplorerConfigurationBase(ContainerBuilder)
+- uid: DataExplorer.DataExplorerConfigurationBase.#ctor(DataExplorer.Abstractions.IRegistrator)
+  name: DataExplorerConfigurationBase(IRegistrator)
+  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase__ctor_DataExplorer_Abstractions_IRegistrator_
+  commentId: M:DataExplorer.DataExplorerConfigurationBase.#ctor(DataExplorer.Abstractions.IRegistrator)
+  fullName: DataExplorer.DataExplorerConfigurationBase.DataExplorerConfigurationBase(DataExplorer.Abstractions.IRegistrator)
+  nameWithType: DataExplorerConfigurationBase.DataExplorerConfigurationBase(IRegistrator)
 - uid: DataExplorer.DataExplorerConfigurationBase.#ctor(DataExplorer.DataExplorerConfigurationBase)
   name: DataExplorerConfigurationBase(DataExplorerConfigurationBase)
   href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase__ctor_DataExplorer_DataExplorerConfigurationBase_
   commentId: M:DataExplorer.DataExplorerConfigurationBase.#ctor(DataExplorer.DataExplorerConfigurationBase)
   fullName: DataExplorer.DataExplorerConfigurationBase.DataExplorerConfigurationBase(DataExplorer.DataExplorerConfigurationBase)
   nameWithType: DataExplorerConfigurationBase.DataExplorerConfigurationBase(DataExplorerConfigurationBase)
-- uid: DataExplorer.DataExplorerConfigurationBase.#ctor(IServiceCollection)
-  name: DataExplorerConfigurationBase(IServiceCollection)
-  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase__ctor_IServiceCollection_
-  commentId: M:DataExplorer.DataExplorerConfigurationBase.#ctor(IServiceCollection)
-  fullName: DataExplorer.DataExplorerConfigurationBase.DataExplorerConfigurationBase(IServiceCollection)
-  nameWithType: DataExplorerConfigurationBase.DataExplorerConfigurationBase(IServiceCollection)
 - uid: DataExplorer.DataExplorerConfigurationBase.#ctor*
   name: DataExplorerConfigurationBase
   href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase__ctor_
@@ -2731,32 +3109,19 @@ references:
   isSpec: "True"
   fullName: DataExplorer.DataExplorerConfigurationBase.DataExplorerConfigurationBase
   nameWithType: DataExplorerConfigurationBase.DataExplorerConfigurationBase
-- uid: DataExplorer.DataExplorerConfigurationBase.Builder
-  name: Builder
-  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_Builder
-  commentId: P:DataExplorer.DataExplorerConfigurationBase.Builder
-  fullName: DataExplorer.DataExplorerConfigurationBase.Builder
-  nameWithType: DataExplorerConfigurationBase.Builder
-- uid: DataExplorer.DataExplorerConfigurationBase.Builder*
-  name: Builder
-  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_Builder_
-  commentId: Overload:DataExplorer.DataExplorerConfigurationBase.Builder
+- uid: DataExplorer.DataExplorerConfigurationBase.Registrator
+  name: Registrator
+  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_Registrator
+  commentId: P:DataExplorer.DataExplorerConfigurationBase.Registrator
+  fullName: DataExplorer.DataExplorerConfigurationBase.Registrator
+  nameWithType: DataExplorerConfigurationBase.Registrator
+- uid: DataExplorer.DataExplorerConfigurationBase.Registrator*
+  name: Registrator
+  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_Registrator_
+  commentId: Overload:DataExplorer.DataExplorerConfigurationBase.Registrator
   isSpec: "True"
-  fullName: DataExplorer.DataExplorerConfigurationBase.Builder
-  nameWithType: DataExplorerConfigurationBase.Builder
-- uid: DataExplorer.DataExplorerConfigurationBase.ServiceCollection
-  name: ServiceCollection
-  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_ServiceCollection
-  commentId: P:DataExplorer.DataExplorerConfigurationBase.ServiceCollection
-  fullName: DataExplorer.DataExplorerConfigurationBase.ServiceCollection
-  nameWithType: DataExplorerConfigurationBase.ServiceCollection
-- uid: DataExplorer.DataExplorerConfigurationBase.ServiceCollection*
-  name: ServiceCollection
-  href: api/DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_ServiceCollection_
-  commentId: Overload:DataExplorer.DataExplorerConfigurationBase.ServiceCollection
-  isSpec: "True"
-  fullName: DataExplorer.DataExplorerConfigurationBase.ServiceCollection
-  nameWithType: DataExplorerConfigurationBase.ServiceCollection
+  fullName: DataExplorer.DataExplorerConfigurationBase.Registrator
+  nameWithType: DataExplorerConfigurationBase.Registrator
 - uid: DataExplorer.DataExplorerTimeProvider
   name: DataExplorerTimeProvider
   href: api/DataExplorer.DataExplorerTimeProvider.html
@@ -2858,21 +3223,50 @@ references:
   commentId: F:DataExplorer.DataRegistrationStrategy.ReadOnly
   fullName: DataExplorer.DataRegistrationStrategy.ReadOnly
   nameWithType: DataRegistrationStrategy.ReadOnly
+- uid: DataExplorer.DefaultMapper
+  name: DefaultMapper
+  href: api/DataExplorer.DefaultMapper.html
+  commentId: T:DataExplorer.DefaultMapper
+  fullName: DataExplorer.DefaultMapper
+  nameWithType: DefaultMapper
+- uid: DataExplorer.DefaultMapper.Map*
+  name: Map
+  href: api/DataExplorer.DefaultMapper.html#DataExplorer_DefaultMapper_Map_
+  commentId: Overload:DataExplorer.DefaultMapper.Map
+  isSpec: "True"
+  fullName: DataExplorer.DefaultMapper.Map
+  nameWithType: DefaultMapper.Map
+- uid: DataExplorer.DefaultMapper.Map``1(System.Object)
+  name: Map<TTarget>(Object)
+  href: api/DataExplorer.DefaultMapper.html#DataExplorer_DefaultMapper_Map__1_System_Object_
+  commentId: M:DataExplorer.DefaultMapper.Map``1(System.Object)
+  name.vb: Map(Of TTarget)(Object)
+  fullName: DataExplorer.DefaultMapper.Map<TTarget>(System.Object)
+  fullName.vb: DataExplorer.DefaultMapper.Map(Of TTarget)(System.Object)
+  nameWithType: DefaultMapper.Map<TTarget>(Object)
+  nameWithType.vb: DefaultMapper.Map(Of TTarget)(Object)
+- uid: DataExplorer.DefaultMapper.ProjectTo*
+  name: ProjectTo
+  href: api/DataExplorer.DefaultMapper.html#DataExplorer_DefaultMapper_ProjectTo_
+  commentId: Overload:DataExplorer.DefaultMapper.ProjectTo
+  isSpec: "True"
+  fullName: DataExplorer.DefaultMapper.ProjectTo
+  nameWithType: DefaultMapper.ProjectTo
+- uid: DataExplorer.DefaultMapper.ProjectTo``1(IQueryable,IDictionary{System.String,System.Object},System.String[])
+  name: ProjectTo<TTarget>(IQueryable, IDictionary<String, Object>, String[])
+  href: api/DataExplorer.DefaultMapper.html#DataExplorer_DefaultMapper_ProjectTo__1_IQueryable_IDictionary_System_String_System_Object__System_String___
+  commentId: M:DataExplorer.DefaultMapper.ProjectTo``1(IQueryable,IDictionary{System.String,System.Object},System.String[])
+  name.vb: ProjectTo(Of TTarget)(IQueryable, IDictionary(Of String, Object), String())
+  fullName: DataExplorer.DefaultMapper.ProjectTo<TTarget>(IQueryable, IDictionary<System.String, System.Object>, System.String[])
+  fullName.vb: DataExplorer.DefaultMapper.ProjectTo(Of TTarget)(IQueryable, IDictionary(Of System.String, System.Object), System.String())
+  nameWithType: DefaultMapper.ProjectTo<TTarget>(IQueryable, IDictionary<String, Object>, String[])
+  nameWithType.vb: DefaultMapper.ProjectTo(Of TTarget)(IQueryable, IDictionary(Of String, Object), String())
 - uid: DataExplorer.DependencyInjectionExtensions
   name: DependencyInjectionExtensions
   href: api/DataExplorer.DependencyInjectionExtensions.html
   commentId: T:DataExplorer.DependencyInjectionExtensions
   fullName: DataExplorer.DependencyInjectionExtensions
   nameWithType: DependencyInjectionExtensions
-- uid: DataExplorer.DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder,Action{DataExplorer.DataExplorerConfiguration})
-  name: AddDataExplorer(ContainerBuilder, Action<DataExplorerConfiguration>)
-  href: api/DataExplorer.DependencyInjectionExtensions.html#DataExplorer_DependencyInjectionExtensions_AddDataExplorer_ContainerBuilder_Action_DataExplorer_DataExplorerConfiguration__
-  commentId: M:DataExplorer.DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder,Action{DataExplorer.DataExplorerConfiguration})
-  name.vb: AddDataExplorer(ContainerBuilder, Action(Of DataExplorerConfiguration))
-  fullName: DataExplorer.DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder, Action<DataExplorer.DataExplorerConfiguration>)
-  fullName.vb: DataExplorer.DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder, Action(Of DataExplorer.DataExplorerConfiguration))
-  nameWithType: DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder, Action<DataExplorerConfiguration>)
-  nameWithType.vb: DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder, Action(Of DataExplorerConfiguration))
 - uid: DataExplorer.DependencyInjectionExtensions.AddDataExplorer(IServiceCollection,Action{DataExplorer.DataExplorerConfiguration})
   name: AddDataExplorer(IServiceCollection, Action<DataExplorerConfiguration>)
   href: api/DataExplorer.DependencyInjectionExtensions.html#DataExplorer_DependencyInjectionExtensions_AddDataExplorer_IServiceCollection_Action_DataExplorer_DataExplorerConfiguration__
@@ -2889,22 +3283,6 @@ references:
   isSpec: "True"
   fullName: DataExplorer.DependencyInjectionExtensions.AddDataExplorer
   nameWithType: DependencyInjectionExtensions.AddDataExplorer
-- uid: DataExplorer.DependencyInjectionExtensions.AddInterceptor*
-  name: AddInterceptor
-  href: api/DataExplorer.DependencyInjectionExtensions.html#DataExplorer_DependencyInjectionExtensions_AddInterceptor_
-  commentId: Overload:DataExplorer.DependencyInjectionExtensions.AddInterceptor
-  isSpec: "True"
-  fullName: DataExplorer.DependencyInjectionExtensions.AddInterceptor
-  nameWithType: DependencyInjectionExtensions.AddInterceptor
-- uid: DataExplorer.DependencyInjectionExtensions.AddInterceptor``1(ContainerBuilder,Func{IComponentContext,``0},AttributeBasedRegistration.ServiceLifetime)
-  name: AddInterceptor<T>(ContainerBuilder, Func<IComponentContext, T>, AttributeBasedRegistration.ServiceLifetime)
-  href: api/DataExplorer.DependencyInjectionExtensions.html#DataExplorer_DependencyInjectionExtensions_AddInterceptor__1_ContainerBuilder_Func_IComponentContext___0__AttributeBasedRegistration_ServiceLifetime_
-  commentId: M:DataExplorer.DependencyInjectionExtensions.AddInterceptor``1(ContainerBuilder,Func{IComponentContext,``0},AttributeBasedRegistration.ServiceLifetime)
-  name.vb: AddInterceptor(Of T)(ContainerBuilder, Func(Of IComponentContext, T), AttributeBasedRegistration.ServiceLifetime)
-  fullName: DataExplorer.DependencyInjectionExtensions.AddInterceptor<T>(ContainerBuilder, Func<IComponentContext, T>, AttributeBasedRegistration.ServiceLifetime)
-  fullName.vb: DataExplorer.DependencyInjectionExtensions.AddInterceptor(Of T)(ContainerBuilder, Func(Of IComponentContext, T), AttributeBasedRegistration.ServiceLifetime)
-  nameWithType: DependencyInjectionExtensions.AddInterceptor<T>(ContainerBuilder, Func<IComponentContext, T>, AttributeBasedRegistration.ServiceLifetime)
-  nameWithType.vb: DependencyInjectionExtensions.AddInterceptor(Of T)(ContainerBuilder, Func(Of IComponentContext, T), AttributeBasedRegistration.ServiceLifetime)
 - uid: DataExplorer.EfCore
   name: DataExplorer.EfCore
   href: api/DataExplorer.EfCore.html
@@ -3986,24 +4364,18 @@ references:
   commentId: T:DataExplorer.EfCore.DataExplorerEfCoreConfiguration
   fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration
   nameWithType: DataExplorerEfCoreConfiguration
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(ContainerBuilder)
-  name: DataExplorerEfCoreConfiguration(ContainerBuilder)
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_ContainerBuilder_
-  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(ContainerBuilder)
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration(ContainerBuilder)
-  nameWithType: DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration(ContainerBuilder)
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(DataExplorer.Abstractions.IRegistrator)
+  name: DataExplorerEfCoreConfiguration(IRegistrator)
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_DataExplorer_Abstractions_IRegistrator_
+  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(DataExplorer.Abstractions.IRegistrator)
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration(DataExplorer.Abstractions.IRegistrator)
+  nameWithType: DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration(IRegistrator)
 - uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(DataExplorer.DataExplorerConfigurationBase)
   name: DataExplorerEfCoreConfiguration(DataExplorerConfigurationBase)
   href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_DataExplorer_DataExplorerConfigurationBase_
   commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(DataExplorer.DataExplorerConfigurationBase)
   fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration(DataExplorer.DataExplorerConfigurationBase)
   nameWithType: DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration(DataExplorerConfigurationBase)
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(IServiceCollection)
-  name: DataExplorerEfCoreConfiguration(IServiceCollection)
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_IServiceCollection_
-  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(IServiceCollection)
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration(IServiceCollection)
-  nameWithType: DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration(IServiceCollection)
 - uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor*
   name: DataExplorerEfCoreConfiguration
   href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_
@@ -7946,22 +8318,6 @@ references:
   fullName.vb: DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithCaching(Of T)(DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder(Of T), System.Boolean)
   nameWithType: SpecificationBuilderExtensions.WithCaching<T>(ISpecificationBuilder<T>, Boolean)
   nameWithType.vb: SpecificationBuilderExtensions.WithCaching(Of T)(ISpecificationBuilder(Of T), Boolean)
-- uid: DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithMapperConfiguration*
-  name: WithMapperConfiguration
-  href: api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_WithMapperConfiguration_
-  commentId: Overload:DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithMapperConfiguration
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithMapperConfiguration
-  nameWithType: SpecificationBuilderExtensions.WithMapperConfiguration
-- uid: DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithMapperConfiguration``2(DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder{``0,``1},IConfigurationProvider)
-  name: WithMapperConfiguration<T, TResult>(ISpecificationBuilder<T, TResult>, IConfigurationProvider)
-  href: api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_WithMapperConfiguration__2_DataExplorer_Abstractions_Specifications_Builders_ISpecificationBuilder___0___1__IConfigurationProvider_
-  commentId: M:DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithMapperConfiguration``2(DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder{``0,``1},IConfigurationProvider)
-  name.vb: WithMapperConfiguration(Of T, TResult)(ISpecificationBuilder(Of T, TResult), IConfigurationProvider)
-  fullName: DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithMapperConfiguration<T, TResult>(DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder<T, TResult>, IConfigurationProvider)
-  fullName.vb: DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithMapperConfiguration(Of T, TResult)(DataExplorer.Abstractions.Specifications.Builders.ISpecificationBuilder(Of T, TResult), IConfigurationProvider)
-  nameWithType: SpecificationBuilderExtensions.WithMapperConfiguration<T, TResult>(ISpecificationBuilder<T, TResult>, IConfigurationProvider)
-  nameWithType.vb: SpecificationBuilderExtensions.WithMapperConfiguration(Of T, TResult)(ISpecificationBuilder(Of T, TResult), IConfigurationProvider)
 - uid: DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.WithPaginationFilter*
   name: WithPaginationFilter
   href: api/DataExplorer.EfCore.Specifications.Builders.SpecificationBuilderExtensions.html#DataExplorer_EfCore_Specifications_Builders_SpecificationBuilderExtensions_WithPaginationFilter_
@@ -8393,6 +8749,41 @@ references:
   isSpec: "True"
   fullName: DataExplorer.EfCore.Specifications.Evaluators.CachingEvaluator.IsCriteriaEvaluator
   nameWithType: CachingEvaluator.IsCriteriaEvaluator
+- uid: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator
+  name: DefaultProjectionEvaluator
+  href: api/DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.html
+  commentId: T:DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator
+  fullName: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator
+  nameWithType: DefaultProjectionEvaluator
+- uid: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.GetQuery*
+  name: GetQuery
+  href: api/DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.html#DataExplorer_EfCore_Specifications_Evaluators_DefaultProjectionEvaluator_GetQuery_
+  commentId: Overload:DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.GetQuery
+  isSpec: "True"
+  fullName: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.GetQuery
+  nameWithType: DefaultProjectionEvaluator.GetQuery
+- uid: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.GetQuery``2(IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})
+  name: GetQuery<T, TResult>(IQueryable<T>, ISpecification<T, TResult>)
+  href: api/DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.html#DataExplorer_EfCore_Specifications_Evaluators_DefaultProjectionEvaluator_GetQuery__2_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__
+  commentId: M:DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.GetQuery``2(IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})
+  name.vb: GetQuery(Of T, TResult)(IQueryable(Of T), ISpecification(Of T, TResult))
+  fullName: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.GetQuery<T, TResult>(IQueryable<T>, DataExplorer.Abstractions.Specifications.ISpecification<T, TResult>)
+  fullName.vb: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.GetQuery(Of T, TResult)(IQueryable(Of T), DataExplorer.Abstractions.Specifications.ISpecification(Of T, TResult))
+  nameWithType: DefaultProjectionEvaluator.GetQuery<T, TResult>(IQueryable<T>, ISpecification<T, TResult>)
+  nameWithType.vb: DefaultProjectionEvaluator.GetQuery(Of T, TResult)(IQueryable(Of T), ISpecification(Of T, TResult))
+- uid: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.Instance
+  name: Instance
+  href: api/DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.html#DataExplorer_EfCore_Specifications_Evaluators_DefaultProjectionEvaluator_Instance
+  commentId: P:DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.Instance
+  fullName: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.Instance
+  nameWithType: DefaultProjectionEvaluator.Instance
+- uid: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.Instance*
+  name: Instance
+  href: api/DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.html#DataExplorer_EfCore_Specifications_Evaluators_DefaultProjectionEvaluator_Instance_
+  commentId: Overload:DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.Instance
+  isSpec: "True"
+  fullName: DataExplorer.EfCore.Specifications.Evaluators.DefaultProjectionEvaluator.Instance
+  nameWithType: DefaultProjectionEvaluator.Instance
 - uid: DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator
   name: GroupByEvaluator
   href: api/DataExplorer.EfCore.Specifications.Evaluators.GroupByEvaluator.html
@@ -8854,41 +9245,6 @@ references:
   isSpec: "True"
   fullName: DataExplorer.EfCore.Specifications.Evaluators.PaginationEvaluator.IsCriteriaEvaluator
   nameWithType: PaginationEvaluator.IsCriteriaEvaluator
-- uid: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator
-  name: ProjectionEvaluator
-  href: api/DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.html
-  commentId: T:DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator
-  fullName: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator
-  nameWithType: ProjectionEvaluator
-- uid: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery*
-  name: GetQuery
-  href: api/DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.html#DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_GetQuery_
-  commentId: Overload:DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery
-  nameWithType: ProjectionEvaluator.GetQuery
-- uid: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery``2(IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})
-  name: GetQuery<T, TResult>(IQueryable<T>, ISpecification<T, TResult>)
-  href: api/DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.html#DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_GetQuery__2_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__
-  commentId: M:DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery``2(IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})
-  name.vb: GetQuery(Of T, TResult)(IQueryable(Of T), ISpecification(Of T, TResult))
-  fullName: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery<T, TResult>(IQueryable<T>, DataExplorer.Abstractions.Specifications.ISpecification<T, TResult>)
-  fullName.vb: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.GetQuery(Of T, TResult)(IQueryable(Of T), DataExplorer.Abstractions.Specifications.ISpecification(Of T, TResult))
-  nameWithType: ProjectionEvaluator.GetQuery<T, TResult>(IQueryable<T>, ISpecification<T, TResult>)
-  nameWithType.vb: ProjectionEvaluator.GetQuery(Of T, TResult)(IQueryable(Of T), ISpecification(Of T, TResult))
-- uid: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.Instance
-  name: Instance
-  href: api/DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.html#DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_Instance
-  commentId: P:DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.Instance
-  fullName: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.Instance
-  nameWithType: ProjectionEvaluator.Instance
-- uid: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.Instance*
-  name: Instance
-  href: api/DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.html#DataExplorer_EfCore_Specifications_Evaluators_ProjectionEvaluator_Instance_
-  commentId: Overload:DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.Instance
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.Specifications.Evaluators.ProjectionEvaluator.Instance
-  nameWithType: ProjectionEvaluator.Instance
 - uid: DataExplorer.EfCore.Specifications.Evaluators.SearchEvaluator
   name: SearchEvaluator
   href: api/DataExplorer.EfCore.Specifications.Evaluators.SearchEvaluator.html
@@ -9754,42 +10110,38 @@ references:
   fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult)
   nameWithType: Specification<T, TResult>
   nameWithType.vb: Specification(Of T, TResult)
-- uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator,DataExplorer.PaginationFilter,System.Nullable{IConfigurationProvider})
-  name: Specification(IInMemorySpecificationEvaluator, PaginationFilter, Nullable<IConfigurationProvider>)
-  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_DataExplorer_PaginationFilter_System_Nullable_IConfigurationProvider__
-  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator,DataExplorer.PaginationFilter,System.Nullable{IConfigurationProvider})
-  name.vb: Specification(IInMemorySpecificationEvaluator, PaginationFilter, Nullable(Of IConfigurationProvider))
-  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.Specification(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator, DataExplorer.PaginationFilter, System.Nullable<IConfigurationProvider>)
-  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Specification(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator, DataExplorer.PaginationFilter, System.Nullable(Of IConfigurationProvider))
-  nameWithType: Specification<T, TResult>.Specification(IInMemorySpecificationEvaluator, PaginationFilter, Nullable<IConfigurationProvider>)
-  nameWithType.vb: Specification(Of T, TResult).Specification(IInMemorySpecificationEvaluator, PaginationFilter, Nullable(Of IConfigurationProvider))
-- uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator,System.Nullable{IConfigurationProvider})
-  name: Specification(IInMemorySpecificationEvaluator, Nullable<IConfigurationProvider>)
-  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_System_Nullable_IConfigurationProvider__
-  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator,System.Nullable{IConfigurationProvider})
-  name.vb: Specification(IInMemorySpecificationEvaluator, Nullable(Of IConfigurationProvider))
-  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.Specification(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator, System.Nullable<IConfigurationProvider>)
-  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Specification(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator, System.Nullable(Of IConfigurationProvider))
-  nameWithType: Specification<T, TResult>.Specification(IInMemorySpecificationEvaluator, Nullable<IConfigurationProvider>)
-  nameWithType.vb: Specification(Of T, TResult).Specification(IInMemorySpecificationEvaluator, Nullable(Of IConfigurationProvider))
-- uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.PaginationFilter,System.Nullable{IConfigurationProvider})
-  name: Specification(PaginationFilter, Nullable<IConfigurationProvider>)
-  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_PaginationFilter_System_Nullable_IConfigurationProvider__
-  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.PaginationFilter,System.Nullable{IConfigurationProvider})
-  name.vb: Specification(PaginationFilter, Nullable(Of IConfigurationProvider))
-  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.Specification(DataExplorer.PaginationFilter, System.Nullable<IConfigurationProvider>)
-  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Specification(DataExplorer.PaginationFilter, System.Nullable(Of IConfigurationProvider))
-  nameWithType: Specification<T, TResult>.Specification(PaginationFilter, Nullable<IConfigurationProvider>)
-  nameWithType.vb: Specification(Of T, TResult).Specification(PaginationFilter, Nullable(Of IConfigurationProvider))
-- uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor(System.Nullable{IConfigurationProvider})
-  name: Specification(Nullable<IConfigurationProvider>)
-  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor_System_Nullable_IConfigurationProvider__
-  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.#ctor(System.Nullable{IConfigurationProvider})
-  name.vb: Specification(Nullable(Of IConfigurationProvider))
-  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.Specification(System.Nullable<IConfigurationProvider>)
-  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Specification(System.Nullable(Of IConfigurationProvider))
-  nameWithType: Specification<T, TResult>.Specification(Nullable<IConfigurationProvider>)
-  nameWithType.vb: Specification(Of T, TResult).Specification(Nullable(Of IConfigurationProvider))
+- uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor
+  name: Specification()
+  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor
+  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.#ctor
+  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.Specification()
+  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Specification()
+  nameWithType: Specification<T, TResult>.Specification()
+  nameWithType.vb: Specification(Of T, TResult).Specification()
+- uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator,DataExplorer.PaginationFilter)
+  name: Specification(IInMemorySpecificationEvaluator, PaginationFilter)
+  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_DataExplorer_PaginationFilter_
+  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator,DataExplorer.PaginationFilter)
+  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.Specification(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator, DataExplorer.PaginationFilter)
+  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Specification(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator, DataExplorer.PaginationFilter)
+  nameWithType: Specification<T, TResult>.Specification(IInMemorySpecificationEvaluator, PaginationFilter)
+  nameWithType.vb: Specification(Of T, TResult).Specification(IInMemorySpecificationEvaluator, PaginationFilter)
+- uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator)
+  name: Specification(IInMemorySpecificationEvaluator)
+  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_Abstractions_Specifications_Evaluators_IInMemorySpecificationEvaluator_
+  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator)
+  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.Specification(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator)
+  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Specification(DataExplorer.Abstractions.Specifications.Evaluators.IInMemorySpecificationEvaluator)
+  nameWithType: Specification<T, TResult>.Specification(IInMemorySpecificationEvaluator)
+  nameWithType.vb: Specification(Of T, TResult).Specification(IInMemorySpecificationEvaluator)
+- uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.PaginationFilter)
+  name: Specification(PaginationFilter)
+  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor_DataExplorer_PaginationFilter_
+  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.#ctor(DataExplorer.PaginationFilter)
+  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.Specification(DataExplorer.PaginationFilter)
+  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Specification(DataExplorer.PaginationFilter)
+  nameWithType: Specification<T, TResult>.Specification(PaginationFilter)
+  nameWithType.vb: Specification(Of T, TResult).Specification(PaginationFilter)
 - uid: DataExplorer.EfCore.Specifications.Specification`2.#ctor*
   name: Specification
   href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2__ctor_
@@ -9843,23 +10195,6 @@ references:
   fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).Expand
   nameWithType: Specification<T, TResult>.Expand
   nameWithType.vb: Specification(Of T, TResult).Expand
-- uid: DataExplorer.EfCore.Specifications.Specification`2.MapperConfigurationProvider
-  name: MapperConfigurationProvider
-  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2_MapperConfigurationProvider
-  commentId: P:DataExplorer.EfCore.Specifications.Specification`2.MapperConfigurationProvider
-  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.MapperConfigurationProvider
-  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).MapperConfigurationProvider
-  nameWithType: Specification<T, TResult>.MapperConfigurationProvider
-  nameWithType.vb: Specification(Of T, TResult).MapperConfigurationProvider
-- uid: DataExplorer.EfCore.Specifications.Specification`2.MapperConfigurationProvider*
-  name: MapperConfigurationProvider
-  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2_MapperConfigurationProvider_
-  commentId: Overload:DataExplorer.EfCore.Specifications.Specification`2.MapperConfigurationProvider
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.MapperConfigurationProvider
-  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).MapperConfigurationProvider
-  nameWithType: Specification<T, TResult>.MapperConfigurationProvider
-  nameWithType.vb: Specification(Of T, TResult).MapperConfigurationProvider
 - uid: DataExplorer.EfCore.Specifications.Specification`2.MembersToExpand
   name: MembersToExpand
   href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2_MembersToExpand
@@ -9998,23 +10333,6 @@ references:
   fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).StringMembersToExpand
   nameWithType: Specification<T, TResult>.StringMembersToExpand
   nameWithType.vb: Specification(Of T, TResult).StringMembersToExpand
-- uid: DataExplorer.EfCore.Specifications.Specification`2.WithMapperConfiguration(MapperConfiguration)
-  name: WithMapperConfiguration(MapperConfiguration)
-  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2_WithMapperConfiguration_MapperConfiguration_
-  commentId: M:DataExplorer.EfCore.Specifications.Specification`2.WithMapperConfiguration(MapperConfiguration)
-  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.WithMapperConfiguration(MapperConfiguration)
-  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).WithMapperConfiguration(MapperConfiguration)
-  nameWithType: Specification<T, TResult>.WithMapperConfiguration(MapperConfiguration)
-  nameWithType.vb: Specification(Of T, TResult).WithMapperConfiguration(MapperConfiguration)
-- uid: DataExplorer.EfCore.Specifications.Specification`2.WithMapperConfiguration*
-  name: WithMapperConfiguration
-  href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2_WithMapperConfiguration_
-  commentId: Overload:DataExplorer.EfCore.Specifications.Specification`2.WithMapperConfiguration
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.Specifications.Specification<T, TResult>.WithMapperConfiguration
-  fullName.vb: DataExplorer.EfCore.Specifications.Specification(Of T, TResult).WithMapperConfiguration
-  nameWithType: Specification<T, TResult>.WithMapperConfiguration
-  nameWithType.vb: Specification(Of T, TResult).WithMapperConfiguration
 - uid: DataExplorer.EfCore.Specifications.Specification`2.WithPostProcessingAction(Func{IEnumerable{`1},IEnumerable{`1}})
   name: WithPostProcessingAction(Func<IEnumerable<TResult>, IEnumerable<TResult>>)
   href: api/DataExplorer.EfCore.Specifications.Specification-2.html#DataExplorer_EfCore_Specifications_Specification_2_WithPostProcessingAction_Func_IEnumerable__1__IEnumerable__1___
@@ -10246,13 +10564,13 @@ references:
   fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext)
   nameWithType: UnitOfWork<TContext>
   nameWithType.vb: UnitOfWork(Of TContext)
-- uid: DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,IMapper,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
+- uid: DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,DataExplorer.Abstractions.Mapper.IMapper,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
   name: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions<DataExplorerEfCoreConfiguration>, IEfDataExplorerTypeCache, ICachedInstanceFactory)
-  href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_IMapper_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_
-  commentId: M:DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,IMapper,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
+  href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_DataExplorer_Abstractions_Mapper_IMapper_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_
+  commentId: M:DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,DataExplorer.Abstractions.Mapper.IMapper,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
   name.vb: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorerEfCoreConfiguration), IEfDataExplorerTypeCache, ICachedInstanceFactory)
-  fullName: DataExplorer.EfCore.UnitOfWork<TContext>.UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, IMapper, IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>, DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
-  fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorer.EfCore.DataExplorerEfCoreConfiguration), DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
+  fullName: DataExplorer.EfCore.UnitOfWork<TContext>.UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, DataExplorer.Abstractions.Mapper.IMapper, IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>, DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
+  fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, DataExplorer.Abstractions.Mapper.IMapper, IOptions(Of DataExplorer.EfCore.DataExplorerEfCoreConfiguration), DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
   nameWithType: UnitOfWork<TContext>.UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions<DataExplorerEfCoreConfiguration>, IEfDataExplorerTypeCache, ICachedInstanceFactory)
   nameWithType.vb: UnitOfWork(Of TContext).UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorerEfCoreConfiguration), IEfDataExplorerTypeCache, ICachedInstanceFactory)
 - uid: DataExplorer.EfCore.UnitOfWork`1.#ctor*
@@ -10850,6 +11168,470 @@ references:
   commentId: N:DataExplorer.Extensions
   fullName: DataExplorer.Extensions
   nameWithType: DataExplorer.Extensions
+- uid: DataExplorer.Extensions.Autofac
+  name: DataExplorer.Extensions.Autofac
+  href: api/DataExplorer.Extensions.Autofac.html
+  commentId: N:DataExplorer.Extensions.Autofac
+  fullName: DataExplorer.Extensions.Autofac
+  nameWithType: DataExplorer.Extensions.Autofac
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration
+  name: AutofacRegistration
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html
+  commentId: T:DataExplorer.Extensions.Autofac.AutofacRegistration
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration
+  nameWithType: AutofacRegistration
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.#ctor(DataExplorer.Extensions.Autofac.AutofacRegistrator,Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name: AutofacRegistration(AutofacRegistrator, Expression<Func<IResolver, Object>>, Type)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration__ctor_DataExplorer_Extensions_Autofac_AutofacRegistrator_Expression_Func_DataExplorer_Abstractions_IResolver_System_Object___Type_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistration.#ctor(DataExplorer.Extensions.Autofac.AutofacRegistrator,Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name.vb: AutofacRegistration(AutofacRegistrator, Expression(Of Func(Of IResolver, Object)), Type)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.AutofacRegistration(DataExplorer.Extensions.Autofac.AutofacRegistrator, Expression<Func<DataExplorer.Abstractions.IResolver, System.Object>>, Type)
+  fullName.vb: DataExplorer.Extensions.Autofac.AutofacRegistration.AutofacRegistration(DataExplorer.Extensions.Autofac.AutofacRegistrator, Expression(Of Func(Of DataExplorer.Abstractions.IResolver, System.Object)), Type)
+  nameWithType: AutofacRegistration.AutofacRegistration(AutofacRegistrator, Expression<Func<IResolver, Object>>, Type)
+  nameWithType.vb: AutofacRegistration.AutofacRegistration(AutofacRegistrator, Expression(Of Func(Of IResolver, Object)), Type)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.#ctor(DataExplorer.Extensions.Autofac.AutofacRegistrator,System.Object)
+  name: AutofacRegistration(AutofacRegistrator, Object)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration__ctor_DataExplorer_Extensions_Autofac_AutofacRegistrator_System_Object_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistration.#ctor(DataExplorer.Extensions.Autofac.AutofacRegistrator,System.Object)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.AutofacRegistration(DataExplorer.Extensions.Autofac.AutofacRegistrator, System.Object)
+  nameWithType: AutofacRegistration.AutofacRegistration(AutofacRegistrator, Object)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.#ctor(DataExplorer.Extensions.Autofac.AutofacRegistrator,Type)
+  name: AutofacRegistration(AutofacRegistrator, Type)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration__ctor_DataExplorer_Extensions_Autofac_AutofacRegistrator_Type_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistration.#ctor(DataExplorer.Extensions.Autofac.AutofacRegistrator,Type)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.AutofacRegistration(DataExplorer.Extensions.Autofac.AutofacRegistrator, Type)
+  nameWithType: AutofacRegistration.AutofacRegistration(AutofacRegistrator, Type)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.#ctor*
+  name: AutofacRegistration
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration__ctor_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistration.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.AutofacRegistration
+  nameWithType: AutofacRegistration.AutofacRegistration
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.EnableClassInterceptors
+  name: EnableClassInterceptors()
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration_EnableClassInterceptors
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistration.EnableClassInterceptors
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.EnableClassInterceptors()
+  nameWithType: AutofacRegistration.EnableClassInterceptors()
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.EnableClassInterceptors*
+  name: EnableClassInterceptors
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration_EnableClassInterceptors_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistration.EnableClassInterceptors
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.EnableClassInterceptors
+  nameWithType: AutofacRegistration.EnableClassInterceptors
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.InterceptedBy(Type)
+  name: InterceptedBy(Type)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration_InterceptedBy_Type_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistration.InterceptedBy(Type)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.InterceptedBy(Type)
+  nameWithType: AutofacRegistration.InterceptedBy(Type)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.InterceptedBy*
+  name: InterceptedBy
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration_InterceptedBy_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistration.InterceptedBy
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.InterceptedBy
+  nameWithType: AutofacRegistration.InterceptedBy
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.RegisterImplementation
+  name: RegisterImplementation()
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration_RegisterImplementation
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistration.RegisterImplementation
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.RegisterImplementation()
+  nameWithType: AutofacRegistration.RegisterImplementation()
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistration.RegisterImplementation*
+  name: RegisterImplementation
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistration.html#DataExplorer_Extensions_Autofac_AutofacRegistration_RegisterImplementation_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistration.RegisterImplementation
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistration.RegisterImplementation
+  nameWithType: AutofacRegistration.RegisterImplementation
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator
+  name: AutofacRegistrator
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html
+  commentId: T:DataExplorer.Extensions.Autofac.AutofacRegistrator
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator
+  nameWithType: AutofacRegistrator
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.#ctor(ContainerBuilder)
+  name: AutofacRegistrator(ContainerBuilder)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator__ctor_ContainerBuilder_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.#ctor(ContainerBuilder)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.AutofacRegistrator(ContainerBuilder)
+  nameWithType: AutofacRegistrator.AutofacRegistrator(ContainerBuilder)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.#ctor*
+  name: AutofacRegistrator
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator__ctor_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.AutofacRegistrator
+  nameWithType: AutofacRegistrator.AutofacRegistrator
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.Describe(Type)
+  name: Describe(Type)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_Describe_Type_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.Describe(Type)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.Describe(Type)
+  nameWithType: AutofacRegistrator.Describe(Type)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.Describe*
+  name: Describe
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_Describe_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.Describe
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.Describe
+  nameWithType: AutofacRegistrator.Describe
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeDecorator(Type,Type)
+  name: DescribeDecorator(Type, Type)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeDecorator_Type_Type_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeDecorator(Type,Type)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeDecorator(Type, Type)
+  nameWithType: AutofacRegistrator.DescribeDecorator(Type, Type)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeDecorator*
+  name: DescribeDecorator
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeDecorator_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeDecorator
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeDecorator
+  nameWithType: AutofacRegistrator.DescribeDecorator
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeFactory(Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name: DescribeFactory(Expression<Func<IResolver, Object>>, Type)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeFactory_Expression_Func_DataExplorer_Abstractions_IResolver_System_Object___Type_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeFactory(Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name.vb: DescribeFactory(Expression(Of Func(Of IResolver, Object)), Type)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeFactory(Expression<Func<DataExplorer.Abstractions.IResolver, System.Object>>, Type)
+  fullName.vb: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeFactory(Expression(Of Func(Of DataExplorer.Abstractions.IResolver, System.Object)), Type)
+  nameWithType: AutofacRegistrator.DescribeFactory(Expression<Func<IResolver, Object>>, Type)
+  nameWithType.vb: AutofacRegistrator.DescribeFactory(Expression(Of Func(Of IResolver, Object)), Type)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeFactory*
+  name: DescribeFactory
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeFactory_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeFactory
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeFactory
+  nameWithType: AutofacRegistrator.DescribeFactory
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeHostedService*
+  name: DescribeHostedService
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeHostedService_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeHostedService
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeHostedService
+  nameWithType: AutofacRegistrator.DescribeHostedService
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeHostedService``1
+  name: DescribeHostedService<THostedService>()
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeHostedService__1
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeHostedService``1
+  name.vb: DescribeHostedService(Of THostedService)()
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeHostedService<THostedService>()
+  fullName.vb: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeHostedService(Of THostedService)()
+  nameWithType: AutofacRegistrator.DescribeHostedService<THostedService>()
+  nameWithType.vb: AutofacRegistrator.DescribeHostedService(Of THostedService)()
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeInstance(System.Object)
+  name: DescribeInstance(Object)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeInstance_System_Object_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeInstance(System.Object)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeInstance(System.Object)
+  nameWithType: AutofacRegistrator.DescribeInstance(Object)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeInstance*
+  name: DescribeInstance
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeInstance_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeInstance
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeInstance
+  nameWithType: AutofacRegistrator.DescribeInstance
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGeneric(Type)
+  name: DescribeOpenGeneric(Type)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeOpenGeneric_Type_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGeneric(Type)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGeneric(Type)
+  nameWithType: AutofacRegistrator.DescribeOpenGeneric(Type)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGeneric*
+  name: DescribeOpenGeneric
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeOpenGeneric_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGeneric
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGeneric
+  nameWithType: AutofacRegistrator.DescribeOpenGeneric
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGenericDecorator(Type,Type)
+  name: DescribeOpenGenericDecorator(Type, Type)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeOpenGenericDecorator_Type_Type_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGenericDecorator(Type,Type)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGenericDecorator(Type, Type)
+  nameWithType: AutofacRegistrator.DescribeOpenGenericDecorator(Type, Type)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGenericDecorator*
+  name: DescribeOpenGenericDecorator
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeOpenGenericDecorator_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGenericDecorator
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOpenGenericDecorator
+  nameWithType: AutofacRegistrator.DescribeOpenGenericDecorator
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions*
+  name: DescribeOptions
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeOptions_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions
+  nameWithType: AutofacRegistrator.DescribeOptions
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions``1(``0)
+  name: DescribeOptions<TOptions>(TOptions)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeOptions__1___0_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions``1(``0)
+  name.vb: DescribeOptions(Of TOptions)(TOptions)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions<TOptions>(TOptions)
+  fullName.vb: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions(Of TOptions)(TOptions)
+  nameWithType: AutofacRegistrator.DescribeOptions<TOptions>(TOptions)
+  nameWithType.vb: AutofacRegistrator.DescribeOptions(Of TOptions)(TOptions)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions``1(Action{``0},``0)
+  name: DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_DescribeOptions__1_Action___0____0_
+  commentId: M:DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions``1(Action{``0},``0)
+  name.vb: DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  fullName.vb: DataExplorer.Extensions.Autofac.AutofacRegistrator.DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+  nameWithType: AutofacRegistrator.DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  nameWithType.vb: AutofacRegistrator.DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.Services
+  name: Services
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_Services
+  commentId: P:DataExplorer.Extensions.Autofac.AutofacRegistrator.Services
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.Services
+  nameWithType: AutofacRegistrator.Services
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.Services*
+  name: Services
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_Services_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.Services
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.Services
+  nameWithType: AutofacRegistrator.Services
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsDecoration
+  name: SupportsDecoration
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_SupportsDecoration
+  commentId: P:DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsDecoration
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsDecoration
+  nameWithType: AutofacRegistrator.SupportsDecoration
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsDecoration*
+  name: SupportsDecoration
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_SupportsDecoration_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsDecoration
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsDecoration
+  nameWithType: AutofacRegistrator.SupportsDecoration
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsInterception
+  name: SupportsInterception
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_SupportsInterception
+  commentId: P:DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsInterception
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsInterception
+  nameWithType: AutofacRegistrator.SupportsInterception
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsInterception*
+  name: SupportsInterception
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_SupportsInterception_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsInterception
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsInterception
+  nameWithType: AutofacRegistrator.SupportsInterception
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsNonPublicConstructors
+  name: SupportsNonPublicConstructors
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_SupportsNonPublicConstructors
+  commentId: P:DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsNonPublicConstructors
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsNonPublicConstructors
+  nameWithType: AutofacRegistrator.SupportsNonPublicConstructors
+- uid: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsNonPublicConstructors*
+  name: SupportsNonPublicConstructors
+  href: api/DataExplorer.Extensions.Autofac.AutofacRegistrator.html#DataExplorer_Extensions_Autofac_AutofacRegistrator_SupportsNonPublicConstructors_
+  commentId: Overload:DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsNonPublicConstructors
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.AutofacRegistrator.SupportsNonPublicConstructors
+  nameWithType: AutofacRegistrator.SupportsNonPublicConstructors
+- uid: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions
+  name: DependencyInjectionExtensions
+  href: api/DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.html
+  commentId: T:DataExplorer.Extensions.Autofac.DependencyInjectionExtensions
+  fullName: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions
+  nameWithType: DependencyInjectionExtensions
+- uid: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder,Action{DataExplorer.DataExplorerConfiguration})
+  name: AddDataExplorer(ContainerBuilder, Action<DataExplorerConfiguration>)
+  href: api/DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.html#DataExplorer_Extensions_Autofac_DependencyInjectionExtensions_AddDataExplorer_ContainerBuilder_Action_DataExplorer_DataExplorerConfiguration__
+  commentId: M:DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder,Action{DataExplorer.DataExplorerConfiguration})
+  name.vb: AddDataExplorer(ContainerBuilder, Action(Of DataExplorerConfiguration))
+  fullName: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder, Action<DataExplorer.DataExplorerConfiguration>)
+  fullName.vb: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder, Action(Of DataExplorer.DataExplorerConfiguration))
+  nameWithType: DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder, Action<DataExplorerConfiguration>)
+  nameWithType.vb: DependencyInjectionExtensions.AddDataExplorer(ContainerBuilder, Action(Of DataExplorerConfiguration))
+- uid: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddDataExplorer*
+  name: AddDataExplorer
+  href: api/DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.html#DataExplorer_Extensions_Autofac_DependencyInjectionExtensions_AddDataExplorer_
+  commentId: Overload:DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddDataExplorer
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddDataExplorer
+  nameWithType: DependencyInjectionExtensions.AddDataExplorer
+- uid: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddInterceptor*
+  name: AddInterceptor
+  href: api/DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.html#DataExplorer_Extensions_Autofac_DependencyInjectionExtensions_AddInterceptor_
+  commentId: Overload:DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddInterceptor
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddInterceptor
+  nameWithType: DependencyInjectionExtensions.AddInterceptor
+- uid: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddInterceptor``1(ContainerBuilder,Func{IComponentContext,``0},ServiceLifetime)
+  name: AddInterceptor<T>(ContainerBuilder, Func<IComponentContext, T>, ServiceLifetime)
+  href: api/DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.html#DataExplorer_Extensions_Autofac_DependencyInjectionExtensions_AddInterceptor__1_ContainerBuilder_Func_IComponentContext___0__ServiceLifetime_
+  commentId: M:DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddInterceptor``1(ContainerBuilder,Func{IComponentContext,``0},ServiceLifetime)
+  name.vb: AddInterceptor(Of T)(ContainerBuilder, Func(Of IComponentContext, T), ServiceLifetime)
+  fullName: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddInterceptor<T>(ContainerBuilder, Func<IComponentContext, T>, ServiceLifetime)
+  fullName.vb: DataExplorer.Extensions.Autofac.DependencyInjectionExtensions.AddInterceptor(Of T)(ContainerBuilder, Func(Of IComponentContext, T), ServiceLifetime)
+  nameWithType: DependencyInjectionExtensions.AddInterceptor<T>(ContainerBuilder, Func<IComponentContext, T>, ServiceLifetime)
+  nameWithType.vb: DependencyInjectionExtensions.AddInterceptor(Of T)(ContainerBuilder, Func(Of IComponentContext, T), ServiceLifetime)
+- uid: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions
+  name: IdGenAutofacExtensions
+  href: api/DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.html
+  commentId: T:DataExplorer.Extensions.Autofac.IdGenAutofacExtensions
+  fullName: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions
+  nameWithType: IdGenAutofacExtensions
+- uid: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen(ContainerBuilder,System.Int32,Func{IdGen.IdGeneratorOptions})
+  name: AddIdGen(ContainerBuilder, Int32, Func<IdGen.IdGeneratorOptions>)
+  href: api/DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.html#DataExplorer_Extensions_Autofac_IdGenAutofacExtensions_AddIdGen_ContainerBuilder_System_Int32_Func_IdGen_IdGeneratorOptions__
+  commentId: M:DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen(ContainerBuilder,System.Int32,Func{IdGen.IdGeneratorOptions})
+  name.vb: AddIdGen(ContainerBuilder, Int32, Func(Of IdGen.IdGeneratorOptions))
+  fullName: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen(ContainerBuilder, System.Int32, Func<IdGen.IdGeneratorOptions>)
+  fullName.vb: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen(ContainerBuilder, System.Int32, Func(Of IdGen.IdGeneratorOptions))
+  nameWithType: IdGenAutofacExtensions.AddIdGen(ContainerBuilder, Int32, Func<IdGen.IdGeneratorOptions>)
+  nameWithType.vb: IdGenAutofacExtensions.AddIdGen(ContainerBuilder, Int32, Func(Of IdGen.IdGeneratorOptions))
+- uid: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen(ContainerBuilder,System.Int32)
+  name: AddIdGen(ContainerBuilder, Int32)
+  href: api/DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.html#DataExplorer_Extensions_Autofac_IdGenAutofacExtensions_AddIdGen_ContainerBuilder_System_Int32_
+  commentId: M:DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen(ContainerBuilder,System.Int32)
+  fullName: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen(ContainerBuilder, System.Int32)
+  nameWithType: IdGenAutofacExtensions.AddIdGen(ContainerBuilder, Int32)
+- uid: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen*
+  name: AddIdGen
+  href: api/DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.html#DataExplorer_Extensions_Autofac_IdGenAutofacExtensions_AddIdGen_
+  commentId: Overload:DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.Autofac.IdGenAutofacExtensions.AddIdGen
+  nameWithType: IdGenAutofacExtensions.AddIdGen
+- uid: DataExplorer.Extensions.AutoMapper
+  name: DataExplorer.Extensions.AutoMapper
+  href: api/DataExplorer.Extensions.AutoMapper.html
+  commentId: N:DataExplorer.Extensions.AutoMapper
+  fullName: DataExplorer.Extensions.AutoMapper
+  nameWithType: DataExplorer.Extensions.AutoMapper
+- uid: DataExplorer.Extensions.AutoMapper.AutoMapperBridge
+  name: AutoMapperBridge
+  href: api/DataExplorer.Extensions.AutoMapper.AutoMapperBridge.html
+  commentId: T:DataExplorer.Extensions.AutoMapper.AutoMapperBridge
+  fullName: DataExplorer.Extensions.AutoMapper.AutoMapperBridge
+  nameWithType: AutoMapperBridge
+- uid: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.Map*
+  name: Map
+  href: api/DataExplorer.Extensions.AutoMapper.AutoMapperBridge.html#DataExplorer_Extensions_AutoMapper_AutoMapperBridge_Map_
+  commentId: Overload:DataExplorer.Extensions.AutoMapper.AutoMapperBridge.Map
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.Map
+  nameWithType: AutoMapperBridge.Map
+- uid: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.Map``1(System.Object)
+  name: Map<TTarget>(Object)
+  href: api/DataExplorer.Extensions.AutoMapper.AutoMapperBridge.html#DataExplorer_Extensions_AutoMapper_AutoMapperBridge_Map__1_System_Object_
+  commentId: M:DataExplorer.Extensions.AutoMapper.AutoMapperBridge.Map``1(System.Object)
+  name.vb: Map(Of TTarget)(Object)
+  fullName: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.Map<TTarget>(System.Object)
+  fullName.vb: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.Map(Of TTarget)(System.Object)
+  nameWithType: AutoMapperBridge.Map<TTarget>(Object)
+  nameWithType.vb: AutoMapperBridge.Map(Of TTarget)(Object)
+- uid: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.ProjectTo*
+  name: ProjectTo
+  href: api/DataExplorer.Extensions.AutoMapper.AutoMapperBridge.html#DataExplorer_Extensions_AutoMapper_AutoMapperBridge_ProjectTo_
+  commentId: Overload:DataExplorer.Extensions.AutoMapper.AutoMapperBridge.ProjectTo
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.ProjectTo
+  nameWithType: AutoMapperBridge.ProjectTo
+- uid: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.ProjectTo``1(IQueryable,IDictionary{System.String,System.Object},System.String[])
+  name: ProjectTo<TTarget>(IQueryable, IDictionary<String, Object>, String[])
+  href: api/DataExplorer.Extensions.AutoMapper.AutoMapperBridge.html#DataExplorer_Extensions_AutoMapper_AutoMapperBridge_ProjectTo__1_IQueryable_IDictionary_System_String_System_Object__System_String___
+  commentId: M:DataExplorer.Extensions.AutoMapper.AutoMapperBridge.ProjectTo``1(IQueryable,IDictionary{System.String,System.Object},System.String[])
+  name.vb: ProjectTo(Of TTarget)(IQueryable, IDictionary(Of String, Object), String())
+  fullName: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.ProjectTo<TTarget>(IQueryable, IDictionary<System.String, System.Object>, System.String[])
+  fullName.vb: DataExplorer.Extensions.AutoMapper.AutoMapperBridge.ProjectTo(Of TTarget)(IQueryable, IDictionary(Of System.String, System.Object), System.String())
+  nameWithType: AutoMapperBridge.ProjectTo<TTarget>(IQueryable, IDictionary<String, Object>, String[])
+  nameWithType.vb: AutoMapperBridge.ProjectTo(Of TTarget)(IQueryable, IDictionary(Of String, Object), String())
+- uid: DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator
+  name: AutoMapperProjectionEvaluator
+  href: api/DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.html
+  commentId: T:DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator
+  fullName: DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator
+  nameWithType: AutoMapperProjectionEvaluator
+- uid: DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery*
+  name: GetQuery
+  href: api/DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.html#DataExplorer_Extensions_AutoMapper_AutoMapperProjectionEvaluator_GetQuery_
+  commentId: Overload:DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery
+  nameWithType: AutoMapperProjectionEvaluator.GetQuery
+- uid: DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery``2(IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})
+  name: GetQuery<T, TResult>(IQueryable<T>, ISpecification<T, TResult>)
+  href: api/DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.html#DataExplorer_Extensions_AutoMapper_AutoMapperProjectionEvaluator_GetQuery__2_IQueryable___0__DataExplorer_Abstractions_Specifications_ISpecification___0___1__
+  commentId: M:DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery``2(IQueryable{``0},DataExplorer.Abstractions.Specifications.ISpecification{``0,``1})
+  name.vb: GetQuery(Of T, TResult)(IQueryable(Of T), ISpecification(Of T, TResult))
+  fullName: DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery<T, TResult>(IQueryable<T>, DataExplorer.Abstractions.Specifications.ISpecification<T, TResult>)
+  fullName.vb: DataExplorer.Extensions.AutoMapper.AutoMapperProjectionEvaluator.GetQuery(Of T, TResult)(IQueryable(Of T), DataExplorer.Abstractions.Specifications.ISpecification(Of T, TResult))
+  nameWithType: AutoMapperProjectionEvaluator.GetQuery<T, TResult>(IQueryable<T>, ISpecification<T, TResult>)
+  nameWithType.vb: AutoMapperProjectionEvaluator.GetQuery(Of T, TResult)(IQueryable(Of T), ISpecification(Of T, TResult))
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration
+  name: DataExplorerAutoMapperConfiguration
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.html
+  commentId: T:DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration
+  nameWithType: DataExplorerAutoMapperConfiguration
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.#ctor(DataExplorer.Abstractions.IRegistrator)
+  name: DataExplorerAutoMapperConfiguration(IRegistrator)
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.html#DataExplorer_Extensions_AutoMapper_DataExplorerAutoMapperConfiguration__ctor_DataExplorer_Abstractions_IRegistrator_
+  commentId: M:DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.#ctor(DataExplorer.Abstractions.IRegistrator)
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.DataExplorerAutoMapperConfiguration(DataExplorer.Abstractions.IRegistrator)
+  nameWithType: DataExplorerAutoMapperConfiguration.DataExplorerAutoMapperConfiguration(IRegistrator)
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.#ctor(DataExplorer.DataExplorerConfigurationBase)
+  name: DataExplorerAutoMapperConfiguration(DataExplorerConfigurationBase)
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.html#DataExplorer_Extensions_AutoMapper_DataExplorerAutoMapperConfiguration__ctor_DataExplorer_DataExplorerConfigurationBase_
+  commentId: M:DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.#ctor(DataExplorer.DataExplorerConfigurationBase)
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.DataExplorerAutoMapperConfiguration(DataExplorer.DataExplorerConfigurationBase)
+  nameWithType: DataExplorerAutoMapperConfiguration.DataExplorerAutoMapperConfiguration(DataExplorerConfigurationBase)
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.#ctor*
+  name: DataExplorerAutoMapperConfiguration
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.html#DataExplorer_Extensions_AutoMapper_DataExplorerAutoMapperConfiguration__ctor_
+  commentId: Overload:DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.DataExplorerAutoMapperConfiguration
+  nameWithType: DataExplorerAutoMapperConfiguration.DataExplorerAutoMapperConfiguration
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.Value
+  name: Value
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.html#DataExplorer_Extensions_AutoMapper_DataExplorerAutoMapperConfiguration_Value
+  commentId: P:DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.Value
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.Value
+  nameWithType: DataExplorerAutoMapperConfiguration.Value
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.Value*
+  name: Value
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.html#DataExplorer_Extensions_AutoMapper_DataExplorerAutoMapperConfiguration_Value_
+  commentId: Overload:DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.Value
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration.Value
+  nameWithType: DataExplorerAutoMapperConfiguration.Value
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions
+  name: DataExplorerConfigurationExtensions
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.html
+  commentId: T:DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions
+  nameWithType: DataExplorerConfigurationExtensions
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.UseAutoMapper(DataExplorer.DataExplorerConfiguration,System.Nullable{Action{DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration}})
+  name: UseAutoMapper(DataExplorerConfiguration, Nullable<Action<DataExplorerAutoMapperConfiguration>>)
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.html#DataExplorer_Extensions_AutoMapper_DataExplorerConfigurationExtensions_UseAutoMapper_DataExplorer_DataExplorerConfiguration_System_Nullable_Action_DataExplorer_Extensions_AutoMapper_DataExplorerAutoMapperConfiguration___
+  commentId: M:DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.UseAutoMapper(DataExplorer.DataExplorerConfiguration,System.Nullable{Action{DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration}})
+  name.vb: UseAutoMapper(DataExplorerConfiguration, Nullable(Of Action(Of DataExplorerAutoMapperConfiguration)))
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.UseAutoMapper(DataExplorer.DataExplorerConfiguration, System.Nullable<Action<DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration>>)
+  fullName.vb: DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.UseAutoMapper(DataExplorer.DataExplorerConfiguration, System.Nullable(Of Action(Of DataExplorer.Extensions.AutoMapper.DataExplorerAutoMapperConfiguration)))
+  nameWithType: DataExplorerConfigurationExtensions.UseAutoMapper(DataExplorerConfiguration, Nullable<Action<DataExplorerAutoMapperConfiguration>>)
+  nameWithType.vb: DataExplorerConfigurationExtensions.UseAutoMapper(DataExplorerConfiguration, Nullable(Of Action(Of DataExplorerAutoMapperConfiguration)))
+- uid: DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.UseAutoMapper*
+  name: UseAutoMapper
+  href: api/DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.html#DataExplorer_Extensions_AutoMapper_DataExplorerConfigurationExtensions_UseAutoMapper_
+  commentId: Overload:DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.UseAutoMapper
+  isSpec: "True"
+  fullName: DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.UseAutoMapper
+  nameWithType: DataExplorerConfigurationExtensions.UseAutoMapper
 - uid: DataExplorer.Extensions.EnumerableExtensions
   name: EnumerableExtensions
   href: api/DataExplorer.Extensions.EnumerableExtensions.html
@@ -10909,34 +11691,6 @@ references:
   commentId: N:DataExplorer.IdGenerator
   fullName: DataExplorer.IdGenerator
   nameWithType: DataExplorer.IdGenerator
-- uid: DataExplorer.IdGenerator.IdGenAutofacExtensions
-  name: IdGenAutofacExtensions
-  href: api/DataExplorer.IdGenerator.IdGenAutofacExtensions.html
-  commentId: T:DataExplorer.IdGenerator.IdGenAutofacExtensions
-  fullName: DataExplorer.IdGenerator.IdGenAutofacExtensions
-  nameWithType: IdGenAutofacExtensions
-- uid: DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen(ContainerBuilder,System.Int32,Func{IdGen.IdGeneratorOptions})
-  name: AddIdGen(ContainerBuilder, Int32, Func<IdGen.IdGeneratorOptions>)
-  href: api/DataExplorer.IdGenerator.IdGenAutofacExtensions.html#DataExplorer_IdGenerator_IdGenAutofacExtensions_AddIdGen_ContainerBuilder_System_Int32_Func_IdGen_IdGeneratorOptions__
-  commentId: M:DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen(ContainerBuilder,System.Int32,Func{IdGen.IdGeneratorOptions})
-  name.vb: AddIdGen(ContainerBuilder, Int32, Func(Of IdGen.IdGeneratorOptions))
-  fullName: DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen(ContainerBuilder, System.Int32, Func<IdGen.IdGeneratorOptions>)
-  fullName.vb: DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen(ContainerBuilder, System.Int32, Func(Of IdGen.IdGeneratorOptions))
-  nameWithType: IdGenAutofacExtensions.AddIdGen(ContainerBuilder, Int32, Func<IdGen.IdGeneratorOptions>)
-  nameWithType.vb: IdGenAutofacExtensions.AddIdGen(ContainerBuilder, Int32, Func(Of IdGen.IdGeneratorOptions))
-- uid: DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen(ContainerBuilder,System.Int32)
-  name: AddIdGen(ContainerBuilder, Int32)
-  href: api/DataExplorer.IdGenerator.IdGenAutofacExtensions.html#DataExplorer_IdGenerator_IdGenAutofacExtensions_AddIdGen_ContainerBuilder_System_Int32_
-  commentId: M:DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen(ContainerBuilder,System.Int32)
-  fullName: DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen(ContainerBuilder, System.Int32)
-  nameWithType: IdGenAutofacExtensions.AddIdGen(ContainerBuilder, Int32)
-- uid: DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen*
-  name: AddIdGen
-  href: api/DataExplorer.IdGenerator.IdGenAutofacExtensions.html#DataExplorer_IdGenerator_IdGenAutofacExtensions_AddIdGen_
-  commentId: Overload:DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen
-  isSpec: "True"
-  fullName: DataExplorer.IdGenerator.IdGenAutofacExtensions.AddIdGen
-  nameWithType: IdGenAutofacExtensions.AddIdGen
 - uid: DataExplorer.IdGenerator.SnowflakeIdFactory
   name: SnowflakeIdFactory
   href: api/DataExplorer.IdGenerator.SnowflakeIdFactory.html
@@ -10991,6 +11745,372 @@ references:
   isSpec: "True"
   fullName: DataExplorer.IdGenerator.SnowflakeIdFactory.RemoveFactoryMethod
   nameWithType: SnowflakeIdFactory.RemoveFactoryMethod
+- uid: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator
+  name: SnowflakeIdFactoryRegistrator
+  href: api/DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.html
+  commentId: T:DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator
+  fullName: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator
+  nameWithType: SnowflakeIdFactoryRegistrator
+- uid: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.#ctor(IServiceProvider)
+  name: SnowflakeIdFactoryRegistrator(IServiceProvider)
+  href: api/DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.html#DataExplorer_IdGenerator_SnowflakeIdFactoryRegistrator__ctor_IServiceProvider_
+  commentId: M:DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.#ctor(IServiceProvider)
+  fullName: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.SnowflakeIdFactoryRegistrator(IServiceProvider)
+  nameWithType: SnowflakeIdFactoryRegistrator.SnowflakeIdFactoryRegistrator(IServiceProvider)
+- uid: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.#ctor*
+  name: SnowflakeIdFactoryRegistrator
+  href: api/DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.html#DataExplorer_IdGenerator_SnowflakeIdFactoryRegistrator__ctor_
+  commentId: Overload:DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.SnowflakeIdFactoryRegistrator
+  nameWithType: SnowflakeIdFactoryRegistrator.SnowflakeIdFactoryRegistrator
+- uid: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StartAsync(CancellationToken)
+  name: StartAsync(CancellationToken)
+  href: api/DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.html#DataExplorer_IdGenerator_SnowflakeIdFactoryRegistrator_StartAsync_CancellationToken_
+  commentId: M:DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StartAsync(CancellationToken)
+  fullName: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StartAsync(CancellationToken)
+  nameWithType: SnowflakeIdFactoryRegistrator.StartAsync(CancellationToken)
+- uid: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StartAsync*
+  name: StartAsync
+  href: api/DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.html#DataExplorer_IdGenerator_SnowflakeIdFactoryRegistrator_StartAsync_
+  commentId: Overload:DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StartAsync
+  isSpec: "True"
+  fullName: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StartAsync
+  nameWithType: SnowflakeIdFactoryRegistrator.StartAsync
+- uid: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StopAsync(CancellationToken)
+  name: StopAsync(CancellationToken)
+  href: api/DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.html#DataExplorer_IdGenerator_SnowflakeIdFactoryRegistrator_StopAsync_CancellationToken_
+  commentId: M:DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StopAsync(CancellationToken)
+  fullName: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StopAsync(CancellationToken)
+  nameWithType: SnowflakeIdFactoryRegistrator.StopAsync(CancellationToken)
+- uid: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StopAsync*
+  name: StopAsync
+  href: api/DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.html#DataExplorer_IdGenerator_SnowflakeIdFactoryRegistrator_StopAsync_
+  commentId: Overload:DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StopAsync
+  isSpec: "True"
+  fullName: DataExplorer.IdGenerator.SnowflakeIdFactoryRegistrator.StopAsync
+  nameWithType: SnowflakeIdFactoryRegistrator.StopAsync
+- uid: DataExplorer.MicrosoftRegistration
+  name: MicrosoftRegistration
+  href: api/DataExplorer.MicrosoftRegistration.html
+  commentId: T:DataExplorer.MicrosoftRegistration
+  fullName: DataExplorer.MicrosoftRegistration
+  nameWithType: MicrosoftRegistration
+- uid: DataExplorer.MicrosoftRegistration.#ctor(DataExplorer.MicrosoftRegistrator,Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name: MicrosoftRegistration(MicrosoftRegistrator, Expression<Func<IResolver, Object>>, Type)
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration__ctor_DataExplorer_MicrosoftRegistrator_Expression_Func_DataExplorer_Abstractions_IResolver_System_Object___Type_
+  commentId: M:DataExplorer.MicrosoftRegistration.#ctor(DataExplorer.MicrosoftRegistrator,Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name.vb: MicrosoftRegistration(MicrosoftRegistrator, Expression(Of Func(Of IResolver, Object)), Type)
+  fullName: DataExplorer.MicrosoftRegistration.MicrosoftRegistration(DataExplorer.MicrosoftRegistrator, Expression<Func<DataExplorer.Abstractions.IResolver, System.Object>>, Type)
+  fullName.vb: DataExplorer.MicrosoftRegistration.MicrosoftRegistration(DataExplorer.MicrosoftRegistrator, Expression(Of Func(Of DataExplorer.Abstractions.IResolver, System.Object)), Type)
+  nameWithType: MicrosoftRegistration.MicrosoftRegistration(MicrosoftRegistrator, Expression<Func<IResolver, Object>>, Type)
+  nameWithType.vb: MicrosoftRegistration.MicrosoftRegistration(MicrosoftRegistrator, Expression(Of Func(Of IResolver, Object)), Type)
+- uid: DataExplorer.MicrosoftRegistration.#ctor(DataExplorer.MicrosoftRegistrator,System.Object)
+  name: MicrosoftRegistration(MicrosoftRegistrator, Object)
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration__ctor_DataExplorer_MicrosoftRegistrator_System_Object_
+  commentId: M:DataExplorer.MicrosoftRegistration.#ctor(DataExplorer.MicrosoftRegistrator,System.Object)
+  fullName: DataExplorer.MicrosoftRegistration.MicrosoftRegistration(DataExplorer.MicrosoftRegistrator, System.Object)
+  nameWithType: MicrosoftRegistration.MicrosoftRegistration(MicrosoftRegistrator, Object)
+- uid: DataExplorer.MicrosoftRegistration.#ctor(DataExplorer.MicrosoftRegistrator,Type)
+  name: MicrosoftRegistration(MicrosoftRegistrator, Type)
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration__ctor_DataExplorer_MicrosoftRegistrator_Type_
+  commentId: M:DataExplorer.MicrosoftRegistration.#ctor(DataExplorer.MicrosoftRegistrator,Type)
+  fullName: DataExplorer.MicrosoftRegistration.MicrosoftRegistration(DataExplorer.MicrosoftRegistrator, Type)
+  nameWithType: MicrosoftRegistration.MicrosoftRegistration(MicrosoftRegistrator, Type)
+- uid: DataExplorer.MicrosoftRegistration.#ctor*
+  name: MicrosoftRegistration
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration__ctor_
+  commentId: Overload:DataExplorer.MicrosoftRegistration.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistration.MicrosoftRegistration
+  nameWithType: MicrosoftRegistration.MicrosoftRegistration
+- uid: DataExplorer.MicrosoftRegistration.EnableClassInterceptors
+  name: EnableClassInterceptors()
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_EnableClassInterceptors
+  commentId: M:DataExplorer.MicrosoftRegistration.EnableClassInterceptors
+  fullName: DataExplorer.MicrosoftRegistration.EnableClassInterceptors()
+  nameWithType: MicrosoftRegistration.EnableClassInterceptors()
+- uid: DataExplorer.MicrosoftRegistration.EnableClassInterceptors*
+  name: EnableClassInterceptors
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_EnableClassInterceptors_
+  commentId: Overload:DataExplorer.MicrosoftRegistration.EnableClassInterceptors
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistration.EnableClassInterceptors
+  nameWithType: MicrosoftRegistration.EnableClassInterceptors
+- uid: DataExplorer.MicrosoftRegistration.EnableInterfaceInterceptors
+  name: EnableInterfaceInterceptors()
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_EnableInterfaceInterceptors
+  commentId: M:DataExplorer.MicrosoftRegistration.EnableInterfaceInterceptors
+  fullName: DataExplorer.MicrosoftRegistration.EnableInterfaceInterceptors()
+  nameWithType: MicrosoftRegistration.EnableInterfaceInterceptors()
+- uid: DataExplorer.MicrosoftRegistration.EnableInterfaceInterceptors*
+  name: EnableInterfaceInterceptors
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_EnableInterfaceInterceptors_
+  commentId: Overload:DataExplorer.MicrosoftRegistration.EnableInterfaceInterceptors
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistration.EnableInterfaceInterceptors
+  nameWithType: MicrosoftRegistration.EnableInterfaceInterceptors
+- uid: DataExplorer.MicrosoftRegistration.InterceptedBy(Type)
+  name: InterceptedBy(Type)
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_InterceptedBy_Type_
+  commentId: M:DataExplorer.MicrosoftRegistration.InterceptedBy(Type)
+  fullName: DataExplorer.MicrosoftRegistration.InterceptedBy(Type)
+  nameWithType: MicrosoftRegistration.InterceptedBy(Type)
+- uid: DataExplorer.MicrosoftRegistration.InterceptedBy*
+  name: InterceptedBy
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_InterceptedBy_
+  commentId: Overload:DataExplorer.MicrosoftRegistration.InterceptedBy
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistration.InterceptedBy
+  nameWithType: MicrosoftRegistration.InterceptedBy
+- uid: DataExplorer.MicrosoftRegistration.RegisterImplementation
+  name: RegisterImplementation()
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_RegisterImplementation
+  commentId: M:DataExplorer.MicrosoftRegistration.RegisterImplementation
+  fullName: DataExplorer.MicrosoftRegistration.RegisterImplementation()
+  nameWithType: MicrosoftRegistration.RegisterImplementation()
+- uid: DataExplorer.MicrosoftRegistration.RegisterImplementation*
+  name: RegisterImplementation
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_RegisterImplementation_
+  commentId: Overload:DataExplorer.MicrosoftRegistration.RegisterImplementation
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistration.RegisterImplementation
+  nameWithType: MicrosoftRegistration.RegisterImplementation
+- uid: DataExplorer.MicrosoftRegistration.ToMicrosoftLifetime(AttributeBasedRegistration.ServiceLifetime)
+  name: ToMicrosoftLifetime(AttributeBasedRegistration.ServiceLifetime)
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_ToMicrosoftLifetime_AttributeBasedRegistration_ServiceLifetime_
+  commentId: M:DataExplorer.MicrosoftRegistration.ToMicrosoftLifetime(AttributeBasedRegistration.ServiceLifetime)
+  fullName: DataExplorer.MicrosoftRegistration.ToMicrosoftLifetime(AttributeBasedRegistration.ServiceLifetime)
+  nameWithType: MicrosoftRegistration.ToMicrosoftLifetime(AttributeBasedRegistration.ServiceLifetime)
+- uid: DataExplorer.MicrosoftRegistration.ToMicrosoftLifetime*
+  name: ToMicrosoftLifetime
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_ToMicrosoftLifetime_
+  commentId: Overload:DataExplorer.MicrosoftRegistration.ToMicrosoftLifetime
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistration.ToMicrosoftLifetime
+  nameWithType: MicrosoftRegistration.ToMicrosoftLifetime
+- uid: DataExplorer.MicrosoftRegistration.WithMatchingLifetime(System.Object[])
+  name: WithMatchingLifetime(Object[])
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_WithMatchingLifetime_System_Object___
+  commentId: M:DataExplorer.MicrosoftRegistration.WithMatchingLifetime(System.Object[])
+  name.vb: WithMatchingLifetime(Object())
+  fullName: DataExplorer.MicrosoftRegistration.WithMatchingLifetime(System.Object[])
+  fullName.vb: DataExplorer.MicrosoftRegistration.WithMatchingLifetime(System.Object())
+  nameWithType: MicrosoftRegistration.WithMatchingLifetime(Object[])
+  nameWithType.vb: MicrosoftRegistration.WithMatchingLifetime(Object())
+- uid: DataExplorer.MicrosoftRegistration.WithMatchingLifetime*
+  name: WithMatchingLifetime
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_WithMatchingLifetime_
+  commentId: Overload:DataExplorer.MicrosoftRegistration.WithMatchingLifetime
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistration.WithMatchingLifetime
+  nameWithType: MicrosoftRegistration.WithMatchingLifetime
+- uid: DataExplorer.MicrosoftRegistration.WithOwnedLifetime(Type)
+  name: WithOwnedLifetime(Type)
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_WithOwnedLifetime_Type_
+  commentId: M:DataExplorer.MicrosoftRegistration.WithOwnedLifetime(Type)
+  fullName: DataExplorer.MicrosoftRegistration.WithOwnedLifetime(Type)
+  nameWithType: MicrosoftRegistration.WithOwnedLifetime(Type)
+- uid: DataExplorer.MicrosoftRegistration.WithOwnedLifetime*
+  name: WithOwnedLifetime
+  href: api/DataExplorer.MicrosoftRegistration.html#DataExplorer_MicrosoftRegistration_WithOwnedLifetime_
+  commentId: Overload:DataExplorer.MicrosoftRegistration.WithOwnedLifetime
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistration.WithOwnedLifetime
+  nameWithType: MicrosoftRegistration.WithOwnedLifetime
+- uid: DataExplorer.MicrosoftRegistrator
+  name: MicrosoftRegistrator
+  href: api/DataExplorer.MicrosoftRegistrator.html
+  commentId: T:DataExplorer.MicrosoftRegistrator
+  fullName: DataExplorer.MicrosoftRegistrator
+  nameWithType: MicrosoftRegistrator
+- uid: DataExplorer.MicrosoftRegistrator.#ctor(IServiceCollection)
+  name: MicrosoftRegistrator(IServiceCollection)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator__ctor_IServiceCollection_
+  commentId: M:DataExplorer.MicrosoftRegistrator.#ctor(IServiceCollection)
+  fullName: DataExplorer.MicrosoftRegistrator.MicrosoftRegistrator(IServiceCollection)
+  nameWithType: MicrosoftRegistrator.MicrosoftRegistrator(IServiceCollection)
+- uid: DataExplorer.MicrosoftRegistrator.#ctor*
+  name: MicrosoftRegistrator
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator__ctor_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.MicrosoftRegistrator
+  nameWithType: MicrosoftRegistrator.MicrosoftRegistrator
+- uid: DataExplorer.MicrosoftRegistrator.Describe(Type)
+  name: Describe(Type)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_Describe_Type_
+  commentId: M:DataExplorer.MicrosoftRegistrator.Describe(Type)
+  fullName: DataExplorer.MicrosoftRegistrator.Describe(Type)
+  nameWithType: MicrosoftRegistrator.Describe(Type)
+- uid: DataExplorer.MicrosoftRegistrator.Describe*
+  name: Describe
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_Describe_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.Describe
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.Describe
+  nameWithType: MicrosoftRegistrator.Describe
+- uid: DataExplorer.MicrosoftRegistrator.DescribeDecorator(Type,Type)
+  name: DescribeDecorator(Type, Type)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeDecorator_Type_Type_
+  commentId: M:DataExplorer.MicrosoftRegistrator.DescribeDecorator(Type,Type)
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeDecorator(Type, Type)
+  nameWithType: MicrosoftRegistrator.DescribeDecorator(Type, Type)
+- uid: DataExplorer.MicrosoftRegistrator.DescribeDecorator*
+  name: DescribeDecorator
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeDecorator_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.DescribeDecorator
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeDecorator
+  nameWithType: MicrosoftRegistrator.DescribeDecorator
+- uid: DataExplorer.MicrosoftRegistrator.DescribeFactory(Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name: DescribeFactory(Expression<Func<IResolver, Object>>, Type)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeFactory_Expression_Func_DataExplorer_Abstractions_IResolver_System_Object___Type_
+  commentId: M:DataExplorer.MicrosoftRegistrator.DescribeFactory(Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name.vb: DescribeFactory(Expression(Of Func(Of IResolver, Object)), Type)
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeFactory(Expression<Func<DataExplorer.Abstractions.IResolver, System.Object>>, Type)
+  fullName.vb: DataExplorer.MicrosoftRegistrator.DescribeFactory(Expression(Of Func(Of DataExplorer.Abstractions.IResolver, System.Object)), Type)
+  nameWithType: MicrosoftRegistrator.DescribeFactory(Expression<Func<IResolver, Object>>, Type)
+  nameWithType.vb: MicrosoftRegistrator.DescribeFactory(Expression(Of Func(Of IResolver, Object)), Type)
+- uid: DataExplorer.MicrosoftRegistrator.DescribeFactory*
+  name: DescribeFactory
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeFactory_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.DescribeFactory
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeFactory
+  nameWithType: MicrosoftRegistrator.DescribeFactory
+- uid: DataExplorer.MicrosoftRegistrator.DescribeHostedService*
+  name: DescribeHostedService
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeHostedService_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.DescribeHostedService
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeHostedService
+  nameWithType: MicrosoftRegistrator.DescribeHostedService
+- uid: DataExplorer.MicrosoftRegistrator.DescribeHostedService``1
+  name: DescribeHostedService<THostedService>()
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeHostedService__1
+  commentId: M:DataExplorer.MicrosoftRegistrator.DescribeHostedService``1
+  name.vb: DescribeHostedService(Of THostedService)()
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeHostedService<THostedService>()
+  fullName.vb: DataExplorer.MicrosoftRegistrator.DescribeHostedService(Of THostedService)()
+  nameWithType: MicrosoftRegistrator.DescribeHostedService<THostedService>()
+  nameWithType.vb: MicrosoftRegistrator.DescribeHostedService(Of THostedService)()
+- uid: DataExplorer.MicrosoftRegistrator.DescribeInstance(System.Object)
+  name: DescribeInstance(Object)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeInstance_System_Object_
+  commentId: M:DataExplorer.MicrosoftRegistrator.DescribeInstance(System.Object)
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeInstance(System.Object)
+  nameWithType: MicrosoftRegistrator.DescribeInstance(Object)
+- uid: DataExplorer.MicrosoftRegistrator.DescribeInstance*
+  name: DescribeInstance
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeInstance_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.DescribeInstance
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeInstance
+  nameWithType: MicrosoftRegistrator.DescribeInstance
+- uid: DataExplorer.MicrosoftRegistrator.DescribeOpenGeneric(Type)
+  name: DescribeOpenGeneric(Type)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeOpenGeneric_Type_
+  commentId: M:DataExplorer.MicrosoftRegistrator.DescribeOpenGeneric(Type)
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeOpenGeneric(Type)
+  nameWithType: MicrosoftRegistrator.DescribeOpenGeneric(Type)
+- uid: DataExplorer.MicrosoftRegistrator.DescribeOpenGeneric*
+  name: DescribeOpenGeneric
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeOpenGeneric_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.DescribeOpenGeneric
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeOpenGeneric
+  nameWithType: MicrosoftRegistrator.DescribeOpenGeneric
+- uid: DataExplorer.MicrosoftRegistrator.DescribeOpenGenericDecorator(Type,Type)
+  name: DescribeOpenGenericDecorator(Type, Type)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeOpenGenericDecorator_Type_Type_
+  commentId: M:DataExplorer.MicrosoftRegistrator.DescribeOpenGenericDecorator(Type,Type)
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeOpenGenericDecorator(Type, Type)
+  nameWithType: MicrosoftRegistrator.DescribeOpenGenericDecorator(Type, Type)
+- uid: DataExplorer.MicrosoftRegistrator.DescribeOpenGenericDecorator*
+  name: DescribeOpenGenericDecorator
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeOpenGenericDecorator_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.DescribeOpenGenericDecorator
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeOpenGenericDecorator
+  nameWithType: MicrosoftRegistrator.DescribeOpenGenericDecorator
+- uid: DataExplorer.MicrosoftRegistrator.DescribeOptions*
+  name: DescribeOptions
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeOptions_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.DescribeOptions
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeOptions
+  nameWithType: MicrosoftRegistrator.DescribeOptions
+- uid: DataExplorer.MicrosoftRegistrator.DescribeOptions``1(``0)
+  name: DescribeOptions<TOptions>(TOptions)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeOptions__1___0_
+  commentId: M:DataExplorer.MicrosoftRegistrator.DescribeOptions``1(``0)
+  name.vb: DescribeOptions(Of TOptions)(TOptions)
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeOptions<TOptions>(TOptions)
+  fullName.vb: DataExplorer.MicrosoftRegistrator.DescribeOptions(Of TOptions)(TOptions)
+  nameWithType: MicrosoftRegistrator.DescribeOptions<TOptions>(TOptions)
+  nameWithType.vb: MicrosoftRegistrator.DescribeOptions(Of TOptions)(TOptions)
+- uid: DataExplorer.MicrosoftRegistrator.DescribeOptions``1(Action{``0},``0)
+  name: DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_DescribeOptions__1_Action___0____0_
+  commentId: M:DataExplorer.MicrosoftRegistrator.DescribeOptions``1(Action{``0},``0)
+  name.vb: DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+  fullName: DataExplorer.MicrosoftRegistrator.DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  fullName.vb: DataExplorer.MicrosoftRegistrator.DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+  nameWithType: MicrosoftRegistrator.DescribeOptions<TOptions>(Action<TOptions>, TOptions)
+  nameWithType.vb: MicrosoftRegistrator.DescribeOptions(Of TOptions)(Action(Of TOptions), TOptions)
+- uid: DataExplorer.MicrosoftRegistrator.Services
+  name: Services
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_Services
+  commentId: P:DataExplorer.MicrosoftRegistrator.Services
+  fullName: DataExplorer.MicrosoftRegistrator.Services
+  nameWithType: MicrosoftRegistrator.Services
+- uid: DataExplorer.MicrosoftRegistrator.Services*
+  name: Services
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_Services_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.Services
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.Services
+  nameWithType: MicrosoftRegistrator.Services
+- uid: DataExplorer.MicrosoftRegistrator.SupportsDecoration
+  name: SupportsDecoration
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_SupportsDecoration
+  commentId: P:DataExplorer.MicrosoftRegistrator.SupportsDecoration
+  fullName: DataExplorer.MicrosoftRegistrator.SupportsDecoration
+  nameWithType: MicrosoftRegistrator.SupportsDecoration
+- uid: DataExplorer.MicrosoftRegistrator.SupportsDecoration*
+  name: SupportsDecoration
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_SupportsDecoration_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.SupportsDecoration
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.SupportsDecoration
+  nameWithType: MicrosoftRegistrator.SupportsDecoration
+- uid: DataExplorer.MicrosoftRegistrator.SupportsInterception
+  name: SupportsInterception
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_SupportsInterception
+  commentId: P:DataExplorer.MicrosoftRegistrator.SupportsInterception
+  fullName: DataExplorer.MicrosoftRegistrator.SupportsInterception
+  nameWithType: MicrosoftRegistrator.SupportsInterception
+- uid: DataExplorer.MicrosoftRegistrator.SupportsInterception*
+  name: SupportsInterception
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_SupportsInterception_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.SupportsInterception
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.SupportsInterception
+  nameWithType: MicrosoftRegistrator.SupportsInterception
+- uid: DataExplorer.MicrosoftRegistrator.SupportsNonPublicConstructors
+  name: SupportsNonPublicConstructors
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_SupportsNonPublicConstructors
+  commentId: P:DataExplorer.MicrosoftRegistrator.SupportsNonPublicConstructors
+  fullName: DataExplorer.MicrosoftRegistrator.SupportsNonPublicConstructors
+  nameWithType: MicrosoftRegistrator.SupportsNonPublicConstructors
+- uid: DataExplorer.MicrosoftRegistrator.SupportsNonPublicConstructors*
+  name: SupportsNonPublicConstructors
+  href: api/DataExplorer.MicrosoftRegistrator.html#DataExplorer_MicrosoftRegistrator_SupportsNonPublicConstructors_
+  commentId: Overload:DataExplorer.MicrosoftRegistrator.SupportsNonPublicConstructors
+  isSpec: "True"
+  fullName: DataExplorer.MicrosoftRegistrator.SupportsNonPublicConstructors
+  nameWithType: MicrosoftRegistrator.SupportsNonPublicConstructors
 - uid: DataExplorer.PaginationFilter
   name: PaginationFilter
   href: api/DataExplorer.PaginationFilter.html
@@ -11042,6 +12162,542 @@ references:
   isSpec: "True"
   fullName: DataExplorer.PaginationFilter.PageSize
   nameWithType: PaginationFilter.PageSize
+- uid: DataExplorer.RegistrationBase
+  name: RegistrationBase
+  href: api/DataExplorer.RegistrationBase.html
+  commentId: T:DataExplorer.RegistrationBase
+  fullName: DataExplorer.RegistrationBase
+  nameWithType: RegistrationBase
+- uid: DataExplorer.RegistrationBase.#ctor(DataExplorer.Abstractions.IRegistrator,Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name: RegistrationBase(IRegistrator, Expression<Func<IResolver, Object>>, Type)
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase__ctor_DataExplorer_Abstractions_IRegistrator_Expression_Func_DataExplorer_Abstractions_IResolver_System_Object___Type_
+  commentId: M:DataExplorer.RegistrationBase.#ctor(DataExplorer.Abstractions.IRegistrator,Expression{Func{DataExplorer.Abstractions.IResolver,System.Object}},Type)
+  name.vb: RegistrationBase(IRegistrator, Expression(Of Func(Of IResolver, Object)), Type)
+  fullName: DataExplorer.RegistrationBase.RegistrationBase(DataExplorer.Abstractions.IRegistrator, Expression<Func<DataExplorer.Abstractions.IResolver, System.Object>>, Type)
+  fullName.vb: DataExplorer.RegistrationBase.RegistrationBase(DataExplorer.Abstractions.IRegistrator, Expression(Of Func(Of DataExplorer.Abstractions.IResolver, System.Object)), Type)
+  nameWithType: RegistrationBase.RegistrationBase(IRegistrator, Expression<Func<IResolver, Object>>, Type)
+  nameWithType.vb: RegistrationBase.RegistrationBase(IRegistrator, Expression(Of Func(Of IResolver, Object)), Type)
+- uid: DataExplorer.RegistrationBase.#ctor(DataExplorer.Abstractions.IRegistrator,System.Object)
+  name: RegistrationBase(IRegistrator, Object)
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase__ctor_DataExplorer_Abstractions_IRegistrator_System_Object_
+  commentId: M:DataExplorer.RegistrationBase.#ctor(DataExplorer.Abstractions.IRegistrator,System.Object)
+  fullName: DataExplorer.RegistrationBase.RegistrationBase(DataExplorer.Abstractions.IRegistrator, System.Object)
+  nameWithType: RegistrationBase.RegistrationBase(IRegistrator, Object)
+- uid: DataExplorer.RegistrationBase.#ctor(DataExplorer.Abstractions.IRegistrator,Type)
+  name: RegistrationBase(IRegistrator, Type)
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase__ctor_DataExplorer_Abstractions_IRegistrator_Type_
+  commentId: M:DataExplorer.RegistrationBase.#ctor(DataExplorer.Abstractions.IRegistrator,Type)
+  fullName: DataExplorer.RegistrationBase.RegistrationBase(DataExplorer.Abstractions.IRegistrator, Type)
+  nameWithType: RegistrationBase.RegistrationBase(IRegistrator, Type)
+- uid: DataExplorer.RegistrationBase.#ctor*
+  name: RegistrationBase
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase__ctor_
+  commentId: Overload:DataExplorer.RegistrationBase.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.RegistrationBase
+  nameWithType: RegistrationBase.RegistrationBase
+- uid: DataExplorer.RegistrationBase.As(Type)
+  name: As(Type)
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_As_Type_
+  commentId: M:DataExplorer.RegistrationBase.As(Type)
+  fullName: DataExplorer.RegistrationBase.As(Type)
+  nameWithType: RegistrationBase.As(Type)
+- uid: DataExplorer.RegistrationBase.As*
+  name: As
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_As_
+  commentId: Overload:DataExplorer.RegistrationBase.As
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.As
+  nameWithType: RegistrationBase.As
+- uid: DataExplorer.RegistrationBase.AsConventionNamedInterface
+  name: AsConventionNamedInterface()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_AsConventionNamedInterface
+  commentId: M:DataExplorer.RegistrationBase.AsConventionNamedInterface
+  fullName: DataExplorer.RegistrationBase.AsConventionNamedInterface()
+  nameWithType: RegistrationBase.AsConventionNamedInterface()
+- uid: DataExplorer.RegistrationBase.AsConventionNamedInterface*
+  name: AsConventionNamedInterface
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_AsConventionNamedInterface_
+  commentId: Overload:DataExplorer.RegistrationBase.AsConventionNamedInterface
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.AsConventionNamedInterface
+  nameWithType: RegistrationBase.AsConventionNamedInterface
+- uid: DataExplorer.RegistrationBase.AsDirectAncestorInterfaces
+  name: AsDirectAncestorInterfaces()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_AsDirectAncestorInterfaces
+  commentId: M:DataExplorer.RegistrationBase.AsDirectAncestorInterfaces
+  fullName: DataExplorer.RegistrationBase.AsDirectAncestorInterfaces()
+  nameWithType: RegistrationBase.AsDirectAncestorInterfaces()
+- uid: DataExplorer.RegistrationBase.AsDirectAncestorInterfaces*
+  name: AsDirectAncestorInterfaces
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_AsDirectAncestorInterfaces_
+  commentId: Overload:DataExplorer.RegistrationBase.AsDirectAncestorInterfaces
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.AsDirectAncestorInterfaces
+  nameWithType: RegistrationBase.AsDirectAncestorInterfaces
+- uid: DataExplorer.RegistrationBase.AsImplementedInterfaces
+  name: AsImplementedInterfaces()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_AsImplementedInterfaces
+  commentId: M:DataExplorer.RegistrationBase.AsImplementedInterfaces
+  fullName: DataExplorer.RegistrationBase.AsImplementedInterfaces()
+  nameWithType: RegistrationBase.AsImplementedInterfaces()
+- uid: DataExplorer.RegistrationBase.AsImplementedInterfaces*
+  name: AsImplementedInterfaces
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_AsImplementedInterfaces_
+  commentId: Overload:DataExplorer.RegistrationBase.AsImplementedInterfaces
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.AsImplementedInterfaces
+  nameWithType: RegistrationBase.AsImplementedInterfaces
+- uid: DataExplorer.RegistrationBase.AsSelf
+  name: AsSelf()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_AsSelf
+  commentId: M:DataExplorer.RegistrationBase.AsSelf
+  fullName: DataExplorer.RegistrationBase.AsSelf()
+  nameWithType: RegistrationBase.AsSelf()
+- uid: DataExplorer.RegistrationBase.AsSelf*
+  name: AsSelf
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_AsSelf_
+  commentId: Overload:DataExplorer.RegistrationBase.AsSelf
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.AsSelf
+  nameWithType: RegistrationBase.AsSelf
+- uid: DataExplorer.RegistrationBase.EnableClassInterceptors
+  name: EnableClassInterceptors()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_EnableClassInterceptors
+  commentId: M:DataExplorer.RegistrationBase.EnableClassInterceptors
+  fullName: DataExplorer.RegistrationBase.EnableClassInterceptors()
+  nameWithType: RegistrationBase.EnableClassInterceptors()
+- uid: DataExplorer.RegistrationBase.EnableClassInterceptors*
+  name: EnableClassInterceptors
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_EnableClassInterceptors_
+  commentId: Overload:DataExplorer.RegistrationBase.EnableClassInterceptors
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.EnableClassInterceptors
+  nameWithType: RegistrationBase.EnableClassInterceptors
+- uid: DataExplorer.RegistrationBase.EnableInterfaceInterceptors
+  name: EnableInterfaceInterceptors()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_EnableInterfaceInterceptors
+  commentId: M:DataExplorer.RegistrationBase.EnableInterfaceInterceptors
+  fullName: DataExplorer.RegistrationBase.EnableInterfaceInterceptors()
+  nameWithType: RegistrationBase.EnableInterfaceInterceptors()
+- uid: DataExplorer.RegistrationBase.EnableInterfaceInterceptors*
+  name: EnableInterfaceInterceptors
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_EnableInterfaceInterceptors_
+  commentId: Overload:DataExplorer.RegistrationBase.EnableInterfaceInterceptors
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.EnableInterfaceInterceptors
+  nameWithType: RegistrationBase.EnableInterfaceInterceptors
+- uid: DataExplorer.RegistrationBase.IfNotRegistered
+  name: IfNotRegistered()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_IfNotRegistered
+  commentId: M:DataExplorer.RegistrationBase.IfNotRegistered
+  fullName: DataExplorer.RegistrationBase.IfNotRegistered()
+  nameWithType: RegistrationBase.IfNotRegistered()
+- uid: DataExplorer.RegistrationBase.IfNotRegistered*
+  name: IfNotRegistered
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_IfNotRegistered_
+  commentId: Overload:DataExplorer.RegistrationBase.IfNotRegistered
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.IfNotRegistered
+  nameWithType: RegistrationBase.IfNotRegistered
+- uid: DataExplorer.RegistrationBase.ImplementationFactory
+  name: ImplementationFactory
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ImplementationFactory
+  commentId: P:DataExplorer.RegistrationBase.ImplementationFactory
+  fullName: DataExplorer.RegistrationBase.ImplementationFactory
+  nameWithType: RegistrationBase.ImplementationFactory
+- uid: DataExplorer.RegistrationBase.ImplementationFactory*
+  name: ImplementationFactory
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ImplementationFactory_
+  commentId: Overload:DataExplorer.RegistrationBase.ImplementationFactory
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.ImplementationFactory
+  nameWithType: RegistrationBase.ImplementationFactory
+- uid: DataExplorer.RegistrationBase.ImplementationInstance
+  name: ImplementationInstance
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ImplementationInstance
+  commentId: P:DataExplorer.RegistrationBase.ImplementationInstance
+  fullName: DataExplorer.RegistrationBase.ImplementationInstance
+  nameWithType: RegistrationBase.ImplementationInstance
+- uid: DataExplorer.RegistrationBase.ImplementationInstance*
+  name: ImplementationInstance
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ImplementationInstance_
+  commentId: Overload:DataExplorer.RegistrationBase.ImplementationInstance
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.ImplementationInstance
+  nameWithType: RegistrationBase.ImplementationInstance
+- uid: DataExplorer.RegistrationBase.ImplementationType
+  name: ImplementationType
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ImplementationType
+  commentId: P:DataExplorer.RegistrationBase.ImplementationType
+  fullName: DataExplorer.RegistrationBase.ImplementationType
+  nameWithType: RegistrationBase.ImplementationType
+- uid: DataExplorer.RegistrationBase.ImplementationType*
+  name: ImplementationType
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ImplementationType_
+  commentId: Overload:DataExplorer.RegistrationBase.ImplementationType
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.ImplementationType
+  nameWithType: RegistrationBase.ImplementationType
+- uid: DataExplorer.RegistrationBase.InterceptedBy(Type)
+  name: InterceptedBy(Type)
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_InterceptedBy_Type_
+  commentId: M:DataExplorer.RegistrationBase.InterceptedBy(Type)
+  fullName: DataExplorer.RegistrationBase.InterceptedBy(Type)
+  nameWithType: RegistrationBase.InterceptedBy(Type)
+- uid: DataExplorer.RegistrationBase.InterceptedBy*
+  name: InterceptedBy
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_InterceptedBy_
+  commentId: Overload:DataExplorer.RegistrationBase.InterceptedBy
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.InterceptedBy
+  nameWithType: RegistrationBase.InterceptedBy
+- uid: DataExplorer.RegistrationBase.Interceptors
+  name: Interceptors
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Interceptors
+  commentId: P:DataExplorer.RegistrationBase.Interceptors
+  fullName: DataExplorer.RegistrationBase.Interceptors
+  nameWithType: RegistrationBase.Interceptors
+- uid: DataExplorer.RegistrationBase.Interceptors*
+  name: Interceptors
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Interceptors_
+  commentId: Overload:DataExplorer.RegistrationBase.Interceptors
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.Interceptors
+  nameWithType: RegistrationBase.Interceptors
+- uid: DataExplorer.RegistrationBase.IsOpenGeneric
+  name: IsOpenGeneric
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_IsOpenGeneric
+  commentId: P:DataExplorer.RegistrationBase.IsOpenGeneric
+  fullName: DataExplorer.RegistrationBase.IsOpenGeneric
+  nameWithType: RegistrationBase.IsOpenGeneric
+- uid: DataExplorer.RegistrationBase.IsOpenGeneric*
+  name: IsOpenGeneric
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_IsOpenGeneric_
+  commentId: Overload:DataExplorer.RegistrationBase.IsOpenGeneric
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.IsOpenGeneric
+  nameWithType: RegistrationBase.IsOpenGeneric
+- uid: DataExplorer.RegistrationBase.Lifetime
+  name: Lifetime
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Lifetime
+  commentId: P:DataExplorer.RegistrationBase.Lifetime
+  fullName: DataExplorer.RegistrationBase.Lifetime
+  nameWithType: RegistrationBase.Lifetime
+- uid: DataExplorer.RegistrationBase.Lifetime*
+  name: Lifetime
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Lifetime_
+  commentId: Overload:DataExplorer.RegistrationBase.Lifetime
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.Lifetime
+  nameWithType: RegistrationBase.Lifetime
+- uid: DataExplorer.RegistrationBase.Owned
+  name: Owned
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Owned
+  commentId: P:DataExplorer.RegistrationBase.Owned
+  fullName: DataExplorer.RegistrationBase.Owned
+  nameWithType: RegistrationBase.Owned
+- uid: DataExplorer.RegistrationBase.Owned*
+  name: Owned
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Owned_
+  commentId: Overload:DataExplorer.RegistrationBase.Owned
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.Owned
+  nameWithType: RegistrationBase.Owned
+- uid: DataExplorer.RegistrationBase.Register
+  name: Register()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Register
+  commentId: M:DataExplorer.RegistrationBase.Register
+  fullName: DataExplorer.RegistrationBase.Register()
+  nameWithType: RegistrationBase.Register()
+- uid: DataExplorer.RegistrationBase.Register*
+  name: Register
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Register_
+  commentId: Overload:DataExplorer.RegistrationBase.Register
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.Register
+  nameWithType: RegistrationBase.Register
+- uid: DataExplorer.RegistrationBase.RegisterImplementation
+  name: RegisterImplementation()
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisterImplementation
+  commentId: M:DataExplorer.RegistrationBase.RegisterImplementation
+  fullName: DataExplorer.RegistrationBase.RegisterImplementation()
+  nameWithType: RegistrationBase.RegisterImplementation()
+- uid: DataExplorer.RegistrationBase.RegisterImplementation*
+  name: RegisterImplementation
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisterImplementation_
+  commentId: Overload:DataExplorer.RegistrationBase.RegisterImplementation
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.RegisterImplementation
+  nameWithType: RegistrationBase.RegisterImplementation
+- uid: DataExplorer.RegistrationBase.RegisteringAsConventionNamedInterface
+  name: RegisteringAsConventionNamedInterface
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisteringAsConventionNamedInterface
+  commentId: P:DataExplorer.RegistrationBase.RegisteringAsConventionNamedInterface
+  fullName: DataExplorer.RegistrationBase.RegisteringAsConventionNamedInterface
+  nameWithType: RegistrationBase.RegisteringAsConventionNamedInterface
+- uid: DataExplorer.RegistrationBase.RegisteringAsConventionNamedInterface*
+  name: RegisteringAsConventionNamedInterface
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisteringAsConventionNamedInterface_
+  commentId: Overload:DataExplorer.RegistrationBase.RegisteringAsConventionNamedInterface
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.RegisteringAsConventionNamedInterface
+  nameWithType: RegistrationBase.RegisteringAsConventionNamedInterface
+- uid: DataExplorer.RegistrationBase.RegisteringAsDirectAncestorInterfaces
+  name: RegisteringAsDirectAncestorInterfaces
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisteringAsDirectAncestorInterfaces
+  commentId: P:DataExplorer.RegistrationBase.RegisteringAsDirectAncestorInterfaces
+  fullName: DataExplorer.RegistrationBase.RegisteringAsDirectAncestorInterfaces
+  nameWithType: RegistrationBase.RegisteringAsDirectAncestorInterfaces
+- uid: DataExplorer.RegistrationBase.RegisteringAsDirectAncestorInterfaces*
+  name: RegisteringAsDirectAncestorInterfaces
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisteringAsDirectAncestorInterfaces_
+  commentId: Overload:DataExplorer.RegistrationBase.RegisteringAsDirectAncestorInterfaces
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.RegisteringAsDirectAncestorInterfaces
+  nameWithType: RegistrationBase.RegisteringAsDirectAncestorInterfaces
+- uid: DataExplorer.RegistrationBase.RegisteringAsImplementedInterfaces
+  name: RegisteringAsImplementedInterfaces
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisteringAsImplementedInterfaces
+  commentId: P:DataExplorer.RegistrationBase.RegisteringAsImplementedInterfaces
+  fullName: DataExplorer.RegistrationBase.RegisteringAsImplementedInterfaces
+  nameWithType: RegistrationBase.RegisteringAsImplementedInterfaces
+- uid: DataExplorer.RegistrationBase.RegisteringAsImplementedInterfaces*
+  name: RegisteringAsImplementedInterfaces
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisteringAsImplementedInterfaces_
+  commentId: Overload:DataExplorer.RegistrationBase.RegisteringAsImplementedInterfaces
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.RegisteringAsImplementedInterfaces
+  nameWithType: RegistrationBase.RegisteringAsImplementedInterfaces
+- uid: DataExplorer.RegistrationBase.RegisteringAsSelf
+  name: RegisteringAsSelf
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisteringAsSelf
+  commentId: P:DataExplorer.RegistrationBase.RegisteringAsSelf
+  fullName: DataExplorer.RegistrationBase.RegisteringAsSelf
+  nameWithType: RegistrationBase.RegisteringAsSelf
+- uid: DataExplorer.RegistrationBase.RegisteringAsSelf*
+  name: RegisteringAsSelf
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_RegisteringAsSelf_
+  commentId: Overload:DataExplorer.RegistrationBase.RegisteringAsSelf
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.RegisteringAsSelf
+  nameWithType: RegistrationBase.RegisteringAsSelf
+- uid: DataExplorer.RegistrationBase.Registrator
+  name: Registrator
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Registrator
+  commentId: P:DataExplorer.RegistrationBase.Registrator
+  fullName: DataExplorer.RegistrationBase.Registrator
+  nameWithType: RegistrationBase.Registrator
+- uid: DataExplorer.RegistrationBase.Registrator*
+  name: Registrator
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Registrator_
+  commentId: Overload:DataExplorer.RegistrationBase.Registrator
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.Registrator
+  nameWithType: RegistrationBase.Registrator
+- uid: DataExplorer.RegistrationBase.ServiceTypes
+  name: ServiceTypes
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ServiceTypes
+  commentId: P:DataExplorer.RegistrationBase.ServiceTypes
+  fullName: DataExplorer.RegistrationBase.ServiceTypes
+  nameWithType: RegistrationBase.ServiceTypes
+- uid: DataExplorer.RegistrationBase.ServiceTypes*
+  name: ServiceTypes
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ServiceTypes_
+  commentId: Overload:DataExplorer.RegistrationBase.ServiceTypes
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.ServiceTypes
+  nameWithType: RegistrationBase.ServiceTypes
+- uid: DataExplorer.RegistrationBase.ShouldEnableClassInterception
+  name: ShouldEnableClassInterception
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ShouldEnableClassInterception
+  commentId: P:DataExplorer.RegistrationBase.ShouldEnableClassInterception
+  fullName: DataExplorer.RegistrationBase.ShouldEnableClassInterception
+  nameWithType: RegistrationBase.ShouldEnableClassInterception
+- uid: DataExplorer.RegistrationBase.ShouldEnableClassInterception*
+  name: ShouldEnableClassInterception
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ShouldEnableClassInterception_
+  commentId: Overload:DataExplorer.RegistrationBase.ShouldEnableClassInterception
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.ShouldEnableClassInterception
+  nameWithType: RegistrationBase.ShouldEnableClassInterception
+- uid: DataExplorer.RegistrationBase.ShouldEnableInterfaceInterception
+  name: ShouldEnableInterfaceInterception
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ShouldEnableInterfaceInterception
+  commentId: P:DataExplorer.RegistrationBase.ShouldEnableInterfaceInterception
+  fullName: DataExplorer.RegistrationBase.ShouldEnableInterfaceInterception
+  nameWithType: RegistrationBase.ShouldEnableInterfaceInterception
+- uid: DataExplorer.RegistrationBase.ShouldEnableInterfaceInterception*
+  name: ShouldEnableInterfaceInterception
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ShouldEnableInterfaceInterception_
+  commentId: Overload:DataExplorer.RegistrationBase.ShouldEnableInterfaceInterception
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.ShouldEnableInterfaceInterception
+  nameWithType: RegistrationBase.ShouldEnableInterfaceInterception
+- uid: DataExplorer.RegistrationBase.ShouldOnlyRegisterIfNotRegistered
+  name: ShouldOnlyRegisterIfNotRegistered
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ShouldOnlyRegisterIfNotRegistered
+  commentId: P:DataExplorer.RegistrationBase.ShouldOnlyRegisterIfNotRegistered
+  fullName: DataExplorer.RegistrationBase.ShouldOnlyRegisterIfNotRegistered
+  nameWithType: RegistrationBase.ShouldOnlyRegisterIfNotRegistered
+- uid: DataExplorer.RegistrationBase.ShouldOnlyRegisterIfNotRegistered*
+  name: ShouldOnlyRegisterIfNotRegistered
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_ShouldOnlyRegisterIfNotRegistered_
+  commentId: Overload:DataExplorer.RegistrationBase.ShouldOnlyRegisterIfNotRegistered
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.ShouldOnlyRegisterIfNotRegistered
+  nameWithType: RegistrationBase.ShouldOnlyRegisterIfNotRegistered
+- uid: DataExplorer.RegistrationBase.Tags
+  name: Tags
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Tags
+  commentId: P:DataExplorer.RegistrationBase.Tags
+  fullName: DataExplorer.RegistrationBase.Tags
+  nameWithType: RegistrationBase.Tags
+- uid: DataExplorer.RegistrationBase.Tags*
+  name: Tags
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_Tags_
+  commentId: Overload:DataExplorer.RegistrationBase.Tags
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.Tags
+  nameWithType: RegistrationBase.Tags
+- uid: DataExplorer.RegistrationBase.WithLifetime(AttributeBasedRegistration.ServiceLifetime)
+  name: WithLifetime(AttributeBasedRegistration.ServiceLifetime)
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_WithLifetime_AttributeBasedRegistration_ServiceLifetime_
+  commentId: M:DataExplorer.RegistrationBase.WithLifetime(AttributeBasedRegistration.ServiceLifetime)
+  fullName: DataExplorer.RegistrationBase.WithLifetime(AttributeBasedRegistration.ServiceLifetime)
+  nameWithType: RegistrationBase.WithLifetime(AttributeBasedRegistration.ServiceLifetime)
+- uid: DataExplorer.RegistrationBase.WithLifetime*
+  name: WithLifetime
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_WithLifetime_
+  commentId: Overload:DataExplorer.RegistrationBase.WithLifetime
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.WithLifetime
+  nameWithType: RegistrationBase.WithLifetime
+- uid: DataExplorer.RegistrationBase.WithMatchingLifetime(System.Object[])
+  name: WithMatchingLifetime(Object[])
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_WithMatchingLifetime_System_Object___
+  commentId: M:DataExplorer.RegistrationBase.WithMatchingLifetime(System.Object[])
+  name.vb: WithMatchingLifetime(Object())
+  fullName: DataExplorer.RegistrationBase.WithMatchingLifetime(System.Object[])
+  fullName.vb: DataExplorer.RegistrationBase.WithMatchingLifetime(System.Object())
+  nameWithType: RegistrationBase.WithMatchingLifetime(Object[])
+  nameWithType.vb: RegistrationBase.WithMatchingLifetime(Object())
+- uid: DataExplorer.RegistrationBase.WithMatchingLifetime*
+  name: WithMatchingLifetime
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_WithMatchingLifetime_
+  commentId: Overload:DataExplorer.RegistrationBase.WithMatchingLifetime
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.WithMatchingLifetime
+  nameWithType: RegistrationBase.WithMatchingLifetime
+- uid: DataExplorer.RegistrationBase.WithOwnedLifetime(Type)
+  name: WithOwnedLifetime(Type)
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_WithOwnedLifetime_Type_
+  commentId: M:DataExplorer.RegistrationBase.WithOwnedLifetime(Type)
+  fullName: DataExplorer.RegistrationBase.WithOwnedLifetime(Type)
+  nameWithType: RegistrationBase.WithOwnedLifetime(Type)
+- uid: DataExplorer.RegistrationBase.WithOwnedLifetime*
+  name: WithOwnedLifetime
+  href: api/DataExplorer.RegistrationBase.html#DataExplorer_RegistrationBase_WithOwnedLifetime_
+  commentId: Overload:DataExplorer.RegistrationBase.WithOwnedLifetime
+  isSpec: "True"
+  fullName: DataExplorer.RegistrationBase.WithOwnedLifetime
+  nameWithType: RegistrationBase.WithOwnedLifetime
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1
+  name: ReplaceResolverExpressionVisitor<TProvider>
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html
+  commentId: T:DataExplorer.ReplaceResolverExpressionVisitor`1
+  name.vb: ReplaceResolverExpressionVisitor(Of TProvider)
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider)
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider)
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.#ctor(Func{ParameterExpression,MethodCallExpression,MethodCallExpression},System.Nullable{Func{ParameterExpression,MethodCallExpression,MethodCallExpression}})
+  name: ReplaceResolverExpressionVisitor(Func<ParameterExpression, MethodCallExpression, MethodCallExpression>, Nullable<Func<ParameterExpression, MethodCallExpression, MethodCallExpression>>)
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1__ctor_Func_ParameterExpression_MethodCallExpression_MethodCallExpression__System_Nullable_Func_ParameterExpression_MethodCallExpression_MethodCallExpression___
+  commentId: M:DataExplorer.ReplaceResolverExpressionVisitor`1.#ctor(Func{ParameterExpression,MethodCallExpression,MethodCallExpression},System.Nullable{Func{ParameterExpression,MethodCallExpression,MethodCallExpression}})
+  name.vb: ReplaceResolverExpressionVisitor(Func(Of ParameterExpression, MethodCallExpression, MethodCallExpression), Nullable(Of Func(Of ParameterExpression, MethodCallExpression, MethodCallExpression)))
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.ReplaceResolverExpressionVisitor(Func<ParameterExpression, MethodCallExpression, MethodCallExpression>, System.Nullable<Func<ParameterExpression, MethodCallExpression, MethodCallExpression>>)
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).ReplaceResolverExpressionVisitor(Func(Of ParameterExpression, MethodCallExpression, MethodCallExpression), System.Nullable(Of Func(Of ParameterExpression, MethodCallExpression, MethodCallExpression)))
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.ReplaceResolverExpressionVisitor(Func<ParameterExpression, MethodCallExpression, MethodCallExpression>, Nullable<Func<ParameterExpression, MethodCallExpression, MethodCallExpression>>)
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).ReplaceResolverExpressionVisitor(Func(Of ParameterExpression, MethodCallExpression, MethodCallExpression), Nullable(Of Func(Of ParameterExpression, MethodCallExpression, MethodCallExpression)))
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.#ctor*
+  name: ReplaceResolverExpressionVisitor
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1__ctor_
+  commentId: Overload:DataExplorer.ReplaceResolverExpressionVisitor`1.#ctor
+  isSpec: "True"
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.ReplaceResolverExpressionVisitor
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).ReplaceResolverExpressionVisitor
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.ReplaceResolverExpressionVisitor
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).ReplaceResolverExpressionVisitor
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.VisitLambda*
+  name: VisitLambda
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1_VisitLambda_
+  commentId: Overload:DataExplorer.ReplaceResolverExpressionVisitor`1.VisitLambda
+  isSpec: "True"
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.VisitLambda
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).VisitLambda
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.VisitLambda
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).VisitLambda
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.VisitLambda``1(Expression{``0})
+  name: VisitLambda<T>(Expression<T>)
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1_VisitLambda__1_Expression___0__
+  commentId: M:DataExplorer.ReplaceResolverExpressionVisitor`1.VisitLambda``1(Expression{``0})
+  name.vb: VisitLambda(Of T)(Expression(Of T))
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.VisitLambda<T>(Expression<T>)
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).VisitLambda(Of T)(Expression(Of T))
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.VisitLambda<T>(Expression<T>)
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).VisitLambda(Of T)(Expression(Of T))
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.VisitMember(MemberExpression)
+  name: VisitMember(MemberExpression)
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1_VisitMember_MemberExpression_
+  commentId: M:DataExplorer.ReplaceResolverExpressionVisitor`1.VisitMember(MemberExpression)
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.VisitMember(MemberExpression)
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).VisitMember(MemberExpression)
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.VisitMember(MemberExpression)
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).VisitMember(MemberExpression)
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.VisitMember*
+  name: VisitMember
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1_VisitMember_
+  commentId: Overload:DataExplorer.ReplaceResolverExpressionVisitor`1.VisitMember
+  isSpec: "True"
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.VisitMember
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).VisitMember
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.VisitMember
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).VisitMember
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.VisitMethodCall(MethodCallExpression)
+  name: VisitMethodCall(MethodCallExpression)
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1_VisitMethodCall_MethodCallExpression_
+  commentId: M:DataExplorer.ReplaceResolverExpressionVisitor`1.VisitMethodCall(MethodCallExpression)
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.VisitMethodCall(MethodCallExpression)
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).VisitMethodCall(MethodCallExpression)
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.VisitMethodCall(MethodCallExpression)
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).VisitMethodCall(MethodCallExpression)
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.VisitMethodCall*
+  name: VisitMethodCall
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1_VisitMethodCall_
+  commentId: Overload:DataExplorer.ReplaceResolverExpressionVisitor`1.VisitMethodCall
+  isSpec: "True"
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.VisitMethodCall
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).VisitMethodCall
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.VisitMethodCall
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).VisitMethodCall
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.VisitParameter(ParameterExpression)
+  name: VisitParameter(ParameterExpression)
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1_VisitParameter_ParameterExpression_
+  commentId: M:DataExplorer.ReplaceResolverExpressionVisitor`1.VisitParameter(ParameterExpression)
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.VisitParameter(ParameterExpression)
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).VisitParameter(ParameterExpression)
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.VisitParameter(ParameterExpression)
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).VisitParameter(ParameterExpression)
+- uid: DataExplorer.ReplaceResolverExpressionVisitor`1.VisitParameter*
+  name: VisitParameter
+  href: api/DataExplorer.ReplaceResolverExpressionVisitor-1.html#DataExplorer_ReplaceResolverExpressionVisitor_1_VisitParameter_
+  commentId: Overload:DataExplorer.ReplaceResolverExpressionVisitor`1.VisitParameter
+  isSpec: "True"
+  fullName: DataExplorer.ReplaceResolverExpressionVisitor<TProvider>.VisitParameter
+  fullName.vb: DataExplorer.ReplaceResolverExpressionVisitor(Of TProvider).VisitParameter
+  nameWithType: ReplaceResolverExpressionVisitor<TProvider>.VisitParameter
+  nameWithType.vb: ReplaceResolverExpressionVisitor(Of TProvider).VisitParameter
 - uid: DataExplorer.ResultTransformation
   name: ResultTransformation
   href: api/DataExplorer.ResultTransformation.html

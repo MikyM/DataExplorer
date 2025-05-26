@@ -113,10 +113,7 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_Builder">DataExplorerConfigurationBase.Builder</a>
-    </div>
-    <div>
-      <a class="xref" href="DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_ServiceCollection">DataExplorerConfigurationBase.ServiceCollection</a>
+      <a class="xref" href="DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_Registrator">DataExplorerConfigurationBase.Registrator</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.EfCore.html">DataExplorer.EfCore</a></h6>
@@ -129,19 +126,19 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_ContainerBuilder_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.%23ctor(ContainerBuilder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_DataExplorer_Abstractions_IRegistrator_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.%23ctor(DataExplorer.Abstractions.IRegistrator)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L30">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L22">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor*"></a>
-  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_ContainerBuilder_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(ContainerBuilder)">DataExplorerEfCoreConfiguration(ContainerBuilder)</h4>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_DataExplorer_Abstractions_IRegistrator_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(DataExplorer.Abstractions.IRegistrator)">DataExplorerEfCoreConfiguration(IRegistrator)</h4>
   <div class="markdown level1 summary"><p>Creates an instance of the configuration class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerEfCoreConfiguration(ContainerBuilder builder)</code></pre>
+    <pre><code class="lang-csharp hljs">public DataExplorerEfCoreConfiguration(IRegistrator registrator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -154,8 +151,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ContainerBuilder</span></td>
-        <td><span class="parametername">builder</span></td>
+        <td><a class="xref" href="DataExplorer.Abstractions.IRegistrator.html">IRegistrator</a></td>
+        <td><span class="parametername">registrator</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -165,7 +162,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_DataExplorer_DataExplorerConfigurationBase_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.%23ctor(DataExplorer.DataExplorerConfigurationBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L16">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L15">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_DataExplorer_DataExplorerConfigurationBase_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(DataExplorer.DataExplorerConfigurationBase)">DataExplorerEfCoreConfiguration(DataExplorerConfigurationBase)</h4>
@@ -193,39 +190,6 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_IServiceCollection_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.%23ctor(IServiceCollection)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L23">View Source</a>
-  </span>
-  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor*"></a>
-  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration__ctor_IServiceCollection_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.#ctor(IServiceCollection)">DataExplorerEfCoreConfiguration(IServiceCollection)</h4>
-  <div class="markdown level1 summary"><p>Creates an instance of the configuration class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerEfCoreConfiguration(IServiceCollection serviceCollection)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IServiceCollection</span></td>
-        <td><span class="parametername">serviceCollection</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
@@ -233,7 +197,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_BaseGenericDataServiceLifetime.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.BaseGenericDataServiceLifetime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L65">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L52">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_BaseGenericDataServiceLifetime_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.BaseGenericDataServiceLifetime*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_BaseGenericDataServiceLifetime" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.BaseGenericDataServiceLifetime">BaseGenericDataServiceLifetime</h4>
@@ -264,7 +228,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataDecorators.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L79">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L66">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataDecorators_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataDecorators" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators">DataDecorators</h4>
@@ -295,7 +259,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataInterceptors.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L74">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L61">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataInterceptors_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataInterceptors" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors">DataInterceptors</h4>
@@ -326,7 +290,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataServiceLifetime.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataServiceLifetime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L69">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L56">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataServiceLifetime_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataServiceLifetime*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataServiceLifetime" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataServiceLifetime">DataServiceLifetime</h4>
@@ -357,7 +321,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DateTimeStrategy.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DateTimeStrategy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L60">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L47">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DateTimeStrategy_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DateTimeStrategy*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DateTimeStrategy" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DateTimeStrategy">DateTimeStrategy</h4>
@@ -388,7 +352,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DisableOnBeforeSaveChanges.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DisableOnBeforeSaveChanges%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L50">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L37">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DisableOnBeforeSaveChanges_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DisableOnBeforeSaveChanges*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DisableOnBeforeSaveChanges" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DisableOnBeforeSaveChanges">DisableOnBeforeSaveChanges</h4>
@@ -419,7 +383,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_EnableIncludeCache.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.EnableIncludeCache%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L55">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L42">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_EnableIncludeCache_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.EnableIncludeCache*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_EnableIncludeCache" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.EnableIncludeCache">EnableIncludeCache</h4>
@@ -452,7 +416,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceDecorator_System_Int32_Type_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator(System.Int32%2CType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L119">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L106">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceDecorator_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceDecorator_System_Int32_Type_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator(System.Int32,Type)">AddDataServiceDecorator(Int32, Type)</h4>
@@ -508,7 +472,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_System_Int32_Type_DataExplorer_DataRegistrationStrategy_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(System.Int32%2CType%2CDataExplorer.DataRegistrationStrategy)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L88">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L75">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_System_Int32_Type_DataExplorer_DataRegistrationStrategy_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(System.Int32,Type,DataExplorer.DataRegistrationStrategy)">AddDataServiceInterceptor(Int32, Type, DataRegistrationStrategy)</h4>
@@ -570,7 +534,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor__1_System_Int32_DataExplorer_DataRegistrationStrategy_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor%60%601(System.Int32%2CDataExplorer.DataRegistrationStrategy)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L104">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L91">View Source</a>
   </span>
   <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor*"></a>
   <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor__1_System_Int32_DataExplorer_DataRegistrationStrategy_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor``1(System.Int32,DataExplorer.DataRegistrationStrategy)">AddDataServiceInterceptor&lt;TInterceptor&gt;(Int32, DataRegistrationStrategy)</h4>

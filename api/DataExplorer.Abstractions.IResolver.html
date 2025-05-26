@@ -6,10 +6,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DependencyInjectionExtensions
+    <title>Interface IResolver
  </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DependencyInjectionExtensions
+    <meta name="title" content="Interface IResolver
  ">
     <meta name="generator" content="docfx ">
   
@@ -92,42 +92,83 @@
                           </div>
                         </div>
 
-                    <article class="content wrap" id="_content" data-uid="DataExplorer.DependencyInjectionExtensions">
+                    <article class="content wrap" id="_content" data-uid="DataExplorer.Abstractions.IResolver">
 
 
-  <h1 id="DataExplorer_DependencyInjectionExtensions" data-uid="DataExplorer.DependencyInjectionExtensions" class="text-break">Class DependencyInjectionExtensions
+  <h1 id="DataExplorer_Abstractions_IResolver" data-uid="DataExplorer.Abstractions.IResolver" class="text-break">Interface IResolver
 </h1>
-  <div class="markdown level0 summary"><p>DI extensions.</p>
+  <div class="markdown level0 summary"><p>Represents a DI resolver.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">DependencyInjectionExtensions</span></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.Abstractions.html">DataExplorer.Abstractions</a></h6>
   <h6><strong>Assembly</strong>: DataExplorer.dll</h6>
-  <h5 id="DataExplorer_DependencyInjectionExtensions_syntax">Syntax</h5>
+  <h5 id="DataExplorer_Abstractions_IResolver_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class DependencyInjectionExtensions : object</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IResolver</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DependencyInjectionExtensions_AddDataExplorer_IServiceCollection_Action_DataExplorer_DataExplorerConfiguration__.md&amp;value=---%0Auid%3A%20DataExplorer.DependencyInjectionExtensions.AddDataExplorer(IServiceCollection%2CAction%7BDataExplorer.DataExplorerConfiguration%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_IResolver_Resolve__1.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.IResolver.Resolve%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DependencyInjectionExtensions.cs/#L19">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/IResolver.cs/#L9">View Source</a>
   </span>
-  <a id="DataExplorer_DependencyInjectionExtensions_AddDataExplorer_" data-uid="DataExplorer.DependencyInjectionExtensions.AddDataExplorer*"></a>
-  <h4 id="DataExplorer_DependencyInjectionExtensions_AddDataExplorer_IServiceCollection_Action_DataExplorer_DataExplorerConfiguration__" data-uid="DataExplorer.DependencyInjectionExtensions.AddDataExplorer(IServiceCollection,Action{DataExplorer.DataExplorerConfiguration})">AddDataExplorer(IServiceCollection, Action&lt;DataExplorerConfiguration&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds Data Explorer to the application.</p>
+  <a id="DataExplorer_Abstractions_IResolver_Resolve_" data-uid="DataExplorer.Abstractions.IResolver.Resolve*"></a>
+  <h4 id="DataExplorer_Abstractions_IResolver_Resolve__1" data-uid="DataExplorer.Abstractions.IResolver.Resolve``1">Resolve&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Represents a DI resolver.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddDataExplorer(this IServiceCollection serviceCollection, Action&lt;DataExplorerConfiguration&gt; options)</code></pre>
+    <pre><code class="lang-csharp hljs">T Resolve&lt;T&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_Abstractions_IResolver_ResolveKeyed__1_System_Object_.md&amp;value=---%0Auid%3A%20DataExplorer.Abstractions.IResolver.ResolveKeyed%60%601(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/Abstractions/IResolver.cs/#L10">View Source</a>
+  </span>
+  <a id="DataExplorer_Abstractions_IResolver_ResolveKeyed_" data-uid="DataExplorer.Abstractions.IResolver.ResolveKeyed*"></a>
+  <h4 id="DataExplorer_Abstractions_IResolver_ResolveKeyed__1_System_Object_" data-uid="DataExplorer.Abstractions.IResolver.ResolveKeyed``1(System.Object)">ResolveKeyed&lt;T&gt;(Object)</h4>
+  <div class="markdown level1 summary"><p>Represents a DI resolver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">T ResolveKeyed&lt;T&gt;(object key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -140,16 +181,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IServiceCollection</span></td>
-        <td><span class="parametername">serviceCollection</span></td>
-        <td><p>Current instance of <see cref="!:IServiceCollection"></see>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Action</span>&lt;<a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a>&gt;</td>
-        <td><span class="parametername">options</span></td>
-        <td><p><see cref="!:Action"></see> that configures DAL.</p>
-</td>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -163,7 +197,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IServiceCollection</span></td>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>

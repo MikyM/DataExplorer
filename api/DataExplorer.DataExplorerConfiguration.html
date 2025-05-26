@@ -113,10 +113,7 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_Builder">DataExplorerConfigurationBase.Builder</a>
-    </div>
-    <div>
-      <a class="xref" href="DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_ServiceCollection">DataExplorerConfigurationBase.ServiceCollection</a>
+      <a class="xref" href="DataExplorer.DataExplorerConfigurationBase.html#DataExplorer_DataExplorerConfigurationBase_Registrator">DataExplorerConfigurationBase.Registrator</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DataExplorer.html">DataExplorer</a></h6>
@@ -129,19 +126,19 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration__ctor_ContainerBuilder_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.%23ctor(ContainerBuilder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration__ctor_DataExplorer_Abstractions_IRegistrator_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.%23ctor(DataExplorer.Abstractions.IRegistrator)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L29">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L19">View Source</a>
   </span>
   <a id="DataExplorer_DataExplorerConfiguration__ctor_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor*"></a>
-  <h4 id="DataExplorer_DataExplorerConfiguration__ctor_ContainerBuilder_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor(ContainerBuilder)">DataExplorerConfiguration(ContainerBuilder)</h4>
+  <h4 id="DataExplorer_DataExplorerConfiguration__ctor_DataExplorer_Abstractions_IRegistrator_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor(DataExplorer.Abstractions.IRegistrator)">DataExplorerConfiguration(IRegistrator)</h4>
   <div class="markdown level1 summary"><p>Creates an instance of the configuration class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerConfiguration(ContainerBuilder builder)</code></pre>
+    <pre><code class="lang-csharp hljs">public DataExplorerConfiguration(IRegistrator registrator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -154,8 +151,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ContainerBuilder</span></td>
-        <td><span class="parametername">builder</span></td>
+        <td><a class="xref" href="DataExplorer.Abstractions.IRegistrator.html">IRegistrator</a></td>
+        <td><span class="parametername">registrator</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -165,7 +162,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration__ctor_DataExplorer_DataExplorerConfigurationBase_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.%23ctor(DataExplorer.DataExplorerConfigurationBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L36">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L26">View Source</a>
   </span>
   <a id="DataExplorer_DataExplorerConfiguration__ctor_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor*"></a>
   <h4 id="DataExplorer_DataExplorerConfiguration__ctor_DataExplorer_DataExplorerConfigurationBase_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor(DataExplorer.DataExplorerConfigurationBase)">DataExplorerConfiguration(DataExplorerConfigurationBase)</h4>
@@ -193,103 +190,6 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration__ctor_IServiceCollection_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.%23ctor(IServiceCollection)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L22">View Source</a>
-  </span>
-  <a id="DataExplorer_DataExplorerConfiguration__ctor_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor*"></a>
-  <h4 id="DataExplorer_DataExplorerConfiguration__ctor_IServiceCollection_" data-uid="DataExplorer.DataExplorerConfiguration.#ctor(IServiceCollection)">DataExplorerConfiguration(IServiceCollection)</h4>
-  <div class="markdown level1 summary"><p>Creates an instance of the configuration class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataExplorerConfiguration(IServiceCollection serviceCollection)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IServiceCollection</span></td>
-        <td><span class="parametername">serviceCollection</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_AutoMapperConfiguration.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L55">View Source</a>
-  </span>
-  <a id="DataExplorer_DataExplorerConfiguration_AutoMapperConfiguration_" data-uid="DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration*"></a>
-  <h4 id="DataExplorer_DataExplorerConfiguration_AutoMapperConfiguration" data-uid="DataExplorer.DataExplorerConfiguration.AutoMapperConfiguration">AutoMapperConfiguration</h4>
-  <div class="markdown level1 summary"><p>Gets or sets AutoMapper's configuration, defaults to opt.AddExpressionMapping().</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;IMapperConfigurationExpression&gt; AutoMapperConfiguration { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Action</span>&lt;<span class="xref">IMapperConfigurationExpression</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_AutoMapperProfileAssembliesAccessor.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L61">View Source</a>
-  </span>
-  <a id="DataExplorer_DataExplorerConfiguration_AutoMapperProfileAssembliesAccessor_" data-uid="DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor*"></a>
-  <h4 id="DataExplorer_DataExplorerConfiguration_AutoMapperProfileAssembliesAccessor" data-uid="DataExplorer.DataExplorerConfiguration.AutoMapperProfileAssembliesAccessor">AutoMapperProfileAssembliesAccessor</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the accessor used to get assemblies to scan for AutoMapper's profiles, defaults to all assemblies.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;IEnumerable&lt;Assembly&gt;&gt; AutoMapperProfileAssembliesAccessor { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">Assembly</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -297,7 +197,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_Func_IdGen_IdGeneratorOptions__.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32%2CFunc%7BIdGen.IdGeneratorOptions%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L77">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L50">View Source</a>
   </span>
   <a id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration*"></a>
   <h4 id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_Func_IdGen_IdGeneratorOptions__" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32,Func{IdGen.IdGeneratorOptions})">AddSnowflakeIdGeneration(Int32, Func&lt;IdGen.IdGeneratorOptions&gt;)</h4>
@@ -353,7 +253,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L68">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L41">View Source</a>
   </span>
   <a id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration*"></a>
   <h4 id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGeneration_System_Int32_" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGeneration(System.Int32)">AddSnowflakeIdGeneration(Int32)</h4>
@@ -403,7 +303,7 @@
     <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGenerator__1.md&amp;value=---%0Auid%3A%20DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGenerator%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L104">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer/DataExplorerConfiguration.cs/#L71">View Source</a>
   </span>
   <a id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGenerator_" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGenerator*"></a>
   <h4 id="DataExplorer_DataExplorerConfiguration_AddSnowflakeIdGenerator__1" data-uid="DataExplorer.DataExplorerConfiguration.AddSnowflakeIdGenerator``1">AddSnowflakeIdGenerator&lt;TGenerator&gt;()</h4>
@@ -468,6 +368,9 @@
   </div>
   <div>
       <a class="xref" href="DataExplorer.EfCore.Extensions.DataExplorerConfigurationExtensions.html#DataExplorer_EfCore_Extensions_DataExplorerConfigurationExtensions_AddEfCore_DataExplorer_DataExplorerConfiguration_IEnumerable_Type__System_Nullable_Action_DataExplorer_EfCore_DataExplorerEfCoreConfiguration___">DataExplorerConfigurationExtensions.AddEfCore(DataExplorerConfiguration, IEnumerable&lt;Type&gt;, Nullable&lt;Action&lt;DataExplorerEfCoreConfiguration&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="DataExplorer.Extensions.AutoMapper.DataExplorerConfigurationExtensions.html#DataExplorer_Extensions_AutoMapper_DataExplorerConfigurationExtensions_UseAutoMapper_DataExplorer_DataExplorerConfiguration_System_Nullable_Action_DataExplorer_Extensions_AutoMapper_DataExplorerAutoMapperConfiguration___">DataExplorerConfigurationExtensions.UseAutoMapper(DataExplorerConfiguration, Nullable&lt;Action&lt;DataExplorerAutoMapperConfiguration&gt;&gt;)</a>
   </div>
 </article>
               
