@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using AutoMapper;
 using DataExplorer.Specifications;
 using DataExplorer.Specifications.Expressions;
 
@@ -14,11 +13,6 @@ namespace DataExplorer.Abstractions.Specifications;
 [PublicAPI]
 public interface ISpecification<T, TResult> : ISpecification<T> where T : class
 {
-    /// <summary>
-    /// Automapper configuration
-    /// </summary>
-    IConfigurationProvider? MapperConfigurationProvider { get; set; }
-
     /// <summary>
     /// Members to expand
     /// </summary>
