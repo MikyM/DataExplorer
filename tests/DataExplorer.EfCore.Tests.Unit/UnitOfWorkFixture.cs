@@ -1,4 +1,4 @@
-﻿using DataExplorer.Abstractions.Mapper;
+﻿using AutoMapper;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.Utilities;
 using Microsoft.Extensions.Options;

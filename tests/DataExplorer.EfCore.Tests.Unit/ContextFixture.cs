@@ -11,7 +11,7 @@ public class ContextFixture
 {
     public Mock<TestContext> GetTextContextMock(DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool callBase = true)
     {
-        var opt = Options.Create(new DataExplorerEfCoreConfiguration(new MicrosoftRegistrator(new ServiceCollection())));
+        var opt = Options.Create(new DataExplorerEfCoreConfiguration(new ServiceCollection()));
         var inMemoryDatabase = new DbContextOptionsBuilder().UseInMemoryDatabase("test");
         var ctx = new Mock<TestContext>(inMemoryDatabase.Options, opt, dataExplorerTimeProvider ?? DataExplorerTimeProvider.Instance)
         {
@@ -27,7 +27,7 @@ public class ContextFixture
 
     public ITestContext GetTestContext(DateTimeStrategy strategy = DateTimeStrategy.UtcNow, DataExplorerTimeProvider? dataExplorerTimeProvider = null, bool ensureCreated = true)
     {
-        var config = new DataExplorerEfCoreConfiguration(new MicrosoftRegistrator(new ServiceCollection()));
+        var config = new DataExplorerEfCoreConfiguration(new ServiceCollection());
         
         config.DateTimeStrategy = strategy;
         

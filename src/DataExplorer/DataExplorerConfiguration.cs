@@ -1,9 +1,12 @@
-﻿using DataExplorer.Abstractions;
+﻿using System.Reflection;
+using Autofac;
+using AutoMapper;
+using AutoMapper.Extensions.ExpressionMapping;
 using DataExplorer.IdGenerator;
 using DataExplorer.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
-using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 
 namespace DataExplorer;
 
@@ -16,7 +19,14 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    public DataExplorerConfiguration(IRegistrator registrator) : base(registrator)
+    public DataExplorerConfiguration(IServiceCollection serviceCollection) : base(serviceCollection)
+    {
+    }
+    
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    public DataExplorerConfiguration(ContainerBuilder builder) : base(builder)
     {
     }
     
@@ -26,12 +36,29 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     public DataExplorerConfiguration(DataExplorerConfigurationBase configurationBase) : base(configurationBase)
     {
     }
+
+    /// <summary>
+    /// Gets the container builder.
+    /// </summary>
+    internal ContainerBuilder? GetContainerBuilder()
+        => Builder;
     
     /// <summary>
-    /// Gets the registrator service.
+    /// Gets the service collection.
     /// </summary>
-    internal IRegistrator GetRegistrator()
-        => Registrator;
+    internal IServiceCollection? GetServiceCollection()
+        => ServiceCollection;
+
+    /// <summary>
+    /// Gets or sets AutoMapper's configuration, defaults to opt.AddExpressionMapping().
+    /// </summary>
+    public Action<IMapperConfigurationExpression> AutoMapperConfiguration { get; set; } =
+        opt => opt.AddExpressionMapping();
+    
+    /// <summary>
+    /// Gets or sets the accessor used to get assemblies to scan for AutoMapper's profiles, defaults to all assemblies.
+    /// </summary>
+    public Func<IEnumerable<Assembly>> AutoMapperProfileAssembliesAccessor { get; set; } = () => AppDomain.CurrentDomain.GetAssemblies();
     
     /// <summary>
     /// Registers required Id generator services with the given <paramref name="generatorId"/>.
@@ -49,17 +76,23 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
     public DataExplorerConfiguration AddSnowflakeIdGeneration(int generatorId, Func<IdGeneratorOptions> options)
     {
+        Builder?.AddIdGen(generatorId, options);
+
         var opt = options();
-        
-        Registrator.DescribeInstance(new IdGen.IdGenerator(generatorId, opt)).As(typeof(IdGen.IIdGenerator<long>))
-            .WithLifetime(ServiceLifetime.SingleInstance).Register();
+        ServiceCollection?.AddSingleton<IdGen.IIdGenerator<long>>(new IdGen.IdGenerator(generatorId, opt));
 
-        Registrator.Describe(typeof(SnowflakeGenerator)).As(typeof(ISnowflakeGenerator))
-            .WithLifetime(ServiceLifetime.SingleInstance).Register();
-        
-        Registrator.DescribeOptions(opt);
+        Builder?.RegisterType<SnowflakeGenerator>().As<ISnowflakeGenerator>().SingleInstance();
+        ServiceCollection?.AddSingleton<ISnowflakeGenerator, SnowflakeGenerator>();
 
-        Registrator.DescribeHostedService<SnowflakeIdFactoryRegistrator>();
+        Builder?.RegisterBuildCallback(x =>
+            SnowflakeIdFactory.AddFactoryMethod(() => x.Resolve<ISnowflakeGenerator>().Generate()));
+
+        if (Builder is null)
+        {
+            var iopt = Options.Create(opt);
+            ServiceCollection?.AddSingleton(iopt);
+            ServiceCollection?.AddSingleton(x => x.GetRequiredService<IOptions<IdGeneratorOptions>>().Value);
+        }
 
         return this;
     }
@@ -70,9 +103,8 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
     /// <returns>Current <see cref="DataExplorerConfiguration"/> instance.</returns>
     public DataExplorerConfiguration AddSnowflakeIdGenerator<TGenerator>() where TGenerator : class, ISnowflakeGenerator
     {
-        Registrator.Describe(typeof(TGenerator)).As(typeof(ISnowflakeGenerator))
-            .WithLifetime(ServiceLifetime.SingleInstance).Register();
-
+        Builder?.RegisterType<TGenerator>().As<ISnowflakeGenerator>().SingleInstance();
+        ServiceCollection?.AddSingleton<TGenerator>();
         return this;
     }
 

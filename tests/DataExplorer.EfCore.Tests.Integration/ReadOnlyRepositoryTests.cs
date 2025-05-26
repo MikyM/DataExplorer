@@ -473,10 +473,10 @@ public class ReadOnlyRepositoryTests : ICollectionFixture<RepositoryFixture>
             var repo = _repoFixture.CreateReadOnlyRepository();
 
             // Act
-            var func = () => repo.GetAllAsync<TestEntityOffset>(CancellationToken.None);
+            var result = await repo.GetAllAsync<TestEntityOffset>(CancellationToken.None);
 
             // Assert
-            await func.Should().ThrowAsync<InvalidOperationException>();
+            result.Should().NotBeNull().And.HaveCount(5);
         }
     }
 
