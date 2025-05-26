@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Microsoft.Extensions.Hosting;
 
 namespace DataExplorer.Abstractions;
 
@@ -44,6 +45,12 @@ public interface IRegistrator
     /// <param name="action">The instance to register.</param>
     /// <param name="instance">Instance.</param>
     IRegistrator DescribeOptions<TOptions>(Action<TOptions> action, TOptions instance) where TOptions : class;
+    
+    /// <summary>
+    /// Registers a hosted service.
+    /// </summary>
+    /// <typeparam name="THostedService">The service to register.</typeparam>
+    IRegistrator DescribeHostedService<THostedService>() where THostedService : class, IHostedService;
 
     /// <summary>
     /// Gets whether the registrator supports decorators.

@@ -1,6 +1,6 @@
 ﻿using DataExplorer.Abstractions;
+using DataExplorer.IdGenerator;
 using DataExplorer.Services;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using IdGeneratorOptions = IdGen.IdGeneratorOptions;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
@@ -54,16 +54,12 @@ public sealed class DataExplorerConfiguration : DataExplorerConfigurationBase, I
         Registrator.DescribeInstance(new IdGen.IdGenerator(generatorId, opt)).As(typeof(IdGen.IIdGenerator<long>))
             .WithLifetime(ServiceLifetime.SingleInstance).Register();
 
-        Registrator.DescribeInstance(typeof(SnowflakeGenerator)).As(typeof(ISnowflakeGenerator))
+        Registrator.Describe(typeof(SnowflakeGenerator)).As(typeof(ISnowflakeGenerator))
             .WithLifetime(ServiceLifetime.SingleInstance).Register();
         
-        var iopt = Options.Create(opt);
+        Registrator.DescribeOptions(opt);
 
-        Registrator.DescribeInstance(opt).As(typeof(IOptions<IdGeneratorOptions>))
-            .WithLifetime(ServiceLifetime.SingleInstance).Register();
-        
-        Registrator.DescribeFactory(x => x.Resolve<IOptions<IdGeneratorOptions>>().Value, typeof(IdGeneratorOptions)).As(typeof(IdGeneratorOptions))
-            .WithLifetime(ServiceLifetime.SingleInstance).Register();
+        Registrator.DescribeHostedService<SnowflakeIdFactoryRegistrator>();
 
         return this;
     }

@@ -29,7 +29,7 @@ public static class DependencyInjectionExtensions
         
         // register instance factory
         serviceCollection.AddSingleton<ICachedInstanceFactory,CachedInstanceFactory>();
-
+        
         serviceCollection.AddOptions<DataExplorerConfiguration>().Configure(options);
         serviceCollection.AddSingleton(config);
         

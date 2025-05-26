@@ -2,6 +2,7 @@
 using Autofac;
 using DataExplorer.Abstractions;
 using JetBrains.Annotations;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
 namespace DataExplorer.Extensions.Autofac;
@@ -45,6 +46,12 @@ public class AutofacRegistrator : IRegistrator
         Services.RegisterInstance(options).As<IOptions<TOptions>>().SingleInstance().IfNotRegistered(typeof(IOptions<TOptions>));
         Services.Register(x => x.Resolve<IOptions<TOptions>>().Value).As<TOptions>().SingleInstance().IfNotRegistered(typeof(TOptions));
         
+        return this;
+    }
+
+    public IRegistrator DescribeHostedService<THostedService>() where THostedService : class, IHostedService
+    {
+        Services.RegisterType<THostedService>().As<IHostedService>().SingleInstance();
         return this;
     }
 

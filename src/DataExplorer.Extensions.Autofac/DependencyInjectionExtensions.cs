@@ -45,7 +45,7 @@ public static class DependencyInjectionExtensions
 #else
         builder.RegisterInstance(DataExplorerTimeProvider.Instance).As<DataExplorerTimeProvider>().SingleInstance();
 #endif
-
+        
         return builder;
     }
     

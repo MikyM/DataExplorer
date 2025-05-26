@@ -2,6 +2,7 @@
 using DataExplorer.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
 namespace DataExplorer;
@@ -42,6 +43,12 @@ public class MicrosoftRegistrator : IRegistrator
         Services.Configure(action);
         Services.TryAddSingleton(instance);
         
+        return this;
+    }
+
+    public IRegistrator DescribeHostedService<THostedService>() where THostedService : class, IHostedService
+    {
+        Services.AddHostedService<THostedService>();
         return this;
     }
 
