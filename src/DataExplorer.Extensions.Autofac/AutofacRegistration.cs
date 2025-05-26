@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using System.Reflection;
 using AttributeBasedRegistration.Autofac;
 using Autofac;
 using Autofac.Extras.DynamicProxy;
@@ -30,10 +31,43 @@ public sealed class AutofacRegistration : RegistrationBase
     {
         _registrator = registrator;
     }
+
+    private static readonly MethodInfo ResolveMethod = typeof(ResolutionExtensions).GetMethods()
+                                                           .Where(x => x is
+                                                           {
+                                                               Name: nameof(ResolutionExtensions.Resolve),
+                                                               IsGenericMethodDefinition: true
+                                                           })
+                                                           .FirstOrDefault(x => x.GetParameters().Length == 1) ??
+                                                       throw new InvalidOperationException(
+                                                           "Could not find get required service method.");
+        
+    private static readonly MethodInfo ResolveKeyedMethod = typeof(ResolutionExtensions).GetMethods().Where(x =>
+            x is
+            {
+                Name: nameof(ResolutionExtensions.ResolveKeyed),
+                IsGenericMethodDefinition: true
+            }).FirstOrDefault(x => x.GetParameters().Length == 2) ?? throw new InvalidOperationException("Could not find get required service method.")
+                                                                           ?? throw new InvalidOperationException(
+                                                                               "Could not find get required service method.");
     
     private static Func<IComponentContext, object> TranslateFactory(Expression<Func<IResolver, object>> factory)
     {
-        var visitor = new FactoryExpressionVisitor();
+        var visitor = new ReplaceResolverExpressionVisitor<IComponentContext>((x, y) =>
+        {
+            var actualMethod = ResolveMethod.MakeGenericMethod(y.Method.ReturnType);
+
+            var methodCall = Expression.Call(null, actualMethod, x);
+        
+            return methodCall;
+        }, (x, y) =>
+        {
+            var actualMethod = ResolveKeyedMethod.MakeGenericMethod(y.Method.ReturnType);
+
+            var methodCall = Expression.Call(null, actualMethod, x, y.Arguments.First(e => e.Type != typeof(IResolver)));
+            
+            return methodCall;
+        });
 
         var modified = visitor.Visit(factory);
 
