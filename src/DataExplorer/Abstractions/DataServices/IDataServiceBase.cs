@@ -1,5 +1,5 @@
-﻿using DataExplorer.Abstractions.DataContexts;
-using DataExplorer.Abstractions.Mapper;
+﻿using AutoMapper;
+using DataExplorer.Abstractions.DataContexts;
 using DataExplorer.Abstractions.UnitOfWork;
 using Remora.Results;
 

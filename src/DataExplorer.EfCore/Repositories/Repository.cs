@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using DataExplorer.Abstractions.Mapper;
+using AutoMapper;
 using DataExplorer.Abstractions.Specifications;
 using DataExplorer.EfCore.Abstractions.Specifications;
 using DataExplorer.EfCore.Specifications.Evaluators;

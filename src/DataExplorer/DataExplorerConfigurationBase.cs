@@ -1,4 +1,5 @@
-﻿using DataExplorer.Abstractions;
+﻿using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DataExplorer;
 
@@ -13,21 +14,42 @@ public abstract class DataExplorerConfigurationBase
     /// </summary>
     protected DataExplorerConfigurationBase(DataExplorerConfigurationBase configurationBase)
     {
-        Registrator = configurationBase.Registrator;
+        Builder = configurationBase.Builder;
+        ServiceCollection = configurationBase.ServiceCollection;
     }
-    
 
     /// <summary>
     /// Creates an instance of the configuration class.
     /// </summary>
-    protected DataExplorerConfigurationBase(IRegistrator registrator)
+    protected DataExplorerConfigurationBase(ContainerBuilder builder)
     {
-        Registrator = registrator;
+        Builder = builder;
+    }
+
+    /// <summary>
+    /// Creates an instance of the configuration class.
+    /// </summary>
+    protected DataExplorerConfigurationBase(IServiceCollection serviceCollection)
+    {
+        ServiceCollection = serviceCollection;
     }
     
+    /// <summary>
+    /// Autofac's container builder.
+    /// </summary>
+    protected ContainerBuilder? Builder { get; private set; }
     
     /// <summary>
-    /// Gets the service used to register dependencies within DI container.
+    /// Microsoft's service collection.
     /// </summary>
-    protected IRegistrator Registrator { get; private set; }
+    protected IServiceCollection? ServiceCollection { get; private set; }
+    
+    /// <summary>
+    /// Releases references to the container builder and service collection.
+    /// </summary>
+    internal void ReleaseRefs()
+    {
+        Builder = null;
+        ServiceCollection = null;
+    }
 }

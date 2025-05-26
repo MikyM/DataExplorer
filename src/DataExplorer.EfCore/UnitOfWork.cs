@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using DataExplorer.Abstractions.Mapper;
+using AutoMapper;
 using DataExplorer.Abstractions.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using Microsoft.EntityFrameworkCore.Storage;

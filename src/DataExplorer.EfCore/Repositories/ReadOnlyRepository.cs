@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using DataExplorer.Abstractions.Mapper;
+using AutoMapper;
 using DataExplorer.Abstractions.Specifications;
 using DataExplorer.Abstractions.Specifications.Evaluators;
 using DataExplorer.EfCore.Specifications;
@@ -69,7 +69,12 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
 
     /// <inheritdoc />
     public virtual Task<TResult?> GetSingleBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
-        => ApplySpecification(specification).FirstOrDefaultAsync(cancellationToken);
+    {
+        specification.MapperConfigurationProvider ??= Mapper.ConfigurationProvider;
+        
+        return ApplySpecification(specification)
+            .FirstOrDefaultAsync(cancellationToken);
+    }
 
     /// <inheritdoc />
     public virtual Task<TEntity?> GetSingleAsync(ISpecification<TEntity> specification,
@@ -95,6 +100,8 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TResult>> GetBySpecAsync<TResult>(ISpecification<TEntity, TResult> specification, CancellationToken cancellationToken = default)
     {
+        specification.MapperConfigurationProvider ??= Mapper.ConfigurationProvider;
+        
         var result = await ApplySpecification(specification).ToListAsync(cancellationToken);
         return specification.PostProcessingAction is null
             ? result.AsReadOnly()
@@ -148,7 +155,7 @@ public class ReadOnlyRepository<TEntity,TId> : IReadOnlyRepository<TEntity,TId> 
 
     /// <inheritdoc />
     public virtual async Task<IReadOnlyList<TProjectTo>> GetAllAsync<TProjectTo>(CancellationToken cancellationToken = default) where TProjectTo : class
-        => await ApplySpecification(new Specification<TEntity, TProjectTo>())
+        => await ApplySpecification(new Specification<TEntity, TProjectTo>(Mapper.ConfigurationProvider))
             .ToListAsync(cancellationToken);
 
     /// <summary>

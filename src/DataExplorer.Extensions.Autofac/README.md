@@ -1,1 +1,0 @@
-﻿# DataExplorer.Extensions.Autofac

@@ -455,7 +455,7 @@ public class EfDbContextTests : IClassFixture<ContextFixture>
                 timeProvider.Setup(x => x.GetLocalNow()).Returns(futureNow);
             }
 
-            var cfg = new DataExplorerEfCoreConfiguration(new MicrosoftRegistrator(new ServiceCollection()))
+            var cfg = new DataExplorerEfCoreConfiguration(new ServiceCollection())
             {
                 DateTimeStrategy = dateTimeStrategy
             };
