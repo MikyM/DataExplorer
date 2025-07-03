@@ -1,8 +1,6 @@
-﻿using Autofac;
-using DataExplorer.Abstractions.Mapper;
+﻿using DataExplorer.Abstractions.Mapper;
 using DataExplorer.Abstractions.Specifications.Evaluators;
 using JetBrains.Annotations;
-using Microsoft.Extensions.DependencyInjection;
 using IAutoMapper = AutoMapper.IMapper;
 using ServiceLifetime = AttributeBasedRegistration.ServiceLifetime;
 

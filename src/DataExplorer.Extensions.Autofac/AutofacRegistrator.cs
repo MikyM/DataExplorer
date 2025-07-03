@@ -32,7 +32,7 @@ public class AutofacRegistrator : IRegistrator
         var options = Options.Create(instance);
         
         Services.RegisterInstance(options).As<IOptions<TOptions>>().SingleInstance().IfNotRegistered(typeof(IOptions<TOptions>));
-        Services.Register(x => x.Resolve<IOptions<TOptions>>().Value).As<TOptions>().SingleInstance().IfNotRegistered(typeof(TOptions));
+        Services.RegisterInstance(instance).As<TOptions>().SingleInstance().IfNotRegistered(typeof(TOptions));
         
         return this;
     }
@@ -44,7 +44,8 @@ public class AutofacRegistrator : IRegistrator
         var options = Options.Create(instance);
         
         Services.RegisterInstance(options).As<IOptions<TOptions>>().SingleInstance().IfNotRegistered(typeof(IOptions<TOptions>));
-        Services.Register(x => x.Resolve<IOptions<TOptions>>().Value).As<TOptions>().SingleInstance().IfNotRegistered(typeof(TOptions));
+        
+        Services.RegisterInstance(instance).As<TOptions>().SingleInstance().IfNotRegistered(typeof(TOptions));
         
         return this;
     }

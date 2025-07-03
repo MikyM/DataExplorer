@@ -86,6 +86,66 @@ public class DependencyInjectionTests
             var target = () => provider.Resolve(typeToResolve);
             target.Should().NotThrow();
         }
+        
+        [Fact]
+        public void ResolveTestContextRegisteredWithAddDbContext()
+        {
+            // Arrange
+
+            var services = new ContainerBuilder();
+
+            var microsoftServices = new ServiceCollection();
+
+            microsoftServices.AddDbContext<ITestContext, TestContext>(x => x.UseInMemoryDatabase("test"));
+            
+            services.Populate(microsoftServices);
+            
+            services.AddDataExplorer(x =>
+            {
+                x.AddSnowflakeIdGeneration();
+                x.AddEfCore(e =>
+                {
+
+                }, typeof(TestEntity).Assembly);
+            });
+            
+            var provider = services.Build();
+            
+            // Act && Assert
+            
+            var target = () => provider.Resolve(typeof(ITestContext));
+            target.Should().NotThrow();
+        }
+        
+        [Fact]
+        public void ResolveTestContextRegisteredWithAddDbContextPool()
+        {
+            // Arrange
+
+            var services = new ContainerBuilder();
+
+            var microsoftServices = new ServiceCollection();
+
+            microsoftServices.AddDbContextPool<ITestContextPooled,TestContextPooled>(x => x.UseInMemoryDatabase("test"));
+            
+            services.Populate(microsoftServices);
+            
+            services.AddDataExplorer(x =>
+            {
+                x.AddSnowflakeIdGeneration();
+                x.AddEfCore(e =>
+                {
+
+                }, typeof(TestEntity).Assembly);
+            });
+            
+            var provider = services.Build();
+            
+            // Act && Assert
+            
+            var target = () => provider.Resolve(typeof(ITestContextPooled));
+            target.Should().NotThrow();
+        }
 
         [Fact]
         public void ContainSnowflakeFactoryRegistrator()

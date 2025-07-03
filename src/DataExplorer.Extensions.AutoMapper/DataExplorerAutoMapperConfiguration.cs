@@ -1,7 +1,5 @@
-﻿using Autofac;
-using DataExplorer.Abstractions;
+﻿using DataExplorer.Abstractions;
 using JetBrains.Annotations;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 namespace DataExplorer.Extensions.AutoMapper;

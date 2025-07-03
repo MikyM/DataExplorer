@@ -1,5 +1,5 @@
 using Autofac;
-using AutoMapper.Contrib.Autofac.DependencyInjection;
+using Autofac.Extensions.DependencyInjection;
 using DataExplorer.Abstractions.Mapper;
 using DataExplorer.Abstractions.Specifications.Evaluators;
 using DataExplorer.Extensions.Autofac;
@@ -21,7 +21,8 @@ public class RegistrationTests
         {
             // Arrange
             var services = new ServiceCollection();
-            services.AddAutoMapper(x => {});
+            services.AddLogging();
+            services.AddAutoMapper(x => { });
             
             // Act
             services.AddDataExplorer(x =>
@@ -42,7 +43,8 @@ public class RegistrationTests
         {
             // Arrange
             var services = new ServiceCollection();
-            services.AddAutoMapper(x => {});
+            services.AddLogging();
+            services.AddAutoMapper(x => { });
             
             // Act
             services.AddDataExplorer(x =>
@@ -63,7 +65,8 @@ public class RegistrationTests
         {
             // Arrange
             var services = new ServiceCollection();
-            services.AddAutoMapper(x => {});
+            services.AddLogging();
+            services.AddAutoMapper(x => { });
             
             // Act
             services.AddDataExplorer(x =>
@@ -83,7 +86,8 @@ public class RegistrationTests
         {
             // Arrange
             var services = new ServiceCollection();
-            services.AddAutoMapper(x => {});
+            services.AddLogging();
+            services.AddAutoMapper(x => { });
             
             // Act
             services.AddDataExplorer(x =>
@@ -106,7 +110,13 @@ public class RegistrationTests
         {
             // Arrange
             var services = new ContainerBuilder();
-            services.RegisterAutoMapper();
+            
+            var microsoftServices = new ServiceCollection();
+
+            microsoftServices.AddLogging();
+            microsoftServices.AddAutoMapper(x => { });
+            
+            services.Populate(microsoftServices);
             
             // Act
             services.AddDataExplorer(x =>
@@ -127,7 +137,13 @@ public class RegistrationTests
         {
             // Arrange
             var services = new ContainerBuilder();
-            services.RegisterAutoMapper();
+            
+            var microsoftServices = new ServiceCollection();
+
+            microsoftServices.AddLogging();
+            microsoftServices.AddAutoMapper(x => { });
+            
+            services.Populate(microsoftServices);
             
             // Act
             services.AddDataExplorer(x =>
@@ -148,7 +164,13 @@ public class RegistrationTests
         {
             // Arrange
             var services = new ContainerBuilder();
-            services.RegisterAutoMapper();
+            
+            var microsoftServices = new ServiceCollection();
+
+            microsoftServices.AddLogging();
+            microsoftServices.AddAutoMapper(x => { });
+            
+            services.Populate(microsoftServices);
             
             // Act
             services.AddDataExplorer(x =>
@@ -168,7 +190,13 @@ public class RegistrationTests
         {
             // Arrange
             var services = new ContainerBuilder();
-            services.RegisterAutoMapper();
+            
+            var microsoftServices = new ServiceCollection();
+
+            microsoftServices.AddLogging();
+            microsoftServices.AddAutoMapper(x => { });
+            
+            services.Populate(microsoftServices);
             
             // Act
             services.AddDataExplorer(x =>

@@ -28,3 +28,22 @@ public class TestContext : EfDbContext, ITestContext
 public interface ITestContext : IEfDbContext
 {
 }
+
+public class TestContextPooled : EfDbContext, ITestContextPooled
+{
+    public TestContextPooled(DbContextOptions<TestContextPooled> options) : base(options)
+    {
+    }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<TestEntity>();
+        modelBuilder.Entity<TestEntityOffset>();
+        
+        base.OnModelCreating(modelBuilder);
+    }
+}
+
+public interface ITestContextPooled : IEfDbContext
+{
+}
