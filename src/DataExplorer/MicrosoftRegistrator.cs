@@ -32,7 +32,7 @@ public class MicrosoftRegistrator : IRegistrator
         var options = Options.Create(instance);
         
         Services.TryAddSingleton(typeof(IOptions<TOptions>), x => options);
-        Services.TryAddSingleton(x => x.GetRequiredService<IOptions<TOptions>>().Value);
+        Services.TryAddSingleton(instance);
         
         return this;
     }

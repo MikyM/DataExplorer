@@ -55,7 +55,7 @@ public class RepositoryFixture : IDisposable
                 cfg.CreateMap<DateTime?, DateTimeOffset?>()
                     .ConvertUsing(x => x == null ? null : new DateTimeOffset(x.Value));
                 cfg.CreateMap<TestEntity, TestEntityOffset>();
-            }, NullLoggerFactory.Instance);
+            });
         
         var autoMapper = config.CreateMapper();
 

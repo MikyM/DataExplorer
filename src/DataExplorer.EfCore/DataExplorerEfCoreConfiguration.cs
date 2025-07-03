@@ -56,14 +56,24 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     public ServiceLifetime DataServiceLifetime { get; set; } = ServiceLifetime.InstancePerLifetimeScope;
     
     /// <summary>
-    /// Gets registered data service interceptors.
+    /// Gets registered generic (built-in) data service interceptors.
     /// </summary>
-    public Dictionary<Type, (DataRegistrationStrategy Strategy, int Order)> DataInterceptors { get; private set; } = new();
+    public Dictionary<Type, (DataRegistrationStrategy Strategy, int Order)> GenericDataInterceptors { get; private set; } = new();
     
     /// <summary>
-    /// Gets registered data service decorators.
+    /// Gets registered custom data service interceptors.
     /// </summary>
-    public Dictionary<Type, int> DataDecorators { get; private set; } = new();
+    public Dictionary<Type, int> CustomDataInterceptors { get; private set; } = new();
+    
+    /// <summary>
+    /// Gets registered generic (built-in) data service decorators.
+    /// </summary>
+    public Dictionary<Type, int> GenericDataDecorators { get; private set; } = new();
+    
+    /// <summary>
+    /// Gets registered custom data service decorators.
+    /// </summary>
+    public Dictionary<Type, int> CustomDataDecorators { get; private set; } = new();
 
     /// <summary>
     /// Marks an interceptor of a given type to be used for intercepting base data services.
@@ -72,12 +82,12 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// <param name="interceptor">Type of the interceptor.</param>
     /// <param name="strategy">Interceptor configuration.</param>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor(int registrationOrder, Type interceptor, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly)
+    public virtual DataExplorerEfCoreConfiguration AddGenericDataServiceInterceptor(int registrationOrder, Type interceptor, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly)
     {
         if (!Registrator.SupportsInterception)
             throw new NotSupportedException("Supported only when used with a registrator that supports interception");
         
-        DataInterceptors.TryAdd(interceptor ?? throw new ArgumentNullException(nameof(interceptor)), new (strategy, registrationOrder));
+        GenericDataInterceptors.TryAdd(interceptor ?? throw new ArgumentNullException(nameof(interceptor)), new (strategy, registrationOrder));
         return this;
     }
     
@@ -88,30 +98,75 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// <param name="registrationOrder">Registration order.</param>
     /// <typeparam name="TInterceptor">Interceptor type.</typeparam>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor<TInterceptor>(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly) where TInterceptor : notnull
+    public virtual DataExplorerEfCoreConfiguration AddGenericDataServiceInterceptor<TInterceptor>(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly) where TInterceptor : notnull
     {
         if (!Registrator.SupportsInterception)
             throw new NotSupportedException("Supported only when used with a registrator that supports interception");
         
-        DataInterceptors.TryAdd(typeof(TInterceptor), new (strategy, registrationOrder));
+        GenericDataInterceptors.TryAdd(typeof(TInterceptor), new (strategy, registrationOrder));
         return this;
     }
     
     /// <summary>
-    /// Marks a decorator of a given type to be used for decorating base data services.
+    /// Marks an interceptor of a given type to be used for intercepting custom data services.
+    /// </summary>
+    /// <param name="registrationOrder">Registration order.</param>
+    /// <param name="interceptor">Type of the interceptor.</param>
+    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
+    public virtual DataExplorerEfCoreConfiguration AddCustomDataServiceInterceptor(int registrationOrder, Type interceptor)
+    {
+        if (!Registrator.SupportsInterception)
+            throw new NotSupportedException("Supported only when used with a registrator that supports interception");
+        
+        CustomDataInterceptors.TryAdd(interceptor ?? throw new ArgumentNullException(nameof(interceptor)), registrationOrder);
+        return this;
+    }
+    
+    /// <summary>
+    /// Marks an interceptor of a given type to be used for intercepting custom data services.
+    /// </summary>
+    /// <param name="registrationOrder">Registration order.</param>
+    /// <typeparam name="TInterceptor">Interceptor type.</typeparam>
+    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
+    public virtual DataExplorerEfCoreConfiguration AddCustomDataServiceInterceptor<TInterceptor>(int registrationOrder) where TInterceptor : notnull
+    {
+        if (!Registrator.SupportsInterception)
+            throw new NotSupportedException("Supported only when used with a registrator that supports interception");
+        
+        CustomDataInterceptors.TryAdd(typeof(TInterceptor), registrationOrder);
+        return this;
+    }
+    
+    /// <summary>
+    /// Marks a decorator of a given type to be used for decorating generic data services.
     /// </summary>
     /// <param name="registrationOrder">Registration order.</param>
     /// <param name="decorator">Type of the decorator.</param>
     /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerEfCoreConfiguration AddDataServiceDecorator(int registrationOrder, Type decorator)
+    public virtual DataExplorerEfCoreConfiguration AddGenericDataServiceDecorator(int registrationOrder, Type decorator)
     {
         if (!Registrator.SupportsDecoration)
             throw new NotSupportedException("Supported only when used with a registrator that supports decoration");
         
-        DataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
+        GenericDataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
         return this;
     }
-
+    
+    /// <summary>
+    /// Marks a decorator of a given type to be used for decorating custom data services.
+    /// </summary>
+    /// <param name="registrationOrder">Registration order.</param>
+    /// <param name="decorator">Type of the decorator.</param>
+    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
+    public virtual DataExplorerEfCoreConfiguration AddCustomDataServiceDecorator(int registrationOrder, Type decorator)
+    {
+        if (!Registrator.SupportsDecoration)
+            throw new NotSupportedException("Supported only when used with a registrator that supports decoration");
+        
+        CustomDataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
+        return this;
+    }
+    
     /// <inheritdoc/>
     DataExplorerEfCoreConfiguration IOptions<DataExplorerEfCoreConfiguration>.Value => this;
 }

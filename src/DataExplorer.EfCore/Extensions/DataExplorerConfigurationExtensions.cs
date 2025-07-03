@@ -239,7 +239,7 @@ public static class DataExplorerConfigurationExtensions
         var crudEnabled = false;
         var readEnabled = false;
         
-        foreach (var (interceptorType, registrationData) in config.DataInterceptors.OrderByDescending(x => x.Value.Order))
+        foreach (var (interceptorType, registrationData) in config.GenericDataInterceptors.OrderByDescending(x => x.Value.Order))
         {
             switch (registrationData.Strategy)
             {
@@ -297,7 +297,7 @@ public static class DataExplorerConfigurationExtensions
         registCrudGenericIdBuilder?.Register();
            
         
-        foreach (var (decoratorType, _) in config.DataDecorators.OrderBy(x => x.Value))
+        foreach (var (decoratorType, _) in config.GenericDataDecorators.OrderBy(x => x.Value))
         {
             if (decoratorType.IsAssignableToWithGenerics(typeof(ICrudDataService<,>)))
                 registrator.DescribeOpenGenericDecorator(decoratorType, typeof(ICrudDataService<,>));
@@ -311,6 +311,9 @@ public static class DataExplorerConfigurationExtensions
 
 
         var excluded = new[] { typeof(IDataServiceBase<>), typeof(EfCoreDataServiceBase<>), typeof(CrudDataService<,>), typeof(ReadOnlyDataService<,>), typeof(CrudDataService<,,>), typeof(ReadOnlyDataService<,,>) };
+
+        var hasCustomInterceptors = config.CustomDataInterceptors.Count != 0;
+        var hasCustomDecorators = config.CustomDataDecorators.Count != 0;
 
         foreach (var assembly in toScan)
         {
@@ -371,7 +374,7 @@ public static class DataExplorerConfigurationExtensions
 
                 if (dataType.IsGenericType && dataType.IsGenericTypeDefinition)
                 {
-                    if (intrEnableAttr is not null)
+                    if (intrEnableAttr is not null || hasCustomInterceptors)
                     {
                         registrationGenericBuilder = shouldAsInterfaces
                             ? registrator.DescribeOpenGeneric(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
@@ -386,18 +389,23 @@ public static class DataExplorerConfigurationExtensions
                 }
                 else
                 {
-                    if (intrEnableAttr is not null)
+                    if (intrEnableAttr is not null || hasCustomInterceptors)
                     {
-                        registrationBuilder = intrEnableAttr.InterceptionStrategy switch
-                        {
-                            InterceptionStrategy.Interface => shouldAsInterfaces
+                        registrationBuilder = intrEnableAttr is not null
+                            ? intrEnableAttr.InterceptionStrategy switch
+                            {
+                                InterceptionStrategy.Interface => shouldAsInterfaces
+                                    ? registrator.Describe(dataType).AsImplementedInterfaces()
+                                        .EnableInterfaceInterceptors()
+                                    : registrator.Describe(dataType).EnableInterfaceInterceptors(),
+                                InterceptionStrategy.Class => shouldAsInterfaces
+                                    ? registrator.Describe(dataType).AsImplementedInterfaces().EnableClassInterceptors()
+                                    : registrator.Describe(dataType).EnableClassInterceptors(),
+                                _ => throw new ArgumentOutOfRangeException(nameof(intrEnableAttr.InterceptionStrategy))
+                            }
+                            : shouldAsInterfaces  
                                 ? registrator.Describe(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
-                                : registrator.Describe(dataType).EnableInterfaceInterceptors(),
-                            InterceptionStrategy.Class => shouldAsInterfaces
-                                ? registrator.Describe(dataType).AsImplementedInterfaces().EnableClassInterceptors()
-                                : registrator.Describe(dataType).EnableClassInterceptors(),
-                            _ => throw new ArgumentOutOfRangeException(nameof(intrEnableAttr.InterceptionStrategy))
-                        };
+                                : registrator.Describe(dataType).EnableInterfaceInterceptors(); 
                     }
                     else
                     {
@@ -433,8 +441,6 @@ public static class DataExplorerConfigurationExtensions
                     registrationGenericBuilder = registrationGenericBuilder?.As(asType);
                 }
 
-                var interfaces = dataType.GetInterfaces().Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList();
-
                 var tags = scopeOverrideAttr?.Tags?.ToArray();
                 var owned = scopeOverrideAttr?.Owned;
 
@@ -463,15 +469,20 @@ public static class DataExplorerConfigurationExtensions
                     registrationBuilder = registrationBuilder?.WithLifetime(scope);
                     registrationGenericBuilder = registrationGenericBuilder?.WithLifetime(scope);
                 }
+
+                var finalInterceptors = config.CustomDataInterceptors
+                    .Select(x => x)
+                    .ToList();
+                finalInterceptors.AddRange(intrAttrs.Select(x => new KeyValuePair<Type, int>(x.Interceptor, x.RegistrationOrder)));
                 
-                if (intrAttrs.GroupBy(x => x.RegistrationOrder).FirstOrDefault(x => x.Count() > 1) is not null)
+                if (finalInterceptors.GroupBy(x => x.Value).FirstOrDefault(x => x.Count() > 1) is not null)
                     throw new InvalidOperationException($"Duplicated interceptor registration order on type {dataType.Name}");
 
-                if (intrAttrs.GroupBy(x => x.Interceptor)
+                if (finalInterceptors.GroupBy(x => x.Key)
                         .FirstOrDefault(x => x.Count() > 1) is not null)
                     throw new InvalidOperationException($"Duplicated interceptor type on type {dataType.Name}");
 
-                foreach (var interceptor in intrAttrs.OrderByDescending(x => x.RegistrationOrder).Select(x => x.Interceptor).Distinct())
+                foreach (var interceptor in finalInterceptors.OrderByDescending(x => x.Value).Select(x => x.Key).Distinct())
                 {
                     registrationBuilder = registrationBuilder?.InterceptedBy(interceptor);
                     registrationGenericBuilder = registrationGenericBuilder?.InterceptedBy(interceptor);
@@ -481,10 +492,15 @@ public static class DataExplorerConfigurationExtensions
                 registrationGenericBuilder?.Register();
 
                 var decoratorAttributes = dataType.GetRegistrationAttributesOfType<IDecoratedByAttribute>().ToArray();
-                if (decoratorAttributes.Length == 0)
+                if (decoratorAttributes.Length == 0 && !hasCustomDecorators)
                 {
                     continue;
                 }
+                
+                var finalDecorators = config.CustomDataDecorators
+                    .Select(x => x)
+                    .ToList();
+                finalDecorators.AddRange(decoratorAttributes.Select(x => new KeyValuePair<Type, int>(x.Decorator, x.RegistrationOrder)));
 
                 HashSet<Type> serviceTypes = new();
                 if (shouldAsSelf)
@@ -502,27 +518,27 @@ public static class DataExplorerConfigurationExtensions
                     serviceTypes.Add(dataType.GetInterfaceByNamingConvention() ??
                                      throw new InvalidOperationException("Couldn't find an interface by naming convention"));
 
-                if (decoratorAttributes.GroupBy(x => x.RegistrationOrder).FirstOrDefault(x => x.Count() > 1) is not null)
+                if (finalDecorators.GroupBy(x => x.Value).FirstOrDefault(x => x.Count() > 1) is not null)
                     throw new InvalidOperationException($"Duplicated decorator registration order on type {dataType.Name}");
 
-                if (decoratorAttributes.GroupBy(x => x.Decorator)
+                if (finalDecorators.GroupBy(x => x.Key)
                         .FirstOrDefault(x => x.Count() > 1) is not null)
                     throw new InvalidOperationException($"Duplicated decorator type on type {dataType.Name}");
                 
-                foreach (var attribute in decoratorAttributes.OrderBy(x => x.RegistrationOrder))
+                foreach (var attribute in finalDecorators.OrderBy(x => x.Value))
                 {
-                    if (attribute.Decorator.ShouldSkipRegistration<ISkipDecoratorRegistrationAttribute>())
+                    if (attribute.Key.ShouldSkipRegistration<ISkipDecoratorRegistrationAttribute>())
                         continue;
             
-                    if (attribute.Decorator.IsGenericType && attribute.Decorator.IsGenericTypeDefinition)
+                    if (attribute.Key.IsGenericType && attribute.Key.IsGenericTypeDefinition)
                     {
                         foreach (var serviceType in serviceTypes)
-                            registrator.DescribeOpenGenericDecorator(attribute.Decorator, serviceType);
+                            registrator.DescribeOpenGenericDecorator(attribute.Key, serviceType);
                     }
                     else
                     {
                         foreach (var serviceType in serviceTypes)
-                            registrator.DescribeDecorator(attribute.Decorator, serviceType);
+                            registrator.DescribeDecorator(attribute.Key, serviceType);
                     }
                 }
             }
