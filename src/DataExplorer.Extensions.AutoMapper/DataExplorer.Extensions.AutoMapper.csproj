@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>DataExplorer.Extensions.AutoMapper</PackageId>
-        <Version>4.1.0</Version>
+        <Version>4.1.1</Version>
         <Authors>Krzysztof Kupisz</Authors>
         <PackageDescription>Library providing AutoMapper integration for DataExplorer.</PackageDescription>
         <RepositoryUrl>https://github.com/MikyM/DataExplorer</RepositoryUrl>
