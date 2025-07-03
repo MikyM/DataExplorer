@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Castle.Core.Logging;
 using DataExplorer.EfCore;
 using DataExplorer.EfCore.Abstractions.Repositories;
 using DataExplorer.EfCore.Repositories;
@@ -8,6 +9,7 @@ using DataExplorer.Tests.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Testcontainers.PostgreSql;
 using IMapper = DataExplorer.Abstractions.Mapper.IMapper;
@@ -48,10 +50,13 @@ public class RepositoryFixture : IDisposable
         
         _timeProvider = new DataExplorerTimeProvider.StaticDataExplorerTimeProvider();
 
-        var config = new MapperConfiguration(cfg => {
-            cfg.CreateMap<DateTime?, DateTimeOffset?>().ConvertUsing(x => x == null ? null : new DateTimeOffset(x.Value));
-            cfg.CreateMap<TestEntity,TestEntityOffset>();
-        });
+        var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<DateTime?, DateTimeOffset?>()
+                    .ConvertUsing(x => x == null ? null : new DateTimeOffset(x.Value));
+                cfg.CreateMap<TestEntity, TestEntityOffset>();
+            }, NullLoggerFactory.Instance);
+        
         var autoMapper = config.CreateMapper();
 
         var projection = new AutoMapperProjectionEvaluator(autoMapper);

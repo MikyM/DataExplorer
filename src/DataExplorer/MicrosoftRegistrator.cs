@@ -39,8 +39,7 @@ public class MicrosoftRegistrator : IRegistrator
 
     public IRegistrator DescribeOptions<TOptions>(Action<TOptions> action, TOptions instance) where TOptions : class
     {
-        Services.AddOptions<TOptions>();
-        Services.Configure(action);
+        Services.AddOptions<TOptions>().Configure(action);
         Services.TryAddSingleton(instance);
         
         return this;

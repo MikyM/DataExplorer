@@ -48,5 +48,51 @@ public class DependencyInjectionTests
             var target = () => provider.GetRequiredService(typeToResolve);
             target.Should().NotThrow();
         }
+        
+        [Fact]
+        public void ResolveTestContextRegisteredWithAddDbContext()
+        {
+            // Arrange
+
+            var services = new ServiceCollection();
+            services.AddDbContext<ITestContext,TestContext>(x => x.UseInMemoryDatabase("test"));
+            services.AddDataExplorer(x =>
+            {
+                x.AddEfCore(e =>
+                {
+
+                }, typeof(TestEntity).Assembly);
+            });
+            
+            var provider = services.BuildServiceProvider();
+            
+            // Act && Assert
+            
+            var target = () => provider.GetRequiredService(typeof(ITestContext));
+            target.Should().NotThrow();
+        }
+        
+        [Fact]
+        public void ResolveTestContextRegisteredWithAddDbContextPool()
+        {
+            // Arrange
+
+            var services = new ServiceCollection();
+            services.AddDbContextPool<ITestContextPooled,TestContextPooled>(x => x.UseInMemoryDatabase("test"));
+            services.AddDataExplorer(x =>
+            {
+                x.AddEfCore(e =>
+                {
+
+                }, typeof(TestEntity).Assembly);
+            });
+            
+            var provider = services.BuildServiceProvider();
+            
+            // Act && Assert
+            
+            var target = () => provider.GetRequiredService(typeof(ITestContextPooled));
+            target.Should().NotThrow();
+        }
     }
 }

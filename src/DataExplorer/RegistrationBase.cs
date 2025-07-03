@@ -85,7 +85,7 @@ public abstract class RegistrationBase : IRegistration
             throw new InvalidOperationException("At least one service type must be registered");
         }
 
-        if (Interceptors.Count != 0 && ShouldEnableInterfaceInterception)
+        if (Interceptors.Count != 0 && !ShouldEnableInterfaceInterception)
         {
             throw new InvalidOperationException("Interceptors require enabling interface interception");
         }
