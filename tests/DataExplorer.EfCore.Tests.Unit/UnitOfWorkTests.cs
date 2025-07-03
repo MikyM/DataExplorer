@@ -41,7 +41,7 @@ public class UnitOfWorkTests
             ctx.SetupGet(x => x.Database).Returns(facade.Object);
 
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetOptionsMock(), _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
                 _uofFixture.GetICachedInstanceFactoryMock().Object);
 
             // Act
@@ -76,7 +76,7 @@ public class UnitOfWorkTests
             // Arrange
             var ctx = _contextFixture.GetTextContextMock();
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetOptionsMock(), _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
                 _uofFixture.GetICachedInstanceFactoryMock().Object);
             unitOfWork.Dispose();
             
@@ -93,7 +93,7 @@ public class UnitOfWorkTests
             // Arrange
             var ctx = _contextFixture.GetTextContextMock();
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetOptionsMock(), _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
                 _uofFixture.GetICachedInstanceFactoryMock().Object);
             
             // Act
@@ -109,7 +109,7 @@ public class UnitOfWorkTests
             // Arrange
             var ctx = _contextFixture.GetTextContextMock();
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetOptionsMock(), _uofFixture.GetIEfDataExplorerTypeCacheMock().Object,
                 _uofFixture.GetICachedInstanceFactoryMock().Object);
             
             // Act
@@ -157,7 +157,7 @@ public class UnitOfWorkTests
                 .Returns(repo);
             
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, 
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetOptionsMock(), 
                 cacheMock.Object, factoryMock.Object);
 
             // ReSharper disable once UseNameOfInsteadOfTypeOf
@@ -212,7 +212,7 @@ public class UnitOfWorkTests
                 .Returns(true);
             
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, 
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetOptionsMock(), 
                 cacheMock.Object, factoryMock.Object);
 
             // ReSharper disable once UseNameOfInsteadOfTypeOf
@@ -278,7 +278,7 @@ public class UnitOfWorkTests
                 .Returns(repo);
             
             var unitOfWork = new UnitOfWork<ITestContext>(ctx.Object, _uofFixture.GetISpecificationEvaluatorMock().Object,
-                _uofFixture.GetIMapperMock().Object, _uofFixture.GetIOptionsMock().Object, 
+                _uofFixture.GetIMapperMock().Object, _uofFixture.GetOptionsMock(), 
                 cacheMock.Object, factoryMock.Object);
 
             // ReSharper disable once UseNameOfInsteadOfTypeOf

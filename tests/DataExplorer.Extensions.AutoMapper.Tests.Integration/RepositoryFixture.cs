@@ -36,7 +36,7 @@ public class RepositoryFixture : IDisposable
         return repo;
     }
 
-    private readonly IOptions<DataExplorerEfCoreConfiguration> _config;
+    private readonly DataExplorerEfCoreConfiguration _config;
     private readonly DataExplorerTimeProvider _timeProvider;
     private readonly DbContextOptions<TestIntegrationContext> _dbContextOptions;
     private readonly IEfSpecificationEvaluator _specificationEvaluator;
@@ -46,7 +46,7 @@ public class RepositoryFixture : IDisposable
     
     public RepositoryFixture()
     {
-        _config = Options.Create(new DataExplorerEfCoreConfiguration(new MicrosoftRegistrator(new ServiceCollection())));
+        _config = new DataExplorerEfCoreConfiguration(new MicrosoftRegistrator(new ServiceCollection()));
         
         _timeProvider = new DataExplorerTimeProvider.StaticDataExplorerTimeProvider();
 

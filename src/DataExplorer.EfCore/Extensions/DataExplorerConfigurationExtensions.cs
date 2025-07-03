@@ -313,7 +313,6 @@ public static class DataExplorerConfigurationExtensions
         var excluded = new[] { typeof(IDataServiceBase<>), typeof(EfCoreDataServiceBase<>), typeof(CrudDataService<,>), typeof(ReadOnlyDataService<,>), typeof(CrudDataService<,,>), typeof(ReadOnlyDataService<,,>) };
 
         var hasCustomInterceptors = config.CustomDataInterceptors.Count != 0;
-        var hasCustomDecorators = config.CustomDataDecorators.Count != 0;
 
         foreach (var assembly in toScan)
         {
@@ -492,16 +491,11 @@ public static class DataExplorerConfigurationExtensions
                 registrationGenericBuilder?.Register();
 
                 var decoratorAttributes = dataType.GetRegistrationAttributesOfType<IDecoratedByAttribute>().ToArray();
-                if (decoratorAttributes.Length == 0 && !hasCustomDecorators)
+                if (decoratorAttributes.Length == 0)
                 {
                     continue;
                 }
                 
-                var finalDecorators = config.CustomDataDecorators
-                    .Select(x => x)
-                    .ToList();
-                finalDecorators.AddRange(decoratorAttributes.Select(x => new KeyValuePair<Type, int>(x.Decorator, x.RegistrationOrder)));
-
                 HashSet<Type> serviceTypes = new();
                 if (shouldAsSelf)
                     serviceTypes.Add(dataType);
@@ -518,27 +512,27 @@ public static class DataExplorerConfigurationExtensions
                     serviceTypes.Add(dataType.GetInterfaceByNamingConvention() ??
                                      throw new InvalidOperationException("Couldn't find an interface by naming convention"));
 
-                if (finalDecorators.GroupBy(x => x.Value).FirstOrDefault(x => x.Count() > 1) is not null)
+                if (decoratorAttributes.GroupBy(x => x.RegistrationOrder).FirstOrDefault(x => x.Count() > 1) is not null)
                     throw new InvalidOperationException($"Duplicated decorator registration order on type {dataType.Name}");
 
-                if (finalDecorators.GroupBy(x => x.Key)
+                if (decoratorAttributes.GroupBy(x => x.Decorator)
                         .FirstOrDefault(x => x.Count() > 1) is not null)
                     throw new InvalidOperationException($"Duplicated decorator type on type {dataType.Name}");
                 
-                foreach (var attribute in finalDecorators.OrderBy(x => x.Value))
+                foreach (var attribute in decoratorAttributes.OrderBy(x => x.RegistrationOrder))
                 {
-                    if (attribute.Key.ShouldSkipRegistration<ISkipDecoratorRegistrationAttribute>())
+                    if (attribute.Decorator.ShouldSkipRegistration<ISkipDecoratorRegistrationAttribute>())
                         continue;
             
-                    if (attribute.Key.IsGenericType && attribute.Key.IsGenericTypeDefinition)
+                    if (attribute.Decorator.IsGenericType && attribute.Decorator.IsGenericTypeDefinition)
                     {
                         foreach (var serviceType in serviceTypes)
-                            registrator.DescribeOpenGenericDecorator(attribute.Key, serviceType);
+                            registrator.DescribeOpenGenericDecorator(attribute.Decorator, serviceType);
                     }
                     else
                     {
                         foreach (var serviceType in serviceTypes)
-                            registrator.DescribeDecorator(attribute.Key, serviceType);
+                            registrator.DescribeDecorator(attribute.Decorator, serviceType);
                     }
                 }
             }

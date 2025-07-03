@@ -69,11 +69,6 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
     /// Gets registered generic (built-in) data service decorators.
     /// </summary>
     public Dictionary<Type, int> GenericDataDecorators { get; private set; } = new();
-    
-    /// <summary>
-    /// Gets registered custom data service decorators.
-    /// </summary>
-    public Dictionary<Type, int> CustomDataDecorators { get; private set; } = new();
 
     /// <summary>
     /// Marks an interceptor of a given type to be used for intercepting base data services.
@@ -152,21 +147,6 @@ public class DataExplorerEfCoreConfiguration : DataExplorerConfigurationBase, IO
         return this;
     }
     
-    /// <summary>
-    /// Marks a decorator of a given type to be used for decorating custom data services.
-    /// </summary>
-    /// <param name="registrationOrder">Registration order.</param>
-    /// <param name="decorator">Type of the decorator.</param>
-    /// <returns>Current instance of the <see cref="DataExplorerConfiguration"/>.</returns>
-    public virtual DataExplorerEfCoreConfiguration AddCustomDataServiceDecorator(int registrationOrder, Type decorator)
-    {
-        if (!Registrator.SupportsDecoration)
-            throw new NotSupportedException("Supported only when used with a registrator that supports decoration");
-        
-        CustomDataDecorators.TryAdd(decorator ?? throw new ArgumentNullException(nameof(decorator)), registrationOrder);
-        return this;
-    }
-    
     /// <inheritdoc/>
-    DataExplorerEfCoreConfiguration IOptions<DataExplorerEfCoreConfiguration>.Value => this;
+    public DataExplorerEfCoreConfiguration Value => this;
 }

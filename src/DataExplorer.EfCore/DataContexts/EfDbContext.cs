@@ -16,7 +16,7 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     /// <summary>
     /// Configuration.
     /// </summary>
-    protected readonly IOptions<DataExplorerEfCoreConfiguration> Config;
+    protected readonly DataExplorerEfCoreConfiguration Config;
     
     /// <summary>
     /// The time provider.
@@ -28,13 +28,13 @@ public abstract class EfDbContext : DbContext, IEfDbContext
     // This ctor is required to be able to use the context with context pooling.
     protected EfDbContext(DbContextOptions options) : base(options)
     {
-        Config = this.GetService<IOptions<DataExplorerEfCoreConfiguration>>();
+        Config = this.GetService<DataExplorerEfCoreConfiguration>();
         TimeProvider = this.GetService<DataExplorerTimeProvider>();
     }
 
 
     /// <inheritdoc />
-    protected EfDbContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config, DataExplorerTimeProvider timeProvider) : base(options)
+    protected EfDbContext(DbContextOptions options, DataExplorerEfCoreConfiguration config, DataExplorerTimeProvider timeProvider) : base(options)
     {
         Config = config;
         TimeProvider = timeProvider;

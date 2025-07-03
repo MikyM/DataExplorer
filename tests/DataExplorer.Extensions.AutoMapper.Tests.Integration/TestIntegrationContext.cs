@@ -11,7 +11,7 @@ public class TestIntegrationContext : TestContext
     {
     }
 
-    public TestIntegrationContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config, DataExplorerTimeProvider timeProvider) : base(options, config, timeProvider)
+    public TestIntegrationContext(DbContextOptions options, DataExplorerEfCoreConfiguration config, DataExplorerTimeProvider timeProvider) : base(options, config, timeProvider)
     {
     }
 

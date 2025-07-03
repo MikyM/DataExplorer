@@ -1,6 +1,7 @@
 ﻿using DataExplorer.Abstractions.Mapper;
 using DataExplorer.EfCore.Specifications.Evaluators;
 using DataExplorer.Utilities;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Moq;
 
@@ -32,9 +33,9 @@ public class UnitOfWorkFixture
         return efDataExplorerTypeCacheMock;
     }
     
-    public Mock<IOptions<DataExplorerEfCoreConfiguration>> GetIOptionsMock()
+    public DataExplorerEfCoreConfiguration GetOptionsMock()
     {
-        var optionsMock = new Mock<IOptions<DataExplorerEfCoreConfiguration>>();
+        var optionsMock = new DataExplorerEfCoreConfiguration(new MicrosoftRegistrator(new ServiceCollection()));
         return optionsMock;
     }
 }
