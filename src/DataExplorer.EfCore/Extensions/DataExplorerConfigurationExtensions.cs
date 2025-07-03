@@ -239,7 +239,7 @@ public static class DataExplorerConfigurationExtensions
         var crudEnabled = false;
         var readEnabled = false;
         
-        foreach (var (interceptorType, registrationData) in config.DataInterceptors.OrderByDescending(x => x.Value.Order))
+        foreach (var (interceptorType, registrationData) in config.GenericDataInterceptors.OrderByDescending(x => x.Value.Order))
         {
             switch (registrationData.Strategy)
             {
@@ -297,7 +297,7 @@ public static class DataExplorerConfigurationExtensions
         registCrudGenericIdBuilder?.Register();
            
         
-        foreach (var (decoratorType, _) in config.DataDecorators.OrderBy(x => x.Value))
+        foreach (var (decoratorType, _) in config.GenericDataDecorators.OrderBy(x => x.Value))
         {
             if (decoratorType.IsAssignableToWithGenerics(typeof(ICrudDataService<,>)))
                 registrator.DescribeOpenGenericDecorator(decoratorType, typeof(ICrudDataService<,>));
@@ -311,6 +311,8 @@ public static class DataExplorerConfigurationExtensions
 
 
         var excluded = new[] { typeof(IDataServiceBase<>), typeof(EfCoreDataServiceBase<>), typeof(CrudDataService<,>), typeof(ReadOnlyDataService<,>), typeof(CrudDataService<,,>), typeof(ReadOnlyDataService<,,>) };
+
+        var hasCustomInterceptors = config.CustomDataInterceptors.Count != 0;
 
         foreach (var assembly in toScan)
         {
@@ -371,7 +373,7 @@ public static class DataExplorerConfigurationExtensions
 
                 if (dataType.IsGenericType && dataType.IsGenericTypeDefinition)
                 {
-                    if (intrEnableAttr is not null)
+                    if (intrEnableAttr is not null || hasCustomInterceptors)
                     {
                         registrationGenericBuilder = shouldAsInterfaces
                             ? registrator.DescribeOpenGeneric(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
@@ -386,18 +388,23 @@ public static class DataExplorerConfigurationExtensions
                 }
                 else
                 {
-                    if (intrEnableAttr is not null)
+                    if (intrEnableAttr is not null || hasCustomInterceptors)
                     {
-                        registrationBuilder = intrEnableAttr.InterceptionStrategy switch
-                        {
-                            InterceptionStrategy.Interface => shouldAsInterfaces
+                        registrationBuilder = intrEnableAttr is not null
+                            ? intrEnableAttr.InterceptionStrategy switch
+                            {
+                                InterceptionStrategy.Interface => shouldAsInterfaces
+                                    ? registrator.Describe(dataType).AsImplementedInterfaces()
+                                        .EnableInterfaceInterceptors()
+                                    : registrator.Describe(dataType).EnableInterfaceInterceptors(),
+                                InterceptionStrategy.Class => shouldAsInterfaces
+                                    ? registrator.Describe(dataType).AsImplementedInterfaces().EnableClassInterceptors()
+                                    : registrator.Describe(dataType).EnableClassInterceptors(),
+                                _ => throw new ArgumentOutOfRangeException(nameof(intrEnableAttr.InterceptionStrategy))
+                            }
+                            : shouldAsInterfaces  
                                 ? registrator.Describe(dataType).AsImplementedInterfaces().EnableInterfaceInterceptors()
-                                : registrator.Describe(dataType).EnableInterfaceInterceptors(),
-                            InterceptionStrategy.Class => shouldAsInterfaces
-                                ? registrator.Describe(dataType).AsImplementedInterfaces().EnableClassInterceptors()
-                                : registrator.Describe(dataType).EnableClassInterceptors(),
-                            _ => throw new ArgumentOutOfRangeException(nameof(intrEnableAttr.InterceptionStrategy))
-                        };
+                                : registrator.Describe(dataType).EnableInterfaceInterceptors(); 
                     }
                     else
                     {
@@ -433,8 +440,6 @@ public static class DataExplorerConfigurationExtensions
                     registrationGenericBuilder = registrationGenericBuilder?.As(asType);
                 }
 
-                var interfaces = dataType.GetInterfaces().Where(x => x != typeof(IDisposable) && x != typeof(IAsyncDisposable)).ToList();
-
                 var tags = scopeOverrideAttr?.Tags?.ToArray();
                 var owned = scopeOverrideAttr?.Owned;
 
@@ -463,15 +468,20 @@ public static class DataExplorerConfigurationExtensions
                     registrationBuilder = registrationBuilder?.WithLifetime(scope);
                     registrationGenericBuilder = registrationGenericBuilder?.WithLifetime(scope);
                 }
+
+                var finalInterceptors = config.CustomDataInterceptors
+                    .Select(x => x)
+                    .ToList();
+                finalInterceptors.AddRange(intrAttrs.Select(x => new KeyValuePair<Type, int>(x.Interceptor, x.RegistrationOrder)));
                 
-                if (intrAttrs.GroupBy(x => x.RegistrationOrder).FirstOrDefault(x => x.Count() > 1) is not null)
+                if (finalInterceptors.GroupBy(x => x.Value).FirstOrDefault(x => x.Count() > 1) is not null)
                     throw new InvalidOperationException($"Duplicated interceptor registration order on type {dataType.Name}");
 
-                if (intrAttrs.GroupBy(x => x.Interceptor)
+                if (finalInterceptors.GroupBy(x => x.Key)
                         .FirstOrDefault(x => x.Count() > 1) is not null)
                     throw new InvalidOperationException($"Duplicated interceptor type on type {dataType.Name}");
 
-                foreach (var interceptor in intrAttrs.OrderByDescending(x => x.RegistrationOrder).Select(x => x.Interceptor).Distinct())
+                foreach (var interceptor in finalInterceptors.OrderByDescending(x => x.Value).Select(x => x.Key).Distinct())
                 {
                     registrationBuilder = registrationBuilder?.InterceptedBy(interceptor);
                     registrationGenericBuilder = registrationGenericBuilder?.InterceptedBy(interceptor);
@@ -485,7 +495,7 @@ public static class DataExplorerConfigurationExtensions
                 {
                     continue;
                 }
-
+                
                 HashSet<Type> serviceTypes = new();
                 if (shouldAsSelf)
                     serviceTypes.Add(dataType);

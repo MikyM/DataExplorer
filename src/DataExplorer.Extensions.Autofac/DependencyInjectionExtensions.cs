@@ -35,7 +35,7 @@ public static class DependencyInjectionExtensions
         var ioptions = Options.Create(config);
         
         builder.RegisterInstance(ioptions).As<IOptions<DataExplorerConfiguration>>().SingleInstance();
-        builder.Register(x => x.Resolve<IOptions<DataExplorerConfiguration>>().Value).As<DataExplorerConfiguration>()
+        builder.RegisterInstance(config).As<DataExplorerConfiguration>()
             .SingleInstance();
 
 #if NET8_0_OR_GREATER

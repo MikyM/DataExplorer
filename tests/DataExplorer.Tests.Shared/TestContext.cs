@@ -12,7 +12,7 @@ public class TestContext : EfDbContext, ITestContext
     {
     }
     
-    public TestContext(DbContextOptions options, IOptions<DataExplorerEfCoreConfiguration> config, DataExplorerTimeProvider timeProvider) : base(options, config, timeProvider)
+    public TestContext(DbContextOptions options, DataExplorerEfCoreConfiguration config, DataExplorerTimeProvider timeProvider) : base(options, config, timeProvider)
     {
     }
     

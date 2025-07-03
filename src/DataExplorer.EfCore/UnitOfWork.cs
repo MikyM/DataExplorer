@@ -24,7 +24,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <summary>
     /// Configuration.
     /// </summary>
-    private readonly IOptions<DataExplorerEfCoreConfiguration> _options;
+    private readonly DataExplorerEfCoreConfiguration _options;
 
     // To detect redundant calls
     private bool _disposed;
@@ -65,7 +65,7 @@ public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext 
     /// <param name="efDataExplorerTypeCache">Unit of Work cache.</param>
     /// <param name="instanceFactory">Instance factory.</param>
     public UnitOfWork(TContext context, IEfSpecificationEvaluator specificationEvaluator, 
-        IMapper mapper, IOptions<DataExplorerEfCoreConfiguration> options, IEfDataExplorerTypeCache efDataExplorerTypeCache, 
+        IMapper mapper, DataExplorerEfCoreConfiguration options, IEfDataExplorerTypeCache efDataExplorerTypeCache, 
         ICachedInstanceFactory instanceFactory)
     {
         Context = context;
