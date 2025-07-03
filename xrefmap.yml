@@ -4166,15 +4166,12 @@ references:
   commentId: T:DataExplorer.EfCore.DataContexts.EfDbContext
   fullName: DataExplorer.EfCore.DataContexts.EfDbContext
   nameWithType: EfDbContext
-- uid: DataExplorer.EfCore.DataContexts.EfDbContext.#ctor(DbContextOptions,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.DataExplorerTimeProvider)
-  name: EfDbContext(DbContextOptions, IOptions<DataExplorerEfCoreConfiguration>, DataExplorerTimeProvider)
-  href: api/DataExplorer.EfCore.DataContexts.EfDbContext.html#DataExplorer_EfCore_DataContexts_EfDbContext__ctor_DbContextOptions_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_DataExplorerTimeProvider_
-  commentId: M:DataExplorer.EfCore.DataContexts.EfDbContext.#ctor(DbContextOptions,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.DataExplorerTimeProvider)
-  name.vb: EfDbContext(DbContextOptions, IOptions(Of DataExplorerEfCoreConfiguration), DataExplorerTimeProvider)
-  fullName: DataExplorer.EfCore.DataContexts.EfDbContext.EfDbContext(DbContextOptions, IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>, DataExplorer.DataExplorerTimeProvider)
-  fullName.vb: DataExplorer.EfCore.DataContexts.EfDbContext.EfDbContext(DbContextOptions, IOptions(Of DataExplorer.EfCore.DataExplorerEfCoreConfiguration), DataExplorer.DataExplorerTimeProvider)
-  nameWithType: EfDbContext.EfDbContext(DbContextOptions, IOptions<DataExplorerEfCoreConfiguration>, DataExplorerTimeProvider)
-  nameWithType.vb: EfDbContext.EfDbContext(DbContextOptions, IOptions(Of DataExplorerEfCoreConfiguration), DataExplorerTimeProvider)
+- uid: DataExplorer.EfCore.DataContexts.EfDbContext.#ctor(DbContextOptions,DataExplorer.EfCore.DataExplorerEfCoreConfiguration,DataExplorer.DataExplorerTimeProvider)
+  name: EfDbContext(DbContextOptions, DataExplorerEfCoreConfiguration, DataExplorerTimeProvider)
+  href: api/DataExplorer.EfCore.DataContexts.EfDbContext.html#DataExplorer_EfCore_DataContexts_EfDbContext__ctor_DbContextOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataExplorer_DataExplorerTimeProvider_
+  commentId: M:DataExplorer.EfCore.DataContexts.EfDbContext.#ctor(DbContextOptions,DataExplorer.EfCore.DataExplorerEfCoreConfiguration,DataExplorer.DataExplorerTimeProvider)
+  fullName: DataExplorer.EfCore.DataContexts.EfDbContext.EfDbContext(DbContextOptions, DataExplorer.EfCore.DataExplorerEfCoreConfiguration, DataExplorer.DataExplorerTimeProvider)
+  nameWithType: EfDbContext.EfDbContext(DbContextOptions, DataExplorerEfCoreConfiguration, DataExplorerTimeProvider)
 - uid: DataExplorer.EfCore.DataContexts.EfDbContext.#ctor(DbContextOptions)
   name: EfDbContext(DbContextOptions)
   href: api/DataExplorer.EfCore.DataContexts.EfDbContext.html#DataExplorer_EfCore_DataContexts_EfDbContext__ctor_DbContextOptions_
@@ -4383,41 +4380,63 @@ references:
   isSpec: "True"
   fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration
   nameWithType: DataExplorerEfCoreConfiguration.DataExplorerEfCoreConfiguration
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator(System.Int32,Type)
-  name: AddDataServiceDecorator(Int32, Type)
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceDecorator_System_Int32_Type_
-  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator(System.Int32,Type)
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator(System.Int32, Type)
-  nameWithType: DataExplorerEfCoreConfiguration.AddDataServiceDecorator(Int32, Type)
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator*
-  name: AddDataServiceDecorator
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceDecorator_
-  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor(System.Int32,Type)
+  name: AddCustomDataServiceInterceptor(Int32, Type)
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor_System_Int32_Type_
+  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor(System.Int32,Type)
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor(System.Int32, Type)
+  nameWithType: DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor(Int32, Type)
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor*
+  name: AddCustomDataServiceInterceptor
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor_
+  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor
   isSpec: "True"
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator
-  nameWithType: DataExplorerEfCoreConfiguration.AddDataServiceDecorator
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(System.Int32,Type,DataExplorer.DataRegistrationStrategy)
-  name: AddDataServiceInterceptor(Int32, Type, DataRegistrationStrategy)
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_System_Int32_Type_DataExplorer_DataRegistrationStrategy_
-  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(System.Int32,Type,DataExplorer.DataRegistrationStrategy)
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(System.Int32, Type, DataExplorer.DataRegistrationStrategy)
-  nameWithType: DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(Int32, Type, DataRegistrationStrategy)
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor*
-  name: AddDataServiceInterceptor
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_
-  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor
+  nameWithType: DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor``1(System.Int32)
+  name: AddCustomDataServiceInterceptor<TInterceptor>(Int32)
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor__1_System_Int32_
+  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor``1(System.Int32)
+  name.vb: AddCustomDataServiceInterceptor(Of TInterceptor)(Int32)
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor<TInterceptor>(System.Int32)
+  fullName.vb: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor(Of TInterceptor)(System.Int32)
+  nameWithType: DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor<TInterceptor>(Int32)
+  nameWithType.vb: DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor(Of TInterceptor)(Int32)
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator(System.Int32,Type)
+  name: AddGenericDataServiceDecorator(Int32, Type)
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceDecorator_System_Int32_Type_
+  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator(System.Int32,Type)
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator(System.Int32, Type)
+  nameWithType: DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator(Int32, Type)
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator*
+  name: AddGenericDataServiceDecorator
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceDecorator_
+  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator
   isSpec: "True"
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor
-  nameWithType: DataExplorerEfCoreConfiguration.AddDataServiceInterceptor
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor``1(System.Int32,DataExplorer.DataRegistrationStrategy)
-  name: AddDataServiceInterceptor<TInterceptor>(Int32, DataRegistrationStrategy)
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor__1_System_Int32_DataExplorer_DataRegistrationStrategy_
-  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor``1(System.Int32,DataExplorer.DataRegistrationStrategy)
-  name.vb: AddDataServiceInterceptor(Of TInterceptor)(Int32, DataRegistrationStrategy)
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor<TInterceptor>(System.Int32, DataExplorer.DataRegistrationStrategy)
-  fullName.vb: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(Of TInterceptor)(System.Int32, DataExplorer.DataRegistrationStrategy)
-  nameWithType: DataExplorerEfCoreConfiguration.AddDataServiceInterceptor<TInterceptor>(Int32, DataRegistrationStrategy)
-  nameWithType.vb: DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(Of TInterceptor)(Int32, DataRegistrationStrategy)
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator
+  nameWithType: DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor(System.Int32,Type,DataExplorer.DataRegistrationStrategy)
+  name: AddGenericDataServiceInterceptor(Int32, Type, DataRegistrationStrategy)
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor_System_Int32_Type_DataExplorer_DataRegistrationStrategy_
+  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor(System.Int32,Type,DataExplorer.DataRegistrationStrategy)
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor(System.Int32, Type, DataExplorer.DataRegistrationStrategy)
+  nameWithType: DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor(Int32, Type, DataRegistrationStrategy)
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor*
+  name: AddGenericDataServiceInterceptor
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor_
+  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor
+  isSpec: "True"
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor
+  nameWithType: DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor``1(System.Int32,DataExplorer.DataRegistrationStrategy)
+  name: AddGenericDataServiceInterceptor<TInterceptor>(Int32, DataRegistrationStrategy)
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor__1_System_Int32_DataExplorer_DataRegistrationStrategy_
+  commentId: M:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor``1(System.Int32,DataExplorer.DataRegistrationStrategy)
+  name.vb: AddGenericDataServiceInterceptor(Of TInterceptor)(Int32, DataRegistrationStrategy)
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor<TInterceptor>(System.Int32, DataExplorer.DataRegistrationStrategy)
+  fullName.vb: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor(Of TInterceptor)(System.Int32, DataExplorer.DataRegistrationStrategy)
+  nameWithType: DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor<TInterceptor>(Int32, DataRegistrationStrategy)
+  nameWithType.vb: DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor(Of TInterceptor)(Int32, DataRegistrationStrategy)
 - uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.BaseGenericDataServiceLifetime
   name: BaseGenericDataServiceLifetime
   href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_BaseGenericDataServiceLifetime
@@ -4431,32 +4450,19 @@ references:
   isSpec: "True"
   fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.BaseGenericDataServiceLifetime
   nameWithType: DataExplorerEfCoreConfiguration.BaseGenericDataServiceLifetime
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators
-  name: DataDecorators
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataDecorators
-  commentId: P:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators
-  nameWithType: DataExplorerEfCoreConfiguration.DataDecorators
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators*
-  name: DataDecorators
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataDecorators_
-  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors
+  name: CustomDataInterceptors
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_CustomDataInterceptors
+  commentId: P:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors
+  nameWithType: DataExplorerEfCoreConfiguration.CustomDataInterceptors
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors*
+  name: CustomDataInterceptors
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_CustomDataInterceptors_
+  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors
   isSpec: "True"
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators
-  nameWithType: DataExplorerEfCoreConfiguration.DataDecorators
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors
-  name: DataInterceptors
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataInterceptors
-  commentId: P:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors
-  nameWithType: DataExplorerEfCoreConfiguration.DataInterceptors
-- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors*
-  name: DataInterceptors
-  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataInterceptors_
-  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors
-  isSpec: "True"
-  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors
-  nameWithType: DataExplorerEfCoreConfiguration.DataInterceptors
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors
+  nameWithType: DataExplorerEfCoreConfiguration.CustomDataInterceptors
 - uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataServiceLifetime
   name: DataServiceLifetime
   href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataServiceLifetime
@@ -4509,6 +4515,45 @@ references:
   isSpec: "True"
   fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.EnableIncludeCache
   nameWithType: DataExplorerEfCoreConfiguration.EnableIncludeCache
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators
+  name: GenericDataDecorators
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataDecorators
+  commentId: P:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators
+  nameWithType: DataExplorerEfCoreConfiguration.GenericDataDecorators
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators*
+  name: GenericDataDecorators
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataDecorators_
+  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators
+  isSpec: "True"
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators
+  nameWithType: DataExplorerEfCoreConfiguration.GenericDataDecorators
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors
+  name: GenericDataInterceptors
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataInterceptors
+  commentId: P:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors
+  nameWithType: DataExplorerEfCoreConfiguration.GenericDataInterceptors
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors*
+  name: GenericDataInterceptors
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataInterceptors_
+  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors
+  isSpec: "True"
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors
+  nameWithType: DataExplorerEfCoreConfiguration.GenericDataInterceptors
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value
+  name: Value
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_Value
+  commentId: P:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value
+  nameWithType: DataExplorerEfCoreConfiguration.Value
+- uid: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value*
+  name: Value
+  href: api/DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html#DataExplorer_EfCore_DataExplorerEfCoreConfiguration_Value_
+  commentId: Overload:DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value
+  isSpec: "True"
+  fullName: DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value
+  nameWithType: DataExplorerEfCoreConfiguration.Value
 - uid: DataExplorer.EfCore.DataExplorerEntityInfo
   name: DataExplorerEntityInfo
   href: api/DataExplorer.EfCore.DataExplorerEntityInfo.html
@@ -10564,15 +10609,14 @@ references:
   fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext)
   nameWithType: UnitOfWork<TContext>
   nameWithType.vb: UnitOfWork(Of TContext)
-- uid: DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,DataExplorer.Abstractions.Mapper.IMapper,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
-  name: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions<DataExplorerEfCoreConfiguration>, IEfDataExplorerTypeCache, ICachedInstanceFactory)
-  href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_DataExplorer_Abstractions_Mapper_IMapper_IOptions_DataExplorer_EfCore_DataExplorerEfCoreConfiguration__DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_
-  commentId: M:DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,DataExplorer.Abstractions.Mapper.IMapper,IOptions{DataExplorer.EfCore.DataExplorerEfCoreConfiguration},DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
-  name.vb: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorerEfCoreConfiguration), IEfDataExplorerTypeCache, ICachedInstanceFactory)
-  fullName: DataExplorer.EfCore.UnitOfWork<TContext>.UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, DataExplorer.Abstractions.Mapper.IMapper, IOptions<DataExplorer.EfCore.DataExplorerEfCoreConfiguration>, DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
-  fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, DataExplorer.Abstractions.Mapper.IMapper, IOptions(Of DataExplorer.EfCore.DataExplorerEfCoreConfiguration), DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
-  nameWithType: UnitOfWork<TContext>.UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions<DataExplorerEfCoreConfiguration>, IEfDataExplorerTypeCache, ICachedInstanceFactory)
-  nameWithType.vb: UnitOfWork(Of TContext).UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, IOptions(Of DataExplorerEfCoreConfiguration), IEfDataExplorerTypeCache, ICachedInstanceFactory)
+- uid: DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,DataExplorer.Abstractions.Mapper.IMapper,DataExplorer.EfCore.DataExplorerEfCoreConfiguration,DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
+  name: UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, DataExplorerEfCoreConfiguration, IEfDataExplorerTypeCache, ICachedInstanceFactory)
+  href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1__ctor__0_DataExplorer_EfCore_Specifications_Evaluators_IEfSpecificationEvaluator_DataExplorer_Abstractions_Mapper_IMapper_DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataExplorer_EfCore_IEfDataExplorerTypeCache_DataExplorer_Utilities_ICachedInstanceFactory_
+  commentId: M:DataExplorer.EfCore.UnitOfWork`1.#ctor(`0,DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator,DataExplorer.Abstractions.Mapper.IMapper,DataExplorer.EfCore.DataExplorerEfCoreConfiguration,DataExplorer.EfCore.IEfDataExplorerTypeCache,DataExplorer.Utilities.ICachedInstanceFactory)
+  fullName: DataExplorer.EfCore.UnitOfWork<TContext>.UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, DataExplorer.Abstractions.Mapper.IMapper, DataExplorer.EfCore.DataExplorerEfCoreConfiguration, DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
+  fullName.vb: DataExplorer.EfCore.UnitOfWork(Of TContext).UnitOfWork(TContext, DataExplorer.EfCore.Specifications.Evaluators.IEfSpecificationEvaluator, DataExplorer.Abstractions.Mapper.IMapper, DataExplorer.EfCore.DataExplorerEfCoreConfiguration, DataExplorer.EfCore.IEfDataExplorerTypeCache, DataExplorer.Utilities.ICachedInstanceFactory)
+  nameWithType: UnitOfWork<TContext>.UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, DataExplorerEfCoreConfiguration, IEfDataExplorerTypeCache, ICachedInstanceFactory)
+  nameWithType.vb: UnitOfWork(Of TContext).UnitOfWork(TContext, IEfSpecificationEvaluator, IMapper, DataExplorerEfCoreConfiguration, IEfDataExplorerTypeCache, ICachedInstanceFactory)
 - uid: DataExplorer.EfCore.UnitOfWork`1.#ctor*
   name: UnitOfWork
   href: api/DataExplorer.EfCore.UnitOfWork-1.html#DataExplorer_EfCore_UnitOfWork_1__ctor_

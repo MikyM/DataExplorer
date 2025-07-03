@@ -225,19 +225,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataDecorators.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_CustomDataInterceptors.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L66">View Source</a>
   </span>
-  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataDecorators_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators*"></a>
-  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataDecorators" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataDecorators">DataDecorators</h4>
-  <div class="markdown level1 summary"><p>Gets registered data service decorators.</p>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_CustomDataInterceptors_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_CustomDataInterceptors" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.CustomDataInterceptors">CustomDataInterceptors</h4>
+  <div class="markdown level1 summary"><p>Gets registered custom data service interceptors.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;Type, int&gt; DataDecorators { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;Type, int&gt; CustomDataInterceptors { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -250,37 +250,6 @@
     <tbody>
       <tr>
         <td><span class="xref">Dictionary</span>&lt;<span class="xref">Type</span>, <span class="xref">System.Int32</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataInterceptors.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L61">View Source</a>
-  </span>
-  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataInterceptors_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors*"></a>
-  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_DataInterceptors" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.DataInterceptors">DataInterceptors</h4>
-  <div class="markdown level1 summary"><p>Gets registered data service interceptors.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;Type, (DataRegistrationStrategy Strategy, int Order)&gt; DataInterceptors { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Dictionary</span>&lt;<span class="xref">Type</span>, <span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="DataExplorer.DataRegistrationStrategy.html">DataRegistrationStrategy</a>, <span class="xref">System.Int32</span>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -409,23 +378,238 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-</h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceDecorator_System_Int32_Type_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator(System.Int32%2CType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataDecorators.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L106">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L71">View Source</a>
   </span>
-  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceDecorator_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator*"></a>
-  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceDecorator_System_Int32_Type_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceDecorator(System.Int32,Type)">AddDataServiceDecorator(Int32, Type)</h4>
-  <div class="markdown level1 summary"><p>Marks a decorator of a given type to be used for decorating base data services.</p>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataDecorators_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataDecorators" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataDecorators">GenericDataDecorators</h4>
+  <div class="markdown level1 summary"><p>Gets registered generic (built-in) data service decorators.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual DataExplorerEfCoreConfiguration AddDataServiceDecorator(int registrationOrder, Type decorator)</code></pre>
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;Type, int&gt; GenericDataDecorators { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">Type</span>, <span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataInterceptors.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L61">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataInterceptors_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_GenericDataInterceptors" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.GenericDataInterceptors">GenericDataInterceptors</h4>
+  <div class="markdown level1 summary"><p>Gets registered generic (built-in) data service interceptors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;Type, (DataRegistrationStrategy Strategy, int Order)&gt; GenericDataInterceptors { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">Type</span>, <span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="DataExplorer.DataRegistrationStrategy.html">DataRegistrationStrategy</a>, <span class="xref">System.Int32</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_Value.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L151">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_Value_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_Value" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.Value">Value</h4>
+  <div class="markdown level1 summary"><p>Configuration for EFCore Data Explorer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataExplorerEfCoreConfiguration Value { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html">DataExplorerEfCoreConfiguration</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor_System_Int32_Type_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor(System.Int32%2CType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L111">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor_System_Int32_Type_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor(System.Int32,Type)">AddCustomDataServiceInterceptor(Int32, Type)</h4>
+  <div class="markdown level1 summary"><p>Marks an interceptor of a given type to be used for intercepting custom data services.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DataExplorerEfCoreConfiguration AddCustomDataServiceInterceptor(int registrationOrder, Type interceptor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">registrationOrder</span></td>
+        <td><p>Registration order.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">interceptor</span></td>
+        <td><p>Type of the interceptor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html">DataExplorerEfCoreConfiguration</a></td>
+        <td><p>Current instance of the <a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor__1_System_Int32_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor%60%601(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L126">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddCustomDataServiceInterceptor__1_System_Int32_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddCustomDataServiceInterceptor``1(System.Int32)">AddCustomDataServiceInterceptor&lt;TInterceptor&gt;(Int32)</h4>
+  <div class="markdown level1 summary"><p>Marks an interceptor of a given type to be used for intercepting custom data services.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DataExplorerEfCoreConfiguration AddCustomDataServiceInterceptor&lt;TInterceptor&gt;(int registrationOrder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">registrationOrder</span></td>
+        <td><p>Registration order.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.html">DataExplorerEfCoreConfiguration</a></td>
+        <td><p>Current instance of the <a class="xref" href="DataExplorer.DataExplorerConfiguration.html">DataExplorerConfiguration</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TInterceptor</span></td>
+        <td><p>Interceptor type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceDecorator_System_Int32_Type_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator(System.Int32%2CType)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L141">View Source</a>
+  </span>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceDecorator_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceDecorator_System_Int32_Type_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceDecorator(System.Int32,Type)">AddGenericDataServiceDecorator(Int32, Type)</h4>
+  <div class="markdown level1 summary"><p>Marks a decorator of a given type to be used for decorating generic data services.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DataExplorerEfCoreConfiguration AddGenericDataServiceDecorator(int registrationOrder, Type decorator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -469,19 +653,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_System_Int32_Type_DataExplorer_DataRegistrationStrategy_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(System.Int32%2CType%2CDataExplorer.DataRegistrationStrategy)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor_System_Int32_Type_DataExplorer_DataRegistrationStrategy_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor(System.Int32%2CType%2CDataExplorer.DataRegistrationStrategy)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L75">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L80">View Source</a>
   </span>
-  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor*"></a>
-  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_System_Int32_Type_DataExplorer_DataRegistrationStrategy_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor(System.Int32,Type,DataExplorer.DataRegistrationStrategy)">AddDataServiceInterceptor(Int32, Type, DataRegistrationStrategy)</h4>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor_System_Int32_Type_DataExplorer_DataRegistrationStrategy_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor(System.Int32,Type,DataExplorer.DataRegistrationStrategy)">AddGenericDataServiceInterceptor(Int32, Type, DataRegistrationStrategy)</h4>
   <div class="markdown level1 summary"><p>Marks an interceptor of a given type to be used for intercepting base data services.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor(int registrationOrder, Type interceptor, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual DataExplorerEfCoreConfiguration AddGenericDataServiceInterceptor(int registrationOrder, Type interceptor, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -531,19 +715,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor__1_System_Int32_DataExplorer_DataRegistrationStrategy_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor%60%601(System.Int32%2CDataExplorer.DataRegistrationStrategy)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MikyM/DataExplorer/new/master/apiSpec/new?filename=DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor__1_System_Int32_DataExplorer_DataRegistrationStrategy_.md&amp;value=---%0Auid%3A%20DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor%60%601(System.Int32%2CDataExplorer.DataRegistrationStrategy)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L91">View Source</a>
+    <a href="https://github.com/MikyM/DataExplorer/blob/master/src/DataExplorer.EfCore/DataExplorerEfCoreConfiguration.cs/#L96">View Source</a>
   </span>
-  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor*"></a>
-  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddDataServiceInterceptor__1_System_Int32_DataExplorer_DataRegistrationStrategy_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddDataServiceInterceptor``1(System.Int32,DataExplorer.DataRegistrationStrategy)">AddDataServiceInterceptor&lt;TInterceptor&gt;(Int32, DataRegistrationStrategy)</h4>
+  <a id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor*"></a>
+  <h4 id="DataExplorer_EfCore_DataExplorerEfCoreConfiguration_AddGenericDataServiceInterceptor__1_System_Int32_DataExplorer_DataRegistrationStrategy_" data-uid="DataExplorer.EfCore.DataExplorerEfCoreConfiguration.AddGenericDataServiceInterceptor``1(System.Int32,DataExplorer.DataRegistrationStrategy)">AddGenericDataServiceInterceptor&lt;TInterceptor&gt;(Int32, DataRegistrationStrategy)</h4>
   <div class="markdown level1 summary"><p>Marks an interceptor of a given type to be used for intercepting base data services.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual DataExplorerEfCoreConfiguration AddDataServiceInterceptor&lt;TInterceptor&gt;(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual DataExplorerEfCoreConfiguration AddGenericDataServiceInterceptor&lt;TInterceptor&gt;(int registrationOrder, DataRegistrationStrategy strategy = DataRegistrationStrategy.CrudAndReadOnly)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
